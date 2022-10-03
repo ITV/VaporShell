@@ -1,15 +1,15 @@
 function Add-VSAutoScalingAutoScalingGroupTagProperty {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.TagProperty resource property to the template. TagProperty specifies a list of tags for the Tag property of AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html. TagProperty adds tags to all associated instances in an Auto Scaling group.
+        Adds an AWS::AutoScaling::AutoScalingGroup.TagProperty resource property to the template. TagProperty specifies a tag for the Tags property of AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html. TagProperty adds tags to all associated instances in an Auto Scaling group.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.TagProperty resource property to the template.
-TagProperty specifies a list of tags for the Tag property of AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html. TagProperty adds tags to all associated instances in an Auto Scaling group.
+TagProperty specifies a tag for the Tags property of AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html. TagProperty adds tags to all associated instances in an Auto Scaling group.
 
-For more information, see Tagging Auto Scaling Groups and Instances: https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples section of the AWS::AutoScaling::AutoScalingGroup documentation.
+For more information, see Tagging Auto Scaling groups and instances: https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples section of the AWS::AutoScaling::AutoScalingGroup documentation.
 
-AWS CloudFormation adds the following tags to all Auto Scaling groups and associated instances:
+CloudFormation adds the following tags to all Auto Scaling groups and associated instances:
 
 + aws:cloudformation:stack-name
 
@@ -28,7 +28,7 @@ AWS CloudFormation adds the following tags to all Auto Scaling groups and associ
         UpdateType: Mutable
 
     .PARAMETER PropagateAtLaunch
-        Set to true if you want AWS CloudFormation to copy the tag to EC2 instances that are launched as part of the Auto Scaling group. Set to false if you want the tag attached only to the Auto Scaling group and not copied to any instances launched as part of the Auto Scaling group.
+        Set to true if you want CloudFormation to copy the tag to EC2 instances that are launched as part of the Auto Scaling group. Set to false if you want the tag attached only to the Auto Scaling group and not copied to any instances launched as part of the Auto Scaling group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-PropagateAtLaunch
         PrimitiveType: Boolean

@@ -14,24 +14,24 @@ Describes the Amazon EC2 launch template and the launch template version that ca
         The ID of the launch template. If you specify the template ID, you can't specify the template name.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-launchtemplateid
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER LaunchTemplateName
         The name of the launch template. You must specify either a template name or a template ID.
 Minimum length of 3. Maximum length of 128. Names must match the following pattern: a-zA-Z0-9.-/_]+
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-launchtemplatename
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER Version
         The version number of the launch template. You must specify a version number. AWS CloudFormation does not support specifying $Latest or $Default for the template version number.
 Minimum length of 1. Maximum length of 255. Versions must fit the following pattern: u0020-uD7FFuE000-uFFFDuD800uDC00-uDBFFuDFFFrnt]*
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-version
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell

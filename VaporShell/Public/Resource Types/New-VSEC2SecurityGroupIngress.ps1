@@ -10,7 +10,7 @@ An inbound rule permits instances to receive traffic from the specified IPv4 or 
 
 You specify a protocol for each rule (for example, TCP. For TCP and UDP, you must also specify a port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.
 
-You must specify a source security group (SourcePrefixListId, SourceSecurityGroupId, or SourceSecurityGroupName or a CIDR range (CidrIp or CidrIpv6.
+You must specify a source security group (SourcePrefixListId, SourceSecurityGroupId, or SourceSecurityGroupName or a CIDR range (CidrIp or CidrIpv6. If you do not specify one of these parameters, the stack will launch successfully but the rule will not be added to the security group.
 
 Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
 
@@ -21,14 +21,14 @@ Rule changes are propagated to instances within the security group as quickly as
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CidrIp
-        The IPv4 ranges.
+        The IPv4 address range, in CIDR format.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-cidrip
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER CidrIpv6
-        VPC only] The IPv6 ranges.
+        The IPv6 address range, in CIDR format.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-cidripv6
         PrimitiveType: String
@@ -76,7 +76,7 @@ VPC only] Use -1 to specify all protocols. When authorizing security group rules
         UpdateType: Immutable
 
     .PARAMETER SourcePrefixListId
-        EC2-VPC only] The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+        EC2-VPC only] The ID of a prefix list.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-securitygroupingress-sourceprefixlistid
         PrimitiveType: String
@@ -98,7 +98,7 @@ You must specify the GroupName property or the GroupId property. For security gr
         UpdateType: Immutable
 
     .PARAMETER SourceSecurityGroupOwnerId
-        nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access.
+        nondefault VPC] The AWS account ID that owns the source security group. You can't specify this property with an IP address range.
 If you specify SourceSecurityGroupName or SourceSecurityGroupId and that security group is owned by a different account than the account creating the stack, you must specify the SourceSecurityGroupOwnerId; otherwise, this property is optional.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-sourcesecuritygroupownerid
@@ -307,6 +307,17 @@ Use this for ICMP and any protocol that uses ports.
                 }
             })]
         $ToPort,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -1,10 +1,10 @@
 function New-VSSQSQueuePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::SQS::QueuePolicy resource to the template. The AWS::SQS::QueuePolicy type applies a policy to Amazon SQS queues. For an example snippet, see Declaring an Amazon SQS Policy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy in the *AWS CloudFormation User Guide*.
+        Adds an AWS::SQS::QueuePolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SQS::QueuePolicy resource to the template. The AWS::SQS::QueuePolicy type applies a policy to Amazon SQS queues. For an example snippet, see Declaring an Amazon SQS Policy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy in the *AWS CloudFormation User Guide*.
+        Adds an AWS::SQS::QueuePolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html
@@ -13,15 +13,11 @@ function New-VSSQSQueuePolicy {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER PolicyDocument
-        A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html in the *Amazon Simple Queue Service Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-policydoc
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER Queues
-        The URLs of the queues to which you want to add the policy. You can use the Ref: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html function to specify an AWS::SQS::Queue: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-queues
         DuplicatesAllowed: True
         PrimitiveItemType: String
@@ -103,6 +99,17 @@ function New-VSSQSQueuePolicy {
         $PolicyDocument,
         [parameter(Mandatory = $true)]
         $Queues,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -1,10 +1,12 @@
 function New-VSEC2PrefixList {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::PrefixList resource to the template. 
+        Adds an AWS::EC2::PrefixList resource to the template. Specifies a managed prefix list. You can add one or more entries to the prefix list. Each entry consists of a CIDR block and an optional description.
 
     .DESCRIPTION
-        Adds an AWS::EC2::PrefixList resource to the template. 
+        Adds an AWS::EC2::PrefixList resource to the template. Specifies a managed prefix list. You can add one or more entries to the prefix list. Each entry consists of a CIDR block and an optional description.
+
+You must specify the maximum number of entries for the prefix list. The maximum number of entries cannot be changed later.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
@@ -13,27 +15,39 @@ function New-VSEC2PrefixList {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER PrefixListName
+        A name for the prefix list.
+Constraints: Up to 255 characters in length. The name cannot start with com.amazonaws.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER AddressFamily
+        The IP address type.
+Valid Values: IPv4 | IPv6
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER MaxEntries
+        The maximum number of entries for the prefix list.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Tags
+        The tags for the prefix list.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
 
     .PARAMETER Entries
+        One or more entries for the prefix list.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
         UpdateType: Mutable
         Type: List
@@ -148,6 +162,17 @@ function New-VSEC2PrefixList {
                 }
             })]
         $Entries,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

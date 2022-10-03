@@ -13,9 +13,9 @@ JMX and Node monitoring for the MSK cluster.
     .PARAMETER Prometheus
         Prometheus exporter settings.
 
-        Type: Prometheus
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-openmonitoring.html#cfn-msk-cluster-openmonitoring-prometheus
         UpdateType: Mutable
+        Type: Prometheus
 
     .FUNCTIONALITY
         Vaporshell

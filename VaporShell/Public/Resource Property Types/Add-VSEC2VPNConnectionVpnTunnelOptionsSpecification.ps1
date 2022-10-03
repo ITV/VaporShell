@@ -15,8 +15,8 @@ The tunnel options for a single VPN tunnel.
 Constraints: Allowed characters are alphanumeric characters, periods ., and underscores _. Must be between 8 and 64 characters in length and cannot start with zero 0.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-presharedkey
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER TunnelInsideCidr
         The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
@@ -30,8 +30,8 @@ Constraints: A size /30 CIDR block from the 169.254.0.0/16 range. The following 
 +  169.254.169.252/30
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-tunnelinsidecidr
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

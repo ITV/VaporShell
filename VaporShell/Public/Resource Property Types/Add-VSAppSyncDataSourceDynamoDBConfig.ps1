@@ -41,7 +41,7 @@ DynamoDBConfig is a property of the AWS::AppSync::DataSource: https://docs.aws.a
         UpdateType: Mutable
 
     .PARAMETER UseCallerCredentials
-        Set to TRUE to use AWS IAM with this data source.
+        Set to TRUE to use AWS Identity and Access Management with this data source.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-usecallercredentials
         PrimitiveType: Boolean

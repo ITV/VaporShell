@@ -10,8 +10,15 @@ An object that represents a listener's Transport Layer Security (TLS certificate
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html
 
+    .PARAMETER SDS
+        A reference to an object that represents a listener's Secret Discovery Service certificate.
+
+        Type: ListenerTlsSdsCertificate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html#cfn-appmesh-virtualnode-listenertlscertificate-sds
+        UpdateType: Mutable
+
     .PARAMETER ACM
-        A reference to an object that represents an AWS Certicate Manager ACM certificate.
+        A reference to an object that represents an AWS Certificate Manager certificate.
 
         Type: ListenerTlsAcmCertificate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html#cfn-appmesh-virtualnode-listenertlscertificate-acm
@@ -31,6 +38,8 @@ An object that represents a listener's Transport Layer Security (TLS certificate
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $SDS,
         [parameter(Mandatory = $false)]
         $ACM,
         [parameter(Mandatory = $false)]

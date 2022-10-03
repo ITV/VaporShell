@@ -1,15 +1,11 @@
 function Add-VSWAFv2WebACLFieldToMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.FieldToMatch resource property to the template. **Note**
+        Adds an AWS::WAFv2::WebACL.FieldToMatch resource property to the template. The part of a web request that you want AWS WAF to inspect. Include the single FieldToMatch type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in FieldToMatch for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.FieldToMatch resource property to the template.
-**Note**
-
-This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
-The part of a web request that you want AWS WAF to inspect. Include the FieldToMatch types that you want to inspect, with additional specifications as needed, according to the type.
+The part of a web request that you want AWS WAF to inspect. Include the single FieldToMatch type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in FieldToMatch for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html
@@ -51,11 +47,11 @@ The part of a web request that you want AWS WAF to inspect. Include the FieldToM
 
     .PARAMETER Body
         Inspect the request body, which immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-Note that only the first 8 KB 8192 bytes of the request body are forwarded to AWS WAF for inspection. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as ByteMatchStatement or RegexPatternSetReferenceStatement, with a SizeConstraintStatement that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
+Note that only the first 8 KB 8192 bytes of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the ByteMatchStatement or RegexPatternSetReferenceStatement, with a SizeConstraintStatement that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: Body
 
     .PARAMETER Method
         Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -63,6 +59,24 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
         UpdateType: Mutable
         PrimitiveType: Json
+
+    .PARAMETER JsonBody
+        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+Note that only the first 8 KB 8192 bytes of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the ByteMatchStatement or RegexPatternSetReferenceStatement, with a SizeConstraintStatement that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
+        UpdateType: Mutable
+        Type: JsonBody
+
+    .PARAMETER Headers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-headers
+        UpdateType: Mutable
+        Type: Headers
+
+    .PARAMETER Cookies
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-cookies
+        UpdateType: Mutable
+        Type: Cookies
 
     .FUNCTIONALITY
         Vaporshell
@@ -127,15 +141,6 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
             })]
         $QueryString,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Body,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -147,7 +152,13 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Method
+        $Method,
+        [parameter(Mandatory = $false)]
+        $JsonBody,
+        [parameter(Mandatory = $false)]
+        $Headers,
+        [parameter(Mandatory = $false)]
+        $Cookies
     )
     Begin {
         $obj = [PSCustomObject]@{}
@@ -213,20 +224,6 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 QueryString {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
-                Body {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

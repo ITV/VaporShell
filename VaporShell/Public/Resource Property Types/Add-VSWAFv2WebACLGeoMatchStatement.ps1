@@ -1,14 +1,10 @@
 function Add-VSWAFv2WebACLGeoMatchStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.GeoMatchStatement resource property to the template. **Note**
+        Adds an AWS::WAFv2::WebACL.GeoMatchStatement resource property to the template. A rule statement used to identify web requests based on country of origin.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.GeoMatchStatement resource property to the template.
-**Note**
-
-This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
 A rule statement used to identify web requests based on country of origin.
 
     .LINK
@@ -23,7 +19,8 @@ A rule statement used to identify web requests based on country of origin.
         PrimitiveItemType: String
 
     .PARAMETER ForwardedIPConfig
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For XFF header, but you can specify any header name.
+If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
         UpdateType: Mutable

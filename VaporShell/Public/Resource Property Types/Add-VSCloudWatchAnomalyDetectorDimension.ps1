@@ -1,17 +1,19 @@
 function Add-VSCloudWatchAnomalyDetectorDimension {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudWatch::AnomalyDetector.Dimension resource property to the template. Expands the identity of a metric.
+        Adds an AWS::CloudWatch::AnomalyDetector.Dimension resource property to the template. A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish InstanceId as a dimension name, and the actual instance ID as the value for that dimension.
 
     .DESCRIPTION
         Adds an AWS::CloudWatch::AnomalyDetector.Dimension resource property to the template.
-Expands the identity of a metric.
+A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish InstanceId as a dimension name, and the actual instance ID as the value for that dimension.
+
+You can assign up to 10 dimensions to a metric.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-dimension.html
 
     .PARAMETER Value
-        The value representing the dimension measurement.
+        The value of the dimension. Dimension values must contain only ASCII characters and must include at least one non-whitespace character.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-dimension.html#cfn-cloudwatch-anomalydetector-dimension-value
         PrimitiveType: String

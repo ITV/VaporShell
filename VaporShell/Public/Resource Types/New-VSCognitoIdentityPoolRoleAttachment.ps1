@@ -13,7 +13,7 @@ function New-VSCognitoIdentityPoolRoleAttachment {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER RoleMappings
-        How users for a specific identity provider are mapped to roles. This is a string to the RoleMapping object map. The string identifies the identity provider. For example: "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+        How users for a specific identity provider are mapped to roles. This is a string to the RoleMapping object map. The string identifies the identity provider. For example: graph.facebook.com or cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id.
 If the IdentityProvider field isn't provided in this object, the string is used as the identity provider name.
 For more information, see the RoleMapping property: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html.
 
@@ -130,6 +130,17 @@ For more information, see the RoleMapping property: https://docs.aws.amazon.com/
                 }
             })]
         $Roles,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

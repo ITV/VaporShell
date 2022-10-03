@@ -25,7 +25,7 @@ A structure for the resource.
         UpdateType: Mutable
 
     .PARAMETER DataLocationResource
-        Currently not supported by AWS CloudFormation.
+        A structure for a data location object where permissions are granted or revoked.
 
         Type: DataLocationResource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html#cfn-lakeformation-permissions-resource-datalocationresource

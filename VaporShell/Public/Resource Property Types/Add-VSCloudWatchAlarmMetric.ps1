@@ -11,7 +11,7 @@ The Metric property type represents a specific metric. Metric is a property of t
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html
 
     .PARAMETER Dimensions
-        The dimensions for the metric.
+        The metric dimensions that you want to be used for the metric that the alarm will watch..
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-dimensions
         DuplicatesAllowed: True
@@ -20,14 +20,14 @@ The Metric property type represents a specific metric. Metric is a property of t
         UpdateType: Mutable
 
     .PARAMETER MetricName
-        The name of the metric. This is a required field.
+        The name of the metric that you want the alarm to watch. This is a required field.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-metricname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Namespace
-        The namespace of the metric.
+        The namespace of the metric that the alarm will watch.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-namespace
         PrimitiveType: String

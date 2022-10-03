@@ -1,10 +1,10 @@
 function New-VSEventSchemasRegistryPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::EventSchemas::RegistryPolicy resource to the template. 
+        Adds an AWS::EventSchemas::RegistryPolicy resource to the template. Use the AWS::EventSchemas::RegistryPolicy resource to specify resource-based policies for an EventBridge Schema Registry.
 
     .DESCRIPTION
-        Adds an AWS::EventSchemas::RegistryPolicy resource to the template. 
+        Adds an AWS::EventSchemas::RegistryPolicy resource to the template. Use the AWS::EventSchemas::RegistryPolicy resource to specify resource-based policies for an EventBridge Schema Registry.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
@@ -13,16 +13,22 @@ function New-VSEventSchemasRegistryPolicy {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Policy
+        A resource-based policy.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
         UpdateType: Mutable
         PrimitiveType: Json
 
     .PARAMETER RegistryName
+        The name of the registry.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RevisionId
+        The revision ID of the policy.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
         UpdateType: Mutable
         PrimitiveType: String
@@ -122,6 +128,17 @@ function New-VSEventSchemasRegistryPolicy {
                 }
             })]
         $RevisionId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -8,9 +8,9 @@ function New-VSWAFv2WebACLAssociation {
 
 This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
 
-Use a web ACL association to define an association between a Web ACL and a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB or an API Gateway stage.
+Use a web ACL association to define an association between a web ACL and a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB, an Amazon API Gateway REST API, or an AWS AppSync GraphQL API.
 
-For AWS CloudFront, don't use this resource. Instead, use your CloudFront distribution configuration. To associate a Web ACL with a distribution, provide the Amazon Resource Name (ARN of the AWS::WAFv2::WebACL: aws-resource-wafv2-webacl.md to your CloudFront distribution configuration. To disassociate a web ACL, provide an empty ARN. For information, see AWS::CloudFront::Distribution: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html.
+For Amazon CloudFront, don't use this resource. Instead, use your CloudFront distribution configuration. To associate a web ACL with a distribution, provide the Amazon Resource Name (ARN of the AWS::WAFv2::WebACL: aws-resource-wafv2-webacl.md to your CloudFront distribution configuration. To disassociate a web ACL, provide an empty ARN. For information, see AWS::CloudFront::Distribution: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
@@ -22,14 +22,16 @@ For AWS CloudFront, don't use this resource. Instead, use your CloudFront distri
         The Amazon Resource Name ARN of the resource to associate with the web ACL.
 The ARN must be in one of the following formats:
 + For an Application Load Balancer: arn:aws:elasticloadbalancing:region:account-id:loadbalancer/app/load-balancer-name/load-balancer-id 
-+ For an Amazon API Gateway stage: arn:aws:apigateway:region::/restapis/api-id/stages/stage-name 
++ For an Amazon API Gateway REST API: arn:aws:apigateway:region::/restapis/api-id/stages/stage-name 
++ For an AWS AppSync GraphQL API: arn:aws:appsync:region:account-id:apis/GraphQLApiId
+For Amazon CloudFront, define the association in your CloudFront distribution configuration. To associate a web ACL, provide the Amazon Resource Name ARN of the AWS::WAFv2::WebACL: aws-resource-wafv2-webacl.md to your CloudFront distribution configuration. To disassociate a web ACL, provide an empty ARN. For information, see AWS::CloudFront::Distribution: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER WebACLArn
-        The Amazon Resource Name ARN of the Web ACL that you want to associate with the resource.
+        The Amazon Resource Name ARN of the web ACL that you want to associate with the resource.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
         UpdateType: Immutable
@@ -119,6 +121,17 @@ The ARN must be in one of the following formats:
                 }
             })]
         $WebACLArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

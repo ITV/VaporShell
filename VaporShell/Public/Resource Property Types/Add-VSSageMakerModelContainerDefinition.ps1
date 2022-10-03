@@ -10,6 +10,20 @@ Describes the container, as part of model definition.
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html
 
+    .PARAMETER ImageConfig
+        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud VPC. For information about storing containers in a private Docker registry, see Use a Private Docker Registry for Real-Time Inference Containers: https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html
+
+        Type: ImageConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-imageconfig
+        UpdateType: Immutable
+
+    .PARAMETER InferenceSpecificationName
+        The inference specification name in the model package version.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-inferencespecificationname
+        PrimitiveType: String
+        UpdateType: Immutable
+
     .PARAMETER ContainerHostname
         This parameter is ignored for models that contain only a PrimaryContainer.
 When a ContainerDefinition is part of an inference pipeline, the value of the parameter uniquely identifies the container for the purposes of logging and metrics. For information, see Use Logs and Metrics to Monitor an Inference Pipeline: https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html. If you don't specify a value for this parameter for a ContainerDefinition that is part of an inference pipeline, a unique name is automatically assigned based on the position of the ContainerDefinition in the pipeline. If you specify a value for the ContainerHostName for any ContainerDefinition that is part of an inference pipeline, you must specify a value for the ContainerHostName parameter of every ContainerDefinition in that pipeline.
@@ -19,7 +33,7 @@ When a ContainerDefinition is part of an inference pipeline, the value of the pa
         UpdateType: Immutable
 
     .PARAMETER ModelPackageName
-        *Update requires*: Replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement
+        The name or Amazon Resource Name ARN of the model package to use to create the model.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modelpackagename
         PrimitiveType: String
@@ -40,19 +54,27 @@ When a ContainerDefinition is part of an inference pipeline, the value of the pa
         UpdateType: Immutable
 
     .PARAMETER ModelDataUrl
-        The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive .tar.gz suffix. The S3 path is required for Amazon SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see Common Parameters: https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html.
-If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see Activating and Deactivating AWS STS in an AWS Region: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html in the *AWS Identity and Access Management User Guide*.
-If you use a built-in algorithm to create a model, Amazon SageMaker requires that you provide a S3 path to the model artifacts in ModelDataUrl.
+        The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive .tar.gz suffix. The S3 path is required for SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see Common Parameters: https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html.
+The model artifacts must be in an S3 bucket that is in the same region as the model or endpoint you are creating.
+If you provide a value for this parameter, SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see Activating and Deactivating AWS STS in an AWS Region: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html in the * AWS Identity and Access Management User Guide*.
+If you use a built-in algorithm to create a model, SageMaker requires that you provide a S3 path to the model artifacts in ModelDataUrl.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldataurl
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Image
-        The Amazon EC2 Container Registry Amazon ECR path where inference code is stored. If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both registry/repository:tag] and registry/repository@digest] image path formats. For more information, see Using Your Own Algorithms with Amazon SageMaker: https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html
+        The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a Docker registry that is accessible from the same VPC that you configure for your endpoint. If you are using your own custom algorithm instead of an algorithm provided by SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both registry/repository:tag] and registry/repository@digest] image path formats. For more information, see Using Your Own Algorithms with Amazon SageMaker: https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-image
         PrimitiveType: String
+        UpdateType: Immutable
+
+    .PARAMETER MultiModelConfig
+        Specifies additional configuration for multi-model endpoints.
+
+        Type: MultiModelConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-multimodelconfig
         UpdateType: Immutable
 
     .FUNCTIONALITY
@@ -62,6 +84,19 @@ If you use a built-in algorithm to create a model, Amazon SageMaker requires tha
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $ImageConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InferenceSpecificationName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -127,7 +162,9 @@ If you use a built-in algorithm to create a model, Amazon SageMaker requires tha
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Image
+        $Image,
+        [parameter(Mandatory = $false)]
+        $MultiModelConfig
     )
     Begin {
         $obj = [PSCustomObject]@{}

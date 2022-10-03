@@ -1,24 +1,26 @@
 function Add-VSPinpointSegmentSourceSegments {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Segment.SourceSegments resource property to the template. Specifies the base segment to build a segment on. A base segment, also referred to as a *source segment*, defines the initial population of endpoints for a segment. When you add dimensions to a segment, Amazon Pinpoint filters the base segment by using the dimensions that you specify. You can specify more than one dimensional segment or only one imported segment.
+        Adds an AWS::Pinpoint::Segment.SourceSegments resource property to the template. Specifies the base segment to build the segment on. A base segment, also called a *source segment*, defines the initial population of endpoints for a segment. When you add dimensions to the segment, Amazon Pinpoint filters the base segment by using the dimensions that you specify.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Segment.SourceSegments resource property to the template.
-Specifies the base segment to build a segment on. A base segment, also referred to as a *source segment*, defines the initial population of endpoints for a segment. When you add dimensions to a segment, Amazon Pinpoint filters the base segment by using the dimensions that you specify. You can specify more than one dimensional segment or only one imported segment.
+Specifies the base segment to build the segment on. A base segment, also called a *source segment*, defines the initial population of endpoints for a segment. When you add dimensions to the segment, Amazon Pinpoint filters the base segment by using the dimensions that you specify.
+
+You can specify more than one dimensional segment or only one imported segment. If you specify an imported segment, the segment size estimate that displays on the Amazon Pinpoint console indicates the size of the imported segment without any filters applied to it.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups-groups-sourcesegments.html
 
     .PARAMETER Version
-        The version number of the segment.
+        The version number of the source segment.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups-groups-sourcesegments.html#cfn-pinpoint-segment-segmentgroups-groups-sourcesegments-version
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Id
-        The unique identifier for the segment.
+        The unique identifier for the source segment.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups-groups-sourcesegments.html#cfn-pinpoint-segment-segmentgroups-groups-sourcesegments-id
         PrimitiveType: String

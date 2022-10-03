@@ -1,10 +1,10 @@
 function New-VSGlobalAcceleratorListener {
     <#
     .SYNOPSIS
-        Adds an AWS::GlobalAccelerator::Listener resource to the template. 
+        Adds an AWS::GlobalAccelerator::Listener resource to the template. The AWS::GlobalAccelerator::Listener resource is a Global Accelerator resource type that contains information about how you create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static IP addresses on a port, port range, or list of port ranges that you specify.
 
     .DESCRIPTION
-        Adds an AWS::GlobalAccelerator::Listener resource to the template. 
+        Adds an AWS::GlobalAccelerator::Listener resource to the template. The AWS::GlobalAccelerator::Listener resource is a Global Accelerator resource type that contains information about how you create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static IP addresses on a port, port range, or list of port ranges that you specify.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
@@ -13,22 +13,33 @@ function New-VSGlobalAcceleratorListener {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AcceleratorArn
+        The Amazon Resource Name ARN of your accelerator.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PortRanges
+        The list of port ranges for the connections from clients to the accelerator.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
         UpdateType: Mutable
         Type: List
         ItemType: PortRange
 
     .PARAMETER Protocol
+        The protocol for the connections from clients to the accelerator.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ClientAffinity
+        Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint.
+AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is NONE, Global Accelerator uses the "five-tuple" 5-tuple properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes.
+If you want a given client to always be routed to the same endpoint, set client affinity to SOURCE_IP instead. When you use the SOURCE_IP setting, Global Accelerator uses the "two-tuple" 2-tuple properties— source client IP address and destination IP address—to select the hash value.
+The default value is NONE.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
         UpdateType: Mutable
         PrimitiveType: String
@@ -139,6 +150,17 @@ function New-VSGlobalAcceleratorListener {
                 }
             })]
         $ClientAffinity,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

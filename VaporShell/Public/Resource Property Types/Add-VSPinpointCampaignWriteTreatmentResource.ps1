@@ -31,6 +31,20 @@ Specifies the settings for a campaign treatment. A *treatment* is a variation of
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-schedule
         UpdateType: Mutable
 
+    .PARAMETER TemplateConfiguration
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Type: TemplateConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-templateconfiguration
+        UpdateType: Mutable
+
+    .PARAMETER CustomDeliveryConfiguration
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Type: CustomDeliveryConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-customdeliveryconfiguration
+        UpdateType: Mutable
+
     .PARAMETER SizePercent
         The allocated percentage of users segment members to send the treatment to.
 
@@ -67,6 +81,10 @@ Specifies the settings for a campaign treatment. A *treatment* is a variation of
         $MessageConfiguration,
         [parameter(Mandatory = $false)]
         $Schedule,
+        [parameter(Mandatory = $false)]
+        $TemplateConfiguration,
+        [parameter(Mandatory = $false)]
+        $CustomDeliveryConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

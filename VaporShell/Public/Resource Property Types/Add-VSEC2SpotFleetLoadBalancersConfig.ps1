@@ -14,15 +14,15 @@ Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet
         The Classic Load Balancers.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-classicloadbalancersconfig
+        UpdateType: Immutable
         Type: ClassicLoadBalancersConfig
-        UpdateType: Mutable
 
     .PARAMETER TargetGroupsConfig
         The target groups.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-targetgroupsconfig
+        UpdateType: Immutable
         Type: TargetGroupsConfig
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell

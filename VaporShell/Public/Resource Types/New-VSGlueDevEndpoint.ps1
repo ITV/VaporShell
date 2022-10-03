@@ -96,7 +96,7 @@ Known issue: when a development endpoint is created with the G.2X WorkerType con
         UpdateType: Immutable
 
     .PARAMETER GlueVersion
-        Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
+        The AWS Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
 For more information about the available AWS Glue versions and corresponding Spark and Python versions, see Glue version: https://docs.aws.amazon.com/glue/latest/dg/add-job.html in the developer guide.
 Development endpoints that are created without specifying a Glue version default to Glue 0.9.
 You can specify a version of Python support for development endpoints by using the Arguments parameter in the CreateDevEndpoint or UpdateDevEndpoint APIs. If no arguments are provided, the version defaults to Python 2.
@@ -344,6 +344,17 @@ The maximum number of workers you can define are 299 for G.1X, and 149 for G.2X.
                 }
             })]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

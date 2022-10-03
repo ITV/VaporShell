@@ -1,24 +1,29 @@
 function Add-VSCognitoUserPoolDeviceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPool.DeviceConfiguration resource property to the template. The configuration for the user pool's device tracking.
+        Adds an AWS::Cognito::UserPool.DeviceConfiguration resource property to the template. The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPool.DeviceConfiguration resource property to the template.
-The configuration for the user pool's device tracking.
+The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.
+
+**Note**
+
+When you provide values for any DeviceConfiguration field, you activate device tracking.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html
 
     .PARAMETER DeviceOnlyRememberedOnUserPrompt
-        If true, a device is only remembered on user prompt.
+        When true, users can opt in to remembering their device. Your app code must use callback functions to return the user's choice.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html#cfn-cognito-userpool-deviceconfiguration-deviceonlyrememberedonuserprompt
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ChallengeRequiredOnNewDevice
-        Indicates whether a challenge is required on a new device. Only applicable to a new device.
+        When true, device authentication can replace SMS and time-based one-time password TOTP factors for multi-factor authentication MFA.
+Users that sign in with devices that have not been confirmed or remembered will still have to provide a second factor, whether or not ChallengeRequiredOnNewDevice is true, when your user pool requires MFA.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html#cfn-cognito-userpool-deviceconfiguration-challengerequiredonnewdevice
         PrimitiveType: Boolean

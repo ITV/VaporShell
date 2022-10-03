@@ -30,7 +30,9 @@ If you specify the KmsKeyId, you must enable encryption by setting StorageEncryp
         UpdateType: Immutable
 
     .PARAMETER RestoreToTime
-        The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-restoretotime
         PrimitiveType: String
@@ -44,11 +46,19 @@ If you specify the KmsKeyId, you must enable encryption by setting StorageEncryp
         UpdateType: Immutable
 
     .PARAMETER KmsKeyId
-        If StorageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster.
+        If StorageEncrypted is true, the Amazon KMS key identifier for the encrypted DB cluster.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-kmskeyid
         PrimitiveType: String
         UpdateType: Immutable
+
+    .PARAMETER AssociatedRoles
+        Provides a list of the Amazon Identity and Access Management IAM roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon services on your behalf.
+
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-associatedroles
+        ItemType: DBClusterRole
+        UpdateType: Mutable
 
     .PARAMETER AvailabilityZones
         Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
@@ -89,7 +99,7 @@ However, if you don't specify the SnapshotIdentifier, an empty DB cluster is cre
         UpdateType: Mutable
 
     .PARAMETER IamAuthEnabled
-        True if mapping of AWS Identity and Access Management IAM accounts to database accounts is enabled, and otherwise false.
+        True if mapping of Amazon Identity and Access Management IAM accounts to database accounts is enabled, and otherwise false.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-iamauthenabled
         PrimitiveType: Boolean
@@ -118,7 +128,9 @@ An update may require some interruption.
         UpdateType: Mutable
 
     .PARAMETER UseLatestRestorableTime
-        The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-uselatestrestorabletime
         PrimitiveType: Boolean
@@ -133,7 +145,9 @@ An update may require some interruption.
         UpdateType: Mutable
 
     .PARAMETER SourceDBClusterIdentifier
-        The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-sourcedbclusteridentifier
         PrimitiveType: String
@@ -156,7 +170,9 @@ An update may require some interruption. See ModifyDBInstance: https://docs.aws.
         UpdateType: Mutable
 
     .PARAMETER RestoreType
-        The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-restoretype
         PrimitiveType: String
@@ -284,6 +300,17 @@ An update may require some interruption. See ModifyDBInstance: https://docs.aws.
                 }
             })]
         $KmsKeyId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Neptune.DBCluster.DBClusterRole"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AssociatedRoles,
         [parameter(Mandatory = $false)]
         $AvailabilityZones,
         [parameter(Mandatory = $false)]
@@ -436,6 +463,17 @@ An update may require some interruption. See ModifyDBInstance: https://docs.aws.
         $Tags,
         [parameter(Mandatory = $false)]
         $EnableCloudwatchLogsExports,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -498,6 +536,12 @@ An update may require some interruption. See ModifyDBInstance: https://docs.aws.
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                AssociatedRoles {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AssociatedRoles -Value @($AssociatedRoles)
                 }
                 AvailabilityZones {
                     if (!($ResourceParams["Properties"])) {

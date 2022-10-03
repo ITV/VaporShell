@@ -14,7 +14,7 @@ function New-VSCognitoUserPoolClient {
 
     .PARAMETER AnalyticsConfiguration
         The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
-Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East N. Virginia us-east-1 Region, regardless of the region in which the user pool resides.
+In AWS Regions where isn't available, User Pools only supports sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region.
 
         Type: AnalyticsConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-analyticsconfiguration
@@ -42,12 +42,40 @@ App callback URLs such as myapp://example are also supported.
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-callbackurls
         UpdateType: Mutable
 
+    .PARAMETER EnablePropagateAdditionalUserContextData
+        For more information about using the Ref function, see Ref: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-enablepropagateadditionalusercontextdata
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER IdTokenValidity
+        The time limit, after which the ID token is no longer valid and cannot be used.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-idtokenvalidity
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
+    .PARAMETER AuthSessionValidity
+        For more information about using the Ref function, see Ref: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-authsessionvalidity
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
     .PARAMETER AllowedOAuthScopes
         The allowed OAuth scopes. Possible values provided by OAuth are: phone, email, openid, and profile. Possible values provided by AWS are: aws.cognito.signin.user.admin. Custom scopes created in Resource Servers are also supported.
 
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthscopes
+        UpdateType: Mutable
+
+    .PARAMETER TokenValidityUnits
+        The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.
+
+        Type: TokenValidityUnits
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-tokenvalidityunits
         UpdateType: Mutable
 
     .PARAMETER ReadAttributes
@@ -59,7 +87,7 @@ App callback URLs such as myapp://example are also supported.
         UpdateType: Mutable
 
     .PARAMETER AllowedOAuthFlowsUserPoolClient
-        Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+        Set to true if the client is allowed to follow the OAuth protocol when interacting with Amazon Cognito user pools.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflowsuserpoolclient
         PrimitiveType: Boolean
@@ -80,7 +108,7 @@ App callback URLs such as myapp://example are also supported.
         UpdateType: Mutable
 
     .PARAMETER SupportedIdentityProviders
-        A list of provider names for the identity providers that are supported on this client. The following are supported: COGNITO, Facebook, Google and LoginWithAmazon.
+        A list of provider names for the identity providers that are supported on this client. The following are supported: COGNITO, Facebook, SignInWithApple, Google and LoginWithAmazon.
 
         PrimitiveItemType: String
         Type: List
@@ -113,12 +141,12 @@ Set to client_credentials to specify that the client should get the access token
         UpdateType: Mutable
 
     .PARAMETER ExplicitAuthFlows
-        The authentication flows that are supported by the user pool clients. Flow names without the ALLOW_ prefix are deprecated in favor of new names with the ALLOW_ prefix. Note that values with ALLOW_ prefix cannot be used along with values without ALLOW_ prefix.
+        The authentication flows that are supported by the user pool clients. Flow names without the ALLOW_ prefix are no longer supported, in favor of new names with the ALLOW_ prefix. Note that values with ALLOW_ prefix must be used only along with the ALLOW_ prefix.
 Valid values include:
-+  ALLOW_ADMIN_USER_PASSWORD_AUTH: Enable admin based user password authentication flow ADMIN_USER_PASSWORD_AUTH. This setting replaces the ADMIN_NO_SRP_AUTH setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP Secure Remote Password protocol protocol to verify passwords.
-+  ALLOW_CUSTOM_AUTH: Enable Lambda trigger based authentication.
-+  ALLOW_USER_PASSWORD_AUTH: Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
-+  ALLOW_USER_SRP_AUTH: Enable SRP based authentication.
++  ALLOW_ADMIN_USER_PASSWORD_AUTH: Enable admin based user password authentication flow ADMIN_USER_PASSWORD_AUTH. This setting replaces the ADMIN_NO_SRP_AUTH setting. With this authentication flow, Amazon Cognito receives the password in the request instead of using the Secure Remote Password SRP protocol to verify passwords.
++  ALLOW_CUSTOM_AUTH: Enable AWS Lambda trigger based authentication.
++  ALLOW_USER_PASSWORD_AUTH: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
++  ALLOW_USER_SRP_AUTH: Enable SRP-based authentication.
 +  ALLOW_REFRESH_TOKEN_AUTH: Enable authflow to refresh tokens.
 
         PrimitiveItemType: String
@@ -134,8 +162,15 @@ Valid values include:
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-logouturls
         UpdateType: Mutable
 
+    .PARAMETER AccessTokenValidity
+        The time limit, after which the access token is no longer valid and cannot be used.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-accesstokenvalidity
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
     .PARAMETER RefreshTokenValidity
-        The time limit, in days, after which the refresh token is no longer valid and cannot be used.
+        The time limit, in days, after which the refresh token is no longer valid and can't be used.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-refreshtokenvalidity
         PrimitiveType: Integer
@@ -143,7 +178,7 @@ Valid values include:
 
     .PARAMETER WriteAttributes
         The user pool attributes that the app client can write to.
-If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see Specifying Identity Provider Attribute Mappings for Your User Pool: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html.
+If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see Specifying Identity Provider Attribute Mappings for Your User Pool: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html.
 
         PrimitiveItemType: String
         Type: List
@@ -155,6 +190,14 @@ If your app client allows users to sign in through an identity provider, this ar
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-preventuserexistenceerrors
         PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER EnableTokenRevocation
+        Activates or deactivates token revocation. For more information about revoking tokens, see RevokeToken: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html.
+If you don't include this parameter, token revocation is automatically activated for the new user pool client.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-enabletokenrevocation
+        PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -235,7 +278,42 @@ If your app client allows users to sign in through an identity provider, this ar
         [parameter(Mandatory = $false)]
         $CallbackURLs,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnablePropagateAdditionalUserContextData,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IdTokenValidity,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AuthSessionValidity,
+        [parameter(Mandatory = $false)]
         $AllowedOAuthScopes,
+        [parameter(Mandatory = $false)]
+        $TokenValidityUnits,
         [parameter(Mandatory = $false)]
         $ReadAttributes,
         [parameter(Mandatory = $false)]
@@ -300,6 +378,17 @@ If your app client allows users to sign in through an identity provider, this ar
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $AccessTokenValidity,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $RefreshTokenValidity,
         [parameter(Mandatory = $false)]
         $WriteAttributes,
@@ -314,6 +403,28 @@ If your app client allows users to sign in through an identity provider, this ar
                 }
             })]
         $PreventUserExistenceErrors,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableTokenRevocation,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

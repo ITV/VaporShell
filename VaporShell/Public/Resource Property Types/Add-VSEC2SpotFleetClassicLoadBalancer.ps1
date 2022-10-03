@@ -14,8 +14,8 @@ Specifies a Classic Load Balancer.
         The name of the load balancer.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancer.html#cfn-ec2-spotfleet-classicloadbalancer-name
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell

@@ -11,7 +11,7 @@ Configuration for mitigation actions and notification for different levels of ri
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html
 
     .PARAMETER Actions
-        Account takeover risk configuration actions
+        Account takeover risk configuration actions.
 
         Type: AccountTakeoverActionsType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-actions

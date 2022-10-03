@@ -13,6 +13,8 @@ function New-VSSageMakerEndpointConfig {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DataCaptureConfig
+        Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
+
         Type: DataCaptureConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig
         UpdateType: Immutable
@@ -26,7 +28,7 @@ function New-VSSageMakerEndpointConfig {
         UpdateType: Immutable
 
     .PARAMETER KmsKeyId
-        The Amazon Resource Name ARN of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        The Amazon Resource Name ARN of an AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 + Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
 + Key ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 + Alias name: alias/ExampleAlias
@@ -40,8 +42,15 @@ For more information about local instance storage encryption, see SSD Instance S
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER AsyncInferenceConfig
+        Specifies configuration for how an endpoint performs asynchronous inference.
+
+        Type: AsyncInferenceConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig
+        UpdateType: Immutable
+
     .PARAMETER EndpointConfigName
-        The name of the endpoint configuration. You specify this name in a CreateEndpoint request.
+        The name of the endpoint configuration.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname
         PrimitiveType: String
@@ -143,6 +152,8 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
             })]
         $KmsKeyId,
         [parameter(Mandatory = $false)]
+        $AsyncInferenceConfig,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -156,6 +167,17 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

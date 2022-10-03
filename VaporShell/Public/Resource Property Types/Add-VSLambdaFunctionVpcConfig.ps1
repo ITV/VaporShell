@@ -20,19 +20,19 @@ To monitor network interfaces, AWS CloudFormation needs the ec2:DescribeNetworkI
         A list of VPC security groups IDs.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-securitygroupids
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER SubnetIds
         A list of VPC subnet IDs.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-subnetids
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -41,9 +41,9 @@ To monitor network interfaces, AWS CloudFormation needs the ec2:DescribeNetworkI
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $SecurityGroupIds,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $SubnetIds
     )
     Begin {

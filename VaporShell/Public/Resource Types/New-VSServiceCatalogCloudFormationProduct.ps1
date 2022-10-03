@@ -13,7 +13,8 @@ function New-VSServiceCatalogCloudFormationProduct {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ReplaceProvisioningArtifacts
-        + CreateProduct: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html in the *AWS Service Catalog API Reference*
+        This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes such as description, distributor, name, owner, and more and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-replaceprovisioningartifacts
         PrimitiveType: Boolean
@@ -66,6 +67,7 @@ function New-VSServiceCatalogCloudFormationProduct {
 
     .PARAMETER SupportUrl
         The contact URL for product support.
+^https?:/// / is the pattern used to validate SupportUrl.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-supporturl
         PrimitiveType: String
@@ -269,6 +271,17 @@ function New-VSServiceCatalogCloudFormationProduct {
                 }
             })]
         $ProvisioningArtifactParameters,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

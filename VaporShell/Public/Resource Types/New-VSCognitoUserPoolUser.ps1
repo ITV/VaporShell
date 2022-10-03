@@ -14,8 +14,8 @@ function New-VSCognitoUserPoolUser {
 
     .PARAMETER ValidationData
         The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.
-To configure custom validation, you must create a Pre Sign-up Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.
-The user's validation data is not persisted.
+To configure custom validation, you must create a Pre Sign-up AWS Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.
+The user's validation data isn't persisted.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-validationdata
@@ -30,14 +30,14 @@ The user's validation data is not persisted.
         UpdateType: Immutable
 
     .PARAMETER Username
-        The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username can't be changed.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-username
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER MessageAction
-        Set to "RESEND" to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to "SUPPRESS" to suppress sending the message. Only one value can be specified.
+        Set to RESEND to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to SUPPRESS to suppress sending the message. You can specify only one value.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-messageaction
         PrimitiveType: String
@@ -57,7 +57,7 @@ Take the following limitations into consideration when you use the ClientMetadat
         UpdateType: Immutable
 
     .PARAMETER DesiredDeliveryMediums
-        Specify "EMAIL" if email will be used to send the welcome message. Specify "SMS" if the phone number will be used. The default value is "SMS". More than one value can be specified.
+        Specify "EMAIL" if email will be used to send the welcome message. Specify "SMS" if the phone number will be used. The default value is "SMS". You can specify more than one value.
 
         PrimitiveItemType: String
         Type: List
@@ -65,7 +65,7 @@ Take the following limitations into consideration when you use the ClientMetadat
         UpdateType: Immutable
 
     .PARAMETER ForceAliasCreation
-        This parameter is only used if the phone_number_verified or email_verified attribute is set to True. Otherwise, it is ignored.
+        This parameter is used only if the phone_number_verified or email_verified attribute is set to True. Otherwise, it is ignored.
 If this parameter is set to True and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
 If this parameter is set to False, the API throws an AliasExistsException error if the alias already exists. The default value is False.
 
@@ -227,6 +227,17 @@ In your call to AdminCreateUser, you can set the email_verified attribute to Tru
                 }
             })]
         $UserAttributes,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

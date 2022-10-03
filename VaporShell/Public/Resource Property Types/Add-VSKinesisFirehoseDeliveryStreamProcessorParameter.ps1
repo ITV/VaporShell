@@ -11,7 +11,7 @@ The ProcessorParameter property specifies a processor parameter in a data proces
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
 
     .PARAMETER ParameterName
-        The name of the parameter.
+        The name of the parameter. Currently the following default values are supported: 3 for NumberOfRetries, 60 for the BufferIntervalInSeconds, and 3 for the BufferSizeInMBs.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
         UpdateType: Mutable

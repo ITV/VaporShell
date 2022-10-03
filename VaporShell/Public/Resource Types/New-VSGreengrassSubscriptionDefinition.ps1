@@ -21,15 +21,15 @@ After you create the subscription definition version that contains the subscript
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER InitialVersion
-        The subscription definition version to include when the subscription definition is created. A subscription definition version contains a list of  subscription : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html property types.
-To associate a subscription definition version after the subscription definition is created, create an  AWS::Greengrass::SubscriptionDefinitionVersion : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html resource and specify the ID of this subscription definition.
+        The subscription definition version to include when the subscription definition is created. A subscription definition version contains a list of https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html property types.
+To associate a subscription definition version after the subscription definition is created, create an https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html resource and specify the ID of this subscription definition.
 
         Type: SubscriptionDefinitionVersion
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html#cfn-greengrass-subscriptiondefinition-initialversion
         UpdateType: Immutable
 
     .PARAMETER Tags
-        Application-specific metadata to attach to the subscription definition. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see Tagging Your AWS IoT Greengrass Resources: https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html in the *AWS IoT Greengrass Developer Guide*.
+        Application-specific metadata to attach to the subscription definition. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see Tagging Your AWS IoT Greengrass Resources: https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html in the *AWS IoT Greengrass Version 1 Developer Guide*.
 This Json property type is processed as a map of key-value pairs. It uses the following format, which is different from most Tags implementations in AWS CloudFormation templates.
 
 "Tags": {
@@ -136,6 +136,17 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

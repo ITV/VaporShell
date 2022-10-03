@@ -27,7 +27,7 @@ Valid values: "defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "
         PrimitiveItemType: String
 
     .PARAMETER Size
-        The size in MiB of the tmpfs volume.
+        The maximum size in MiB of the tmpfs volume.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-size
         UpdateType: Immutable

@@ -14,80 +14,89 @@ function New-VSMSKCluster {
 
     .PARAMETER BrokerNodeGroupInfo
         The setup to be used for brokers in the cluster.
+AWS CloudFormation may replace the cluster when you update certain BrokerNodeGroupInfo properties. To understand the update behavior for your use case, you should review the child properties for https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#aws-properties-msk-cluster-brokernodegroupinfo-properties: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#aws-properties-msk-cluster-brokernodegroupinfo-properties.
 
-        Type: BrokerNodeGroupInfo
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-brokernodegroupinfo
-        UpdateType: Immutable
+        UpdateType: Mutable
+        Type: BrokerNodeGroupInfo
 
     .PARAMETER EnhancedMonitoring
         Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, and PER_TOPIC_PER_BROKER.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-enhancedmonitoring
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER KafkaVersion
-        The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+        The version of Apache Kafka. For more information, see Supported Apache Kafka versions: https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html in the Amazon MSK Developer Guide.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-kafkaversion
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER NumberOfBrokerNodes
         The number of broker nodes you want in the Amazon MSK cluster. You can submit an update to increase the number of broker nodes in a cluster.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-numberofbrokernodes
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER EncryptionInfo
         Includes all encryption-related information.
 
-        Type: EncryptionInfo
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-encryptioninfo
-        UpdateType: Immutable
+        UpdateType: Mutable
+        Type: EncryptionInfo
 
     .PARAMETER OpenMonitoring
         The settings for open monitoring.
 
-        Type: OpenMonitoring
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-openmonitoring
         UpdateType: Mutable
+        Type: OpenMonitoring
 
     .PARAMETER ClusterName
         The name of the cluster.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-clustername
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER CurrentVersion
+        The version of the cluster that you want to update.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-currentversion
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER ClientAuthentication
         Includes information related to client authentication.
 
-        Type: ClientAuthentication
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-clientauthentication
-        UpdateType: Immutable
+        UpdateType: Mutable
+        Type: ClientAuthentication
 
     .PARAMETER LoggingInfo
-        You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        You can configure your Amazon MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
 
-        Type: LoggingInfo
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-logginginfo
         UpdateType: Mutable
+        Type: LoggingInfo
 
     .PARAMETER Tags
         A map of key:value pairs to apply to this resource. Both key and value are of type String.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-tags
-        PrimitiveType: Json
         UpdateType: Immutable
+        Type: Map
+        PrimitiveItemType: String
 
     .PARAMETER ConfigurationInfo
         The Amazon MSK configuration to use for the cluster.
 
-        Type: ConfigurationInfo
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-configurationinfo
         UpdateType: Mutable
+        Type: ConfigurationInfo
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -202,12 +211,8 @@ function New-VSMSKCluster {
             })]
         $ClusterName,
         [parameter(Mandatory = $false)]
-        $ClientAuthentication,
-        [parameter(Mandatory = $false)]
-        $LoggingInfo,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -215,9 +220,27 @@ function New-VSMSKCluster {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $CurrentVersion,
+        [parameter(Mandatory = $false)]
+        $ClientAuthentication,
+        [parameter(Mandatory = $false)]
+        $LoggingInfo,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
         $Tags,
         [parameter(Mandatory = $false)]
         $ConfigurationInfo,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -280,23 +303,6 @@ function New-VSMSKCluster {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
-                }
-                Tags {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

@@ -1,11 +1,11 @@
 function Add-VSApplicationAutoScalingScalableTargetScalableTargetAction {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction resource property to the template. ScalableTargetAction is a subproperty of ScheduledAction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html that represents the minimum and maximum capacity for a scheduled action.
+        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction resource property to the template. ScalableTargetAction specifies the minimum and maximum capacity for the ScalableTargetAction property of the AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html property type.
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction resource property to the template.
-ScalableTargetAction is a subproperty of ScheduledAction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html that represents the minimum and maximum capacity for a scheduled action.
+ScalableTargetAction specifies the minimum and maximum capacity for the ScalableTargetAction property of the AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html
@@ -19,7 +19,6 @@ ScalableTargetAction is a subproperty of ScheduledAction: https://docs.aws.amazo
 
     .PARAMETER MinCapacity
         The minimum capacity.
-For Lambda provisioned concurrency, the minimum value allowed is 0. For all other resources, the minimum value allowed is 1.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-mincapacity
         PrimitiveType: Integer

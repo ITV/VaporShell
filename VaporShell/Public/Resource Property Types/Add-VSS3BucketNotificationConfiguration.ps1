@@ -20,6 +20,13 @@ For more information on permissions, see AWS::Lambda::Permission: https://docs.a
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html
 
+    .PARAMETER EventBridgeConfiguration
+        Enables delivery of events to Amazon EventBridge.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-eventbridgeconfig
+        Type: EventBridgeConfiguration
+        UpdateType: Mutable
+
     .PARAMETER LambdaConfigurations
         Describes the AWS Lambda functions to invoke and the events for which to invoke them.
 
@@ -54,6 +61,8 @@ For more information on permissions, see AWS::Lambda::Permission: https://docs.a
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $EventBridgeConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3.Bucket.LambdaConfiguration"

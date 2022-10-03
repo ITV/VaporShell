@@ -1,0 +1,57 @@
+function Add-VSS3BucketReplicaModifications {
+    <#
+    .SYNOPSIS
+        Adds an AWS::S3::Bucket.ReplicaModifications resource property to the template. A filter that you can specify for selection for modifications on replicas.
+
+    .DESCRIPTION
+        Adds an AWS::S3::Bucket.ReplicaModifications resource property to the template.
+A filter that you can specify for selection for modifications on replicas.
+
+    .LINK
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html
+
+    .PARAMETER Status
+        Specifies whether Amazon S3 replicates modifications on replicas.
+*Allowed values*: Enabled | Disabled
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .FUNCTIONALITY
+        Vaporshell
+    #>
+    [OutputType('Vaporshell.Resource.S3.Bucket.ReplicaModifications')]
+    [cmdletbinding()]
+    Param
+    (
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Status
+    )
+    Begin {
+        $obj = [PSCustomObject]@{}
+        $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
+    }
+    Process {
+        foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
+            switch ($key) {
+                Default {
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
+                }
+            }
+        }
+    }
+    End {
+        $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.ReplicaModifications'
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
+    }
+}

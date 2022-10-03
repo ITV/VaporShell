@@ -1,14 +1,14 @@
 function New-VSAppConfigDeployment {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::Deployment resource to the template. The AWS::AppConfig::Deployment resource starts a deployment. Starting a deployment in AWS AppConfig calls the StartDeployment API action. This call includes the IDs of the AppConfig application, the environment, the configuration profile, and (optionally the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
+        Adds an AWS::AppConfig::Deployment resource to the template. The AWS::AppConfig::Deployment resource starts a deployment. Starting a deployment in AWS AppConfig calls the StartDeployment API action. This call includes the IDs of the AWS AppConfig application, the environment, the configuration profile, and (optionally the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
 
     .DESCRIPTION
-        Adds an AWS::AppConfig::Deployment resource to the template. The AWS::AppConfig::Deployment resource starts a deployment. Starting a deployment in AWS AppConfig calls the StartDeployment API action. This call includes the IDs of the AppConfig application, the environment, the configuration profile, and (optionally the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
+        Adds an AWS::AppConfig::Deployment resource to the template. The AWS::AppConfig::Deployment resource starts a deployment. Starting a deployment in AWS AppConfig calls the StartDeployment API action. This call includes the IDs of the AWS AppConfig application, the environment, the configuration profile, and (optionally the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
 
-AppConfig monitors the distribution to all hosts and reports status. If a distribution fails, then AppConfig rolls back the configuration.
+AWS AppConfig monitors the distribution to all hosts and reports status. If a distribution fails, then AWS AppConfig rolls back the configuration.
 
-AppConfig requires that you create resources and deploy a configuration in the following order:
+AWS AppConfig requires that you create resources and deploy a configuration in the following order:
 
 1. Create an application
 
@@ -20,7 +20,7 @@ AppConfig requires that you create resources and deploy a configuration in the f
 
 1. Deploy the configuration
 
-For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html in the *AWS Systems Manager User Guide*.
+For more information, see AWS AppConfig: https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html in the *AWS AppConfig User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html
@@ -71,7 +71,7 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
         UpdateType: Immutable
 
     .PARAMETER Tags
-        Metadata to assign to the deployment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        Metadata to assign to the deployment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-tags
@@ -217,6 +217,17 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
                 }
             })]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

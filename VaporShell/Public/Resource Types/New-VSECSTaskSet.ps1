@@ -27,7 +27,7 @@ function New-VSECSTaskSet {
         PrimitiveType: String
 
     .PARAMETER LaunchType
-        The launch type that new tasks in the task set will use. For more information, see Amazon ECS Launch Types: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the *Amazon Elastic Container Service Developer Guide*.
+        The launch type that new tasks in the task set uses. For more information, see Amazon ECS Launch Types: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the *Amazon Elastic Container Service Developer Guide*.
 If a launchType is specified, the capacityProviderStrategy parameter must be omitted.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
@@ -50,14 +50,14 @@ If a launchType is specified, the capacityProviderStrategy parameter must be omi
         Type: NetworkConfiguration
 
     .PARAMETER PlatformVersion
-        The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
+        The platform version that the tasks in the task set uses. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Scale
-        A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+        A floating-point percentage of your desired number of tasks to place and keep running in the task set.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
         UpdateType: Mutable
@@ -239,6 +239,17 @@ If a launchType is specified, the capacityProviderStrategy parameter must be omi
                 }
             })]
         $TaskDefinition,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

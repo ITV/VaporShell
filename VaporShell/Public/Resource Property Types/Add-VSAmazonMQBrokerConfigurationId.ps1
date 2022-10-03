@@ -7,6 +7,10 @@ function Add-VSAmazonMQBrokerConfigurationId {
         Adds an AWS::AmazonMQ::Broker.ConfigurationId resource property to the template.
 A list of information about the configuration.
 
+**Important**
+
+Does not apply to RabbitMQ brokers.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-configurationid.html
 

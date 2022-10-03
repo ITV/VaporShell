@@ -50,7 +50,7 @@ function New-VSCognitoUserPoolIdentityProvider {
 + key_id
 + private_key
 + authorize_scopes
-+ For OIDC providers:
++ For OpenID Connect OIDC providers:
 + client_id
 + client_secret
 + attributes_request_method
@@ -60,9 +60,10 @@ function New-VSCognitoUserPoolIdentityProvider {
 + token_url *if not available from discovery URL specified by oidc_issuer key*
 + attributes_url *if not available from discovery URL specified by oidc_issuer key*
 + jwks_uri *if not available from discovery URL specified by oidc_issuer key*
++ attributes_url_add_attributes *a read-only property that is set automatically*
 + For SAML providers:
 + MetadataFile OR MetadataURL
-+ IDPSignout *optional*
++ IDPSignout optional
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providerdetails
         PrimitiveType: Json
@@ -202,6 +203,17 @@ function New-VSCognitoUserPoolIdentityProvider {
         $ProviderType,
         [parameter(Mandatory = $false)]
         $IdpIdentifiers,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

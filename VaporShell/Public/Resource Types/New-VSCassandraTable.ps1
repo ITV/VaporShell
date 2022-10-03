@@ -1,10 +1,10 @@
 function New-VSCassandraTable {
     <#
     .SYNOPSIS
-        Adds an AWS::Cassandra::Table resource to the template. The AWS::Cassandra::Table resource allows you to create a new table in Amazon Keyspaces (for Apache Cassandra. For more information, see Create a Keyspace and a Table: https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html in the *Amazon Keyspaces Developer Guide*.
+        Adds an AWS::Cassandra::Table resource to the template. The AWS::Cassandra::Table resource allows you to create a new table in Amazon Keyspaces (for Apache Cassandra. For more information, see Create a keyspace and a table: https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html in the *Amazon Keyspaces Developer Guide*.
 
     .DESCRIPTION
-        Adds an AWS::Cassandra::Table resource to the template. The AWS::Cassandra::Table resource allows you to create a new table in Amazon Keyspaces (for Apache Cassandra. For more information, see Create a Keyspace and a Table: https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html in the *Amazon Keyspaces Developer Guide*.
+        Adds an AWS::Cassandra::Table resource to the template. The AWS::Cassandra::Table resource allows you to create a new table in Amazon Keyspaces (for Apache Cassandra. For more information, see Create a keyspace and a table: https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html in the *Amazon Keyspaces Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
@@ -20,9 +20,9 @@ function New-VSCassandraTable {
         PrimitiveType: String
 
     .PARAMETER TableName
-        The name of the table to be created. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see Name Type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
+        The name of the table to be created. The table name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see Name type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-*Length Constraints:* Minimum length of 3. Maximum length of 255.
+*Length constraints:* Minimum length of 3. Maximum length of 255.
 *Pattern:* ^a-zA-Z0-9]a-zA-Z0-9_]{1,47}$
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
@@ -31,6 +31,7 @@ If you specify a name, you cannot perform updates that require replacement of th
 
     .PARAMETER RegularColumns
         One or more columns that are not part of the primary key - that is, columns that are *not* defined as partition key columns or clustering key columns.
+You can add regular columns to existing tables by adding them to the template.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
         UpdateType: Mutable
@@ -58,13 +59,49 @@ If you specify a name, you cannot perform updates that require replacement of th
 
     .PARAMETER BillingMode
         The billing mode for the table, which determines how you'll be charged for reads and writes:
-+ **On-demand mode** default - you pay based on the actual reads and writes your application performs.
-+ **Provisioned mode** - lets you specify the number of reads and writes per second that you need for your application.
++ **On-demand mode** default - You pay based on the actual reads and writes your application performs.
++ **Provisioned mode** - Lets you specify the number of reads and writes per second that you need for your application.
 If you don't specify a value for this property, then the table will use on-demand mode.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
         UpdateType: Mutable
         Type: BillingMode
+
+    .PARAMETER PointInTimeRecoveryEnabled
+        Specifies if point-in-time recovery is enabled or disabled for the table. The options are PointInTimeRecoveryEnabled=true and PointInTimeRecoveryEnabled=false. If not specified, the default is PointInTimeRecoveryEnabled=false.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER Tags
+        A list of key-value pair tags to be attached to the resource.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: False
+
+    .PARAMETER DefaultTimeToLive
+        The default Time To Live TTL value for all rows in a table in seconds. The maximum configurable value is 630,720,000 seconds, which is the equivalent of 20 years. By default, the TTL value for a table is 0, which means data does not expire.
+For more information, see Setting the default TTL value for a table: https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl in the *Amazon Keyspaces Developer Guide*.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-defaulttimetolive
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER EncryptionSpecification
+        The encryption at rest options for the table.
++ **AWS owned key** default - The key is owned by Amazon Keyspaces.
++ **Customer managed key** - The key is stored in your account and is created, owned, and managed by you.
+**Note**
+If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+For more information, see Encryption at rest in Amazon Keyspaces: https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html in the *Amazon Keyspaces Developer Guide*.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+        UpdateType: Mutable
+        Type: EncryptionSpecification
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -185,6 +222,44 @@ If you don't specify a value for this property, then the table will use on-deman
         $ClusteringKeyColumns,
         [parameter(Mandatory = $false)]
         $BillingMode,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PointInTimeRecoveryEnabled,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DefaultTimeToLive,
+        [parameter(Mandatory = $false)]
+        $EncryptionSpecification,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -265,6 +340,12 @@ If you don't specify a value for this property, then the table will use on-deman
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ClusteringKeyColumns -Value @($ClusteringKeyColumns)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

@@ -18,15 +18,15 @@ The password policy type.
         UpdateType: Mutable
 
     .PARAMETER MinimumLength
-        The minimum length of the password policy that you have set. Cannot be less than 6.
+        The minimum length of the password in the policy that you have set. This value can't be less than 6.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-minimumlength
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER TemporaryPasswordValidityDays
-        In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-When you set TemporaryPasswordValidityDays for a user pool, you will no longer be able to set the deprecated UnusedAccountValidityDays value for that user pool.
+        The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.
+When you set TemporaryPasswordValidityDays for a user pool, you can no longer set the deprecated UnusedAccountValidityDays value for that user pool.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-temporarypasswordvaliditydays
         PrimitiveType: Integer

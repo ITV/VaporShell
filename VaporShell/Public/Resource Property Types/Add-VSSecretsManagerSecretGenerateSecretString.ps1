@@ -1,86 +1,82 @@
 function Add-VSSecretsManagerSecretGenerateSecretString {
     <#
     .SYNOPSIS
-        Adds an AWS::SecretsManager::Secret.GenerateSecretString resource property to the template. Use the GenerateSecretString property as part of the AWS::SecretsManager::Secret: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html resource type to dynamically generate a random text string to use as a password. You use this an alternative to hardcoding a password directly in the SecretString property. When you generate a AWS::SecretsManager::Secret: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html resource type, you must include one or the other, but not both.
+        Adds an AWS::SecretsManager::Secret.GenerateSecretString resource property to the template. Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 
     .DESCRIPTION
         Adds an AWS::SecretsManager::Secret.GenerateSecretString resource property to the template.
-Use the GenerateSecretString property as part of the AWS::SecretsManager::Secret: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html resource type to dynamically generate a random text string to use as a password. You use this an alternative to hardcoding a password directly in the SecretString property. When you generate a AWS::SecretsManager::Secret: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html resource type, you must include one or the other, but not both.
+Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 
-SecretString enables you to place a literal value directly into the secret, an action not recommended. Instead, we recommend that you use the GenerateSecretString property to dynamically generate a random password. The operation returns a complete JSON structure to use as the secret value. The structure begins with the string you supply using the SecretStringTemplate. This template string must be a properly formatted JSON string that contains all of the secret value information except the password. The operation then generates a random password using the rules specified by the other parameters. Finally, the operations inserts the generated password into the secret value structure along with the JSON key name specified by the GenerateStringKey parameter.
-
-For examples, see AWS::SecretsManager::Secret: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html.
+**Required permissions: ** secretsmanager:GetRandomPassword. For more information, see  IAM policy actions for Secrets Manager: https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions and Authentication and access control in Secrets Manager: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html
 
     .PARAMETER ExcludeUppercase
-        Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters.
+        Specifies whether to exclude uppercase letters from the password. If you don't include this switch, the password can contain uppercase letters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludeuppercase
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER RequireEachIncludedType
-        Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
+        Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation. If you don't include this switch, the password contains at least one of every character type.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-requireeachincludedtype
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IncludeSpace
-        Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
+        Specifies whether to include the space character. If you include this switch, the password can contain space characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-includespace
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ExcludeCharacters
-        A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters.
+        A string of the characters that you don't want in the password.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludecharacters
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER GenerateStringKey
-        The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate.
+        The JSON key name for the key/value pair, where the value is the generated password. This pair is added to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-generatestringkey
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER PasswordLength
-        The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
+        The length of the password. If you don't include this parameter, the default length is 32 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-passwordlength
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ExcludePunctuation
-        Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
-The following are the punctuation characters that *can* be included in the generated password if you don't explicitly exclude them with ExcludeCharacters or ExcludePunctuation:
-! " # $ % & '   * + , - . / : ; < = > ? @   ] ^ _  { | } ~
+        Specifies whether to exclude the following punctuation characters from the password: ! " # $ % & '   * + , - . / : ; < = > ? @   ] ^ _  { | } ~. If you don't include this switch, the password can contain punctuation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludepunctuation
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ExcludeLowercase
-        Specifies the generated password should not include lowercase letters. By default, SEcrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
+        Specifies whether to exclude lowercase letters from the password. If you don't include this switch, the password can contain lowercase letters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludelowercase
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER SecretStringTemplate
-        A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey. Secrets Manager combines this with the generated random string and inserts into the JSON structure specified by this parameter. The merged JSON string returns as the completed SecretString of the secret. By default, Secrets Manager does not return the generated random password string, and doesn't embed it in a JSON structure.
+        A template that the generated string must match.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-secretstringtemplate
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ExcludeNumbers
-        Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
+        Specifies whether to exclude numbers from the password. If you don't include this switch, the password can contain numbers.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludenumbers
         PrimitiveType: Boolean

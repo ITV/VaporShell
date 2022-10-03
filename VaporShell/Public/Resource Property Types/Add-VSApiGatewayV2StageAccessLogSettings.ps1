@@ -11,14 +11,14 @@ Settings for logging access in a stage.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-accesslogsettings.html
 
     .PARAMETER Format
-        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-accesslogsettings.html#cfn-apigatewayv2-stage-accesslogsettings-format
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DestinationArn
-        The ARN of the CloudWatch Logs log group to receive access logs.
+        The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-accesslogsettings.html#cfn-apigatewayv2-stage-accesslogsettings-destinationarn
         PrimitiveType: String

@@ -14,8 +14,16 @@ The instance fleet configuration is available only in Amazon EMR versions 4.8.0 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html
 
+    .PARAMETER OnDemandSpecification
+        The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR version 5.12.1 and later.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-ondemandspecification
+        Type: OnDemandProvisioningSpecification
+        UpdateType: Mutable
+
     .PARAMETER SpotSpecification
-        The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
+        The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-spotspecification
         Type: SpotProvisioningSpecification
@@ -28,7 +36,9 @@ The instance fleet configuration is available only in Amazon EMR versions 4.8.0 
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        $OnDemandSpecification,
+        [parameter(Mandatory = $false)]
         $SpotSpecification
     )
     Begin {

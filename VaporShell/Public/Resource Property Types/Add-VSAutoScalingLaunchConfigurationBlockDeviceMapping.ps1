@@ -1,50 +1,50 @@
 function Add-VSAutoScalingLaunchConfigurationBlockDeviceMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping resource property to the template. BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html that describes a block device mapping for an Auto Scaling group.
+        Adds an AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping resource property to the template. BlockDeviceMapping specifies a block device mapping for the BlockDeviceMappings property of the AWS::AutoScaling::LaunchConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html resource.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping resource property to the template.
-BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html that describes a block device mapping for an Auto Scaling group.
+BlockDeviceMapping specifies a block device mapping for the BlockDeviceMappings property of the AWS::AutoScaling::LaunchConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html resource.
 
 Each instance that is launched has an associated root device volume, either an Amazon EBS volume or an instance store volume. You can use block device mappings to specify additional EBS volumes or instance store volumes to attach to an instance when it is launched.
 
-For more information, see Example Block Device Mapping: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#block-device-mapping-ex in the *Amazon EC2 User Guide for Linux Instances*.
+For more information, see Example block device mapping: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#block-device-mapping-ex in the *Amazon EC2 User Guide for Linux Instances*.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html
-
-    .PARAMETER DeviceName
-        The device name exposed to the EC2 instance for example, /dev/sdh or xvdh. For more information, see Device Naming on Linux Instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html in the *Amazon EC2 User Guide for Linux Instances*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-devicename
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER Ebs
-        Parameters used to automatically set up EBS volumes when an instance is launched.
-You can specify either VirtualName or Ebs, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-ebs
-        Type: BlockDevice
-        UpdateType: Mutable
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html
 
     .PARAMETER NoDevice
         Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
 If NoDevice is true for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.
 If you specify NoDevice, you cannot specify Ebs.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-nodevice
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-nodevice
+        UpdateType: Immutable
         PrimitiveType: Boolean
-        UpdateType: Mutable
 
     .PARAMETER VirtualName
         The name of the virtual device. The name must be in the form ephemeral*X* where *X* is a number starting from zero 0, for example, ephemeral0.
 You can specify either VirtualName or Ebs, but not both.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-virtualname
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-virtualname
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
+
+    .PARAMETER Ebs
+        Parameters used to automatically set up EBS volumes when an instance is launched.
+You can specify either VirtualName or Ebs, but not both.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-ebs
+        UpdateType: Immutable
+        Type: BlockDevice
+
+    .PARAMETER DeviceName
+        The device name exposed to the EC2 instance for example, /dev/sdh or xvdh. For more information, see Device naming on Linux instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html in the *Amazon EC2 User Guide for Linux Instances*.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-devicename
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -53,19 +53,6 @@ You can specify either VirtualName or Ebs, but not both.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DeviceName,
-        [parameter(Mandatory = $false)]
-        $Ebs,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -87,7 +74,20 @@ You can specify either VirtualName or Ebs, but not both.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VirtualName
+        $VirtualName,
+        [parameter(Mandatory = $false)]
+        $Ebs,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DeviceName
     )
     Begin {
         $obj = [PSCustomObject]@{}

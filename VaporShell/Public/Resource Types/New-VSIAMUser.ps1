@@ -6,7 +6,7 @@ function New-VSIAMUser {
     .DESCRIPTION
         Adds an AWS::IAM::User resource to the template. Creates a new IAM user for your AWS account.
 
-For information about limitations on the number of IAM users you can create, see Limitations on IAM Entities: https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html in the *IAM User Guide*.
+For information about quotas for the number of IAM users you can create, see IAM and AWS STS quotas: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html in the *IAM User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
@@ -15,7 +15,7 @@ For information about limitations on the number of IAM users you can create, see
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Groups
-        A list of groups to which you want to add the user.
+        A list of group names to which you want to add the user.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-groups
         DuplicatesAllowed: True
@@ -24,7 +24,9 @@ For information about limitations on the number of IAM users you can create, see
         UpdateType: Mutable
 
     .PARAMETER LoginProfile
-        Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see Managing Passwords: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html in the *IAM User Guide*.
+        Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+You can use the AWS CLI, the AWS API, or the **Users** page in the IAM console to create a password for any IAM user. Use ChangePassword: https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html to update your own existing password in the **My Security Credentials** page in the AWS Management Console.
+For more information about managing passwords, see Managing passwords: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html in the *IAM User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-loginprofile
         Type: LoginProfile
@@ -41,7 +43,7 @@ For more information about ARNs, see Amazon Resource Names ARNs and AWS Service 
         UpdateType: Mutable
 
     .PARAMETER Path
-        The path for the user name. For more information about paths, see IAM Identifiers: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html in the *IAM User Guide*.
+        The path for the user name. For more information about paths, see IAM identifiers: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html in the *IAM User Guide*.
 This parameter is optional. If it is not included, it defaults to a slash /.
 This parameter allows through its regex pattern: http://wikipedia.org/wiki/regex a string of characters consisting of either a forward slash / by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! u0021 through the DEL character u007F, including most punctuation characters, digits, and upper and lowercased letters.
 
@@ -68,8 +70,8 @@ For information about limits on the number of inline policies that you can embed
         UpdateType: Mutable
 
     .PARAMETER Tags
-        A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see Tagging IAM Identities: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html in the *IAM User Guide*.
-If any one of the tags is invalid or if you exceed the allowed number of tags per user, then the entire request fails and the user is not created.
+        A list of tags that you want to attach to the new user. Each tag consists of a key name and an associated value. For more information about tagging, see Tagging IAM resources: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html in the *IAM User Guide*.
+If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-tags
         DuplicatesAllowed: True
@@ -203,6 +205,17 @@ Naming an IAM resource can cause an unrecoverable error if you reuse the same te
                 }
             })]
         $UserName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

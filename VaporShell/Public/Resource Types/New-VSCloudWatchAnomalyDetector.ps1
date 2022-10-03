@@ -33,6 +33,13 @@ function New-VSCloudWatchAnomalyDetector {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-configuration
         UpdateType: Mutable
 
+    .PARAMETER MetricMathAnomalyDetector
+        The CloudWatch metric math expression for this anomaly detector.
+
+        Type: MetricMathAnomalyDetector
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricmathanomalydetector
+        UpdateType: Immutable
+
     .PARAMETER Dimensions
         The dimensions of the metric associated with the anomaly detection band.
 
@@ -46,6 +53,13 @@ function New-VSCloudWatchAnomalyDetector {
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-namespace
         PrimitiveType: String
+        UpdateType: Immutable
+
+    .PARAMETER SingleMetricAnomalyDetector
+        The CloudWatch metric and statistic for this anomaly detector.
+
+        Type: SingleMetricAnomalyDetector
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector
         UpdateType: Immutable
 
     .PARAMETER DeletionPolicy
@@ -110,7 +124,7 @@ function New-VSCloudWatchAnomalyDetector {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -121,7 +135,7 @@ function New-VSCloudWatchAnomalyDetector {
                 }
             })]
         $MetricName,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -135,6 +149,8 @@ function New-VSCloudWatchAnomalyDetector {
         [parameter(Mandatory = $false)]
         $Configuration,
         [parameter(Mandatory = $false)]
+        $MetricMathAnomalyDetector,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudWatch.AnomalyDetector.Dimension"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -145,7 +161,7 @@ function New-VSCloudWatchAnomalyDetector {
                 }
             })]
         $Dimensions,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -156,6 +172,19 @@ function New-VSCloudWatchAnomalyDetector {
                 }
             })]
         $Namespace,
+        [parameter(Mandatory = $false)]
+        $SingleMetricAnomalyDetector,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

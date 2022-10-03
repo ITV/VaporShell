@@ -10,49 +10,49 @@ Describes a rule.
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
 
-    .PARAMETER Actions
-        The actions associated with the rule.
+    .PARAMETER RuleDisabled
+        Specifies whether the rule is disabled.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
-        DuplicatesAllowed: False
-        ItemType: Action
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
         UpdateType: Mutable
-
-    .PARAMETER AwsIotSqlVersion
-        The version of the SQL rules engine to use when evaluating the rule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER Description
-        The description of the rule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
-        PrimitiveType: String
-        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER ErrorAction
         The action to take when an error occurs.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
+        UpdateType: Mutable
         Type: Action
-        UpdateType: Mutable
 
-    .PARAMETER RuleDisabled
-        Specifies whether the rule is disabled.
+    .PARAMETER Description
+        The description of the rule.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
-        PrimitiveType: Boolean
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER AwsIotSqlVersion
+        The version of the SQL rules engine to use when evaluating the rule.
+The default value is 2015-10-08.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Actions
+        The actions associated with the rule.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
+        UpdateType: Mutable
+        Type: List
+        ItemType: Action
 
     .PARAMETER Sql
-        The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference: https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference in the *AWS IoT Developer Guide*.
+        The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference: https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html in the * AWS IoT Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -61,20 +61,9 @@ Describes a rule.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.IoT.TopicRule.Action"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Actions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -82,7 +71,9 @@ Describes a rule.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AwsIotSqlVersion,
+        $RuleDisabled,
+        [parameter(Mandatory = $false)]
+        $ErrorAction,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -95,10 +86,8 @@ Describes a rule.
             })]
         $Description,
         [parameter(Mandatory = $false)]
-        $ErrorAction,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -106,7 +95,18 @@ Describes a rule.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RuleDisabled,
+        $AwsIotSqlVersion,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.IoT.TopicRule.Action"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Actions,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

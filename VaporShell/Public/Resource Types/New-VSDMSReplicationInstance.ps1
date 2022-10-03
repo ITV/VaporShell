@@ -15,7 +15,7 @@ function New-VSDMSReplicationInstance {
     .PARAMETER ReplicationInstanceIdentifier
         The replication instance identifier. This parameter is stored as a lowercase string.
 Constraints:
-+ Must contain from 1 to 63 alphanumeric characters or hyphens.
++ Must contain 1-63 alphanumeric characters or hyphens.
 + First character must be a letter.
 + Can't end with a hyphen or contain two consecutive hyphens.
 Example: myrepinstance
@@ -26,6 +26,7 @@ Example: myrepinstance
 
     .PARAMETER EngineVersion
         The engine version number of the replication instance.
+If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-engineversion
         PrimitiveType: String
@@ -42,11 +43,11 @@ AWS KMS creates the default encryption key for your AWS account. Your AWS accoun
 
     .PARAMETER AvailabilityZone
         The Availability Zone that the replication instance will be created in.
-The default value is a random, system-chosen Availability Zone in the endpoint's AWS Region, for example: us-east-1d
+The default value is a random, system-chosen Availability Zone in the endpoint's , for example: us-east-1d
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-availabilityzone
         PrimitiveType: String
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER PreferredMaintenanceWindow
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time UTC.
@@ -81,6 +82,13 @@ Default: true
         PrimitiveType: Integer
         UpdateType: Mutable
 
+    .PARAMETER ResourceIdentifier
+        A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen '-'. Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as Example-App-ARN1. For example, this value might result in the EndpointArn value arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1. If you don't specify a ResourceIdentifier value, AWS DMS generates a default identifier value for the end of EndpointArn.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-resourceidentifier
+        PrimitiveType: String
+        UpdateType: Immutable
+
     .PARAMETER VpcSecurityGroupIds
         Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
 
@@ -98,8 +106,8 @@ This parameter must be set to true when specifying a value for the EngineVersion
         UpdateType: Mutable
 
     .PARAMETER ReplicationInstanceClass
-        The compute and memory capacity of the replication instance as specified by the replication instance class.
-Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge 
+        The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to "dms.c4.large".
+For more information on the settings and capacities for the available replication instance classes, see  Selecting the right AWS DMS replication instance for your migration: https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationinstanceclass
         PrimitiveType: String
@@ -278,6 +286,17 @@ Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c
             })]
         $AllocatedStorage,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ResourceIdentifier,
+        [parameter(Mandatory = $false)]
         $VpcSecurityGroupIds,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -326,6 +345,17 @@ Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

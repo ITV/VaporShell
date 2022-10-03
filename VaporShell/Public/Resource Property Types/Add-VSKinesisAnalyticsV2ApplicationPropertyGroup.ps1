@@ -1,28 +1,29 @@
 function Add-VSKinesisAnalyticsV2ApplicationPropertyGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.PropertyGroup resource property to the template. Property key-value pairs passed into a Java-based Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::Application.PropertyGroup resource property to the template. Property key-value pairs passed into an application.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.PropertyGroup resource property to the template.
-Property key-value pairs passed into a Java-based Kinesis Data Analytics application.
+Property key-value pairs passed into an application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html
-
-    .PARAMETER PropertyMap
-        Describes the value of an application execution property key-value pair.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertymap
-        PrimitiveType: Json
-        UpdateType: Mutable
 
     .PARAMETER PropertyGroupId
         Describes the key of an application execution property key-value pair.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertygroupid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER PropertyMap
+        Describes the value of an application execution property key-value pair.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertymap
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,17 +34,6 @@ Property key-value pairs passed into a Java-based Kinesis Data Analytics applica
     (
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PropertyMap,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -52,7 +42,10 @@ Property key-value pairs passed into a Java-based Kinesis Data Analytics applica
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PropertyGroupId
+        $PropertyGroupId,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $PropertyMap
     )
     Begin {
         $obj = [PSCustomObject]@{}
@@ -61,20 +54,6 @@ Property key-value pairs passed into a Java-based Kinesis Data Analytics applica
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                PropertyMap {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

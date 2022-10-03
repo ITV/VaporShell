@@ -1,15 +1,11 @@
 function Add-VSWAFv2RuleGroupIPSetReferenceStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.IPSetReferenceStatement resource property to the template. **Note**
+        Adds an AWS::WAFv2::RuleGroup.IPSetReferenceStatement resource property to the template. A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an AWS::WAFv2::IPSet: aws-resource-wafv2-ipset.md that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.IPSetReferenceStatement resource property to the template.
-**Note**
-
-This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
-A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an IPSet that specifies the addresses you want to detect, then use the ARN of that set in this statement. To create an IP set, see CreateIPSet.
+A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an AWS::WAFv2::IPSet: aws-resource-wafv2-ipset.md that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 
 Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 
@@ -17,14 +13,15 @@ Each IP set rule statement references an IP set. You create and maintain the set
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the IPSet that this statement references.
+        The Amazon Resource Name ARN of the AWS::WAFv2::IPSet: aws-resource-wafv2-ipset.md that this statement references.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER IPSetForwardedIPConfig
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For XFF header, but you can specify any header name.
+If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
         UpdateType: Mutable

@@ -6,7 +6,7 @@ function New-VSServiceDiscoveryHttpNamespace {
     .DESCRIPTION
         Adds an AWS::ServiceDiscovery::HttpNamespace resource to the template. The HttpNamespace resource is an AWS Cloud Map resource type that contains information about an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a DiscoverInstances request but can't be discovered using DNS.
 
-For the current limit on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map Limits: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the *AWS Cloud Map Developer Guide*.
+For the current quota on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map quotas: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the *AWS Cloud Map Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html
@@ -19,15 +19,15 @@ For the current limit on the number of namespaces that you can create using the 
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html#cfn-servicediscovery-httpnamespace-description
         PrimitiveType: String
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER Tags
-        +  CreateHttpNamespace: https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateHttpNamespace.html in the *AWS Cloud Map API Reference*
+        The tags for the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html#cfn-servicediscovery-httpnamespace-tags
         ItemType: Tag
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER Name
         The name that you want to assign to this namespace.
@@ -123,6 +123,17 @@ For the current limit on the number of namespaces that you can create using the 
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

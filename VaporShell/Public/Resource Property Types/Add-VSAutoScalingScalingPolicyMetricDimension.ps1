@@ -1,28 +1,28 @@
 function Add-VSAutoScalingScalingPolicyMetricDimension {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.MetricDimension resource property to the template. MetricDimension is a subproperty of CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html that specifies the dimensions of a metric for a target tracking scaling policy. Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric. Duplicate dimensions are not allowed.
+        Adds an AWS::AutoScaling::ScalingPolicy.MetricDimension resource property to the template. MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.MetricDimension resource property to the template.
-MetricDimension is a subproperty of CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html that specifies the dimensions of a metric for a target tracking scaling policy. Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric. Duplicate dimensions are not allowed.
+MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html
-
-    .PARAMETER Name
-        The name of the dimension.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-name
-        PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER Value
         The value of the dimension.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-value
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Name
+        The name of the dimension.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -41,7 +41,7 @@ MetricDimension is a subproperty of CustomizedMetricSpecification: https://docs.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +52,7 @@ MetricDimension is a subproperty of CustomizedMetricSpecification: https://docs.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

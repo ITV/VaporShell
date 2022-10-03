@@ -15,10 +15,10 @@ Information about a host header condition.
 If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-hostheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-hostheaderconfig-values
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

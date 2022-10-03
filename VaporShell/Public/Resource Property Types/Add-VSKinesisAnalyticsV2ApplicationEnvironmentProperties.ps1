@@ -1,11 +1,11 @@
 function Add-VSKinesisAnalyticsV2ApplicationEnvironmentProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.EnvironmentProperties resource property to the template. Describes execution properties for a Java-based Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::Application.EnvironmentProperties resource property to the template. Describes execution properties for a Flink-based Kinesis Data Analytics application.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.EnvironmentProperties resource property to the template.
-Describes execution properties for a Java-based Kinesis Data Analytics application.
+Describes execution properties for a Flink-based Kinesis Data Analytics application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html
@@ -13,10 +13,11 @@ Describes execution properties for a Java-based Kinesis Data Analytics applicati
     .PARAMETER PropertyGroups
         Describes the execution property groups.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html#cfn-kinesisanalyticsv2-application-environmentproperties-propertygroups
-        ItemType: PropertyGroup
         UpdateType: Mutable
+        Type: List
+        ItemType: PropertyGroup
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,10 +1,12 @@
 function New-VSManagedBlockchainNode {
     <#
     .SYNOPSIS
-        Adds an AWS::ManagedBlockchain::Node resource to the template. Creates a peer node in a member.
+        Adds an AWS::ManagedBlockchain::Node resource to the template. Creates a node on the specified blockchain network.
 
     .DESCRIPTION
-        Adds an AWS::ManagedBlockchain::Node resource to the template. Creates a peer node in a member.
+        Adds an AWS::ManagedBlockchain::Node resource to the template. Creates a node on the specified blockchain network.
+
+Applies to Hyperledger Fabric and Ethereum.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html
@@ -13,14 +15,18 @@ function New-VSManagedBlockchainNode {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER MemberId
-        The unique identifier of the member to which the node belongs.
+        The unique identifier of the member to which the node belongs. Applies only to Hyperledger Fabric.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-memberid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NetworkId
-        The unique identifier of the network that the node is in.
+        The unique identifier of the network for the node.
+Ethereum public networks have the following NetworkIds:
++  n-ethereum-mainnet
++  n-ethereum-rinkeby
++  n-ethereum-ropsten
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-networkid
         PrimitiveType: String
@@ -95,7 +101,7 @@ function New-VSManagedBlockchainNode {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,6 +125,17 @@ function New-VSManagedBlockchainNode {
         $NetworkId,
         [parameter(Mandatory = $true)]
         $NodeConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -12,6 +12,13 @@ Any expression used must return a single time series. For more information, see 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html
 
+    .PARAMETER AccountId
+        The ID of the account where the metrics are located, if this is a cross-account alarm.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-accountid
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER Expression
         The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the Id of the other metrics to refer to those metrics, and can also use the Id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax in the *Amazon CloudWatch User Guide*.
 Within each MetricDataQuery object, you must specify either Expression or MetricStat but not both.
@@ -43,14 +50,16 @@ Within one MetricDataQuery object, you must specify either Expression or MetricS
         UpdateType: Mutable
 
     .PARAMETER Period
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute 60 seconds and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a PutMetricData operation that includes a StorageResolution of 1 second.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-period
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ReturnData
-        This option indicates whether to return the timestamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify False. If you omit this, the default of True is used.
+        This option indicates whether to return the timestamps and raw data values of this metric.
+When you create an alarm based on a metric math expression, specify True for this value for only the one math expression that the alarm is based on. You must specify False for ReturnData for all the other metrics and expressions used in the alarm.
+This field is required.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-returndata
         PrimitiveType: Boolean
@@ -63,6 +72,17 @@ Within one MetricDataQuery object, you must specify either Expression or MetricS
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AccountId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

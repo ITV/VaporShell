@@ -1,31 +1,37 @@
 function Add-VSS3BucketDefaultRetention {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.DefaultRetention resource property to the template. The default retention period that you want to apply to new objects placed in the specified bucket.
+        Adds an AWS::S3::Bucket.DefaultRetention resource property to the template. The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.DefaultRetention resource property to the template.
-The default retention period that you want to apply to new objects placed in the specified bucket.
+The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+
+**Note**
+
+The DefaultRetention settings require both a mode and a period.
+
+The DefaultRetention period can be either Days or Years but you must select one. You cannot specify Days and Years at the same time.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html
 
     .PARAMETER Days
-        The number of days that you want to specify for the default retention period.
+        The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify Mode and specify either Days or Years.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-days
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Mode
-        The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
+        The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify Mode and specify either Days or Years.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-mode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Years
-        The number of years that you want to specify for the default retention period.
+        The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify Mode and specify either Days or Years.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-years
         PrimitiveType: Integer

@@ -1,20 +1,27 @@
 function Add-VSFSxFileSystemWindowsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::FileSystem.WindowsConfiguration resource property to the template. The Microsoft Windows configuration for the file system being created.
+        Adds an AWS::FSx::FileSystem.WindowsConfiguration resource property to the template. The Microsoft Windows configuration for the file system that's being created.
 
     .DESCRIPTION
         Adds an AWS::FSx::FileSystem.WindowsConfiguration resource property to the template.
-The Microsoft Windows configuration for the file system being created.
+The Microsoft Windows configuration for the file system that's being created.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html
 
     .PARAMETER SelfManagedActiveDirectoryConfiguration
-        The configuration that Amazon FSx uses to join the Windows File Server instance to your self-managed including on-premises Microsoft Active Directory AD directory.
+        The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine SVM to a self-managed including on-premises Microsoft Active Directory AD directory. For more information, see  Using Amazon FSx with your self-managed Microsoft Active Directory: https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html or Managing SVMs: https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html.
 
         Type: SelfManagedActiveDirectoryConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration
+        UpdateType: Mutable
+
+    .PARAMETER AuditLogConfiguration
+        The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
+
+        Type: AuditLogConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-auditlogconfiguration
         UpdateType: Mutable
 
     .PARAMETER WeeklyMaintenanceStartTime
@@ -42,15 +49,30 @@ For more information, see  Availability and Durability: Single-AZ and Multi-AZ F
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER Aliases
+        An array of one or more DNS alias names that you want to associate with the Amazon FSx file system. Aliases allow you to use existing DNS names to access the data in your Amazon FSx file system. You can associate up to 50 aliases with a file system at any time.
+For more information, see Working with DNS Aliases: https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html and Walkthrough 5: Using DNS aliases to access your file system: https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html, including additional steps you must take to be able to access your file system using a DNS alias.
+An alias name has to meet the following requirements:
++ Formatted as a fully-qualified domain name FQDN, hostname.domain, for example, accounting.example.com.
++ Can contain alphanumeric characters, the underscore _, and the hyphen -.
++ Cannot start or end with a hyphen.
++ Can start with a numeric.
+For DNS alias names, Amazon FSx stores alphabetical characters as lowercase letters a-z, regardless of how you specify them: as uppercase letters, lowercase letters, or the corresponding letters in escape codes.
+
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-aliases
+        UpdateType: Mutable
+
     .PARAMETER ThroughputCapacity
-        The throughput of an Amazon FSx file system, measured in megabytes per second, in 2 to the *n*th increments, between 2^3 8 and 2^11 2048.
+        Sets the throughput capacity of an Amazon FSx file system, measured in megabytes per second MB/s, in 2 to the *n*th increments, between 2^3 8 and 2^11 2048.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-throughputcapacity
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER CopyTagsToBackups
-        A boolean flag indicating whether tags for the file system should be copied to backups. This value defaults to false. If it's set to true, all tags for the file system are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value.
+        A Boolean flag indicating whether tags for the file system should be copied to backups. This value defaults to false. If it's set to true, all tags for the file system are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-copytagstobackups
         PrimitiveType: Boolean
@@ -64,7 +86,7 @@ For more information, see  Availability and Durability: Single-AZ and Multi-AZ F
         UpdateType: Mutable
 
     .PARAMETER AutomaticBackupRetentionDays
-        The number of days to retain automatic backups. The default is to retain backups for 7 days. Setting this value to 0 disables the creation of automatic backups. The maximum retention period for backups is 35 days.
+        The number of days to retain automatic backups. The default is to retain backups for 7 days. Setting this value to 0 disables the creation of automatic backups. The maximum retention period for backups is 90 days.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-automaticbackupretentiondays
         PrimitiveType: Integer
@@ -86,6 +108,8 @@ For more information, see  Availability and Durability: Single-AZ and Multi-AZ F
     (
         [parameter(Mandatory = $false)]
         $SelfManagedActiveDirectoryConfiguration,
+        [parameter(Mandatory = $false)]
+        $AuditLogConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -120,6 +144,8 @@ For more information, see  Availability and Durability: Single-AZ and Multi-AZ F
             })]
         $DeploymentType,
         [parameter(Mandatory = $false)]
+        $Aliases,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

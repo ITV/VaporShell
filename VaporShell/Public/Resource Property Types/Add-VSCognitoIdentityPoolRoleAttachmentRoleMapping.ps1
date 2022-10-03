@@ -34,7 +34,7 @@ Valid values are AuthenticatedRole or Deny.
         UpdateType: Mutable
 
     .PARAMETER IdentityProvider
-        Identifier for the identity provider for which the role is mapped. For example: "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id http://cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". This is the identity provider that is used by the user for authentication.
+        Identifier for the identity provider for which the role is mapped. For example: graph.facebook.com or cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id http://cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id. This is the identity provider that is used by the user for authentication.
 If the identity provider property isn't provided, the key of the entry in the RoleMappings map is used as the identity provider.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-identityprovider

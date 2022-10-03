@@ -1,21 +1,24 @@
 function Add-VSGameLiftFleetCertificateConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::Fleet.CertificateConfiguration resource property to the template. Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
+        Adds an AWS::GameLift::Fleet.CertificateConfiguration resource property to the template. Determines whether a TLS/SSL certificate is generated for a fleet. This feature must be enabled when creating the fleet. All instances in a fleet share the same certificate. The certificate can be retrieved by calling the GameLift Server SDK: https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html operation GetInstanceCertificate.
 
     .DESCRIPTION
         Adds an AWS::GameLift::Fleet.CertificateConfiguration resource property to the template.
-Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
+Determines whether a TLS/SSL certificate is generated for a fleet. This feature must be enabled when creating the fleet. All instances in a fleet share the same certificate. The certificate can be retrieved by calling the GameLift Server SDK: https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html operation GetInstanceCertificate.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html
 
     .PARAMETER CertificateType
-        Indicates whether a TLS/SSL certificate is generated for the fleet.
+        Indicates whether a TLS/SSL certificate is generated for a fleet.
+Valid values include:
++  **GENERATED** - Generate a TLS/SSL certificate for this fleet.
++  **DISABLED** - default Do not generate a TLS/SSL certificate for this fleet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

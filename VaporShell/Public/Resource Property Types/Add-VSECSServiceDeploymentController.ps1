@@ -11,8 +11,7 @@ The deployment controller to use for the service. For more information, see Amaz
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html
 
     .PARAMETER Type
-        The deployment controller type to use.
-There are three deployment controller types available:
+        The deployment controller type to use. There are three deployment controller types available:
 ECS
 The rolling update ECS deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html.
 CODE_DEPLOY
@@ -21,8 +20,8 @@ EXTERNAL
 The external EXTERNAL deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

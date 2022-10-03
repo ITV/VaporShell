@@ -6,6 +6,8 @@ function New-VSEMRCluster {
     .DESCRIPTION
         Adds an AWS::EMR::Cluster resource to the template. The AWS::EMR::Cluster resource specifies an Amazon EMR cluster. This cluster is a collection of Amazon EC2 instances that run open source big data frameworks and applications to process and analyze vast amounts of data. For more information, see the Amazon EMR Management Guide: https://docs.aws.amazon.com/emr/latest/ManagementGuide/.
 
+Amazon EMR now supports launching task instance groups and task instance fleets as part of the AWS::EMR::Cluster resource. This can be done by using the JobFlowInstancesConfig property type's TaskInstanceGroups and TaskInstanceFleets subproperties. Using these subproperties reduces delays in provisioning task nodes compared to specifying task nodes with the AWS::EMR::InstanceGroupConfig and AWS::EMR::InstanceFleetConfig resources. Please refer to the examples at the bottom of this page to learn how to use these subproperties.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html
 
@@ -35,6 +37,11 @@ function New-VSEMRCluster {
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER AutoTerminationPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-autoterminationpolicy
+        Type: AutoTerminationPolicy
+        UpdateType: Mutable
+
     .PARAMETER BootstrapActions
         A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
 
@@ -61,7 +68,7 @@ function New-VSEMRCluster {
         UpdateType: Immutable
 
     .PARAMETER EbsRootVolumeSize
-        The size, in GiB, of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+        The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-ebsrootvolumesize
         PrimitiveType: Integer
@@ -82,10 +89,17 @@ function New-VSEMRCluster {
         UpdateType: Immutable
 
     .PARAMETER KerberosAttributes
-        Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see Use Kerberos Authentication: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html in the *EMR Management Guide*.
+        Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see Use Kerberos Authentication: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html in the *Amazon EMR Management Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-kerberosattributes
         Type: KerberosAttributes
+        UpdateType: Immutable
+
+    .PARAMETER LogEncryptionKmsKeyId
+        The AWS KMS key used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-logencryptionkmskeyid
+        PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER LogUri
@@ -94,6 +108,13 @@ function New-VSEMRCluster {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
         PrimitiveType: String
         UpdateType: Immutable
+
+    .PARAMETER ManagedScalingPolicy
+        Creates or updates a managed scaling policy for an Amazon EMR cluster. The managed scaling policy defines the limits for resources, such as EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-managedscalingpolicy
+        Type: ManagedScalingPolicy
+        UpdateType: Mutable
 
     .PARAMETER Name
         The name of the cluster.
@@ -110,7 +131,7 @@ function New-VSEMRCluster {
         UpdateType: Immutable
 
     .PARAMETER ScaleDownBehavior
-        The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. TERMINATE_AT_INSTANCE_HOUR indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. TERMINATE_AT_TASK_COMPLETION indicates that Amazon EMR blacklists and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. TERMINATE_AT_TASK_COMPLETION is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
+        The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. TERMINATE_AT_INSTANCE_HOUR indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. TERMINATE_AT_TASK_COMPLETION indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. TERMINATE_AT_TASK_COMPLETION is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-scaledownbehavior
         PrimitiveType: String
@@ -124,11 +145,18 @@ function New-VSEMRCluster {
         UpdateType: Immutable
 
     .PARAMETER ServiceRole
-        The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
+        The IAM role that Amazon EMR assumes in order to access AWS resources on your behalf.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-servicerole
         PrimitiveType: String
         UpdateType: Immutable
+
+    .PARAMETER StepConcurrencyLevel
+        Specifies the number of steps that can be executed concurrently. The default value is 1. The maximum value is 256.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-stepconcurrencylevel
+        PrimitiveType: Integer
+        UpdateType: Mutable
 
     .PARAMETER Steps
         A list of steps to run.
@@ -252,6 +280,8 @@ When you create clusters directly through the EMR console or API, this value is 
             })]
         $AutoScalingRole,
         [parameter(Mandatory = $false)]
+        $AutoTerminationPolicy,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EMR.Cluster.BootstrapActionConfig"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -320,7 +350,20 @@ When you create clusters directly through the EMR console or API, this value is 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $LogEncryptionKmsKeyId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $LogUri,
+        [parameter(Mandatory = $false)]
+        $ManagedScalingPolicy,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -378,6 +421,17 @@ When you create clusters directly through the EMR console or API, this value is 
         $ServiceRole,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StepConcurrencyLevel,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EMR.Cluster.StepConfig"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -401,6 +455,17 @@ When you create clusters directly through the EMR console or API, this value is 
                 }
             })]
         $VisibleToAllUsers,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

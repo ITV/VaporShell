@@ -1,11 +1,11 @@
 function Add-VSIAMUserLoginProfile {
     <#
     .SYNOPSIS
-        Adds an AWS::IAM::User.LoginProfile resource property to the template. Contains the user name and password create date for a user.
+        Adds an AWS::IAM::User.LoginProfile resource property to the template. Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see Managing Passwords: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html in the *IAM User Guide*.
 
     .DESCRIPTION
         Adds an AWS::IAM::User.LoginProfile resource property to the template.
-Contains the user name and password create date for a user.
+Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see Managing Passwords: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html in the *IAM User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html

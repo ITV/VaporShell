@@ -11,7 +11,7 @@ The configuration of the workgroup, which includes the location in Amazon S3 whe
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
 
     .PARAMETER BytesScannedCutoffPerQuery
-        The upper limit cutoff for the amount of bytes a single query in a workgroup is allowed to scan.
+        The upper limit cutoff for the amount of bytes a single query in a workgroup is allowed to scan. No default is defined.
 This property currently supports integer types. Support for long values is planned.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
@@ -45,6 +45,13 @@ This property currently supports integer types. Support for long values is plann
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
         UpdateType: Mutable
         Type: ResultConfiguration
+
+    .PARAMETER EngineVersion
+        The engine version that all queries running on the workgroup use. Queries on the AmazonAthenaPreviewFunctionality workgroup run on the preview engine regardless of this setting.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
+        UpdateType: Mutable
+        Type: EngineVersion
 
     .FUNCTIONALITY
         Vaporshell
@@ -98,7 +105,9 @@ This property currently supports integer types. Support for long values is plann
             })]
         $RequesterPaysEnabled,
         [parameter(Mandatory = $false)]
-        $ResultConfiguration
+        $ResultConfiguration,
+        [parameter(Mandatory = $false)]
+        $EngineVersion
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,10 +1,16 @@
 function New-VSResourceGroupsGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::ResourceGroups::Group resource to the template. Creates a group with a specified name, description, and resource query.
+        Adds an AWS::ResourceGroups::Group resource to the template. Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see Build queries and groups in AWS Resource Groups: https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html in the * AWS Resource Groups User Guide*. For more information about service-linked groups and service configurations, see Service configurations for Resource Groups: https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html.
 
     .DESCRIPTION
-        Adds an AWS::ResourceGroups::Group resource to the template. Creates a group with a specified name, description, and resource query.
+        Adds an AWS::ResourceGroups::Group resource to the template. Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see Build queries and groups in AWS Resource Groups: https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html in the * AWS Resource Groups User Guide*. For more information about service-linked groups and service configurations, see Service configurations for Resource Groups: https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html.
+
+**Minimum permissions**
+
+To run this command, you must have the following permissions:
+
++  resource-groups:CreateGroup
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html
@@ -13,7 +19,7 @@ function New-VSResourceGroupsGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Name
-        The name of a resource group. Specify a name that is unique in the Region. To create multiple resource groups based on the same CloudFormation stack, use unique names for each.
+        The name of a resource group. The name must be unique within the AWS Region in which you create the resource. To create multiple resource groups based on the same CloudFormation stack, you must generate unique names for each.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-name
         UpdateType: Immutable
@@ -27,19 +33,40 @@ function New-VSResourceGroupsGroup {
         PrimitiveType: String
 
     .PARAMETER ResourceQuery
-        The resource query that determines which AWS resources are members of the associated resource group.
+        The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see Build queries and groups in AWS Resource Groups: https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html in the *AWS Resource Groups User Guide*
++ You can include either a ResourceQuery or a Configuration, but not both.
++ You can specify the group's membership either by using a ResourceQuery or by using a list of Resources, but not both.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
         UpdateType: Mutable
         Type: ResourceQuery
 
     .PARAMETER Tags
-        The tags associated with the specified resource group.
+        The tag key and value pairs that are attached to the resource group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+
+    .PARAMETER Configuration
+        The service configuration currently associated with the resource group and in effect for the members of the resource group. A Configuration consists of one or more ConfigurationItem entries. For information about service configurations for resource groups and how to construct them, see Service configurations for resource groups: https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html in the *AWS Resource Groups User Guide*.
+You can include either a Configuration or a ResourceQuery, but not both.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
+        UpdateType: Mutable
+        Type: List
+        ItemType: ConfigurationItem
+
+    .PARAMETER Resources
+        A list of the Amazon Resource Names ARNs of AWS resources that you want to add to the specified group.
++ You can specify the group membership either by using a list of Resources or by using a ResourceQuery, but not both.
++ You can include a Resources property only if you also specify a Configuration property.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -130,6 +157,30 @@ function New-VSResourceGroupsGroup {
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ResourceGroups.Group.ConfigurationItem"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Configuration,
+        [parameter(Mandatory = $false)]
+        $Resources,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -198,6 +249,18 @@ function New-VSResourceGroupsGroup {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                Configuration {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Configuration -Value @($Configuration)
+                }
+                Resources {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Resources -Value @($Resources)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

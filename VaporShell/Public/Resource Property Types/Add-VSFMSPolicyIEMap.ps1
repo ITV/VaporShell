@@ -1,13 +1,21 @@
 function Add-VSFMSPolicyIEMap {
     <#
     .SYNOPSIS
-        Adds an AWS::FMS::Policy.IEMap resource property to the template. Specifies the AWS account IDs to exclude from or include in the policy. Used for the policy's IncludeMap and ExcludeMap.
+        Adds an AWS::FMS::Policy.IEMap resource property to the template. Specifies the AWS account IDs and AWS Organizations organizational units (OUs to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 
     .DESCRIPTION
         Adds an AWS::FMS::Policy.IEMap resource property to the template.
-Specifies the AWS account IDs to exclude from or include in the policy. Used for the policy's IncludeMap and ExcludeMap.
+Specifies the AWS account IDs and AWS Organizations organizational units (OUs to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 
-The key to the map is ACCOUNT. For example, a valid IEMap would be {“ACCOUNT” : “accountID1”, “accountID2”]}.
+This is used for the policy's IncludeMap and ExcludeMap.
+
+You can specify account IDs, OUs, or a combination:
+
++ Specify account IDs by setting the key to ACCOUNT. For example, the following is a valid map: {“ACCOUNT” : “accountID1”, “accountID2”]}.
+
++ Specify OUs by setting the key to ORGUNIT. For example, the following is a valid map: {“ORGUNIT” : “ouid111”, “ouid112”]}.
+
++ Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: {“ACCOUNT” : “accountID1”, “accountID2”], “ORGUNIT” : “ouid111”, “ouid112”]}.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
@@ -21,7 +29,7 @@ The key to the map is ACCOUNT. For example, a valid IEMap would be {“ACCOUNT�
         PrimitiveItemType: String
 
     .PARAMETER ORGUNIT
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        The organizational unit list for the map.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
         UpdateType: Mutable

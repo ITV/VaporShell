@@ -13,10 +13,11 @@ The definition of the input.
     .PARAMETER Attributes
         The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using BatchPutMessage. Each such message contains a JSON payload, and those attributes and their paired values specified here are available for use in the condition expressions used by detectors that monitor this input.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes
-        ItemType: Attribute
         UpdateType: Mutable
+        Type: List
+        ItemType: Attribute
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
@@ -25,7 +26,7 @@ The definition of the input.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTEvents.Input.Attribute"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

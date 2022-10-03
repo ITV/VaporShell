@@ -11,7 +11,7 @@ An object that represents the backends that a virtual node is expected to send o
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html
 
     .PARAMETER VirtualService
-        Specifies a virtual service to use as a backend for a virtual node.
+        Specifies a virtual service to use as a backend.
 
         Type: VirtualServiceBackend
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html#cfn-appmesh-virtualnode-backend-virtualservice

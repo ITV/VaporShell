@@ -1,13 +1,13 @@
 function Add-VSSESReceiptFilterIpFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::ReceiptFilter.IpFilter resource property to the template. Receipt IP address filters enable you to specifically accept or reject incoming email that originates from an IP address or range of IP addresses.
+        Adds an AWS::SES::ReceiptFilter.IpFilter resource property to the template. A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.
 
     .DESCRIPTION
         Adds an AWS::SES::ReceiptFilter.IpFilter resource property to the template.
-Receipt IP address filters enable you to specifically accept or reject incoming email that originates from an IP address or range of IP addresses.
+A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.
 
-For information about setting up IP address filters, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html.
+For information about setting up IP address filters, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html
@@ -20,7 +20,7 @@ For information about setting up IP address filters, see the Amazon SES Develope
         UpdateType: Mutable
 
     .PARAMETER Cidr
-        An IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing CIDR notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see RFC 2317: https://tools.ietf.org/html/rfc2317.
+        A single IP address or a range of IP addresses to block or allow, specified in Classless Inter-Domain Routing CIDR notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see RFC 2317: https://tools.ietf.org/html/rfc2317.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-cidr
         PrimitiveType: String

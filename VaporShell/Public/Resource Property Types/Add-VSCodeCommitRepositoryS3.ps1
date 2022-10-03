@@ -1,31 +1,31 @@
 function Add-VSCodeCommitRepositoryS3 {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeCommit::Repository.S3 resource property to the template. Information about the Amazon S3 bucket that contains the code that will be committed to the new repository.
+        Adds an AWS::CodeCommit::Repository.S3 resource property to the template. Information about the Amazon S3 bucket that contains the code that will be committed to the new repository. Changes to this property are ignored after initial resource creation.
 
     .DESCRIPTION
         Adds an AWS::CodeCommit::Repository.S3 resource property to the template.
-Information about the Amazon S3 bucket that contains the code that will be committed to the new repository.
+Information about the Amazon S3 bucket that contains the code that will be committed to the new repository. Changes to this property are ignored after initial resource creation.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-s3.html
 
     .PARAMETER ObjectVersion
-        The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
+        The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket. Changes to this property are ignored after initial resource creation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-s3.html#cfn-codecommit-repository-s3-objectversion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Bucket
-        The name of the Amazon S3 bucket that contains the ZIP file with the content that will be committed to the new repository.
+        The name of the Amazon S3 bucket that contains the ZIP file with the content that will be committed to the new repository. This can be specified using the name of the bucket in the AWS account. Changes to this property are ignored after initial resource creation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-s3.html#cfn-codecommit-repository-s3-bucket
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Key
-        The key to use for accessing the Amazon S3 bucket.
+        The key to use for accessing the Amazon S3 bucket. Changes to this property are ignored after initial resource creation. For more information, see Creating object key names: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html and Uploading objects: https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html in the Amazon S3 User Guide.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-s3.html#cfn-codecommit-repository-s3-key
         PrimitiveType: String

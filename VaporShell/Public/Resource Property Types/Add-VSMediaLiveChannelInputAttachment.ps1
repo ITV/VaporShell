@@ -26,6 +26,13 @@ This entity is at the top level in the channel.
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER AutomaticInputFailoverSettings
+        Settings to implement automatic input failover in this input.
+
+        Type: AutomaticInputFailoverSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-automaticinputfailoversettings
+        UpdateType: Mutable
+
     .PARAMETER InputSettings
         Information about the content to extract from the input and about the general handling of the content.
 
@@ -62,6 +69,8 @@ This entity is at the top level in the channel.
                 }
             })]
         $InputId,
+        [parameter(Mandatory = $false)]
+        $AutomaticInputFailoverSettings,
         [parameter(Mandatory = $false)]
         $InputSettings
     )

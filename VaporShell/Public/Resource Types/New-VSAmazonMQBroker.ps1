@@ -6,7 +6,7 @@ function New-VSAmazonMQBroker {
     .DESCRIPTION
         Adds an AWS::AmazonMQ::Broker resource to the template. A *broker* is a message broker environment running on Amazon MQ. It is the basic building block of Amazon MQ.
 
-The AWS::AmazonMQ::Broker resource lets you create Amazon MQ brokers, add configuration changes or modify users for the specified broker, return information about the specified broker, and delete the specified broker. For more information, see Amazon MQ Basic Elements: https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-basic-elements.html in the *Amazon MQ Developer Guide*.
+The AWS::AmazonMQ::Broker resource lets you create Amazon MQ for ActiveMQ and Amazon MQ for RabbitMQ brokers, add configuration changes or modify users for a speified ActiveMQ broker, return information about the specified broker, and delete the broker. For more information, see How Amazon MQ works: https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-how-it-works.html in the *Amazon MQ Developer Guide*.
 
 + ec2:CreateNetworkInterface
 
@@ -65,27 +65,24 @@ This permission is required to attach the ENI to the broker instance.
         UpdateType: Mutable
 
     .PARAMETER Configuration
-        A list of information about the configuration.
+        A list of information about the configuration. Does not apply to RabbitMQ brokers.
 
         Type: ConfigurationId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-configuration
         UpdateType: Mutable
 
     .PARAMETER AuthenticationStrategy
+        Optional. The authentication strategy used to secure the broker. The default is SIMPLE.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER MaintenanceWindowStartTime
-        The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker..
+        The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
 
         Type: MaintenanceWindow
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime
-        UpdateType: Immutable
-
-    .PARAMETER LdapMetadata
-        Type: LdapMetadata
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapmetadata
         UpdateType: Mutable
 
     .PARAMETER HostInstanceType
@@ -96,14 +93,14 @@ This permission is required to attach the ENI to the broker instance.
         UpdateType: Mutable
 
     .PARAMETER AutoMinorVersionUpgrade
-        Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+        Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Users
-        The list of ActiveMQ users persons or applications who can access queues and topics. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes - . _ ~. This value must be 2-100 characters long.
+        The list of broker users persons or applications who can access queues and topics. For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent RabbitMQ users are created by via the RabbitMQ web console or by using the RabbitMQ management API.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
@@ -118,7 +115,8 @@ This permission is required to attach the ENI to the broker instance.
         UpdateType: Mutable
 
     .PARAMETER SubnetIds
-        The list of groups 2 maximum that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet for example, the default subnet. An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+        The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet for example, the default subnet. An ACTIVE_STANDBY_MULTI_AZ deployment ACTIVEMQ requires two subnets. A CLUSTER_MULTI_AZ deployment RABBITMQ has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+If you specify subnets in a shared VPC for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account. Amazon MQ will not be able to create VPC enpoints in VPCs that are not owned by your AWS account.
 
         PrimitiveItemType: String
         Type: List
@@ -127,12 +125,15 @@ This permission is required to attach the ENI to the broker instance.
 
     .PARAMETER BrokerName
         The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
+Do not add personally identifiable information PII or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including CCloudWatch Logs. Broker names are not intended to be used for private or sensitive data.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-brokername
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER LdapServerMetadata
+        Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.
+
         Type: LdapServerMetadata
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata
         UpdateType: Mutable
@@ -141,13 +142,14 @@ This permission is required to attach the ENI to the broker instance.
         The deployment mode of the broker. Available values:
 + SINGLE_INSTANCE
 + ACTIVE_STANDBY_MULTI_AZ
++ CLUSTER_MULTI_AZ
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER EngineType
-        The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ.
+        The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype
         PrimitiveType: String
@@ -161,14 +163,14 @@ This permission is required to attach the ENI to the broker instance.
         UpdateType: Immutable
 
     .PARAMETER EncryptionOptions
-        Encryption options for the broker.
+        Encryption options for the broker. Does not apply to RabbitMQ brokers.
 
         Type: EncryptionOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-encryptionoptions
         UpdateType: Immutable
 
     .PARAMETER Tags
-        An array of key-value pairs. For more information, see Using Cost Allocation Tags: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html in the *AWS Billing and Cost Management User Guide*.
+        An array of key-value pairs. For more information, see Using Cost Allocation Tags: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html in the *Billing and Cost Management User Guide*.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags
@@ -276,8 +278,6 @@ This permission is required to attach the ENI to the broker instance.
         $AuthenticationStrategy,
         [parameter(Mandatory = $false)]
         $MaintenanceWindowStartTime,
-        [parameter(Mandatory = $false)]
-        $LdapMetadata,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -374,6 +374,17 @@ This permission is required to attach the ENI to the broker instance.
                 }
             })]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

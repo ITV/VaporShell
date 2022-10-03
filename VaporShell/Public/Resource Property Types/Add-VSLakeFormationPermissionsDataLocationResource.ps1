@@ -17,6 +17,13 @@ A structure for a data location object where permissions are granted or revoked.
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER CatalogId
+        Not currently supported by AWS CloudFormation.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-catalogid
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -34,7 +41,18 @@ A structure for a data location object where permissions are granted or revoked.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3Resource
+        $S3Resource,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CatalogId
     )
     Begin {
         $obj = [PSCustomObject]@{}

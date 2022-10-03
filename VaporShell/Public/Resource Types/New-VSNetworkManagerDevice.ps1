@@ -14,7 +14,7 @@ function New-VSNetworkManagerDevice {
 
     .PARAMETER Description
         A description of the device.
-Length Constraints: Maximum length of 256 characters.
+Constraints: Maximum length of 256 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
         UpdateType: Mutable
@@ -44,7 +44,7 @@ Length Constraints: Maximum length of 256 characters.
 
     .PARAMETER Model
         The model of the device.
-Length Constraints: Maximum length of 128 characters.
+Constraints: Maximum length of 128 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
         UpdateType: Mutable
@@ -52,7 +52,7 @@ Length Constraints: Maximum length of 128 characters.
 
     .PARAMETER SerialNumber
         The serial number of the device.
-Length Constraints: Maximum length of 128 characters.
+Constraints: Maximum length of 128 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
         UpdateType: Mutable
@@ -74,7 +74,7 @@ Length Constraints: Maximum length of 128 characters.
 
     .PARAMETER Vendor
         The vendor of the device.
-Length Constraints: Maximum length of 128 characters.
+Constraints: Maximum length of 128 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
         UpdateType: Mutable
@@ -224,6 +224,17 @@ Length Constraints: Maximum length of 128 characters.
                 }
             })]
         $Vendor,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -1,0 +1,74 @@
+function Add-VSGlueCrawlerMongoDBTarget {
+    <#
+    .SYNOPSIS
+        Adds an AWS::Glue::Crawler.MongoDBTarget resource property to the template. Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+
+    .DESCRIPTION
+        Adds an AWS::Glue::Crawler.MongoDBTarget resource property to the template.
+Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+
+    .LINK
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html
+
+    .PARAMETER ConnectionName
+        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html#cfn-glue-crawler-mongodbtarget-connectionname
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER Path
+        The path of the Amazon DocumentDB or MongoDB target database/collection.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html#cfn-glue-crawler-mongodbtarget-path
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .FUNCTIONALITY
+        Vaporshell
+    #>
+    [OutputType('Vaporshell.Resource.Glue.Crawler.MongoDBTarget')]
+    [cmdletbinding()]
+    Param
+    (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ConnectionName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Path
+    )
+    Begin {
+        $obj = [PSCustomObject]@{}
+        $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
+    }
+    Process {
+        foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
+            switch ($key) {
+                Default {
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
+                }
+            }
+        }
+    }
+    End {
+        $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Crawler.MongoDBTarget'
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
+    }
+}

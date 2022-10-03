@@ -10,6 +10,13 @@ MinimumHealthyHosts is a property of the DeploymentConfig: https://docs.aws.amaz
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html
 
+    .PARAMETER Value
+        The minimum healthy instance value.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts-value
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
     .PARAMETER Type
         The minimum healthy instance type:
 + HOST_COUNT: The minimum number of healthy instance as an absolute value.
@@ -19,15 +26,8 @@ In a call to GetDeploymentConfig, CodeDeployDefault.OneAtATime returns a minimum
 For more information, see AWS CodeDeploy Instance Health: https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html in the *AWS CodeDeploy User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts-type
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER Value
-        The minimum healthy instance value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts-value
-        PrimitiveType: Integer
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,17 +38,6 @@ For more information, see AWS CodeDeploy Instance Health: https://docs.aws.amazo
     (
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Type,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -57,7 +46,18 @@ For more information, see AWS CodeDeploy Instance Health: https://docs.aws.amazo
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Value,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Type
     )
     Begin {
         $obj = [PSCustomObject]@{}

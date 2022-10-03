@@ -17,6 +17,13 @@ An object that represents the specification of a service mesh.
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html#cfn-appmesh-mesh-meshspec-egressfilter
         UpdateType: Mutable
 
+    .PARAMETER ServiceDiscovery
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Type: MeshServiceDiscovery
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html#cfn-appmesh-mesh-meshspec-servicediscovery
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -25,7 +32,9 @@ An object that represents the specification of a service mesh.
     Param
     (
         [parameter(Mandatory = $false)]
-        $EgressFilter
+        $EgressFilter,
+        [parameter(Mandatory = $false)]
+        $ServiceDiscovery
     )
     Begin {
         $obj = [PSCustomObject]@{}

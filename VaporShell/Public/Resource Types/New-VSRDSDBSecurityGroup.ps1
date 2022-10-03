@@ -8,9 +8,7 @@ function New-VSRDSDBSecurityGroup {
 
 **Note**
 
-If you use DB security groups, the settings that you can specify for your DB instances are limited. For more information, see the DBSecurityGroups: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups property of the AWS::RDS::DBInstance resource.
-
-When you specify an AWS::RDS::DBSecurityGroup as an argument to the Ref function, AWS CloudFormation returns the value of the DBSecurityGroupName.
+DB security groups are a part of the EC2-Classic Platform and as such are not supported in all regions. It is advised to use the AWS::EC2::SecurityGroup resource in those regions instead. To determine which platform you are on, see Determining Whether You Are Using the EC2-VPC or EC2-Classic Platform: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.FindDefaultVPC.html. For more information on the AWS::EC2::SecurityGroup, see the documentation for EC2 security groups: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html
@@ -36,7 +34,7 @@ The EC2VpcId property is for backward compatibility with older regions, and is n
         UpdateType: Immutable
 
     .PARAMETER GroupDescription
-        Provides the description of the DB Security Group.
+        Provides the description of the DB security group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-groupdescription
         PrimitiveType: String
@@ -149,6 +147,17 @@ The EC2VpcId property is for backward compatibility with older regions, and is n
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

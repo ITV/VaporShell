@@ -20,21 +20,28 @@ function New-VSGuardDutyIPSet {
         UpdateType: Immutable
 
     .PARAMETER Activate
-        Indicated whether or not GuardDuty uses the IPSet.
+        Indicates whether or not GuardDuty uses the IPSet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-activate
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER DetectorId
-        The unique ID of the detector for the GuardDuty service to associate the IPSet with.
+        The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-detectorid
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER Tags
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-tags
+        ItemType: Tag
+        UpdateType: Mutable
+
     .PARAMETER Name
-        The name for the IPSet. This name is displayed in all findings that are triggered by activity associated with the IP addresses included in this IPSet.
+        The user-friendly name to identify the IPSet.
+Allowed characters are alphanumerics, spaces, hyphens -, and underscores _.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-name
         PrimitiveType: String
@@ -142,6 +149,9 @@ function New-VSGuardDutyIPSet {
                 }
             })]
         $DetectorId,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -164,6 +174,17 @@ function New-VSGuardDutyIPSet {
                 }
             })]
         $Location,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -226,6 +247,12 @@ function New-VSGuardDutyIPSet {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

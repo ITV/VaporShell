@@ -1,26 +1,36 @@
 function Add-VSElasticsearchDomainMasterUserOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::Elasticsearch::Domain.MasterUserOptions resource property to the template. 
+        Adds an AWS::Elasticsearch::Domain.MasterUserOptions resource property to the template. Specifies information about the master user.
 
     .DESCRIPTION
         Adds an AWS::Elasticsearch::Domain.MasterUserOptions resource property to the template.
+Specifies information about the master user.
 
+**Important**
+
+The AWS::Elasticsearch::Domain resource is being replaced by the AWS::OpenSearchService::Domain: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see New resource types: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource in the *Amazon OpenSearch Service Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html
 
     .PARAMETER MasterUserARN
+        ARN for the master user. Only specify if InternalUserDatabaseEnabled is false in AdvancedSecurityOptions.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER MasterUserName
+        Username for the master user. Only specify if InternalUserDatabaseEnabled is true in AdvancedSecurityOptions.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masterusername
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER MasterUserPassword
+        Password for the master user. Only specify if InternalUserDatabaseEnabled is true in AdvancedSecurityOptions.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserpassword
         PrimitiveType: String
         UpdateType: Mutable

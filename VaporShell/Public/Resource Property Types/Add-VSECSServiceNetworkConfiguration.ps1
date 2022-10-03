@@ -11,12 +11,12 @@ The NetworkConfiguration property specifies an object representing the network c
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html
 
     .PARAMETER AwsvpcConfiguration
-        The VPC subnets and security groups associated with a task.
+        The VPC subnets and security groups that are associated with a task.
 All specified subnets and security groups must be from the same VPC.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
-        Type: AwsVpcConfiguration
         UpdateType: Mutable
+        Type: AwsVpcConfiguration
 
     .FUNCTIONALITY
         Vaporshell

@@ -108,6 +108,14 @@ ASN1 subject for the certificate authority.
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER CustomAttributes
+        *Update requires*: Replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-customattributes
+        UpdateType: Immutable
+        Type: List
+        ItemType: CustomAttribute
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -268,7 +276,18 @@ ASN1 subject for the certificate authority.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $GenerationQualifier
+        $GenerationQualifier,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ACMPCA.CertificateAuthority.CustomAttribute"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomAttributes
     )
     Begin {
         $obj = [PSCustomObject]@{}

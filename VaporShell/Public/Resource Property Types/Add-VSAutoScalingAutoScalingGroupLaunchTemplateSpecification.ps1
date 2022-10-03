@@ -1,35 +1,36 @@
 function Add-VSAutoScalingAutoScalingGroupLaunchTemplateSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.LaunchTemplateSpecification resource property to the template. The LaunchTemplateSpecification property specifies the Amazon EC2 launch template and the launch template version that can be used by an Auto Scaling group to configure Amazon EC2 instances.
+        Adds an AWS::AutoScaling::AutoScalingGroup.LaunchTemplateSpecification resource property to the template. LaunchTemplateSpecification specifies a launch template and version for the LaunchTemplate property of the AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html resource. It is also a property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html and AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property types.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.LaunchTemplateSpecification resource property to the template.
-The LaunchTemplateSpecification property specifies the Amazon EC2 launch template and the launch template version that can be used by an Auto Scaling group to configure Amazon EC2 instances.
+LaunchTemplateSpecification specifies a launch template and version for the LaunchTemplate property of the AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html resource. It is also a property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html and AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property types.
 
-The launch template that is specified must be configured for use with an Auto Scaling group. For information about creating a launch template, see Creating a Launch Template for an Auto Scaling Group: https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html in the *Amazon EC2 Auto Scaling User Guide*.
+The launch template that is specified must be configured for use with an Auto Scaling group. For information about creating a launch template, see Creating a launch template for an Auto Scaling group: https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html in the *Amazon EC2 Auto Scaling User Guide*.
 
-You can find a sample template snippet in the Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples section of the AWS::AutoScaling::AutoScalingGroup documentation.
+You can find a sample template snippets in the Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples section of the AWS::AutoScaling::AutoScalingGroup documentation and in the Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples section of the AWS::EC2::LaunchTemplate documentation.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html
 
     .PARAMETER LaunchTemplateId
-        The ID of the AWS::EC2::LaunchTemplate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html. You must specify either a template ID or a template name.
+        The ID of the AWS::EC2::LaunchTemplate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html. You must specify either a LaunchTemplateName or a LaunchTemplateId.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplateid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER LaunchTemplateName
-        The name of the AWS::EC2::LaunchTemplate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html. You must specify either a template name or a template ID.
+        The name of the AWS::EC2::LaunchTemplate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html. You must specify either a LaunchTemplateName or a LaunchTemplateId.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplatename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Version
-        The version number. AWS CloudFormation does not support specifying $Latest, or $Default for the template version number. However, you can specify LatestVersionNumber or DefaultVersionNumber using the Fn::GetAtt function. For more information, see Fn::GetAtt: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt in the AWS::EC2::LaunchTemplate documentation.
+        The version number. CloudFormation does not support specifying $Latest, or $Default for the template version number. However, you can specify LatestVersionNumber or DefaultVersionNumber using the Fn::GetAtt function.
+For an example of using the Fn::GetAtt function, see the Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples section of the AWS::AutoScaling::AutoScalingGroup documentation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-version
         PrimitiveType: String

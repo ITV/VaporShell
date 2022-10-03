@@ -26,8 +26,8 @@ Information about the S3 bucket where the raw data of a report are exported.
 
     .PARAMETER Packaging
         The type of build output artifact to create. Valid values include:
-+  NONE: AWS CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
-+  ZIP: AWS CodeBuild creates a ZIP file with the raw data in the output bucket.
++  NONE: CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
++  ZIP: CodeBuild creates a ZIP file with the raw data in the output bucket.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-packaging
         PrimitiveType: String
@@ -37,6 +37,13 @@ Information about the S3 bucket where the raw data of a report are exported.
         The encryption key for the report's encrypted raw data.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-encryptionkey
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER BucketOwner
+        The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-bucketowner
         PrimitiveType: String
         UpdateType: Mutable
 
@@ -98,6 +105,17 @@ Information about the S3 bucket where the raw data of a report are exported.
                 }
             })]
         $EncryptionKey,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BucketOwner,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

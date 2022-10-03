@@ -1,28 +1,24 @@
 function Add-VSRDSOptionGroupOptionSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::OptionGroup.OptionSetting resource property to the template. The OptionSetting property type specifies the value for an option within an OptionSetting property.
+        Adds an AWS::RDS::OptionGroup.OptionSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::RDS::OptionGroup.OptionSetting resource property to the template.
-The OptionSetting property type specifies the value for an option within an OptionSetting property.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionsetting.html
 
     .PARAMETER Name
-        The name of the option that has settings that you can set.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-name
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionsetting.html#cfn-rds-optiongroup-optionsetting-name
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Value
-        The current value of the option setting.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-value
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionsetting.html#cfn-rds-optiongroup-optionsetting-value
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

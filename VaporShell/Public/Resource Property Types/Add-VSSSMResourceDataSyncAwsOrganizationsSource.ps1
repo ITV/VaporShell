@@ -1,29 +1,30 @@
 function Add-VSSSMResourceDataSyncAwsOrganizationsSource {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::ResourceDataSync.AwsOrganizationsSource resource property to the template. Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS Organization is not present, from multiple AWS Regions.
+        Adds an AWS::SSM::ResourceDataSync.AwsOrganizationsSource resource property to the template. Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions.
 
     .DESCRIPTION
         Adds an AWS::SSM::ResourceDataSync.AwsOrganizationsSource resource property to the template.
-Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS Organization is not present, from multiple AWS Regions.
+Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html
 
-    .PARAMETER OrganizationSourceType
-        If an AWS Organization is present, this is either OrganizationalUnits or EntireOrganization. For OrganizationalUnits, the data is aggregated from a set of organization units. For EntireOrganization, the data is aggregated from the entire AWS Organization.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
-        PrimitiveType: String
-        UpdateType: Immutable
-
     .PARAMETER OrganizationalUnits
         The AWS Organizations organization units included in the sync.
 
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER OrganizationSourceType
+        If an AWS organization is present, this is either OrganizationalUnits or EntireOrganization. For OrganizationalUnits, the data is aggregated from a set of organization units. For EntireOrganization, the data is aggregated from the entire AWS organization.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,6 +33,8 @@ Information about the AwsOrganizationsSource resource data sync source. A sync s
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $OrganizationalUnits,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -42,9 +45,7 @@ Information about the AwsOrganizationsSource resource data sync source. A sync s
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OrganizationSourceType,
-        [parameter(Mandatory = $false)]
-        $OrganizationalUnits
+        $OrganizationSourceType
     )
     Begin {
         $obj = [PSCustomObject]@{}

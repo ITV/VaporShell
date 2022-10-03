@@ -1,10 +1,10 @@
 function New-VSGlobalAcceleratorEndpointGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::GlobalAccelerator::EndpointGroup resource to the template. 
+        Adds an AWS::GlobalAccelerator::EndpointGroup resource to the template. The AWS::GlobalAccelerator::EndpointGroup resource is a Global Accelerator resource type that contains information about how you create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS Region.
 
     .DESCRIPTION
-        Adds an AWS::GlobalAccelerator::EndpointGroup resource to the template. 
+        Adds an AWS::GlobalAccelerator::EndpointGroup resource to the template. The AWS::GlobalAccelerator::EndpointGroup resource is a Global Accelerator resource type that contains information about how you create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS Region.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
@@ -13,50 +13,79 @@ function New-VSGlobalAcceleratorEndpointGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ListenerArn
+        The Amazon Resource Name ARN of the listener.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER EndpointGroupRegion
+        The AWS Regions where the endpoint group is located.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER EndpointConfigurations
+        The list of endpoint objects.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
         UpdateType: Mutable
         Type: List
         ItemType: EndpointConfiguration
 
     .PARAMETER TrafficDialPercentage
+        The percentage of traffic to send to an AWS Regions. Additional traffic is distributed to other endpoint groups for this listener.
+Use this action to increase dial up or decrease dial down traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing.
+The default value is 100.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER HealthCheckPort
+        The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group.
+The default port is the port for the listener that this endpoint group is associated with. If the listener port is a list, Global Accelerator uses the first specified port in the list of ports.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER HealthCheckProtocol
+        The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default value is TCP.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER HealthCheckPath
+        If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash /.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER HealthCheckIntervalSeconds
+        The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER ThresholdCount
+        The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
         UpdateType: Mutable
         PrimitiveType: Integer
+
+    .PARAMETER PortOverrides
+        Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you to map a list of external destination ports that your users send traffic to to a list of internal destination ports that you want an application endpoint to receive traffic on.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+        UpdateType: Mutable
+        Type: List
+        ItemType: PortOverride
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -219,6 +248,28 @@ function New-VSGlobalAcceleratorEndpointGroup {
                 }
             })]
         $ThresholdCount,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.GlobalAccelerator.EndpointGroup.PortOverride"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PortOverrides,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -287,6 +338,12 @@ function New-VSGlobalAcceleratorEndpointGroup {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name EndpointConfigurations -Value @($EndpointConfigurations)
+                }
+                PortOverrides {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name PortOverrides -Value @($PortOverrides)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

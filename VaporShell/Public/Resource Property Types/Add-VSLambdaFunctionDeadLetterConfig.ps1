@@ -14,8 +14,8 @@ The dead-letter queue: https://docs.aws.amazon.com/lambda/latest/dg/invocation-a
         The Amazon Resource Name ARN of an Amazon SQS queue or Amazon SNS topic.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html#cfn-lambda-function-deadletterconfig-targetarn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

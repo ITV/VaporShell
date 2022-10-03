@@ -7,7 +7,7 @@ function Add-VSBudgetsBudgetBudgetData {
         Adds an AWS::Budgets::Budget.BudgetData resource property to the template.
 Represents the output of the CreateBudget operation. The content consists of the detailed metadata and data file information, and the current status of the budget object.
 
-This is the ARN pattern for a budget:
+This is the Amazon Resource Name (ARN pattern for a budget:
 
 arn:aws:budgets::AccountId:budget/budgetName
 
@@ -16,7 +16,7 @@ arn:aws:budgets::AccountId:budget/budgetName
 
     .PARAMETER BudgetLimit
         The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
-BudgetLimit is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to 100, which is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use BudgetLimit with PlannedBudgetLimits for CreateBudget and UpdateBudget actions.
+BudgetLimit is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to 100. This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use BudgetLimit with PlannedBudgetLimits for CreateBudget and UpdateBudget actions.
 
         Type: Spend
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
@@ -41,26 +41,26 @@ After the end date, AWS deletes the budget and all associated notifications and 
 
     .PARAMETER PlannedBudgetLimits
         A map containing multiple BudgetLimit, including current or future limits.
-PlannedBudgetLimits is available for cost or usage budget and supports monthly and quarterly TimeUnit.
+PlannedBudgetLimits is available for cost or usage budget and supports both monthly and quarterly TimeUnit.
 For monthly budgets, provide 12 months of PlannedBudgetLimits values. This must start from the current month and include the next 11 months. The key is the start of the month, UTC in epoch seconds.
-For quarterly budgets, provide 4 quarters of PlannedBudgetLimits value entries in standard calendar quarter increments. This must start from the current quarter and include the next 3 quarters. The key is the start of the quarter, UTC in epoch seconds.
-If the planned budget expires before 12 months for monthly or 4 quarters for quarterly, provide the PlannedBudgetLimits values only for the remaining periods.
+For quarterly budgets, provide four quarters of PlannedBudgetLimits value entries in standard calendar quarter increments. This must start from the current quarter and include the next three quarters. The key is the start of the quarter, UTC in epoch seconds.
+If the planned budget expires before 12 months for monthly or four quarters for quarterly, provide the PlannedBudgetLimits values only for the remaining periods.
 If the budget begins at a date in the future, provide PlannedBudgetLimits values from the start date of the budget.
 After all of the BudgetLimit values in PlannedBudgetLimits are used, the budget continues to use the last limit as the BudgetLimit. At that point, the planned budget provides the same experience as a fixed budget.
-DescribeBudget and DescribeBudgets response along with PlannedBudgetLimits will also contain BudgetLimit representing the current month or quarter limit present in PlannedBudgetLimits. This only applies to budgets created with PlannedBudgetLimits. Budgets created without PlannedBudgetLimits will only contain BudgetLimit, and no PlannedBudgetLimits.
+DescribeBudget and DescribeBudgets response along with PlannedBudgetLimits also contain BudgetLimit representing the current month or quarter limit present in PlannedBudgetLimits. This only applies to budgets that are created with PlannedBudgetLimits. Budgets that are created without PlannedBudgetLimits only contain BudgetLimit. They don't contain PlannedBudgetLimits.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
         PrimitiveType: Json
         UpdateType: Immutable
 
     .PARAMETER CostFilters
-        The cost filters, such as service or tag, that are applied to a budget.
-AWS Budgets supports the following services as a filter for RI budgets:
-+ Amazon Elastic Compute Cloud - Compute
+        The cost filters, such as Region, Service, member account, Tag, or Cost Category, that are applied to a budget.
+AWS Budgets supports the following services as a Service filter for RI budgets:
++ Amazon EC2
 + Amazon Redshift
 + Amazon Relational Database Service
 + Amazon ElastiCache
-+ Amazon Elasticsearch Service
++  Amazon OpenSearch Service
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
         PrimitiveType: Json
@@ -82,7 +82,7 @@ USAGE, RI_UTILIZATION, RI_COVERAGE, SAVINGS_PLANS_UTILIZATION, and SAVINGS_PLANS
         UpdateType: Mutable
 
     .PARAMETER BudgetType
-        Whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+        Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype
         PrimitiveType: String

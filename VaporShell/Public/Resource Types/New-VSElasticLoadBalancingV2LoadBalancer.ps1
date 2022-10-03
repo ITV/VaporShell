@@ -1,10 +1,10 @@
 function New-VSElasticLoadBalancingV2LoadBalancer {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::LoadBalancer resource to the template. Specifies an Application Load Balancer or a Network Load Balancer.
+        Adds an AWS::ElasticLoadBalancingV2::LoadBalancer resource to the template. Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 
     .DESCRIPTION
-        Adds an AWS::ElasticLoadBalancingV2::LoadBalancer resource to the template. Specifies an Application Load Balancer or a Network Load Balancer.
+        Adds an AWS::ElasticLoadBalancingV2::LoadBalancer resource to the template. Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
@@ -13,7 +13,7 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER IpAddressType
-        The IP address type. The possible values are ipv4 for IPv4 addresses and dualstack for IPv4 and IPv6 addresses. Internal load balancers must use ipv4. Network Load Balancers must use ipv4.
+        The IP address type. The possible values are ipv4 for IPv4 addresses and dualstack for IPv4 and IPv6 addresses. You can’t specify dualstack for a load balancer with a UDP or TCP_UDP listener.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype
         PrimitiveType: String
@@ -40,6 +40,7 @@ If you don't specify a name, AWS CloudFormation generates a unique physical ID f
         The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
 The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
 The default is an Internet-facing load balancer.
+You cannot specify a scheme for a Gateway Load Balancer.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme
         PrimitiveType: String
@@ -55,20 +56,26 @@ The default is an Internet-facing load balancer.
         UpdateType: Mutable
 
     .PARAMETER SubnetMappings
-        The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+        The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
 Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
-Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet.
+Application Load Balancers on Outposts] You must specify one Outpost subnet.
+Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmappings
         DuplicatesAllowed: False
         ItemType: SubnetMapping
         Type: List
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER Subnets
-        The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
-Application Load Balancers] You must specify subnets from at least two Availability Zones. When you specify subnets for an existing Application Load Balancer, they replace the previously enabled subnets.
-Network Load Balancers] You can specify subnets from one or more Availability Zones when you create the load balancer. You can't change the subnets for an existing Network Load Balancer.
+        The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+Application Load Balancers] You must specify subnets from at least two Availability Zones.
+Application Load Balancers on Outposts] You must specify one Outpost subnet.
+Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+Network Load Balancers] You can specify subnets from one or more Availability Zones.
+Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
         DuplicatesAllowed: False
@@ -77,7 +84,7 @@ Network Load Balancers] You can specify subnets from one or more Availability Zo
         UpdateType: Mutable
 
     .PARAMETER Tags
-        One or more tags to assign to the load balancer.
+        The tags to assign to the load balancer.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags
         DuplicatesAllowed: True
@@ -227,6 +234,17 @@ Network Load Balancers] You can specify subnets from one or more Availability Zo
                 }
             })]
         $Type,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

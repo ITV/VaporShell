@@ -7,7 +7,7 @@ function Add-VSEC2LaunchTemplateBlockDeviceMapping {
         Adds an AWS::EC2::LaunchTemplate.BlockDeviceMapping resource property to the template.
 Information about a block device mapping for an Amazon EC2 launch template.
 
-BlockDeviceMapping is a property of the  Amazon EC2 LaunchTemplate LaunchTemplateData: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html property type.
+BlockDeviceMapping is a property of  AWS::EC2::LaunchTemplate LaunchTemplateData: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html
@@ -20,7 +20,7 @@ BlockDeviceMapping is a property of the  Amazon EC2 LaunchTemplate LaunchTemplat
         UpdateType: Mutable
 
     .PARAMETER NoDevice
-        Suppresses the specified device included in the block device mapping of the AMI.
+        To omit the device from the block device mapping, specify an empty string.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-nodevice
         PrimitiveType: String

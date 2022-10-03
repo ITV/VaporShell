@@ -59,6 +59,13 @@ A structure used to define a table.
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor
         UpdateType: Mutable
 
+    .PARAMETER TargetTable
+        A TableIdentifier structure that describes a target table for resource linking.
+
+        Type: TableIdentifier
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+        UpdateType: Mutable
+
     .PARAMETER PartitionKeys
         A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
 When you create a table used by Amazon Athena, and you do not specify any partitionKeys, you must at least set the value of partitionKeys to an empty list. For example:
@@ -158,6 +165,8 @@ When you create a table used by Amazon Athena, and you do not specify any partit
         $ViewExpandedText,
         [parameter(Mandatory = $false)]
         $StorageDescriptor,
+        [parameter(Mandatory = $false)]
+        $TargetTable,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Table.Column"

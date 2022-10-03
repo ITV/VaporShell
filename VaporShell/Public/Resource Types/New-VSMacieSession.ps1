@@ -1,10 +1,12 @@
 function New-VSMacieSession {
     <#
     .SYNOPSIS
-        Adds an AWS::Macie::Session resource to the template. 
+        Adds an AWS::Macie::Session resource to the template. The AWS::Macie::Session resource represents the Amazon Macie service and configuration settings for an account. A Session is created for each AWS Region in which you enable Macie.
 
     .DESCRIPTION
-        Adds an AWS::Macie::Session resource to the template. 
+        Adds an AWS::Macie::Session resource to the template. The AWS::Macie::Session resource represents the Amazon Macie service and configuration settings for an account. A Session is created for each AWS Region in which you enable Macie.
+
+You must create a Session for an account before you can create an AWS::Macie::FindingsFilter or AWS::Macie::CustomDataIdentifier resource. Use a DependsOn attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html to ensure that the Session is created before the other resources. For example, "DependsOn: Session".
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
@@ -13,11 +15,18 @@ function New-VSMacieSession {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Status
+        The MacieStatus of the Session. Valid values include ENABLED and PAUSED.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER FindingPublishingFrequency
+        The frequency with which Amazon Macie publishes updates to policy findings for an account. This includes publishing updates to AWS Security Hub and Amazon EventBridge formerly called Amazon CloudWatch Events. Valid values are:
++ FIFTEEN_MINUTES
++ ONE_HOUR
++ SIX_HOURS
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
         UpdateType: Mutable
         PrimitiveType: String
@@ -106,6 +115,17 @@ function New-VSMacieSession {
                 }
             })]
         $FindingPublishingFrequency,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

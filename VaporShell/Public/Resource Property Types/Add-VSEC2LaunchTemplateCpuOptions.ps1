@@ -1,19 +1,19 @@
 function Add-VSEC2LaunchTemplateCpuOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.CpuOptions resource property to the template. Specifies the CPU options for an instance.
+        Adds an AWS::EC2::LaunchTemplate.CpuOptions resource property to the template. Specifies the CPU options for an instance. For more information, see Optimize CPU options: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html in the *Amazon Elastic Compute Cloud User Guide*.
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.CpuOptions resource property to the template.
-Specifies the CPU options for an instance.
+Specifies the CPU options for an instance. For more information, see Optimize CPU options: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html in the *Amazon Elastic Compute Cloud User Guide*.
 
-CpuOptions is a property of the Amazon EC2 LaunchTemplate LaunchTemplateData: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html property type.
+CpuOptions is a property of AWS::EC2::LaunchTemplate LaunchTemplateData: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html
 
     .PARAMETER ThreadsPerCore
-        The number of CPU cores for the instance.
+        The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-threadspercore
         PrimitiveType: Integer

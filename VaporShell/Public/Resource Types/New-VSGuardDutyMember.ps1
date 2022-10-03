@@ -1,10 +1,10 @@
 function New-VSGuardDutyMember {
     <#
     .SYNOPSIS
-        Adds an AWS::GuardDuty::Member resource to the template. You can use the AWS::GuardDuty::Member resource to add an AWS account as a GuardDuty member account to the current GuardDuty master account. If the value of the Status property is not provided or is set to Created, a member account is created but not invited. If the value of the Status property is set to Invited, a member account is created and invited. An AWS::GuardDuty::Member resource must be created with the Status property set to Invited before the AWS::GuardDuty::Master resource can be created in a GuardDuty member account.
+        Adds an AWS::GuardDuty::Member resource to the template. You can use the AWS::GuardDuty::Member resource to add an AWS account as a GuardDuty member account to the current GuardDuty administrator account. If the value of the Status property is not provided or is set to Created, a member account is created but not invited. If the value of the Status property is set to Invited, a member account is created and invited. An AWS::GuardDuty::Member resource must be created with the Status property set to Invited before the AWS::GuardDuty::Master resource can be created in a GuardDuty member account.
 
     .DESCRIPTION
-        Adds an AWS::GuardDuty::Member resource to the template. You can use the AWS::GuardDuty::Member resource to add an AWS account as a GuardDuty member account to the current GuardDuty master account. If the value of the Status property is not provided or is set to Created, a member account is created but not invited. If the value of the Status property is set to Invited, a member account is created and invited. An AWS::GuardDuty::Member resource must be created with the Status property set to Invited before the AWS::GuardDuty::Master resource can be created in a GuardDuty member account.
+        Adds an AWS::GuardDuty::Member resource to the template. You can use the AWS::GuardDuty::Member resource to add an AWS account as a GuardDuty member account to the current GuardDuty administrator account. If the value of the Status property is not provided or is set to Created, a member account is created but not invited. If the value of the Status property is set to Invited, a member account is created and invited. An AWS::GuardDuty::Member resource must be created with the Status property set to Invited before the AWS::GuardDuty::Master resource can be created in a GuardDuty member account.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html
@@ -13,7 +13,7 @@ function New-VSGuardDutyMember {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Status
-        You can use the Status property to update the status of the relationship between the member account and its master account. Valid values are Created and Invited when using a AWS::GuardDuty::Member resource. If the value for this property is not provided or set to Created, a member account is created but not invited. If the value of this property is set to Invited, a member account is created and invited.
+        You can use the Status property to update the status of the relationship between the member account and its administrator account. Valid values are Created and Invited when using an AWS::GuardDuty::Member resource. If the value for this property is not provided or set to Created, a member account is created but not invited. If the value of this property is set to Invited, a member account is created and invited.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-status
         PrimitiveType: String
@@ -34,7 +34,7 @@ function New-VSGuardDutyMember {
         UpdateType: Immutable
 
     .PARAMETER Message
-        The message to include with the invitation sent to the member accounts.
+        The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-message
         PrimitiveType: String
@@ -182,6 +182,17 @@ function New-VSGuardDutyMember {
                 }
             })]
         $DetectorId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

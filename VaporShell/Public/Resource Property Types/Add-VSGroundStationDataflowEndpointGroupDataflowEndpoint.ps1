@@ -26,6 +26,8 @@ When listing available contacts for a satellite, Ground Station searches for a d
         Type: SocketAddress
 
     .PARAMETER Mtu
+        Maximum transmission unit MTU size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
         UpdateType: Mutable
         PrimitiveType: Integer

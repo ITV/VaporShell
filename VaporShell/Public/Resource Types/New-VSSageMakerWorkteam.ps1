@@ -36,15 +36,23 @@ You cannot create more than 25 work teams in an account and region.
         UpdateType: Immutable
 
     .PARAMETER MemberDefinitions
-        The Amazon Cognito user groups that make up the work team.
+        A list of MemberDefinition objects that contains objects that identify the workers that make up the work team.
+Workforces can be created using Amazon Cognito or your own OIDC Identity Provider IdP. For private workforces created using Amazon Cognito use CognitoMemberDefinition. For workforces created using your own OIDC identity provider IdP use OidcMemberDefinition.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-memberdefinitions
         ItemType: MemberDefinition
         UpdateType: Mutable
 
+    .PARAMETER WorkforceName
+        The name of the work team.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-workforcename
+        PrimitiveType: String
+        UpdateType: Immutable
+
     .PARAMETER Tags
-        Not currently supported by AWS CloudFormation.
+        An array of key-value pairs.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-tags
@@ -148,9 +156,31 @@ You cannot create more than 25 work teams in an account and region.
                 }
             })]
         $MemberDefinitions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $WorkforceName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -1,22 +1,26 @@
 function New-VSKMSAlias {
     <#
     .SYNOPSIS
-        Adds an AWS::KMS::Alias resource to the template. The AWS::KMS::Alias resource specifies a display name for a customer master key: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys (CMK in AWS Key Management Service (AWS KMS. You can use an alias to identify a CMK in cryptographic operations.
+        Adds an AWS::KMS::Alias resource to the template. The AWS::KMS::Alias resource specifies a display name for a KMS key: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys. You can use an alias to identify a KMS key in the AWS KMS console, in the DescribeKey: https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html operation, and in cryptographic operations: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations, such as Decrypt: https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html and GenerateDataKey: https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html.
 
     .DESCRIPTION
-        Adds an AWS::KMS::Alias resource to the template. The AWS::KMS::Alias resource specifies a display name for a customer master key: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys (CMK in AWS Key Management Service (AWS KMS. You can use an alias to identify a CMK in cryptographic operations.
+        Adds an AWS::KMS::Alias resource to the template. The AWS::KMS::Alias resource specifies a display name for a KMS key: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys. You can use an alias to identify a KMS key in the AWS KMS console, in the DescribeKey: https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html operation, and in cryptographic operations: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations, such as Decrypt: https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html and GenerateDataKey: https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html.
 
-Using an alias to refer to a CMK can help you simplify key management. For example, an alias in your code can map to different CMKs in different AWS Regions. For more information, see Working with Aliases: https://docs.aws.amazon.com/kms/latest/developerguide/programming-aliases.html in the *AWS Key Management Service Developer Guide*.
+**Note**
+
+Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see ABAC for AWS KMS: https://docs.aws.amazon.com/kms/latest/developerguide/abac.html in the *AWS Key Management Service Developer Guide*.
+
+Using an alias to refer to a KMS key can help you simplify key management. For example, an alias in your code can be associated with different KMS keys in different AWS Regions. For more information, see Using aliases: https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html in the *AWS Key Management Service Developer Guide*.
 
 When specifying an alias, observe the following rules.
 
-+ Each alias can point to only one CMK, but multiple aliases can point to the same CMK.
++ Each alias is associated with one KMS key, but multiple aliases can be associated with the same KMS key.
 
-+ The alias and the CMK it points to must be in the same AWS account and Region.
++ The alias and its associated KMS key must be in the same AWS account and Region.
 
-+ The alias name must be unique in the AWS account and Region. However, you can create aliases with the same name in different AWS Regions. For example, you can have an alias/projectKey in multiple Regions, each of which points to a CMK in that Region.
++ The alias name must be unique in the AWS account and Region. However, you can create aliases with the same name in different AWS Regions. For example, you can have an alias/projectKey in multiple Regions, each of which is associated with a KMS key in its Region.
 
-+ Each alias name must begin with alias/ followed by a name, such as alias/exampleKey. The alias name can contain only alphanumeric characters, forward slashes (/, underscores (_, and dashes (-. Alias names cannot begin with **alias/aws/**. That alias name prefix is reserved for AWS managed CMKs: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk.
++ Each alias name must begin with alias/ followed by a name, such as alias/exampleKey. The alias name can contain only alphanumeric characters, forward slashes (/, underscores (_, and dashes (-. Alias names cannot begin with alias/aws/. That alias name prefix is reserved for AWS managed keys: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
@@ -25,18 +29,30 @@ When specifying an alias, observe the following rules.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AliasName
-        Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
+        Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias.
+If you change the value of a Replacement property, such as AliasName, the existing alias is deleted and a new alias is created for the specified KMS key. This change can disrupt applications that use the alias. It can also allow or deny access to a KMS key affected by attribute-based access control ABAC.
+The alias must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes /, underscores _, and dashes -. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed keys: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk.
+*Pattern*: alias/^a-zA-Z0-9/_-]+$
+*Minimum*: 1
+*Maximum*: 256
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER TargetKeyId
-        Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name ARN of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see Finding the Key ID and ARN: https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn in the *AWS Key Management Service Developer Guide*.
+        Associates the alias with the specified customer managed key: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk. The KMS key must be in the same AWS account and Region.
+A valid key ID is required. If you supply a null or empty string value, this operation returns an error.
+For help finding the key ID and ARN, see Finding the key ID and ARN: https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn in the *AWS Key Management Service Developer Guide*.
+Specify the key ID or the key ARN of the KMS key.
+For example:
++ Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
++ Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+To get the key ID and key ARN for a KMS key, use ListKeys: https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html or DescribeKey: https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -122,6 +138,17 @@ When specifying an alias, observe the following rules.
                 }
             })]
         $TargetKeyId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

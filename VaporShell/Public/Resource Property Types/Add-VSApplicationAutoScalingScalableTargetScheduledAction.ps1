@@ -1,19 +1,19 @@
 function Add-VSApplicationAutoScalingScalableTargetScheduledAction {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScheduledAction resource property to the template. ScheduledAction is a property of ScalableTarget: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html that specifies a scheduled action for a scalable target.
+        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScheduledAction resource property to the template. ScheduledAction is a property of the AWS::ApplicationAutoScaling::ScalableTarget: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html resource that specifies a scheduled action for a scalable target.
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScheduledAction resource property to the template.
-ScheduledAction is a property of ScalableTarget: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html that specifies a scheduled action for a scalable target.
+ScheduledAction is a property of the AWS::ApplicationAutoScaling::ScalableTarget: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html resource that specifies a scheduled action for a scalable target.
 
-For more information, see PutScheduledAction: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html in the *Application Auto Scaling API Reference*.
+For more information, see PutScheduledAction: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html in the *Application Auto Scaling API Reference*. For more information about scheduled scaling, including the format for cron expressions, see Scheduled scaling: https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html in the *Application Auto Scaling User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html
 
     .PARAMETER EndTime
-        The date and time for the recurring schedule to end.
+        The date and time that the action is scheduled to end, in UTC.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-endtime
         PrimitiveType: Timestamp
@@ -31,9 +31,10 @@ For more information, see PutScheduledAction: https://docs.aws.amazon.com/autosc
 + At expressions - "atyyyy-mm-ddThh:mm:ss"
 + Rate expressions - "ratevalue unit"
 + Cron expressions - "cronfields"
-At expressions are useful for one-time schedules. Specify the time in UTC.
+At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
+At and cron expressions use Universal Coordinated Time UTC by default.
+The cron format consists of six fields separated by white spaces: Minutes] Hours] Day_of_Month] Month] Day_of_Week] Year].
 For rate expressions, *value* is a positive integer and *unit* is minute | minutes | hour | hours | day | days.
-For more information about cron expressions, see Cron Expressions: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions in the *Amazon CloudWatch Events User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-schedule
         PrimitiveType: String
@@ -47,10 +48,17 @@ For more information about cron expressions, see Cron Expressions: https://docs.
         UpdateType: Mutable
 
     .PARAMETER StartTime
-        The date and time that the action is scheduled to start.
+        The date and time that the action is scheduled to begin, in UTC.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-starttime
         PrimitiveType: Timestamp
+        UpdateType: Mutable
+
+    .PARAMETER Timezone
+        The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-timezone
+        PrimitiveType: String
         UpdateType: Mutable
 
     .FUNCTIONALITY
@@ -87,7 +95,18 @@ For more information about cron expressions, see Cron Expressions: https://docs.
             })]
         $ScheduledActionName,
         [parameter(Mandatory = $false)]
-        $StartTime
+        $StartTime,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Timezone
     )
     Begin {
         $obj = [PSCustomObject]@{}

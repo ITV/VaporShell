@@ -31,7 +31,7 @@ For information about job templates, see Working with AWS Elemental MediaConvert
         UpdateType: Mutable
 
     .PARAMETER AccelerationSettings
-        Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
+        Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, For more information, see Job Limitations for Accelerated Transcoding in AWS Elemental MediaConvert: https://docs.aws.amazon.com/mediaconvert/latest/ug/job-requirements.html in the *AWS Elemental MediaConvert User Guide*.
 
         Type: AccelerationSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-accelerationsettings
@@ -83,7 +83,7 @@ For more information about MediaConvert job templates, see Working with AWS Elem
         UpdateType: Mutable
 
     .PARAMETER HopDestinations
-        Not currently supported by AWS CloudFormation.
+        Optional. Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed. For more information, see Setting Up Queue Hopping to Avoid Long Waits: https://docs.aws.amazon.com/mediaconvert/latest/ug/setting-up-queue-hopping-to-avoid-long-waits.html in the *AWS Elemental MediaConvert User Guide*.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-hopdestinations
@@ -268,6 +268,17 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

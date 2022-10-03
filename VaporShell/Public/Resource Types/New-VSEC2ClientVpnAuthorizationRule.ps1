@@ -27,7 +27,7 @@ function New-VSEC2ClientVpnAuthorizationRule {
         UpdateType: Immutable
 
     .PARAMETER AccessGroupId
-        The ID of the Active Directory group to grant access.
+        The ID of the group to grant access to, for example, the Active Directory group or identity provider IdP group. Required if AuthorizeAllGroups is false or not specified.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-accessgroupid
         PrimitiveType: String
@@ -41,7 +41,7 @@ function New-VSEC2ClientVpnAuthorizationRule {
         UpdateType: Immutable
 
     .PARAMETER AuthorizeAllGroups
-        Indicates whether to grant access to all clients. Use true to grant all clients who successfully establish a VPN connection access to the network.
+        Indicates whether to grant access to all clients. Specify true to grant all clients who successfully establish a VPN connection access to the network. Must be set to true if AccessGroupId is not specified.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-authorizeallgroups
         PrimitiveType: Boolean
@@ -164,6 +164,17 @@ function New-VSEC2ClientVpnAuthorizationRule {
                 }
             })]
         $AuthorizeAllGroups,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

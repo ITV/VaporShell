@@ -1,35 +1,37 @@
 function Add-VSApiGatewayUsagePlanQuotaSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::UsagePlan.QuotaSettings resource property to the template. QuotaSettings is a property of the AWS::ApiGateway::UsagePlan: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html resource that specifies the maximum number of requests users can make to your REST APIs.
+        Adds an AWS::ApiGateway::UsagePlan.QuotaSettings resource property to the template. QuotaSettings is a property of the AWS::ApiGateway::UsagePlan: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html resource that specifies a target for the maximum number of requests users can make to your REST APIs.
 
     .DESCRIPTION
         Adds an AWS::ApiGateway::UsagePlan.QuotaSettings resource property to the template.
-QuotaSettings is a property of the AWS::ApiGateway::UsagePlan: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html resource that specifies the maximum number of requests users can make to your REST APIs.
+QuotaSettings is a property of the AWS::ApiGateway::UsagePlan: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html resource that specifies a target for the maximum number of requests users can make to your REST APIs.
+
+In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using AWS Budgets: https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html to monitor costs and AWS WAF: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html to manage API requests.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
 
     .PARAMETER Limit
-        The maximum number of requests that users can make within the specified time period.
+        The target maximum number of requests that can be made in a given time period.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER Offset
-        For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
+        The day that a time period starts. For example, with a time period of WEEK, an offset of 0 starts on Sunday, and an offset of 1 starts on Monday.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER Period
-        The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan: https://docs.aws.amazon.com/apigateway/api-reference/resource/usage-plan resource in the *Amazon API Gateway REST API Reference*.
+        The time period for which the target maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan: https://docs.aws.amazon.com/apigateway/api-reference/resource/usage-plan resource in the *Amazon API Gateway REST API Reference*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

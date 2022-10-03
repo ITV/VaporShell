@@ -7,7 +7,7 @@ function Add-VSEC2LaunchTemplateMonitoring {
         Adds an AWS::EC2::LaunchTemplate.Monitoring resource property to the template.
 Specifies whether detailed monitoring is enabled for an instance.
 
-Monitoring is a property of the Amazon EC2 LaunchTemplate LaunchTemplateData: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html property type.
+Monitoring is a property of AWS::EC2::LaunchTemplate LaunchTemplateData: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.html

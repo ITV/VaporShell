@@ -54,6 +54,13 @@ The parent of this entity is CaptionSelector.
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-teletextsourcesettings
         UpdateType: Mutable
 
+    .PARAMETER AncillarySourceSettings
+        Information about the ancillary captions to extract from the input.
+
+        Type: AncillarySourceSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-ancillarysourcesettings
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -72,7 +79,9 @@ The parent of this entity is CaptionSelector.
         [parameter(Mandatory = $false)]
         $Scte20SourceSettings,
         [parameter(Mandatory = $false)]
-        $TeletextSourceSettings
+        $TeletextSourceSettings,
+        [parameter(Mandatory = $false)]
+        $AncillarySourceSettings
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,13 +1,13 @@
 function Add-VSBudgetsBudgetSpend {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::Budget.Spend resource property to the template. The amount of cost or usage that is measured for a budget.
+        Adds an AWS::Budgets::Budget.Spend resource property to the template. The amount of cost or usage that's measured for a budget.
 
     .DESCRIPTION
         Adds an AWS::Budgets::Budget.Spend resource property to the template.
-The amount of cost or usage that is measured for a budget.
+The amount of cost or usage that's measured for a budget.
 
-For example, a Spend for 3 GB of S3 usage would have the following parameters:
+For example, a Spend for 3 GB of S3 usage has the following parameters:
 
 + An Amount of 3
 
@@ -17,14 +17,14 @@ For example, a Spend for 3 GB of S3 usage would have the following parameters:
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html
 
     .PARAMETER Amount
-        The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
+        The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount
         PrimitiveType: Double
         UpdateType: Mutable
 
     .PARAMETER Unit
-        The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
+        The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit
         PrimitiveType: String

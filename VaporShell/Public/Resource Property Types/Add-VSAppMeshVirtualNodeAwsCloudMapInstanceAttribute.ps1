@@ -7,6 +7,10 @@ function Add-VSAppMeshVirtualNodeAwsCloudMapInstanceAttribute {
         Adds an AWS::AppMesh::VirtualNode.AwsCloudMapInstanceAttribute resource property to the template.
 An object that represents the AWS Cloud Map attribute information for your virtual node.
 
+**Note**
+
+AWS Cloud Map is not available in the eu-south-1 Region.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html
 

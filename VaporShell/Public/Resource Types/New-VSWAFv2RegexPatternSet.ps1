@@ -8,7 +8,7 @@ function New-VSWAFv2RegexPatternSet {
 
 This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
 
-Use an AWS::WAFv2::RegexPatternSet: #aws-resource-wafv2-regexpatternset to have AWS WAF inspect a web request component for a specific set of regex patterns.
+Use a RegexPatternSet to have AWS WAF inspect a web request component for a specific set of regular expression patterns.
 
 You use a regex pattern set by providing its Amazon Resource Name (ARN to the rule statement RegexPatternSetReferenceStatement, when you add a rule to a rule group or web ACL.
 
@@ -19,17 +19,17 @@ You use a regex pattern set by providing its Amazon Resource Name (ARN to the ru
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A friendly description of the set. You cannot change the description of a set after you create it.
+        A description of the set that helps with identification.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        A friendly name of the set. You cannot change the name after you create the set.
+        The descriptive name of the set. You cannot change the name after you create the set.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-name
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER RegularExpressionList
@@ -41,15 +41,16 @@ You use a regex pattern set by providing its Amazon Resource Name (ARN to the ru
         PrimitiveItemType: String
 
     .PARAMETER Scope
-        Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer ALB or an API Gateway stage. Valid Values are CLOUDFRONT and REGIONAL.
+        Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer ALB, an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are CLOUDFRONT and REGIONAL.
 For CLOUDFRONT, you must create your WAFv2 resources in the US East N. Virginia Region, us-east-1.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-scope
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
         Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category such as "environment" and the tag value represents a specific value within that category such as "test," "development," or "production". You can add up to 50 tags to each AWS resource.
+To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation, you can only add tags to AWS WAF resources during resource creation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-tags
         UpdateType: Mutable
@@ -156,6 +157,17 @@ For CLOUDFRONT, you must create your WAFv2 resources in the US East N. Virginia 
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

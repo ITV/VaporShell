@@ -1,10 +1,14 @@
 function New-VSLambdaLayerVersionPermission {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::LayerVersionPermission resource to the template. The AWS::Lambda::LayerVersionPermission resource adds permissions to the resource-based policy of a version of an AWS Lambda layer: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all accounts in an organization.
+        Adds an AWS::Lambda::LayerVersionPermission resource to the template. The AWS::Lambda::LayerVersionPermission resource adds permissions to the resource-based policy of a version of an Lambda layer: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all accounts in an organization.
 
     .DESCRIPTION
-        Adds an AWS::Lambda::LayerVersionPermission resource to the template. The AWS::Lambda::LayerVersionPermission resource adds permissions to the resource-based policy of a version of an AWS Lambda layer: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all accounts in an organization.
+        Adds an AWS::Lambda::LayerVersionPermission resource to the template. The AWS::Lambda::LayerVersionPermission resource adds permissions to the resource-based policy of a version of an Lambda layer: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all accounts in an organization.
+
+**Important**
+
+Since the release of the UpdateReplacePolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html both UpdateReplacePolicy and DeletionPolicy are required to protect your Resources/LayerPermissions from deletion.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html
@@ -20,7 +24,7 @@ function New-VSLambdaLayerVersionPermission {
         UpdateType: Immutable
 
     .PARAMETER LayerVersionArn
-        The Amazon Resource Name ARN of the layer.
+        The name or Amazon Resource Name ARN of the layer.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-layerversionarn
         PrimitiveType: String
@@ -34,7 +38,7 @@ function New-VSLambdaLayerVersionPermission {
         UpdateType: Immutable
 
     .PARAMETER Principal
-        An account ID, or * to grant permission to all AWS accounts.
+        An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts if organizationId is not specified. For the last case, make sure that you really do want all AWS accounts to have usage permission to this layer.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-principal
         PrimitiveType: String
@@ -146,6 +150,17 @@ function New-VSLambdaLayerVersionPermission {
                 }
             })]
         $Principal,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

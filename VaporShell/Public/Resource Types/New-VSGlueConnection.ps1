@@ -1,10 +1,10 @@
 function New-VSGlueConnection {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Connection resource to the template. The AWS::Glue::Connection resource specifies an AWS Glue connection to a data source. For more information, see Adding a Connection to Your Data Store: https://docs.aws.amazon.com/dg/populate-add-connection.html and Connection Structure: https://docs.aws.amazon.com/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-Connection in the *AWS Glue Developer Guide*.
+        Adds an AWS::Glue::Connection resource to the template. The AWS::Glue::Connection resource specifies an AWS Glue connection to a data source. For more information, see Adding a Connection to Your Data Store: https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html and Connection Structure: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-Connection in the *AWS Glue Developer Guide*.
 
     .DESCRIPTION
-        Adds an AWS::Glue::Connection resource to the template. The AWS::Glue::Connection resource specifies an AWS Glue connection to a data source. For more information, see Adding a Connection to Your Data Store: https://docs.aws.amazon.com/dg/populate-add-connection.html and Connection Structure: https://docs.aws.amazon.com/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-Connection in the *AWS Glue Developer Guide*.
+        Adds an AWS::Glue::Connection resource to the template. The AWS::Glue::Connection resource specifies an AWS Glue connection to a data source. For more information, see Adding a Connection to Your Data Store: https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html and Connection Structure: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-Connection in the *AWS Glue Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html
@@ -102,6 +102,17 @@ To specify the account ID, you can use the Ref intrinsic function with the AWS::
                 }
             })]
         $CatalogId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

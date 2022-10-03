@@ -20,7 +20,8 @@ Specifies a cross-origin access rule for an Amazon S3 bucket.
         UpdateType: Mutable
 
     .PARAMETER AllowedMethods
-        An HTTP method that you allow the origin to execute. Valid values are GET, PUT, HEAD, POST, and DELETE.
+        An HTTP method that you allow the origin to run.
+*Allowed values*: GET | PUT | HEAD | POST | DELETE
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedmethods
         DuplicatesAllowed: False

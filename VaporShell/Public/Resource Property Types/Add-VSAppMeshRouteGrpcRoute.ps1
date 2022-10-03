@@ -18,7 +18,7 @@ An object that represents a gRPC route type.
         UpdateType: Mutable
 
     .PARAMETER Timeout
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        An object that represents types of timeouts.
 
         Type: GrpcTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-timeout

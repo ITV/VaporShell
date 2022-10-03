@@ -1,21 +1,21 @@
 function Add-VSIoTEventsDetectorModelResetTimer {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.ResetTimer resource property to the template. Information needed to reset the timer.
+        Adds an AWS::IoTEvents::DetectorModel.ResetTimer resource property to the template. Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.ResetTimer resource property to the template.
-Information needed to reset the timer.
+Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html
 
     .PARAMETER TimerName
-        The name of the timer.
+        The name of the timer to reset.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -24,7 +24,7 @@ Information needed to reset the timer.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

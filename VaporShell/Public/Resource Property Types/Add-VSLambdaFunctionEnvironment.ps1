@@ -1,23 +1,22 @@
 function Add-VSLambdaFunctionEnvironment {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::Function.Environment resource property to the template. A function's environment variable settings.
+        Adds an AWS::Lambda::Function.Environment resource property to the template. A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 
     .DESCRIPTION
         Adds an AWS::Lambda::Function.Environment resource property to the template.
-A function's environment variable settings.
+A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
 
     .PARAMETER Variables
-        Environment variable key-value pairs.
+        Environment variable key-value pairs. For more information, see Using Lambda environment variables: https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: Map
         UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .FUNCTIONALITY
         Vaporshell

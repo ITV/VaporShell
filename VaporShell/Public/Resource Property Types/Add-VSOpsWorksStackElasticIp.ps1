@@ -18,7 +18,7 @@ Describes an Elastic IP address.
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name.
+        The name, which can be a maximum of 32 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html#cfn-opsworks-stack-elasticip-name
         PrimitiveType: String

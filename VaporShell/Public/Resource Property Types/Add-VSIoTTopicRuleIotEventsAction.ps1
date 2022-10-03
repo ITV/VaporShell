@@ -14,22 +14,33 @@ Sends an input to an AWS IoT Events detector.
         The name of the AWS IoT Events input.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
-        PrimitiveType: String
         UpdateType: Mutable
-
-    .PARAMETER MessageId
-        Optional] Use this to ensure that only one input message with a given messageId will be processed by an AWS IoT Events detector.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER RoleArn
         The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. "Action":"iotevents:BatchPutMessage".
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER MessageId
+        The ID of the message. The default messageId is a new UUID value.
+When batchMode is true, you can't specify a messageId--a new UUID value will be assigned.
+Assign a value to this property to ensure that only one input message with a given messageId will be processed by an AWS IoT Events detector.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER BatchMode
+        Whether to process the event actions as a batch. The default value is false.
+When batchMode is true, you can't specify a messageId.
+When batchMode is true and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html: https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html. The resulting array can't have more than 10 messages.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-batchmode
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
@@ -49,6 +60,17 @@ Sends an input to an AWS IoT Events detector.
                 }
             })]
         $InputName,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RoleArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -60,9 +82,9 @@ Sends an input to an AWS IoT Events detector.
                 }
             })]
         $MessageId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -70,7 +92,7 @@ Sends an input to an AWS IoT Events detector.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleArn
+        $BatchMode
     )
     Begin {
         $obj = [PSCustomObject]@{}

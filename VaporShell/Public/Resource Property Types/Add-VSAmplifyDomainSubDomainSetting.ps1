@@ -1,28 +1,32 @@
 function Add-VSAmplifyDomainSubDomainSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Amplify::Domain.SubDomainSetting resource property to the template. The SubDomainSetting property type allows you to connect a subdomain (e.g. foo.yourdomain.com to a specific branch.
+        Adds an AWS::Amplify::Domain.SubDomainSetting resource property to the template. The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com to a specific branch.
 
     .DESCRIPTION
         Adds an AWS::Amplify::Domain.SubDomainSetting resource property to the template.
-The SubDomainSetting property type allows you to connect a subdomain (e.g. foo.yourdomain.com to a specific branch.
+The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com to a specific branch.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html
 
     .PARAMETER Prefix
-        Prefix setting for the Subdomain.
+        The prefix setting for the subdomain.
+*Length Constraints:* Maximum length of 255.
+*Pattern:* ?s.*
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-prefix
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER BranchName
-        Branch name setting for the Subdomain.
+        The branch name setting for the subdomain.
+*Length Constraints:* Minimum length of 1. Maximum length of 255.
+*Pattern:* ?s.+
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-branchname
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,12 +1,18 @@
 function New-VSEC2VPCEndpointService {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::VPCEndpointService resource to the template. Specifies a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles can connect. Service consumers can create an interface VPC endpoint to connect to your service.
+        Adds an AWS::EC2::VPCEndpointService resource to the template. Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles can connect.
 
     .DESCRIPTION
-        Adds an AWS::EC2::VPCEndpointService resource to the template. Specifies a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles can connect. Service consumers can create an interface VPC endpoint to connect to your service.
+        Adds an AWS::EC2::VPCEndpointService resource to the template. Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles can connect.
 
-To create an endpoint service configuration, you must first create a Network Load Balancer for your service.
+To create an endpoint service configuration, you must first create one of the following for your service:
+
++ A Network Load Balancer: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html. Service consumers connect to your service using an interface endpoint.
+
++ A Gateway Load Balancer: https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html. Service consumers connect to your service using a Gateway Load Balancer endpoint.
+
+For more information, see the AWS PrivateLink User Guide: https://docs.aws.amazon.com/vpc/latest/privatelink/.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html
@@ -22,11 +28,33 @@ To create an endpoint service configuration, you must first create a Network Loa
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
         UpdateType: Mutable
 
+    .PARAMETER PayerResponsibility
+        The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-payerresponsibility
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER AcceptanceRequired
         Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
         PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER ContributorInsightsEnabled
+        + VPC endpoint services: https://docs.aws.amazon.com/vpc/latest/privatelink/endpoint-service.html in *AWS PrivateLink*
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-contributorinsightsenabled
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER GatewayLoadBalancerArns
+        The Amazon Resource Names ARNs of one or more Gateway Load Balancers.
+
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -91,8 +119,19 @@ To create an endpoint service configuration, you must first create a Network Loa
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $NetworkLoadBalancerArns,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PayerResponsibility,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -104,6 +143,30 @@ To create an endpoint service configuration, you must first create a Network Loa
                 }
             })]
         $AcceptanceRequired,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ContributorInsightsEnabled,
+        [parameter(Mandatory = $false)]
+        $GatewayLoadBalancerArns,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -172,6 +235,12 @@ To create an endpoint service configuration, you must first create a Network Loa
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name NetworkLoadBalancerArns -Value @($NetworkLoadBalancerArns)
+                }
+                GatewayLoadBalancerArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name GatewayLoadBalancerArns -Value @($GatewayLoadBalancerArns)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

@@ -1,0 +1,56 @@
+function Add-VSLexBotObfuscationSetting {
+    <#
+    .SYNOPSIS
+        Adds an AWS::Lex::Bot.ObfuscationSetting resource property to the template. Determines whether Amazon Lex obscures slot values in conversation logs.
+
+    .DESCRIPTION
+        Adds an AWS::Lex::Bot.ObfuscationSetting resource property to the template.
+Determines whether Amazon Lex obscures slot values in conversation logs.
+
+    .LINK
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-obfuscationsetting.html
+
+    .PARAMETER ObfuscationSettingType
+        Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-obfuscationsetting.html#cfn-lex-bot-obfuscationsetting-obfuscationsettingtype
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .FUNCTIONALITY
+        Vaporshell
+    #>
+    [OutputType('Vaporshell.Resource.Lex.Bot.ObfuscationSetting')]
+    [cmdletbinding()]
+    Param
+    (
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ObfuscationSettingType
+    )
+    Begin {
+        $obj = [PSCustomObject]@{}
+        $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
+    }
+    Process {
+        foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
+            switch ($key) {
+                Default {
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
+                }
+            }
+        }
+    }
+    End {
+        $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.ObfuscationSetting'
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
+    }
+}

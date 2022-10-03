@@ -26,7 +26,7 @@ On January 1, 2016, the Swagger Specification was donated to the OpenAPI initiat
         UpdateType: Mutable
 
     .PARAMETER BinaryMediaTypes
-        The list of binary media types that are supported by the RestApi resource, such as image/png or application/octet-stream. By default, RestApi supports only UTF-8-encoded text payloads. Duplicates are not allowed. For more information, see Enable Support for Binary Payloads in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings.html in the *API Gateway Developer Guide*.
+        The list of binary media types that are supported by the RestApi resource. Use ~1 instead of / in the media types, for example image~1png or application~1octet-stream. By default, RestApi supports only UTF-8-encoded text payloads. Duplicates are not allowed. For more information, see Enable Support for Binary Payloads in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings.html in the *API Gateway Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes
         DuplicatesAllowed: False
@@ -62,6 +62,13 @@ On January 1, 2016, the Swagger Specification was donated to the OpenAPI initiat
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER DisableExecuteApiEndpoint
+        Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-disableexecuteapiendpoint
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER EndpointConfiguration
         A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the Parameters property.
 
@@ -83,6 +90,17 @@ On January 1, 2016, the Swagger Specification was donated to the OpenAPI initiat
         PrimitiveType: Integer
         UpdateType: Mutable
 
+    .PARAMETER Mode
+        This property applies only when you use OpenAPI to define your REST API. The Mode determines how API Gateway handles resource updates.
+Valid values are overwrite or merge.
+For overwrite, the new API definition replaces the existing one. The existing API identifier remains unchanged.
+For merge, the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API. Use merge to define top-level RestApi properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
+If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is overwrite. Otherwise, the default value is merge.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-mode
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER Name
         A name for the RestApi resource.
 
@@ -100,7 +118,7 @@ On January 1, 2016, the Swagger Specification was donated to the OpenAPI initiat
         UpdateType: Mutable
 
     .PARAMETER Policy
-        A policy document that contains the permissions for the RestApi resource, in JSON format. To set the ARN for the policy, use the !Join intrinsic function with "" as delimiter and values of "execute-api:/" and "*".
+        A policy document that contains the permissions for the RestApi resource. To set the ARN for the policy, use the !Join intrinsic function with "" as delimiter and values of "execute-api:/" and "*".
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-policy
         PrimitiveType: Json
@@ -226,6 +244,17 @@ On January 1, 2016, the Swagger Specification was donated to the OpenAPI initiat
             })]
         $Description,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DisableExecuteApiEndpoint,
+        [parameter(Mandatory = $false)]
         $EndpointConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -259,6 +288,17 @@ On January 1, 2016, the Swagger Specification was donated to the OpenAPI initiat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $Mode,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $Name,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
@@ -277,6 +317,17 @@ On January 1, 2016, the Swagger Specification was donated to the OpenAPI initiat
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

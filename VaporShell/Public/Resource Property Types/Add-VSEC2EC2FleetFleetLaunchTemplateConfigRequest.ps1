@@ -15,17 +15,19 @@ FleetLaunchTemplateConfigRequest is a property of the AWS::EC2::EC2Fleet: https:
     .PARAMETER LaunchTemplateSpecification
         The launch template to use. You must specify either the launch template ID or launch template name in the request.
 
-        Type: FleetLaunchTemplateSpecificationRequest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification
         UpdateType: Immutable
+        Type: FleetLaunchTemplateSpecificationRequest
 
     .PARAMETER Overrides
         Any parameters that you specify override the same parameters in the launch template.
+For fleets of type request and maintain, a maximum of 300 items is allowed across all launch templates.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides
-        ItemType: FleetLaunchTemplateOverridesRequest
         UpdateType: Immutable
+        Type: List
+        ItemType: FleetLaunchTemplateOverridesRequest
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

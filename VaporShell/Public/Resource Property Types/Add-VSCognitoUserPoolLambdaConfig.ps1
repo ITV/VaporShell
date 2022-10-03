@@ -17,20 +17,6 @@ Specifies the configuration for AWS Lambda triggers.
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER PreAuthentication
-        A pre-authentication AWS Lambda trigger.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-preauthentication
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER DefineAuthChallenge
-        Defines the authentication challenge.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
-        PrimitiveType: String
-        UpdateType: Mutable
-
     .PARAMETER PreSignUp
         A pre-registration AWS Lambda trigger.
 
@@ -38,10 +24,10 @@ Specifies the configuration for AWS Lambda triggers.
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER PreTokenGeneration
-        A Lambda trigger that is invoked before token generation.
+    .PARAMETER KMSKeyID
+        The Amazon Resource Name of a AWS Key Management Service AWS KMS key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengeneration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
         PrimitiveType: String
         UpdateType: Mutable
 
@@ -59,6 +45,41 @@ Specifies the configuration for AWS Lambda triggers.
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER VerifyAuthChallengeResponse
+        Verifies the authentication challenge response.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-verifyauthchallengeresponse
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER PreAuthentication
+        A pre-authentication AWS Lambda trigger.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-preauthentication
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER DefineAuthChallenge
+        Defines the authentication challenge.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER PreTokenGeneration
+        A Lambda trigger that is invoked before token generation.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengeneration
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER CustomSMSSender
+        A custom SMS sender AWS Lambda trigger.
+
+        Type: CustomSMSSender
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customsmssender
+        UpdateType: Mutable
+
     .PARAMETER PostConfirmation
         A post-confirmation AWS Lambda trigger.
 
@@ -73,11 +94,11 @@ Specifies the configuration for AWS Lambda triggers.
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER VerifyAuthChallengeResponse
-        Verifies the authentication challenge response.
+    .PARAMETER CustomEmailSender
+        A custom email sender AWS Lambda trigger.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-verifyauthchallengeresponse
-        PrimitiveType: String
+        Type: CustomEmailSender
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customemailsender
         UpdateType: Mutable
 
     .FUNCTIONALITY
@@ -108,28 +129,6 @@ Specifies the configuration for AWS Lambda triggers.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PreAuthentication,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DefineAuthChallenge,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $PreSignUp,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -141,7 +140,7 @@ Specifies the configuration for AWS Lambda triggers.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PreTokenGeneration,
+        $KMSKeyID,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -174,6 +173,52 @@ Specifies the configuration for AWS Lambda triggers.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $VerifyAuthChallengeResponse,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PreAuthentication,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DefineAuthChallenge,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PreTokenGeneration,
+        [parameter(Mandatory = $false)]
+        $CustomSMSSender,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $PostConfirmation,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -187,16 +232,7 @@ Specifies the configuration for AWS Lambda triggers.
             })]
         $CustomMessage,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $VerifyAuthChallengeResponse
+        $CustomEmailSender
     )
     Begin {
         $obj = [PSCustomObject]@{}

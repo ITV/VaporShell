@@ -6,9 +6,9 @@ function New-VSSecretsManagerSecretTargetAttachment {
     .DESCRIPTION
         Adds an AWS::SecretsManager::SecretTargetAttachment resource to the template. The AWS::SecretsManager::SecretTargetAttachment resource completes the final link between a Secrets Manager secret and the associated database. This is required because each has a dependency on the other. No matter which one you create first, the other doesn't exist yet. To resolve this, you must create the resources in the following order:
 
-1. Define the secret without referencing the service or database. You can't reference the service or database because it doesn't exist yet.
+1. Define the secret without referencing the service or database. You can't reference the service or database because it doesn't exist yet. The secret must contain a user name and password.
 
-1. Next, define the service or database. Include the reference to the secret to use stored credentials to define the database master user and password.
+1. Next, define the service or database. Include the reference to the secret to use stored credentials to define the database admin user and password.
 
 1. Finally, define a SecretTargetAttachment resource type to finish configuring the secret with the required database engine type and the connection details of the service or database. The rotation function requires the details, if you attach one later by defining a AWS::SecretsManager::RotationSchedule: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html resource type.
 
@@ -19,14 +19,14 @@ function New-VSSecretsManagerSecretTargetAttachment {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER SecretId
-        The Amazon Resource Name ARN or the friendly name of the secret that contains the credentials that you want to use with the specified service or database. To reference a secret also created in this template, use the see Ref: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html function with the secret's logical ID.
+        The ARN or name of the secret. To reference a secret also created in this template, use the see Ref: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html function with the secret's logical ID.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-secretid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TargetType
-        A string that defines the type of service or database associated with the secret. This value instructs AWS Secrets Manager how to update the secret with the details of the service or database. This value must be one of the following:
+        A string that defines the type of service or database associated with the secret. This value instructs Secrets Manager how to update the secret with the details of the service or database. This value must be one of the following:
 + AWS::RDS::DBInstance
 + AWS::RDS::DBCluster
 + AWS::Redshift::Cluster
@@ -38,7 +38,7 @@ function New-VSSecretsManagerSecretTargetAttachment {
         UpdateType: Mutable
 
     .PARAMETER TargetId
-        The ARN of the service or database credentials stored in the specified secret.
+        The ID of the database or cluster.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-targetid
         PrimitiveType: String
@@ -139,6 +139,17 @@ function New-VSSecretsManagerSecretTargetAttachment {
                 }
             })]
         $TargetId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

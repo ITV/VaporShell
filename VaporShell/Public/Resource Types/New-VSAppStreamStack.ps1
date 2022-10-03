@@ -28,7 +28,7 @@ function New-VSAppStreamStack {
         UpdateType: Mutable
 
     .PARAMETER DeleteStorageConnectors
-        *This parameter has been deprecated. *
+        *This parameter has been deprecated.*
 Deletes the storage connectors currently enabled for the stack.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-deletestorageconnectors
@@ -66,6 +66,13 @@ Deletes the storage connectors currently enabled for the stack.
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER StreamingExperienceSettings
+        +  CreateStack: https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateStack.html in the *Amazon AppStream 2.0 API Reference*
+
+        Type: StreamingExperienceSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-streamingexperiencesettings
+        UpdateType: Mutable
+
     .PARAMETER Name
         The name of the stack.
 
@@ -95,7 +102,7 @@ Deletes the storage connectors currently enabled for the stack.
         UpdateType: Mutable
 
     .PARAMETER Tags
-        An array of key-value pairs. For more information, see Using Cost Allocation Tags: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html in the *AWS Billing and Cost Management User Guide*.
+        An array of key-value pairs.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-tags
@@ -232,6 +239,8 @@ Deletes the storage connectors currently enabled for the stack.
             })]
         $RedirectURL,
         [parameter(Mandatory = $false)]
+        $StreamingExperienceSettings,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -280,6 +289,17 @@ Deletes the storage connectors currently enabled for the stack.
                 }
             })]
         $AccessEndpoints,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

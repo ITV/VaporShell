@@ -1,78 +1,55 @@
 function New-VSEC2VPNConnection {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::VPNConnection resource to the template. Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+        Adds an AWS::EC2::VPNConnection resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::VPNConnection resource to the template. Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
-
-To specify a VPN connection between a transit gateway and customer gateway, use the TransitGatewayId and CustomerGatewayId properties.
-
-To specify a VPN connection between a virtual private gateway and customer gateway, use the VpnGatewayId and CustomerGatewayId properties.
-
-For more information, see AWS Site-to-Site VPN: https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html in the *AWS Site-to-Site VPN User Guide*.
+        Adds an AWS::EC2::VPNConnection resource to the template. 
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html
 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CustomerGatewayId
-        The ID of the customer gateway at your end of the VPN connection.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-customergatewayid
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-customergatewayid
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER StaticRoutesOnly
-        Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
-If you are creating a VPN connection for a device that does not support Border Gateway Protocol BGP, you must specify true.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-StaticRoutesOnly
-        PrimitiveType: Boolean
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-staticroutesonly
         UpdateType: Immutable
+        PrimitiveType: Boolean
 
     .PARAMETER Tags
-        Any tags assigned to the VPN connection.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-tags
-        DuplicatesAllowed: True
-        ItemType: Tag
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-tags
         UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER TransitGatewayId
-        The ID of the transit gateway associated with the VPN connection.
-You must specify either TransitGatewayId or VpnGatewayId, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-transitgatewayid
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-transitgatewayid
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Type
-        The type of VPN connection.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-type
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-type
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER VpnGatewayId
-        The ID of the virtual private gateway at the AWS side of the VPN connection.
-You must specify either TransitGatewayId or VpnGatewayId, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-vpngatewayid
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-vpngatewayid
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER VpnTunnelOptionsSpecifications
-        The tunnel options for the VPN connection.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-vpntunneloptionsspecifications
-        DuplicatesAllowed: False
-        ItemType: VpnTunnelOptionsSpecification
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-vpntunneloptionsspecifications
         UpdateType: Immutable
+        Type: List
+        ItemType: VpnTunnelOptionsSpecification
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -205,6 +182,17 @@ You must specify either TransitGatewayId or VpnGatewayId, but not both.
                 }
             })]
         $VpnTunnelOptionsSpecifications,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

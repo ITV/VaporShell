@@ -14,8 +14,8 @@ The authorization method used to send messages.
         Use Sig V4 authorization. For more information, see Signature Version 4 Signing Process: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
-        Type: SigV4Authorization
         UpdateType: Mutable
+        Type: SigV4Authorization
 
     .FUNCTIONALITY
         Vaporshell

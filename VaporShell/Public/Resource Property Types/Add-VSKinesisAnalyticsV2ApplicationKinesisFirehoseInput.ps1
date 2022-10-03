@@ -1,11 +1,11 @@
 function Add-VSKinesisAnalyticsV2ApplicationKinesisFirehoseInput {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.KinesisFirehoseInput resource property to the template. For an SQL-based Amazon Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN.
+        Adds an AWS::KinesisAnalyticsV2::Application.KinesisFirehoseInput resource property to the template. For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.KinesisFirehoseInput resource property to the template.
-For an SQL-based Amazon Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN.
+For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisfirehoseinput.html
@@ -14,8 +14,8 @@ For an SQL-based Amazon Kinesis Data Analytics application, identifies a Kinesis
         The Amazon Resource Name ARN of the delivery stream.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisfirehoseinput.html#cfn-kinesisanalyticsv2-application-kinesisfirehoseinput-resourcearn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

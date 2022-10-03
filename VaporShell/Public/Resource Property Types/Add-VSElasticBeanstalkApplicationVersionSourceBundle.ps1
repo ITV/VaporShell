@@ -1,28 +1,24 @@
 function Add-VSElasticBeanstalkApplicationVersionSourceBundle {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticBeanstalk::ApplicationVersion.SourceBundle resource property to the template. The SourceBundle property is an embedded property of the AWS::ElasticBeanstalk::ApplicationVersion: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html resource. It specifies the Amazon S3 location of the source bundle for an AWS Elastic Beanstalk application version.
+        Adds an AWS::ElasticBeanstalk::ApplicationVersion.SourceBundle resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ElasticBeanstalk::ApplicationVersion.SourceBundle resource property to the template.
-The SourceBundle property is an embedded property of the AWS::ElasticBeanstalk::ApplicationVersion: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html resource. It specifies the Amazon S3 location of the source bundle for an AWS Elastic Beanstalk application version.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html
 
     .PARAMETER S3Bucket
-        The Amazon S3 bucket where the data is located.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html#cfn-beanstalk-sourcebundle-s3bucket
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html#cfn-elasticbeanstalk-applicationversion-sourcebundle-s3bucket
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER S3Key
-        The Amazon S3 key where the data is located.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html#cfn-beanstalk-sourcebundle-s3key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html#cfn-elasticbeanstalk-applicationversion-sourcebundle-s3key
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell

@@ -26,6 +26,13 @@ function New-VSServiceDiscoveryService {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER Type
+        If present, specifies that the service instances are only discoverable using the DiscoverInstances API operation. No DNS records is registered for the service instances. The only valid value is HTTP.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-type
+        PrimitiveType: String
+        UpdateType: Immutable
+
     .PARAMETER Description
         The description of the service.
 
@@ -42,7 +49,7 @@ If you specify a health check configuration, you can specify either HealthCheckC
         UpdateType: Immutable
 
     .PARAMETER DnsConfig
-        A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+        A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 
         Type: DnsConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-dnsconfig
@@ -58,19 +65,19 @@ You must specify a value for NamespaceId either for the service properties or fo
 
     .PARAMETER HealthCheckConfig
         *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in DnsConfig.
-For information about the charges for health checks, see Amazon Route 53 Pricing: http://aws.amazon.com/route53/pricing/.
+For information about the charges for health checks, see Amazon Route 53 Pricing: http://aws.amazon.com/route53/pricing/.
 
         Type: HealthCheckConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckconfig
         UpdateType: Mutable
 
     .PARAMETER Tags
-        +  CreateService: https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html in the *AWS Cloud Map API Reference*
+        The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-tags
         ItemType: Tag
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER Name
         The name of the service.
@@ -151,6 +158,17 @@ For information about the charges for health checks, see Amazon Route 53 Pricing
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $Type,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $Description,
         [parameter(Mandatory = $false)]
         $HealthCheckCustomConfig,
@@ -183,6 +201,17 @@ For information about the charges for health checks, see Amazon Route 53 Pricing
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

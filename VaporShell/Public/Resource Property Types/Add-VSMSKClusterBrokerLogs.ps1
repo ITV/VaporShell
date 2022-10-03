@@ -1,35 +1,35 @@
 function Add-VSMSKClusterBrokerLogs {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.BrokerLogs resource property to the template. You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
+        Adds an AWS::MSK::Cluster.BrokerLogs resource property to the template. You can configure your Amazon MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.BrokerLogs resource property to the template.
-You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
+You can configure your Amazon MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html
 
     .PARAMETER S3
-        Details of the Amazon S3 destination for broker logs.
+        Details of the Amazon MSK destination for broker logs.
 
-        Type: S3
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-s3
         UpdateType: Mutable
-
-    .PARAMETER Firehose
-        Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
-
-        Type: Firehose
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-firehose
-        UpdateType: Mutable
+        Type: S3
 
     .PARAMETER CloudWatchLogs
         Details of the CloudWatch Logs destination for broker logs.
 
-        Type: CloudWatchLogs
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-cloudwatchlogs
         UpdateType: Mutable
+        Type: CloudWatchLogs
+
+    .PARAMETER Firehose
+        Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-firehose
+        UpdateType: Mutable
+        Type: Firehose
 
     .FUNCTIONALITY
         Vaporshell
@@ -41,9 +41,9 @@ You can configure your MSK cluster to send broker logs to different destination 
         [parameter(Mandatory = $false)]
         $S3,
         [parameter(Mandatory = $false)]
-        $Firehose,
+        $CloudWatchLogs,
         [parameter(Mandatory = $false)]
-        $CloudWatchLogs
+        $Firehose
     )
     Begin {
         $obj = [PSCustomObject]@{}

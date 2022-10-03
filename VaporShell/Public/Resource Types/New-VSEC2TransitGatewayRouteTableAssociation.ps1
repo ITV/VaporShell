@@ -1,14 +1,12 @@
 function New-VSEC2TransitGatewayRouteTableAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayRouteTableAssociation resource to the template. Associates the specified attachment with the specified transit gateway route table. You can associate only one route table with an attachment.
+        Adds an AWS::EC2::TransitGatewayRouteTableAssociation resource to the template. Associates the specified attachment with the specified transit gateway route table. You can associate one route table with an attachment.
 
     .DESCRIPTION
-        Adds an AWS::EC2::TransitGatewayRouteTableAssociation resource to the template. Associates the specified attachment with the specified transit gateway route table. You can associate only one route table with an attachment.
+        Adds an AWS::EC2::TransitGatewayRouteTableAssociation resource to the template. Associates the specified attachment with the specified transit gateway route table. You can associate one route table with an attachment.
 
-**Note**
-
-The TransitGatewayRouteTableId value changes when you use AWS::EC2::TransitGatewayRouteTableAssociation. To update the route table on the resource, detach the route table and update the Cloud Formation stack. After you have the new TransitGatewayRouteTableId, perform another Cloud Formation stack update with the new ID. For more information, see Update Behaviors of Stack Resources: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html.
+Before you can update the route table associated with an attachment, you must disassociate the transit gateway route table that is currently associated with the attachment. First update the stack to remove the associated transit gateway route table, and then update the stack with the ID of the new transit gateway route table to associate.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html
@@ -114,6 +112,17 @@ The TransitGatewayRouteTableId value changes when you use AWS::EC2::TransitGatew
                 }
             })]
         $TransitGatewayAttachmentId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

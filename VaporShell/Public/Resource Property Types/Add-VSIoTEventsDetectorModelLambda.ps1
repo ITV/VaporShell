@@ -1,28 +1,28 @@
 function Add-VSIoTEventsDetectorModelLambda {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.Lambda resource property to the template. Calls an AWS Lambda function, passing in information about the detector model instance and the event which triggered the action.
+        Adds an AWS::IoTEvents::DetectorModel.Lambda resource property to the template. Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.Lambda resource property to the template.
-Calls an AWS Lambda function, passing in information about the detector model instance and the event which triggered the action.
+Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html
 
     .PARAMETER FunctionArn
-        The ARN of the AWS Lambda function which is executed.
+        The ARN of the Lambda function that is executed.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Payload
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        You can configure the action payload when you send a message to a Lambda function.
 
-        Type: Payload
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload
         UpdateType: Mutable
+        Type: Payload
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,7 +31,7 @@ Calls an AWS Lambda function, passing in information about the detector model in
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

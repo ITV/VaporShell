@@ -16,32 +16,31 @@ CanarySetting is a property of the AWS::ApiGateway::Stage: https://docs.aws.amaz
         The identifier of the deployment that the stage points to.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-deploymentid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER PercentTraffic
         The percentage 0-100 of traffic diverted to a canary deployment.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-percenttraffic
-        PrimitiveType: Double
         UpdateType: Mutable
+        PrimitiveType: Double
 
     .PARAMETER StageVariableOverrides
         Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
 Duplicates are not allowed.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: Map
         UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .PARAMETER UseStageCache
         Whether the canary deployment uses the stage cache or not.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-usestagecache
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell

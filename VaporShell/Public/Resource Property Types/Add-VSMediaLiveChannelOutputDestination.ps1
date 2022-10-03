@@ -13,7 +13,7 @@ This entity is at the top level in the channel.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html
 
     .PARAMETER MultiplexSettings
-        Not currently supported by AWS CloudFormation.
+        Destination settings for a Multiplex output; one destination for both encoders.
 
         Type: MultiplexProgramChannelDestinationSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-multiplexsettings

@@ -1,10 +1,14 @@
 function New-VSElasticsearchDomain {
     <#
     .SYNOPSIS
-        Adds an AWS::Elasticsearch::Domain resource to the template. The AWS::Elasticsearch::Domain resource creates an Amazon Elasticsearch Service (Amazon ES domain that encapsulates the Amazon ES engine instances.
+        Adds an AWS::Elasticsearch::Domain resource to the template. The AWS::Elasticsearch::Domain resource creates an Amazon OpenSearch Service (successor to Amazon Elasticsearch Service domain.
 
     .DESCRIPTION
-        Adds an AWS::Elasticsearch::Domain resource to the template. The AWS::Elasticsearch::Domain resource creates an Amazon Elasticsearch Service (Amazon ES domain that encapsulates the Amazon ES engine instances.
+        Adds an AWS::Elasticsearch::Domain resource to the template. The AWS::Elasticsearch::Domain resource creates an Amazon OpenSearch Service (successor to Amazon Elasticsearch Service domain.
+
+**Important**
+
+The AWS::Elasticsearch::Domain resource is being replaced by the AWS::OpenSearchService::Domain: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and legacy Elasticsearch. For instructions to upgrade domains defined within CloudFormation from Elasticsearch to OpenSearch, see Remarks: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--remarks.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
@@ -13,14 +17,14 @@ function New-VSElasticsearchDomain {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AccessPolicies
-        An AWS Identity and Access Management IAM policy document that specifies who can access the Amazon ES domain and their permissions. For more information, see Configuring Access Policies : https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policiesin the *Amazon Elasticsearch Service Developer Guid*e.
+        An AWS Identity and Access Management IAM policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see Configuring access policies: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating in the *Amazon OpenSearch Service Developer Guid*e.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-accesspolicies
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER AdvancedOptions
-        Additional options to specify for the Amazon ES domain. For more information, see Configuring Advanced Options: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options in the *Amazon Elasticsearch Service Developer Guide*.
+        Additional options to specify for the OpenSearch Service domain. For more information, see Advanced cluster parameters: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options in the *Amazon OpenSearch Service Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedoptions
         DuplicatesAllowed: False
@@ -29,24 +33,28 @@ function New-VSElasticsearchDomain {
         UpdateType: Mutable
 
     .PARAMETER AdvancedSecurityOptions
+        Specifies options for fine-grained access control.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions
         Type: AdvancedSecurityOptionsInput
-        UpdateType: Immutable
+        UpdateType: Conditional
 
     .PARAMETER CognitoOptions
-        Configures Amazon ES to use Amazon Cognito authentication for Kibana.
+        Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions
         Type: CognitoOptions
         UpdateType: Mutable
 
     .PARAMETER DomainEndpointOptions
+        Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainendpointoptions
         Type: DomainEndpointOptions
         UpdateType: Mutable
 
     .PARAMETER DomainName
-        A name for the Amazon ES domain. For valid values, see the DomainName: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-datatypes-domainname data type in the *Amazon Elasticsearch Service Developer Guide*. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see Name Type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
+        A name for the OpenSearch Service domain. For valid values, see the DomainName: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-domainname data type in the *Amazon OpenSearch Service Developer Guide*. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see Name Type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname
@@ -54,36 +62,36 @@ If you specify a name, you cannot perform updates that require replacement of th
         UpdateType: Immutable
 
     .PARAMETER EBSOptions
-        The configurations of Amazon Elastic Block Store Amazon EBS volumes that are attached to data nodes in the Amazon ES domain. For more information, see Configuring EBS-based Storage: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs in the *Amazon Elasticsearch Service Developer Guide*.
+        The configurations of Amazon Elastic Block Store Amazon EBS volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see EBS volume size limits: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource in the *Amazon OpenSearch Service Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-ebsoptions
         Type: EBSOptions
         UpdateType: Mutable
 
     .PARAMETER ElasticsearchClusterConfig
-        ElasticsearchClusterConfig is a property of the AWS::Elasticsearch::Domain resource that configures the cluster of an Amazon Elasticsearch Service Amazon ES domain.
+        ElasticsearchClusterConfig is a property of the AWS::Elasticsearch::Domain resource that configures the cluster of an Amazon OpenSearch Service domain.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchclusterconfig
         Type: ElasticsearchClusterConfig
         UpdateType: Mutable
 
     .PARAMETER ElasticsearchVersion
-        The version of Elasticsearch to use, such as 2.3. If not specified, 1.5 is used as the default. For information about the versions that Amazon ES supports, see the Elasticsearch-Version parameter for the CreateElasticsearchDomain: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-createelasticsearchdomain action in the *Amazon Elasticsearch Service Developer Guide*.
-If you set the UpgradeElasticsearchVersion: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeelasticsearchversion update policy to true, you can update ElasticsearchVersion without interruption. When UpgradeElasticsearchVersion is set to false, or is not specified, updating ElasticsearchVersion results in replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement.
+        The version of Elasticsearch to use, such as 2.3. If not specified, 1.5 is used as the default. For information about the versions that OpenSearch Service supports, see Supported versions of OpenSearch and Elasticsearch: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version in the *Amazon OpenSearch Service Developer Guide*.
+If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain update policy to true, you can update ElasticsearchVersion without interruption. When EnableVersionUpgrade is set to false, or is not specified, updating ElasticsearchVersion results in replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchversion
         PrimitiveType: String
         UpdateType: Conditional
 
     .PARAMETER EncryptionAtRestOptions
-        Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service KMS key to use. Can only be used to create a new domain, not update an existing one.
+        Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use. See Encryption of data at rest for Amazon OpenSearch Service: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-encryptionatrestoptions
         Type: EncryptionAtRestOptions
-        UpdateType: Immutable
+        UpdateType: Conditional
 
     .PARAMETER LogPublishingOptions
-        Key-value pairs to configure slow log publishing.
+        An object with one or more of the following keys: SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, INDEX_SLOW_LOGS, AUDIT_LOGS, depending on the types of logs you want to publish. Each key needs a valid LogPublishingOption value.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-logpublishingoptions
         DuplicatesAllowed: False
@@ -92,21 +100,21 @@ If you set the UpgradeElasticsearchVersion: https://docs.aws.amazon.com/AWSCloud
         UpdateType: Mutable
 
     .PARAMETER NodeToNodeEncryptionOptions
-        Specifies whether node-to-node encryption is enabled.
+        Specifies whether node-to-node encryption is enabled. See Node-to-node encryption for Amazon OpenSearch Service: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-nodetonodeencryptionoptions
         Type: NodeToNodeEncryptionOptions
-        UpdateType: Immutable
+        UpdateType: Conditional
 
     .PARAMETER SnapshotOptions
-        The automated snapshot configuration for the Amazon ES domain indices.
+        **DEPRECATED**. The automated snapshot configuration for the OpenSearch Service domain indices.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-snapshotoptions
         Type: SnapshotOptions
         UpdateType: Mutable
 
     .PARAMETER Tags
-        An arbitrary set of tags key–value pairs to associate with the Amazon ES domain.
+        An arbitrary set of tags key–value pairs to associate with the OpenSearch Service domain.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-tags
         DuplicatesAllowed: True
@@ -115,7 +123,7 @@ If you set the UpgradeElasticsearchVersion: https://docs.aws.amazon.com/AWSCloud
         UpdateType: Mutable
 
     .PARAMETER VPCOptions
-        The virtual private cloud VPC configuration for the Amazon ES domain. For more information, see VPC Support for Amazon Elasticsearch Service Domains: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html in the *Amazon Elasticsearch Service Developer Guide*.
+        The virtual private cloud VPC configuration for the OpenSearch Service domain. For more information, see Launching your Amazon OpenSearch Service domains within a VPC: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html in the *Amazon OpenSearch Service Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-vpcoptions
         Type: VPCOptions
@@ -251,6 +259,17 @@ If you set the UpgradeElasticsearchVersion: https://docs.aws.amazon.com/AWSCloud
         $Tags,
         [parameter(Mandatory = $false)]
         $VPCOptions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

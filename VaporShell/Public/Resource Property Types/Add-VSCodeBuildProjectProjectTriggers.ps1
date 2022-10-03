@@ -18,6 +18,17 @@ ProjectTriggers is a property of the AWS CodeBuild Project: https://docs.aws.ama
         ItemType: FilterGroup
         UpdateType: Mutable
 
+    .PARAMETER BuildType
+        Specifies the type of build this webhook will trigger. Allowed values are:
+BUILD
+A single build
+BUILD_BATCH
+A batch build
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-buildtype
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER Webhook
         Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
 
@@ -43,6 +54,17 @@ ProjectTriggers is a property of the AWS CodeBuild Project: https://docs.aws.ama
                 }
             })]
         $FilterGroups,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BuildType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

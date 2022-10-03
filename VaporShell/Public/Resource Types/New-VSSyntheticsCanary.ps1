@@ -17,9 +17,8 @@ Do not include secrets or proprietary information in your canary names. The cana
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Name
-        The name of the canary. For example, MyCanary.
-State  <a name="State-fn::getatt"></a>
-The state of the canary. For example, RUNNING.
+        The name for this canary. Be sure to give it a descriptive name that distinguishes it from other canaries in your account.
+Do not include secrets or proprietary information in your canary names. The canary name makes up part of the canary ARN, and the ARN is included in outbound calls over the internet. For more information, see Security Considerations for Synthetics Canaries: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
         UpdateType: Immutable
@@ -39,6 +38,13 @@ The state of the canary. For example, RUNNING.
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER ArtifactConfig
+        A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifactconfig
+        UpdateType: Mutable
+        Type: ArtifactConfig
+
     .PARAMETER Schedule
         A structure that contains information about how often the canary is to run, and when these runs are to stop.
 
@@ -54,14 +60,14 @@ The state of the canary. For example, RUNNING.
 +  cloudwatch:PutMetricData
 +  logs:CreateLogGroup
 +  logs:CreateLogStream
-+  logs:CreateLogStream
++  logs:PutLogEvents
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RuntimeVersion
-        Specifies the runtime version to use for the canary. Currently, the only valid value is syn-1.0. For more information about runtime versions, see  Canary Runtime Versions: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html.
+        Specifies the runtime version to use for the canary. For more information about runtime versions, see  Canary Runtime Versions: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
         UpdateType: Mutable
@@ -98,16 +104,29 @@ The state of the canary. For example, RUNNING.
         Type: VPCConfig
 
     .PARAMETER RunConfig
-        A structure that contains input information for a canary run.
+        A structure that contains input information for a canary run. If you omit this structure, the frequency of the canary is used as canary's timeout value, up to a maximum of 900 seconds.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
         UpdateType: Mutable
         Type: RunConfig
 
     .PARAMETER StartCanaryAfterCreation
-        Specify TRUE to have the canary start making runs immediately when it is created.
+        Specify TRUE to have the canary start making runs immediately after it is created.
+A canary that you create using CloudFormation can't be used to monitor the CloudFormation stack that creates the canary or to roll back that stack if there is a failure.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER VisualReference
+        If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run to use as the baseline for screenshots, and the coordinates of any parts of the screen to ignore during the visual monitoring comparison.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+        UpdateType: Mutable
+        Type: VisualReference
+
+    .PARAMETER DeleteLambdaResourcesOnCanaryDeletion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-deletelambdaresourcesoncanarydeletion
         UpdateType: Mutable
         PrimitiveType: Boolean
 
@@ -197,6 +216,8 @@ The state of the canary. For example, RUNNING.
                 }
             })]
         $ArtifactS3Location,
+        [parameter(Mandatory = $false)]
+        $ArtifactConfig,
         [parameter(Mandatory = $true)]
         $Schedule,
         [parameter(Mandatory = $true)]
@@ -261,6 +282,30 @@ The state of the canary. For example, RUNNING.
                 }
             })]
         $StartCanaryAfterCreation,
+        [parameter(Mandatory = $false)]
+        $VisualReference,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DeleteLambdaResourcesOnCanaryDeletion,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

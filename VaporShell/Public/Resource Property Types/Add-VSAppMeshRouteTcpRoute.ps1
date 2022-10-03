@@ -18,10 +18,17 @@ An object that represents a TCP route type.
         UpdateType: Mutable
 
     .PARAMETER Timeout
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        An object that represents types of timeouts.
 
         Type: TcpTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-timeout
+        UpdateType: Mutable
+
+    .PARAMETER Match
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Type: TcpRouteMatch
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-match
         UpdateType: Mutable
 
     .FUNCTIONALITY
@@ -34,7 +41,9 @@ An object that represents a TCP route type.
         [parameter(Mandatory = $true)]
         $Action,
         [parameter(Mandatory = $false)]
-        $Timeout
+        $Timeout,
+        [parameter(Mandatory = $false)]
+        $Match
     )
     Begin {
         $obj = [PSCustomObject]@{}

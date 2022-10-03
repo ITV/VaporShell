@@ -1,12 +1,12 @@
 function New-VSAppConfigApplication {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::Application resource to the template. The AWS::AppConfig::Application resource creates an application, which is a logical unit of code that provides capabilities for your customers. For example, an application can be a microservice that runs on Amazon EC2 instances, a mobile application installed by your users, a serverless application using Amazon API Gateway and AWS Lambda, or any system you run on behalf of others.
+        Adds an AWS::AppConfig::Application resource to the template. The AWS::AppConfig::Application resource creates an application. In AWS AppConfig, an application is simply an organizational construct like a folder. This organizational construct has a relationship with some unit of executable code. For example, you could create an application called MyMobileApp to organize and manage configuration data for a mobile application installed by your users.
 
     .DESCRIPTION
-        Adds an AWS::AppConfig::Application resource to the template. The AWS::AppConfig::Application resource creates an application, which is a logical unit of code that provides capabilities for your customers. For example, an application can be a microservice that runs on Amazon EC2 instances, a mobile application installed by your users, a serverless application using Amazon API Gateway and AWS Lambda, or any system you run on behalf of others.
+        Adds an AWS::AppConfig::Application resource to the template. The AWS::AppConfig::Application resource creates an application. In AWS AppConfig, an application is simply an organizational construct like a folder. This organizational construct has a relationship with some unit of executable code. For example, you could create an application called MyMobileApp to organize and manage configuration data for a mobile application installed by your users.
 
-AppConfig requires that you create resources and deploy a configuration in the following order:
+AWS AppConfig requires that you create resources and deploy a configuration in the following order:
 
 1. Create an application
 
@@ -18,7 +18,7 @@ AppConfig requires that you create resources and deploy a configuration in the f
 
 1. Deploy the configuration
 
-For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html in the *AWS Systems Manager User Guide*.
+For more information, see AWS AppConfig: https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html in the *AWS AppConfig User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html
@@ -34,7 +34,7 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
         UpdateType: Mutable
 
     .PARAMETER Tags
-        Metadata to assign to the application. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html#cfn-appconfig-application-tags
@@ -143,6 +143,17 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

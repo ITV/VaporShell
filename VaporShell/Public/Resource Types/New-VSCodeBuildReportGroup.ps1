@@ -1,10 +1,10 @@
 function New-VSCodeBuildReportGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::ReportGroup resource to the template. Creates a report group. A report group contains a collection of reports.
+        Adds an AWS::CodeBuild::ReportGroup resource to the template. Represents a report group. A report group contains a collection of reports.
 
     .DESCRIPTION
-        Adds an AWS::CodeBuild::ReportGroup resource to the template. Creates a report group. A report group contains a collection of reports.
+        Adds an AWS::CodeBuild::ReportGroup resource to the template. Represents a report group. A report group contains a collection of reports.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html
@@ -13,11 +13,15 @@ function New-VSCodeBuildReportGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Type
-        The type of the ReportGroup. The one valid value is TEST.
+        The type of the ReportGroup. This can be one of the following values:
+CODE_COVERAGE
+The report group contains code coverage reports.
+TEST
+The report group contains test reports.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-type
         PrimitiveType: String
-        UpdateType: Mutable
+        UpdateType: Immutable
 
     .PARAMETER ExportConfig
         Information about the destination where the raw data of this ReportGroup is exported.
@@ -26,8 +30,20 @@ function New-VSCodeBuildReportGroup {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-exportconfig
         UpdateType: Mutable
 
+    .PARAMETER DeleteReports
+        When deleting a report group, specifies if reports within the report group should be deleted.
+true
+Deletes any reports that belong to the report group before deleting the report group.
+false
+You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-deletereports
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER Tags
-        Not currently supported by AWS CloudFormation.
+        A list of tag key and value pairs associated with this report group.
+These tags are available for use by AWS services that support AWS CodeBuild report group tags.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-tags
@@ -35,7 +51,7 @@ function New-VSCodeBuildReportGroup {
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of a ReportGroup.
+        The name of the ReportGroup.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-name
         PrimitiveType: String
@@ -116,6 +132,17 @@ function New-VSCodeBuildReportGroup {
         $Type,
         [parameter(Mandatory = $true)]
         $ExportConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DeleteReports,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -130,6 +157,17 @@ function New-VSCodeBuildReportGroup {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

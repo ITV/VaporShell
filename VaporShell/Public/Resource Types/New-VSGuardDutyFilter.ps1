@@ -27,7 +27,7 @@ function New-VSGuardDutyFilter {
         UpdateType: Mutable
 
     .PARAMETER DetectorId
-        The ID of the detector to associate the Filter with.
+        The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
         PrimitiveType: String
@@ -41,10 +41,16 @@ function New-VSGuardDutyFilter {
         UpdateType: Mutable
 
     .PARAMETER Rank
-        Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+        Not currently supported by AWS CloudFormation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-rank
         PrimitiveType: Integer
+        UpdateType: Mutable
+
+    .PARAMETER Tags
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-tags
+        ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER Name
@@ -162,6 +168,9 @@ function New-VSGuardDutyFilter {
                 }
             })]
         $Rank,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -173,6 +182,17 @@ function New-VSGuardDutyFilter {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -235,6 +255,12 @@ function New-VSGuardDutyFilter {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

@@ -17,10 +17,10 @@ The query string component of a URI starts after the first '?' character and is 
 If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html#cfn-elasticloadbalancingv2-listenerrule-querystringconfig-values
-        DuplicatesAllowed: False
-        ItemType: QueryStringKeyValue
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: QueryStringKeyValue
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

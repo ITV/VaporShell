@@ -26,6 +26,14 @@ Specifies data stores to crawl.
         ItemType: CatalogTarget
         UpdateType: Mutable
 
+    .PARAMETER MongoDBTargets
+        A list of Mongo DB targets.
+
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-mongodbtargets
+        ItemType: MongoDBTarget
+        UpdateType: Mutable
+
     .PARAMETER JdbcTargets
         Specifies JDBC targets.
 
@@ -71,6 +79,17 @@ Specifies data stores to crawl.
                 }
             })]
         $CatalogTargets,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Glue.Crawler.MongoDBTarget"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MongoDBTargets,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Crawler.JdbcTarget"

@@ -9,7 +9,7 @@ Receipt rules enable you to specify which actions Amazon SES should take when it
 
 Each receipt rule defines a set of email addresses or domains that it applies to. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.
 
-For information about setting up receipt rules, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html.
+For information about setting up receipt rules, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html
@@ -22,7 +22,7 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
         UpdateType: Mutable
 
     .PARAMETER Recipients
-        Contains the recipient domains and email addresses that the receipt rule applies to. If this field isn't specified, this rule matches all recipients on all verified domains.
+        The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule matches all recipients on all verified domains.
 
         PrimitiveItemType: String
         Type: List
@@ -45,10 +45,10 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the receipt rule. The name must:
-+ This value can only contain ASCII letters a–z, A–Z, numbers 0–9, underscores _, or dashes -.
+        The name of the receipt rule. The name must meet the following requirements:
++ Contain only ASCII letters a-z, A-Z, numbers 0-9, underscores _, or dashes -.
 + Start and end with a letter or number.
-+ Contain fewer than 64 characters.
++ Contain 64 characters or fewer.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-name
         PrimitiveType: String

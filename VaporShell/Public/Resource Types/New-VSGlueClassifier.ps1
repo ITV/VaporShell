@@ -1,10 +1,10 @@
 function New-VSGlueClassifier {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Classifier resource to the template. The AWS::Glue::Classifier resource creates an AWS Glue classifier that categorizes data sources and specifies schemas. For more information, see Adding Classifiers to a Crawler: https://docs.aws.amazon.com/glue/latest/dg/add-classifier.html and Classifier Structure: https://docs.aws.amazon.com/glue/latest/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-Classifier in the *AWS Glue Developer Guide*.
+        Adds an AWS::Glue::Classifier resource to the template. The AWS::Glue::Classifier resource creates an AWS Glue classifier that categorizes data sources and specifies schemas. For more information, see Adding Classifiers to a Crawler: https://docs.aws.amazon.com/glue/latest/dg/add-classifier.html and Classifier Structure: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-Classifier in the *AWS Glue Developer Guide*.
 
     .DESCRIPTION
-        Adds an AWS::Glue::Classifier resource to the template. The AWS::Glue::Classifier resource creates an AWS Glue classifier that categorizes data sources and specifies schemas. For more information, see Adding Classifiers to a Crawler: https://docs.aws.amazon.com/glue/latest/dg/add-classifier.html and Classifier Structure: https://docs.aws.amazon.com/glue/latest/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-Classifier in the *AWS Glue Developer Guide*.
+        Adds an AWS::Glue::Classifier resource to the template. The AWS::Glue::Classifier resource creates an AWS Glue classifier that categorizes data sources and specifies schemas. For more information, see Adding Classifiers to a Crawler: https://docs.aws.amazon.com/glue/latest/dg/add-classifier.html and Classifier Structure: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-Classifier in the *AWS Glue Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html
@@ -110,6 +110,17 @@ function New-VSGlueClassifier {
         $CsvClassifier,
         [parameter(Mandatory = $false)]
         $GrokClassifier,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

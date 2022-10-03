@@ -1,11 +1,11 @@
 function Add-VSAppConfigEnvironmentTags {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::Environment.Tags resource property to the template. Metadata to assign to the environment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        Adds an AWS::AppConfig::Environment.Tags resource property to the template. Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 
     .DESCRIPTION
         Adds an AWS::AppConfig::Environment.Tags resource property to the template.
-Metadata to assign to the environment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-tags.html

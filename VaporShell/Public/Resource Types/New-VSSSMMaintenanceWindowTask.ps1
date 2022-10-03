@@ -27,7 +27,7 @@ function New-VSSSMMaintenanceWindowTask {
         UpdateType: Mutable
 
     .PARAMETER ServiceRoleArn
-        The ARN of the IAM service role to use to publish Amazon Simple Notification Service Amazon SNS notifications for maintenance window Run Command tasks.
+        The Amazon Resource Name ARN of the AWS Identity and Access Management IAM service role to use to publish Amazon Simple Notification Service Amazon SNS notifications for maintenance window Run Command tasks.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-servicerolearn
         PrimitiveType: String
@@ -76,6 +76,7 @@ For STEP_FUNCTIONS tasks, TaskArn is the state machine ARN.
 
     .PARAMETER TaskInvocationParameters
         The parameters to pass to the task when it runs. Populate only the fields that match the task type. All other fields should be empty.
+When you update a maintenance window task that has options specified in TaskInvocationParameters, you must provide again all the TaskInvocationParameters values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified TaskInvocationParameters values for Comment, NotificationConfig, and OutputS3BucketName. If you update the maintenance window task and specify only a different OutputS3BucketName value, the values for Comment and NotificationConfig are removed.
 
         Type: TaskInvocationParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters
@@ -103,9 +104,16 @@ TaskParameters has been deprecated. To specify parameters to pass to a task when
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER CutoffBehavior
+        The specification for whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-cutoffbehavior
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER LoggingInfo
         Information about an Amazon S3 bucket to write task-level logs to.
-LoggingInfo has been deprecated. To specify an S3 bucket to contain logs, instead use the OutputS3BucketName and OutputS3KeyPrefix options in the TaskInvocationParameters structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see AWS Systems Manager MaintenanceWindowTask TaskInvocationParameters: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html.
+LoggingInfo has been deprecated. To specify an Amazon S3 bucket to contain logs, instead use the OutputS3BucketName and OutputS3KeyPrefix options in the TaskInvocationParameters structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see AWS Systems Manager MaintenanceWindowTask TaskInvocationParameters: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html.
 
         Type: LoggingInfo
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-logginginfo
@@ -173,7 +181,7 @@ LoggingInfo has been deprecated. To specify an S3 bucket to contain logs, instea
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -217,7 +225,7 @@ LoggingInfo has been deprecated. To specify an S3 bucket to contain logs, instea
                 }
             })]
         $Priority,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -228,7 +236,7 @@ LoggingInfo has been deprecated. To specify an S3 bucket to contain logs, instea
                 }
             })]
         $MaxConcurrency,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SSM.MaintenanceWindowTask.Target"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -297,7 +305,29 @@ LoggingInfo has been deprecated. To specify an S3 bucket to contain logs, instea
             })]
         $TaskType,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CutoffBehavior,
+        [parameter(Mandatory = $false)]
         $LoggingInfo,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -25,7 +25,7 @@ An object that represents the health check policy for a virtual node's listener.
         UpdateType: Mutable
 
     .PARAMETER Port
-        The destination port for the health check request. This port must match the port defined in the PortMapping: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html#cfn-appmesh-virtualrouter-virtualrouterlistener-portmapping for the listener.
+        The destination port for the health check request. This port must match the port defined in the PortMapping: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping for the listener.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-port
         PrimitiveType: Integer

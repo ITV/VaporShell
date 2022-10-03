@@ -6,7 +6,9 @@ function New-VSEC2Route {
     .DESCRIPTION
         Adds an AWS::EC2::Route resource to the template. Specifies a route in a route table within a VPC.
 
-You must specify one of the following targets: EgressOnlyInternetGatewayId, GatewayId, InstanceId, NatGatewayId, NetworkInterfaceId, TransitGatewayId, or VpcPeeringConnectionId.
+You must specify either DestinationCidrBlock or DestinationIpv6CidrBlock, plus the ID of one of the target resources.
+
+If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a  DependsOn Attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html in the AWS::EC2::Route resource to explicitly declare a dependency on the AWS::EC2::TransitGatewayAttachment resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
@@ -14,9 +16,15 @@ You must specify one of the following targets: EgressOnlyInternetGatewayId, Gate
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER CarrierGatewayId
+        The ID of the carrier gateway.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER DestinationCidrBlock
         The IPv4 CIDR block used for the destination match.
-You must specify the DestinationCidrBlock or DestinationIpv6CidrBlock property.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
         PrimitiveType: String
@@ -24,7 +32,6 @@ You must specify the DestinationCidrBlock or DestinationIpv6CidrBlock property.
 
     .PARAMETER DestinationIpv6CidrBlock
         The IPv6 CIDR block used for the destination match.
-You must specify the DestinationCidrBlock or DestinationIpv6CidrBlock property.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock
         PrimitiveType: String
@@ -48,6 +55,13 @@ You must specify the DestinationCidrBlock or DestinationIpv6CidrBlock property.
         The ID of a NAT instance in your VPC.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-instanceid
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER LocalGatewayId
+        The ID of the local gateway.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid
         PrimitiveType: String
         UpdateType: Mutable
 
@@ -76,6 +90,13 @@ You must specify the DestinationCidrBlock or DestinationIpv6CidrBlock property.
         The ID of a transit gateway.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-transitgatewayid
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER VpcEndpointId
+        The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid
         PrimitiveType: String
         UpdateType: Mutable
 
@@ -158,6 +179,17 @@ You must specify the DestinationCidrBlock or DestinationIpv6CidrBlock property.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $CarrierGatewayId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $DestinationCidrBlock,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -213,6 +245,17 @@ You must specify the DestinationCidrBlock or DestinationIpv6CidrBlock property.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $LocalGatewayId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $NatGatewayId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -257,7 +300,29 @@ You must specify the DestinationCidrBlock or DestinationIpv6CidrBlock property.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $VpcEndpointId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $VpcPeeringConnectionId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

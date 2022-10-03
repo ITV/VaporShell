@@ -11,7 +11,7 @@ The DockerVolumeConfiguration property specifies a Docker volume configuration a
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html
 
     .PARAMETER Autoprovision
-        If this value is true, the Docker volume is created if it does not already exist.
+        If this value is true, the Docker volume is created if it doesn't already exist.
 This field is only used if the scope is shared.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision

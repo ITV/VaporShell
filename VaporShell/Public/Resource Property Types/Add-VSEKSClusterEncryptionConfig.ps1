@@ -10,20 +10,20 @@ The encryption configuration for the cluster.
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html
 
-    .PARAMETER Resources
-        Specifies the resources to be encrypted. The only supported value is "secrets".
-
-        PrimitiveItemType: String
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-resources
-        UpdateType: Mutable
-
     .PARAMETER Provider
         The encryption provider for the cluster.
 
-        Type: Provider
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-provider
-        UpdateType: Mutable
+        UpdateType: Immutable
+        Type: Provider
+
+    .PARAMETER Resources
+        Specifies the resources to be encrypted. The only supported value is "secrets".
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-resources
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,9 +33,9 @@ The encryption configuration for the cluster.
     Param
     (
         [parameter(Mandatory = $false)]
-        $Resources,
+        $Provider,
         [parameter(Mandatory = $false)]
-        $Provider
+        $Resources
     )
     Begin {
         $obj = [PSCustomObject]@{}

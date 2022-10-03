@@ -45,6 +45,13 @@ The ExtendedS3DestinationConfiguration property type configures an Amazon S3 des
         UpdateType: Mutable
         Type: DataFormatConversionConfiguration
 
+    .PARAMETER DynamicPartitioningConfiguration
+        The configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
+        UpdateType: Mutable
+        Type: DynamicPartitioningConfiguration
+
     .PARAMETER EncryptionConfiguration
         The encryption configuration for the Kinesis Data Firehose delivery stream. The default value is NoEncryption.
 
@@ -88,7 +95,7 @@ The ExtendedS3DestinationConfiguration property type configures an Amazon S3 des
         Type: S3DestinationConfiguration
 
     .PARAMETER S3BackupMode
-        The Amazon S3 backup mode.
+        The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupmode
         UpdateType: Mutable
@@ -129,6 +136,8 @@ The ExtendedS3DestinationConfiguration property type configures an Amazon S3 des
         $CompressionFormat,
         [parameter(Mandatory = $false)]
         $DataFormatConversionConfiguration,
+        [parameter(Mandatory = $false)]
+        $DynamicPartitioningConfiguration,
         [parameter(Mandatory = $false)]
         $EncryptionConfiguration,
         [parameter(Mandatory = $false)]

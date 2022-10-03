@@ -22,7 +22,7 @@ If the AZMode and PreferredAvailabilityZones are not specified, ElastiCache assu
         UpdateType: Conditional
 
     .PARAMETER AutoMinorVersionUpgrade
-        This parameter is currently disabled.
+        If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-autominorversionupgrade
         PrimitiveType: Boolean
@@ -33,8 +33,10 @@ If the AZMode and PreferredAvailabilityZones are not specified, ElastiCache assu
 The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts. Changing the CacheNodeType of a Memcached instance is currently not supported. If you need to scale using Memcached, we recommend forcing a replacement update by changing the LogicalResourceId of the resource.
 + General purpose:
 + Current generation:
+**M6g node types:** cache.m6g.large, cache.m6g.xlarge, cache.m6g.2xlarge, cache.m6g.4xlarge, cache.m6g.8xlarge, cache.m6g.12xlarge, cache.m6g.16xlarge, cache.m6g.24xlarge
 **M5 node types:** cache.m5.large, cache.m5.xlarge, cache.m5.2xlarge, cache.m5.4xlarge, cache.m5.12xlarge, cache.m5.24xlarge
 **M4 node types:** cache.m4.large, cache.m4.xlarge, cache.m4.2xlarge, cache.m4.4xlarge, cache.m4.10xlarge
+**T4g node types:** cache.t4g.micro, cache.t4g.small, cache.t4g.medium
 **T3 node types:** cache.t3.micro, cache.t3.small, cache.t3.medium
 **T2 node types:** cache.t2.micro, cache.t2.small, cache.t2.medium
 + Previous generation: not recommended
@@ -46,11 +48,16 @@ The following node types are supported by ElastiCache. Generally speaking, the c
 **C1 node types:** cache.c1.xlarge
 + Memory optimized:
 + Current generation:
+**R6gd node types:** cache.r6gd.xlarge, cache.r6gd.2xlarge, cache.r6gd.4xlarge, cache.r6gd.8xlarge, cache.r6gd.12xlarge, cache.r6gd.16xlarge
+**Note**
+The r6gd family is available in the following regions: us-east-2, us-east-1, us-west-2, us-west-1, eu-west-1, eu-central-1, ap-northeast-1, ap-southeast-1, ap-southeast-2.
+**R6g node types:** cache.r6g.large, cache.r6g.xlarge, cache.r6g.2xlarge, cache.r6g.4xlarge, cache.r6g.8xlarge, cache.r6g.12xlarge, cache.r6g.16xlarge, cache.r6g.24xlarge
 **R5 node types:** cache.r5.large, cache.r5.xlarge, cache.r5.2xlarge, cache.r5.4xlarge, cache.r5.12xlarge, cache.r5.24xlarge
 **R4 node types:** cache.r4.large, cache.r4.xlarge, cache.r4.2xlarge, cache.r4.4xlarge, cache.r4.8xlarge, cache.r4.16xlarge
 + Previous generation: not recommended
 **M2 node types:** cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge
 **R3 node types:** cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, cache.r3.4xlarge, cache.r3.8xlarge
+For region availability, see Supported Node Types by Amazon Region: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion
 **Additional node type info**
 + All current generation instance types are created in Amazon VPC by default.
 + Redis append-only files AOF are not supported for T1 or T2 instances.
@@ -81,7 +88,7 @@ Use this parameter only when you are creating a cluster outside of an Amazon Vir
     .PARAMETER CacheSubnetGroupName
         The name of the subnet group to be used for the cluster.
 Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud Amazon VPC.
-If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see Subnets and Subnet Groups: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html.
+If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see AWS::ElastiCache::SubnetGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachesubnetgroupname
         PrimitiveType: String
@@ -111,6 +118,15 @@ Valid values for this parameter are: memcached | redis
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER LogDeliveryConfigurations
+        Specifies the destination, format and type of the logs.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-logdeliveryconfigurations
+        DuplicatesAllowed: False
+        ItemType: LogDeliveryConfigurationRequest
+        Type: List
+        UpdateType: Mutable
+
     .PARAMETER NotificationTopicArn
         The Amazon Resource Name ARN of the Amazon Simple Notification Service SNS topic to which notifications are sent.
 The Amazon SNS topic owner must be the same as the cluster owner.
@@ -136,7 +152,7 @@ However, if the PreferredAvailabilityZone and PreferredAvailabilityZones propert
 
     .PARAMETER PreferredAvailabilityZone
         The EC2 Availability Zone in which the cluster is created.
-All nodes belonging to this Memcached cluster are placed in the preferred Availability Zone. If you want to create your nodes across multiple Availability Zones, use PreferredAvailabilityZones.
+All nodes belonging to this cluster are placed in the preferred Availability Zone. If you want to create your nodes across multiple Availability Zones, use PreferredAvailabilityZones.
 Default: System chosen Availability Zone.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredavailabilityzone
@@ -213,12 +229,19 @@ This parameter is only valid if the Engine parameter is redis.
         UpdateType: Mutable
 
     .PARAMETER Tags
-        A list of cost allocation tags to be added to this resource.
+        A list of tags to be added to this resource.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-tags
         DuplicatesAllowed: True
         ItemType: Tag
         Type: List
+        UpdateType: Mutable
+
+    .PARAMETER TransitEncryptionEnabled
+        + ModifyCacheParameterGroup: https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html in the * Amazon ElastiCache API Reference Guide*
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-transitencryptionenabled
+        PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER VpcSecurityGroupIds
@@ -385,6 +408,17 @@ Use this parameter only when you are creating a cluster in an Amazon Virtual Pri
         $EngineVersion,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ElastiCache.CacheCluster.LogDeliveryConfigurationRequest"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LogDeliveryConfigurations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -479,7 +513,29 @@ Use this parameter only when you are creating a cluster in an Amazon Virtual Pri
         [parameter(Mandatory = $false)]
         $Tags,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TransitEncryptionEnabled,
+        [parameter(Mandatory = $false)]
         $VpcSecurityGroupIds,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -548,6 +604,12 @@ Use this parameter only when you are creating a cluster in an Amazon Virtual Pri
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CacheSecurityGroupNames -Value @($CacheSecurityGroupNames)
+                }
+                LogDeliveryConfigurations {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name LogDeliveryConfigurations -Value @($LogDeliveryConfigurations)
                 }
                 PreferredAvailabilityZones {
                     if (!($ResourceParams["Properties"])) {

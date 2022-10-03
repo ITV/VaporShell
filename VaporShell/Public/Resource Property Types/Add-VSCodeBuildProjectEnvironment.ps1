@@ -15,6 +15,8 @@ Environment is a property of the AWS::CodeBuild::Project: https://docs.aws.amazo
 + The environment type ARM_CONTAINER is available only in regions US East N. Virginia, US East Ohio, US West Oregon, EU Ireland, Asia Pacific Mumbai, Asia Pacific Tokyo, Asia Pacific Sydney, and EU Frankfurt.
 + The environment type LINUX_CONTAINER with compute type build.general1.2xlarge is available only in regions US East N. Virginia, US East Ohio, US West Oregon, Canada Central, EU Ireland, EU London, EU Frankfurt, Asia Pacific Tokyo, Asia Pacific Seoul, Asia Pacific Singapore, Asia Pacific Sydney, China Beijing, and China Ningxia.
 + The environment type LINUX_GPU_CONTAINER is available only in regions US East N. Virginia, US East Ohio, US West Oregon, Canada Central, EU Ireland, EU London, EU Frankfurt, Asia Pacific Tokyo, Asia Pacific Seoul, Asia Pacific Singapore, Asia Pacific Sydney , China Beijing, and China Ningxia.
++ The environment types WINDOWS_CONTAINER and WINDOWS_SERVER_2019_CONTAINER are available only in regions US East N. Virginia, US East Ohio, US West Oregon, and EU Ireland.
+For more information, see Build environment compute types: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html in the * AWS CodeBuild user guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-type
         PrimitiveType: String
@@ -44,7 +46,7 @@ If the operating system's base image is Alpine Linux and the previous command do
 
     .PARAMETER ImagePullCredentialsType
         The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
-+  CODEBUILD specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild's service principal.
++  CODEBUILD specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.
 +  SERVICE_ROLE specifies that AWS CodeBuild uses your build project's service role.
 When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
 
@@ -54,8 +56,9 @@ When you use a cross-account or private registry image, you must use SERVICE_ROL
 
     .PARAMETER Image
         The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:
-+ For an image tag: registry/repository:tag. For example, to specify an image with the tag "latest," use registry/repository:latest.
-+ For an image digest: registry/repository@digest. For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use registry/repository@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf.
++ For an image tag: <registry>/<repository>:<tag>. For example, in the Docker repository that CodeBuild uses to manage its Docker images, this would be aws/codebuild/standard:4.0.
++ For an image digest: <registry>/<repository>@<digest>. For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use <registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf.
+For more information, see Docker images provided by CodeBuild: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html in the * AWS CodeBuild user guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-image
         PrimitiveType: String
@@ -82,7 +85,7 @@ For more information, see Build Environment Compute Types: https://docs.aws.amaz
         UpdateType: Mutable
 
     .PARAMETER Certificate
-        The certificate to use with this build project.
+        The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project. For more information, see certificate: https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate in the * AWS CodeBuild User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-certificate
         PrimitiveType: String

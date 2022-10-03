@@ -1,11 +1,11 @@
 function Add-VSPinpointApplicationSettingsLimits {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::ApplicationSettings.Limits resource property to the template. Specifies the default sending limits for campaigns in the application. You can override these limits for a specific campaign.
+        Adds an AWS::Pinpoint::ApplicationSettings.Limits resource property to the template. Specifies the default sending limits for campaigns in the application.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::ApplicationSettings.Limits resource property to the template.
-Specifies the default sending limits for campaigns in the application. You can override these limits for a specific campaign.
+Specifies the default sending limits for campaigns in the application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-limits.html

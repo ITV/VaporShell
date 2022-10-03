@@ -27,7 +27,7 @@ Information about notification triggers for the deployment group.
         UpdateType: Mutable
 
     .PARAMETER TriggerTargetArn
-        The ARN of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
+        The Amazon Resource Name ARN of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggertargetarn
         PrimitiveType: String

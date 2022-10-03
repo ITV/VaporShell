@@ -19,6 +19,13 @@ function New-VSCodeBuildProject {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER ResourceAccessRole
+        The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-resourceaccessrole
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER VpcConfig
         VpcConfig specifies settings that enable AWS CodeBuild to access resources in an Amazon VPC. For more information, see Use AWS CodeBuild with Amazon Virtual Private Cloud: https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html in the *AWS CodeBuild User Guide*.
 
@@ -35,9 +42,9 @@ function New-VSCodeBuildProject {
         UpdateType: Mutable
 
     .PARAMETER EncryptionKey
-        The alias or Amazon Resource Name ARN of the AWS Key Management Service AWS KMS customer master key CMK that CodeBuild uses to encrypt the build output. If you don't specify a value, CodeBuild uses the AWS-managed CMK for Amazon Simple Storage Service Amazon S3.
+        The AWS Key Management Service customer master key CMK to be used for encrypting the build output artifacts.
 You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key.
-You can specify either the Amazon Resource Name ARN of the CMK or, if available, the CMK's alias using the format alias/alias-name .
+You can specify either the Amazon Resource Name ARN of the CMK or, if available, the CMK's alias using the format alias/<alias-name>. If you don't specify a value, CodeBuild uses the managed CMK for Amazon Simple Storage Service Amazon S3.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-encryptionkey
         PrimitiveType: String
@@ -45,12 +52,12 @@ You can specify either the Amazon Resource Name ARN of the CMK or, if available,
 
     .PARAMETER SourceVersion
         A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:
-+ For AWS CodeCommit: the commit ID, branch, or Git tag to use.
++ For CodeCommit: the commit ID, branch, or Git tag to use.
 + For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format pr/pull-request-ID for example pr/25. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
 + For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
-+ For Amazon Simple Storage Service Amazon S3: the version ID of the object that represents the build input ZIP file to use.
++ For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
 If sourceVersion is specified at the build level, then that version takes precedence over this sourceVersion at the project level.
-For more information, see Source Version Sample with CodeBuild: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html in the *AWS CodeBuild User Guide*.
+For more information, see Source Version Sample with CodeBuild: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html in the * AWS CodeBuild User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-sourceversion
         PrimitiveType: String
@@ -101,14 +108,14 @@ Including build badges with your project is currently not supported if the sourc
         UpdateType: Mutable
 
     .PARAMETER LogsConfig
-        Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3 bucket, or both.
+        Information about logs for the build project. A project can create logs in CloudWatch Logs, an S3 bucket, or both.
 
         Type: LogsConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-logsconfig
         UpdateType: Mutable
 
     .PARAMETER ServiceRole
-        The ARN of the AWS Identity and Access Management IAM role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        The ARN of the IAM role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-servicerole
         PrimitiveType: String
@@ -142,6 +149,32 @@ Including build badges with your project is currently not supported if the sourc
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysourceversions
         ItemType: ProjectSourceVersion
+        UpdateType: Mutable
+
+    .PARAMETER ConcurrentBuildLimit
+        The maximum number of concurrent builds that are allowed for this project.
+New builds are only started if the current number of builds is less than or equal to this limit. If the current build count meets this limit, new builds are throttled and are not run.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-concurrentbuildlimit
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
+    .PARAMETER Visibility
+        Specifies the visibility of the project's builds. Possible values are:
+PUBLIC_READ
+The project builds are visible to the public.
+PRIVATE
+The project builds are not visible to the public.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-visibility
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER BuildBatchConfig
+        A ProjectBuildBatchConfig object that defines the batch build options for the project.
+
+        Type: ProjectBuildBatchConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
         UpdateType: Mutable
 
     .PARAMETER Tags
@@ -240,6 +273,17 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $Description,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ResourceAccessRole,
         [parameter(Mandatory = $false)]
         $VpcConfig,
         [parameter(Mandatory = $false)]
@@ -362,6 +406,30 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $SecondarySourceVersions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ConcurrentBuildLimit,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Visibility,
+        [parameter(Mandatory = $false)]
+        $BuildBatchConfig,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -378,6 +446,17 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
         $TimeoutInMinutes,
         [parameter(Mandatory = $false)]
         $Cache,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

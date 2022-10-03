@@ -19,25 +19,11 @@ function New-VSEC2ClientVpnEndpoint {
         PrimitiveType: String
         UpdateType: Immutable
 
-    .PARAMETER ConnectionLogOptions
-        Information about the client connection logging options.
-If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:
-+ Client connection requests
-+ Client connection results successful and unsuccessful
-+ Reasons for unsuccessful client connection requests
-+ Client connection termination time
+    .PARAMETER ClientConnectOptions
+        The options for managing connection authorization for new client connections.
 
-        Type: ConnectionLogOptions
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
-        UpdateType: Mutable
-
-    .PARAMETER SplitTunnel
-        Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
-By default, split-tunnel on a VPN endpoint is disabled.
-For information about split-tunnel VPN endpoints, see Split-Tunnel AWS Client VPN Endpoint: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html in the *AWS Client VPN Administrator Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-splittunnel
-        PrimitiveType: Boolean
+        Type: ClientConnectOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientconnectoptions
         UpdateType: Mutable
 
     .PARAMETER Description
@@ -55,13 +41,6 @@ For information about split-tunnel VPN endpoints, see Split-Tunnel AWS Client VP
         ItemType: TagSpecification
         UpdateType: Immutable
 
-    .PARAMETER VpcId
-        The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-vpcid
-        PrimitiveType: String
-        UpdateType: Mutable
-
     .PARAMETER AuthenticationOptions
         Information about the authentication method to be used to authenticate clients.
 
@@ -77,12 +56,72 @@ For information about split-tunnel VPN endpoints, see Split-Tunnel AWS Client VP
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER SessionTimeoutHours
+        The maximum VPN session duration time in hours.
+Valid values: 8 | 10 | 12 | 24
+Default value: 24
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-sessiontimeouthours
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
     .PARAMETER DnsServers
         Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.
 
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-dnsservers
+        UpdateType: Mutable
+
+    .PARAMETER SecurityGroupIds
+        The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
+        UpdateType: Mutable
+
+    .PARAMETER ConnectionLogOptions
+        Information about the client connection logging options.
+If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:
++ Client connection requests
++ Client connection results successful and unsuccessful
++ Reasons for unsuccessful client connection requests
++ Client connection termination time
+
+        Type: ConnectionLogOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
+        UpdateType: Mutable
+
+    .PARAMETER SplitTunnel
+        Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
+By default, split-tunnel on a VPN endpoint is disabled.
+For information about split-tunnel VPN endpoints, see Split-tunnel AWS Client VPN endpoint: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html in the * AWS Client VPN Administrator Guide*.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-splittunnel
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER ClientLoginBannerOptions
+        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+
+        Type: ClientLoginBannerOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientloginbanneroptions
+        UpdateType: Mutable
+
+    .PARAMETER VpcId
+        The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-vpcid
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER SelfServicePortal
+        Specify whether to enable the self-service portal for the Client VPN endpoint.
+Default Value: enabled
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-selfserviceportal
+        PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TransportProtocol
@@ -92,14 +131,6 @@ Default value: udp
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-transportprotocol
         PrimitiveType: String
         UpdateType: Immutable
-
-    .PARAMETER SecurityGroupIds
-        The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
-
-        PrimitiveItemType: String
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
-        UpdateType: Mutable
 
     .PARAMETER VpnPort
         The port number to assign to the Client VPN endpoint for TCP and UDP traffic.
@@ -183,19 +214,8 @@ Default Value: 443
                 }
             })]
         $ClientCidrBlock,
-        [parameter(Mandatory = $true)]
-        $ConnectionLogOptions,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SplitTunnel,
+        $ClientConnectOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -218,17 +238,6 @@ Default Value: 443
                 }
             })]
         $TagSpecifications,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $VpcId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.ClientVpnEndpoint.ClientAuthenticationRequest"
@@ -252,7 +261,57 @@ Default Value: 443
             })]
         $ServerCertificateArn,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SessionTimeoutHours,
+        [parameter(Mandatory = $false)]
         $DnsServers,
+        [parameter(Mandatory = $false)]
+        $SecurityGroupIds,
+        [parameter(Mandatory = $true)]
+        $ConnectionLogOptions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SplitTunnel,
+        [parameter(Mandatory = $false)]
+        $ClientLoginBannerOptions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $VpcId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SelfServicePortal,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -265,8 +324,6 @@ Default Value: 443
             })]
         $TransportProtocol,
         [parameter(Mandatory = $false)]
-        $SecurityGroupIds,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -277,6 +334,17 @@ Default Value: 443
                 }
             })]
         $VpnPort,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -16,16 +16,17 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
         The type of resource to tag. Specify capacity-reservation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-resourcetype
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER Tags
         The tags to apply to the resource.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-tags
+        UpdateType: Immutable
+        Type: List
         ItemType: Tag
-        UpdateType: Mutable
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

@@ -13,11 +13,18 @@ function New-VSSageMakerModel {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ExecutionRoleArn
-        The Amazon Resource Name ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see Amazon SageMaker Roles: https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html.
-To be able to pass this role to Amazon SageMaker, the caller of this API must have the iam:PassRole permission.
+        The Amazon Resource Name ARN of the IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see SageMaker Roles: https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html.
+To be able to pass this role to SageMaker, the caller of this API must have the iam:PassRole permission.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
         PrimitiveType: String
+        UpdateType: Immutable
+
+    .PARAMETER EnableNetworkIsolation
+        Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-enablenetworkisolation
+        PrimitiveType: Boolean
         UpdateType: Immutable
 
     .PARAMETER PrimaryContainer
@@ -47,6 +54,13 @@ To be able to pass this role to Amazon SageMaker, the caller of this API must ha
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers
         ItemType: ContainerDefinition
+        UpdateType: Immutable
+
+    .PARAMETER InferenceExecutionConfig
+        Specifies details of how containers in a multi-container endpoint are called.
+
+        Type: InferenceExecutionConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-inferenceexecutionconfig
         UpdateType: Immutable
 
     .PARAMETER Tags
@@ -132,6 +146,17 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
             })]
         $ExecutionRoleArn,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableNetworkIsolation,
+        [parameter(Mandatory = $false)]
         $PrimaryContainer,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -157,9 +182,22 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $Containers,
+        [parameter(Mandatory = $false)]
+        $InferenceExecutionConfig,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

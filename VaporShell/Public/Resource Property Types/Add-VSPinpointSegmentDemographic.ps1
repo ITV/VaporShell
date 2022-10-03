@@ -1,11 +1,11 @@
 function Add-VSPinpointSegmentDemographic {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Segment.Demographic resource property to the template. Specifies demographic-based dimension settings for including or excluding endpoints from a segment. These settings derive from characteristics of endpoint devices, such as platform, make, and model.
+        Adds an AWS::Pinpoint::Segment.Demographic resource property to the template. Specifies demographic-based criteria, such as device platform, for the segment.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Segment.Demographic resource property to the template.
-Specifies demographic-based dimension settings for including or excluding endpoints from a segment. These settings derive from characteristics of endpoint devices, such as platform, make, and model.
+Specifies demographic-based criteria, such as device platform, for the segment.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-demographic.html

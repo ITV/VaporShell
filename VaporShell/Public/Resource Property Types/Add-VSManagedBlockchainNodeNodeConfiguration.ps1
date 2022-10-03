@@ -11,7 +11,7 @@ Configuration properties of a peer node within a membership.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-node-nodeconfiguration.html
 
     .PARAMETER AvailabilityZone
-        The Availability Zone in which the node exists.
+        The Availability Zone in which the node exists. Required for Ethereum nodes.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-node-nodeconfiguration.html#cfn-managedblockchain-node-nodeconfiguration-availabilityzone
         PrimitiveType: String

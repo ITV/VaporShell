@@ -1,10 +1,10 @@
 function New-VSSageMakerNotebookInstanceLifecycleConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::NotebookInstanceLifecycleConfig resource to the template. The AWS::SageMaker::NotebookInstanceLifecycleConfig resource creates shell scripts that run when you create and/or start a notebook instance. For information about notebook instance lifestyle configurations, see Customize a Notebook Instance: https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html in the *Amazon SageMaker Developer Guide*.
+        Adds an AWS::SageMaker::NotebookInstanceLifecycleConfig resource to the template. The AWS::SageMaker::NotebookInstanceLifecycleConfig resource creates shell scripts that run when you create and/or start a notebook instance. For information about notebook instance lifecycle configurations, see Customize a Notebook Instance: https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html in the *Amazon SageMaker Developer Guide*.
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::NotebookInstanceLifecycleConfig resource to the template. The AWS::SageMaker::NotebookInstanceLifecycleConfig resource creates shell scripts that run when you create and/or start a notebook instance. For information about notebook instance lifestyle configurations, see Customize a Notebook Instance: https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html in the *Amazon SageMaker Developer Guide*.
+        Adds an AWS::SageMaker::NotebookInstanceLifecycleConfig resource to the template. The AWS::SageMaker::NotebookInstanceLifecycleConfig resource creates shell scripts that run when you create and/or start a notebook instance. For information about notebook instance lifecycle configurations, see Customize a Notebook Instance: https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html in the *Amazon SageMaker Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html
@@ -130,6 +130,17 @@ function New-VSSageMakerNotebookInstanceLifecycleConfig {
                 }
             })]
         $OnCreate,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

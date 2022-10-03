@@ -9,6 +9,10 @@ The Target property type specifies targets (either instances or window target ID
 
 Target is a property of the AWS::SSM::MaintenanceWindowTask: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html property type.
 
+**Note**
+
+To use resource-groups:Name as the key for a maintenance window target, specify the resource group as a AWS::SSM::MaintenanceWindowTarget type, and use the Ref function to specify the target for AWS::SSM::MaintenanceWindowTask. For an example, see **Create a Run Command task that targets instances using a resource group name** in AWS::SSM::MaintenanceWindowTask Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#aws-resource-ssm-maintenancewindowtask--examples.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
 
@@ -34,7 +38,7 @@ Target is a property of the AWS::SSM::MaintenanceWindowTask: https://docs.aws.am
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         $Values,
         [parameter(Mandatory = $true)]
         [ValidateScript( {

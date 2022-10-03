@@ -17,7 +17,7 @@ function New-VSOpsWorksInstance {
     .PARAMETER AgentVersion
         The default AWS OpsWorks Stacks agent version. You have the following options:
 +  INHERIT - Use the stack's default agent version setting.
-+  *version_number* - Use the specified agent version. This value overrides the stack's default setting. To update the agent version, edit the instance configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the instance.
++  *version_number* - Use the specified agent version. This value overrides the stack's default setting. To update the agent version, edit the instance configuration and specify a new version. AWS OpsWorks Stacks installs that version on the instance.
 The default setting is INHERIT. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call DescribeAgentVersions: https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-agentversion
@@ -79,7 +79,9 @@ If you specify a custom AMI, you must set Os to Custom.
         UpdateType: Mutable
 
     .PARAMETER Hostname
-        The instance host name.
+        The instance host name. The following are character limits for instance host names.
++ Linux-based instances: 63 characters
++ Windows-based instances: 15 characters
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-hostname
         PrimitiveType: String
@@ -111,14 +113,14 @@ We strongly recommend using the default value of true to ensure that your instan
 
     .PARAMETER Os
         The instance's operating system, which must be set to one of the following.
-+ A supported Linux operating system: An Amazon Linux version, such as Amazon Linux 2018.03, Amazon Linux 2017.09, Amazon Linux 2017.03, Amazon Linux 2016.09, Amazon Linux 2016.03, Amazon Linux 2015.09, or Amazon Linux 2015.03.
-+ A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04 LTS, or Ubuntu 12.04 LTS.
++ A supported Linux operating system: An Amazon Linux version, such as Amazon Linux 2, Amazon Linux 2018.03, Amazon Linux 2017.09, Amazon Linux 2017.03, Amazon Linux 2016.09, Amazon Linux 2016.03, Amazon Linux 2015.09, or Amazon Linux 2015.03.
++ A supported Ubuntu operating system, such as Ubuntu 18.04 LTS, Ubuntu 16.04 LTS, Ubuntu 14.04 LTS, or Ubuntu 12.04 LTS.
 +  CentOS Linux 7
 +  Red Hat Enterprise Linux 7
 + A supported Windows operating system, such as Microsoft Windows Server 2012 R2 Base, Microsoft Windows Server 2012 R2 with SQL Server Express, Microsoft Windows Server 2012 R2 with SQL Server Standard, or Microsoft Windows Server 2012 R2 with SQL Server Web.
 + A custom AMI: Custom.
-For more information about the supported operating systems, see AWS OpsWorks Stacks Operating Systems: https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html.
-The default option is the current Amazon Linux version. If you set this parameter to Custom, you must use the CreateInstance: https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateInstance action's AmiId parameter to specify the custom AMI that you want to use. Block device mappings are not supported if the value is Custom. For more information about supported operating systems, see Operating Systems: https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.htmlFor more information about how to use custom AMIs with AWS OpsWorks Stacks, see Using Custom AMIs: https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html.
+Not all operating systems are supported with all versions of Chef. For more information about the supported operating systems, see AWS OpsWorks Stacks Operating Systems: https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html.
+The default option is the current Amazon Linux version. If you set this parameter to Custom, you must use the CreateInstance: https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateInstance action's AmiId parameter to specify the custom AMI that you want to use. Block device mappings are not supported if the value is Custom. For more information about how to use custom AMIs with AWS OpsWorks Stacks, see Using Custom AMIs: https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-os
         PrimitiveType: String
@@ -174,7 +176,7 @@ The default option is the current Amazon Linux version. If you set this paramete
         UpdateType: Immutable
 
     .PARAMETER Volumes
-        A list of AWS OpsWorks volume IDs to associate with the instance. For more information, see AWS::OpsWorks::Volume: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html.
+        A list of AWS OpsWorks volume IDs to associate with the instance. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-volumes
         DuplicatesAllowed: False
@@ -439,6 +441,17 @@ The default option is the current Amazon Linux version. If you set this paramete
         $VirtualizationType,
         [parameter(Mandatory = $false)]
         $Volumes,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

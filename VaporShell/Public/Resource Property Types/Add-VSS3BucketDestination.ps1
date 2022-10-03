@@ -1,17 +1,18 @@
 function Add-VSS3BucketDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.Destination resource property to the template. Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC.
+        Adds an AWS::S3::Bucket.Destination resource property to the template. Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.Destination resource property to the template.
-Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC.
+Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html
 
     .PARAMETER BucketAccountId
-        The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data.
+        The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketaccountid
         PrimitiveType: String
@@ -26,6 +27,7 @@ Specifies information about where to publish analysis or configuration results f
 
     .PARAMETER Format
         Specifies the file format used when exporting data to Amazon S3.
+*Allowed values*: CSV | ORC | Parquet
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-format
         PrimitiveType: String

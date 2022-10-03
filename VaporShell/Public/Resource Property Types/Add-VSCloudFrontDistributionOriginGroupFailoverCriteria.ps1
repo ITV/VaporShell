@@ -13,9 +13,9 @@ A complex data type that includes information about the failover criteria for an
     .PARAMETER StatusCodes
         The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
 
-        Type: StatusCodes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
         UpdateType: Mutable
+        Type: StatusCodes
 
     .FUNCTIONALITY
         Vaporshell

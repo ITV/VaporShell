@@ -10,6 +10,13 @@ An object that represents the Transport Layer Security (TLS properties for a lis
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html
 
+    .PARAMETER Validation
+        A reference to an object that represents a listener's Transport Layer Security TLS validation context.
+
+        Type: ListenerTlsValidationContext
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-validation
+        UpdateType: Mutable
+
     .PARAMETER Mode
         Specify one of the following modes.
 + ****STRICT – Listener only accepts connections with TLS enabled.
@@ -21,7 +28,7 @@ An object that represents the Transport Layer Security (TLS properties for a lis
         UpdateType: Mutable
 
     .PARAMETER Certificate
-        A reference to an object that represents a listener's TLS certificate.
+        A reference to an object that represents a listener's Transport Layer Security TLS certificate.
 
         Type: ListenerTlsCertificate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-certificate
@@ -34,6 +41,8 @@ An object that represents the Transport Layer Security (TLS properties for a lis
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $Validation,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

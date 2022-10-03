@@ -12,6 +12,13 @@ The parent of this entity is InputSettings.
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselector.html
 
+    .PARAMETER ColorSpaceSettings
+        Settings to configure color space settings in the incoming video.
+
+        Type: VideoSelectorColorSpaceSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselector.html#cfn-medialive-channel-videoselector-colorspacesettings
+        UpdateType: Mutable
+
     .PARAMETER SelectorSettings
         Information about the video to select from the content.
 
@@ -40,6 +47,8 @@ The parent of this entity is InputSettings.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $ColorSpaceSettings,
         [parameter(Mandatory = $false)]
         $SelectorSettings,
         [parameter(Mandatory = $false)]

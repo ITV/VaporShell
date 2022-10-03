@@ -1,10 +1,10 @@
 function New-VSApiGatewayV2Stage {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::Stage resource to the template. The AWS::ApiGatewayV2::Stage resource updates a stage for an API.
+        Adds an AWS::ApiGatewayV2::Stage resource to the template. The AWS::ApiGatewayV2::Stage resource specifies a stage for an API. Each stage is a named reference to a deployment of the API and is made available for client applications to call. To learn more, see Working with stages for HTTP APIs : https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html and Deploy a WebSocket API in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-set-up-websocket-deployment.html.
 
     .DESCRIPTION
-        Adds an AWS::ApiGatewayV2::Stage resource to the template. The AWS::ApiGatewayV2::Stage resource updates a stage for an API.
+        Adds an AWS::ApiGatewayV2::Stage resource to the template. The AWS::ApiGatewayV2::Stage resource specifies a stage for an API. Each stage is a named reference to a deployment of the API and is made available for client applications to call. To learn more, see Working with stages for HTTP APIs : https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html and Deploy a WebSocket API in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-set-up-websocket-deployment.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html
@@ -55,7 +55,7 @@ function New-VSApiGatewayV2Stage {
         UpdateType: Mutable
 
     .PARAMETER StageName
-        The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+        The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagename
         PrimitiveType: String
@@ -66,6 +66,13 @@ function New-VSApiGatewayV2Stage {
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagevariables
         PrimitiveType: Json
+        UpdateType: Mutable
+
+    .PARAMETER AccessPolicyId
+        This parameter is not currently supported.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-accesspolicyid
+        PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ApiId
@@ -230,6 +237,17 @@ function New-VSApiGatewayV2Stage {
                 }
             })]
         $StageVariables,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AccessPolicyId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -254,6 +272,17 @@ function New-VSApiGatewayV2Stage {
                 }
             })]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -39,7 +39,7 @@ To get the ID, open Slack, right click on the channel name in the left pane, the
 
     .PARAMETER IamRoleArn
         The ARN of the IAM role that defines the permissions for AWS Chatbot.
-This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role. For more information, see IAM Policies for AWS Chatbot: https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html.
+This is a user-definworked role that AWS Chatbot will assume. This is not the service-linked role. For more information, see IAM Policies for AWS Chatbot: https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
         UpdateType: Mutable
@@ -60,6 +60,21 @@ Logging levels include ERROR, INFO, or NONE.
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER GuardrailPolicies
+        The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set. Currently, only 1 IAM policy is supported.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-guardrailpolicies
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+
+    .PARAMETER UserRoleRequired
+        Enables use of a user role requirement in your chat configuration.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-userrolerequired
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -180,6 +195,30 @@ Logging levels include ERROR, INFO, or NONE.
                 }
             })]
         $LoggingLevel,
+        [parameter(Mandatory = $false)]
+        $GuardrailPolicies,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UserRoleRequired,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -248,6 +287,12 @@ Logging levels include ERROR, INFO, or NONE.
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SnsTopicArns -Value @($SnsTopicArns)
+                }
+                GuardrailPolicies {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name GuardrailPolicies -Value @($GuardrailPolicies)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

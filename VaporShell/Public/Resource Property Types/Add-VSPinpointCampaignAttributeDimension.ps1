@@ -11,7 +11,14 @@ Specifies attribute-based criteria for including or excluding endpoints from a s
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-attributedimension.html
 
     .PARAMETER AttributeType
-        The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.
+        The type of segment dimension to use. Valid values are:
++  INCLUSIVE – endpoints that have attributes matching the values are included in the segment.
++  EXCLUSIVE – endpoints that have attributes matching the values are excluded from the segment.
++  CONTAINS – endpoints that have attributes' substrings match the values are included in the segment.
++  BEFORE – endpoints with attributes read as ISO_INSTANT datetimes before the value are included in the segment.
++  AFTER – endpoints with attributes read as ISO_INSTANT datetimes after the value are included in the segment.
++  BETWEEN – endpoints with attributes read as ISO_INSTANT datetimes between the values are included in the segment.
++  ON – endpoints with attributes read as ISO_INSTANT dates on the value are included in the segment. Time is ignored in this comparison.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-attributedimension.html#cfn-pinpoint-campaign-attributedimension-attributetype
         PrimitiveType: String

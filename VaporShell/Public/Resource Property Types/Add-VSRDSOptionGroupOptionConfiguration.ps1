@@ -1,62 +1,49 @@
 function Add-VSRDSOptionGroupOptionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::OptionGroup.OptionConfiguration resource property to the template. The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+        Adds an AWS::RDS::OptionGroup.OptionConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::RDS::OptionGroup.OptionConfiguration resource property to the template.
-The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html
 
     .PARAMETER DBSecurityGroupMemberships
-        A list of DBSecurityGroupMemebrship name strings used for this option.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-dbsecuritygroupmemberships
-        DuplicatesAllowed: True
-        PrimitiveItemType: String
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-dbsecuritygroupmemberships
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
     .PARAMETER OptionName
-        The configuration of options to include in a group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionname
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-optionname
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER OptionSettings
-        The option settings to include in an option group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionsettings
-        DuplicatesAllowed: False
-        ItemType: OptionSetting
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-optionsettings
         UpdateType: Mutable
+        Type: List
+        ItemType: OptionSetting
 
     .PARAMETER OptionVersion
-        The version for the option.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfiguration-optionversion
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-optionversion
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Port
-        The optional port for the option.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-port
-        PrimitiveType: Integer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-port
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER VpcSecurityGroupMemberships
-        A list of VpcSecurityGroupMembership name strings used for this option.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-vpcsecuritygroupmemberships
-        DuplicatesAllowed: True
-        PrimitiveItemType: String
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-vpcsecuritygroupmemberships
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

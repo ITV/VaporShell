@@ -1,11 +1,11 @@
 function Add-VSCodeDeployDeploymentGroupLoadBalancerInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo resource property to the template. The LoadBalancerInfo property type specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For more information, see  Integrating CodeDeploy with Elastic Load Balancing : https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html in the *AWS CodeDeploy User Guide*.
+        Adds an AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo resource property to the template. The LoadBalancerInfo property type specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For more information, see  Integrating CodeDeploy with Elastic Load Balancing: https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html in the *AWS CodeDeploy User Guide*.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo resource property to the template.
-The LoadBalancerInfo property type specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For more information, see  Integrating CodeDeploy with Elastic Load Balancing : https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html in the *AWS CodeDeploy User Guide*.
+The LoadBalancerInfo property type specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For more information, see  Integrating CodeDeploy with Elastic Load Balancing: https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html in the *AWS CodeDeploy User Guide*.
 
 For AWS CloudFormation to use the properties specified in LoadBalancerInfo, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL. If DeploymentStyle.DeploymentOption is not set to WITH_TRAFFIC_CONTROL, AWS CloudFormation ignores any settings specified in LoadBalancerInfo.
 
@@ -38,6 +38,15 @@ Adding more than one target group to the array is not supported.
         Type: List
         UpdateType: Mutable
 
+    .PARAMETER TargetGroupPairInfoList
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-targetgrouppairinfolist
+        DuplicatesAllowed: False
+        ItemType: TargetGroupPairInfo
+        Type: List
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -66,7 +75,18 @@ Adding more than one target group to the array is not supported.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TargetGroupInfoList
+        $TargetGroupInfoList,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CodeDeploy.DeploymentGroup.TargetGroupPairInfo"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TargetGroupPairInfoList
     )
     Begin {
         $obj = [PSCustomObject]@{}

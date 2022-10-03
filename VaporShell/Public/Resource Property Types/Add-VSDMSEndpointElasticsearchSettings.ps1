@@ -1,17 +1,17 @@
 function Add-VSDMSEndpointElasticsearchSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::DMS::Endpoint.ElasticsearchSettings resource property to the template. Provides information that defines an Elasticsearch endpoint.
+        Adds an AWS::DMS::Endpoint.ElasticsearchSettings resource property to the template. Provides information that defines an OpenSearch endpoint.
 
     .DESCRIPTION
         Adds an AWS::DMS::Endpoint.ElasticsearchSettings resource property to the template.
-Provides information that defines an Elasticsearch endpoint.
+Provides information that defines an OpenSearch endpoint.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html
 
     .PARAMETER EndpointUri
-        The endpoint for the Elasticsearch cluster.
+        The endpoint for the OpenSearch cluster. AWS DMS uses HTTPS if a transport protocol http/https is not specified.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-endpointuri
         PrimitiveType: String
@@ -19,20 +19,21 @@ Provides information that defines an Elasticsearch endpoint.
 
     .PARAMETER FullLoadErrorPercentage
         The maximum percentage of records that can fail to be written before a full load operation stops.
+To avoid early failure, this counter is only effective after 1000 records are transferred. OpenSearch also has the concept of error monitoring during the last 10 minutes of an Observation Window. If transfer of all records fail in the last 10 minutes, the full load operation stops.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-fullloaderrorpercentage
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ErrorRetryDuration
-        The maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster.
+        The maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-errorretryduration
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ServiceAccessRoleArn
-        The Amazon Resource Name ARN used by service to access the IAM role.
+        The Amazon Resource Name ARN used by the service to access the IAM role. The role must allow the iam:PassRole action.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-serviceaccessrolearn
         PrimitiveType: String

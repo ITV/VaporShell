@@ -1,10 +1,12 @@
 function New-VSPinpointApp {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::App resource to the template. The AWS::Pinpoint::App resource is an Amazon Pinpoint application, also referred to as a *project* or *app*. An application is a collection of related settings, customer information, segments, campaigns, and other types of Amazon Pinpoint resources.
+        Adds an AWS::Pinpoint::App resource to the template. An *app* is an Amazon Pinpoint application, also referred to as a *project*. An application is a collection of related settings, customer information, segments, campaigns, and other types of Amazon Pinpoint resources.
 
     .DESCRIPTION
-        Adds an AWS::Pinpoint::App resource to the template. The AWS::Pinpoint::App resource is an Amazon Pinpoint application, also referred to as a *project* or *app*. An application is a collection of related settings, customer information, segments, campaigns, and other types of Amazon Pinpoint resources.
+        Adds an AWS::Pinpoint::App resource to the template. An *app* is an Amazon Pinpoint application, also referred to as a *project*. An application is a collection of related settings, customer information, segments, campaigns, and other types of Amazon Pinpoint resources.
+
+The App resource represents an Amazon Pinpoint application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html
@@ -13,14 +15,15 @@ function New-VSPinpointApp {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Tags
-        A string-to-string map of key-value pairs that defines the tags to associate with the application. Each tag consists of a required tag key and an associated tag value.
+        An array of key-value pairs to apply to this resource.
+For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-tags
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER Name
-        The display name of the application. This name is displayed as the **Project name** on the Amazon Pinpoint console.
+        The display name of the application.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-name
         PrimitiveType: String
@@ -110,6 +113,17 @@ function New-VSPinpointApp {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -14,6 +14,13 @@ You can use a custom domain name to provide a URL that's more intuitive and easi
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER MutualTlsAuthentication
+        The mutual TLS authentication configuration for a custom domain name.
+
+        Type: MutualTlsAuthentication
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication
+        UpdateType: Mutable
+
     .PARAMETER DomainName
         The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
 
@@ -98,6 +105,8 @@ You can use a custom domain name to provide a URL that's more intuitive and easi
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $MutualTlsAuthentication,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -131,6 +140,17 @@ You can use a custom domain name to provide a URL that's more intuitive and easi
                 }
             })]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

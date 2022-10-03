@@ -7,13 +7,13 @@ function Add-VSSESReceiptRuleBounceAction {
         Adds an AWS::SES::ReceiptRule.BounceAction resource property to the template.
 When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS.
 
-For information about sending a bounce message in response to a received email, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-bounce.html.
+For information about sending a bounce message in response to a received email, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/dg/receiving-email-action-bounce.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html
 
     .PARAMETER Sender
-        The email address of the sender of the bounced email. This is the address that the bounce message is sent from.
+        The email address of the sender of the bounced email. This is the address from which the bounce message is sent.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-sender
         PrimitiveType: String
@@ -34,7 +34,7 @@ For information about sending a bounce message in response to a received email, 
         UpdateType: Mutable
 
     .PARAMETER TopicArn
-        The Amazon Resource Name ARN of the Amazon SNS topic to notify when the bounce action is taken. You can find the ARN of a topic by using the ListTopics: https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html operation in the Amazon SNS API.
+        The Amazon Resource Name ARN of the Amazon SNS topic to notify when the bounce action is taken. You can find the ARN of a topic by using the ListTopics: https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html operation in Amazon SNS.
 For more information about Amazon SNS topics, see the Amazon SNS Developer Guide: https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-topicarn

@@ -21,7 +21,7 @@ function New-VSCloud9EnvironmentEC2 {
         UpdateType: Immutable
 
     .PARAMETER OwnerArn
-        The Amazon Resource Name ARN of the environment owner. This ARN can be the ARN of any AWS Identity and Access Management IAM principal. If this value is not specified, the ARN defaults to this environment's creator.
+        The Amazon Resource Name ARN of the environment owner. This ARN can be the ARN of any AWS Identity and Access Management principal. If this value is not specified, the ARN defaults to this environment's creator.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-ownerarn
         PrimitiveType: String
@@ -35,7 +35,7 @@ function New-VSCloud9EnvironmentEC2 {
         UpdateType: Mutable
 
     .PARAMETER ConnectionType
-        The name of the environment.
+        The connection type used for connecting to an Amazon EC2 environment. Valid values are CONNECT_SSH default and CONNECT_SSM connected through AWS Systems Manager.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-connectiontype
         PrimitiveType: String
@@ -46,6 +46,22 @@ function New-VSCloud9EnvironmentEC2 {
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-automaticstoptimeminutes
         PrimitiveType: Integer
+        UpdateType: Immutable
+
+    .PARAMETER ImageId
+        The identifier for the Amazon Machine Image AMI that's used to create the EC2 instance. To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS Systems Manager path.
+The default AMI is used if the parameter isn't explicitly assigned a value in the request.
+**AMI aliases **
++ **Amazon Linux default: amazonlinux-1-x86_64**
++ Amazon Linux 2: amazonlinux-2-x86_64
++ Ubuntu 18.04: ubuntu-18.04-x86_64
+**SSM paths**
++ **Amazon Linux default: resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64**
++ Amazon Linux 2: resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64
++ Ubuntu 18.04: resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-imageid
+        PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER SubnetId
@@ -204,6 +220,17 @@ function New-VSCloud9EnvironmentEC2 {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $ImageId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $SubnetId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -230,6 +257,17 @@ function New-VSCloud9EnvironmentEC2 {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

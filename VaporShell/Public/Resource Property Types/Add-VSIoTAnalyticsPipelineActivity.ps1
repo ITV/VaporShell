@@ -13,72 +13,72 @@ An activity that performs a transformation on a message.
     .PARAMETER SelectAttributes
         Creates a new message using only the specified attributes from the original message.
 
-        Type: SelectAttributes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-selectattributes
         UpdateType: Mutable
+        Type: SelectAttributes
 
     .PARAMETER Datastore
         Specifies where to store the processed message data.
 
-        Type: Datastore
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-datastore
         UpdateType: Mutable
+        Type: Datastore
 
     .PARAMETER Filter
         Filters a message based on its attributes.
 
-        Type: Filter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-filter
         UpdateType: Mutable
+        Type: Filter
 
     .PARAMETER AddAttributes
         Adds other attributes based on existing attributes in the message.
 
-        Type: AddAttributes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-addattributes
         UpdateType: Mutable
+        Type: AddAttributes
 
     .PARAMETER Channel
         Determines the source of the messages to be processed.
 
-        Type: Channel
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-channel
         UpdateType: Mutable
+        Type: Channel
 
     .PARAMETER DeviceShadowEnrich
         Adds information from the AWS IoT Device Shadows service to a message.
 
-        Type: DeviceShadowEnrich
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-deviceshadowenrich
         UpdateType: Mutable
+        Type: DeviceShadowEnrich
 
     .PARAMETER Math
         Computes an arithmetic expression using the message's attributes and adds it to the message.
 
-        Type: Math
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-math
         UpdateType: Mutable
+        Type: Math
 
     .PARAMETER Lambda
         Runs a Lambda function to modify the message.
 
-        Type: Lambda
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-lambda
         UpdateType: Mutable
+        Type: Lambda
 
     .PARAMETER DeviceRegistryEnrich
         Adds data from the AWS IoT device registry to your message.
 
-        Type: DeviceRegistryEnrich
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-deviceregistryenrich
         UpdateType: Mutable
+        Type: DeviceRegistryEnrich
 
     .PARAMETER RemoveAttributes
         Removes attributes from a message.
 
-        Type: RemoveAttributes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-removeattributes
         UpdateType: Mutable
+        Type: RemoveAttributes
 
     .FUNCTIONALITY
         Vaporshell

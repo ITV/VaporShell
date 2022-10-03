@@ -6,6 +6,12 @@ function New-VSAppSyncGraphQLSchema {
     .DESCRIPTION
         Adds an AWS::AppSync::GraphQLSchema resource to the template. The AWS::AppSync::GraphQLSchema resource is used for your AWS AppSync GraphQL schema that controls the data model for your API. Schema files are text written in Schema Definition Language (SDL format. For more information about schema authoring, see Designing a GraphQL API: https://docs.aws.amazon.com/appsync/latest/devguide/designing-a-graphql-api.html in the *AWS AppSync Developer Guide*.
 
+**Note**
+
+When you submit an update, AWS CloudFormation updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CloudFormation template. Changing the Amazon S3 file content without changing a property value will not result in an update operation.
+
+See Update Behaviors of Stack Resources: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html in the *AWS CloudFormation User Guide*.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlschema.html
 
@@ -129,6 +135,17 @@ For more information about using the Ref function, see Ref: https://docs.aws.ama
                 }
             })]
         $ApiId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

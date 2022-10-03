@@ -1,12 +1,14 @@
 function New-VSConfigOrganizationConfigRule {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::OrganizationConfigRule resource to the template. An organization config rule that has information about config rules that AWS Config creates in member accounts. Only a master account can create or update an organization config rule.
+        Adds an AWS::Config::OrganizationConfigRule resource to the template. An organization config rule that has information about config rules that AWS Config creates in member accounts. Only a master account and a delegated administrator can create or update an organization config rule.
 
     .DESCRIPTION
-        Adds an AWS::Config::OrganizationConfigRule resource to the template. An organization config rule that has information about config rules that AWS Config creates in member accounts. Only a master account can create or update an organization config rule.
+        Adds an AWS::Config::OrganizationConfigRule resource to the template. An organization config rule that has information about config rules that AWS Config creates in member accounts. Only a master account and a delegated administrator can create or update an organization config rule.
 
 OrganizationConfigRule resource enables organization service access through EnableAWSServiceAccess action and creates a service linked role in the master account of your organization. The service linked role is created only when the role does not exist in the master account. AWS Config verifies the existence of role with GetRole action.
+
+When creating custom organization config rules using a centralized Lambda function, you will need to allow Lambda permissions to sub-accounts and you will need to create an IAM role will to pass to the Lambda function. For more information, see How to Centrally Manage AWS Config Rules across Multiple AWS Accounts: http://aws.amazon.com/blogs/devops/how-to-centrally-manage-aws-config-rules-across-multiple-aws-accounts/.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html
@@ -41,6 +43,13 @@ OrganizationConfigRule resource enables organization service access through Enab
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-excludedaccounts
+        UpdateType: Mutable
+
+    .PARAMETER OrganizationCustomCodeRuleMetadata
+        Not currently supported by AWS CloudFormation.
+
+        Type: OrganizationCustomCodeRuleMetadata
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationcustomcoderulemetadata
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -122,6 +131,19 @@ OrganizationConfigRule resource enables organization service access through Enab
         $OrganizationCustomRuleMetadata,
         [parameter(Mandatory = $false)]
         $ExcludedAccounts,
+        [parameter(Mandatory = $false)]
+        $OrganizationCustomCodeRuleMetadata,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

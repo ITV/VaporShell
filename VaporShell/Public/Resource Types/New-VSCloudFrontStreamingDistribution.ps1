@@ -1,10 +1,10 @@
 function New-VSCloudFrontStreamingDistribution {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::StreamingDistribution resource to the template. A streaming distribution tells CloudFront where you want RTMP content to be delivered from, and the details about how to track and manage content delivery.
+        Adds an AWS::CloudFront::StreamingDistribution resource to the template. This resource is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP distributions on December 31, 2020. For more information, read the announcement: http://forums.aws.amazon.com/ann.jspa?annID=7356 on the Amazon CloudFront discussion forum.
 
     .DESCRIPTION
-        Adds an AWS::CloudFront::StreamingDistribution resource to the template. A streaming distribution tells CloudFront where you want RTMP content to be delivered from, and the details about how to track and manage content delivery.
+        Adds an AWS::CloudFront::StreamingDistribution resource to the template. This resource is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP distributions on December 31, 2020. For more information, read the announcement: http://forums.aws.amazon.com/ann.jspa?annID=7356 on the Amazon CloudFront discussion forum.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html
@@ -94,6 +94,17 @@ function New-VSCloudFrontStreamingDistribution {
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $true)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

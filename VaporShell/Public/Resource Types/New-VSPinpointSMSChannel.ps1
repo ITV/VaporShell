@@ -6,7 +6,7 @@ function New-VSPinpointSMSChannel {
     .DESCRIPTION
         Adds an AWS::Pinpoint::SMSChannel resource to the template. A *channel* is a type of platform that you can deliver messages to. To send an SMS text message, you send the message through the SMS channel. Before you can use Amazon Pinpoint to send text messages, you have to enable the SMS channel for an Amazon Pinpoint application.
 
-The AWS::Pinpoint::SMSChannel resource defines the status, sender ID, and other settings of the SMS channel for an application.
+The SMSChannel resource represents the status, sender ID, and other settings for the SMS channel for an application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html
@@ -16,7 +16,7 @@ The AWS::Pinpoint::SMSChannel resource defines the status, sender ID, and other 
 
     .PARAMETER ShortCode
         The registered short code that you want to use when you send messages through the SMS channel.
-For information about obtaining a dedicated short code for sending SMS messages, see Requesting Dedicated Short Codes for SMS Messaging: https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-short-code.html in the *Amazon Pinpoint User Guide*.
+For information about obtaining a dedicated short code for sending SMS messages, see Requesting Dedicated Short Codes for SMS Messaging with Amazon Pinpoint: https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-short-code.html in the *Amazon Pinpoint User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-shortcode
         PrimitiveType: String
@@ -30,7 +30,7 @@ For information about obtaining a dedicated short code for sending SMS messages,
         UpdateType: Mutable
 
     .PARAMETER ApplicationId
-        The unique identifier for the application that the SMS channel applies to.
+        The unique identifier for the Amazon Pinpoint application that the SMS channel applies to.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-applicationid
         PrimitiveType: String
@@ -150,6 +150,17 @@ SenderIDs are only supported in certain countries and regions. For more informat
                 }
             })]
         $SenderId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

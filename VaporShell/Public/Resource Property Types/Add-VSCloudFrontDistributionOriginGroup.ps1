@@ -14,22 +14,22 @@ An origin group includes two origins (a primary origin and a second origin to fa
         The origin group's ID.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER FailoverCriteria
         A complex type that contains information about the failover criteria for an origin group.
 
-        Type: OriginGroupFailoverCriteria
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
         UpdateType: Mutable
+        Type: OriginGroupFailoverCriteria
 
     .PARAMETER Members
         A complex type that contains information about the origins in an origin group.
 
-        Type: OriginGroupMembers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
         UpdateType: Mutable
+        Type: OriginGroupMembers
 
     .FUNCTIONALITY
         Vaporshell

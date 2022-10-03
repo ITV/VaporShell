@@ -18,7 +18,7 @@ Represents an app's environment variable.
         UpdateType: Mutable
 
     .PARAMETER Secure
-        Optional Whether the variable's value will be returned by the DescribeApps: https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeApps action. To conceal an environment variable's value, set Secure to true. DescribeApps then returns *****FILTERED***** instead of the actual value. The default value for Secure is false.
+        Optional Whether the variable's value is returned by the DescribeApps: https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeApps action. To hide an environment variable's value, set Secure to true. DescribeApps returns *****FILTERED***** instead of the actual value. The default value for Secure is false.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-environment.html#cfn-opsworks-app-environment-secure
         PrimitiveType: Boolean

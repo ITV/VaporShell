@@ -27,7 +27,7 @@ function New-VSImageBuilderImagePipeline {
         PrimitiveType: String
 
     .PARAMETER ImageTestsConfiguration
-        The configuration of the image tests used when creating this image.
+        The configuration of the image tests that run after image creation to ensure the quality of the image that was created.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
         UpdateType: Mutable
@@ -41,7 +41,7 @@ function New-VSImageBuilderImagePipeline {
         PrimitiveType: String
 
     .PARAMETER Schedule
-        The schedule of the image pipeline. A schedule configures how often and when a pipeline will automatically create a new image.
+        The schedule of the image pipeline. A schedule configures how often and when a pipeline automatically creates a new image.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
         UpdateType: Mutable
@@ -51,6 +51,13 @@ function New-VSImageBuilderImagePipeline {
         The Amazon Resource Name ARN of the image recipe associated with this image pipeline.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ContainerRecipeArn
+        The Amazon Resource Name ARN of the container recipe that is used for this pipeline.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -69,7 +76,7 @@ function New-VSImageBuilderImagePipeline {
         PrimitiveType: String
 
     .PARAMETER EnhancedImageMetadataEnabled
-        Returns the Amazon Resource Name ARN of the image pipeline. For example, arn:aws:imagebuilder:us-west-2:123456789012:image-pipeline/mywindows2016pipeline.
+        Collects additional information about the image being created, including the operating system OS version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
         UpdateType: Mutable
@@ -182,7 +189,7 @@ function New-VSImageBuilderImagePipeline {
         $Status,
         [parameter(Mandatory = $false)]
         $Schedule,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -193,6 +200,17 @@ function New-VSImageBuilderImagePipeline {
                 }
             })]
         $ImageRecipeArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ContainerRecipeArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -229,6 +247,17 @@ function New-VSImageBuilderImagePipeline {
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

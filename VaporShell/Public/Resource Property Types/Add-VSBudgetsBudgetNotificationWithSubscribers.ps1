@@ -19,7 +19,7 @@ A notification with subscribers. A notification can have one SNS subscriber and 
         UpdateType: Mutable
 
     .PARAMETER Notification
-        The notification that is associated with a budget.
+        The notification that's associated with a budget.
 
         Type: Notification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification

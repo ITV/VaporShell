@@ -23,7 +23,7 @@ Valid values depend on the value of BudgetType:
 
     .PARAMETER End
         The end date for a budget. If you didn't specify an end date, AWS set your end date to 06/15/87 00:00 UTC. The defaults are the same for the AWS Billing and Cost Management console and the API.
-After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the UpdateBudget operation.
+After the end date, AWS deletes the budget and all the associated notifications and subscribers. You can change your end date with the UpdateBudget operation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end
         PrimitiveType: String

@@ -1,11 +1,15 @@
 function Add-VSImageBuilderDistributionConfigurationDistribution {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::DistributionConfiguration.Distribution resource property to the template. The distribution configuration distribution defines the settings for a specific Region in the Distribution Configuration.
+        Adds an AWS::ImageBuilder::DistributionConfiguration.Distribution resource property to the template. The distribution configuration distribution defines the settings for a specific Region in the Distribution Configuration. You must specify whether the distribution is for an AMI or a container image. To do so, include exactly one of the following data types for your distribution:
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::DistributionConfiguration.Distribution resource property to the template.
-The distribution configuration distribution defines the settings for a specific Region in the Distribution Configuration.
+The distribution configuration distribution defines the settings for a specific Region in the Distribution Configuration. You must specify whether the distribution is for an AMI or a container image. To do so, include exactly one of the following data types for your distribution:
+
++ amiDistributionConfiguration
+
++ containerDistributionConfiguration
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
@@ -18,11 +22,18 @@ The distribution configuration distribution defines the settings for a specific 
         PrimitiveType: String
 
     .PARAMETER AmiDistributionConfiguration
-        The specific AMI settings, such as launch permissions and AMI tags.
+        The specific AMI settings, such as launch permissions and AMI tags. For details, see example schema below.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: AmiDistributionConfiguration
+
+    .PARAMETER ContainerDistributionConfiguration
+        Container distribution settings for encryption, licensing, and sharing in a specific Region. For details, see example schema below.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+        UpdateType: Mutable
+        Type: ContainerDistributionConfiguration
 
     .PARAMETER LicenseConfigurationArns
         The License Manager Configuration to associate with the AMI in the specified Region. For more information, see the  LicenseConfiguration API: https://docs.aws.amazon.com/license-manager/latest/APIReference/API_LicenseConfiguration.html.
@@ -31,6 +42,20 @@ The distribution configuration distribution defines the settings for a specific 
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+
+    .PARAMETER LaunchTemplateConfigurations
+        A group of launchTemplateConfiguration settings that apply to image distribution for specified accounts.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: LaunchTemplateConfiguration
+
+    .PARAMETER FastLaunchConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-fastlaunchconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: FastLaunchConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -51,8 +76,14 @@ The distribution configuration distribution defines the settings for a specific 
             })]
         $Region,
         [parameter(Mandatory = $false)]
+        $AmiDistributionConfiguration,
+        [parameter(Mandatory = $false)]
+        $ContainerDistributionConfiguration,
+        [parameter(Mandatory = $false)]
+        $LicenseConfigurationArns,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                $allowedTypes = "Vaporshell.Resource.ImageBuilder.DistributionConfiguration.LaunchTemplateConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -60,9 +91,18 @@ The distribution configuration distribution defines the settings for a specific 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AmiDistributionConfiguration,
+        $LaunchTemplateConfigurations,
         [parameter(Mandatory = $false)]
-        $LicenseConfigurationArns
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ImageBuilder.DistributionConfiguration.FastLaunchConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FastLaunchConfigurations
     )
     Begin {
         $obj = [PSCustomObject]@{}
@@ -71,20 +111,6 @@ The distribution configuration distribution defines the settings for a specific 
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                AmiDistributionConfiguration {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

@@ -9,10 +9,17 @@ The Amazon Pinpoint analytics configuration for collecting metrics for a user po
 
 **Note**
 
-Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia us-east-1 Region, regardless of the region in which the user pool resides.
+In Regions where Pinpoint isn't available, User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In Regions where Pinpoint is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html
+
+    .PARAMETER ApplicationArn
+        The Amazon Resource Name ARN of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html#cfn-cognito-userpoolclient-analyticsconfiguration-applicationarn
+        PrimitiveType: String
+        UpdateType: Mutable
 
     .PARAMETER UserDataShared
         If UserDataShared is true, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
@@ -36,7 +43,7 @@ Cognito User Pools only supports sending events to Amazon Pinpoint projects in t
         UpdateType: Mutable
 
     .PARAMETER RoleArn
-        The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html#cfn-cognito-userpoolclient-analyticsconfiguration-rolearn
         PrimitiveType: String
@@ -49,6 +56,17 @@ Cognito User Pools only supports sending events to Amazon Pinpoint projects in t
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ApplicationArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

@@ -20,8 +20,7 @@ The parent of this entity is OutputDestination.
         UpdateType: Mutable
 
     .PARAMETER Username
-        The user name for the downstream system. This applies only if the downstream system requires credentials.
-user name for destination
+        The user name to connect to the downstream system. This applies only if the downstream system requires credentials.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestinationsettings.html#cfn-medialive-channel-outputdestinationsettings-username
         PrimitiveType: String

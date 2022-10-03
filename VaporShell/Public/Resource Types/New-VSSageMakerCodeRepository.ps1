@@ -1,10 +1,10 @@
 function New-VSSageMakerCodeRepository {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::CodeRepository resource to the template. Creates a Git repository as a resource in your Amazon SageMaker account. You can associate the repository with notebook instances so that you can use Git source control for the notebooks you create. The Git repository is a resource in your Amazon SageMaker account, so it can be associated with more than one notebook instance, and it persists independently from the lifecycle of any notebook instances it is associated with.
+        Adds an AWS::SageMaker::CodeRepository resource to the template. Creates a Git repository as a resource in your SageMaker account. You can associate the repository with notebook instances so that you can use Git source control for the notebooks you create. The Git repository is a resource in your SageMaker account, so it can be associated with more than one notebook instance, and it persists independently from the lifecycle of any notebook instances it is associated with.
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::CodeRepository resource to the template. Creates a Git repository as a resource in your Amazon SageMaker account. You can associate the repository with notebook instances so that you can use Git source control for the notebooks you create. The Git repository is a resource in your Amazon SageMaker account, so it can be associated with more than one notebook instance, and it persists independently from the lifecycle of any notebook instances it is associated with.
+        Adds an AWS::SageMaker::CodeRepository resource to the template. Creates a Git repository as a resource in your SageMaker account. You can associate the repository with notebook instances so that you can use Git source control for the notebooks you create. The Git repository is a resource in your SageMaker account, so it can be associated with more than one notebook instance, and it persists independently from the lifecycle of any notebook instances it is associated with.
 
 The repository can be hosted either in AWS CodeCommit: https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html or in any other Git repository.
 
@@ -26,6 +26,14 @@ The repository can be hosted either in AWS CodeCommit: https://docs.aws.amazon.c
 
         Type: GitConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html#cfn-sagemaker-coderepository-gitconfig
+        UpdateType: Mutable
+
+    .PARAMETER Tags
+        List of tags for Code Repository.
+
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html#cfn-sagemaker-coderepository-tags
+        ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -103,6 +111,20 @@ The repository can be hosted either in AWS CodeCommit: https://docs.aws.amazon.c
         $CodeRepositoryName,
         [parameter(Mandatory = $true)]
         $GitConfig,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -165,6 +187,12 @@ The repository can be hosted either in AWS CodeCommit: https://docs.aws.amazon.c
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

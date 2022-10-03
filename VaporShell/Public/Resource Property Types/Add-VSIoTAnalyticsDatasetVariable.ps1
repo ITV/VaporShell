@@ -10,40 +10,40 @@ An instance of a variable to be passed to the containerAction execution. Each va
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html
 
-    .PARAMETER DatasetContentVersionValue
-        The value of the variable as a structure that specifies a dataset content version.
-
-        Type: DatasetContentVersionValue
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-datasetcontentversionvalue
-        UpdateType: Mutable
-
-    .PARAMETER DoubleValue
-        The value of the variable as a double numeric.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-doublevalue
-        PrimitiveType: Double
-        UpdateType: Mutable
-
-    .PARAMETER OutputFileUriValue
-        The value of the variable as a structure that specifies an output file URI.
-
-        Type: OutputFileUriValue
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-outputfileurivalue
-        UpdateType: Mutable
-
     .PARAMETER VariableName
         The name of the variable.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-variablename
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DatasetContentVersionValue
+        The value of the variable as a structure that specifies a dataset content version.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-datasetcontentversionvalue
+        UpdateType: Mutable
+        Type: DatasetContentVersionValue
 
     .PARAMETER StringValue
         The value of the variable as a string.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-stringvalue
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DoubleValue
+        The value of the variable as a double numeric.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-doublevalue
+        UpdateType: Mutable
+        PrimitiveType: Double
+
+    .PARAMETER OutputFileUriValue
+        The value of the variable as a structure that specifies an output file URI.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-outputfileurivalue
+        UpdateType: Mutable
+        Type: OutputFileUriValue
 
     .FUNCTIONALITY
         Vaporshell
@@ -52,21 +52,6 @@ An instance of a variable to be passed to the containerAction execution. Each va
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $DatasetContentVersionValue,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DoubleValue,
-        [parameter(Mandatory = $false)]
-        $OutputFileUriValue,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -79,6 +64,8 @@ An instance of a variable to be passed to the containerAction execution. Each va
             })]
         $VariableName,
         [parameter(Mandatory = $false)]
+        $DatasetContentVersionValue,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,7 +75,20 @@ An instance of a variable to be passed to the containerAction execution. Each va
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StringValue
+        $StringValue,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DoubleValue,
+        [parameter(Mandatory = $false)]
+        $OutputFileUriValue
     )
     Begin {
         $obj = [PSCustomObject]@{}

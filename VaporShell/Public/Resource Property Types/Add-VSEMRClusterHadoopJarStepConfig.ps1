@@ -34,7 +34,7 @@ The HadoopJarStepConfig property type specifies a job flow step consisting of a 
         UpdateType: Mutable
 
     .PARAMETER StepProperties
-        A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-stepproperties
         DuplicatesAllowed: False

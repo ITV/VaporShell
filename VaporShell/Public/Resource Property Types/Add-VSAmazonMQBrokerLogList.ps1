@@ -11,7 +11,7 @@ The list of information about logs to be enabled for the specified broker.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html
 
     .PARAMETER Audit
-        Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
+        Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html#cfn-amazonmq-broker-loglist-audit
         PrimitiveType: Boolean

@@ -11,7 +11,7 @@ KeyValue is a subproperty of the HadoopJarStepConfig property type. KeyValue is 
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-keyvalue.html
 
     .PARAMETER Key
-        The unique identifier of a key value pair.
+        The unique identifier of a key-value pair.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-keyvalue.html#cfn-elasticmapreduce-step-keyvalue-key
         PrimitiveType: String

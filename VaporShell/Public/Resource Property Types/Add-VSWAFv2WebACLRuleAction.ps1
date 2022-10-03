@@ -1,14 +1,10 @@
 function Add-VSWAFv2WebACLRuleAction {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.RuleAction resource property to the template. **Note**
+        Adds an AWS::WAFv2::WebACL.RuleAction resource property to the template. The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.RuleAction resource property to the template.
-**Note**
-
-This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
 The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
 
     .LINK
@@ -19,21 +15,37 @@ The action that AWS WAF should take on a web request when it matches a rule's st
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: AllowAction
 
     .PARAMETER Block
         Instructs AWS WAF to block the web request.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: BlockAction
 
     .PARAMETER Count
         Instructs AWS WAF to count the web request and allow it.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: CountAction
+
+    .PARAMETER Captcha
+        Specifies that AWS WAF should run a CAPTCHA check against the request:
++ If the request includes a valid, unexpired CAPTCHA token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a CountAction.
++ If the request doesn't include a valid, unexpired CAPTCHA token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
+AWS WAF generates a response that it sends back to the client, which includes the following:
++ The header x-amzn-waf-action with a value of captcha.
++ The HTTP status code 405 Method Not Allowed.
++ If the request contains an Accept header with a value of text/html, the response includes a CAPTCHA challenge.
+You can configure the expiration time in the CaptchaConfig ImmunityTimeProperty setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
+This action option is available for rules. It isn't available for web ACL default actions.
+This is used in the context of other settings, for example to specify values for RuleAction and web ACL DefaultAction.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-captcha
+        UpdateType: Mutable
+        Type: CaptchaAction
 
     .FUNCTIONALITY
         Vaporshell
@@ -43,38 +55,13 @@ The action that AWS WAF should take on a web request when it matches a rule's st
     Param
     (
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Allow,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Block,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Count
+        $Count,
+        [parameter(Mandatory = $false)]
+        $Captcha
     )
     Begin {
         $obj = [PSCustomObject]@{}
@@ -83,48 +70,6 @@ The action that AWS WAF should take on a web request when it matches a rule's st
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Allow {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
-                Block {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
-                Count {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

@@ -1,10 +1,10 @@
 function New-VSConfigOrganizationConformancePack {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::OrganizationConformancePack resource to the template. OrganizationConformancePack deploys conformance packs across member accounts in an AWS Organization. OrganizationConformancePack enables organization service access for config-multiaccountsetup.amazonaws.com through the EnableAWSServiceAccess action and creates a service linked role in the master account of your organization. The service linked role is created only when the role does not exist in the master account.
+        Adds an AWS::Config::OrganizationConformancePack resource to the template. OrganizationConformancePack deploys conformance packs across member accounts in an AWS Organizations. OrganizationConformancePack enables organization service access for config-multiaccountsetup.amazonaws.com through the EnableAWSServiceAccess action and creates a service linked role in the master account of your organization. The service linked role is created only when the role does not exist in the master account.
 
     .DESCRIPTION
-        Adds an AWS::Config::OrganizationConformancePack resource to the template. OrganizationConformancePack deploys conformance packs across member accounts in an AWS Organization. OrganizationConformancePack enables organization service access for config-multiaccountsetup.amazonaws.com through the EnableAWSServiceAccess action and creates a service linked role in the master account of your organization. The service linked role is created only when the role does not exist in the master account.
+        Adds an AWS::Config::OrganizationConformancePack resource to the template. OrganizationConformancePack deploys conformance packs across member accounts in an AWS Organizations. OrganizationConformancePack enables organization service access for config-multiaccountsetup.amazonaws.com through the EnableAWSServiceAccess action and creates a service linked role in the master account of your organization. The service linked role is created only when the role does not exist in the master account.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
@@ -34,7 +34,8 @@ function New-VSConfigOrganizationConformancePack {
         PrimitiveType: String
 
     .PARAMETER DeliveryS3Bucket
-        Location of an Amazon S3 bucket where AWS Config can deliver evaluation results and conformance pack template that is used to create a pack.
+        The name of the Amazon S3 bucket where AWS Config stores conformance pack templates.
+This field is optional.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
         UpdateType: Mutable
@@ -42,6 +43,7 @@ function New-VSConfigOrganizationConformancePack {
 
     .PARAMETER DeliveryS3KeyPrefix
         Any folder structure you want to add to an Amazon S3 bucket.
+This field is optional.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
         UpdateType: Mutable
@@ -158,7 +160,7 @@ function New-VSConfigOrganizationConformancePack {
                 }
             })]
         $TemplateBody,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -193,6 +195,17 @@ function New-VSConfigOrganizationConformancePack {
         $ConformancePackInputParameters,
         [parameter(Mandatory = $false)]
         $ExcludedAccounts,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

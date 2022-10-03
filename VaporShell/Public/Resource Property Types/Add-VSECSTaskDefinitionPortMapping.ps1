@@ -15,10 +15,9 @@ After a task reaches the RUNNING status, manual and automatic host and container
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html
 
     .PARAMETER ContainerPort
-        The port number on the container that is bound to the user-specified or automatically assigned host port.
-If you are using containers in a task with the awsvpc or host network mode, exposed ports should be specified using containerPort.
-If you are using containers in a task with the bridge network mode and you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range. For more information, see hostPort. Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
-You cannot expose the same container port for multiple protocols. An error will be returned if this is attempted.
+        The port number on the container that's bound to the user-specified or automatically assigned host port.
+If you use containers in a task with the awsvpc or host network mode, specify the exposed ports using containerPort.
+If you use containers in a task with the bridge network mode and you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range. For more information, see hostPort. Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport
         UpdateType: Immutable

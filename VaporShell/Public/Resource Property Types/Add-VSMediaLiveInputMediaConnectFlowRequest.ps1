@@ -1,11 +1,13 @@
 function Add-VSMediaLiveInputMediaConnectFlowRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.MediaConnectFlowRequest resource property to the template. The settings for a MediaConnect Flow.
+        Adds an AWS::MediaLive::Input.MediaConnectFlowRequest resource property to the template. Settings that apply only if the input is a MediaConnect input.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.MediaConnectFlowRequest resource property to the template.
-The settings for a MediaConnect Flow.
+Settings that apply only if the input is a MediaConnect input.
+
+The parent of this entity is Input.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-mediaconnectflowrequest.html

@@ -10,6 +10,13 @@ Provides the AWS Config rule owner (AWS or customer, the rule identifier, and th
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html
 
+    .PARAMETER CustomPolicyDetails
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-custompolicydetails
+        Type: CustomPolicyDetails
+        UpdateType: Mutable
+
     .PARAMETER Owner
         Indicates whether AWS or the customer owns and manages the AWS Config rule.
 
@@ -27,7 +34,7 @@ Provides the AWS Config rule owner (AWS or customer, the rule identifier, and th
         UpdateType: Mutable
 
     .PARAMETER SourceIdentifier
-        For AWS Config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using AWS Managed Config Rules: https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html.
+        For AWS Config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using AWS Config managed rules: https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html.
 For custom rules, the identifier is the Amazon Resource Name ARN of the rule's AWS Lambda function, such as arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier
@@ -41,6 +48,8 @@ For custom rules, the identifier is the Amazon Resource Name ARN of the rule's A
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $CustomPolicyDetails,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -63,7 +72,7 @@ For custom rules, the identifier is the Amazon Resource Name ARN of the rule's A
                 }
             })]
         $SourceDetails,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

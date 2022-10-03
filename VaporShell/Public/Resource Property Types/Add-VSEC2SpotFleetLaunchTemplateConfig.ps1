@@ -14,17 +14,17 @@ Specifies a launch template and overrides.
         The launch template.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-launchtemplatespecification
+        UpdateType: Immutable
         Type: FleetLaunchTemplateSpecification
-        UpdateType: Mutable
 
     .PARAMETER Overrides
         Any parameters that you specify override the same parameters in the launch template.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-overrides
-        DuplicatesAllowed: False
-        ItemType: LaunchTemplateOverrides
+        UpdateType: Immutable
         Type: List
-        UpdateType: Mutable
+        ItemType: LaunchTemplateOverrides
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

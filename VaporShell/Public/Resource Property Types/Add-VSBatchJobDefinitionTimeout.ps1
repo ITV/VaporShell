@@ -11,7 +11,7 @@ An object representing a job timeout configuration.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-timeout.html
 
     .PARAMETER AttemptDurationSeconds
-        The time duration in seconds measured from the job attempt's startedAt timestamp after which AWS Batch terminates your jobs if they have not finished.
+        The time duration in seconds measured from the job attempt's startedAt timestamp after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is 60 seconds.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-timeout.html#cfn-batch-jobdefinition-timeout-attemptdurationseconds
         PrimitiveType: Integer

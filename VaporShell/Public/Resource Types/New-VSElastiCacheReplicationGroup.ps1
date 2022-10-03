@@ -1,10 +1,16 @@
 function New-VSElastiCacheReplicationGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::ElastiCache::ReplicationGroup resource to the template. The AWS::ElastiCache::ReplicationGroup resource creates an Amazon ElastiCache Redis replication group. A replication group is a collection of cache clusters, where one of the clusters is a primary read-write cluster and the others are read-only replicas.
+        Adds an AWS::ElastiCache::ReplicationGroup resource to the template. The AWS::ElastiCache::ReplicationGroup resource creates an Amazon ElastiCache Redis replication group. A Redis (cluster mode disabled replication group is a collection of cache clusters, where one of the clusters is a primary read-write cluster and the others are read-only replicas.
 
     .DESCRIPTION
-        Adds an AWS::ElastiCache::ReplicationGroup resource to the template. The AWS::ElastiCache::ReplicationGroup resource creates an Amazon ElastiCache Redis replication group. A replication group is a collection of cache clusters, where one of the clusters is a primary read-write cluster and the others are read-only replicas.
+        Adds an AWS::ElastiCache::ReplicationGroup resource to the template. The AWS::ElastiCache::ReplicationGroup resource creates an Amazon ElastiCache Redis replication group. A Redis (cluster mode disabled replication group is a collection of cache clusters, where one of the clusters is a primary read-write cluster and the others are read-only replicas.
+
+A Redis (cluster mode enabled cluster is comprised of from 1 to 90 shards (API/CLI: node groups. Each shard has a primary node and up to 5 read-only replica nodes. The configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number or replicas allowed.
+
+The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node cluster that ranges between 83 shards (one primary and 5 replicas per shard and 500 shards (single primary and no replicas. Make sure there are enough available IP addresses to accommodate the increase. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see Creating a Subnet Group: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html. For versions below 5.0.6, the limit is 250 per cluster.
+
+To request a limit increase, see Amazon Service Limits: https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html and choose the limit type **Nodes per cluster per instance type**.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html
@@ -24,12 +30,12 @@ Default: false
 
     .PARAMETER AuthToken
         **Reserved parameter.** The password used to access a password protected server.
-AuthToken can be specified only on replication groups where TransitEncryptionEnabled is true.
+AuthToken can be specified only on replication groups where TransitEncryptionEnabled is true. For more information, see Authenticating Users with the Redis AUTH Command: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html.
 For HIPAA compliance, you must specify TransitEncryptionEnabled as true, an AuthToken, and a CacheSubnetGroup.
 Password constraints:
 + Must be only printable ASCII characters.
 + Must be at least 16 characters and no more than 128 characters in length.
-+ The only permitted printable special characters are !, &, #, $, ^, <, >, and -. Other printable special characters cannot be used in the AUTH token.
++ Nonalphanumeric characters are restricted to !, &, #, $, ^, <, >, -, .
 For more information, see AUTH password: http://redis.io/commands/AUTH at http://redis.io/commands/AUTH.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-authtoken
@@ -37,7 +43,7 @@ For more information, see AUTH password: http://redis.io/commands/AUTH at http:/
         UpdateType: Conditional
 
     .PARAMETER AutoMinorVersionUpgrade
-        This parameter is currently disabled.
+        If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-autominorversionupgrade
         PrimitiveType: Boolean
@@ -45,13 +51,8 @@ For more information, see AUTH password: http://redis.io/commands/AUTH at http:/
 
     .PARAMETER AutomaticFailoverEnabled
         Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
-If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group.
 AutomaticFailoverEnabled must be enabled for Redis cluster mode enabled replication groups.
 Default: false
-Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:
-+ Redis versions earlier than 2.8.6.
-+ Redis cluster mode disabled: T1 node types.
-+ Redis cluster mode enabled: T1 node types.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-automaticfailoverenabled
         PrimitiveType: Boolean
@@ -60,11 +61,12 @@ Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover o
     .PARAMETER CacheNodeType
         The compute and memory capacity of the nodes in the node group shard.
 The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
-Changing the CacheNodeType of a Memcached instance is currently not supported. If you need to scale using Memcached, we recommend forcing a replacement update by changing the LogicalResourceId of the resource.
 + General purpose:
 + Current generation:
+**M6g node types:** cache.m6g.large, cache.m6g.xlarge, cache.m6g.2xlarge, cache.m6g.4xlarge, cache.m6g.12xlarge, cache.m6g.24xlarge
 **M5 node types:** cache.m5.large, cache.m5.xlarge, cache.m5.2xlarge, cache.m5.4xlarge, cache.m5.12xlarge, cache.m5.24xlarge
 **M4 node types:** cache.m4.large, cache.m4.xlarge, cache.m4.2xlarge, cache.m4.4xlarge, cache.m4.10xlarge
+**T4g node types:** cache.t4g.micro, cache.t4g.small, cache.t4g.medium
 **T3 node types:** cache.t3.micro, cache.t3.small, cache.t3.medium
 **T2 node types:** cache.t2.micro, cache.t2.small, cache.t2.medium
 + Previous generation: not recommended
@@ -76,11 +78,16 @@ Changing the CacheNodeType of a Memcached instance is currently not supported. I
 **C1 node types:** cache.c1.xlarge
 + Memory optimized:
 + Current generation:
+**R6gd node types:** cache.r6gd.xlarge, cache.r6gd.2xlarge, cache.r6gd.4xlarge, cache.r6gd.8xlarge, cache.r6gd.12xlarge, cache.r6gd.16xlarge
+**Note**
+The r6gd family is available in the following regions: us-east-2, us-east-1, us-west-2, us-west-1, eu-west-1, eu-central-1, ap-northeast-1, ap-southeast-1, ap-southeast-2.
+**R6g node types:** cache.r6g.large, cache.r6g.xlarge, cache.r6g.2xlarge, cache.r6g.4xlarge, cache.r6g.12xlarge, cache.r6g.24xlarge
 **R5 node types:** cache.r5.large, cache.r5.xlarge, cache.r5.2xlarge, cache.r5.4xlarge, cache.r5.12xlarge, cache.r5.24xlarge
 **R4 node types:** cache.r4.large, cache.r4.xlarge, cache.r4.2xlarge, cache.r4.4xlarge, cache.r4.8xlarge, cache.r4.16xlarge
 + Previous generation: not recommended
 **M2 node types:** cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge
 **R3 node types:** cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, cache.r3.4xlarge, cache.r3.8xlarge
+For region availability, see Supported Node Types by Amazon Region: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachenodetype
         PrimitiveType: String
@@ -88,7 +95,6 @@ Changing the CacheNodeType of a Memcached instance is currently not supported. I
 
     .PARAMETER CacheParameterGroupName
         The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
-If you are restoring to an engine version that is different than the original, you must specify the default version of that version. For example, CacheParameterGroupName=default.redis4.0.
 If you are running Redis version 3.2.4 or later, only one node group shard, and want to use a default parameter group, we recommend that you specify the parameter group by name.
 + To create a Redis cluster mode disabled replication group, use CacheParameterGroupName=default.redis3.2.
 + To create a Redis cluster mode enabled replication group, use CacheParameterGroupName=default.redis3.2.cluster.on.
@@ -108,14 +114,21 @@ If you are running Redis version 3.2.4 or later, only one node group shard, and 
 
     .PARAMETER CacheSubnetGroupName
         The name of the cache subnet group to be used for the replication group.
-If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see Subnets and Subnet Groups: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html.
+If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see AWS::ElastiCache::SubnetGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesubnetgroupname
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER DataTieringEnabled
+        Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes. For more information, see Data tiering: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-datatieringenabled
+        PrimitiveType: Boolean
+        UpdateType: Immutable
+
     .PARAMETER Engine
-        The name of the cache engine to be used for the clusters in this replication group.
+        The name of the cache engine to be used for the clusters in this replication group. Must be Redis.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-engine
         PrimitiveType: String
@@ -129,6 +142,13 @@ If you're going to launch your cluster in an Amazon VPC, you need to create a su
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER GlobalReplicationGroupId
+        The name of the Global datastore
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-globalreplicationgroupid
+        PrimitiveType: String
+        UpdateType: Immutable
+
     .PARAMETER KmsKeyId
         The ID of the KMS key used to encrypt the disk on the cluster.
 
@@ -136,12 +156,21 @@ If you're going to launch your cluster in an Amazon VPC, you need to create a su
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER LogDeliveryConfigurations
+        Specifies the destination, format and type of the logs.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-logdeliveryconfigurations
+        DuplicatesAllowed: False
+        ItemType: LogDeliveryConfigurationRequest
+        Type: List
+        UpdateType: Mutable
+
     .PARAMETER MultiAZEnabled
-        CreateReplicationGroup: https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html in the * Amazon ElastiCache API Reference Guide*
+        A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see Minimizing Downtime: Multi-AZ: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-multiazenabled
         PrimitiveType: Boolean
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER NodeGroupConfiguration
         NodeGroupConfiguration  is a property of the AWS::ElastiCache::ReplicationGroup resource that configures an Amazon ElastiCache ElastiCache Redis cluster node group.
@@ -201,8 +230,7 @@ Default: system chosen Availability Zones.
         UpdateType: Immutable
 
     .PARAMETER PreferredMaintenanceWindow
-        Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi 24H Clock UTC. The minimum maintenance window is a 60 minute period. Valid values for ddd are:
-Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi 24H Clock UTC. The minimum maintenance window is a 60 minute period.
+        Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi 24H Clock UTC. The minimum maintenance window is a 60 minute period.
 Valid values for ddd are:
 +  sun
 +  mon
@@ -302,7 +330,7 @@ If you do not specify this parameter, ElastiCache automatically chooses an appro
         UpdateType: Mutable
 
     .PARAMETER Tags
-        A list of cost allocation tags to be added to this resource. Tags are comma-separated key,value pairs e.g. Key=myKey, Value=myKeyValue. You can include multiple tags as shown following: Key=myKey, Value=myKeyValue Key=mySecondKey, Value=mySecondKeyValue.
+        A list of tags to be added to this resource. Tags are comma-separated key,value pairs e.g. Key=myKey, Value=myKeyValue. You can include multiple tags as shown following: Key=myKey, Value=myKeyValue Key=mySecondKey, Value=mySecondKeyValue. Tags on replication groups will be replicated to all nodes.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-tags
         DuplicatesAllowed: True
@@ -313,7 +341,7 @@ If you do not specify this parameter, ElastiCache automatically chooses an appro
     .PARAMETER TransitEncryptionEnabled
         A flag that enables in-transit encryption when set to true.
 You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-This parameter is valid only if the Engine parameter is redis, the EngineVersion parameter is 3.2.6 or 4.x or 5.x, and the cluster is being created in an Amazon VPC.
+This parameter is valid only if the Engine parameter is redis, the EngineVersion parameter is 3.2.6 or 4.x onward, and the cluster is being created in an Amazon VPC.
 If you enable in-transit encryption, you must also specify a value for CacheSubnetGroup.
 **Required:** Only available when creating a replication group in an Amazon VPC using redis version 3.2.6 or 4.x onward.
 Default: false
@@ -322,6 +350,15 @@ For HIPAA compliance, you must specify TransitEncryptionEnabled as true, an Auth
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-transitencryptionenabled
         PrimitiveType: Boolean
         UpdateType: Immutable
+
+    .PARAMETER UserGroupIds
+        The list of user groups to associate with the replication group.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-usergroupids
+        DuplicatesAllowed: False
+        PrimitiveItemType: String
+        Type: List
+        UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -466,6 +503,17 @@ For HIPAA compliance, you must specify TransitEncryptionEnabled as true, an Auth
         $CacheSubnetGroupName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DataTieringEnabled,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -496,7 +544,29 @@ For HIPAA compliance, you must specify TransitEncryptionEnabled as true, an Auth
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $GlobalReplicationGroupId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $KmsKeyId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ElastiCache.ReplicationGroup.LogDeliveryConfigurationRequest"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LogDeliveryConfigurations,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -682,6 +752,19 @@ For HIPAA compliance, you must specify TransitEncryptionEnabled as true, an Auth
                 }
             })]
         $TransitEncryptionEnabled,
+        [parameter(Mandatory = $false)]
+        $UserGroupIds,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -751,6 +834,12 @@ For HIPAA compliance, you must specify TransitEncryptionEnabled as true, an Auth
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CacheSecurityGroupNames -Value @($CacheSecurityGroupNames)
                 }
+                LogDeliveryConfigurations {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name LogDeliveryConfigurations -Value @($LogDeliveryConfigurations)
+                }
                 NodeGroupConfiguration {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -780,6 +869,12 @@ For HIPAA compliance, you must specify TransitEncryptionEnabled as true, an Auth
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                UserGroupIds {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name UserGroupIds -Value @($UserGroupIds)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

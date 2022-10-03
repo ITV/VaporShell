@@ -11,7 +11,7 @@ Represents an object that contains entries and targets for HomeDirectoryMappings
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-homedirectorymapentry.html
 
     .PARAMETER Entry
-        Represents an entry and a target for HomeDirectoryMappings.
+        Represents an entry for HomeDirectoryMappings.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-homedirectorymapentry.html#cfn-transfer-user-homedirectorymapentry-entry
         PrimitiveType: String

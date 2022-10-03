@@ -1,11 +1,11 @@
 function Add-VSGameLiftMatchmakingConfigurationGameProperty {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::MatchmakingConfiguration.GameProperty resource property to the template. A set of key-value pairs that contain information about a game session. When included in a game session request, these properties communicate details to be used when setting up the new game session. For example, a property might specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session.
+        Adds an AWS::GameLift::MatchmakingConfiguration.GameProperty resource property to the template. Set of key-value pairs that contain information about a game session. When included in a game session request, these properties communicate details to be used when setting up the new game session. For example, a game property might specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session. For more information, see the  GameLift Developer Guide: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create.
 
     .DESCRIPTION
         Adds an AWS::GameLift::MatchmakingConfiguration.GameProperty resource property to the template.
-A set of key-value pairs that contain information about a game session. When included in a game session request, these properties communicate details to be used when setting up the new game session. For example, a property might specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session.
+Set of key-value pairs that contain information about a game session. When included in a game session request, these properties communicate details to be used when setting up the new game session. For example, a game property might specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session. For more information, see the  GameLift Developer Guide: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html

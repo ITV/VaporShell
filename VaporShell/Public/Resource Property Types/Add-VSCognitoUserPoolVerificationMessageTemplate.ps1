@@ -11,14 +11,14 @@ The template for verification messages.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html
 
     .PARAMETER EmailMessageByLink
-        The email message template for sending a confirmation link to the user.
+        The email message template for sending a confirmation link to the user. EmailMessageByLink is allowed only if  EmailSendingAccount: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount is DEVELOPER.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-emailmessagebylink
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER EmailMessage
-        The email message template.
+        The email message template. EmailMessage is allowed only if  EmailSendingAccount: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount is DEVELOPER.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-emailmessage
         PrimitiveType: String
@@ -32,7 +32,7 @@ The template for verification messages.
         UpdateType: Mutable
 
     .PARAMETER EmailSubject
-        The subject line for the email message template.
+        The subject line for the email message template. EmailSubject is allowed only if EmailSendingAccount: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount is DEVELOPER.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-emailsubject
         PrimitiveType: String
@@ -46,7 +46,7 @@ The template for verification messages.
         UpdateType: Mutable
 
     .PARAMETER EmailSubjectByLink
-        The subject line for the email message template for sending a confirmation link to the user.
+        The subject line for the email message template for sending a confirmation link to the user. EmailSubjectByLink is allowed only  EmailSendingAccount: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount is DEVELOPER.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-emailsubjectbylink
         PrimitiveType: String

@@ -1,17 +1,17 @@
 function Add-VSBatchJobDefinitionMountPoints {
     <#
     .SYNOPSIS
-        Adds an AWS::Batch::JobDefinition.MountPoints resource property to the template. Details on a Docker volume mount point that is used in a job's container properties. This parameter maps to Volumes in the Create a container: https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container section of the Docker Remote API and the --volume option to docker run.
+        Adds an AWS::Batch::JobDefinition.MountPoints resource property to the template. Details on a Docker volume mount point that's used in a job's container properties. This parameter maps to Volumes in the Create a container: https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container section of the Docker Remote API and the --volume option to docker run.
 
     .DESCRIPTION
         Adds an AWS::Batch::JobDefinition.MountPoints resource property to the template.
-Details on a Docker volume mount point that is used in a job's container properties. This parameter maps to Volumes in the Create a container: https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container section of the Docker Remote API and the --volume option to docker run.
+Details on a Docker volume mount point that's used in a job's container properties. This parameter maps to Volumes in the Create a container: https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container section of the Docker Remote API and the --volume option to docker run.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html
 
     .PARAMETER ReadOnly
-        If this value is true, the container has read-only access to the volume; otherwise, the container can write to the volume. The default value is false.
+        If this value is true, the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is false.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html#cfn-batch-jobdefinition-mountpoints-readonly
         PrimitiveType: Boolean
@@ -25,7 +25,7 @@ Details on a Docker volume mount point that is used in a job's container propert
         UpdateType: Mutable
 
     .PARAMETER ContainerPath
-        The path on the container at which to mount the host volume.
+        The path on the container where the host volume is mounted.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html#cfn-batch-jobdefinition-mountpoints-containerpath
         PrimitiveType: String

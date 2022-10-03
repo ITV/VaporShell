@@ -1,11 +1,11 @@
 function Add-VSServiceDiscoveryServiceDnsRecord {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceDiscovery::Service.DnsRecord resource property to the template. A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+        Adds an AWS::ServiceDiscovery::Service.DnsRecord resource property to the template. A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 
     .DESCRIPTION
         Adds an AWS::ServiceDiscovery::Service.DnsRecord resource property to the template.
-A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html
@@ -20,16 +20,16 @@ A complex type that contains information about the Route 53 DNS records that you
 If you want AWS Cloud Map to create a Route 53 alias record when you register an instance, specify A or AAAA for Type.
 You specify other settings, such as the IP address for A and AAAA records, when you register an instance. For more information, see RegisterInstance: https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html.
 The following values are supported:
-**A**
+A
 Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44.
-**AAAA**
+AAAA
 Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
-**CNAME**
+CNAME
 Route 53 returns the domain name of the resource, such as www.example.com. Note the following:
 + You specify the domain name that you want to route traffic to when you register an instance. For more information, see Attributes: https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes in the topic RegisterInstance: https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html.
 + You must specify WEIGHTED for the value of RoutingPolicy.
 + You can't specify both CNAME for Type and settings for HealthCheckConfig. If you do, the request will fail with an InvalidInput error.
-**SRV**
+SRV
 Route 53 returns the value for an SRV record. The value for an SRV record uses the following values:
 priority weight port service-hostname
 Note the following about the values:
@@ -49,7 +49,7 @@ If you specify settings for an SRV record and if you specify values for AWS_INST
 
     .PARAMETER TTL
         The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
-Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the AWS_ALIAS_DNS_NAME attribute when you submit a RegisterInstance: https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html request, the TTL value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
+Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the AWS_ALIAS_DNS_NAME attribute when you submit a RegisterInstance: https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html request, the TTL value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl
         PrimitiveType: Double

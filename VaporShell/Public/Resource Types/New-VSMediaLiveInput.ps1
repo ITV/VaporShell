@@ -22,7 +22,7 @@ A MediaLive input holds information that describes how the MediaLive channel is 
         UpdateType: Immutable
 
     .PARAMETER Destinations
-        The destination settings for push types of inputs. If the input is a pull type, these settings don't apply.
+        Settings that apply only if the input is a push type of input.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-destinations
@@ -30,7 +30,7 @@ A MediaLive input holds information that describes how the MediaLive channel is 
         UpdateType: Mutable
 
     .PARAMETER Vpc
-        Settings that apply only if the input is an Amazon VPC input.
+        Settings that apply only if the input is an push input where the source is on Amazon VPC.
 
         Type: InputVpcRequest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-vpc
@@ -52,8 +52,16 @@ A MediaLive input holds information that describes how the MediaLive channel is 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputsecuritygroups
         UpdateType: Mutable
 
+    .PARAMETER InputDevices
+        Settings that apply only if the input is an Elemental Link input.
+
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
+        ItemType: InputDeviceSettings
+        UpdateType: Mutable
+
     .PARAMETER Sources
-        The source settings for a pull type of input. These settings don't apply if the input is a push type.
+        Settings that apply only if the input is a pull type of input.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sources
@@ -182,6 +190,17 @@ A MediaLive input holds information that describes how the MediaLive channel is 
         $InputSecurityGroups,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.MediaLive.Input.InputDeviceSettings"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InputDevices,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Input.InputSourceRequest"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -224,6 +243,17 @@ A MediaLive input holds information that describes how the MediaLive channel is 
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -304,6 +334,12 @@ A MediaLive input holds information that describes how the MediaLive channel is 
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name InputSecurityGroups -Value @($InputSecurityGroups)
+                }
+                InputDevices {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name InputDevices -Value @($InputDevices)
                 }
                 Sources {
                     if (!($ResourceParams["Properties"])) {

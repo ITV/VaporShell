@@ -1,31 +1,24 @@
 function Add-VSDynamoDBTableAttributeDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::Table.AttributeDefinition resource property to the template. Represents an attribute for describing the key schema for the table and indexes.
+        Adds an AWS::DynamoDB::Table.AttributeDefinition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::Table.AttributeDefinition resource property to the template.
-Represents an attribute for describing the key schema for the table and indexes.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html
 
     .PARAMETER AttributeName
-        A name for the attribute.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html#cfn-dynamodb-table-attributedefinition-attributename
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER AttributeType
-        The data type for the attribute, where:
-+  S - the attribute is of type String
-+  N - the attribute is of type Number
-+  B - the attribute is of type Binary
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename-attributetype
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html#cfn-dynamodb-table-attributedefinition-attributetype
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

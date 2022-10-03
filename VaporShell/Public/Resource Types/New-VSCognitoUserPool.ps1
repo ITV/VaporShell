@@ -35,9 +35,9 @@ function New-VSCognitoUserPool {
 
     .PARAMETER MfaConfiguration
         The multi-factor MFA configuration. Valid values include:
-+  OFF MFA will not be used for any users.
++  OFF MFA won't be used for any users.
 +  ON MFA is required for all users to sign in.
-+  OPTIONAL MFA will be required only for individual users who have an MFA factor enabled.
++  OPTIONAL MFA will be required only for individual users who have an MFA factor activated.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-mfaconfiguration
         PrimitiveType: String
@@ -88,10 +88,17 @@ During a user pool update, you can add new schema attributes but you cannot modi
         UpdateType: Mutable
 
     .PARAMETER UserPoolAddOns
-        Used to enable advanced security risk detection. Set the key AdvancedSecurityMode to the value "AUDIT".
+        Enables advanced security risk detection. Set the key AdvancedSecurityMode to the value "AUDIT".
 
         Type: UserPoolAddOns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooladdons
+        UpdateType: Mutable
+
+    .PARAMETER UserAttributeUpdateSettings
+        The URL of the provider of the Amazon Cognito user pool, specified as a String.
+
+        Type: UserAttributeUpdateSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userattributeupdatesettings
         UpdateType: Mutable
 
     .PARAMETER EmailConfiguration
@@ -129,7 +136,7 @@ Allowed values: SMS_MFA | SOFTWARE_TOKEN_MFA
         UpdateType: Mutable
 
     .PARAMETER EmailVerificationSubject
-        A string representing the email verification subject.
+        A string representing the email verification subject. EmailVerificationSubject is allowed only if EmailSendingAccount: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount is DEVELOPER.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailverificationsubject
         PrimitiveType: String
@@ -137,9 +144,10 @@ Allowed values: SMS_MFA | SOFTWARE_TOKEN_MFA
 
     .PARAMETER LambdaConfig
         The Lambda trigger configuration information for the new user pool.
-In a push model, event sources such as Amazon S3 and custom applications need permission to invoke a function. So you will need to make an extra call to add permission for these event sources to invoke your Lambda function.
-For more information on using the Lambda API to add permission, see  AddPermission : https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html.
-For adding permission using the AWS CLI, see  add-permission : https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html.
+In a push model, event sources such as Amazon S3 and custom applications need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
+
+For more information on using the Lambda API to add permission, see AddPermission : https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html.
+For adding permission using the AWS CLI, see add-permission : https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html.
 
         Type: LambdaConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-lambdaconfig
@@ -170,7 +178,7 @@ This user pool property cannot be updated.
         UpdateType: Mutable
 
     .PARAMETER EmailVerificationMessage
-        A string representing the email verification message.
+        A string representing the email verification message. EmailVerificationMessage is allowed only if EmailSendingAccount: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount is DEVELOPER.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailverificationmessage
         PrimitiveType: String
@@ -322,6 +330,8 @@ This user pool property cannot be updated.
         [parameter(Mandatory = $false)]
         $UserPoolAddOns,
         [parameter(Mandatory = $false)]
+        $UserAttributeUpdateSettings,
+        [parameter(Mandatory = $false)]
         $EmailConfiguration,
         [parameter(Mandatory = $false)]
         $SmsConfiguration,
@@ -361,6 +371,17 @@ This user pool property cannot be updated.
         $EmailVerificationMessage,
         [parameter(Mandatory = $false)]
         $AccountRecoverySetting,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

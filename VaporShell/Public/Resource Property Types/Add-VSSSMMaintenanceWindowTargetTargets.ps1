@@ -14,6 +14,7 @@ Targets is a property of the AWS::SSM::MaintenanceWindowTarget: https://docs.aws
 
     .PARAMETER Values
         User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to run a command on instances that include EC2 tags of ServerRole,WebServer.
+Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
 
         PrimitiveItemType: String
         Type: List
@@ -21,7 +22,7 @@ Targets is a property of the AWS::SSM::MaintenanceWindowTarget: https://docs.aws
         UpdateType: Mutable
 
     .PARAMETER Key
-        User-defined criteria for sending commands that target instances that meet the criteria.
+        User-defined criteria for sending commands that target managed nodes that meet the criteria.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key
         PrimitiveType: String
@@ -34,7 +35,7 @@ Targets is a property of the AWS::SSM::MaintenanceWindowTarget: https://docs.aws
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         $Values,
         [parameter(Mandatory = $true)]
         [ValidateScript( {

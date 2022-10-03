@@ -1,41 +1,38 @@
 function Add-VSGameLiftFleetRuntimeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::Fleet.RuntimeConfiguration resource property to the template. A collection of server process configurations that describe the processes to run on each instance in a fleet. All fleets must have a runtime configuration. Each instance in the fleet maintains server processes as specified in the runtime configuration, launching new ones as existing processes end. Each instance regularly checks for an updated runtime configuration makes adjustments as called for.
+        Adds an AWS::GameLift::Fleet.RuntimeConfiguration resource property to the template. A collection of server process configurations that describe the set of processes to run on each instance in a fleet. Server processes run either an executable in a custom game build or a Realtime Servers script. GameLift launches the configured processes, manages their life cycle, and replaces them as needed. Each instance checks regularly for an updated runtime configuration.
 
     .DESCRIPTION
         Adds an AWS::GameLift::Fleet.RuntimeConfiguration resource property to the template.
-A collection of server process configurations that describe the processes to run on each instance in a fleet. All fleets must have a runtime configuration. Each instance in the fleet maintains server processes as specified in the runtime configuration, launching new ones as existing processes end. Each instance regularly checks for an updated runtime configuration makes adjustments as called for.
+A collection of server process configurations that describe the set of processes to run on each instance in a fleet. Server processes run either an executable in a custom game build or a Realtime Servers script. GameLift launches the configured processes, manages their life cycle, and replaces them as needed. Each instance checks regularly for an updated runtime configuration.
 
-The runtime configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1 Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2 Run one or more processes of different executables, such as your game server and a metrics tracking program. (3 Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
-
-An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
+A GameLift instance is limited to 50 processes running concurrently. To calculate the total number of processes in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess. Learn more about  Running Multiple Processes on a Fleet: https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html
 
     .PARAMETER GameSessionActivationTimeoutSeconds
-        The maximum amount of time in seconds that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
+        The maximum amount of time in seconds allowed to launch a new game session and have it report ready to host players. During this time, the game session is in status ACTIVATING. If the game session does not become active before the timeout, it is ended and the game session status is changed to TERMINATED.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER MaxConcurrentGameSessionActivations
-        The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
+        The number of game sessions in status ACTIVATING to allow on an instance. This setting limits the instance resources that can be used for new game activations at any one time.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER ServerProcesses
-        A collection of server process configurations that describe which server processes to run on each instance in a fleet.
+        A collection of server process configurations that identify what server processes to run on each instance in a fleet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
-        DuplicatesAllowed: False
-        ItemType: ServerProcess
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: ServerProcess
 
     .FUNCTIONALITY
         Vaporshell

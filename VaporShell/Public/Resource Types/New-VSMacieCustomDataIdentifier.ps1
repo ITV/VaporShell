@@ -1,10 +1,12 @@
 function New-VSMacieCustomDataIdentifier {
     <#
     .SYNOPSIS
-        Adds an AWS::Macie::CustomDataIdentifier resource to the template. 
+        Adds an AWS::Macie::CustomDataIdentifier resource to the template. The AWS::Macie::CustomDataIdentifier resource is a set of criteria that you define to detect sensitive data in one or more data sources. Each identifier specifies a regular expression (*regex* that defines a text pattern to match in the data. It can also specify character sequences, such as words and phrases, and a proximity rule that refine the analysis of a data source. By using custom data identifiers, you can tailor your analysis to meet your organization's specific needs and supplement the built-in, managed data identifiers that Amazon Macie provides.
 
     .DESCRIPTION
-        Adds an AWS::Macie::CustomDataIdentifier resource to the template. 
+        Adds an AWS::Macie::CustomDataIdentifier resource to the template. The AWS::Macie::CustomDataIdentifier resource is a set of criteria that you define to detect sensitive data in one or more data sources. Each identifier specifies a regular expression (*regex* that defines a text pattern to match in the data. It can also specify character sequences, such as words and phrases, and a proximity rule that refine the analysis of a data source. By using custom data identifiers, you can tailor your analysis to meet your organization's specific needs and supplement the built-in, managed data identifiers that Amazon Macie provides.
+
+A Session must exist for the account before you can create a CustomDataIdentifier. Use a DependsOn attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html to ensure that the Session is created before the other resources. For example, "DependsOn: Session".
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html
@@ -13,32 +15,45 @@ function New-VSMacieCustomDataIdentifier {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Name
+        A custom name for the custom data identifier. The name can contain as many as 128 characters.
+We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see the identifier's name, depending on the actions that they're allowed to perform in Amazon Macie.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Description
+        The description of the custom data identifier. The description can contain as many as 512 characters.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Regex
+        The regular expression *regex* that defines the pattern to match. The expression can contain as many as 512 characters.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER MaximumMatchDistance
+        The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the Keywords array. Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Keywords
+        An array that lists specific character sequences keywords, one of which must be within proximity MaximumMatchDistance of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 characters. Keywords aren't case sensitive.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
 
     .PARAMETER IgnoreWords
+        An array that lists specific character sequences ignore words to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 characters. Ignore words are case sensitive.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
         UpdateType: Immutable
         Type: List
@@ -154,6 +169,17 @@ function New-VSMacieCustomDataIdentifier {
         $Keywords,
         [parameter(Mandatory = $false)]
         $IgnoreWords,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

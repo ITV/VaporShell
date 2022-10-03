@@ -71,6 +71,16 @@ DAX clusters can only run in an Amazon VPC environment. All of the subnets that 
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER ClusterEndpointEncryptionType
+        The encryption type of the cluster's endpoint. Available values are:
++ NONE - The cluster's endpoint will be unencrypted.
++ TLS - The cluster's endpoint will be encrypted with Transport Layer Security, and will provide an x509 certificate for authentication.
+The default value is NONE.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-clusterendpointencryptiontype
+        PrimitiveType: String
+        UpdateType: Immutable
+
     .PARAMETER NotificationTopicARN
         The Amazon Resource Name ARN of the Amazon SNS topic to which notifications will be sent.
 The Amazon SNS topic owner must be same as the DAX cluster owner.
@@ -251,6 +261,17 @@ If this parameter is not specified, DAX assigns the default VPC security group t
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $ClusterEndpointEncryptionType,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $NotificationTopicARN,
         [parameter(Mandatory = $false)]
         $SecurityGroupIds,
@@ -287,6 +308,17 @@ If this parameter is not specified, DAX assigns the default VPC security group t
                 }
             })]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

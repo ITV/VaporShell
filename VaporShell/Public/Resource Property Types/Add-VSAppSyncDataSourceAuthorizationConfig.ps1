@@ -13,15 +13,15 @@ AuthorizationConfig is a property of the AWS AppSync DataSource HttpConfig: http
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html
 
     .PARAMETER AwsIamConfig
-        The AWS IAM settings.
+        The AWS Identity and Access Management settings.
 
         Type: AwsIamConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-awsiamconfig
         UpdateType: Mutable
 
     .PARAMETER AuthorizationType
-        The authorization type required by the HTTP endpoint.
-+  **AWS_IAM**: The authorization type is Sigv4.
+        The authorization type that the HTTP endpoint requires.
++  **AWS_IAM**: The authorization type is Signature Version 4 SigV4.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-authorizationtype
         PrimitiveType: String

@@ -14,17 +14,17 @@ Information for creating an action that distributes requests among one or more t
         Information about the target group stickiness for a rule.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroupstickinessconfig
-        Type: TargetGroupStickinessConfig
         UpdateType: Mutable
+        Type: TargetGroupStickinessConfig
 
     .PARAMETER TargetGroups
         Information about how traffic will be distributed between multiple target groups in a forward rule.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
-        DuplicatesAllowed: False
-        ItemType: TargetGroupTuple
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: TargetGroupTuple
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

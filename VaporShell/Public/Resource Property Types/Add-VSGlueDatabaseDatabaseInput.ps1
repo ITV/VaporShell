@@ -17,6 +17,14 @@ The structure used to create or update a database.
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER CreateTableDefaultPermissions
+        Creates a set of default permissions on the table for principals.
+
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
+        ItemType: PrincipalPrivileges
+        UpdateType: Mutable
+
     .PARAMETER Description
         A description of the database.
 
@@ -29,6 +37,13 @@ The structure used to create or update a database.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
         PrimitiveType: Json
+        UpdateType: Mutable
+
+    .PARAMETER TargetDatabase
+        A DatabaseIdentifier structure that describes a target database for resource linking.
+
+        Type: DatabaseIdentifier
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
         UpdateType: Mutable
 
     .PARAMETER Name
@@ -58,6 +73,17 @@ The structure used to create or update a database.
         $LocationUri,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Glue.Database.PrincipalPrivileges"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreateTableDefaultPermissions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -78,6 +104,8 @@ The structure used to create or update a database.
                 }
             })]
         $Parameters,
+        [parameter(Mandatory = $false)]
+        $TargetDatabase,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

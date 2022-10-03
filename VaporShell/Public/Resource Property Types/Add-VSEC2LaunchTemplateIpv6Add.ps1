@@ -7,7 +7,7 @@ function Add-VSEC2LaunchTemplateIpv6Add {
         Adds an AWS::EC2::LaunchTemplate.Ipv6Add resource property to the template.
 Specifies an IPv6 address in an Amazon EC2 launch template.
 
-Ipv6Add is a property of the Amazon EC2 LaunchTemplate NetworkInterface: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html property type.
+Ipv6Add is a property of AWS::EC2::LaunchTemplate NetworkInterface: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html

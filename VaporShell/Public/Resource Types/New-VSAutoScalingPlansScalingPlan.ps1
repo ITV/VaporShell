@@ -1,10 +1,10 @@
 function New-VSAutoScalingPlansScalingPlan {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScalingPlans::ScalingPlan resource to the template. The AWS::AutoScalingPlans::ScalingPlan resource defines a scaling plan that AWS Auto Scaling uses to scale the following application resources:
+        Adds an AWS::AutoScalingPlans::ScalingPlan resource to the template. The AWS::AutoScalingPlans::ScalingPlan resource defines an AWS Auto Scaling scaling plan. A scaling plan is used to scale application resources to size them appropriately to ensure that enough resource is available in the application at peak times and to reduce allocated resource during periods of low utilization. The following resources can be added to a scaling plan:
 
     .DESCRIPTION
-        Adds an AWS::AutoScalingPlans::ScalingPlan resource to the template. The AWS::AutoScalingPlans::ScalingPlan resource defines a scaling plan that AWS Auto Scaling uses to scale the following application resources:
+        Adds an AWS::AutoScalingPlans::ScalingPlan resource to the template. The AWS::AutoScalingPlans::ScalingPlan resource defines an AWS Auto Scaling scaling plan. A scaling plan is used to scale application resources to size them appropriately to ensure that enough resource is available in the application at peak times and to reduce allocated resource during periods of low utilization. The following resources can be added to a scaling plan:
 
 + Amazon EC2 Auto Scaling groups
 
@@ -25,7 +25,7 @@ For more information, see the AWS Auto Scaling User Guide: https://docs.aws.amaz
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ApplicationSource
-        A CloudFormation stack or a set of tags. You can create one scaling plan per application source.
+        A CloudFormation stack or a set of tags. You can create one scaling plan per application source. The ApplicationSource property must be present to ensure interoperability with the AWS Auto Scaling console.
 
         Type: ApplicationSource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-applicationsource
@@ -114,6 +114,17 @@ For more information, see the AWS Auto Scaling User Guide: https://docs.aws.amaz
                 }
             })]
         $ScalingInstructions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

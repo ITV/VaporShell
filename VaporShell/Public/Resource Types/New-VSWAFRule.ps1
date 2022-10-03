@@ -1,10 +1,16 @@
 function New-VSWAFRule {
     <#
     .SYNOPSIS
-        Adds an AWS::WAF::Rule resource to the template. A combination of ByteMatchSet, IPSet, and/or SqlInjectionMatchSet objects that identify the web requests that you want to allow, block, or count. For example, you might create a Rule that includes the following predicates:
+        Adds an AWS::WAF::Rule resource to the template. **Note**
 
     .DESCRIPTION
-        Adds an AWS::WAF::Rule resource to the template. A combination of ByteMatchSet, IPSet, and/or SqlInjectionMatchSet objects that identify the web requests that you want to allow, block, or count. For example, you might create a Rule that includes the following predicates:
+        Adds an AWS::WAF::Rule resource to the template. **Note**
+
+This is ** AWS WAF Classic** documentation. For more information, see AWS WAF Classic: https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html in the developer guide.
+
+**For the latest version of AWS WAF **, use the AWS WAFV2 API and see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html. With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+
+A combination of ByteMatchSet, IPSet, and/or SqlInjectionMatchSet objects that identify the web requests that you want to allow, block, or count. For example, you might create a Rule that includes the following predicates:
 
 + An IPSet that causes AWS WAF to search for web requests that originate from the IP address 192.0.2.44
 
@@ -19,7 +25,7 @@ To match the settings in this Rule, a request must originate from 192.0.2.44 AND
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER MetricName
-        A friendly name or description for the metrics for this Rule. The name can contain only alphanumeric characters A-Z, a-z, 0-9, with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change MetricName after you create the Rule.
+        The name of the metrics for this Rule. The name can contain only alphanumeric characters A-Z, a-z, 0-9, with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change MetricName after you create the Rule.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-metricname
         PrimitiveType: String
@@ -136,6 +142,17 @@ To match the settings in this Rule, a request must originate from 192.0.2.44 AND
                 }
             })]
         $Predicates,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

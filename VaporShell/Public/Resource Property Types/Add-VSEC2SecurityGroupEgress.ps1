@@ -1,11 +1,11 @@
 function Add-VSEC2SecurityGroupEgress {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SecurityGroup.Egress resource property to the template. Specifies an outbound rule for a security group. An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances associated with the specified destination security groups.
+        Adds an AWS::EC2::SecurityGroup.Egress resource property to the template. Specifies an outbound rule for a security group. An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, or to the instances associated with the specified destination security groups.
 
     .DESCRIPTION
         Adds an AWS::EC2::SecurityGroup.Egress resource property to the template.
-Specifies an outbound rule for a security group. An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances associated with the specified destination security groups.
+Specifies an outbound rule for a security group. An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, or to the instances associated with the specified destination security groups.
 
 You must specify only one of the following properties: CidrIp, CidrIpv6, DestinationPrefixListId, or DestinationSecurityGroupId.
 
@@ -15,15 +15,14 @@ The EC2 Security Group Rule is an embedded property of the AWS::EC2::SecurityGro
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
 
     .PARAMETER CidrIp
-        The destination IPv4 address range, in CIDR format.
+        The IPv4 address range, in CIDR format.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidrip
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CidrIpv6
-        EC2-VPC only] The IPv6 ranges.
-The destination IPv6 address range, in CIDR format.
+        The IPv6 address range, in CIDR format.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidripv6
         PrimitiveType: String

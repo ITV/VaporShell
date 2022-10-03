@@ -7,6 +7,10 @@ function Add-VSBatchJobDefinitionUlimit {
         Adds an AWS::Batch::JobDefinition.Ulimit resource property to the template.
 The ulimit settings to pass to the container.
 
+**Note**
+
+This object isn't applicable to jobs that are running on Fargate resources.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ulimit.html
 

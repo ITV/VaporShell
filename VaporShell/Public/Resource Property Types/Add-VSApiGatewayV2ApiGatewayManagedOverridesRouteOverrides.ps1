@@ -40,7 +40,7 @@ The RouteOverrides property overrides the route configuration for an API Gateway
         UpdateType: Mutable
 
     .PARAMETER AuthorizationType
-        The authorization type for the route. For HTTP APIs, valid values are NONE for open access, or JWT for using JSON Web Tokens.
+        The authorization type for the route. To learn more, see AuthorizationType: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-authorizationtype.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routeoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routeoverrides-authorizationtype
         PrimitiveType: String

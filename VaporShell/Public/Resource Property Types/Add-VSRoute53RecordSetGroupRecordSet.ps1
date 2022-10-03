@@ -25,11 +25,11 @@ If you're creating resource records sets for a private hosted zone, note the fol
         Type: AliasTarget
         UpdateType: Mutable
 
-    .PARAMETER Comment
-        *Optional:* Any comments you want to include about a change batch request.
+    .PARAMETER CidrRoutingConfig
+        +  ChangeResourceRecordSets: https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html in the *Amazon Route 53 API Reference*
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-comment
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-cidrroutingconfig
+        Type: CidrRoutingConfig
         UpdateType: Mutable
 
     .PARAMETER Failover
@@ -111,7 +111,7 @@ Specify either HostedZoneName or HostedZoneId, but not both. If you have multipl
         UpdateType: Mutable
 
     .PARAMETER HostedZoneName
-        The name of the hosted zone that you want to create records in.
+        The name of the hosted zone that you want to create records in. You must include a trailing dot for example, www.example.com. as part of the HostedZoneName.
 When you create a stack using an AWS::Route53::RecordSet that specifies HostedZoneName, AWS CloudFormation attempts to find a hosted zone whose name matches the HostedZoneName. If AWS CloudFormation cannot find a hosted zone with a matching domain name, or if there is more than one hosted zone with the specified domain name, AWS CloudFormation will not create the stack.
 Specify either HostedZoneName or HostedZoneId, but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using HostedZoneId.
 
@@ -198,7 +198,7 @@ For information about routing policies, see Choosing a Routing Policy: https://d
 
     .PARAMETER Type
         The DNS record type. For information about different record types and how data is encoded for them, see Supported DNS Resource Record Types: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html in the *Amazon Route 53 Developer Guide*.
-Valid values for basic resource record sets: A | AAAA | CAA | CNAME | MX | NAPTR | NS | PTR | SOA | SPF | SRV | TXT
+Valid values for basic resource record sets: A | AAAA | CAA | CNAME | DS |MX | NAPTR | NS | PTR | SOA | SPF | SRV | TXT
 Values for weighted, latency, geolocation, and failover resource record sets: A | AAAA | CAA | CNAME | MX | NAPTR | PTR | SPF | SRV | TXT. When creating a group of weighted, latency, geolocation, or failover resource record sets, specify the same value for all of the resource record sets in the group.
 Valid values for multivalue answer resource record sets: A | AAAA | MX | NAPTR | PTR | SPF | SRV | TXT
 SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of Type is SPF. RFC 7208, *Sender Policy Framework SPF for Authorizing Use of Domains in Email, Version 1*, has been updated to say, "...I]ts existence and mechanism defined in RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it." In RFC 7208, see section 14.1, The SPF DNS Record Type: http://tools.ietf.org/html/rfc7208#section-14.1.
@@ -241,16 +241,7 @@ The effect of setting Weight to 0 is different when you associate health checks 
         [parameter(Mandatory = $false)]
         $AliasTarget,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Comment,
+        $CidrRoutingConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

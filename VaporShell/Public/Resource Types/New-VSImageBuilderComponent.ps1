@@ -1,10 +1,10 @@
 function New-VSImageBuilderComponent {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::Component resource to the template. Components are orchestration documents that define a sequence of steps for downloading, installing, and configuring software packages or for defining tests to run on software packages. They also define validation and security hardening steps. A component is defined using a YAML document format. For more information, see Using Documents in EC2 Image Builder: https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-application-documents.html.
+        Adds an AWS::ImageBuilder::Component resource to the template. Components are orchestration documents that define a sequence of steps for downloading, installing, and configuring software packages or for defining tests to run on software packages. They also define validation and security hardening steps. A component is defined using a YAML document format. For more information, see Using Documents in Image Builder: https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-application-documents.html.
 
     .DESCRIPTION
-        Adds an AWS::ImageBuilder::Component resource to the template. Components are orchestration documents that define a sequence of steps for downloading, installing, and configuring software packages or for defining tests to run on software packages. They also define validation and security hardening steps. A component is defined using a YAML document format. For more information, see Using Documents in EC2 Image Builder: https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-application-documents.html.
+        Adds an AWS::ImageBuilder::Component resource to the template. Components are orchestration documents that define a sequence of steps for downloading, installing, and configuring software packages or for defining tests to run on software packages. They also define validation and security hardening steps. A component is defined using a YAML document format. For more information, see Using Documents in Image Builder: https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-application-documents.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html
@@ -48,6 +48,8 @@ function New-VSImageBuilderComponent {
         PrimitiveType: String
 
     .PARAMETER Data
+        The data of the component. For example, name: HelloWorldTestingDocumentndescription: This is hello world testing document.nschemaVersion: 1.0nnphases:n - name: testn steps:n - name: HelloWorldStepn action: ExecuteBashn inputs:n commands:n - echo "Hello World! Test."n. See Examples below for the schema for creating a component using Data.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
         UpdateType: Immutable
         PrimitiveType: String
@@ -68,13 +70,16 @@ function New-VSImageBuilderComponent {
         PrimitiveItemType: String
 
     .PARAMETER Uri
-        The URI of the component document.
+        The uri of a YAML component document file. This must be an S3 URL s3://bucket/key, and the requester must have permission to access the S3 bucket it points to. If you use Amazon S3, you can specify component content up to your service quota.
+Alternatively, you can specify the YAML document inline, using the component data property. You cannot specify both properties.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SupportedOsVersions
+        The operating system OS version supported by the component. If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
         UpdateType: Immutable
         Type: List
@@ -235,6 +240,17 @@ function New-VSImageBuilderComponent {
         $Uri,
         [parameter(Mandatory = $false)]
         $SupportedOsVersions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

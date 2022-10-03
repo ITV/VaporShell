@@ -1,11 +1,11 @@
 function Add-VSKinesisAnalyticsV2ApplicationOutputOutput {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::ApplicationOutput.Output resource property to the template. Describes an SQL-based Amazon Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written. The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
+        Adds an AWS::KinesisAnalyticsV2::ApplicationOutput.Output resource property to the template. Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written. The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::ApplicationOutput.Output resource property to the template.
-Describes an SQL-based Amazon Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written. The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
+Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written. The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html
@@ -18,21 +18,21 @@ Describes an SQL-based Amazon Kinesis Data Analytics application's output config
         UpdateType: Mutable
 
     .PARAMETER LambdaOutput
-        Identifies an AWS Lambda function as the destination.
+        Identifies an Amazon Lambda function as the destination.
 
         Type: LambdaOutput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-lambdaoutput
         UpdateType: Mutable
 
     .PARAMETER KinesisFirehoseOutput
-        Identifies an Amazon Kinesis Data Firehose delivery stream as the destination.
+        Identifies a Kinesis Data Firehose delivery stream as the destination.
 
         Type: KinesisFirehoseOutput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-kinesisfirehoseoutput
         UpdateType: Mutable
 
     .PARAMETER KinesisStreamsOutput
-        Identifies an Amazon Kinesis data stream as the destination.
+        Identifies a Kinesis data stream as the destination.
 
         Type: KinesisStreamsOutput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-kinesisstreamsoutput

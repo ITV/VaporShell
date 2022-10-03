@@ -6,7 +6,7 @@ function New-VSPinpointVoiceChannel {
     .DESCRIPTION
         Adds an AWS::Pinpoint::VoiceChannel resource to the template. A *channel* is a type of platform that you can deliver messages to. To send a voice message, you send the message through the voice channel. Before you can use Amazon Pinpoint to send voice messages, you have to enable the voice channel for an Amazon Pinpoint application.
 
-The AWS::Pinpoint::VoiceChannel resource defines the status and other settings of the voice channel for an application.
+The VoiceChannel resource represents the status and other information about the voice channel for an application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-voicechannel.html
@@ -112,6 +112,17 @@ The AWS::Pinpoint::VoiceChannel resource defines the status and other settings o
                 }
             })]
         $ApplicationId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

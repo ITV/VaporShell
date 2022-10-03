@@ -1,21 +1,25 @@
 function Add-VSGlobalAcceleratorListenerPortRange {
     <#
     .SYNOPSIS
-        Adds an AWS::GlobalAccelerator::Listener.PortRange resource property to the template. 
+        Adds an AWS::GlobalAccelerator::Listener.PortRange resource property to the template. A complex type for a range of ports for a listener.
 
     .DESCRIPTION
         Adds an AWS::GlobalAccelerator::Listener.PortRange resource property to the template.
-
+A complex type for a range of ports for a listener.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
 
     .PARAMETER FromPort
+        The first port in the range of ports, inclusive.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER ToPort
+        The last port in the range of ports, inclusive.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
         UpdateType: Mutable
         PrimitiveType: Integer

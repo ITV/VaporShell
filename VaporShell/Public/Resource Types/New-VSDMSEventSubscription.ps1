@@ -21,7 +21,7 @@ Valid values: replication-instance | replication-task
         UpdateType: Mutable
 
     .PARAMETER EventCategories
-        A list of event categories for a source type that you want to subscribe to. If you don't specify this property, you are notified about all event categories. For more information, see Working with Events and Notifications: https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html in the *AWS Database Migration Service User Guide.*
+        A list of event categories for a source type that you want to subscribe to. If you don't specify this property, you are notified about all event categories. For more information, see Working with Events and Notifications: https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html in the *AWS DMS User Guide*.
 
         PrimitiveItemType: String
         Type: List
@@ -180,6 +180,17 @@ If you specify multiple values, they must be of the same type. For example, if y
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

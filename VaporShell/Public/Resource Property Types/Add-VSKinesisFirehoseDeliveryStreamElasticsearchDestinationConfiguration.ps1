@@ -25,7 +25,8 @@ The ElasticsearchDestinationConfiguration property type specifies an Amazon Elas
         Type: CloudWatchLoggingOptions
 
     .PARAMETER DomainARN
-        The Amazon Resource Name ARN of the Amazon ES domain that Kinesis Data Firehose delivers data to.
+        The ARN of the Amazon ES domain. The IAM role must have permissions for DescribeElasticsearchDomain, DescribeElasticsearchDomains, and DescribeElasticsearchDomainConfig after assuming the role specified in **RoleARN**.
+Specify either ClusterEndpoint or DomainARN.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-domainarn
         UpdateType: Mutable
@@ -60,7 +61,7 @@ The ElasticsearchDestinationConfiguration property type specifies an Amazon Elas
         Type: ElasticsearchRetryOptions
 
     .PARAMETER RoleARN
-        The Amazon Resource Name ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see Grant Kinesis Data Firehose Access to an Amazon S3 Destination: https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3.
+        The Amazon Resource Name ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see Controlling Access with Amazon Kinesis Data Firehose: https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-rolearn
         UpdateType: Mutable
@@ -81,7 +82,7 @@ The ElasticsearchDestinationConfiguration property type specifies an Amazon Elas
         Type: S3DestinationConfiguration
 
     .PARAMETER ClusterEndpoint
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        The endpoint to use when communicating with the cluster. Specify either this ClusterEndpoint or the DomainARN field.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-clusterendpoint
         UpdateType: Mutable
@@ -95,7 +96,7 @@ The ElasticsearchDestinationConfiguration property type specifies an Amazon Elas
         PrimitiveType: String
 
     .PARAMETER VpcConfiguration
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        The details of the VPC of the Amazon ES destination.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-vpcconfiguration
         UpdateType: Immutable

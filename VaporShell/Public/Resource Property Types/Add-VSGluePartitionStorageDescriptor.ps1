@@ -32,20 +32,6 @@ Describes the physical storage of table data.
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-bucketcolumns
         UpdateType: Mutable
 
-    .PARAMETER SkewedInfo
-        The information about values that appear frequently in a column skewed values.
-
-        Type: SkewedInfo
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
-        UpdateType: Mutable
-
-    .PARAMETER InputFormat
-        The input format: SequenceFileInputFormat binary, or TextInputFormat, or a custom format.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-inputformat
-        PrimitiveType: String
-        UpdateType: Mutable
-
     .PARAMETER NumberOfBuckets
         The number of buckets.
 You must specify this property if the partition contains any dimension columns.
@@ -91,6 +77,27 @@ You must specify this property if the partition contains any dimension columns.
         PrimitiveType: Boolean
         UpdateType: Mutable
 
+    .PARAMETER SchemaReference
+        An object that references a schema stored in the AWS Glue Schema Registry.
+
+        Type: SchemaReference
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+        UpdateType: Mutable
+
+    .PARAMETER SkewedInfo
+        The information about values that appear frequently in a column skewed values.
+
+        Type: SkewedInfo
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
+        UpdateType: Mutable
+
+    .PARAMETER InputFormat
+        The input format: SequenceFileInputFormat binary, or TextInputFormat, or a custom format.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-inputformat
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER Location
         The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 
@@ -129,19 +136,6 @@ You must specify this property if the partition contains any dimension columns.
         $Parameters,
         [parameter(Mandatory = $false)]
         $BucketColumns,
-        [parameter(Mandatory = $false)]
-        $SkewedInfo,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $InputFormat,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -199,6 +193,21 @@ You must specify this property if the partition contains any dimension columns.
                 }
             })]
         $Compressed,
+        [parameter(Mandatory = $false)]
+        $SchemaReference,
+        [parameter(Mandatory = $false)]
+        $SkewedInfo,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InputFormat,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

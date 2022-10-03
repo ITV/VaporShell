@@ -13,9 +13,23 @@ Includes information related to client authentication.
     .PARAMETER Tls
         Details for client authentication using TLS.
 
-        Type: Tls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls
-        UpdateType: Immutable
+        UpdateType: Mutable
+        Type: Tls
+
+    .PARAMETER Sasl
+        Details for ClientAuthentication using SASL.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-sasl
+        UpdateType: Mutable
+        Type: Sasl
+
+    .PARAMETER Unauthenticated
+        Details for ClientAuthentication using no authentication.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-unauthenticated
+        UpdateType: Mutable
+        Type: Unauthenticated
 
     .FUNCTIONALITY
         Vaporshell
@@ -25,7 +39,11 @@ Includes information related to client authentication.
     Param
     (
         [parameter(Mandatory = $false)]
-        $Tls
+        $Tls,
+        [parameter(Mandatory = $false)]
+        $Sasl,
+        [parameter(Mandatory = $false)]
+        $Unauthenticated
     )
     Begin {
         $obj = [PSCustomObject]@{}

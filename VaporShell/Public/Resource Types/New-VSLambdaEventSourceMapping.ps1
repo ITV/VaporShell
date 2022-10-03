@@ -6,13 +6,19 @@ function New-VSLambdaEventSourceMapping {
     .DESCRIPTION
         Adds an AWS::Lambda::EventSourceMapping resource to the template. The AWS::Lambda::EventSourceMapping resource creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.
 
-For details about each event source type, see the following topics.
+For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
 
-+  Using AWS Lambda with Amazon Kinesis: https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html
++  Configuring a Dynamo DB stream as an event source: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping
 
-+  Using AWS Lambda with Amazon SQS: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html
++  Configuring a Kinesis stream as an event source: https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping
 
-+  Using AWS Lambda with Amazon DynamoDB: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html
++  Configuring an SQS queue as an event source: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource
+
++  Configuring an MQ broker as an event source: https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping
+
++  Configuring MSK as an event source: https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html
+
++  Configuring Self-Managed Apache Kafka as an event source: https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
@@ -21,45 +27,57 @@ For details about each event source type, see the following topics.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER BatchSize
-        The maximum number of items to retrieve in a single batch.
+        The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation 6 MB.
 +  **Amazon Kinesis** - Default 100. Max 10,000.
 +  **Amazon DynamoDB Streams** - Default 100. Max 1,000.
-+  **Amazon Simple Queue Service** - Default 10. Max 10.
++  **Amazon Simple Queue Service** - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
++  **Amazon Managed Streaming for Apache Kafka** - Default 100. Max 10,000.
++  **Self-Managed Apache Kafka** - Default 100. Max 10,000.
++  **Amazon MQ ActiveMQ and RabbitMQ** - Default 100. Max 10,000.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER BisectBatchOnFunctionError
-        Streams If the function returns an error, split the batch in two and retry.
+        Streams only If the function returns an error, split the batch in two and retry. The default value is false.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER DestinationConfig
-        Streams An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+        Streams only An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
-        Type: DestinationConfig
         UpdateType: Mutable
+        Type: DestinationConfig
 
     .PARAMETER Enabled
-        Disables the event source mapping to pause polling and invocation.
+        When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
+Default: True
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER EventSourceArn
         The Amazon Resource Name ARN of the event source.
 +  **Amazon Kinesis** - The ARN of the data stream or a stream consumer.
 +  **Amazon DynamoDB Streams** - The ARN of the stream.
 +  **Amazon Simple Queue Service** - The ARN of the queue.
++  **Amazon Managed Streaming for Apache Kafka** - The ARN of the cluster.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER FilterCriteria
+        Streams and Amazon SQS An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see Lambda event filtering: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-filtercriteria
+        UpdateType: Mutable
+        Type: FilterCriteria
 
     .PARAMETER FunctionName
         The name of the Lambda function.
@@ -71,45 +89,115 @@ For details about each event source type, see the following topics.
 The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER MaximumBatchingWindowInSeconds
-        Streams The maximum amount of time to gather records before invoking the function, in seconds.
+        The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
+**Default Kinesis, DynamoDB, Amazon SQS event sources**: 0
+**Default Amazon MSK, Kafka, Amazon MQ event sources**: 500 ms
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER MaximumRecordAgeInSeconds
-        Streams The maximum age of a record that Lambda sends to a function for processing.
+        Streams only Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER MaximumRetryAttempts
-        Streams The maximum number of times to retry when the function returns an error.
+        Streams only Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER ParallelizationFactor
-        Streams The number of batches to process from each shard concurrently.
+        Streams only The number of batches to process concurrently from each shard. The default value is 1.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER StartingPosition
-        The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
+        The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
 + **LATEST** - Read only new records.
 + **TRIM_HORIZON** - Process all available records.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER StartingPositionTimestamp
+        With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+        UpdateType: Immutable
+        PrimitiveType: Double
+
+    .PARAMETER Topics
+        The name of the Kafka topic.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER Queues
+        Amazon MQ The name of the Amazon MQ broker destination queue to consume.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER SourceAccessConfigurations
+        An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: SourceAccessConfiguration
+        DuplicatesAllowed: False
+
+    .PARAMETER TumblingWindowInSeconds
+        Streams only The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER FunctionResponseTypes
+        Streams and SQS A list of current response type enums applied to the event source mapping.
+Valid Values: ReportBatchItemFailures
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER SelfManagedEventSource
+        The self-managed Apache Kafka cluster for your event source.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+        UpdateType: Immutable
+        Type: SelfManagedEventSource
+
+    .PARAMETER AmazonManagedKafkaEventSourceConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig
+        UpdateType: Immutable
+        Type: AmazonManagedKafkaEventSourceConfig
+
+    .PARAMETER SelfManagedKafkaEventSourceConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig
+        UpdateType: Immutable
+        Type: SelfManagedKafkaEventSourceConfig
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -208,7 +296,7 @@ The length constraint applies only to the full ARN. If you specify only the func
                 }
             })]
         $Enabled,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -219,6 +307,8 @@ The length constraint applies only to the full ARN. If you specify only the func
                 }
             })]
         $EventSourceArn,
+        [parameter(Mandatory = $false)]
+        $FilterCriteria,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -285,6 +375,62 @@ The length constraint applies only to the full ARN. If you specify only the func
                 }
             })]
         $StartingPosition,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StartingPositionTimestamp,
+        [parameter(Mandatory = $false)]
+        $Topics,
+        [parameter(Mandatory = $false)]
+        $Queues,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Lambda.EventSourceMapping.SourceAccessConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SourceAccessConfigurations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TumblingWindowInSeconds,
+        [parameter(Mandatory = $false)]
+        $FunctionResponseTypes,
+        [parameter(Mandatory = $false)]
+        $SelfManagedEventSource,
+        [parameter(Mandatory = $false)]
+        $AmazonManagedKafkaEventSourceConfig,
+        [parameter(Mandatory = $false)]
+        $SelfManagedKafkaEventSourceConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -347,6 +493,30 @@ The length constraint applies only to the full ARN. If you specify only the func
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Topics {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Topics -Value @($Topics)
+                }
+                Queues {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Queues -Value @($Queues)
+                }
+                SourceAccessConfigurations {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SourceAccessConfigurations -Value @($SourceAccessConfigurations)
+                }
+                FunctionResponseTypes {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name FunctionResponseTypes -Value @($FunctionResponseTypes)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

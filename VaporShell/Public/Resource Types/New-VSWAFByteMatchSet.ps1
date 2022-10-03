@@ -1,10 +1,16 @@
 function New-VSWAFByteMatchSet {
     <#
     .SYNOPSIS
-        Adds an AWS::WAF::ByteMatchSet resource to the template. The AWS::WAF::ByteMatchSet resource creates an AWS WAF ByteMatchSet that identifies a part of a web request that you want to inspect.
+        Adds an AWS::WAF::ByteMatchSet resource to the template. **Note**
 
     .DESCRIPTION
-        Adds an AWS::WAF::ByteMatchSet resource to the template. The AWS::WAF::ByteMatchSet resource creates an AWS WAF ByteMatchSet that identifies a part of a web request that you want to inspect.
+        Adds an AWS::WAF::ByteMatchSet resource to the template. **Note**
+
+This is ** AWS WAF Classic** documentation. For more information, see AWS WAF Classic: https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html in the developer guide.
+
+**For the latest version of AWS WAF **, use the AWS WAFV2 API and see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html. With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+
+The AWS::WAF::ByteMatchSet resource creates an AWS WAF ByteMatchSet that identifies a part of a web request that you want to inspect.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html
@@ -22,7 +28,7 @@ function New-VSWAFByteMatchSet {
         UpdateType: Mutable
 
     .PARAMETER Name
-        A friendly name or description of the ByteMatchSet. You can't change Name after you create a ByteMatchSet.
+        The name of the ByteMatchSet. You can't change Name after you create a ByteMatchSet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html#cfn-waf-bytematchset-name
         PrimitiveType: String
@@ -112,6 +118,17 @@ function New-VSWAFByteMatchSet {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

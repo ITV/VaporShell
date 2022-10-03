@@ -7,6 +7,8 @@ function Add-VSManagedBlockchainMemberApprovalThresholdPolicy {
         Adds an AWS::ManagedBlockchain::Member.ApprovalThresholdPolicy resource property to the template.
 A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of YES votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.
 
+Applies only to Hyperledger Fabric.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html
 

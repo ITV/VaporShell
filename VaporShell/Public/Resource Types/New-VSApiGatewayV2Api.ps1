@@ -20,7 +20,7 @@ function New-VSApiGatewayV2Api {
         UpdateType: Mutable
 
     .PARAMETER BodyS3Location
-        The S3 location of an OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a Body or BodyS3Location.
+        The S3 location of an OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a Body or BodyS3Location. If you specify a Body or BodyS3Location, don't specify CloudFormation resources such as AWS::ApiGatewayV2::Authorizer or AWS::ApiGatewayV2::Route. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
 
         Type: BodyS3Location
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-bodys3location
@@ -44,6 +44,13 @@ function New-VSApiGatewayV2Api {
         Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-failonwarnings
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER DisableExecuteApiEndpoint
+        Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint
         PrimitiveType: Boolean
         UpdateType: Mutable
 
@@ -90,7 +97,7 @@ function New-VSApiGatewayV2Api {
         UpdateType: Mutable
 
     .PARAMETER ProtocolType
-        The API protocol. Required unless you specify an OpenAPI definition for Body or S3BodyLocation.
+        The API protocol. Valid values are WEBSOCKET or HTTP. Required unless you specify an OpenAPI definition for Body or S3BodyLocation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-protocoltype
         PrimitiveType: String
@@ -104,7 +111,7 @@ function New-VSApiGatewayV2Api {
         UpdateType: Mutable
 
     .PARAMETER Body
-        The OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a Body or BodyS3Location.
+        The OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a Body or BodyS3Location. If you specify a Body or BodyS3Location, don't specify CloudFormation resources such as AWS::ApiGatewayV2::Authorizer or AWS::ApiGatewayV2::Route. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-body
         PrimitiveType: Json
@@ -244,6 +251,17 @@ function New-VSApiGatewayV2Api {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $DisableExecuteApiEndpoint,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $DisableSchemaValidation,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -346,6 +364,17 @@ function New-VSApiGatewayV2Api {
                 }
             })]
         $ApiKeySelectionExpression,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

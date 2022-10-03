@@ -26,6 +26,20 @@ The parent of this entity is AudioSelector.
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiolanguageselection
         UpdateType: Mutable
 
+    .PARAMETER AudioTrackSelection
+        Information about the audio track to extract.
+
+        Type: AudioTrackSelection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiotrackselection
+        UpdateType: Mutable
+
+    .PARAMETER AudioHlsRenditionSelection
+        Selector for HLS audio rendition.
+
+        Type: AudioHlsRenditionSelection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiohlsrenditionselection
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -36,7 +50,11 @@ The parent of this entity is AudioSelector.
         [parameter(Mandatory = $false)]
         $AudioPidSelection,
         [parameter(Mandatory = $false)]
-        $AudioLanguageSelection
+        $AudioLanguageSelection,
+        [parameter(Mandatory = $false)]
+        $AudioTrackSelection,
+        [parameter(Mandatory = $false)]
+        $AudioHlsRenditionSelection
     )
     Begin {
         $obj = [PSCustomObject]@{}

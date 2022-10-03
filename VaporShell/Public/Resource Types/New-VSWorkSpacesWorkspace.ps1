@@ -1,10 +1,10 @@
 function New-VSWorkSpacesWorkspace {
     <#
     .SYNOPSIS
-        Adds an AWS::WorkSpaces::Workspace resource to the template. Specifies a WorkSpace.
+        Adds an AWS::WorkSpaces::Workspace resource to the template. The AWS::WorkSpaces::Workspace resource specifies a WorkSpace.
 
     .DESCRIPTION
-        Adds an AWS::WorkSpaces::Workspace resource to the template. Specifies a WorkSpace.
+        Adds an AWS::WorkSpaces::Workspace resource to the template. The AWS::WorkSpaces::Workspace resource specifies a WorkSpace.
 
 Updates are not supported for the BundleId, RootVolumeEncryptionEnabled, UserVolumeEncryptionEnabled, or VolumeEncryptionKey properties. To update these properties, you must also update a property that triggers a replacement, such as the UserName property.
 
@@ -59,7 +59,7 @@ Updates are not supported for the BundleId, RootVolumeEncryptionEnabled, UserVol
         UpdateType: Conditional
 
     .PARAMETER VolumeEncryptionKey
-        The symmetric AWS KMS customer master key CMK used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        The symmetric AWS KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-volumeencryptionkey
         PrimitiveType: String
@@ -205,6 +205,17 @@ Updates are not supported for the BundleId, RootVolumeEncryptionEnabled, UserVol
         $VolumeEncryptionKey,
         [parameter(Mandatory = $false)]
         $WorkspaceProperties,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

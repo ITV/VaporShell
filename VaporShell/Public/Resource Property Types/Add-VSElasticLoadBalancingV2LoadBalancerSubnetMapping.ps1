@@ -1,11 +1,11 @@
 function Add-VSElasticLoadBalancingV2LoadBalancerSubnetMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::LoadBalancer.SubnetMapping resource property to the template. Specifies a subnet to attach to an Application Load Balancer or a Network Load Balancer.
+        Adds an AWS::ElasticLoadBalancingV2::LoadBalancer.SubnetMapping resource property to the template. Specifies a subnet for a load balancer.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancingV2::LoadBalancer.SubnetMapping resource property to the template.
-Specifies a subnet to attach to an Application Load Balancer or a Network Load Balancer.
+Specifies a subnet for a load balancer.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html
@@ -17,8 +17,15 @@ Specifies a subnet to attach to an Application Load Balancer or a Network Load B
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER IPv6Address
+        Network Load Balancers] The IPv6 address.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-ipv6address
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER PrivateIPv4Address
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        Network Load Balancers] The private IPv4 address for an internal load balancer.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
         PrimitiveType: String
@@ -49,6 +56,17 @@ Specifies a subnet to attach to an Application Load Balancer or a Network Load B
                 }
             })]
         $AllocationId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IPv6Address,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

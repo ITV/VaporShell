@@ -1,10 +1,10 @@
 function New-VSGameLiftMatchmakingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::MatchmakingConfiguration resource to the template. The AWS::GameLift::MatchmakingConfiguration resource defines a new matchmaking configuration for use with FlexMatch. A matchmaking configuration sets out guidelines for matching players and starting game sessions for the match. You can set up multiple matchmaking configurations to handle the scenarios needed for your game. Requests for matchmaking specify which configuration to use and provides the player attribute values that are required for the configuration.
+        Adds an AWS::GameLift::MatchmakingConfiguration resource to the template. The AWS::GameLift::MatchmakingConfiguration resource defines a new matchmaking configuration for use with FlexMatch. Whether you're using FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking configuration sets out rules for matching players and forming teams. If you're using GameLift hosting, it also defines how to start game sessions for each match. Your matchmaking system can use multiple configurations to handle different game scenarios. All matchmaking requests identify the matchmaking configuration to use and provide player attributes that are consistent with that configuration.
 
     .DESCRIPTION
-        Adds an AWS::GameLift::MatchmakingConfiguration resource to the template. The AWS::GameLift::MatchmakingConfiguration resource defines a new matchmaking configuration for use with FlexMatch. A matchmaking configuration sets out guidelines for matching players and starting game sessions for the match. You can set up multiple matchmaking configurations to handle the scenarios needed for your game. Requests for matchmaking specify which configuration to use and provides the player attribute values that are required for the configuration.
+        Adds an AWS::GameLift::MatchmakingConfiguration resource to the template. The AWS::GameLift::MatchmakingConfiguration resource defines a new matchmaking configuration for use with FlexMatch. Whether you're using FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking configuration sets out rules for matching players and forming teams. If you're using GameLift hosting, it also defines how to start game sessions for each match. Your matchmaking system can use multiple configurations to handle different game scenarios. All matchmaking requests identify the matchmaking configuration to use and provide player attributes that are consistent with that configuration.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html
@@ -13,7 +13,7 @@ function New-VSGameLiftMatchmakingConfiguration {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER GameProperties
-        A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process with a request to start a new game session. See  Start a Game Session: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession.
+        A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process with a request to start a new game session. See  Start a Game Session: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession. This parameter is not used if FlexMatchMode is set to STANDALONE.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gameproperties
@@ -21,7 +21,7 @@ function New-VSGameLiftMatchmakingConfiguration {
         UpdateType: Mutable
 
     .PARAMETER GameSessionData
-        A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session. See Start a Game Session: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession.
+        A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session. See Start a Game Session: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession. This parameter is not used ifFlexMatchMode is set to STANDALONE.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gamesessiondata
         PrimitiveType: String
@@ -35,42 +35,42 @@ function New-VSGameLiftMatchmakingConfiguration {
         UpdateType: Mutable
 
     .PARAMETER AcceptanceTimeoutSeconds
-        The length of time in seconds to wait for players to accept a proposed match. If any player rejects the match or fails to accept before the timeout, the ticket continues to look for an acceptable match.
+        The length of time in seconds to wait for players to accept a proposed match, if acceptance is required.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-acceptancetimeoutseconds
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER NotificationTarget
-        An SNS topic ARN that is set up to receive matchmaking notifications. See  Setting up Notifications for Matchmaking: https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html for more information.
+        An SNS topic ARN that is set up to receive matchmaking notifications. See  Setting up notifications for matchmaking: https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html for more information.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-notificationtarget
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CustomEventData
-        Information that is attached to all events related to the matchmaking configuration.
+        Information to add to all events related to the matchmaking configuration.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-customeventdata
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Name
-        A unique identifier for a matchmaking configuration. Matchmaking requests use this name to identify which matchmaking configuration to use.
+        A unique identifier for the matchmaking configuration. This name is used to identify the configuration associated with a matchmaking request or ticket.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-name
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER AdditionalPlayerCount
-        The number of player slots in a match to keep open for future players. For example, assume that the configuration's rule set specifies a match for a single 12-person team. If the additional player count is set to 2, only 10 players are initially selected for the match.
+        The number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match. This parameter is not used if FlexMatchMode is set to STANDALONE.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-additionalplayercount
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER BackfillMode
-        The method used to backfill game sessions that are created with this matchmaking configuration. Specify MANUAL when your game manages backfill requests manually or does not use the match backfill feature. Specify AUTOMATIC to have GameLift create a StartMatchBackfill request whenever a game session has one or more open slots. Learn more about manual and automatic backfill in Backfill Existing Games with FlexMatch: https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html.
+        The method used to backfill game sessions that are created with this matchmaking configuration. Specify MANUAL when your game manages backfill requests manually or does not use the match backfill feature. Specify AUTOMATIC to have GameLift create a StartMatchBackfill request whenever a game session has one or more open slots. Learn more about manual and automatic backfill in Backfill Existing Games with FlexMatch: https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html. Automatic backfill is not available when FlexMatchMode is set to STANDALONE.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-backfillmode
         PrimitiveType: String
@@ -84,25 +84,42 @@ function New-VSGameLiftMatchmakingConfiguration {
         UpdateType: Mutable
 
     .PARAMETER AcceptanceRequired
-        A flag that determines whether a match that was created with this configuration must be accepted by the matched players. To require acceptance, set to TRUE.
+        A flag that determines whether a match that was created with this configuration must be accepted by the matched players. To require acceptance, set to TRUE. With this option enabled, matchmaking tickets use the status REQUIRES_ACCEPTANCE to indicate when a completed potential match is waiting for player acceptance.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-acceptancerequired
         PrimitiveType: Boolean
         UpdateType: Mutable
 
+    .PARAMETER FlexMatchMode
+        Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
++  **STANDALONE** - FlexMatch forms matches and returns match information, including players and team assignments, in a  MatchmakingSucceeded: https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded event.
++  **WITH_QUEUE** - FlexMatch forms matches and uses the specified GameLift queue to start a game session for the match.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-flexmatchmode
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER RuleSetName
-        A unique identifier for a matchmaking rule set to use with this configuration. You can use either the rule set name or ARN value. A matchmaking configuration can only use rule sets that are defined in the same Region.
+        A unique identifier for the matchmaking rule set to use with this configuration. You can use either the rule set name or ARN value. A matchmaking configuration can only use rule sets that are defined in the same Region.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-rulesetname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER GameSessionQueueArns
-        Amazon Resource Name ARN: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. These queues are used when placing game sessions for matches that are created with this matchmaking configuration. Queues can be located in any Region.
+        The Amazon Resource Name ARN: https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Format is arn:aws:gamelift:<region>::gamesessionqueue/<queue name>. Queues can be located in any Region. Queues are used to start new GameLift-hosted game sessions for matches that are created with this matchmaking configuration. If FlexMatchMode is set to STANDALONE, do not set this parameter.
 
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gamesessionqueuearns
+        UpdateType: Mutable
+
+    .PARAMETER Tags
+        A list of labels to assign to the new matchmaking configuration resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see  Tagging AWS Resources: https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html in the * AWS General Reference*. Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-tags
+        ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -288,6 +305,17 @@ function New-VSGameLiftMatchmakingConfiguration {
                 }
             })]
         $AcceptanceRequired,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FlexMatchMode,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -299,8 +327,22 @@ function New-VSGameLiftMatchmakingConfiguration {
                 }
             })]
         $RuleSetName,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $GameSessionQueueArns,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -375,6 +417,12 @@ function New-VSGameLiftMatchmakingConfiguration {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name GameSessionQueueArns -Value @($GameSessionQueueArns)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

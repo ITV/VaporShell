@@ -14,22 +14,22 @@ Information needed to run the "containerAction" to produce data set contents.
         The name of the data set action by which data set contents are automatically created.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-actionname
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER ContainerAction
         Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
 
-        Type: ContainerAction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-containeraction
         UpdateType: Mutable
+        Type: ContainerAction
 
     .PARAMETER QueryAction
         An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 
-        Type: QueryAction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-queryaction
         UpdateType: Mutable
+        Type: QueryAction
 
     .FUNCTIONALITY
         Vaporshell

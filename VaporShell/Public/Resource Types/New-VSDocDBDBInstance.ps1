@@ -30,7 +30,6 @@ function New-VSDocDBDBInstance {
         The Amazon EC2 Availability Zone that the instance is created in.
 Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
 Example: us-east-1d
-Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter is set to true. The specified Availability Zone must be in the same AWS Region as the current endpoint.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-availabilityzone
         PrimitiveType: String
@@ -47,9 +46,16 @@ Constraints: Minimum 30-minute window.
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER EnablePerformanceInsights
+        +  ModifyDBInstance: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_ModifyDBInstance.html
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-enableperformanceinsights
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER AutoMinorVersionUpgrade
-        Indicates that minor engine upgrades are applied automatically to the instance during the maintenance window.
-Default: true
+        This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.
+Default: false
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-autominorversionupgrade
         PrimitiveType: Boolean
@@ -191,6 +197,17 @@ Example: mydbinstance
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $EnablePerformanceInsights,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $AutoMinorVersionUpgrade,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -206,6 +223,17 @@ Example: mydbinstance
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

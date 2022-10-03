@@ -1,21 +1,17 @@
 function Add-VSWAFv2RuleGroupXssMatchStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.XssMatchStatement resource property to the template. **Note**
+        Adds an AWS::WAFv2::RuleGroup.XssMatchStatement resource property to the template. A rule statement that defines a cross-site scripting (XSS match search for AWS WAF to apply to web requests. XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.XssMatchStatement resource property to the template.
-**Note**
-
-This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
 A rule statement that defines a cross-site scripting (XSS match search for AWS WAF to apply to web requests. XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
 
     .PARAMETER FieldToMatch
-        The part of a web request that you want AWS WAF to inspect. For more information, see FieldToMatch.
+        The part of a web request that you want AWS WAF to inspect.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
         UpdateType: Mutable

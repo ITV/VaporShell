@@ -6,7 +6,7 @@ function New-VSEC2Instance {
     .DESCRIPTION
         Adds an AWS::EC2::Instance resource to the template. Specifies an EC2 instance.
 
-If an Elastic IP address is attached to your instance, AWS CloudFormation reattaches the Elastic IP address after it updates the instance. For more information about updating stacks, see  AWS CloudFormation Stacks Updates: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html.
+If an Elastic IP address is attached to your instance, AWS CloudFormation reattaches the Elastic IP address after it updates the instance. For more information about updating stacks, see AWS CloudFormation Stacks Updates: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html
@@ -39,7 +39,8 @@ This parameter is not supported by DescribeImageAttribute: https://docs.aws.amaz
 
     .PARAMETER BlockDeviceMappings
         The block device mapping entries that defines the block devices to attach to the instance at launch.
-By default, the block devices specified in the block device mapping for the AMI are used. You can override the AMI block device mapping using the instance block device mapping. For the root volume, you can only override the volume size, volume type, and DeleteOnTermination setting. After the instance is running, you can only modify the DeleteOnTermination settings of the attached EBS volumes.
+By default, the block devices specified in the block device mapping for the AMI are used. You can override the AMI block device mapping using the instance block device mapping. For the root volume, you can override only the volume size, volume type, volume encryption settings, and the DeleteOnTermination setting.
+After the instance is running, you can modify only the DeleteOnTermination parameter for the attached volumes without interrupting the instance. Modifying any other parameter results in instance  replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-blockdevicemappings
         DuplicatesAllowed: True
@@ -48,15 +49,16 @@ By default, the block devices specified in the block device mapping for the AMI 
         UpdateType: Conditional
 
     .PARAMETER CpuOptions
-        The CPU options for the instance.
+        The CPU options for the instance. For more information, see Optimize CPU options: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html in the *Amazon Elastic Compute Cloud User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-cpuoptions
         Type: CpuOptions
         UpdateType: Immutable
 
     .PARAMETER CreditSpecification
-        The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited. To change this attribute after launch, use  ModifyInstanceCreditSpecification: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html. For more information, see Burstable Performance Instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html in the *Amazon Elastic Compute Cloud User Guide*.
+        The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited. To change this attribute after launch, use  ModifyInstanceCreditSpecification: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html. For more information, see Burstable performance instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html in the *Amazon EC2 User Guide*.
 Default: standard T2 instances or unlimited T3/T3a instances
+For T3 instances with host tenancy, only standard is supported.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-creditspecification
         Type: CreditSpecification
@@ -79,7 +81,7 @@ Default: false
         UpdateType: Conditional
 
     .PARAMETER ElasticGpuSpecifications
-        An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that you can attach to your Windows instance to accelerate the graphics performance of your applications. For more information, see  Amazon EC2 Elastic GPUs: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html in the *Amazon Elastic Compute Cloud User Guide*.
+        An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that you can attach to your Windows instance to accelerate the graphics performance of your applications. For more information, see Amazon EC2 Elastic GPUs: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html in the *Amazon EC2 User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticgpuspecifications
         DuplicatesAllowed: False
@@ -89,6 +91,7 @@ Default: false
 
     .PARAMETER ElasticInferenceAccelerators
         An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning DL inference workloads.
+You cannot specify accelerators from different generations in the same request.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators
         DuplicatesAllowed: False
@@ -96,8 +99,16 @@ Default: false
         Type: List
         UpdateType: Immutable
 
+    .PARAMETER EnclaveOptions
+        Indicates whether the instance is enabled for AWS Nitro Enclaves.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-enclaveoptions
+        Type: EnclaveOptions
+        UpdateType: Immutable
+
     .PARAMETER HibernationOptions
-        Indicates whether an instance is enabled for hibernation. For more information, see Hibernate Your Instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html in the *Amazon Elastic Compute Cloud User Guide*.
+        Indicates whether an instance is enabled for hibernation. For more information, see Hibernate your instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html in the *Amazon EC2 User Guide*.
+You can't enable hibernation and AWS Nitro Enclaves on the same instance.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
         Type: HibernationOptions
@@ -118,7 +129,7 @@ Default: false
         UpdateType: Immutable
 
     .PARAMETER IamInstanceProfile
-        The IAM instance profile. See IamInstanceProfileSpecification: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfileSpecification.html in the *Amazon EC2 API Reference* for property values.
+        The name of an IAM instance profile. To create a new IAM instance profile, use the AWS::IAM::InstanceProfile: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html resource.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile
         PrimitiveType: String
@@ -140,7 +151,7 @@ Default: stop
         UpdateType: Mutable
 
     .PARAMETER InstanceType
-        The instance type. For more information, see Instance Types: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html in the *Amazon Elastic Compute Cloud User Guide*.
+        The instance type. For more information, see Instance types: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html in the *Amazon EC2 User Guide*.
 Default: m1.small
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-instancetype
@@ -167,7 +178,7 @@ You cannot specify this option and the network interfaces option in the same req
 
     .PARAMETER KernelId
         The ID of the kernel.
-We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see  PV-GRUB: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html in the *Amazon Elastic Compute Cloud User Guide*.
+We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see PV-GRUB: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html in the *Amazon EC2 User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-kernelid
         PrimitiveType: String
@@ -216,25 +227,39 @@ If this resource has a public IP address and is also in a VPC that is defined in
         UpdateType: Immutable
 
     .PARAMETER PlacementGroupName
-        The name of an existing placement group that you want to launch the instance into for cluster instances.
+        The name of an existing placement group that you want to launch the instance into cluster | partition | spread.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-placementgroupname
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER PrivateDnsNameOptions
+        The options for the instance hostname.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-privatednsnameoptions
+        Type: PrivateDnsNameOptions
+        UpdateType: Conditional
+
     .PARAMETER PrivateIpAddress
         EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
 Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
 You cannot specify this option and the network interfaces option in the same request.
-If you make an update to an instance that requires replacement, you must assign a new private IP address. During a replacement, AWS CloudFormation creates a new instance but doesn't delete the old instance until the stack has successfully updated. If the stack update fails, AWS CloudFormation uses the old instance in order to roll back the stack to the previous working state. The old and new instances cannot have the same private IP address.
+If you make an update to an instance that requires replacement, you must assign a new private IP address. During a replacement, AWS CloudFormation creates a new instance but doesn't delete the old instance until the stack has successfully updated. If the stack update fails, AWS CloudFormation uses the old instance to roll back the stack to the previous working state. The old and new instances cannot have the same private IP address.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-privateipaddress
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER PropagateTagsToVolumeOnCreation
+        Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-propagatetagstovolumeoncreation
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER RamdiskId
         The ID of the RAM disk to select. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, go to the AWS Resource Center and search for the kernel ID.
-We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see  PV-GRUB: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html in the *Amazon Elastic Compute Cloud User Guide*.
+We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see PV-GRUB: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html in the *Amazon EC2 User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ramdiskid
         PrimitiveType: String
@@ -262,7 +287,7 @@ Default: Amazon EC2 uses the default security group.
         UpdateType: Immutable
 
     .PARAMETER SourceDestCheck
-        Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of true means that checking is enabled, and false means that checking is disabled. The value must be false for the instance to perform NAT. For more information, see NAT Instances: https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html in the *Amazon Virtual Private Cloud User Guide*.
+        Enable or disable source/destination checks, which ensure that the instance is either the source or the destination of any traffic that it receives. If the value is true, source/destination checks are enabled; otherwise, they are disabled. The default value is true. You must disable source/destination checks if the instance runs services such as network address translation, routing, or firewalls.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-sourcedestcheck
         PrimitiveType: Boolean
@@ -287,7 +312,7 @@ If you specify a network interface, you must specify any subnets as part of the 
         UpdateType: Immutable
 
     .PARAMETER Tags
-        The tags to apply to the instance during launch. These tags are not applied to the EBS volumes, such as the root volume.
+        The tags to add to the instance. These tags are not applied to the EBS volumes, such as the root volume.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-tags
         DuplicatesAllowed: True
@@ -303,7 +328,7 @@ If you specify a network interface, you must specify any subnets as part of the 
         UpdateType: Conditional
 
     .PARAMETER UserData
-        The user data to make available to the instance. For more information, see Running Commands on Your Linux Instance at Launch: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Linux and Adding User Data: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Windows. If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.
+        The user data to make available to the instance. For more information, see Run commands on your Linux instance at launch: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html and Run commands on your Windows instance at launch: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html. If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-userdata
         PrimitiveType: String
@@ -478,6 +503,8 @@ If you specify a network interface, you must specify any subnets as part of the 
             })]
         $ElasticInferenceAccelerators,
         [parameter(Mandatory = $false)]
+        $EnclaveOptions,
+        [parameter(Mandatory = $false)]
         $HibernationOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -636,6 +663,8 @@ If you specify a network interface, you must specify any subnets as part of the 
             })]
         $PlacementGroupName,
         [parameter(Mandatory = $false)]
+        $PrivateDnsNameOptions,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -646,6 +675,17 @@ If you specify a network interface, you must specify any subnets as part of the 
                 }
             })]
         $PrivateIpAddress,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PropagateTagsToVolumeOnCreation,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -730,17 +770,6 @@ If you specify a network interface, you must specify any subnets as part of the 
                 }
             })]
         $Volumes,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

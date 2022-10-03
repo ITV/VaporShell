@@ -6,6 +6,10 @@ function New-VSAmazonMQConfigurationAssociation {
     .DESCRIPTION
         Adds an AWS::AmazonMQ::ConfigurationAssociation resource to the template. Use the AWS CloudFormation AWS::AmazonMQ::ConfigurationAssociation resource to associate a configuration with a broker, or return information about the specified ConfigurationAssociation. Only use one per broker, and don't use a configuration on the broker resource if you have associated a configuration with that broker.
 
+**Note**
+
+Does not apply to RabbitMQ brokers.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html
 
@@ -101,6 +105,17 @@ function New-VSAmazonMQConfigurationAssociation {
         $Broker,
         [parameter(Mandatory = $true)]
         $Configuration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

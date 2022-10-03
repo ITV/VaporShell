@@ -18,6 +18,8 @@ The security details and endpoint information.
         Type: SecurityDetails
 
     .PARAMETER Endpoint
+        Information about the endpoint such as name and the endpoint address.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
         UpdateType: Mutable
         Type: DataflowEndpoint

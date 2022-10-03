@@ -11,10 +11,17 @@ Describes an additional authentication provider.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html
 
     .PARAMETER OpenIDConnectConfig
-        The OpenID Connect configuration.
+        The OIDC configuration.
 
         Type: OpenIDConnectConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-openidconnectconfig
+        UpdateType: Mutable
+
+    .PARAMETER LambdaAuthorizerConfig
+        Configuration for AWS Lambda function authorization.
+
+        Type: LambdaAuthorizerConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-lambdaauthorizerconfig
         UpdateType: Mutable
 
     .PARAMETER UserPoolConfig
@@ -25,7 +32,8 @@ Describes an additional authentication provider.
         UpdateType: Mutable
 
     .PARAMETER AuthenticationType
-        The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
+        The authentication type for API key, AWS Identity and Access Management, OIDC, Amazon Cognito user pools, or AWS Lambda.
+Valid Values: API_KEY | AWS_IAM | OPENID_CONNECT | AMAZON_COGNITO_USER_POOLS | AWS_LAMBDA
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-authenticationtype
         PrimitiveType: String
@@ -40,6 +48,8 @@ Describes an additional authentication provider.
     (
         [parameter(Mandatory = $false)]
         $OpenIDConnectConfig,
+        [parameter(Mandatory = $false)]
+        $LambdaAuthorizerConfig,
         [parameter(Mandatory = $false)]
         $UserPoolConfig,
         [parameter(Mandatory = $true)]

@@ -1,13 +1,13 @@
 function Add-VSApplicationAutoScalingScalingPolicyPredefinedMetricSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalingPolicy.PredefinedMetricSpecification resource property to the template. PredefinedMetricSpecification is a subproperty of TargetTrackingScalingPolicyConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html that configures a predefined metric for a target tracking scaling policy to use with Application Auto Scaling.
+        Adds an AWS::ApplicationAutoScaling::ScalingPolicy.PredefinedMetricSpecification resource property to the template. Contains predefined metric specification information for a target tracking scaling policy for Application Auto Scaling.
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalingPolicy.PredefinedMetricSpecification resource property to the template.
-PredefinedMetricSpecification is a subproperty of TargetTrackingScalingPolicyConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html that configures a predefined metric for a target tracking scaling policy to use with Application Auto Scaling.
+Contains predefined metric specification information for a target tracking scaling policy for Application Auto Scaling.
 
-For more information, see PredefinedMetricSpecification: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html in the *Application Auto Scaling API Reference*.
+PredefinedMetricSpecification is a property of the AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html
@@ -20,10 +20,13 @@ For more information, see PredefinedMetricSpecification: https://docs.aws.amazon
         UpdateType: Mutable
 
     .PARAMETER ResourceLabel
-        Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Spot Fleet request or ECS service.
-The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
+        Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Spot Fleet or ECS service.
+You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash /. The format of the resource label is:
+app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff.
+Where:
 + app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
 + targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+To find the ARN for an Application Load Balancer, use the DescribeLoadBalancers: https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html API operation. To find the ARN for the target group, use the DescribeTargetGroups: https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html API operation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
         PrimitiveType: String
