@@ -1272,7 +1272,6 @@
 "Add-VSSESTemplateTemplate","resource-property-types"
 "Add-VSSNSTopicSubscription","resource-property-types"
 "Add-VSSSMAssociationInstanceAssociationOutputLocation","resource-property-types"
-"Add-VSSSMAssociationParameterValues","resource-property-types"
 "Add-VSSSMAssociationS3OutputLocation","resource-property-types"
 "Add-VSSSMAssociationTarget","resource-property-types"
 "Add-VSSSMMaintenanceWindowTargetTargets","resource-property-types"
