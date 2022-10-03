@@ -1,10 +1,10 @@
 function New-VSAppSyncDataSource {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::DataSource resource to the template. The AWS::AppSync::DataSource resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB, AWS Lambda, and Amazon Elasticsearch Service. Resolvers use these data sources to fetch data when clients make GraphQL calls.
+        Adds an AWS::AppSync::DataSource resource to the template. The AWS::AppSync::DataSource resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB, AWS Lambda, and Amazon OpenSearch Service. Resolvers use these data sources to fetch data when clients make GraphQL calls.
 
     .DESCRIPTION
-        Adds an AWS::AppSync::DataSource resource to the template. The AWS::AppSync::DataSource resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB, AWS Lambda, and Amazon Elasticsearch Service. Resolvers use these data sources to fetch data when clients make GraphQL calls.
+        Adds an AWS::AppSync::DataSource resource to the template. The AWS::AppSync::DataSource resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB, AWS Lambda, and Amazon OpenSearch Service. Resolvers use these data sources to fetch data when clients make GraphQL calls.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html
@@ -14,15 +14,23 @@ function New-VSAppSyncDataSource {
 
     .PARAMETER Type
         The type of the data source.
-+  **AMAZON_DYNAMODB**: The data source is an Amazon DynamoDB table.
-+  **AMAZON_ELASTICSEARCH**: The data source is an Amazon Elasticsearch Service domain.
 +  **AWS_LAMBDA**: The data source is an AWS Lambda function.
++  **AMAZON_DYNAMODB**: The data source is an Amazon DynamoDB table.
++  **AMAZON_ELASTICSEARCH**: The data source is an Amazon OpenSearch Service domain.
++  **AMAZON_OPENSEARCH_SERVICE**: The data source is an Amazon OpenSearch Service domain.
 +  **NONE**: There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
 +  **HTTP**: The data source is an HTTP endpoint.
 +  **RELATIONAL_DATABASE**: The data source is a relational database.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-type
         PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER OpenSearchServiceConfig
+        AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
+
+        Type: OpenSearchServiceConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-opensearchserviceconfig
         UpdateType: Mutable
 
     .PARAMETER Description
@@ -33,8 +41,8 @@ function New-VSAppSyncDataSource {
         UpdateType: Mutable
 
     .PARAMETER ServiceRoleArn
-        The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
-Required if Type is specified as AWS_LAMBDA, AMAZON_DYNAMODB, or AMAZON_ELASTICSEARCH.
+        The AWS Identity and Access Management service role ARN for the data source. The system assumes this role when accessing the data source.
+Required if Type is specified as AWS_LAMBDA, AMAZON_DYNAMODB, AMAZON_ELASTICSEARCH, or AMAZON_OPENSEARCH_SERVICE.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-servicerolearn
         PrimitiveType: String
@@ -55,7 +63,7 @@ Required if Type is specified as AWS_LAMBDA, AMAZON_DYNAMODB, or AMAZON_ELASTICS
         UpdateType: Mutable
 
     .PARAMETER LambdaConfig
-        A valid ARN of a Lambda function in your account.
+        An ARN of a Lambda function in valid ARN format. This can be the ARN of a Lambda function that exists in the current account or in another account.
 
         Type: LambdaConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-lambdaconfig
@@ -76,14 +84,15 @@ Required if Type is specified as AWS_LAMBDA, AMAZON_DYNAMODB, or AMAZON_ELASTICS
         UpdateType: Immutable
 
     .PARAMETER DynamoDBConfig
-        AwsRegion and TableName for an Amazon DynamoDB table in your account.
+        AWS Region and TableName for an Amazon DynamoDB table in your account.
 
         Type: DynamoDBConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-dynamodbconfig
         UpdateType: Mutable
 
     .PARAMETER ElasticsearchConfig
-        AwsRegion and Endpoints for an Amazon Elasticsearch Service domain in your account.
+        AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
+As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service. This property is deprecated. For new data sources, use *OpenSearchServiceConfig* to specify an OpenSearch Service data source.
 
         Type: ElasticsearchConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-elasticsearchconfig
@@ -163,6 +172,8 @@ Required if Type is specified as AWS_LAMBDA, AMAZON_DYNAMODB, or AMAZON_ELASTICS
             })]
         $Type,
         [parameter(Mandatory = $false)]
+        $OpenSearchServiceConfig,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -216,6 +227,17 @@ Required if Type is specified as AWS_LAMBDA, AMAZON_DYNAMODB, or AMAZON_ELASTICS
         $DynamoDBConfig,
         [parameter(Mandatory = $false)]
         $ElasticsearchConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

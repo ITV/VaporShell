@@ -14,8 +14,8 @@ A complex type that contains information about a configuration for DNS query log
         The Amazon Resource Name ARN of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,31 +1,39 @@
 function Add-VSAppMeshVirtualNodeListenerTimeout {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.ListenerTimeout resource property to the template. 
+        Adds an AWS::AppMesh::VirtualNode.ListenerTimeout resource property to the template. An object that represents timeouts for different protocols.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.ListenerTimeout resource property to the template.
-
+An object that represents timeouts for different protocols.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html
 
     .PARAMETER TCP
+        An object that represents types of timeouts.
+
         Type: TcpTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html#cfn-appmesh-virtualnode-listenertimeout-tcp
         UpdateType: Mutable
 
     .PARAMETER HTTP2
+        An object that represents types of timeouts.
+
         Type: HttpTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html#cfn-appmesh-virtualnode-listenertimeout-http2
         UpdateType: Mutable
 
     .PARAMETER HTTP
+        An object that represents types of timeouts.
+
         Type: HttpTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html#cfn-appmesh-virtualnode-listenertimeout-http
         UpdateType: Mutable
 
     .PARAMETER GRPC
+        An object that represents types of timeouts.
+
         Type: GrpcTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html#cfn-appmesh-virtualnode-listenertimeout-grpc
         UpdateType: Mutable

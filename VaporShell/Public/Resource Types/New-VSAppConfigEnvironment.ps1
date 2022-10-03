@@ -1,12 +1,12 @@
 function New-VSAppConfigEnvironment {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::Environment resource to the template. The AWS::AppConfig::Environment resource creates an environment, which is a logical deployment group of AppConfig targets, such as applications in a Beta or Production environment. You define one or more environments for each AppConfig application. You can also define environments for application subcomponents such as the Web, Mobile and Back-end components for your application. You can configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a configuration deployment. If an alarm is triggered, the system rolls back the configuration.
+        Adds an AWS::AppConfig::Environment resource to the template. The AWS::AppConfig::Environment resource creates an environment, which is a logical deployment group of AWS AppConfig targets, such as applications in a Beta or Production environment. You define one or more environments for each AWS AppConfig application. You can also define environments for application subcomponents such as the Web, Mobile and Back-end components for your application. You can configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a configuration deployment. If an alarm is triggered, the system rolls back the configuration.
 
     .DESCRIPTION
-        Adds an AWS::AppConfig::Environment resource to the template. The AWS::AppConfig::Environment resource creates an environment, which is a logical deployment group of AppConfig targets, such as applications in a Beta or Production environment. You define one or more environments for each AppConfig application. You can also define environments for application subcomponents such as the Web, Mobile and Back-end components for your application. You can configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a configuration deployment. If an alarm is triggered, the system rolls back the configuration.
+        Adds an AWS::AppConfig::Environment resource to the template. The AWS::AppConfig::Environment resource creates an environment, which is a logical deployment group of AWS AppConfig targets, such as applications in a Beta or Production environment. You define one or more environments for each AWS AppConfig application. You can also define environments for application subcomponents such as the Web, Mobile and Back-end components for your application. You can configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a configuration deployment. If an alarm is triggered, the system rolls back the configuration.
 
-AppConfig requires that you create resources and deploy a configuration in the following order:
+AWS AppConfig requires that you create resources and deploy a configuration in the following order:
 
 1. Create an application
 
@@ -18,7 +18,7 @@ AppConfig requires that you create resources and deploy a configuration in the f
 
 1. Deploy the configuration
 
-For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html in the *AWS Systems Manager User Guide*.
+For more information, see AWS AppConfig: https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html in the *AWS AppConfig User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html
@@ -49,7 +49,7 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
         UpdateType: Immutable
 
     .PARAMETER Tags
-        Metadata to assign to the environment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-tags
@@ -180,6 +180,17 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

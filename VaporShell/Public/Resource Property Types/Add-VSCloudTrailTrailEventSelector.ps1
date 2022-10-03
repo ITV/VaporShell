@@ -9,6 +9,8 @@ Use event selectors to further specify the management and data event settings fo
 
 You can configure up to five event selectors for a trail.
 
+You cannot apply both event selectors and advanced event selectors to a trail.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html
 
@@ -17,27 +19,37 @@ You can configure up to five event selectors for a trail.
 For more information, see Data Events: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events and Limits in AWS CloudTrail: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html in the *AWS CloudTrail User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources
-        DuplicatesAllowed: False
-        ItemType: DataResource
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: DataResource
+        DuplicatesAllowed: False
 
     .PARAMETER IncludeManagementEvents
         Specify if you want your event selector to include management events for your trail.
-For more information, see Management Events: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events in the *AWS CloudTrail User Guide*.
+For more information, see Management Events: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events in the * AWS CloudTrail User Guide*.
 By default, the value is true.
+The first copy of management events is free. You are charged for additional copies of management events that you are logging on any subsequent trail in the same region. For more information about CloudTrail pricing, see AWS CloudTrail Pricing: http://aws.amazon.com/cloudtrail/pricing/.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER ReadWriteType
         Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
 By default, the value is All.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ExcludeManagementEventSources
+        An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty disables the filter, or it can filter out AWS Key Management Service or Amazon RDS Data API events by containing kms.amazonaws.com or rdsdata.amazonaws.com. By default, ExcludeManagementEventSources is empty, and AWS KMS and Amazon RDS Data API events are logged to your trail. You can exclude management event sources only in regions that support the event source.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-excludemanagementeventsources
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
@@ -78,7 +90,9 @@ By default, the value is All.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ReadWriteType
+        $ReadWriteType,
+        [parameter(Mandatory = $false)]
+        $ExcludeManagementEventSources
     )
     Begin {
         $obj = [PSCustomObject]@{}

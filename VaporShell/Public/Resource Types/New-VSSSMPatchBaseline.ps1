@@ -15,7 +15,7 @@ For more information, see CreatePatchBaseline: https://docs.aws.amazon.com/syste
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER OperatingSystem
-        Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+        Defines the operating system the patch baseline applies to. The default value is WINDOWS.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-operatingsystem
         PrimitiveType: String
@@ -36,7 +36,7 @@ For more information, see CreatePatchBaseline: https://docs.aws.amazon.com/syste
         UpdateType: Mutable
 
     .PARAMETER Sources
-        Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+        Information about the patches to use to update the managed nodes, including target operating systems and source repositories. Applies to Linux managed nodes only.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
@@ -52,7 +52,7 @@ For more information, see CreatePatchBaseline: https://docs.aws.amazon.com/syste
 
     .PARAMETER RejectedPatches
         A list of explicitly rejected patches for the baseline.
-For information about accepted formats for lists of approved patches and rejected patches, see About package name formats for approved and rejected patch lists: https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html in the *AWS Systems Manager User Guide*.
+For information about accepted formats for lists of approved patches and rejected patches, see About package name formats for approved and rejected patch lists: https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html in the * AWS Systems Manager User Guide*.
 
         PrimitiveItemType: String
         Type: List
@@ -61,7 +61,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
     .PARAMETER ApprovedPatches
         A list of explicitly approved patches for the baseline.
-For information about accepted formats for lists of approved patches and rejected patches, see About package name formats for approved and rejected patch lists: https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html in the *AWS Systems Manager User Guide*.
+For information about accepted formats for lists of approved patches and rejected patches, see About package name formats for approved and rejected patch lists: https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html in the * AWS Systems Manager User Guide*.
 
         PrimitiveItemType: String
         Type: List
@@ -70,15 +70,15 @@ For information about accepted formats for lists of approved patches and rejecte
 
     .PARAMETER RejectedPatchesAction
         The action for Patch Manager to take on patches included in the RejectedPackages list.
-+  **ALLOW_AS_DEPENDENCY**: A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as *InstalledOther*. This is the default action if no option is specified.
-+  **BLOCK**: Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as *InstalledRejected*.
++  ** ALLOW_AS_DEPENDENCY **: A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as InstalledOther. This is the default action if no option is specified.
++  ** BLOCK **: Packages in the RejectedPatches list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as InstalledRejected.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatchesaction
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER PatchGroups
-        The name of the patch group that should be registered with the patch baseline.
+        The name of the patch group to be registered with the patch baseline.
 
         PrimitiveItemType: String
         Type: List
@@ -86,14 +86,14 @@ For information about accepted formats for lists of approved patches and rejecte
         UpdateType: Mutable
 
     .PARAMETER ApprovedPatchesComplianceLevel
-        Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+        Defines the compliance level for approved patches. When an approved patch is reported as missing, this value describes the severity of the compliance violation. The default value is UNSPECIFIED.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchescompliancelevel
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ApprovedPatchesEnableNonSecurity
-        Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+        Indicates whether the list of approved patches includes non-security updates that should be applied to the managed nodes. The default value is false. Applies to Linux managed nodes only.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchesenablenonsecurity
         PrimitiveType: Boolean
@@ -266,6 +266,17 @@ For information about accepted formats for lists of approved patches and rejecte
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

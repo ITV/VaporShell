@@ -13,17 +13,30 @@ function New-VSGuardDutyDetector {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER FindingPublishingFrequency
-        A enumeration value that specifies how frequently finding updates are published. Valid values include: FIFTEEN_MINUTES | ONE_HOUR | SIX_HOURS. The default value is SIX_HOURS.
+        Specifies how frequently updated findings are exported.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER DataSources
+        Describes which data sources will be enabled for the detector.
+
+        Type: CFNDataSourceConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
+        UpdateType: Mutable
+
     .PARAMETER Enable
-        Specifies whether or not to enable the detector.
+        Specifies whether the detector is to be enabled on creation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
         PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER Tags
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-tags
+        ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -99,6 +112,8 @@ function New-VSGuardDutyDetector {
                 }
             })]
         $FindingPublishingFrequency,
+        [parameter(Mandatory = $false)]
+        $DataSources,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -110,6 +125,20 @@ function New-VSGuardDutyDetector {
                 }
             })]
         $Enable,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -172,6 +201,12 @@ function New-VSGuardDutyDetector {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

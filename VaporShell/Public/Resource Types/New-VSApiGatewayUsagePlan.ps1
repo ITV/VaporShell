@@ -1,10 +1,12 @@
 function New-VSApiGatewayUsagePlan {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::UsagePlan resource to the template. The AWS::ApiGateway::UsagePlan resource creates a usage plan for deployed APIs. A usage plan enforces throttling and quota limits on individual client API keys. For more information, see Creating and Using API Usage Plans in Amazon API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGateway::UsagePlan resource to the template. The AWS::ApiGateway::UsagePlan resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see Creating and Using API Usage Plans in Amazon API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html in the *API Gateway Developer Guide*.
 
     .DESCRIPTION
-        Adds an AWS::ApiGateway::UsagePlan resource to the template. The AWS::ApiGateway::UsagePlan resource creates a usage plan for deployed APIs. A usage plan enforces throttling and quota limits on individual client API keys. For more information, see Creating and Using API Usage Plans in Amazon API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGateway::UsagePlan resource to the template. The AWS::ApiGateway::UsagePlan resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see Creating and Using API Usage Plans in Amazon API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html in the *API Gateway Developer Guide*.
+
+In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using AWS Budgets: https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html to monitor costs and AWS WAF: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html to manage API requests.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
@@ -16,47 +18,47 @@ function New-VSApiGatewayUsagePlan {
         The API stages to associate with this usage plan.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
-        DuplicatesAllowed: False
-        ItemType: ApiStage
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: ApiStage
+        DuplicatesAllowed: False
 
     .PARAMETER Description
         A description of the usage plan.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Quota
         Configures the number of requests that users can make within a given interval.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
-        Type: QuotaSettings
         UpdateType: Mutable
+        Type: QuotaSettings
 
     .PARAMETER Tags
         An array of arbitrary tags key-value pairs to associate with the usage plan.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
-        DuplicatesAllowed: True
-        ItemType: Tag
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER Throttle
         Configures the overall request rate average requests per second and burst capacity.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
-        Type: ThrottleSettings
         UpdateType: Mutable
+        Type: ThrottleSettings
 
     .PARAMETER UsagePlanName
         A name for the usage plan.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -160,6 +162,17 @@ function New-VSApiGatewayUsagePlan {
                 }
             })]
         $UsagePlanName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

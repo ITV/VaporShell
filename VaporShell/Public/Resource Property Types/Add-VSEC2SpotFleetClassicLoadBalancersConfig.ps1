@@ -14,10 +14,10 @@ Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet regis
         One or more Classic Load Balancers.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html#cfn-ec2-spotfleet-classicloadbalancersconfig-classicloadbalancers
-        DuplicatesAllowed: False
-        ItemType: ClassicLoadBalancer
+        UpdateType: Immutable
         Type: List
-        UpdateType: Mutable
+        ItemType: ClassicLoadBalancer
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

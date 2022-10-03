@@ -1,10 +1,10 @@
 function New-VSIoTProvisioningTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::ProvisioningTemplate resource to the template. 
+        Adds an AWS::IoT::ProvisioningTemplate resource to the template. Creates a fleet provisioning template.
 
     .DESCRIPTION
-        Adds an AWS::IoT::ProvisioningTemplate resource to the template. 
+        Adds an AWS::IoT::ProvisioningTemplate resource to the template. Creates a fleet provisioning template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
@@ -13,40 +13,61 @@ function New-VSIoTProvisioningTemplate {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER TemplateName
+        The name of the fleet provisioning template.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Description
+        The description of the fleet provisioning template.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Enabled
+        True to enable the fleet provisioning template, otherwise false.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER ProvisioningRoleArn
+        The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TemplateBody
+        The JSON formatted contents of the fleet provisioning template version.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER TemplateType
+        The ARN that identifies the provisioning template.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatetype
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER PreProvisioningHook
+        Creates a pre-provisioning hook template.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
         UpdateType: Mutable
         Type: ProvisioningHook
 
     .PARAMETER Tags
+        Metadata that can be used to manage the fleet provisioning template.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
         UpdateType: Mutable
         Type: List
-        ItemType: Json
+        ItemType: Tag
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -166,10 +187,8 @@ function New-VSIoTProvisioningTemplate {
             })]
         $TemplateBody,
         [parameter(Mandatory = $false)]
-        $PreProvisioningHook,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.IoT.ProvisioningTemplate.Json"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -177,7 +196,23 @@ function New-VSIoTProvisioningTemplate {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $TemplateType,
+        [parameter(Mandatory = $false)]
+        $PreProvisioningHook,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -20,7 +20,7 @@ ScriptBootstrapActionConfig is a subproperty of the BootstrapActionConfig proper
         UpdateType: Mutable
 
     .PARAMETER Path
-        Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
+        Location in Amazon S3 of the script to run during a bootstrap action.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html#cfn-elasticmapreduce-cluster-scriptbootstrapactionconfig-path
         PrimitiveType: String

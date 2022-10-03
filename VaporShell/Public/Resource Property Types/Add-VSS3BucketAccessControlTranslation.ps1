@@ -11,7 +11,7 @@ Specify this only in a cross-account scenario (where source and destination buck
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html
 
     .PARAMETER Owner
-        Specifies the replica ownership. For default and valid values, see PUT bucket replication: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html in the *Amazon Simple Storage Service API Reference*.
+        Specifies the replica ownership. For default and valid values, see PUT bucket replication: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html in the *Amazon S3 API Reference*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html#cfn-s3-bucket-accesscontroltranslation-owner
         PrimitiveType: String

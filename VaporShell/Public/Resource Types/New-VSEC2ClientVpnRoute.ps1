@@ -1,10 +1,10 @@
 function New-VSEC2ClientVpnRoute {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::ClientVpnRoute resource to the template. Specifies a network route to add to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traffic to specifc resources or networks.
+        Adds an AWS::EC2::ClientVpnRoute resource to the template. Specifies a network route to add to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traffic to specific resources or networks.
 
     .DESCRIPTION
-        Adds an AWS::EC2::ClientVpnRoute resource to the template. Specifies a network route to add to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traffic to specifc resources or networks.
+        Adds an AWS::EC2::ClientVpnRoute resource to the template. Specifies a network route to add to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traffic to specific resources or networks.
 
 A target network association must be created before you can specify a route. If you're setting up all the components of a Client VPN endpoint at the same time, you must use the DependsOn Attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html to declare a dependency on the AWS::EC2::ClientVpnTargetNetworkAssociation resource.
 
@@ -23,6 +23,7 @@ A target network association must be created before you can specify a route. If 
 
     .PARAMETER TargetVpcSubnetId
         The ID of the subnet through which you want to route traffic. The specified subnet must be an existing target network of the Client VPN endpoint.
+Alternatively, if you're adding a route for the local network, specify local.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-targetvpcsubnetid
         PrimitiveType: String
@@ -40,7 +41,7 @@ A target network association must be created before you can specify a route. If 
 + To add a route for Internet access, enter 0.0.0.0/0
 + To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range
 + To add a route for an on-premises network, enter the AWS Site-to-Site VPN connection's IPv4 CIDR range
-Route address ranges cannot overlap with the CIDR range specified for client allocation.
++ To add a route for the local network, enter the client CIDR range
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-destinationcidrblock
         PrimitiveType: String
@@ -152,6 +153,17 @@ Route address ranges cannot overlap with the CIDR range specified for client all
                 }
             })]
         $DestinationCidrBlock,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

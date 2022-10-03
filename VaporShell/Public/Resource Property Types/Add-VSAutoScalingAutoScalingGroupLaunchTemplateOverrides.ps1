@@ -10,9 +10,19 @@ function Add-VSAutoScalingAutoScalingGroupLaunchTemplateOverrides {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html
 
+    .PARAMETER InstanceRequirements
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-as-mixedinstancespolicy-instancerequirements
+        Type: InstanceRequirements
+        UpdateType: Mutable
+
     .PARAMETER InstanceType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancetype
         PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER LaunchTemplateSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-launchtemplatespecification
+        Type: LaunchTemplateSpecification
         UpdateType: Mutable
 
     .PARAMETER WeightedCapacity
@@ -28,6 +38,8 @@ function Add-VSAutoScalingAutoScalingGroupLaunchTemplateOverrides {
     Param
     (
         [parameter(Mandatory = $false)]
+        $InstanceRequirements,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,6 +50,8 @@ function Add-VSAutoScalingAutoScalingGroupLaunchTemplateOverrides {
                 }
             })]
         $InstanceType,
+        [parameter(Mandatory = $false)]
+        $LaunchTemplateSpecification,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

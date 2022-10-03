@@ -7,9 +7,9 @@ function Add-VSWAFRegionalSizeConstraintSetSizeConstraint {
         Adds an AWS::WAFRegional::SizeConstraintSet.SizeConstraint resource property to the template.
 **Note**
 
-This is **AWS WAF Classic** documentation. For more information, see AWS WAF Classic: https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html in the developer guide.
+This is ** AWS WAF Classic** documentation. For more information, see AWS WAF Classic: https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html in the developer guide.
 
-**For the latest version of AWS WAF**, use the AWS WAFV2 API and see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html. With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+**For the latest version of AWS WAF **, use the AWS WAFV2 API and see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html. With the latest version, AWS WAF has a single set of endpoints for regional and global use.
 
 Specifies a constraint on the size of a part of the web request. AWS WAF uses the Size, ComparisonOperator, and FieldToMatch to build an expression in the form of "Size ComparisonOperator size in bytes of FieldToMatch". If that expression is true, the SizeConstraint is considered to match.
 
@@ -32,7 +32,7 @@ Specifies a constraint on the size of a part of the web request. AWS WAF uses th
     .PARAMETER Size
         The size in bytes that you want AWS WAF to compare against the size of the specified FieldToMatch. AWS WAF uses this in combination with ComparisonOperator and FieldToMatch to build an expression in the form of "Size ComparisonOperator size in bytes of FieldToMatch". If that expression is true, the SizeConstraint is considered to match.
 Valid values for size are 0 - 21474836480 bytes 0 - 20 GB.
-If you specify URI for the value of Type, the / in the URI counts as one character. For example, the URI /logo.jpg is nine characters long.
+If you specify URI for the value of Type, the / in the URI path that you specify counts as one character. For example, the URI /logo.jpg is nine characters long.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-size
         PrimitiveType: Integer
@@ -78,7 +78,7 @@ Use this option to decode a URL-encoded value.
         UpdateType: Mutable
 
     .PARAMETER FieldToMatch
-        Specifies where in a web request to look for the size constraint.
+        The part of a web request that you want AWS WAF to inspect, such as a specific header or a query string.
 
         Type: FieldToMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-fieldtomatch

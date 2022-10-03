@@ -18,15 +18,15 @@ ApplicationVersionLifecycleConfig is a property of the ApplicationResourceLifecy
         Specify a max age rule to restrict the length of time that application versions are retained for an application.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html#cfn-elasticbeanstalk-application-applicationversionlifecycleconfig-maxagerule
-        Type: MaxAgeRule
         UpdateType: Mutable
+        Type: MaxAgeRule
 
     .PARAMETER MaxCountRule
         Specify a max count rule to restrict the number of application versions that are retained for an application.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html#cfn-elasticbeanstalk-application-applicationversionlifecycleconfig-maxcountrule
-        Type: MaxCountRule
         UpdateType: Mutable
+        Type: MaxCountRule
 
     .FUNCTIONALITY
         Vaporshell

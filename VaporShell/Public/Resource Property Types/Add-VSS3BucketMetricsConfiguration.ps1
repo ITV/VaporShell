@@ -1,14 +1,21 @@
 function Add-VSS3BucketMetricsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.MetricsConfiguration resource property to the template. Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see  PUT Bucket metrics: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html in the *Amazon Simple Storage Service API Reference*.
+        Adds an AWS::S3::Bucket.MetricsConfiguration resource property to the template. Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For examples, see AWS::S3::Bucket: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#aws-properties-s3-bucket--examples. For more information, see  PUT Bucket metrics: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html in the *Amazon S3 API Reference*.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.MetricsConfiguration resource property to the template.
-Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see  PUT Bucket metrics: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html in the *Amazon Simple Storage Service API Reference*.
+Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For examples, see AWS::S3::Bucket: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#aws-properties-s3-bucket--examples. For more information, see  PUT Bucket metrics: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html in the *Amazon S3 API Reference*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html
+
+    .PARAMETER AccessPointArn
+        The access point that was used while performing operations on the object. The metrics configuration only includes objects that meet the filter's criteria.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-accesspointarn
+        PrimitiveType: String
+        UpdateType: Mutable
 
     .PARAMETER Id
         The ID used to identify the metrics configuration. This can be any value you choose that helps you identify your metrics configuration.
@@ -40,6 +47,17 @@ Specifies a metrics configuration for the CloudWatch request metrics (specified 
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AccessPointArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

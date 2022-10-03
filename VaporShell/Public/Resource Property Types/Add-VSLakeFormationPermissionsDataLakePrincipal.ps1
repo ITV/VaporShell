@@ -1,17 +1,17 @@
 function Add-VSLakeFormationPermissionsDataLakePrincipal {
     <#
     .SYNOPSIS
-        Adds an AWS::LakeFormation::Permissions.DataLakePrincipal resource property to the template. The AWS Lake Formation principal.
+        Adds an AWS::LakeFormation::Permissions.DataLakePrincipal resource property to the template. The Lake Formation principal.
 
     .DESCRIPTION
         Adds an AWS::LakeFormation::Permissions.DataLakePrincipal resource property to the template.
-The AWS Lake Formation principal.
+The Lake Formation principal.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html
 
     .PARAMETER DataLakePrincipalIdentifier
-        An identifier for the AWS Lake Formation principal.
+        An identifier for the Lake Formation principal.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html#cfn-lakeformation-permissions-datalakeprincipal-datalakeprincipalidentifier
         PrimitiveType: String

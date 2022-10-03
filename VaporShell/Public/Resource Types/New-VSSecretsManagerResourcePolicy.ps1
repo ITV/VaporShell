@@ -1,10 +1,14 @@
 function New-VSSecretsManagerResourcePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::SecretsManager::ResourcePolicy resource to the template. Attaches the contents of the specified resource-based permission policy to a secret. A resource-based policy is optional. Alternatively, you can use IAM identity-based policies to specify the Amazon Resource Name (ARN of the secret in the policy statement Resources element. You can also use a combination of both identity-based and resource-based policies. The affected users and roles receive the permissions permitted by all relevant policies.
+        Adds an AWS::SecretsManager::ResourcePolicy resource to the template. Attaches a resource-based permission policy to a secret. A resource-based policy is optional. For more information, see Authentication and access control for Secrets Manager: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html
 
     .DESCRIPTION
-        Adds an AWS::SecretsManager::ResourcePolicy resource to the template. Attaches the contents of the specified resource-based permission policy to a secret. A resource-based policy is optional. Alternatively, you can use IAM identity-based policies to specify the Amazon Resource Name (ARN of the secret in the policy statement Resources element. You can also use a combination of both identity-based and resource-based policies. The affected users and roles receive the permissions permitted by all relevant policies.
+        Adds an AWS::SecretsManager::ResourcePolicy resource to the template. Attaches a resource-based permission policy to a secret. A resource-based policy is optional. For more information, see Authentication and access control for Secrets Manager: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html
+
+For information about attaching a policy in the console, see Attach a permissions policy to a secret: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html.
+
+**Required permissions: ** secretsmanager:PutResourcePolicy. For more information, see  IAM policy actions for Secrets Manager: https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions and Authentication and access control in Secrets Manager: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html
@@ -12,16 +16,23 @@ function New-VSSecretsManagerResourcePolicy {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER BlockPublicPolicy
+        Specifies whether to block resource-based policies that allow broad access to the secret. By default, Secrets Manager blocks policies that allow broad access, for example those that use a wildcard for the principal.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-blockpublicpolicy
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER SecretId
-        Specifies the Amazon Resource Name ARN or the friendly name of the secret to attach a resource-based permissions policy.
-If you use this property to change the SecretId for an existing resource-based policy, Secrets Manager removes the policy from the original secret, and then attaches the policy to the secret with the specified SecretId. This results in changing the permissions for two secrets.
+        The ARN or name of the secret to attach the resource-based policy.
+For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-secretid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ResourcePolicy
-        Specifies a JSON object constructed according to the grammar and syntax for a resource-based policy. The policy identifies who can access or manage this secret and associated versions. For information on how to format a JSON object as a parameter for this resource type, see Using Resource-based Policies for Secrets Manager: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html in the AWS Secrets Manager User Guide. Those same rules apply here.
+        A JSON-formatted string for an AWS resource-based policy. For example policies, see Permissions policy examples: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy
         PrimitiveType: Json
@@ -89,6 +100,17 @@ If you use this property to change the SecretId for an existing resource-based p
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BlockPublicPolicy,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -111,6 +133,17 @@ If you use this property to change the SecretId for an existing resource-based p
                 }
             })]
         $ResourcePolicy,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

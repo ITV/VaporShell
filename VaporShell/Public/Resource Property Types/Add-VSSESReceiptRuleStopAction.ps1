@@ -7,7 +7,7 @@ function Add-VSSESReceiptRuleStopAction {
         Adds an AWS::SES::ReceiptRule.StopAction resource property to the template.
 When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS.
 
-For information about setting a stop action in a receipt rule, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-stop.html.
+For information about setting a stop action in a receipt rule, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/dg/receiving-email-action-stop.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html
@@ -20,7 +20,7 @@ For information about setting a stop action in a receipt rule, see the Amazon SE
         UpdateType: Mutable
 
     .PARAMETER TopicArn
-        The Amazon Resource Name ARN of the Amazon SNS topic to notify when the stop action is taken. You can find the ARN of a topic by using the ListTopics: https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html operation in the Amazon SNS API.
+        The Amazon Resource Name ARN of the Amazon SNS topic to notify when the stop action is taken. You can find the ARN of a topic by using the ListTopics: https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html Amazon SNS operation.
 For more information about Amazon SNS topics, see the Amazon SNS Developer Guide: https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-topicarn

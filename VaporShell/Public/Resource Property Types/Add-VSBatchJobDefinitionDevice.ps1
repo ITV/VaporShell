@@ -7,6 +7,10 @@ function Add-VSBatchJobDefinitionDevice {
         Adds an AWS::Batch::JobDefinition.Device resource property to the template.
 An object representing a container instance host device.
 
+**Note**
+
+This object isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-device.html
 
@@ -26,7 +30,7 @@ An object representing a container instance host device.
         UpdateType: Mutable
 
     .PARAMETER ContainerPath
-        The path inside the container at which to expose the host device. By default the hostPath value is used.
+        The path inside the container that's used to expose the host device. By default, the hostPath value is used.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-device.html#cfn-batch-jobdefinition-device-containerpath
         PrimitiveType: String

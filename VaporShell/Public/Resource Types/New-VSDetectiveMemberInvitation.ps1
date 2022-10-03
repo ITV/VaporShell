@@ -1,10 +1,10 @@
 function New-VSDetectiveMemberInvitation {
     <#
     .SYNOPSIS
-        Adds an AWS::Detective::MemberInvitation resource to the template. The AWS::Detective::MemberInvitation resource is an Amazon Detective resource type that sends an invitation to join a Detective behavior graph. The invitation is sent from the master account to the root user email address of an AWS account.
+        Adds an AWS::Detective::MemberInvitation resource to the template. The AWS::Detective::MemberInvitation resource is an Amazon Detective resource type that creates an invitation to join a Detective behavior graph. The administrator account can choose whether to send an email notification of the invitation to the root user email address of the AWS account.
 
     .DESCRIPTION
-        Adds an AWS::Detective::MemberInvitation resource to the template. The AWS::Detective::MemberInvitation resource is an Amazon Detective resource type that sends an invitation to join a Detective behavior graph. The invitation is sent from the master account to the root user email address of an AWS account.
+        Adds an AWS::Detective::MemberInvitation resource to the template. The AWS::Detective::MemberInvitation resource is an Amazon Detective resource type that creates an invitation to join a Detective behavior graph. The administrator account can choose whether to send an email notification of the invitation to the root user email address of the AWS account.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
@@ -32,6 +32,13 @@ function New-VSDetectiveMemberInvitation {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER DisableEmailNotification
+        Whether to send an invitation email to the member account. If set to true, the member account does not receive an invitation email.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER Message
         Customized text to include in the invitation email message.
@@ -137,6 +144,17 @@ function New-VSDetectiveMemberInvitation {
         $MemberEmailAddress,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DisableEmailNotification,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -146,6 +164,17 @@ function New-VSDetectiveMemberInvitation {
                 }
             })]
         $Message,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

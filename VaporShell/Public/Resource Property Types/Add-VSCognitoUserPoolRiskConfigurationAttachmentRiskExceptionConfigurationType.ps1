@@ -11,7 +11,7 @@ The type of the configuration to override the risk decision.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html
 
     .PARAMETER BlockedIPRangeList
-        Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
+        Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
 
         PrimitiveItemType: String
         Type: List
@@ -19,7 +19,7 @@ The type of the configuration to override the risk decision.
         UpdateType: Mutable
 
     .PARAMETER SkippedIPRangeList
-        Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
+        Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
 
         PrimitiveItemType: String
         Type: List

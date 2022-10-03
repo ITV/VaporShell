@@ -30,14 +30,14 @@ function New-VSApiGatewayMethod {
 
     .PARAMETER AuthorizationType
         The method's authorization type. This parameter is required. For valid values, see Method: https://docs.aws.amazon.com/apigateway/api-reference/resource/method/ in the *API Gateway API Reference*.
-If you specify the AuthorizerId property, specify CUSTOM for this property.
+If you specify the AuthorizerId property, specify CUSTOM or COGNITO_USER_POOLS for this property.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationtype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AuthorizerId
-        The identifier of the authorizer: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html to use on this method. If you specify this property, specify CUSTOM for the AuthorizationType property.
+        The identifier of the authorizer: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html to use on this method. If you specify this property, specify CUSTOM or COGNITO_USER_POOLS for the AuthorizationType property.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizerid
         PrimitiveType: String
@@ -74,7 +74,7 @@ If you specify the AuthorizerId property, specify CUSTOM for this property.
         UpdateType: Mutable
 
     .PARAMETER RequestModels
-        The resources that are used for the request's content type. Specify request models as key-value pairs string-to-string mapping, with a content type as the key and a Model resource name as the value.
+        The resources that are used for the request's content type. Specify request models as key-value pairs string-to-string mapping, with a content type as the key and a Model resource name as the value. To use the same model regardless of the content type, specify $default as the key.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels
         DuplicatesAllowed: False
@@ -83,7 +83,7 @@ If you specify the AuthorizerId property, specify CUSTOM for this property.
         UpdateType: Mutable
 
     .PARAMETER RequestParameters
-        The request parameters that API Gateway accepts. Specify request parameters as key-value pairs string-to-Boolean mapping, with a source as the key and a Boolean as the value. The Boolean specifies whether a parameter is required. A source must match the format method.request.location.name, where the location is query string, path, or header, and *name* is a valid, unique parameter name.
+        The request parameters that API Gateway accepts. Specify request parameters as key-value pairs string-to-Boolean mapping, with a source as the key and a Boolean as the value. The Boolean specifies whether a parameter is required. A source must match the format method.request.location.name, where the location is querystring, path, or header, and *name* is a valid, unique parameter name.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters
         DuplicatesAllowed: False
@@ -283,6 +283,17 @@ If you specify the AuthorizerId property, specify CUSTOM for this property.
                 }
             })]
         $RestApiId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

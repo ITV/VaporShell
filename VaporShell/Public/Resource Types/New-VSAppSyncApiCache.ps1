@@ -1,10 +1,10 @@
 function New-VSAppSyncApiCache {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::ApiCache resource to the template. Represents the input of a CreateApiCache operation.
+        Adds an AWS::AppSync::ApiCache resource to the template. The AWS::AppSync::ApiCache resource represents the input of a CreateApiCache operation.
 
     .DESCRIPTION
-        Adds an AWS::AppSync::ApiCache resource to the template. Represents the input of a CreateApiCache operation.
+        Adds an AWS::AppSync::ApiCache resource to the template. The AWS::AppSync::ApiCache resource represents the input of a CreateApiCache operation.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html
@@ -13,7 +13,17 @@ function New-VSAppSyncApiCache {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Type
-        The cache instance type.
+        The cache instance type. Valid values are
++  SMALL
++  MEDIUM
++  LARGE
++  XLARGE
++  LARGE_2X
++  LARGE_4X
++  LARGE_8X not available in all regions
++  LARGE_12X
+Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+The following legacy instance types are available, but their use is discouraged:
 +  **T2_SMALL**: A t2.small instance type.
 +  **T2_MEDIUM**: A t2.medium instance type.
 +  **R4_LARGE**: A r4.large instance type.
@@ -27,21 +37,21 @@ function New-VSAppSyncApiCache {
         UpdateType: Mutable
 
     .PARAMETER TransitEncryptionEnabled
-        Transit encryption flag when connecting to cache. This setting cannot be updated after creation.
+        Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-transitencryptionenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER AtRestEncryptionEnabled
-        At rest encryption flag for cache. This setting cannot be updated after creation.
+        At-rest encryption flag for cache. You cannot update this setting after creation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-atrestencryptionenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ApiId
-        The GraphQL API Id.
+        The GraphQL API ID.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-apiid
         PrimitiveType: String
@@ -50,7 +60,7 @@ function New-VSAppSyncApiCache {
     .PARAMETER ApiCachingBehavior
         Caching behavior.
 +  **FULL_REQUEST_CACHING**: All requests are fully cached.
-+  **PER_RESOLVER_CACHING**: Individual resovlers that you specify are cached.
++  **PER_RESOLVER_CACHING**: Individual resolvers that you specify are cached.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-apicachingbehavior
         PrimitiveType: String
@@ -58,7 +68,7 @@ function New-VSAppSyncApiCache {
 
     .PARAMETER Ttl
         TTL in seconds for cache entries.
-Valid values are between 1 and 3600 seconds.
+Valid values are 1–3,600 seconds.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-ttl
         PrimitiveType: Double
@@ -192,6 +202,17 @@ Valid values are between 1 and 3600 seconds.
                 }
             })]
         $Ttl,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

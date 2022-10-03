@@ -25,7 +25,7 @@ VolumeSpecification is a subproperty of the EbsBlockDeviceConfig property type. 
         UpdateType: Immutable
 
     .PARAMETER VolumeType
-        The volume type. Volume types supported are gp2, io1, standard.
+        The volume type. Volume types supported are gp2, io1, and standard.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-volumespecification.html#cfn-elasticmapreduce-instancefleetconfig-volumespecification-volumetype
         PrimitiveType: String

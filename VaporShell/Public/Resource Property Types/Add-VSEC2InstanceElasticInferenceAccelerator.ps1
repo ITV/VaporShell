@@ -20,7 +20,7 @@ ElasticInferenceAccelerator is a property of the AWS::EC2::Instance: https://doc
         UpdateType: Mutable
 
     .PARAMETER Type
-        The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+        The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, eia1.xlarge, eia2.medium, eia2.large, and eia2.xlarge.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-type
         PrimitiveType: String

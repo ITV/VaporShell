@@ -14,32 +14,33 @@ Describes the placement of an instance.
         The name of the placement group the instance is in.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-groupname
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Tenancy
         The tenancy of the instance if the instance is running in a VPC. An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the ImportInstance: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html command.
 This parameter is not supported by CreateFleet: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.
+T3 instances that use the unlimited CPU credit option do not support host tenancy.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-tenancy
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER SpreadDomain
         Reserved for future use.
 This parameter is not supported by CreateFleet: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-spreaddomain
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER PartitionNumber
-        The number of the partition the instance is in. Valid only if the placement group strategy is set to partition.
+        The number of the partition that the instance is in. Valid only if the placement group strategy is set to partition.
 This parameter is not supported by CreateFleet: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-partitionnumber
-        PrimitiveType: Integer
         UpdateType: Immutable
+        PrimitiveType: Integer
 
     .PARAMETER AvailabilityZone
         The Availability Zone of the instance.
@@ -47,32 +48,32 @@ If not specified, an Availability Zone will be automatically chosen for you base
 This parameter is not supported by CreateFleet: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-availabilityzone
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Affinity
         The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the ImportInstance: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html command.
 This parameter is not supported by CreateFleet: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-affinity
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER HostId
         The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the ImportInstance: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html command.
 This parameter is not supported by CreateFleet: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-hostid
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER HostResourceGroupArn
         The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the **Tenancy** parameter or set it to host.
 This parameter is not supported by CreateFleet: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-hostresourcegrouparn
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

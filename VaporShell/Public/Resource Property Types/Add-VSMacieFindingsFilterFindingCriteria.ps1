@@ -1,16 +1,18 @@
 function Add-VSMacieFindingsFilterFindingCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::Macie::FindingsFilter.FindingCriteria resource property to the template. 
+        Adds an AWS::Macie::FindingsFilter.FindingCriteria resource property to the template. Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
 
     .DESCRIPTION
         Adds an AWS::Macie::FindingsFilter.FindingCriteria resource property to the template.
-
+Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html
 
     .PARAMETER Criterion
+        Specifies a condition that defines the property, operator, and value to use to filter the results.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
         UpdateType: Mutable
         Type: Criterion

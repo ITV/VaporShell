@@ -1,34 +1,24 @@
 function Add-VSACMPCACertificateValidity {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::Certificate.Validity resource property to the template. The period of time during which a certificate issued by your private certificate authority (CA is valid. The expiration can be absolute (expressed as an explicit date and time or relative (expressed as a period of time after issuance in days, months, or years. For more information, see Validity: https://tools.ietf.org/html/rfc5280#section-4.1.2.5 in RFC 5280.
+        Adds an AWS::ACMPCA::Certificate.Validity resource property to the template. Length of time for which the certificate issued by your private certificate authority (CA, or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the IssueCertificate operation.
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::Certificate.Validity resource property to the template.
-The period of time during which a certificate issued by your private certificate authority (CA is valid. The expiration can be absolute (expressed as an explicit date and time or relative (expressed as a period of time after issuance in days, months, or years. For more information, see Validity: https://tools.ietf.org/html/rfc5280#section-4.1.2.5 in RFC 5280.
-
-You can issue a certificate by calling the IssueCertificate: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html action.
+Length of time for which the certificate issued by your private certificate authority (CA, or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the IssueCertificate operation.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html
 
     .PARAMETER Value
-        Time period.
+        A long integer interpreted according to the value of Type, below.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
         UpdateType: Immutable
-        PrimitiveType: Integer
+        PrimitiveType: Double
 
     .PARAMETER Type
-        Determines how *ACM Private CA* interprets the Value parameter, an integer. Supported validity types include those listed below. Type definitions with absolute values include a sample input value and the resulting output.
-END_DATE: Absolute value, using UTCTime YYMMDDHHMMSS or GeneralizedTime YYYYMMDDHHMMSS format.
-+ Sample input value: 491231235959 UTCTime format
-+ Output date: 12/31/2049 23:59:59
-ABSOLUTE: Absolute value, expressed as the number of seconds since the Unix epoch.
-+ Sample input value: 2524608000
-+ Output date: 01/01/2050 00:00:00
-DAYS, MONTHS, YEARS: Relative values, setting expiration as a number of days, months, or years after certificate issuance.
-Note: When UTCTime is used, if the year field YY is greater than or equal to 50, the year is interpreted as 19YY. If the year field is less than 50, the year is interpreted as 20YY.
+        Specifies whether the Value parameter represents days, months, or years.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
         UpdateType: Immutable
@@ -43,7 +33,7 @@ Note: When UTCTime is used, if the year field YY is greater than or equal to 50,
     (
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }

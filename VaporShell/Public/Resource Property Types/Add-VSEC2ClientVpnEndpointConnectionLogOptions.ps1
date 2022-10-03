@@ -25,7 +25,7 @@ Describes the client connection logging options for the Client VPN endpoint.
         UpdateType: Mutable
 
     .PARAMETER CloudwatchLogGroup
-        The name of the CloudWatch Logs log group.
+        The name of the CloudWatch Logs log group. Required if connection logging is enabled.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchloggroup
         PrimitiveType: String

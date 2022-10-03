@@ -1,11 +1,11 @@
 function Add-VSImageBuilderInfrastructureConfigurationLogging {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::InfrastructureConfiguration.Logging resource property to the template. The logging configuration defines where Image Builder uploads your logs.
+        Adds an AWS::ImageBuilder::InfrastructureConfiguration.Logging resource property to the template. Logging configuration defines where Image Builder uploads your logs.
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::InfrastructureConfiguration.Logging resource property to the template.
-The logging configuration defines where Image Builder uploads your logs.
+Logging configuration defines where Image Builder uploads your logs.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html

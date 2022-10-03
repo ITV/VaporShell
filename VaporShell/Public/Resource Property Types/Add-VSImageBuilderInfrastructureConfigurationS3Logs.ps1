@@ -11,14 +11,14 @@ Amazon S3 logging configuration.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html
 
     .PARAMETER S3BucketName
-        The Amazon S3 bucket in which to store the logs.
+        The S3 bucket in which to store the logs.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3bucketname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3KeyPrefix
-        The Amazon S3 path in which to store the logs.
+        The Amazon S3 path to the bucket where the logs are stored.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3keyprefix
         UpdateType: Mutable

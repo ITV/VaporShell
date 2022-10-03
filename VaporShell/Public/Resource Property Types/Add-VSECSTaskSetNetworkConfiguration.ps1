@@ -11,7 +11,7 @@ The network configuration for a task.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
 
     .PARAMETER AwsVpcConfiguration
-        The VPC subnets and security groups associated with a task.
+        The VPC subnets and security groups that are associated with a task.
 All specified subnets and security groups must be from the same VPC.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration

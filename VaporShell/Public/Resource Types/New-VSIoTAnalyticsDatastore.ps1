@@ -15,32 +15,49 @@ function New-VSIoTAnalyticsDatastore {
     .PARAMETER DatastoreStorage
         Where data store data is stored.
 
-        Type: DatastoreStorage
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorestorage
         UpdateType: Mutable
+        Type: DatastoreStorage
 
     .PARAMETER DatastoreName
         The name of the data store.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorename
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER DatastorePartitions
+        Information about the partition dimensions in a data store.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorepartitions
+        UpdateType: Mutable
+        Type: DatastorePartitions
+
+    .PARAMETER FileFormatConfiguration
+        Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and Parquet: https://parquet.apache.org/.
+The default file format is JSON. You can specify only one format.
+You can't change the file format after you create the data store.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-fileformatconfiguration
+        UpdateType: Mutable
+        Type: FileFormatConfiguration
 
     .PARAMETER RetentionPeriod
         How long, in days, message data is kept for the data store. When customerManagedS3 storage is selected, this parameter is ignored.
 
-        Type: RetentionPeriod
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-retentionperiod
         UpdateType: Mutable
+        Type: RetentionPeriod
 
     .PARAMETER Tags
         Metadata which can be used to manage the data store.
 For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-tags
-        ItemType: Tag
         UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -118,10 +135,25 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             })]
         $DatastoreName,
         [parameter(Mandatory = $false)]
+        $DatastorePartitions,
+        [parameter(Mandatory = $false)]
+        $FileFormatConfiguration,
+        [parameter(Mandatory = $false)]
         $RetentionPeriod,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

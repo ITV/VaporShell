@@ -50,18 +50,25 @@ function New-VSImageBuilderImageRecipe {
         ItemType: InstanceBlockDeviceMapping
 
     .PARAMETER ParentImage
-        The parent image of the image recipe.
+        The parent image of the image recipe. The string must be either an Image ARN SemVers is ok or an AMI ID.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER WorkingDirectory
-        Returns the Amazon Resource Name ARN of the image recipe. For example, arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/mybasicrecipe/2019.12.03.
+        The working directory to be used during build and test workflows.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER AdditionalInstanceConfiguration
+        Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration. Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+        UpdateType: Mutable
+        Type: AdditionalInstanceConfiguration
 
     .PARAMETER Tags
         The tags of the image recipe.
@@ -211,8 +218,21 @@ function New-VSImageBuilderImageRecipe {
             })]
         $WorkingDirectory,
         [parameter(Mandatory = $false)]
+        $AdditionalInstanceConfiguration,
+        [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

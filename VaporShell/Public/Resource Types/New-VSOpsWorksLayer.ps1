@@ -102,7 +102,7 @@ To ensure that your instances have the latest security updates, we strongly reco
         UpdateType: Mutable
 
     .PARAMETER Name
-        The layer name, which is used by the console.
+        The layer name, which is used by the console. Layer names can be a maximum of 32 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-name
         PrimitiveType: String
@@ -118,8 +118,8 @@ To ensure that your instances have the latest security updates, we strongly reco
         UpdateType: Mutable
 
     .PARAMETER Shortname
-        For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
-The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the Layer Reference: https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html.
+        For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 32 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
+Built-in layer short names are defined by AWS OpsWorks Stacks. For more information, see the Layer Reference: https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-shortname
         PrimitiveType: String
@@ -374,6 +374,17 @@ The built-in layers' short names are defined by AWS OpsWorks Stacks. For more in
                 }
             })]
         $VolumeConfigurations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

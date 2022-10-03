@@ -1,10 +1,10 @@
 function New-VSSNSTopicPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::SNS::TopicPolicy resource to the template. The AWS::SNS::TopicPolicy resource associates Amazon SNS topics with a policy. For an example snippet, see Declaring an Amazon SNS Policy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy in the *AWS CloudFormation User Guide*.
+        Adds an AWS::SNS::TopicPolicy resource to the template. The AWS::SNS::TopicPolicy resource associates Amazon SNS topics with a policy. For an example snippet, see Declaring an Amazon SNS policy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy in the *AWS CloudFormation User Guide*.
 
     .DESCRIPTION
-        Adds an AWS::SNS::TopicPolicy resource to the template. The AWS::SNS::TopicPolicy resource associates Amazon SNS topics with a policy. For an example snippet, see Declaring an Amazon SNS Policy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy in the *AWS CloudFormation User Guide*.
+        Adds an AWS::SNS::TopicPolicy resource to the template. The AWS::SNS::TopicPolicy resource associates Amazon SNS topics with a policy. For an example snippet, see Declaring an Amazon SNS policy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy in the *AWS CloudFormation User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
@@ -103,6 +103,17 @@ function New-VSSNSTopicPolicy {
         $PolicyDocument,
         [parameter(Mandatory = $true)]
         $Topics,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

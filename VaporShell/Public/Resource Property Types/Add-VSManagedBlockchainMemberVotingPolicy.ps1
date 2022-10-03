@@ -7,6 +7,8 @@ function Add-VSManagedBlockchainMemberVotingPolicy {
         Adds an AWS::ManagedBlockchain::Member.VotingPolicy resource property to the template.
 The voting rules for the network to decide if a proposal is accepted
 
+Applies only to Hyperledger Fabric.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-votingpolicy.html
 

@@ -23,9 +23,10 @@ The AWS CloudFormation AWS::SSM::PatchSource resource is used to provide informa
     .PARAMETER Configuration
         The value of the yum repo configuration. For example:
 main]
-cachedir=/var/cache/yum/$basesearch$releasever
-keepcache=0
-debuglevel=2
+name=MyCustomRepository
+baseurl=https://my-custom-repository
+enabled=1
+For information about other options available for your yum repository configuration, see dnf.conf5: https://man7.org/linux/man-pages/man5/dnf.conf.5.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-configuration
         PrimitiveType: String

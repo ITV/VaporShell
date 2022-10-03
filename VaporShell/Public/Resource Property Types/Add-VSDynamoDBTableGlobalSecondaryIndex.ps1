@@ -1,49 +1,41 @@
 function Add-VSDynamoDBTableGlobalSecondaryIndex {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::Table.GlobalSecondaryIndex resource property to the template. Represents the properties of a global secondary index.
+        Adds an AWS::DynamoDB::Table.GlobalSecondaryIndex resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::Table.GlobalSecondaryIndex resource property to the template.
-Represents the properties of a global secondary index.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html
 
     .PARAMETER IndexName
-        The name of the global secondary index. The name must be unique among all other indexes on this table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-indexname
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-indexname
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER KeySchema
-        The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
-+  HASH - partition key
-+  RANGE - sort key
-The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
-The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-keyschema
-        DuplicatesAllowed: False
-        ItemType: KeySchema
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-keyschema
         UpdateType: Mutable
+        Type: List
+        ItemType: KeySchema
+        DuplicatesAllowed: False
 
     .PARAMETER Projection
-        Represents attributes that are copied projected from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-projection
-        Type: Projection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-projection
         UpdateType: Mutable
+        Type: Projection
 
     .PARAMETER ProvisionedThroughput
-        Represents the provisioned throughput settings for the specified global secondary index.
-For current minimum and maximum provisioned throughput values, see Limits: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html in the *Amazon DynamoDB Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-provisionedthroughput
-        Type: ProvisionedThroughput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-provisionedthroughput
         UpdateType: Mutable
+        Type: ProvisionedThroughput
+
+    .PARAMETER ContributorInsightsSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-contributorinsightsspecification
+        UpdateType: Mutable
+        Type: ContributorInsightsSpecification
 
     .FUNCTIONALITY
         Vaporshell
@@ -77,7 +69,9 @@ For current minimum and maximum provisioned throughput values, see Limits: https
         [parameter(Mandatory = $true)]
         $Projection,
         [parameter(Mandatory = $false)]
-        $ProvisionedThroughput
+        $ProvisionedThroughput,
+        [parameter(Mandatory = $false)]
+        $ContributorInsightsSpecification
     )
     Begin {
         $obj = [PSCustomObject]@{}

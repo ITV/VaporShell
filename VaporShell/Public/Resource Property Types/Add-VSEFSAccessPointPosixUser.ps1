@@ -1,26 +1,32 @@
 function Add-VSEFSAccessPointPosixUser {
     <#
     .SYNOPSIS
-        Adds an AWS::EFS::AccessPoint.PosixUser resource property to the template. 
+        Adds an AWS::EFS::AccessPoint.PosixUser resource property to the template. The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 
     .DESCRIPTION
         Adds an AWS::EFS::AccessPoint.PosixUser resource property to the template.
-
+The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
 
     .PARAMETER Uid
+        The POSIX user ID used for all file system operations using this access point.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Gid
+        The POSIX group ID used for all file system operations using this access point.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SecondaryGids
+        Secondary POSIX group IDs used for all file system operations using this access point.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
         UpdateType: Immutable
         Type: List

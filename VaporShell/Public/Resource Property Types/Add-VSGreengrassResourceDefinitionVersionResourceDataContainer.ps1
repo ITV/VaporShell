@@ -24,7 +24,7 @@ Only one resource type can be defined for a ResourceDataContainer instance.
         UpdateType: Immutable
 
     .PARAMETER SageMakerMachineLearningModelResourceData
-        Settings for a machine learning resource saved as an Amazon SageMaker training job.
+        Settings for a machine learning resource saved as an SageMaker training job.
 
         Type: SageMakerMachineLearningModelResourceData
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html#cfn-greengrass-resourcedefinitionversion-resourcedatacontainer-sagemakermachinelearningmodelresourcedata

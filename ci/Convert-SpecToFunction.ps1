@@ -340,7 +340,7 @@ function $FunctionName {
         }
     }
     if ($ResourceType -ne "Property") {
-        if ($Name -eq "AWS::AutoScaling::AutoScalingGroup" -or $Name -eq "AWS::EC2::Instance" -or $Name -eq "AWS::CloudFormation::WaitCondition") {
+        if ($Name -notin "AWS::AutoScaling::AutoScalingGroup", "AWS::EC2::Instance", "AWS::CloudFormation::WaitCondition") {
             $scriptContents += @"
         [parameter(Mandatory = `$false)]
         [ValidateScript( {
@@ -376,7 +376,7 @@ function $FunctionName {
                 }
             })]
 "@
-        if ($Name -ne 'AWS::Events::EventBusPolicy') {
+        if ($Name -notin 'AWS::Events::EventBusPolicy', 'AWS::Batch::ComputeEnvironment') {
             $scriptContents += @"
         `$Metadata,
         [parameter(Mandatory = `$false)]

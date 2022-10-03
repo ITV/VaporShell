@@ -12,6 +12,13 @@ The parent of this entity is CaptionSelectorSettings.
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextsourcesettings.html
 
+    .PARAMETER OutputRectangle
+        Settings to configure the caption rectangle for an output captions that will be created using this Teletext source captions.
+
+        Type: CaptionRectangle
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextsourcesettings.html#cfn-medialive-channel-teletextsourcesettings-outputrectangle
+        UpdateType: Mutable
+
     .PARAMETER PageNumber
         Specifies the Teletext page number within the data stream from which to extract captions. The range is 0x100 256 to 0x8FF 2303. This is unused for passthrough. It should be specified as a hexadecimal string with no "0x" prefix.
 
@@ -26,6 +33,8 @@ The parent of this entity is CaptionSelectorSettings.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $OutputRectangle,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

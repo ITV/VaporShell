@@ -11,7 +11,7 @@ The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-lambdaconflicthandlerconfig.html
 
     .PARAMETER LambdaConflictHandlerArn
-        The Arn for the Lambda function to use as the Conflict Handler.
+        The Amazon Resource Name ARN for the Lambda function to use as the Conflict Handler.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-lambdaconflicthandlerconfig.html#cfn-appsync-resolver-lambdaconflicthandlerconfig-lambdaconflicthandlerarn
         PrimitiveType: String

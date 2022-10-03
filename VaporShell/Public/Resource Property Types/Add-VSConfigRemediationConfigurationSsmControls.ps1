@@ -1,11 +1,11 @@
 function Add-VSConfigRemediationConfigurationSsmControls {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::RemediationConfiguration.SsmControls resource property to the template. <a name="aws-properties-config-remediationconfiguration-ssmcontrols-description"></a>The SsmControls property type specifies Not currently supported by AWS CloudFormation. for an AWS::Config::RemediationConfiguration: aws-resource-config-remediationconfiguration.md.
+        Adds an AWS::Config::RemediationConfiguration.SsmControls resource property to the template. AWS Systems Manager (SSM specific remediation controls.
 
     .DESCRIPTION
         Adds an AWS::Config::RemediationConfiguration.SsmControls resource property to the template.
-<a name="aws-properties-config-remediationconfiguration-ssmcontrols-description"></a>The SsmControls property type specifies Not currently supported by AWS CloudFormation. for an AWS::Config::RemediationConfiguration: aws-resource-config-remediationconfiguration.md.
+AWS Systems Manager (SSM specific remediation controls.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html

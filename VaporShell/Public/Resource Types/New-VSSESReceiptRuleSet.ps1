@@ -1,12 +1,12 @@
 function New-VSSESReceiptRuleSet {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::ReceiptRuleSet resource to the template. Specifies an empty receipt rule set.
+        Adds an AWS::SES::ReceiptRuleSet resource to the template. Creates an empty receipt rule set.
 
     .DESCRIPTION
-        Adds an AWS::SES::ReceiptRuleSet resource to the template. Specifies an empty receipt rule set.
+        Adds an AWS::SES::ReceiptRuleSet resource to the template. Creates an empty receipt rule set.
 
-For information about setting up receipt rule sets, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html.
+For information about setting up receipt rule sets, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules.
 
 You can execute this operation no more than once per second.
 
@@ -17,7 +17,7 @@ You can execute this operation no more than once per second.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER RuleSetName
-        The name of the receipt rule set that you want to reorder.
+        The name of the receipt rule set to reorder.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptruleset.html#cfn-ses-receiptruleset-rulesetname
         PrimitiveType: String
@@ -96,6 +96,17 @@ You can execute this operation no more than once per second.
                 }
             })]
         $RuleSetName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

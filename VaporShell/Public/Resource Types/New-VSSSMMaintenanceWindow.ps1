@@ -36,7 +36,7 @@ For more information, see Systems Manager Maintenance Windows: https://docs.aws.
         UpdateType: Mutable
 
     .PARAMETER Cutoff
-        The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
+        The number of hours before the end of the maintenance window that AWS Systems Manager stops scheduling new tasks for execution.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-cutoff
         PrimitiveType: Integer
@@ -57,7 +57,7 @@ For more information, see Systems Manager Maintenance Windows: https://docs.aws.
         UpdateType: Mutable
 
     .PARAMETER ScheduleOffset
-        +  Reference: Cron and Rate Expressions for Systems Manager: https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html
+        The number of days to wait to run a maintenance window after the scheduled cron expression date and time.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-scheduleoffset
         PrimitiveType: Integer
@@ -267,6 +267,17 @@ For more information, see Systems Manager Maintenance Windows: https://docs.aws.
                 }
             })]
         $ScheduleTimezone,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

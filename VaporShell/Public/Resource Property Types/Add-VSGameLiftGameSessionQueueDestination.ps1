@@ -1,11 +1,11 @@
 function Add-VSGameLiftGameSessionQueueDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::GameSessionQueue.Destination resource property to the template. The fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination that is configured for a queue.
+        Adds an AWS::GameLift::GameSessionQueue.Destination resource property to the template. A fleet or alias designated in a game session queue. Queues fulfill requests for new game sessions by placing a new game session on any of the queue's destinations.
 
     .DESCRIPTION
         Adds an AWS::GameLift::GameSessionQueue.Destination resource property to the template.
-The fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination that is configured for a queue.
+A fleet or alias designated in a game session queue. Queues fulfill requests for new game sessions by placing a new game session on any of the queue's destinations.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-destination.html

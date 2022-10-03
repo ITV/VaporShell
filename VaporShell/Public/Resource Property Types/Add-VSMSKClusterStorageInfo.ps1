@@ -13,9 +13,9 @@ Contains information about storage volumes attached to MSK broker nodes.
     .PARAMETER EBSStorageInfo
         EBS volume information.
 
-        Type: EBSStorageInfo
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-storageinfo.html#cfn-msk-cluster-storageinfo-ebsstorageinfo
-        UpdateType: Immutable
+        UpdateType: Mutable
+        Type: EBSStorageInfo
 
     .FUNCTIONALITY
         Vaporshell

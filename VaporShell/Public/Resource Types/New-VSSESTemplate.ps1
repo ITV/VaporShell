@@ -1,12 +1,10 @@
 function New-VSSESTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::Template resource to the template. Specifies an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html.
+        Adds an AWS::SES::Template resource to the template. Specifies an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation.
 
     .DESCRIPTION
-        Adds an AWS::SES::Template resource to the template. Specifies an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html.
-
-You can execute this operation no more than once per second.
+        Adds an AWS::SES::Template resource to the template. Specifies an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html
@@ -15,11 +13,11 @@ You can execute this operation no more than once per second.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Template
-        The content of the email, composed of a subject line, an HTML part, and a text-only part.
+        The content of the email, composed of a subject line and either an HTML part or a text-only part.
 
-        Type: Template
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html#cfn-ses-template-template
         UpdateType: Mutable
+        Type: Template
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -85,6 +83,17 @@ You can execute this operation no more than once per second.
         $LogicalId,
         [parameter(Mandatory = $false)]
         $Template,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

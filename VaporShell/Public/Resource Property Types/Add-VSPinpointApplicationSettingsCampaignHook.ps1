@@ -1,17 +1,17 @@
 function Add-VSPinpointApplicationSettingsCampaignHook {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::ApplicationSettings.CampaignHook resource property to the template. Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign.
+        Adds an AWS::Pinpoint::ApplicationSettings.CampaignHook resource property to the template. Specifies the Lambda function to use by default as a code hook for campaigns in the application.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::ApplicationSettings.CampaignHook resource property to the template.
-Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign.
+Specifies the Lambda function to use by default as a code hook for campaigns in the application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html
 
     .PARAMETER Mode
-        The mode that Amazon Pinpoint uses to invoke the AWS Lambda function. Possible values are:
+        The mode that Amazon Pinpoint uses to invoke the Lambda function. Possible values are:
 +  FILTER - Invoke the function to customize the segment that's used by a campaign.
 +  DELIVERY - Deprecated Previously, invoked the function to send a campaign through a custom channel. This functionality is not supported anymore. To send a campaign through a custom channel, use the CustomDeliveryConfiguration and CampaignCustomMessage objects of the campaign.
 
@@ -20,14 +20,14 @@ Specifies settings for invoking an AWS Lambda function that customizes a segment
         UpdateType: Mutable
 
     .PARAMETER WebUrl
-        The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function over HTTPS.
+        The web URL that Amazon Pinpoint calls to invoke the Lambda function over HTTPS.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html#cfn-pinpoint-applicationsettings-campaignhook-weburl
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER LambdaFunctionName
-        The name or Amazon Resource Name ARN of the AWS Lambda function that Amazon Pinpoint invokes to customize a segment for a campaign.
+        The name or Amazon Resource Name ARN of the Lambda function that Amazon Pinpoint invokes to send messages for campaigns in the application.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html#cfn-pinpoint-applicationsettings-campaignhook-lambdafunctionname
         PrimitiveType: String

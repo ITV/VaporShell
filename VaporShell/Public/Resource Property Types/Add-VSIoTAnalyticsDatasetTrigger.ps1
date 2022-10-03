@@ -10,19 +10,19 @@ The "DatasetTrigger" that specifies when the data set is automatically updated.
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html
 
-    .PARAMETER Schedule
-        The "Schedule" when the trigger is initiated.
-
-        Type: Schedule
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html#cfn-iotanalytics-dataset-trigger-schedule
-        UpdateType: Mutable
-
     .PARAMETER TriggeringDataset
         Information about the data set whose content generation triggers the new data set content generation.
 
-        Type: TriggeringDataset
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html#cfn-iotanalytics-dataset-trigger-triggeringdataset
         UpdateType: Mutable
+        Type: TriggeringDataset
+
+    .PARAMETER Schedule
+        The "Schedule" when the trigger is initiated.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html#cfn-iotanalytics-dataset-trigger-schedule
+        UpdateType: Mutable
+        Type: Schedule
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +32,9 @@ The "DatasetTrigger" that specifies when the data set is automatically updated.
     Param
     (
         [parameter(Mandatory = $false)]
-        $Schedule,
+        $TriggeringDataset,
         [parameter(Mandatory = $false)]
-        $TriggeringDataset
+        $Schedule
     )
     Begin {
         $obj = [PSCustomObject]@{}

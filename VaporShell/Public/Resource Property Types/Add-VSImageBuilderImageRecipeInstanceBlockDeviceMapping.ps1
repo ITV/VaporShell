@@ -25,7 +25,7 @@ Defines block device mappings for the instance used to configure your image.
         PrimitiveType: String
 
     .PARAMETER NoDevice
-        Removes a mapping from the parent image, formatted as an empty string.
+        Enter an empty string to remove a mapping from the parent image.
 The following is an example of an empty string value in the NoDevice field.
 NoDevice:""
 
@@ -34,7 +34,7 @@ NoDevice:""
         PrimitiveType: String
 
     .PARAMETER Ebs
-        Manages the Amazon EBS-specific configuration for this mapping.
+        Use to manage Amazon EBS-specific configuration for this mapping.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
         UpdateType: Immutable

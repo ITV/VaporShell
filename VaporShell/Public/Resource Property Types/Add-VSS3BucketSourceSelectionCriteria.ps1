@@ -1,17 +1,24 @@
 function Add-VSS3BucketSourceSelectionCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template. A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using a customer master key (CMK stored in AWS Key Management Service (SSE-KMS.
+        Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template. A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template.
-A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using a customer master key (CMK stored in AWS Key Management Service (SSE-KMS.
+A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
 
+    .PARAMETER ReplicaModifications
+        A filter that you can specify for selection for modifications on replicas.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+        Type: ReplicaModifications
+        UpdateType: Mutable
+
     .PARAMETER SseKmsEncryptedObjects
-        A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If you include SourceSelectionCriteria in the replication configuration, this element is required.
+        A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
         Type: SseKmsEncryptedObjects
@@ -24,7 +31,9 @@ A container that describes additional filters for identifying the source objects
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        $ReplicaModifications,
+        [parameter(Mandatory = $false)]
         $SseKmsEncryptedObjects
     )
     Begin {

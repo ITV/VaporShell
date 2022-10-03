@@ -1,10 +1,12 @@
 function New-VSFMSNotificationChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::FMS::NotificationChannel resource to the template. Designates the IAM role and Amazon Simple Notification Service (SNS topic that AWS Firewall Manager uses to record SNS logs.
+        Adds an AWS::FMS::NotificationChannel resource to the template. Designates the IAM role and Amazon Simple Notification Service (SNS topic to use to record SNS logs.
 
     .DESCRIPTION
-        Adds an AWS::FMS::NotificationChannel resource to the template. Designates the IAM role and Amazon Simple Notification Service (SNS topic that AWS Firewall Manager uses to record SNS logs.
+        Adds an AWS::FMS::NotificationChannel resource to the template. Designates the IAM role and Amazon Simple Notification Service (SNS topic to use to record SNS logs.
+
+To perform this action outside of the console, you must configure the SNS topic to allow the role AWSServiceRoleForFMS to publish SNS logs. For more information, see Firewall Manager required permissions for API actions: https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html in the * AWS Firewall Manager Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
@@ -110,6 +112,17 @@ function New-VSFMSNotificationChannel {
                 }
             })]
         $SnsTopicArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

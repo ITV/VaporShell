@@ -1,10 +1,10 @@
 function New-VSLambdaAlias {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::Alias resource to the template. The AWS::Lambda::Alias resource creates an alias: https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.
+        Adds an AWS::Lambda::Alias resource to the template. The AWS::Lambda::Alias resource creates an alias: https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.
 
     .DESCRIPTION
-        Adds an AWS::Lambda::Alias resource to the template. The AWS::Lambda::Alias resource creates an alias: https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.
+        Adds an AWS::Lambda::Alias resource to the template. The AWS::Lambda::Alias resource creates an alias: https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.
 
 You can also map an alias to split invocation requests between two versions. Use the RoutingConfig parameter to specify a second version and the percentage of invocation requests that it receives.
 
@@ -48,7 +48,7 @@ The length constraint applies only to the full ARN. If you specify only the func
         UpdateType: Immutable
 
     .PARAMETER ProvisionedConcurrencyConfig
-        Specifies a provisioned concurrency configuration for a function's alias.
+        Specifies a provisioned concurrency: https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html configuration for a function's alias.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-provisionedconcurrencyconfig
         Type: ProvisionedConcurrencyConfiguration
@@ -171,6 +171,17 @@ The length constraint applies only to the full ARN. If you specify only the func
         $ProvisionedConcurrencyConfig,
         [parameter(Mandatory = $false)]
         $RoutingConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

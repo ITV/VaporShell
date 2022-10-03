@@ -1,21 +1,25 @@
 function Add-VSImageBuilderImageImageTestsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::Image.ImageTestsConfiguration resource property to the template. 
+        Adds an AWS::ImageBuilder::Image.ImageTestsConfiguration resource property to the template. When you create an image or container recipe with Image Builder, you can add the build or test components that are used to create the final image. You must have at least one build component to create a recipe, but test components are not required. If you have added tests, they run after the image is created, to ensure that the target image is functional and can be used reliably for launching Amazon EC2 instances.
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::Image.ImageTestsConfiguration resource property to the template.
-
+When you create an image or container recipe with Image Builder, you can add the build or test components that are used to create the final image. You must have at least one build component to create a recipe, but test components are not required. If you have added tests, they run after the image is created, to ensure that the target image is functional and can be used reliably for launching Amazon EC2 instances.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
 
     .PARAMETER ImageTestsEnabled
+        Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER TimeoutMinutes
+        The maximum time in minutes that tests are permitted to run.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes
         UpdateType: Immutable
         PrimitiveType: Integer

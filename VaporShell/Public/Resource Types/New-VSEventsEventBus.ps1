@@ -1,14 +1,10 @@
 function New-VSEventsEventBus {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::EventBus resource to the template. The AWS::Events::EventBus resource creates or updates a partner event bus or custom event bus. Partner event buses can receive events from applications and services created by AWS SaaS partners. You need to create a partner event bus for each partner event source that you want to receive events from.
+        Adds an AWS::Events::EventBus resource to the template. Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.
 
     .DESCRIPTION
-        Adds an AWS::Events::EventBus resource to the template. The AWS::Events::EventBus resource creates or updates a partner event bus or custom event bus. Partner event buses can receive events from applications and services created by AWS SaaS partners. You need to create a partner event bus for each partner event source that you want to receive events from.
-
-Custom event buses can receive events from your own custom applications.
-
-To review the limit for how many rules each event bus may have, see Service Limits: https://docs.aws.amazon.com/eventbridge/latest/userguide/cloudwatch-limits-eventbridge.html.
+        Adds an AWS::Events::EventBus resource to the template. Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html
@@ -17,15 +13,24 @@ To review the limit for how many rules each event bus may have, see Service Limi
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER EventSourceName
-        The name of the partner event source to associate with this event bus, if you are creating a partner event bus.
+        If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-eventsourcename
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER Tags
+        Not currently supported by AWS CloudFormation.
+
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-tags
+        ItemType: TagEntry
+        UpdateType: Immutable
+
     .PARAMETER Name
-        The name of the event bus you are creating. The names of custom event buses can't contain the / character. You can't use the name default for a custom event bus.
-If you are creating a partner event bus, this name must exactly match the name of the partner event source that this bus is matched to.
+        The name of the new event bus.
+Event bus names cannot contain the / character. You can't use the name default for a custom event bus, as this name is already used for your account's default event bus.
+If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-name
         PrimitiveType: String
@@ -104,6 +109,17 @@ If you are creating a partner event bus, this name must exactly match the name o
                 }
             })]
         $EventSourceName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Events.EventBus.TagEntry"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -115,6 +131,17 @@ If you are creating a partner event bus, this name must exactly match the name o
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -177,6 +204,12 @@ If you are creating a partner event bus, this name must exactly match the name o
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

@@ -1,10 +1,10 @@
 function New-VSBudgetsBudget {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::Budget resource to the template. The AWS::Budgets::Budget resource creates, replaces, or deletes budgets for Billing and Cost Management. For more information, see Managing Your Costs with Budgets: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html in the *AWS Billing and Cost Management User Guide*.
+        Adds an AWS::Budgets::Budget resource to the template. The AWS::Budgets::Budget resource allows customers to take pre-defined actions that will trigger once a budget threshold has been exceeded. creates, replaces, or deletes budgets for Billing and Cost Management. For more information, see Managing Your Costs with Budgets: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html in the *AWS Billing and Cost Management User Guide*.
 
     .DESCRIPTION
-        Adds an AWS::Budgets::Budget resource to the template. The AWS::Budgets::Budget resource creates, replaces, or deletes budgets for Billing and Cost Management. For more information, see Managing Your Costs with Budgets: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html in the *AWS Billing and Cost Management User Guide*.
+        Adds an AWS::Budgets::Budget resource to the template. The AWS::Budgets::Budget resource allows customers to take pre-defined actions that will trigger once a budget threshold has been exceeded. creates, replaces, or deletes budgets for Billing and Cost Management. For more information, see Managing Your Costs with Budgets: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html in the *AWS Billing and Cost Management User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html
@@ -102,6 +102,17 @@ function New-VSBudgetsBudget {
         $NotificationsWithSubscribers,
         [parameter(Mandatory = $true)]
         $Budget,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

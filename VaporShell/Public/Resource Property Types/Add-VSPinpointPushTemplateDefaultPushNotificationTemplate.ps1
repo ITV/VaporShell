@@ -1,20 +1,20 @@
 function Add-VSPinpointPushTemplateDefaultPushNotificationTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::PushTemplate.DefaultPushNotificationTemplate resource property to the template. The AWS::Pinpoint::PushTemplate DefaultPushNotificationTemplate resource defines the default settings and content for a message template that can be used in messages that are sent through a push notification channel.
+        Adds an AWS::Pinpoint::PushTemplate.DefaultPushNotificationTemplate resource property to the template. Specifies the default settings and content for a message template that can be used in messages that are sent through a push notification channel.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::PushTemplate.DefaultPushNotificationTemplate resource property to the template.
-The AWS::Pinpoint::PushTemplate DefaultPushNotificationTemplate resource defines the default settings and content for a message template that can be used in messages that are sent through a push notification channel.
+Specifies the default settings and content for a message template that can be used in messages that are sent through a push notification channel.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-defaultpushnotificationtemplate.html
 
     .PARAMETER Action
         The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:
-+  OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
-+  DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.
-+  URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
++  OPEN_APP – Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
++  DEEP_LINK – Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.
++  URL – The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-defaultpushnotificationtemplate.html#cfn-pinpoint-pushtemplate-defaultpushnotificationtemplate-action
         PrimitiveType: String

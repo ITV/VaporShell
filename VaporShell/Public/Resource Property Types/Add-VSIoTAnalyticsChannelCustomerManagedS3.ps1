@@ -1,35 +1,35 @@
 function Add-VSIoTAnalyticsChannelCustomerManagedS3 {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Channel.CustomerManagedS3 resource property to the template. Use this to store channel data in an S3 bucket that you manage. When customer managed storage is selected, the "retentionPeriod" parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the channel.
+        Adds an AWS::IoTAnalytics::Channel.CustomerManagedS3 resource property to the template. Used to store channel data in an S3 bucket that you manage.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Channel.CustomerManagedS3 resource property to the template.
-Use this to store channel data in an S3 bucket that you manage. When customer managed storage is selected, the "retentionPeriod" parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the channel.
+Used to store channel data in an S3 bucket that you manage.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html
 
     .PARAMETER Bucket
-        The name of the Amazon S3 bucket in which channel data is stored.
+        The name of the S3 bucket in which channel data is stored.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-bucket
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the role which grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+        The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-rolearn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER KeyPrefix
-        Optional] The prefix used to create the keys of the channel data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier within the bucket each object in a bucket has exactly one key. The prefix must end with a '/'.
+        Optional The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket each object in a bucket has exactly one key. The prefix must end with a forward slash /.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-keyprefix
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

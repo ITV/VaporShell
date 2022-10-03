@@ -25,7 +25,7 @@ The notify configuration type.
         UpdateType: Mutable
 
     .PARAMETER SourceArn
-        The Amazon Resource Name ARN of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the From parameter.
+        The Amazon Resource Name ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-sourcearn
         PrimitiveType: String
@@ -39,14 +39,14 @@ The notify configuration type.
         UpdateType: Mutable
 
     .PARAMETER From
-        The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+        The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-from
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER MfaEmail
-        The MFA email template used when MFA is challenged as part of a detected risk.
+        The multi-factor authentication MFA email template used when MFA is challenged as part of a detected risk.
 
         Type: NotifyEmailType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-mfaemail

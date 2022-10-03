@@ -19,7 +19,7 @@ For a WebHookFilter that uses any of the other filter types, a regular expressio
         UpdateType: Mutable
 
     .PARAMETER Type
-        The type of webhook filter. There are five webhook filter types: EVENT, ACTOR_ACCOUNT_ID, HEAD_REF, BASE_REF, and FILE_PATH.
+        The type of webhook filter. There are six webhook filter types: EVENT, ACTOR_ACCOUNT_ID, HEAD_REF, BASE_REF, FILE_PATH, and COMMIT_MESSAGE.
 EVENT
 A webhook event triggers a build when the provided pattern matches one of five event types: PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_REOPENED, and PULL_REQUEST_MERGED. The EVENT patterns are specified as a comma-separated string. For example, PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED filters all push, pull request created, and pull request updated events.
 The PULL_REQUEST_REOPENED works with GitHub and GitHub Enterprise only.
@@ -33,7 +33,10 @@ A webhook event triggers a build when the base reference matches the regular exp
 Works with pull request events only.
 FILE_PATH
 A webhook triggers a build when the path of a changed file matches the regular expression pattern.
-Works with GitHub and GitHub Enterprise push events only.
+Works with GitHub and Bitbucket events push and pull requests events. Also works with GitHub Enterprise push events, but does not work with GitHub Enterprise pull request events.
+COMMIT_MESSAGE
+A webhook triggers a build when the head commit message matches the regular expression pattern.
+Works with GitHub and Bitbucket events push and pull requests events. Also works with GitHub Enterprise push events, but does not work with GitHub Enterprise pull request events.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-type
         PrimitiveType: String

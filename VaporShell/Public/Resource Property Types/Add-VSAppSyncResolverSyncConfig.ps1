@@ -7,16 +7,16 @@ function Add-VSAppSyncResolverSyncConfig {
         Adds an AWS::AppSync::Resolver.SyncConfig resource property to the template.
 Describes a Sync configuration for a resolver.
 
-Contains information on which Conflict Detection as well as Resolution strategy should be performed when the resolver is invoked.
+Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html
 
     .PARAMETER ConflictHandler
         The Conflict Resolution strategy to perform in the event of a conflict.
-+  **OPTIMISTIC_CONCURRENCY**: Resolve conflicts by rejecting mutations when versions do not match the latest version at the server.
++  **OPTIMISTIC_CONCURRENCY**: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
 +  **AUTOMERGE**: Resolve conflicts with the Automerge conflict resolution strategy.
-+  **LAMBDA**: Resolve conflicts with a Lambda function supplied in the LambdaConflictHandlerConfig.
++  **LAMBDA**: Resolve conflicts with an AWS Lambda function supplied in the LambdaConflictHandlerConfig.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-conflicthandler
         PrimitiveType: String
@@ -25,7 +25,7 @@ Contains information on which Conflict Detection as well as Resolution strategy 
     .PARAMETER ConflictDetection
         The Conflict Detection strategy to use.
 +  **VERSION**: Detect conflicts based on object versions for this resolver.
-+  **NONE**: Do not detect conflicts when executing this resolver.
++  **NONE**: Do not detect conflicts when invoking this resolver.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-conflictdetection
         PrimitiveType: String

@@ -1,14 +1,26 @@
 function Add-VSAutoScalingScalingPolicyPredefinedMetricSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.PredefinedMetricSpecification resource property to the template. PredefinedMetricSpecification is a subproperty of TargetTrackingConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html that configures a predefined metric for a target tracking policy to use with Amazon EC2 Auto Scaling.
+        Adds an AWS::AutoScaling::ScalingPolicy.PredefinedMetricSpecification resource property to the template. Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.PredefinedMetricSpecification resource property to the template.
-PredefinedMetricSpecification is a subproperty of TargetTrackingConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html that configures a predefined metric for a target tracking policy to use with Amazon EC2 Auto Scaling.
+Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
+
+PredefinedMetricSpecification is a property of the AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html
+
+    .PARAMETER ResourceLabel
+        Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Auto Scaling group.
+The format is app/load-balancer-name/load-balancer-id/targetgroup/target-group-name/target-group-id , where
++ app/load-balancer-name/load-balancer-id  is the final portion of the load balancer ARN, and
++ targetgroup/target-group-name/target-group-id  is the final portion of the target group ARN.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER PredefinedMetricType
         The metric type. The following predefined metrics are available.
@@ -18,18 +30,8 @@ PredefinedMetricSpecification is a subproperty of TargetTrackingConfiguration: h
 +  ALBRequestCountPerTarget - Number of requests completed per target in an Application Load Balancer target group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-predefinedmetrictype
-        PrimitiveType: String
         UpdateType: Mutable
-
-    .PARAMETER ResourceLabel
-        Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Auto Scaling group.
-The format is app/load-balancer-name/load-balancer-id/targetgroup/target-group-name/target-group-id , where
-+ app/load-balancer-name/load-balancer-id  is the final portion of the load balancer ARN, and
-+ targetgroup/target-group-name/target-group-id  is the final portion of the target group ARN.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
         PrimitiveType: String
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,17 +40,6 @@ The format is app/load-balancer-name/load-balancer-id/targetgroup/target-group-n
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PredefinedMetricType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,7 +50,18 @@ The format is app/load-balancer-name/load-balancer-id/targetgroup/target-group-n
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ResourceLabel
+        $ResourceLabel,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PredefinedMetricType
     )
     Begin {
         $obj = [PSCustomObject]@{}

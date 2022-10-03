@@ -1,11 +1,11 @@
 function Add-VSFSxFileSystemSelfManagedActiveDirectoryConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::FileSystem.SelfManagedActiveDirectoryConfiguration resource property to the template. The configuration that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises Microsoft Active Directory (AD directory.
+        Adds an AWS::FSx::FileSystem.SelfManagedActiveDirectoryConfiguration resource property to the template. The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM to a self-managed (including on-premises Microsoft Active Directory (AD directory. For more information, see  Using Amazon FSx with your self-managed Microsoft Active Directory: https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html or Managing SVMs: https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html.
 
     .DESCRIPTION
         Adds an AWS::FSx::FileSystem.SelfManagedActiveDirectoryConfiguration resource property to the template.
-The configuration that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises Microsoft Active Directory (AD directory.
+The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM to a self-managed (including on-premises Microsoft Active Directory (AD directory. For more information, see  Using Amazon FSx with your self-managed Microsoft Active Directory: https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html or Managing SVMs: https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration.html
@@ -32,7 +32,7 @@ The configuration that Amazon FSx uses to join the Windows File Server instance 
         UpdateType: Immutable
 
     .PARAMETER OrganizationalUnitDistinguishedName
-        Optional The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. Amazon FSx only accepts OU as the direct parent of the file system. An example is OU=FSx,DC=yourdomain,DC=corp,DC=com. To learn more, see RFC 2253: https://tools.ietf.org/html/rfc2253. If none is provided, the FSx file system is created in the default location of your self-managed AD directory.
+        Optional The fully qualified distinguished name of the organizational unit within your self-managed AD directory. Amazon FSx only accepts OU as the direct parent of the file system. An example is OU=FSx,DC=yourdomain,DC=corp,DC=com. To learn more, see RFC 2253: https://tools.ietf.org/html/rfc2253. If none is provided, the FSx file system is created in the default location of your self-managed AD directory.
 Only Organizational Unit OU objects can be the direct parent of the file system that you're creating.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration-organizationalunitdistinguishedname
@@ -40,10 +40,7 @@ Only Organizational Unit OU objects can be the direct parent of the file system 
         UpdateType: Immutable
 
     .PARAMETER DnsIps
-        A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the one in which your Amazon FSx file system is being created, or in the private IP version 4 IPv4 address ranges, as specified in RFC 1918: http://www.faqs.org/rfcs/rfc1918.html:
-+ 10.0.0.0 - 10.255.255.255 10/8 prefix
-+ 172.16.0.0 - 172.31.255.255 172.16/12 prefix
-+ 192.168.0.0 - 192.168.255.255 192.168/16 prefix
+        A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 
         PrimitiveItemType: String
         Type: List
@@ -52,7 +49,7 @@ Only Organizational Unit OU objects can be the direct parent of the file system 
 
     .PARAMETER Password
         The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. We strongly suggest that you follow best practices and *do not* embed passwords in your CFN templates.
-The recommended approach is to use AWS Secrets Manager to store your passwords. You can retrieve them for use in your templates using the secretsmanager dynamic reference. There are additional costs associated with using AWS Secrets Manager. To learn more, see Secrets Manager Secrets: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager in the *AWS CloudFormation User Guide*.
+The recommended approach is to use AWS Secrets Manager to store your passwords. You can retrieve them for use in your templates using the secretsmanager dynamic reference. There are additional costs associated with using AWS Secrets Manager. To learn more, see Secrets Manager secrets: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager in the *AWS CloudFormation User Guide*.
 Alternatively, you can use the NoEcho property to obfuscate the password parameter value. For more information, see Do Not Embed Credentials in Your Templates: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds in the *AWS CloudFormation User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration-password

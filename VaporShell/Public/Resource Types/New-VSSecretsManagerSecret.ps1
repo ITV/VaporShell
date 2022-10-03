@@ -1,28 +1,20 @@
 function New-VSSecretsManagerSecret {
     <#
     .SYNOPSIS
-        Adds an AWS::SecretsManager::Secret resource to the template. The AWS::SecretsManager::Secret resource creates a secret and stores it in Secrets Manager. For more information, see Secret: https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_secret in the *AWS Secrets Manager User Guide*, and the CreateSecret API: https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html in the *AWS Secrets Manager API Reference*.
+        Adds an AWS::SecretsManager::Secret resource to the template. Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secet information that you store in an encrypted form in Secrets Manager.
 
     .DESCRIPTION
-        Adds an AWS::SecretsManager::Secret resource to the template. The AWS::SecretsManager::Secret resource creates a secret and stores it in Secrets Manager. For more information, see Secret: https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_secret in the *AWS Secrets Manager User Guide*, and the CreateSecret API: https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html in the *AWS Secrets Manager API Reference*.
+        Adds an AWS::SecretsManager::Secret resource to the template. Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secet information that you store in an encrypted form in Secrets Manager.
 
-To specify the SecretString encrypted value for the secret, specify either the SecretString or the GenerateSecretString property in this resource. You must specify one or the other, but you can't specify both. See the first two examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#aws-resource-secretsmanager-secret-hardcoded later in this topic.
+For information about creating a secret in the console, see Create a secret: https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html. For information about creating a secret using the CLI or SDK, see CreateSecret: https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html.
 
-**Note**
+For information about retrieving a secret from Secrets Manager, see Retrieve secrets from Secrets Manager: https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html.
 
-You can't generate a secret with a SecretBinary secret value using AWS CloudFormation. You can only create a SecretString text-based secret value.
+To specify the encrypted value for the secret, you must include either the GenerateSecretString or the SecretString property, but not both. We recommend that you use the GenerateSecretString property to generate a random password as shown in the examples. You can't generate a secret with a SecretBinary secret value using AWS CloudFormation.
 
 **Note**
 
 Do not create a dynamic reference using a backslash ( as the final value. AWS CloudFormation cannot resolve those references, which causes a resource failure.
-
-After you create the basic secret, you can do any of the following:
-
-+ Configure your secret with details of the Secrets Manager supported database or service: https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html#full-rotation-support with credentials stored in this secret.
-
-+ Attaches a resource-based permissions policy to the secret. To do this, define a AWS::SecretsManager::ResourcePolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html resource type.
-
-+ You can optionally configure a secret to rotate after a specified number of days. See AWS::SecretsManager::RotationSchedule: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
@@ -31,42 +23,60 @@ After you create the basic secret, you can do any of the following:
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        Optional Specifies a user-provided description of the secret.
+        The description of the secret.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER KmsKeyId
-        Optional Specifies the ARN, Key ID, or alias of the AWS KMS customer master key CMK used to encrypt the SecretString or SecretBinary values for versions of this secret. If you don't specify this value, then Secrets Manager defaults to the AWS account CMK, aws/secretsmanager. If an AWS KMS CMK with that name doesn't exist, Secrets Manager creates the CMK for you automatically the first time it encrypts a version SecretString or SecretBinary fields.
-You can use the account default CMK to encrypt and decrypt only if you call this operation using credentials from the same account that owns the secret. If you use a secret from a different account, then you must create a custom CMK and specify the ARN in this field.
+        The ARN, key ID, or alias of the AWS KMS key that Secrets Manager uses to encrypt the secret value in the secret.
+To use a AWS KMS key in a different account, use the key ARN or the alias ARN.
+If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If that key doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+If the secret is in a different AWS account from the credentials calling the API, then you can't use aws/secretsmanager to encrypt the secret, and you must create and use a customer managed AWS KMS key.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-kmskeyid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SecretString
-        Optional Specifies text data that you want to encrypt and store in this new version of the secret.
-Either SecretString or SecretBinary must have a value, but not both. They cannot both be empty.
-If you create a secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the SecretString parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse.
-For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see Using JSON for Parameters: https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json in the *AWS CLI User Guide*. For example:
-{"username":"bob","password":"abc123xyz456"}
-If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
+        The text to encrypt and store in the secret. We recommend you use a JSON structure of key/value pairs for your secret value.
+Either GenerateSecretString or SecretString must have a value, but not both. They cannot both be empty. We recommend that you use the GenerateSecretString property to generate a random password.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-secretstring
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER GenerateSecretString
-        A structure that specifies generating a random password by using the functionality of the GetRandomPassword API: https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetRandomPassword.html. You can return that string directly to use as the secret value, or you can specify both the SecretStringTemplate and the GenerateSecretKey parameters. Secrets Manager uses the value in GenerateSecretKey parameters. Secrets Manager uses the value in GenerateSecretKey as the key name and combines it with the randomly generated password to make a JSON key-value pair. Secrets Manager then inserts the pair into the JSON structure specified in the SecretStringTemplate parameter. Secrets Manager stores the completed string as the secret value in the initial version of the secret. For more information about how to use this property, see Secrets Manager Secret GenerateSecretString: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html and the first example: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#aws-resource-secretsmanager-secret-generated in the following Examples section.
-Either SecretString or GenerateSecretString must have a value, but not both. They cannot both be empty.
+        A structure that specifies how to generate a password to encrypt and store in the secret.
+Either GenerateSecretString or SecretString must have a value, but not both. They cannot both be empty.
+We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 
         Type: GenerateSecretString
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-generatesecretstring
         UpdateType: Mutable
 
+    .PARAMETER ReplicaRegions
+        A custom type that specifies a Region and the KmsKeyId for a replica secret.
+
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-replicaregions
+        ItemType: ReplicaRegion
+        UpdateType: Mutable
+
     .PARAMETER Tags
-        The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+        A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
+{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]
+Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
+If you check tags in permissions policies as part of your security strategy, then adding or removing a tag can change permissions. If the completion of this operation would result in you losing your permissions for this secret, then Secrets Manager blocks the operation and returns an Access Denied error. For more information, see Control access to secrets using tags: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#tag-secrets-abac and Limit access to identities with tags that match secrets' tags: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#auth-and-access_tags2.
+For information about how to format a JSON parameter for the various command line tool environments, see Using JSON for Parameters: https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json. If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
+The following restrictions apply to tags:
++ Maximum number of tags per secret: 50
++ Maximum key length: 127 Unicode characters in UTF-8
++ Maximum value length: 255 Unicode characters in UTF-8
++ Tag keys and values are case sensitive.
++ Do not use the aws: prefix in your tag names or values because AWS reserves it for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit.
++ If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-tags
@@ -74,7 +84,9 @@ Either SecretString or GenerateSecretString must have a value, but not both. The
         UpdateType: Mutable
 
     .PARAMETER Name
-        The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy. For example, /prod/databases/dbserver1 could represent the secret for a server named dbserver1 in the folder databases in the folder prod.
+        The name of the new secret.
+The secret name can contain ASCII letters, numbers, and the following characters: /_+=.@-
+Do not end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager automatically adds a hyphen and six random characters after the secret name at the end of the ARN.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-name
         PrimitiveType: String
@@ -177,6 +189,17 @@ Either SecretString or GenerateSecretString must have a value, but not both. The
         $SecretString,
         [parameter(Mandatory = $false)]
         $GenerateSecretString,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.SecretsManager.Secret.ReplicaRegion"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ReplicaRegions,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -191,6 +214,17 @@ Either SecretString or GenerateSecretString must have a value, but not both. The
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -253,6 +287,12 @@ Either SecretString or GenerateSecretString must have a value, but not both. The
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                ReplicaRegions {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ReplicaRegions -Value @($ReplicaRegions)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

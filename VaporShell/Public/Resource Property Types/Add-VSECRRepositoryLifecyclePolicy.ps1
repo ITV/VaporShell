@@ -1,11 +1,11 @@
 function Add-VSECRRepositoryLifecyclePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::Repository.LifecyclePolicy resource property to the template. The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see Lifecycle Policy Template: https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html.
+        Adds an AWS::ECR::Repository.LifecyclePolicy resource property to the template. The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see Lifecycle policy template: https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html in the *Amazon ECR User Guide*.
 
     .DESCRIPTION
         Adds an AWS::ECR::Repository.LifecyclePolicy resource property to the template.
-The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see Lifecycle Policy Template: https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html.
+The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see Lifecycle policy template: https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html in the *Amazon ECR User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
@@ -14,15 +14,15 @@ The LifecyclePolicy property type specifies a lifecycle policy. For information 
         The JSON repository policy text to apply to the repository.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER RegistryId
         The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

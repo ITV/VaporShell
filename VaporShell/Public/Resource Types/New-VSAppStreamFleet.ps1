@@ -1,10 +1,10 @@
 function New-VSAppStreamFleet {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::Fleet resource to the template. The AWS::AppStream::Fleet resource creates a fleet for Amazon AppStream 2.0. A fleet consists of streaming instances that run a specified image.
+        Adds an AWS::AppStream::Fleet resource to the template. The AWS::AppStream::Fleet resource creates a fleet for Amazon AppStream 2.0. A fleet consists of streaming instances that run a specified image when using Always-On or On-Demand.
 
     .DESCRIPTION
-        Adds an AWS::AppStream::Fleet resource to the template. The AWS::AppStream::Fleet resource creates a fleet for Amazon AppStream 2.0. A fleet consists of streaming instances that run a specified image.
+        Adds an AWS::AppStream::Fleet resource to the template. The AWS::AppStream::Fleet resource creates a fleet for Amazon AppStream 2.0. A fleet consists of streaming instances that run a specified image when using Always-On or On-Demand.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html
@@ -20,14 +20,22 @@ function New-VSAppStreamFleet {
         UpdateType: Mutable
 
     .PARAMETER ComputeCapacity
-        The desired capacity for the fleet.
+        The desired capacity for the fleet. This is not allowed for Elastic fleets.
 
         Type: ComputeCapacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-computecapacity
         UpdateType: Mutable
 
+    .PARAMETER Platform
+        The platform of the fleet. Platform is a required setting for Elastic fleets, and is not used for other fleet types.
+*Allowed Values*: WINDOWS_SERVER_2019 | AMAZON_LINUX2
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-platform
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER VpcConfig
-        The VPC configuration for the fleet.
+        The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types.
 
         Type: VpcConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-vpcconfig
@@ -39,6 +47,9 @@ ALWAYS_ON
 Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.
 ON_DEMAND
 Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.
+ELASTIC
+The pool of streaming instances is managed by Amazon AppStream 2.0. When a user selects their application or desktop to launch, they will start streaming after the app block has been downloaded and mounted to a streaming instance.
+*Allowed Values*: ALWAYS_ON | ELASTIC | ON_DEMAND
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
         PrimitiveType: String
@@ -52,10 +63,17 @@ Provide users with access to applications after they connect, which takes one to
         UpdateType: Mutable
 
     .PARAMETER DomainJoinInfo
-        The name of the directory and organizational unit OU to use to join the fleet to a Microsoft Active Directory domain.
+        The name of the directory and organizational unit OU to use to join the fleet to a Microsoft Active Directory domain. This is not allowed for Elastic fleets.
 
         Type: DomainJoinInfo
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-domainjoininfo
+        UpdateType: Mutable
+
+    .PARAMETER SessionScriptS3Location
+        +  CreateFleet: https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateFleet.html in the *Amazon AppStream 2.0 API Reference*
+
+        Type: S3Location
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-sessionscripts3location
         UpdateType: Mutable
 
     .PARAMETER Name
@@ -89,6 +107,14 @@ If you enable this feature, we recommend that you specify a value that correspon
         PrimitiveType: Integer
         UpdateType: Mutable
 
+    .PARAMETER UsbDeviceFilterStrings
+        The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.
+
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-usbdevicefilterstrings
+        UpdateType: Mutable
+
     .PARAMETER DisconnectTimeoutInSeconds
         The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
 Specify a value between 60 and 360000.
@@ -104,8 +130,25 @@ Specify a value between 60 and 360000.
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER StreamView
+        The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When APP is specified, only the windows of applications opened by users display. When DESKTOP is specified, the standard desktop that is provided by the operating system displays.
+The default value is APP.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER IamRoleArn
+        The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
+For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances: https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html in the *Amazon AppStream 2.0 Administration Guide*.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER InstanceType
-        The instance type to use when launching fleet instances. The following instance types are available:
+        The instance type to use when launching fleet instances. The following instance types are available for non-Elastic fleets:
++ stream.standard.small
 + stream.standard.medium
 + stream.standard.large
 + stream.compute.large
@@ -138,13 +181,23 @@ Specify a value between 60 and 360000.
 + stream.graphics-pro.4xlarge
 + stream.graphics-pro.8xlarge
 + stream.graphics-pro.16xlarge
+The following instance types are available for Elastic fleets:
++ stream.standard.small
++ stream.standard.medium
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-instancetype
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER MaxConcurrentSessions
+        The maximum number of concurrent sessions that can be run on an Elastic fleet. This setting is required for Elastic fleets, but is not used for other fleet types.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxconcurrentsessions
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
     .PARAMETER Tags
-        An array of key-value pairs. For more information, see Using Cost Allocation Tags: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html in the *AWS Billing and Cost Management User Guide*.
+        An array of key-value pairs.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
@@ -231,8 +284,19 @@ Specify a value between 60 and 360000.
                 }
             })]
         $Description,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $ComputeCapacity,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Platform,
         [parameter(Mandatory = $false)]
         $VpcConfig,
         [parameter(Mandatory = $false)]
@@ -259,6 +323,8 @@ Specify a value between 60 and 360000.
         $EnableDefaultInternetAccess,
         [parameter(Mandatory = $false)]
         $DomainJoinInfo,
+        [parameter(Mandatory = $false)]
+        $SessionScriptS3Location,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -304,6 +370,8 @@ Specify a value between 60 and 360000.
             })]
         $IdleDisconnectTimeoutInSeconds,
         [parameter(Mandatory = $false)]
+        $UsbDeviceFilterStrings,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -325,6 +393,28 @@ Specify a value between 60 and 360000.
                 }
             })]
         $DisplayName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StreamView,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IamRoleArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -336,6 +426,17 @@ Specify a value between 60 and 360000.
                 }
             })]
         $InstanceType,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxConcurrentSessions,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -350,6 +451,17 @@ Specify a value between 60 and 360000.
                 }
             })]
         $ImageArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -412,6 +524,12 @@ Specify a value between 60 and 360000.
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                UsbDeviceFilterStrings {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name UsbDeviceFilterStrings -Value @($UsbDeviceFilterStrings)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

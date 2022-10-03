@@ -1,11 +1,11 @@
 function Add-VSPinpointSegmentGPSPoint {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Segment.GPSPoint resource property to the template. Specifies GPS-based criteria for including or excluding endpoints from a segment.
+        Adds an AWS::Pinpoint::Segment.GPSPoint resource property to the template. Specifies the GPS coordinates of the endpoint location.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Segment.GPSPoint resource property to the template.
-Specifies GPS-based criteria for including or excluding endpoints from a segment.
+Specifies the GPS coordinates of the endpoint location.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint.html

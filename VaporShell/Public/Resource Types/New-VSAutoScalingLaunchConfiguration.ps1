@@ -1,173 +1,179 @@
 function New-VSAutoScalingLaunchConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::LaunchConfiguration resource to the template. The LaunchConfiguration resource specifies the Amazon EC2 Auto Scaling launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
+        Adds an AWS::AutoScaling::LaunchConfiguration resource to the template. The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
 
     .DESCRIPTION
-        Adds an AWS::AutoScaling::LaunchConfiguration resource to the template. The LaunchConfiguration resource specifies the Amazon EC2 Auto Scaling launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
+        Adds an AWS::AutoScaling::LaunchConfiguration resource to the template. The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
 
-**Important**
+When you update the launch configuration for an Auto Scaling group, CloudFormation deletes that resource and creates a new launch configuration with the updated properties and a new name. Existing instances are not affected. To update existing instances when you update the AWS::AutoScaling::LaunchConfiguration resource, you can specify an UpdatePolicy attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html for the group. You can find sample update policies for rolling updates in Auto scaling template snippets: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html.
 
-When you update the launch configuration, AWS CloudFormation deletes that resource and creates a new launch configuration with the updated properties and a new name. This update action does not deploy any change across the running Amazon EC2 instances in the Auto Scaling group. In other words, after you associate a new launch configuration with an Auto Scaling group, all new instances will get the updated configuration, but existing instances continue to run with the configuration that they were originally launched with. This works the same way as any other Auto Scaling group that uses a launch configuration.
+For more information, see CreateLaunchConfiguration: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateLaunchConfiguration.html in the *Amazon EC2 Auto Scaling API Reference* and Launch configurations: https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html in the *Amazon EC2 Auto Scaling User Guide*.
 
-If you want to update existing instances when you update the AWS::AutoScaling::LaunchConfiguration resource, you must specify an UpdatePolicy attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html for the Auto Scaling group. You can find sample update policies for rolling updates in the Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples section of the AWS::AutoScaling::AutoScalingGroup documentation.
+**Note**
 
-For more information, see CreateLaunchConfiguration: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateLaunchConfiguration.html in the *Amazon EC2 Auto Scaling API Reference* and Launch Configurations: https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html in the *Amazon EC2 Auto Scaling User Guide*.
+To configure Amazon EC2 instances launched as part of the Auto Scaling group, you can specify a launch template or a launch configuration. We recommend that you use a launch template: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html to make sure that you can use the latest features of Amazon EC2, such as Dedicated Hosts and T2 Unlimited instances. For more information, see Creating a launch template for an Auto Scaling group: https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html
 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AssociatePublicIpAddress
-        For Auto Scaling groups that are running in a virtual private cloud VPC, specifies whether to assign a public IP address to the group's instances. If you specify true, each instance in the Auto Scaling group receives a unique public IP address. For more information, see Launching Auto Scaling Instances in a VPC: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html in the *Amazon EC2 Auto Scaling User Guide*.
+        For Auto Scaling groups that are running in a virtual private cloud VPC, specifies whether to assign a public IP address to the group's instances. If you specify true, each instance in the Auto Scaling group receives a unique public IP address. For more information, see Launching Auto Scaling instances in a VPC: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html in the *Amazon EC2 Auto Scaling User Guide*.
 If an instance receives a public IP address and is also in a VPC that is defined in the same stack template, you must use the DependsOn attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html to declare a dependency on the VPC-gateway attachment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html.
 If the instance is launched into a default subnet, the default is to assign a public IP address, unless you disabled the option to assign a public IP address on the subnet. If the instance is launched into a nondefault subnet, the default is not to assign a public IP address, unless you enabled the option to assign a public IP address on the subnet.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cf-as-launchconfig-associatepubip
-        PrimitiveType: Boolean
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-associatepublicipaddress
         UpdateType: Immutable
+        PrimitiveType: Boolean
 
     .PARAMETER BlockDeviceMappings
         Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-blockdevicemappings
-        DuplicatesAllowed: False
-        ItemType: BlockDeviceMapping
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-blockdevicemappings
         UpdateType: Immutable
+        Type: List
+        ItemType: BlockDeviceMapping
+        DuplicatesAllowed: False
 
     .PARAMETER ClassicLinkVPCId
-        The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
-For more information, see ClassicLink: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html in the *Amazon EC2 User Guide for Linux Instances* and Linking EC2-Classic Instances to a VPC: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink in the *Amazon EC2 Auto Scaling User Guide*.
-This property can only be used if you are launching EC2-Classic instances.
+        *EC2-Classic retires on August 15, 2022. This parameter is not supported after that date.*
+The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcid
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-classiclinkvpcid
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER ClassicLinkVPCSecurityGroups
-        The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
+        *EC2-Classic retires on August 15, 2022. This parameter is not supported after that date.*
+The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
 If you specify the ClassicLinkVPCId property, you must specify this property.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcsecuritygroups
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-classiclinkvpcsecuritygroups
         UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
 
     .PARAMETER EbsOptimized
-        Specifies whether the launch configuration is optimized for EBS I/O true or not false. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see EBS-Optimized Instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html in the *Amazon EC2 User Guide for Linux Instances*.
+        Specifies whether the launch configuration is optimized for EBS I/O true or not false. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see Amazon EBS–optimized instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html in the *Amazon EC2 User Guide for Linux Instances*.
 The default value is false.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ebsoptimized
-        PrimitiveType: Boolean
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-ebsoptimized
         UpdateType: Immutable
+        PrimitiveType: Boolean
 
     .PARAMETER IamInstanceProfile
         Provides the name or the Amazon Resource Name ARN of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
-For more information, see IAM Role for Applications that Run on Amazon EC2 Instances: https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html in the *Amazon EC2 Auto Scaling User Guide*.
+For more information, see IAM role for applications that run on Amazon EC2 instances: https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html in the *Amazon EC2 Auto Scaling User Guide*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-iaminstanceprofile
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-iaminstanceprofile
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER ImageId
-        Provides the unique ID of the Amazon Machine Image AMI that was assigned during registration. For more information, see Finding an AMI: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html in the *Amazon EC2 User Guide for Linux Instances*.
+        Provides the unique ID of the Amazon Machine Image AMI that was assigned during registration. For more information, see Finding a Linux AMI: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html in the *Amazon EC2 User Guide for Linux Instances*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-imageid
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-imageid
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER InstanceId
-        The ID of the Amazon EC2 instance you want to use to create the launch configuration. Use this property if you want the launch configuration to use settings from an existing Amazon EC2 instance.
-When you use an instance to create a launch configuration, all properties are derived from the instance with the exception of BlockDeviceMapping and AssociatePublicIpAddress. You can override any properties from the instance by specifying them in the launch configuration.
+        The ID of the Amazon EC2 instance you want to use to create the launch configuration. Use this property if you want the launch configuration to use settings from an existing Amazon EC2 instance. When you use an instance to create a launch configuration, all properties are derived from the instance with the exception of BlockDeviceMapping and AssociatePublicIpAddress. You can override any properties from the instance by specifying them in the launch configuration.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instanceid
-        PrimitiveType: String
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-instanceid
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER InstanceMonitoring
         Controls whether instances in this group are launched with detailed true or basic false monitoring. The default value is true enabled.
-When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see Configure Monitoring for Auto Scaling Instances: https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics in the *Amazon EC2 Auto Scaling User Guide*.
+When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see Configure monitoring for Auto Scaling instances: https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics in the *Amazon EC2 Auto Scaling User Guide*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancemonitoring
-        PrimitiveType: Boolean
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-instancemonitoring
         UpdateType: Immutable
+        PrimitiveType: Boolean
 
     .PARAMETER InstanceType
-        Specifies the instance type of the EC2 instance. For information about available instance types, see Available Instance Types: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes in the *Amazon EC2 User Guide for Linux Instances*.
+        Specifies the instance type of the EC2 instance. For information about available instance types, see Available instance types: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes in the *Amazon EC2 User Guide for Linux Instances*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancetype
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-instancetype
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER KernelId
         Provides the ID of the kernel associated with the EC2 AMI.
-We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User Provided Kernels: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html in the *Amazon EC2 User Guide for Linux Instances*.
+We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User provided kernels: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html in the *Amazon EC2 User Guide for Linux Instances*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-kernelid
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-kernelid
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER KeyName
         Provides the name of the EC2 key pair.
-If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in. For information on creating a key pair, see Amazon EC2 Key Pairs: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html in the *Amazon EC2 User Guide for Linux Instances*.
+If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in. For information on creating a key pair, see Amazon EC2 key pairs and Linux instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html in the *Amazon EC2 User Guide for Linux Instances*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-keyname
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-keyname
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER LaunchConfigurationName
         The name of the launch configuration. This name must be unique per Region per account.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-launchconfigurationname
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-launchconfigurationname
         UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER MetadataOptions
+        The metadata options for the instances. For more information, see Configuring the Instance Metadata Options: https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds in the *Amazon EC2 Auto Scaling User Guide*.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-metadataoptions
+        UpdateType: Immutable
+        Type: MetadataOptions
 
     .PARAMETER PlacementTenancy
         The tenancy of the instance, either default or dedicated. An instance with dedicated tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. You must set the value of this property to dedicated if want to launch dedicated instances in a shared tenancy VPC a VPC with the instance placement tenancy attribute set to default.
 If you specify this property, you must specify at least one subnet in the VPCZoneIdentifier property of the AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html resource.
-For more information, see Instance Placement Tenancy: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-vpc-tenancy in the *Amazon EC2 Auto Scaling User Guide*.
+For more information, see Configuring instance tenancy with Amazon EC2 Auto Scaling: https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html in the *Amazon EC2 Auto Scaling User Guide*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-placementtenancy
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER RamDiskId
         The ID of the RAM disk to select.
-We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User Provided Kernels: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html in the *Amazon EC2 User Guide for Linux Instances*.
+We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User provided kernels: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html in the *Amazon EC2 User Guide for Linux Instances*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ramdiskid
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-ramdiskid
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER SecurityGroups
         A list that contains the security groups to assign to the instances in the Auto Scaling group. The list can contain both the IDs of existing security groups and references to SecurityGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html resources created in the template.
-For more information, see Security Groups for Your VPC: https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html in the *Amazon Virtual Private Cloud User Guide*.
+For more information, see Security groups for your VPC: https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html in the *Amazon Virtual Private Cloud User Guide*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-securitygroups
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-securitygroups
         UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
 
     .PARAMETER SpotPrice
-        The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see Launching Spot Instances in your Auto Scaling Group: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html in the *Amazon EC2 Auto Scaling User Guide*.
+        The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see Requesting Spot Instances for fault-tolerant and flexible applications : https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configuration-requesting-spot-instances.html in the *Amazon EC2 Auto Scaling User Guide*.
 When you change your maximum price by creating a new launch configuration, running instances will continue to run as long as the maximum price for those running instances is higher than the current Spot price.
+Valid Range: Minimum value of 0.001
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-spotprice
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-spotprice
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER UserData
         The Base64-encoded user data to make available to the launched EC2 instances.
-For more information, see Instance Metadata and User Data: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html in the *Amazon EC2 User Guide for Linux Instances*.
+For more information, see Instance metadata and user data: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html in the *Amazon EC2 User Guide for Linux Instances*.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-userdata
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-userdata
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -366,6 +372,8 @@ For more information, see Instance Metadata and User Data: https://docs.aws.amaz
             })]
         $LaunchConfigurationName,
         [parameter(Mandatory = $false)]
+        $MetadataOptions,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -411,6 +419,17 @@ For more information, see Instance Metadata and User Data: https://docs.aws.amaz
                 }
             })]
         $UserData,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

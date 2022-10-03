@@ -18,7 +18,7 @@ The VolumeFrom property specifies details on a data volume from another containe
         PrimitiveType: Boolean
 
     .PARAMETER SourceContainer
-        The name of another container within the same task definition from which to mount volumes.
+        The name of another container within the same task definition to mount volumes from.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
         UpdateType: Immutable

@@ -18,15 +18,15 @@ This DynamoDB action writes each attribute in the message payload into it's own 
 Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
-        Type: PutItemInput
         UpdateType: Mutable
+        Type: PutItemInput
 
     .PARAMETER RoleArn
         The ARN of the IAM role that grants access to the DynamoDB table.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

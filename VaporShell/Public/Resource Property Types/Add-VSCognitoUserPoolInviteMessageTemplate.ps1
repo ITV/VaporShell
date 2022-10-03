@@ -13,7 +13,7 @@ See also Customizing User Invitation Messages: https://docs.aws.amazon.com/cogni
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-invitemessagetemplate.html
 
     .PARAMETER EmailMessage
-        The message template for email messages.
+        The message template for email messages. EmailMessage is allowed only if EmailSendingAccount: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount is DEVELOPER.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-invitemessagetemplate.html#cfn-cognito-userpool-invitemessagetemplate-emailmessage
         PrimitiveType: String
@@ -27,7 +27,7 @@ See also Customizing User Invitation Messages: https://docs.aws.amazon.com/cogni
         UpdateType: Mutable
 
     .PARAMETER EmailSubject
-        The subject line for email messages.
+        The subject line for email messages. EmailSubject is allowed only if EmailSendingAccount: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount is DEVELOPER.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-invitemessagetemplate.html#cfn-cognito-userpool-invitemessagetemplate-emailsubject
         PrimitiveType: String

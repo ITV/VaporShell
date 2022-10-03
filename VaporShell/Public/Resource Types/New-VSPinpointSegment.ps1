@@ -1,10 +1,10 @@
 function New-VSPinpointSegment {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Segment resource to the template. A *segment* designates which users receive messages from a campaign or journey, typically a group of customers that share certain attributes. The AWS::Pinpoint::Segment resource defines the configuration, dimension, and other settings for a segment.
+        Adds an AWS::Pinpoint::Segment resource to the template. Updates the configuration, dimension, and other settings for an existing segment.
 
     .DESCRIPTION
-        Adds an AWS::Pinpoint::Segment resource to the template. A *segment* designates which users receive messages from a campaign or journey, typically a group of customers that share certain attributes. The AWS::Pinpoint::Segment resource defines the configuration, dimension, and other settings for a segment.
+        Adds an AWS::Pinpoint::Segment resource to the template. Updates the configuration, dimension, and other settings for an existing segment.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html
@@ -34,7 +34,8 @@ function New-VSPinpointSegment {
         UpdateType: Immutable
 
     .PARAMETER Tags
-        A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.
+        An array of key-value pairs to apply to this resource.
+For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-tags
         PrimitiveType: Json
@@ -146,6 +147,17 @@ function New-VSPinpointSegment {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

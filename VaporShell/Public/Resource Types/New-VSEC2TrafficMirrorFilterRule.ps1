@@ -38,7 +38,7 @@ You need the Traffic Mirror filter ID when you create the rule.
         UpdateType: Mutable
 
     .PARAMETER RuleAction
-        The action to take accept | reject on the filtered traffic.
+        The action to take on the filtered traffic.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-ruleaction
         PrimitiveType: String
@@ -73,7 +73,7 @@ You need the Traffic Mirror filter ID when you create the rule.
         UpdateType: Immutable
 
     .PARAMETER TrafficDirection
-        The type of traffic ingress | egress.
+        The type of traffic.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-trafficdirection
         PrimitiveType: String
@@ -241,6 +241,17 @@ For information about the protocol value, see Protocol Numbers: https://www.iana
                 }
             })]
         $Protocol,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

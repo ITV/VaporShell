@@ -1,28 +1,24 @@
 function Add-VSRedshiftClusterParameterGroupParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::Redshift::ClusterParameterGroup.Parameter resource property to the template. Describes a parameter in a cluster parameter group.
+        Adds an AWS::Redshift::ClusterParameterGroup.Parameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Redshift::ClusterParameterGroup.Parameter resource property to the template.
-Describes a parameter in a cluster parameter group.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-clusterparametergroup-parameter.html
 
     .PARAMETER ParameterName
-        The name of the parameter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametername
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametername
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER ParameterValue
-        The value of the parameter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametervalue
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametervalue
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

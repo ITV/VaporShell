@@ -1,20 +1,20 @@
 function Add-VSPinpointPushTemplateAPNSPushNotificationTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::PushTemplate.APNSPushNotificationTemplate resource property to the template. The AWS::Pinpoint::PushTemplate APNSPushNotificationTemplate resource defines channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service channel.
+        Adds an AWS::Pinpoint::PushTemplate.APNSPushNotificationTemplate resource property to the template. Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service channel.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::PushTemplate.APNSPushNotificationTemplate resource property to the template.
-The AWS::Pinpoint::PushTemplate APNSPushNotificationTemplate resource defines channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service channel.
+Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service channel.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html
 
     .PARAMETER Action
         The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:
-+  OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
-+  DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS platform.
-+  URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
++  OPEN_APP – Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
++  DEEP_LINK – Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS platform.
++  URL – The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html#cfn-pinpoint-pushtemplate-apnspushnotificationtemplate-action
         PrimitiveType: String

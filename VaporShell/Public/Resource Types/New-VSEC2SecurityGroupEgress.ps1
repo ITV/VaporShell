@@ -10,6 +10,8 @@ An outbound rule permits instances to send traffic to the specified destination 
 
 You specify a protocol for each rule (for example, TCP. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.
 
+You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId or a CIDR range (CidrIp or CidrIpv6. If you do not specify one of these parameters, the stack will launch successfully but the rule will not be added to the security group.
+
 Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.
 
 For more information about VPC security group limits, see Amazon VPC Limits: https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html.
@@ -23,7 +25,7 @@ Use AWS::EC2::SecurityGroupIngress and AWS::EC2::SecurityGroupEgress only when n
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CidrIp
-        The IPv4 ranges.
+        The IPv4 address range, in CIDR format.
 You must specify a destination security group DestinationPrefixListId or DestinationSecurityGroupId or a CIDR range CidrIp or CidrIpv6.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidrip
@@ -31,7 +33,7 @@ You must specify a destination security group DestinationPrefixListId or Destina
         UpdateType: Immutable
 
     .PARAMETER CidrIpv6
-        The IPv6 ranges.
+        The IPv6 address range, in CIDR format.
 You must specify a destination security group DestinationPrefixListId or DestinationSecurityGroupId or a CIDR range CidrIp or CidrIpv6.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidripv6
@@ -251,6 +253,17 @@ VPC only] Use -1 to specify all protocols. When authorizing security group rules
                 }
             })]
         $ToPort,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

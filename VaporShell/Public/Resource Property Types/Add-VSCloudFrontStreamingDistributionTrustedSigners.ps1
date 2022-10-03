@@ -1,30 +1,24 @@
 function Add-VSCloudFrontStreamingDistributionTrustedSigners {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::StreamingDistribution.TrustedSigners resource property to the template. Specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content.
+        Adds an AWS::CloudFront::StreamingDistribution.TrustedSigners resource property to the template. A list of AWS accounts whose public keys CloudFront can use to verify the signatures of signed URLs and signed cookies.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::StreamingDistribution.TrustedSigners resource property to the template.
-Specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content.
-
-If you want to require signed URLs in requests for objects in the target origin, specify true for Enabled, and specify a list of AWS account IDs. For more information, see Serving Private Content through CloudFront: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html in the * Amazon CloudFront Developer Guide*.
-
-If you don't want to require signed URLs in requests for objects, specify false for Enabled and omit the list of AWS account IDs.
+A list of AWS accounts whose public keys CloudFront can use to verify the signatures of signed URLs and signed cookies.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html
 
     .PARAMETER Enabled
-        Specifies whether you want to require viewers to use signed URLs to access the files specified by PathPattern and TargetOriginId.
+        This field is true if any of the AWS accounts have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER AwsAccountNumbers
-        An AWS account that is included in the TrustedSigners complex type for this distribution. Valid values include:
-+  self, which is the AWS account used to create the distribution.
-+ An AWS account number.
+        An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is self.
 
         PrimitiveItemType: String
         Type: List

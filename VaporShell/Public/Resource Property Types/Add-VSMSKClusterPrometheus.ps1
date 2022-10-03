@@ -13,16 +13,16 @@ Prometheus settings for open monitoring.
     .PARAMETER JmxExporter
         Indicates whether you want to enable or disable the JMX Exporter.
 
-        Type: JmxExporter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-jmxexporter
         UpdateType: Mutable
+        Type: JmxExporter
 
     .PARAMETER NodeExporter
         Indicates whether you want to enable or disable the Node Exporter.
 
-        Type: NodeExporter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-nodeexporter
         UpdateType: Mutable
+        Type: NodeExporter
 
     .FUNCTIONALITY
         Vaporshell

@@ -7,13 +7,13 @@ function Add-VSSageMakerEndpointVariantProperty {
         Adds an AWS::SageMaker::Endpoint.VariantProperty resource property to the template.
 Specifies a production variant property type for an Endpoint.
 
-If you are updating an Endpoint with the RetainAllVariantProperties: https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-RetainAllVariantProperties option set to true, the VarientProperty objects listed in ExcludeRetainedVariantProperties: https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-ExcludeRetainedVariantProperties override the existing varient properties of the Endpoint.
+If you are updating an Endpoint with the RetainAllVariantProperties: https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-RetainAllVariantProperties option set to true, the VarientProperty objects listed in ExcludeRetainedVariantProperties: https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-ExcludeRetainedVariantProperties override the existing variant properties of the Endpoint.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html
 
     .PARAMETER VariantPropertyType
-        The type of varient property. The supported values are:
+        The type of variant property. The supported values are:
 + DesiredInstanceCount: Overrides the existing variant instance counts using the InitialInstanceCount: https://docs.aws.amazon.com/sagemaker/latest/dg/API_ProductionVariant.html#SageMaker-Type-ProductionVariant-InitialInstanceCount values in the ProductionVariants: https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html#SageMaker-CreateEndpointConfig-request-ProductionVariants.
 + DesiredWeight: Overrides the existing variant weights using the InitialVariantWeight: https://docs.aws.amazon.com/sagemaker/latest/dg/API_ProductionVariant.html#SageMaker-Type-ProductionVariant-InitialVariantWeight values in the ProductionVariants: https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html#SageMaker-CreateEndpointConfig-request-ProductionVariants.
 + DataCaptureConfig: Not currently supported.

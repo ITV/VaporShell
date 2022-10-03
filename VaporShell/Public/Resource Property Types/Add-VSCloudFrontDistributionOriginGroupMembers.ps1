@@ -14,16 +14,17 @@ A complex data type for the origins included in an origin group.
         The number of origins in an origin group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER Items
         Items origins in an origin group.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
-        ItemType: OriginGroupMember
         UpdateType: Mutable
+        Type: List
+        ItemType: OriginGroupMember
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

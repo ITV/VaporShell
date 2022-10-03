@@ -27,7 +27,7 @@ Naming an IAM resource can cause an unrecoverable error if you reuse the same te
 
     .PARAMETER ManagedPolicyArns
         The Amazon Resource Name ARN of the IAM policy you want to attach.
-For more information about ARNs, see Amazon Resource Names ARNs and AWS Service Namespaces: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html in the *AWS General Reference*.
+For more information about ARNs, see Amazon Resource Names ARNs: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html in the * AWS General Reference*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-managepolicyarns
         DuplicatesAllowed: False
@@ -36,7 +36,7 @@ For more information about ARNs, see Amazon Resource Names ARNs and AWS Service 
         UpdateType: Mutable
 
     .PARAMETER Path
-        The path to the group. For more information about paths, see IAM Identifiers: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html in the *IAM User Guide*.
+        The path to the group. For more information about paths, see IAM identifiers: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html in the *IAM User Guide*.
 This parameter is optional. If it is not included, it defaults to a slash /.
 This parameter allows through its regex pattern: http://wikipedia.org/wiki/regex a string of characters consisting of either a forward slash / by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! u0021 through the DEL character u007F, including most punctuation characters, digits, and upper and lowercased letters.
 
@@ -152,6 +152,17 @@ For information about limits on the number of inline policies that you can embed
                 }
             })]
         $Policies,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

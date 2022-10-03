@@ -1,13 +1,13 @@
 function Add-VSEC2LaunchTemplateSpotOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.SpotOptions resource property to the template. Specifies options for Spot instances.
+        Adds an AWS::EC2::LaunchTemplate.SpotOptions resource property to the template. Specifies options for Spot Instances.
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.SpotOptions resource property to the template.
-Specifies options for Spot instances.
+Specifies options for Spot Instances.
 
-SpotOptions is a property of the Amazon EC2 LaunchTemplate InstanceMarketOptions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html property type.
+SpotOptions is a property of AWS::EC2::LaunchTemplate InstanceMarketOptions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html

@@ -1,10 +1,10 @@
 function New-VSPinpointCampaign {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Campaign resource to the template. A *campaign* is a messaging initiative that engages a specific segment of users for an Amazon Pinpoint application. The AWS::Pinpoint::Campaign resource defines the configuration and other settings for a campaign.
+        Adds an AWS::Pinpoint::Campaign resource to the template. Specifies the settings for a campaign. A *campaign* is a messaging initiative that engages a specific segment of users for an Amazon Pinpoint application.
 
     .DESCRIPTION
-        Adds an AWS::Pinpoint::Campaign resource to the template. A *campaign* is a messaging initiative that engages a specific segment of users for an Amazon Pinpoint application. The AWS::Pinpoint::Campaign resource defines the configuration and other settings for a campaign.
+        Adds an AWS::Pinpoint::Campaign resource to the template. Specifies the settings for a campaign. A *campaign* is a messaging initiative that engages a specific segment of users for an Amazon Pinpoint application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html
@@ -26,8 +26,22 @@ function New-VSPinpointCampaign {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER Priority
+        An integer between 1 and 5, inclusive, that represents the priority of the in-app message campaign, where 1 is the highest priority and 5 is the lowest. If there are multiple messages scheduled to be displayed at the same time, the priority determines the order in which those messages are displayed.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-priority
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
+    .PARAMETER TemplateConfiguration
+        The unique identifier for the campaign.
+
+        Type: TemplateConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-templateconfiguration
+        UpdateType: Mutable
+
     .PARAMETER IsPaused
-        Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.
+        Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false. If you restart a campaign, the campaign restarts from the beginning and not at the point you paused it.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-ispaused
         PrimitiveType: Boolean
@@ -90,6 +104,13 @@ function New-VSPinpointCampaign {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-schedule
         UpdateType: Mutable
 
+    .PARAMETER CustomDeliveryConfiguration
+        The unique identifier for the campaign.
+
+        Type: CustomDeliveryConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-customdeliveryconfiguration
+        UpdateType: Mutable
+
     .PARAMETER ApplicationId
         The unique identifier for the Amazon Pinpoint application that the campaign is associated with.
 
@@ -98,14 +119,15 @@ function New-VSPinpointCampaign {
         UpdateType: Immutable
 
     .PARAMETER CampaignHook
-        Specifies the AWS Lambda function to use as a code hook for a campaign.
+        Specifies the Lambda function to use as a code hook for a campaign.
 
         Type: CampaignHook
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-campaignhook
         UpdateType: Mutable
 
     .PARAMETER Tags
-        A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.
+        An array of key-value pairs to apply to this resource.
+For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-tags
         PrimitiveType: Json
@@ -204,6 +226,19 @@ function New-VSPinpointCampaign {
         $SegmentId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Priority,
+        [parameter(Mandatory = $false)]
+        $TemplateConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -257,7 +292,7 @@ function New-VSPinpointCampaign {
                 }
             })]
         $TreatmentDescription,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $MessageConfiguration,
         [parameter(Mandatory = $false)]
         $Limits,
@@ -274,6 +309,8 @@ function New-VSPinpointCampaign {
         $HoldoutPercent,
         [parameter(Mandatory = $true)]
         $Schedule,
+        [parameter(Mandatory = $false)]
+        $CustomDeliveryConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -309,6 +346,17 @@ function New-VSPinpointCampaign {
                 }
             })]
         $TreatmentName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

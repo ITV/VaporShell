@@ -19,6 +19,7 @@ Specifies the schema to which you want Kinesis Data Firehose to configure your d
 
     .PARAMETER DatabaseName
         Specifies the name of the AWS Glue database that contains the schema for the output data.
+If the SchemaConfiguration request parameter is used as part of invoking the CreateDeliveryStream API, then the DatabaseName property is required and its value must be specified.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-databasename
         UpdateType: Mutable
@@ -33,6 +34,7 @@ Specifies the schema to which you want Kinesis Data Firehose to configure your d
 
     .PARAMETER RoleARN
         The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+If the SchemaConfiguration request parameter is used as part of invoking the CreateDeliveryStream API, then the RoleARN property is required and its value must be specified.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-rolearn
         UpdateType: Mutable
@@ -40,6 +42,7 @@ Specifies the schema to which you want Kinesis Data Firehose to configure your d
 
     .PARAMETER TableName
         Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+If the SchemaConfiguration request parameter is used as part of invoking the CreateDeliveryStream API, then the TableName property is required and its value must be specified.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-tablename
         UpdateType: Mutable

@@ -1,10 +1,10 @@
 function New-VSServiceDiscoveryPrivateDnsNamespace {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceDiscovery::PrivateDnsNamespace resource to the template. Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service will be backend.example.com. For the current limit on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map Limits: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the *AWS Cloud Map Developer Guide*.
+        Adds an AWS::ServiceDiscovery::PrivateDnsNamespace resource to the template. Creates a private namespace based on DNS, which is visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service is backend.example.com. Service instances that are registered using a private DNS namespace can be discovered using either a DiscoverInstances request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map quotas: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the * AWS Cloud Map Developer Guide*.
 
     .DESCRIPTION
-        Adds an AWS::ServiceDiscovery::PrivateDnsNamespace resource to the template. Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service will be backend.example.com. For the current limit on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map Limits: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the *AWS Cloud Map Developer Guide*.
+        Adds an AWS::ServiceDiscovery::PrivateDnsNamespace resource to the template. Creates a private namespace based on DNS, which is visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service is backend.example.com. Service instances that are registered using a private DNS namespace can be discovered using either a DiscoverInstances request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map quotas: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the * AWS Cloud Map Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html
@@ -17,7 +17,7 @@ function New-VSServiceDiscoveryPrivateDnsNamespace {
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-description
         PrimitiveType: String
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER Vpc
         The ID of the Amazon VPC that you want to associate the namespace with.
@@ -26,16 +26,23 @@ function New-VSServiceDiscoveryPrivateDnsNamespace {
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER Properties
+        Properties for the private DNS namespace.
+
+        Type: Properties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-properties
+        UpdateType: Mutable
+
     .PARAMETER Tags
-        +  CreatePrivateDnsNamespace: https://docs.aws.amazon.com/cloud-map/latest/api/API_CreatePrivateDnsNamespace.html in the *AWS Cloud Map API Reference*
+        The tags for the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-tags
         ItemType: Tag
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER Name
-        The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
+        The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-name
         PrimitiveType: String
@@ -125,6 +132,8 @@ function New-VSServiceDiscoveryPrivateDnsNamespace {
                 }
             })]
         $Vpc,
+        [parameter(Mandatory = $false)]
+        $Properties,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -139,6 +148,17 @@ function New-VSServiceDiscoveryPrivateDnsNamespace {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

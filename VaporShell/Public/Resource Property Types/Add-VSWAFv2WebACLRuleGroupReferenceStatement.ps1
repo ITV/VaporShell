@@ -1,17 +1,13 @@
 function Add-VSWAFv2WebACLRuleGroupReferenceStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.RuleGroupReferenceStatement resource property to the template. **Note**
+        Adds an AWS::WAFv2::WebACL.RuleGroupReferenceStatement resource property to the template. A rule statement used to run the rules that are defined in a AWS::WAFv2::RuleGroup: aws-resource-wafv2-rulegroup.md. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.RuleGroupReferenceStatement resource property to the template.
-**Note**
+A rule statement used to run the rules that are defined in a AWS::WAFv2::RuleGroup: aws-resource-wafv2-rulegroup.md. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.
 
-This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
-A rule statement used to run the rules that are defined in a RuleGroup. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.
-
-You cannot nest a RuleGroupReferenceStatement, for example for use inside a NotStatement or OrStatement. It can only be referenced as a top-level statement within a rule.
+You cannot nest a RuleGroupReferenceStatement, for example for use inside a NotStatement or OrStatement. You can only use a rule group reference statement at the top level inside a web ACL.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
@@ -24,7 +20,7 @@ You cannot nest a RuleGroupReferenceStatement, for example for use inside a NotS
         PrimitiveType: String
 
     .PARAMETER ExcludedRules
-        The names of rules that are in the referenced rule group, but that you want AWS WAF to exclude from processing for this rule statement.
+        The rules in the referenced rule group whose actions are set to Count. When you exclude a rule, AWS WAF evaluates it exactly as it would if the rule action setting were Count. This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
         UpdateType: Mutable

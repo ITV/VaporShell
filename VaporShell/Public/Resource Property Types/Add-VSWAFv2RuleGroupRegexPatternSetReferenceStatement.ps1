@@ -1,15 +1,11 @@
 function Add-VSWAFv2RuleGroupRegexPatternSetReferenceStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.RegexPatternSetReferenceStatement resource property to the template. **Note**
+        Adds an AWS::WAFv2::RuleGroup.RegexPatternSetReferenceStatement resource property to the template. A rule statement used to search web request components for matches with regular expressions. To use this, create a AWS::WAFv2::RegexPatternSet: aws-resource-wafv2-regexpatternset.md that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.RegexPatternSetReferenceStatement resource property to the template.
-**Note**
-
-This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
-A rule statement used to search web request components for matches with regular expressions. To use this, create a RegexPatternSet that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set. To create a regex pattern set, see CreateRegexPatternSet.
+A rule statement used to search web request components for matches with regular expressions. To use this, create a AWS::WAFv2::RegexPatternSet: aws-resource-wafv2-regexpatternset.md that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 
 Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 
@@ -17,14 +13,14 @@ Each regex pattern set rule statement references a regex pattern set. You create
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the RegexPatternSet that this statement references.
+        The Amazon Resource Name ARN of the regular expression pattern set that this statement references.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER FieldToMatch
-        The part of a web request that you want AWS WAF to inspect. For more information, see FieldToMatch.
+        The part of a web request that you want AWS WAF to inspect.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
         UpdateType: Mutable

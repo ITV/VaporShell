@@ -14,16 +14,17 @@ A complex data type for the status codes that you specify that, when returned by
         The number of status codes.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER Items
         The items status codes for an origin group.
 
-        PrimitiveItemType: Integer
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: Integer
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

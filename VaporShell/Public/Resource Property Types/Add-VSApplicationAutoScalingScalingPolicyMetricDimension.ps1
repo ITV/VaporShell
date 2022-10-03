@@ -1,11 +1,11 @@
 function Add-VSApplicationAutoScalingScalingPolicyMetricDimension {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension resource property to the template. MetricDimension is a subproperty of CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html that specifies the dimensions of a metric for a target tracking scaling policy. Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric. Duplicate dimensions are not allowed.
+        Adds an AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension resource property to the template. MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension resource property to the template.
-MetricDimension is a subproperty of CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html that specifies the dimensions of a metric for a target tracking scaling policy. Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric. Duplicate dimensions are not allowed.
+MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html

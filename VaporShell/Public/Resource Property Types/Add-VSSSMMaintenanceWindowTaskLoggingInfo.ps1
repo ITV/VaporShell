@@ -11,7 +11,7 @@ LoggingInfo is a property of the AWS::SSM::MaintenanceWindowTask: https://docs.a
 
 **Note**
 
-LoggingInfo has been deprecated. To specify an S3 bucket to contain logs, instead use the OutputS3BucketName and OutputS3KeyPrefix options in the TaskInvocationParameters structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see AWS Systems Manager MaintenanceWindowTask TaskInvocationParameters: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html.
+LoggingInfo has been deprecated. To specify an Amazon S3 bucket to contain logs, instead use the OutputS3BucketName and OutputS3KeyPrefix options in the TaskInvocationParameters structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see AWS Systems Manager MaintenanceWindowTask TaskInvocationParameters: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html
@@ -24,7 +24,7 @@ LoggingInfo has been deprecated. To specify an S3 bucket to contain logs, instea
         UpdateType: Mutable
 
     .PARAMETER Region
-        The Region where the S3 bucket is located.
+        The AWS Region where the S3 bucket is located.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-region
         PrimitiveType: String

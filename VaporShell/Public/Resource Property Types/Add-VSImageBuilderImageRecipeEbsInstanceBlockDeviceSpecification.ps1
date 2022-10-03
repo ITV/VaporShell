@@ -45,6 +45,13 @@ The image recipe EBS instance block device specification includes the Amazon EBS
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER Throughput
+        **For GP3 volumes only** – The throughput in MiB/s that the volume supports.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-throughput
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
     .PARAMETER VolumeSize
         Overrides the volume size of the device.
 
@@ -121,6 +128,17 @@ The image recipe EBS instance block device specification includes the Amazon EBS
                 }
             })]
         $SnapshotId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Throughput,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

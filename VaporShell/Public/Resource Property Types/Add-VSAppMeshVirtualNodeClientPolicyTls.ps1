@@ -32,6 +32,13 @@ A reference to an object that represents a Transport Layer Security (TLS client 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-ports
         UpdateType: Mutable
 
+    .PARAMETER Certificate
+        A reference to an object that represents a client's TLS certificate.
+
+        Type: ClientTlsCertificate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-certificate
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -53,7 +60,9 @@ A reference to an object that represents a Transport Layer Security (TLS client 
             })]
         $Enforce,
         [parameter(Mandatory = $false)]
-        $Ports
+        $Ports,
+        [parameter(Mandatory = $false)]
+        $Certificate
     )
     Begin {
         $obj = [PSCustomObject]@{}

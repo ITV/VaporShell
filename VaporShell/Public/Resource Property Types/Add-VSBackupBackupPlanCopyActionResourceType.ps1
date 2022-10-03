@@ -1,28 +1,29 @@
 function Add-VSBackupBackupPlanCopyActionResourceType {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupPlan.CopyActionResourceType resource property to the template. <a name="aws-properties-backup-backupplan-copyactionresourcetype-description"></a>The CopyActionResourceType property type specifies Not currently supported by AWS CloudFormation. for an AWS::Backup::BackupPlan: aws-resource-backup-backupplan.md.
+        Adds an AWS::Backup::BackupPlan.CopyActionResourceType resource property to the template. Copies backups created by a backup rule to another vault.
 
     .DESCRIPTION
         Adds an AWS::Backup::BackupPlan.CopyActionResourceType resource property to the template.
-<a name="aws-properties-backup-backupplan-copyactionresourcetype-description"></a>The CopyActionResourceType property type specifies Not currently supported by AWS CloudFormation. for an AWS::Backup::BackupPlan: aws-resource-backup-backupplan.md.
+Copies backups created by a backup rule to another vault.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html
 
     .PARAMETER Lifecycle
-        Not currently supported by AWS CloudFormation.
+        Defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
+Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
 
-        Type: LifecycleResourceType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle
         UpdateType: Mutable
+        Type: LifecycleResourceType
 
     .PARAMETER DestinationBackupVaultArn
-        Not currently supported by AWS CloudFormation.
+        An Amazon Resource Name ARN that uniquely identifies the destination backup vault for the copied backup. For example, arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

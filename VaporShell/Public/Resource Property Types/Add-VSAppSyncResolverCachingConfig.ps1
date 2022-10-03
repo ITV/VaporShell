@@ -1,18 +1,18 @@
 function Add-VSAppSyncResolverCachingConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::Resolver.CachingConfig resource property to the template. The caching configuration for a resolver that has caching enabled.
+        Adds an AWS::AppSync::Resolver.CachingConfig resource property to the template. The caching configuration for a resolver that has caching activated.
 
     .DESCRIPTION
         Adds an AWS::AppSync::Resolver.CachingConfig resource property to the template.
-The caching configuration for a resolver that has caching enabled.
+The caching configuration for a resolver that has caching activated.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html
 
     .PARAMETER CachingKeys
-        The caching keys for a resolver that has caching enabled.
-Valid values are entries from the $context.identity and $context.arguments maps.
+        The caching keys for a resolver that has caching activated.
+Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 
         PrimitiveItemType: String
         Type: List
@@ -20,8 +20,8 @@ Valid values are entries from the $context.identity and $context.arguments maps.
         UpdateType: Mutable
 
     .PARAMETER Ttl
-        The TTL in seconds for a resolver that has caching enabled.
-Valid values are between 1 and 3600 seconds.
+        The TTL in seconds for a resolver that has caching activated.
+Valid values are 1–3,600 seconds.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html#cfn-appsync-resolver-cachingconfig-ttl
         PrimitiveType: Double
@@ -36,7 +36,7 @@ Valid values are between 1 and 3600 seconds.
     (
         [parameter(Mandatory = $false)]
         $CachingKeys,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

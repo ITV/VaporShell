@@ -12,99 +12,123 @@ function New-VSAmplifyApp {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER AccessToken
+        Personal Access token for 3rd party source control system for an Amplify app, used to create webhook and read-only deploy key. Token is not stored.
+*Length Constraints:* Minimum length of 1. Maximum length of 255.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER AutoBranchCreationConfig
         Sets the configuration for your automatic branch creation.
 
-        Type: AutoBranchCreationConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
         UpdateType: Mutable
-
-    .PARAMETER OauthToken
-        OAuth token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key. OAuth token is not stored.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER Description
-        Description for an Amplify App
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER EnableBranchAutoDeletion
-        Default domain for the Amplify App.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
-        PrimitiveType: Boolean
-        UpdateType: Mutable
-
-    .PARAMETER Name
-        Name for the Amplify App
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER Repository
-        Repository for an Amplify App
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER EnvironmentVariables
-        Environment variables map for an Amplify App.
-
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
-        ItemType: EnvironmentVariable
-        UpdateType: Mutable
-
-    .PARAMETER AccessToken
-        Personal Access token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key. Token is not stored.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER BuildSpec
-        BuildSpec for an Amplify App
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER CustomRules
-        Custom rewrite / redirect rules for an Amplify App.
-
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
-        ItemType: CustomRule
-        UpdateType: Mutable
+        Type: AutoBranchCreationConfig
 
     .PARAMETER BasicAuthConfig
-        Credentials for Basic Authorization for an Amplify App.
+        The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format user:password.
 
-        Type: BasicAuthConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
         UpdateType: Mutable
+        Type: BasicAuthConfig
 
-    .PARAMETER Tags
-        Tag for an Amplify App
+    .PARAMETER BuildSpec
+        The build specification build spec for an Amplify app.
+*Length Constraints:* Minimum length of 1. Maximum length of 25000.
+*Pattern:* ?s.+
 
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
-        ItemType: Tag
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER CustomHeaders
+        The custom HTTP headers for an Amplify app.
+*Length Constraints:* Minimum length of 0. Maximum length of 25000.
+*Pattern:* ?s.*
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER CustomRules
+        The custom rewrite and redirect rules for an Amplify app.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
+        UpdateType: Mutable
+        Type: List
+        ItemType: CustomRule
+        DuplicatesAllowed: True
+
+    .PARAMETER Description
+        The description for an Amplify app.
+*Length Constraints:* Maximum length of 1000.
+*Pattern:* ?s.*
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER EnableBranchAutoDeletion
+        Automatically disconnect a branch in the Amplify Console when you delete a branch from your Git repository.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER EnvironmentVariables
+        The environment variables map for an Amplify app.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
+        UpdateType: Mutable
+        Type: List
+        ItemType: EnvironmentVariable
+        DuplicatesAllowed: True
 
     .PARAMETER IAMServiceRole
-        IAM service role ARN for the Amplify App.
+        The AWS Identity and Access Management IAM service role for the Amazon Resource Name ARN of the Amplify app.
+*Length Constraints:* Minimum length of 0. Maximum length of 1000.
+*Pattern:* ?s.*
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Name
+        The name for an Amplify app.
+*Length Constraints:* Minimum length of 1. Maximum length of 255.
+*Pattern:* ?s.+
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER OauthToken
+        The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+*Length Constraints:* Maximum length of 1000.
+*Pattern:* ?s.*
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Repository
+        The repository for an Amplify app.
+*Pattern:* ?s.*
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
+        The tag for an Amplify app.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -169,7 +193,20 @@ function New-VSAmplifyApp {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AccessToken,
+        [parameter(Mandatory = $false)]
         $AutoBranchCreationConfig,
+        [parameter(Mandatory = $false)]
+        $BasicAuthConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -180,7 +217,29 @@ function New-VSAmplifyApp {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OauthToken,
+        $BuildSpec,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomHeaders,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Amplify.App.CustomRule"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomRules,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -203,28 +262,6 @@ function New-VSAmplifyApp {
                 }
             })]
         $EnableBranchAutoDeletion,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Repository,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Amplify.App.EnvironmentVariable"
@@ -246,7 +283,18 @@ function New-VSAmplifyApp {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AccessToken,
+        $IAMServiceRole,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -257,10 +305,10 @@ function New-VSAmplifyApp {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $BuildSpec,
+        $OauthToken,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Amplify.App.CustomRule"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -268,15 +316,13 @@ function New-VSAmplifyApp {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CustomRules,
-        [parameter(Mandatory = $false)]
-        $BasicAuthConfig,
+        $Repository,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -284,7 +330,7 @@ function New-VSAmplifyApp {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IAMServiceRole,
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -348,17 +394,17 @@ function New-VSAmplifyApp {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                EnvironmentVariables {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name EnvironmentVariables -Value @($EnvironmentVariables)
-                }
                 CustomRules {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CustomRules -Value @($CustomRules)
+                }
+                EnvironmentVariables {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name EnvironmentVariables -Value @($EnvironmentVariables)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

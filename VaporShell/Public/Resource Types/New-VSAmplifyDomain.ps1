@@ -12,49 +12,57 @@ function New-VSAmplifyDomain {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER SubDomainSettings
-        Setting structure for the Subdomain.
-
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-        ItemType: SubDomainSetting
-        UpdateType: Mutable
-
     .PARAMETER AppId
-        Unique Id for an Amplify App.
+        The unique ID for an Amplify app.
+*Length Constraints:* Minimum length of 1. Maximum length of 20.
+*Pattern:* da-z0-9]+
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-        PrimitiveType: String
         UpdateType: Immutable
-
-    .PARAMETER AutoSubDomainIAMRole
-        Reason for the current status of the domain.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
         PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER DomainName
-        Domain name for the Domain Association.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
-        PrimitiveType: String
-        UpdateType: Immutable
-
-    .PARAMETER EnableAutoSubDomain
-        Reason for the current status of the domain.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
-        PrimitiveType: Boolean
-        UpdateType: Mutable
 
     .PARAMETER AutoSubDomainCreationPatterns
-        Reason for the current status of the domain.
+        Sets the branch patterns for automatic subdomain creation.
 
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER AutoSubDomainIAMRole
+        The required AWS Identity and Access Management IAM service role for the Amazon Resource Name ARN for automatically creating subdomains.
+*Length Constraints:* Maximum length of 1000.
+*Pattern:* ^$|^arn:aws:iam::d{12}:role.+
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DomainName
+        The domain name for the domain association.
+*Length Constraints:* Maximum length of 255.
+*Pattern:* ^?!-A-Za-z0-9-]{0,62}A-Za-z0-9].+?!-A-Za-z0-9-]{1,62}A-Za-z0-9: .?$
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER EnableAutoSubDomain
+        Enables the automated creation of subdomains for branches.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER SubDomainSettings
+        The setting for the subdomain.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
+        UpdateType: Mutable
+        Type: List
+        ItemType: SubDomainSetting
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -120,17 +128,6 @@ function New-VSAmplifyDomain {
         $LogicalId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Amplify.Domain.SubDomainSetting"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SubDomainSettings,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -140,6 +137,8 @@ function New-VSAmplifyDomain {
                 }
             })]
         $AppId,
+        [parameter(Mandatory = $false)]
+        $AutoSubDomainCreationPatterns,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -173,8 +172,28 @@ function New-VSAmplifyDomain {
                 }
             })]
         $EnableAutoSubDomain,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Amplify.Domain.SubDomainSetting"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SubDomainSettings,
         [parameter(Mandatory = $false)]
-        $AutoSubDomainCreationPatterns,
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -238,17 +257,17 @@ function New-VSAmplifyDomain {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                SubDomainSettings {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SubDomainSettings -Value @($SubDomainSettings)
-                }
                 AutoSubDomainCreationPatterns {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AutoSubDomainCreationPatterns -Value @($AutoSubDomainCreationPatterns)
+                }
+                SubDomainSettings {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SubDomainSettings -Value @($SubDomainSettings)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

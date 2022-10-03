@@ -15,7 +15,7 @@ You can specify risk configuration for a single client (with a specific clientId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CompromisedCredentialsRiskConfiguration
-        The compromised credentials risk configuration object including the EventFilter and the EventAction
+        The compromised credentials risk configuration object, including the EventFilter and the EventAction.
 
         Type: CompromisedCredentialsRiskConfigurationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfiguration
@@ -36,7 +36,7 @@ You can specify risk configuration for a single client (with a specific clientId
         UpdateType: Immutable
 
     .PARAMETER AccountTakeoverRiskConfiguration
-        The account takeover risk configuration object including the NotifyConfiguration object and Actions to take in the case of an account takeover.
+        The account takeover risk configuration object, including the NotifyConfiguration object and Actions to take if there is an account takeover.
 
         Type: AccountTakeoverRiskConfigurationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfiguration
@@ -141,6 +141,17 @@ You can specify risk configuration for a single client (with a specific clientId
         $AccountTakeoverRiskConfiguration,
         [parameter(Mandatory = $false)]
         $RiskExceptionConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

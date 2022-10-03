@@ -6,6 +6,12 @@ function New-VSAppSyncFunctionConfiguration {
     .DESCRIPTION
         Adds an AWS::AppSync::FunctionConfiguration resource to the template. The AWS::AppSync::FunctionConfiguration resource defines the functions in GraphQL APIs to perform certain operations. You can use pipeline resolvers to attach functions. For more information, see Pipeline Resolvers: https://docs.aws.amazon.com/appsync/latest/devguide/pipeline-resolvers.html in the *AWS AppSync Developer Guide*.
 
+**Note**
+
+When you submit an update, AWS CloudFormation updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the AWS CloudFormation template. Changing the Amazon S3 file content without changing a property value will not result in an update operation.
+
+See Update Behaviors of Stack Resources: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html in the *AWS CloudFormation User Guide*.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html
 
@@ -48,14 +54,30 @@ function New-VSAppSyncFunctionConfiguration {
         UpdateType: Mutable
 
     .PARAMETER FunctionVersion
-        The version of the request mapping template. Currently only the 2018-05-29 version of the template is supported.
+        The version of the request mapping template. Currently, only the 2018-05-29 version of the template is supported.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-functionversion
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER MaxBatchSize
+        The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-maxbatchsize
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
+    .PARAMETER SyncConfig
+        Describes a Sync configuration for a resolver.
+Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+
+        Type: SyncConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-syncconfig
+        UpdateType: Mutable
+
     .PARAMETER RequestMappingTemplateS3Location
-        The location of a request mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+        Describes a Sync configuration for a resolver.
+Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-requestmappingtemplates3location
         PrimitiveType: String
@@ -205,6 +227,19 @@ function New-VSAppSyncFunctionConfiguration {
         $FunctionVersion,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxBatchSize,
+        [parameter(Mandatory = $false)]
+        $SyncConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -236,6 +271,17 @@ function New-VSAppSyncFunctionConfiguration {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

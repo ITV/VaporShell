@@ -7,6 +7,10 @@ function Add-VSCodeCommitRepositoryRepositoryTrigger {
         Adds an AWS::CodeCommit::Repository.RepositoryTrigger resource property to the template.
 Information about a trigger for a repository.
 
+**Note**
+
+If you want to receive notifications about repository events, consider using notifications instead of triggers. For more information, see Configuring notifications for repository events: https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-repository-email.html.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html
 

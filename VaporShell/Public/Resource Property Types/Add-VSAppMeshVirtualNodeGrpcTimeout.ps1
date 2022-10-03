@@ -1,21 +1,25 @@
 function Add-VSAppMeshVirtualNodeGrpcTimeout {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.GrpcTimeout resource property to the template. 
+        Adds an AWS::AppMesh::VirtualNode.GrpcTimeout resource property to the template. An object that represents types of timeouts.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.GrpcTimeout resource property to the template.
-
+An object that represents types of timeouts.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-grpctimeout.html
 
     .PARAMETER PerRequest
+        An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.
+
         Type: Duration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-grpctimeout.html#cfn-appmesh-virtualnode-grpctimeout-perrequest
         UpdateType: Mutable
 
     .PARAMETER Idle
+        An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
+
         Type: Duration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-grpctimeout.html#cfn-appmesh-virtualnode-grpctimeout-idle
         UpdateType: Mutable

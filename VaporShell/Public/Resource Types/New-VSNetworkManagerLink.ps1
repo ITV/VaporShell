@@ -35,8 +35,7 @@ function New-VSNetworkManagerLink {
 
     .PARAMETER Provider
         The provider of the link.
-Constraints: Cannot include the following characters: |  ^
-Length Constraints: Maximum length of 128 characters.
+Constraints: Maximum length of 128 characters. Cannot include the following characters: |  ^
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
         UpdateType: Mutable
@@ -44,7 +43,7 @@ Length Constraints: Maximum length of 128 characters.
 
     .PARAMETER Description
         A description of the link.
-Length Constraints: Maximum length of 256 characters.
+Constraints: Maximum length of 256 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
         UpdateType: Mutable
@@ -60,8 +59,7 @@ Length Constraints: Maximum length of 256 characters.
 
     .PARAMETER Type
         The type of the link.
-Constraints: Cannot include the following characters: |  ^
-Length Constraints: Maximum length of 128 characters.
+Constraints: Maximum length of 128 characters. Cannot include the following characters: |  ^
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
         UpdateType: Mutable
@@ -189,6 +187,17 @@ Length Constraints: Maximum length of 128 characters.
                 }
             })]
         $Type,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

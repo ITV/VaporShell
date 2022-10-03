@@ -1,14 +1,10 @@
 function Add-VSWAFv2WebACLOverrideAction {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.OverrideAction resource property to the template. **Note**
+        Adds an AWS::WAFv2::WebACL.OverrideAction resource property to the template. The action to use to override the Action settings on the rules in the web ACL. You can use none, in which case the rule actions are in effect, or count, in which case, if a rule matches a web request, it only counts the match.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.OverrideAction resource property to the template.
-**Note**
-
-This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
 The action to use to override the Action settings on the rules in the web ACL. You can use none, in which case the rule actions are in effect, or count, in which case, if a rule matches a web request, it only counts the match.
 
     .LINK

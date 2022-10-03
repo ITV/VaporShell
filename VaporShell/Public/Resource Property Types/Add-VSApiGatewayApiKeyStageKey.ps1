@@ -14,15 +14,15 @@ StageKey is a property of the AWS::ApiGateway::ApiKey: https://docs.aws.amazon.c
         The ID of a RestApi resource that includes the stage with which you want to associate the API key.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER StageName
         The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

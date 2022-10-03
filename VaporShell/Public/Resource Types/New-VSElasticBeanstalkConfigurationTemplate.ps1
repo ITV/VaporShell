@@ -38,7 +38,7 @@ The Elastic Beanstalk console and documentation often refer to configuration tem
         UpdateType: Immutable
 
     .PARAMETER OptionSettings
-        Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see Option Values: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html in the *AWS Elastic Beanstalk Developer Guide*.
+        Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see Option Values: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html in the * AWS Elastic Beanstalk Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-optionsettings
         DuplicatesAllowed: True
@@ -47,7 +47,7 @@ The Elastic Beanstalk console and documentation often refer to configuration tem
         UpdateType: Mutable
 
     .PARAMETER PlatformArn
-        The Amazon Resource Name ARN of the custom platform. For more information, see  Custom Platforms: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html in the *AWS Elastic Beanstalk Developer Guide*.
+        The Amazon Resource Name ARN of the custom platform. For more information, see  Custom Platforms: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html in the * AWS Elastic Beanstalk Developer Guide*.
 If you specify PlatformArn, then don't specify SolutionStackName.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-platformarn
@@ -55,9 +55,9 @@ If you specify PlatformArn, then don't specify SolutionStackName.
         UpdateType: Immutable
 
     .PARAMETER SolutionStackName
-        The name of an Elastic Beanstalk solution stack platform version that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see Supported Platforms: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html in the *AWS Elastic Beanstalk Developer Guide*.
+        The name of an Elastic Beanstalk solution stack platform version that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see Supported Platforms: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html in the * AWS Elastic Beanstalk Developer Guide*.
 You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.
-Use the  ListAvailableSolutionStacks : https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html API to obtain a list of available solution stacks.
+Use the https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html: https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html API to obtain a list of available solution stacks.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-solutionstackname
         PrimitiveType: String
@@ -203,6 +203,17 @@ Constraint: If both solution stack name and source configuration are specified, 
         $SolutionStackName,
         [parameter(Mandatory = $false)]
         $SourceConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

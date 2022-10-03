@@ -17,6 +17,20 @@ A structure for the table object. A table is a metadata definition that represen
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER CatalogId
+        Not currently supported by AWS CloudFormation.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER TableWildcard
+        An empty object representing all tables under a database. If this field is specified instead of the Name field, all tables under DatabaseName will have permission changes applied.
+
+        Type: TableWildcard
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard
+        UpdateType: Mutable
+
     .PARAMETER Name
         The name of the table.
 
@@ -42,6 +56,19 @@ A structure for the table object. A table is a metadata definition that represen
                 }
             })]
         $DatabaseName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CatalogId,
+        [parameter(Mandatory = $false)]
+        $TableWildcard,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

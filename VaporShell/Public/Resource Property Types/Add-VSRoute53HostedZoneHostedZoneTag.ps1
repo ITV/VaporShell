@@ -8,7 +8,7 @@ function Add-VSRoute53HostedZoneHostedZoneTag {
 A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
 
     .PARAMETER Key
         The value of Key depends on the operation that you want to perform:
@@ -17,18 +17,18 @@ A complex type that contains information about a tag that you want to add or edi
 +  ** Delete a key**: Key is the name of the tag you want to remove.
 +  **Give a name to a health check**: Edit the default Name tag. In the Amazon Route 53 console, the list of your health checks includes a **Name** column that lets you see the name that you've given to each health check.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html#cfn-route53-hostedzonetags-key
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Value
         The value of Value depends on the operation that you want to perform:
 +  **Add a tag to a health check or hosted zone**: Value is the value that you want to give the new tag.
 +  **Edit a tag**: Value is the new value that you want to assign the tag.
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html#cfn-route53-hostedzonetags-value
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,10 +1,10 @@
 function New-VSCloudFormationMacro {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::Macro resource to the template. The AWS::CloudFormation::Macro resource is an CloudFormation resource type that creates an CloudFormation macro to perform custom processing on CloudFormation templates. For more information, see Using AWS CloudFormation Macros to Perform Custom Processing on Templates: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html.
+        Adds an AWS::CloudFormation::Macro resource to the template. The AWS::CloudFormation::Macro resource is a CloudFormation resource type that creates a CloudFormation macro to perform custom processing on CloudFormation templates. For more information, see Using AWS CloudFormation macros to perform custom processing on templates: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html.
 
     .DESCRIPTION
-        Adds an AWS::CloudFormation::Macro resource to the template. The AWS::CloudFormation::Macro resource is an CloudFormation resource type that creates an CloudFormation macro to perform custom processing on CloudFormation templates. For more information, see Using AWS CloudFormation Macros to Perform Custom Processing on Templates: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html.
+        Adds an AWS::CloudFormation::Macro resource to the template. The AWS::CloudFormation::Macro resource is a CloudFormation resource type that creates a CloudFormation macro to perform custom processing on CloudFormation templates. For more information, see Using AWS CloudFormation macros to perform custom processing on templates: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html
@@ -27,14 +27,14 @@ function New-VSCloudFormationMacro {
         UpdateType: Mutable
 
     .PARAMETER LogGroupName
-        The Amazon CloudWatch log group to which AWS CloudFormation sends error logging information when invoking the macro's underlying AWS Lambda function.
+        The CloudWatch Logs group to which AWS CloudFormation sends error logging information when invoking the macro's underlying AWS Lambda function.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-loggroupname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER LogRoleARN
-        The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch logs.
+        The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch Logs.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-logrolearn
         PrimitiveType: String
@@ -164,6 +164,17 @@ function New-VSCloudFormationMacro {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

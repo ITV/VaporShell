@@ -11,6 +11,8 @@ ACM Private CA assets that are stored in Amazon S3 can be protected with encrypt
 
 Your private CA uses the value in the **ExpirationInDays** parameter to calculate the **nextUpdate** field in the CRL. The CRL is refreshed at 1/2 the age of next update or when a certificate is revoked. When a certificate is revoked, it is recorded in the next CRL that is generated and in the next audit report. Only time valid certificates are listed in the CRL. Expired certificates are not included.
 
+A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, ACM Private CA makes further attempts every 15 minutes.
+
 CRLs contain the following fields:
 
 +  **Version**: The current version number defined in RFC 5280 is V2. The integer value is 0x1.
@@ -47,18 +49,20 @@ Certificate revocation lists created by ACM Private CA are DER-encoded. You can 
 
 openssl crl -inform DER -text -in crl_path -noout
 
+For more information, see Planning a certificate revocation list (CRL: https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html in the * AWS Certificate Manager Private Certificate Authority (PCA User Guide*
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
 
     .PARAMETER Enabled
-        Boolean value that specifies whether certificate revocation lists CRLs are enabled. You can use this value to enable certificate revocation for a new CA when you call the CreateCertificateAuthority: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html action or for an existing CA when you call the UpdateCertificateAuthority: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html action.
+        Boolean value that specifies whether certificate revocation lists CRLs are enabled. You can use this value to enable certificate revocation for a new CA when you call the CreateCertificateAuthority operation or for an existing CA when you call the UpdateCertificateAuthority operation.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER ExpirationInDays
-        Number of days until a certificate expires.
+        Validity period of the CRL in days.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays
         UpdateType: Mutable
@@ -72,9 +76,19 @@ openssl crl -inform DER -text -in crl_path -noout
         PrimitiveType: String
 
     .PARAMETER S3BucketName
-        Name of the S3 bucket that contains the CRL. If you do not provide a value for the **CustomCname** argument, the name of your S3 bucket is placed into the **CRL Distribution Points** extension of the issued certificate. You can change the name of your bucket by calling the UpdateCertificateAuthority: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html action. You must specify a bucket policy that allows ACM Private CA to write the CRL to your bucket.
+        Name of the S3 bucket that contains the CRL. If you do not provide a value for the **CustomCname** argument, the name of your S3 bucket is placed into the **CRL Distribution Points** extension of the issued certificate. You can change the name of your bucket by calling the UpdateCertificateAuthority: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html operation. You must specify a bucket policy: https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies that allows ACM Private CA to write the CRL to your bucket.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER S3ObjectAcl
+        Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
+If no value is specified, the default is PUBLIC_READ.
+This default can cause CA creation to fail in some circumstances. If you have enabled the Block Public Access BPA feature in your S3 account, then you must specify the value of this parameter as BUCKET_OWNER_FULL_CONTROL, and not doing so results in an error. If you have disabled BPA in S3, then you can specify either BUCKET_OWNER_FULL_CONTROL or PUBLIC_READ as the value.
+For more information, see Blocking public access to the S3 bucket: https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-bpa.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -128,7 +142,18 @@ openssl crl -inform DER -text -in crl_path -noout
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3BucketName
+        $S3BucketName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $S3ObjectAcl
     )
     Begin {
         $obj = [PSCustomObject]@{}

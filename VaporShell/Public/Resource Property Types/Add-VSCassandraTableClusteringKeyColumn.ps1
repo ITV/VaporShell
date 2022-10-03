@@ -18,9 +18,9 @@ Defines an individual column within the clustering key.
         Type: Column
 
     .PARAMETER OrderBy
-        The order in which this column's data will be stored:
-+ ASC default - the column's data will be stored in ascending order.
-+ DESC - the column's data will be stored in descending order.
+        The order in which this column's data is stored:
++ ASC default - The column's data is stored in ascending order.
++ DESC - The column's data is stored in descending order.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby
         UpdateType: Immutable

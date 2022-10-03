@@ -1,11 +1,11 @@
 function Add-VSEMRInstanceFleetConfigInstanceTypeConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::InstanceFleetConfig.InstanceTypeConfig resource property to the template. InstanceType config is a subproperty of InstanceFleetConfig. An instance type configuration specifies each instance type in an instance fleet. The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities. There can be a maximum of 5 instance type configurations in a fleet.
+        Adds an AWS::EMR::InstanceFleetConfig.InstanceTypeConfig resource property to the template. InstanceType config is a subproperty of InstanceFleetConfig. An instance type configuration specifies each instance type in an instance fleet. The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
 
     .DESCRIPTION
         Adds an AWS::EMR::InstanceFleetConfig.InstanceTypeConfig resource property to the template.
-InstanceType config is a subproperty of InstanceFleetConfig. An instance type configuration specifies each instance type in an instance fleet. The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities. There can be a maximum of 5 instance type configurations in a fleet.
+InstanceType config is a subproperty of InstanceFleetConfig. An instance type configuration specifies each instance type in an instance fleet. The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
 
 **Note**
 
@@ -15,14 +15,14 @@ The instance fleet configuration is available only in Amazon EMR versions 4.8.0 
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html
 
     .PARAMETER BidPrice
-        The bid price for each EC2 Spot instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        The bid price for each EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-bidprice
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER BidPriceAsPercentageOfOnDemandPrice
-        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by InstanceType. Expressed as a number for example, 20 specifies 20%. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by InstanceType. Expressed as a number for example, 20 specifies 20%. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-bidpriceaspercentageofondemandprice
         PrimitiveType: Double
@@ -38,8 +38,15 @@ An optional configuration specification to be used when provisioning cluster ins
         Type: List
         UpdateType: Immutable
 
+    .PARAMETER CustomAmiId
+        The custom AMI ID to use for the instance type.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-customamiid
+        PrimitiveType: String
+        UpdateType: Immutable
+
     .PARAMETER EbsConfiguration
-        The configuration of Amazon Elastic Block Storage EBS attached to each instance as defined by InstanceType.
+        The configuration of Amazon Elastic Block Store Amazon EBS attached to each instance as defined by InstanceType.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-ebsconfiguration
         Type: EbsConfiguration
@@ -99,6 +106,17 @@ An optional configuration specification to be used when provisioning cluster ins
                 }
             })]
         $Configurations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomAmiId,
         [parameter(Mandatory = $false)]
         $EbsConfiguration,
         [parameter(Mandatory = $true)]

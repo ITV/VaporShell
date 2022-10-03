@@ -13,16 +13,16 @@ The destination to which dataset contents are delivered.
     .PARAMETER IotEventsDestinationConfiguration
         Configuration information for delivery of dataset contents to AWS IoT Events.
 
-        Type: IotEventsDestinationConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryruledestination.html#cfn-iotanalytics-dataset-datasetcontentdeliveryruledestination-ioteventsdestinationconfiguration
         UpdateType: Mutable
+        Type: IotEventsDestinationConfiguration
 
     .PARAMETER S3DestinationConfiguration
         Configuration information for delivery of dataset contents to Amazon S3.
 
-        Type: S3DestinationConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryruledestination.html#cfn-iotanalytics-dataset-datasetcontentdeliveryruledestination-s3destinationconfiguration
         UpdateType: Mutable
+        Type: S3DestinationConfiguration
 
     .FUNCTIONALITY
         Vaporshell

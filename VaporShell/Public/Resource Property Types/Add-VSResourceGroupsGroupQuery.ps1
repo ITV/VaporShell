@@ -1,17 +1,17 @@
 function Add-VSResourceGroupsGroupQuery {
     <#
     .SYNOPSIS
-        Adds an AWS::ResourceGroups::Group.Query resource property to the template. The underlying resource query of a resource group. Resources that match query results are part of the group.
+        Adds an AWS::ResourceGroups::Group.Query resource property to the template. Specifies details within a ResourceQuery structure that determines the membership of the resource group. The contents required in the Query structure are determined by the Type property of the containing ResourceQuery structure.
 
     .DESCRIPTION
         Adds an AWS::ResourceGroups::Group.Query resource property to the template.
-The underlying resource query of a resource group. Resources that match query results are part of the group.
+Specifies details within a ResourceQuery structure that determines the membership of the resource group. The contents required in the Query structure are determined by the Type property of the containing ResourceQuery structure.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
 
     .PARAMETER ResourceTypeFilters
-        The resource types that can be part of the resource group. For example, if ResourceTypeFilters is "AWS::EC2::Instance", "AWS::DynamoDB::Table"], only EC2 Instance resources or DynamoDB Table resources can be members of this resource group. The default value is "AWS::AllSupported"].
+        Specifies limits to the types of resources that can be included in the resource group. For example, if ResourceTypeFilters is "AWS::EC2::Instance", "AWS::DynamoDB::Table"], only EC2 instances or DynamoDB tables can be members of this resource group. The default value is "AWS::AllSupported"].
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
         UpdateType: Mutable
@@ -19,18 +19,16 @@ The underlying resource query of a resource group. Resources that match query re
         PrimitiveItemType: String
 
     .PARAMETER StackIdentifier
-        The CFN Stack ARN. When specified, all supported resources of the CFN stack are members of the resource group. The default value is an identifier of the current stack, which means that all the resources of the current stack are grouped.
-Only specify a value for StackIdentifier when the ResourceQuery.Type property is CLOUDFORMATION_STACK_1_0.
+        Specifies the ARN of a CloudFormation stack. All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
+You can specify a value for StackIdentifier only when the ResourceQuery.Type property is CLOUDFORMATION_STACK_1_0.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TagFilters
-        A list of key-value pair objects that limit which resources are members of a group. This property is required when the ResourceQuery.Type property is TAG_FILTERS_1_0.
-TagFilter objects include two properties: Key a string and Values a list of strings. Only resources in the account that are tagged with an allowed key-value pair are members of the group. The Values property of TagFilter is optional, but specifying it narrows the query results. For example, suppose TagFilters is {"Key": "Stage", "Values": "Test", "Beta"]}, {"Key": "Storage"}]. In this case, only resources with all of the following tags are members of the group:
-+ Stage tag key with a value of either Test or Beta
-+ Storage tag key with any value
+        A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the ResourceQuery.Type property is TAG_FILTERS_1_0.
+A resource must have a tag that matches every filter that is provided in the TagFilters list.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
         UpdateType: Mutable

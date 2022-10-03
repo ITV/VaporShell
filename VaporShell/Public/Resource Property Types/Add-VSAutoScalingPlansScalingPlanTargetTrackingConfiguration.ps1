@@ -1,11 +1,11 @@
 function Add-VSAutoScalingPlansScalingPlanTargetTrackingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScalingPlans::ScalingPlan.TargetTrackingConfiguration resource property to the template. TargetTrackingConfiguration is a subproperty of ScalingInstruction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html that specifies a target tracking configuration to use with AWS Auto Scaling.
+        Adds an AWS::AutoScalingPlans::ScalingPlan.TargetTrackingConfiguration resource property to the template. TargetTrackingConfiguration is a subproperty of ScalingInstruction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html that specifies a target tracking configuration to use with AWS Auto Scaling (Auto Scaling Plans.
 
     .DESCRIPTION
         Adds an AWS::AutoScalingPlans::ScalingPlan.TargetTrackingConfiguration resource property to the template.
-TargetTrackingConfiguration is a subproperty of ScalingInstruction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html that specifies a target tracking configuration to use with AWS Auto Scaling.
+TargetTrackingConfiguration is a subproperty of ScalingInstruction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html that specifies a target tracking configuration to use with AWS Auto Scaling (Auto Scaling Plans.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html
@@ -18,7 +18,7 @@ TargetTrackingConfiguration is a subproperty of ScalingInstruction: https://docs
         UpdateType: Mutable
 
     .PARAMETER TargetValue
-        The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 Base 10 or 2e-360 to 2e360 Base 2.
+        The target value for the metric. Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-targetvalue
         PrimitiveType: Double

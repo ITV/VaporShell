@@ -1,10 +1,14 @@
 function New-VSServiceDiscoveryPublicDnsNamespace {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceDiscovery::PublicDnsNamespace resource to the template. Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service will be backend.example.com. For the current limit on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map Limits: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the *AWS Cloud Map Developer Guide*.
+        Adds an AWS::ServiceDiscovery::PublicDnsNamespace resource to the template. Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service is backend.example.com. You can discover instances that were registered with a public DNS namespace by using either a DiscoverInstances request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map quotas: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the * AWS Cloud Map Developer Guide*.
 
     .DESCRIPTION
-        Adds an AWS::ServiceDiscovery::PublicDnsNamespace resource to the template. Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service will be backend.example.com. For the current limit on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map Limits: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the *AWS Cloud Map Developer Guide*.
+        Adds an AWS::ServiceDiscovery::PublicDnsNamespace resource to the template. Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service is backend.example.com. You can discover instances that were registered with a public DNS namespace by using either a DiscoverInstances request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map quotas: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the * AWS Cloud Map Developer Guide*.
+
+**Important**
+
+The CreatePublicDnsNamespace API operation is not supported in the AWS GovCloud (US Regions.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html
@@ -17,15 +21,22 @@ function New-VSServiceDiscoveryPublicDnsNamespace {
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-description
         PrimitiveType: String
-        UpdateType: Immutable
+        UpdateType: Mutable
+
+    .PARAMETER Properties
+        Properties for the public DNS namespace.
+
+        Type: Properties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-properties
+        UpdateType: Mutable
 
     .PARAMETER Tags
-        +  CreatePublicDnsNamespace: https://docs.aws.amazon.com/cloud-map/latest/api/API_CreatePublicDnsNamespace.html in the *AWS Cloud Map API Reference*
+        The tags for the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-tags
         ItemType: Tag
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER Name
         The name that you want to assign to this namespace.
@@ -107,6 +118,8 @@ function New-VSServiceDiscoveryPublicDnsNamespace {
                 }
             })]
         $Description,
+        [parameter(Mandatory = $false)]
+        $Properties,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -121,6 +134,17 @@ function New-VSServiceDiscoveryPublicDnsNamespace {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

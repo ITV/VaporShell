@@ -1,0 +1,47 @@
+function Add-VSIoTAccountAuditConfigurationAuditNotificationTargetConfigurations {
+    <#
+    .SYNOPSIS
+        Adds an AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations resource property to the template. The configuration of the audit notification target.
+
+    .DESCRIPTION
+        Adds an AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations resource property to the template.
+The configuration of the audit notification target.
+
+    .LINK
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
+
+    .PARAMETER Sns
+        The Sns notification target.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
+        UpdateType: Mutable
+        Type: AuditNotificationTarget
+
+    .FUNCTIONALITY
+        Vaporshell
+    #>
+    [OutputType('Vaporshell.Resource.IoT.AccountAuditConfiguration.AuditNotificationTargetConfigurations')]
+    [cmdletbinding()]
+    Param
+    (
+        [parameter(Mandatory = $false)]
+        $Sns
+    )
+    Begin {
+        $obj = [PSCustomObject]@{}
+        $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
+    }
+    Process {
+        foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
+            switch ($key) {
+                Default {
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
+                }
+            }
+        }
+    }
+    End {
+        $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.AccountAuditConfiguration.AuditNotificationTargetConfigurations'
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
+    }
+}

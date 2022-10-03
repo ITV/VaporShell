@@ -1,18 +1,14 @@
 function New-VSAutoScalingScheduledAction {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScheduledAction resource to the template. Specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
+        Adds an AWS::AutoScaling::ScheduledAction resource to the template. The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
 
     .DESCRIPTION
-        Adds an AWS::AutoScaling::ScheduledAction resource to the template. Specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
+        Adds an AWS::AutoScaling::ScheduledAction resource to the template. The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
 
-**Important**
+When you update a stack with an Auto Scaling group and scheduled action, CloudFormation always sets the min size, max size, and desired capacity properties of your group to the values that are defined in the AWS::AutoScaling::AutoScalingGroup section of your template. However, you might not want CloudFormation to do that when you have a scheduled action in effect. You can use an UpdatePolicy attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html to prevent CloudFormation from changing the min size, max size, or desired capacity property values during a stack update unless you modified the individual values in your template. If you have rolling updates enabled, before you can update the Auto Scaling group, you must suspend scheduled actions by specifying an UpdatePolicy attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html for the Auto Scaling group. You can find a sample update policy for rolling updates in Auto scaling template snippets: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html.
 
-When you update a stack with an Auto Scaling group and scheduled action, AWS CloudFormation always sets the min size, max size, and desired capacity properties of your group to the values that are defined in the AWS::AutoScaling::AutoScalingGroup section of your template. However, you might not want CloudFormation to do that when you have a scheduled action in effect. You can use an UpdatePolicy attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html to prevent CloudFormation from changing the min size, max size, or desired capacity property values during a stack update unless you modified the individual values in your template.
-
-If you have rolling updates enabled, before you can update the Auto Scaling group, you must suspend scheduled actions by specifying an UpdatePolicy attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html for the Auto Scaling group. You can find sample update policies for rolling updates in the Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples section of the AWS::AutoScaling::AutoScalingGroup documentation.
-
-For more information, see Scheduled Scaling: https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html and Suspending and Resuming Scaling Processes: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html in the *Amazon EC2 Auto Scaling User Guide*.
+For more information, see Scheduled scaling: https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html and Suspending and resuming scaling processes: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html in the *Amazon EC2 Auto Scaling User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html
@@ -21,7 +17,7 @@ For more information, see Scheduled Scaling: https://docs.aws.amazon.com/autosca
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AutoScalingGroupName
-        The name or Amazon Resource Name ARN of the Auto Scaling group.
+        The name of the Auto Scaling group.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-asgname
         PrimitiveType: String
@@ -36,7 +32,7 @@ You must specify at least one of the following properties: MaxSize, MinSize, or 
         UpdateType: Mutable
 
     .PARAMETER EndTime
-        The date and time in UTC for the recurring schedule to end. For example, "2019-06-01T00:00:00Z".
+        The date and time for the recurring schedule to end, in UTC. For example, "2021-06-01T00:00:00Z".
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-endtime
         PrimitiveType: String
@@ -59,17 +55,27 @@ You must specify at least one of the following properties: MaxSize, MinSize, or 
         UpdateType: Mutable
 
     .PARAMETER Recurrence
-        The recurring schedule for this action, in Unix cron syntax format. For more information about cron syntax, see Crontab: http://crontab.org/.
-Specifying the StartTime and EndTime properties with Recurrence property forms the start and stop boundaries of the recurring action.
+        The recurring schedule for this action. This format consists of five fields separated by white spaces: Minute] Hour] Day_of_Month] Month_of_Year] Day_of_Week]. For more information about this format, see Crontab: http://crontab.org.
+When StartTime and EndTime are specified with Recurrence, they form the boundaries of when the recurring action starts and stops.
+Cron expressions use Universal Coordinated Time UTC by default.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-recurrence
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER StartTime
-        The date and time in UTC for this action to start. For example, "2019-06-01T00:00:00Z".
+        The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only. For example, "2021-06-01T00:00:00Z".
+If you specify Recurrence and StartTime, Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-starttime
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER TimeZone
+        Specifies the time zone for a cron expression. If a time zone is not provided, UTC is used by default.
+Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database such as Etc/GMT+9 or Pacific/Tahiti. For more information, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-timezone
         PrimitiveType: String
         UpdateType: Mutable
 
@@ -212,6 +218,28 @@ Specifying the StartTime and EndTime properties with Recurrence property forms t
                 }
             })]
         $StartTime,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TimeZone,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

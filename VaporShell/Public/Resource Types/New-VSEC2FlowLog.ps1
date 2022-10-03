@@ -1,10 +1,10 @@
 function New-VSEC2FlowLog {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::FlowLog resource to the template. Specifies an Amazon Elastic Compute Cloud (Amazon EC2 flow log that captures IP traffic for a specified network interface, subnet, or VPC. To view the log data, use Amazon CloudWatch Logs (CloudWatch Logs to help troubleshoot connection issues. For example, you can use a flow log to investigate why certain traffic isn't reaching an instance, which can help you diagnose overly restrictive security group rules. For more information, see VPC Flow Logs: https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html in the *Amazon VPC User Guide*.
+        Adds an AWS::EC2::FlowLog resource to the template. Specifies a VPC flow log that captures IP traffic for a specified network interface, subnet, or VPC. To view the log data, use Amazon CloudWatch Logs (CloudWatch Logs to help troubleshoot connection issues. For example, you can use a flow log to investigate why certain traffic isn't reaching an instance, which can help you diagnose overly restrictive security group rules. For more information, see VPC Flow Logs: https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html in the *Amazon VPC User Guide*.
 
     .DESCRIPTION
-        Adds an AWS::EC2::FlowLog resource to the template. Specifies an Amazon Elastic Compute Cloud (Amazon EC2 flow log that captures IP traffic for a specified network interface, subnet, or VPC. To view the log data, use Amazon CloudWatch Logs (CloudWatch Logs to help troubleshoot connection issues. For example, you can use a flow log to investigate why certain traffic isn't reaching an instance, which can help you diagnose overly restrictive security group rules. For more information, see VPC Flow Logs: https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html in the *Amazon VPC User Guide*.
+        Adds an AWS::EC2::FlowLog resource to the template. Specifies a VPC flow log that captures IP traffic for a specified network interface, subnet, or VPC. To view the log data, use Amazon CloudWatch Logs (CloudWatch Logs to help troubleshoot connection issues. For example, you can use a flow log to investigate why certain traffic isn't reaching an instance, which can help you diagnose overly restrictive security group rules. For more information, see VPC Flow Logs: https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html in the *Amazon VPC User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
@@ -21,7 +21,7 @@ If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn
         PrimitiveType: String
 
     .PARAMETER LogDestination
-        Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
+        The destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
 If LogDestinationType is not specified or cloud-watch-logs, specify the Amazon Resource Name ARN of the CloudWatch Logs log group. For example, to publish to a log group called my-logs, specify arn:aws:logs:us-east-1:123456789012:log-group:my-logs. Alternatively, use LogGroupName instead.
 If LogDestinationType is s3, specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: bucket_ARN/subfolder_name/. For example, to specify a subfolder named my-logs in a bucket named my-bucket, use the following ARN: arn:aws:s3:::my-bucket/my-logs/. You cannot use AWSLogs as a subfolder name. This is a reserved term.
 
@@ -30,7 +30,7 @@ If LogDestinationType is s3, specify the ARN of the Amazon S3 bucket. You can al
         PrimitiveType: String
 
     .PARAMETER LogDestinationType
-        Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify cloud-watch-logs. To publish flow log data to Amazon S3, specify s3.
+        The type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify cloud-watch-logs. To publish flow log data to Amazon S3, specify s3.
 If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
 Default: cloud-watch-logs
 
@@ -39,6 +39,9 @@ Default: cloud-watch-logs
         PrimitiveType: String
 
     .PARAMETER LogFormat
+        The fields to include in the flow log record, in the order in which they should appear. For a list of available fields, see Flow Log Records: https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.
+Specify the fields using the ${field-id} format, separated by spaces.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
         UpdateType: Immutable
         PrimitiveType: String
@@ -52,6 +55,10 @@ If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn
         PrimitiveType: String
 
     .PARAMETER MaxAggregationInterval
+        The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds 1 minute or 600 seconds 10 minutes.
+When a network interface is attached to a Nitro-based instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances, the aggregation interval is always 60 seconds or less, regardless of the value that you specify.
+Default: 600
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
         UpdateType: Immutable
         PrimitiveType: Integer
@@ -71,6 +78,8 @@ If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn
         PrimitiveType: String
 
     .PARAMETER Tags
+        The tags to apply to the flow logs.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
         UpdateType: Mutable
         Type: List
@@ -83,6 +92,16 @@ If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER DestinationOptions
+        The destination options. The following options are supported:
++ FileFormat - The format for the flow log plain-text | parquet. The default is plain-text.
++ HiveCompatiblePartitions - Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3 true | false. The default is false.
++ PerHourPartition - Indicates whether to partition the flow log per hour true | false. The default is false.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-destinationoptions
+        UpdateType: Immutable
+        PrimitiveType: Json
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -248,6 +267,28 @@ If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn
                 }
             })]
         $TrafficType,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DestinationOptions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -316,6 +357,23 @@ If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                DestinationOptions {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

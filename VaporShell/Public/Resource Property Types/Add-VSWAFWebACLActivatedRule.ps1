@@ -13,7 +13,7 @@ To specify whether to insert or delete a Rule, use the Action parameter in the W
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html
 
     .PARAMETER Action
-        Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the Rule. Valid values for Action include the following:
+        Specifies the action that Amazon CloudFront or AWS WAF takes when a web request matches the conditions in the Rule. Valid values for Action include the following:
 +  ALLOW: CloudFront responds with the requested object.
 +  BLOCK: CloudFront responds with an HTTP 403 Forbidden status code.
 +  COUNT: AWS WAF increments a counter of requests that match the conditions in the rule and then continues to inspect the web request based on the remaining rules in the web ACL.

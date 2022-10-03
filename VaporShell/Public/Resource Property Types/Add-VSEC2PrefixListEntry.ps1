@@ -1,21 +1,26 @@
 function Add-VSEC2PrefixListEntry {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::PrefixList.Entry resource property to the template. 
+        Adds an AWS::EC2::PrefixList.Entry resource property to the template. An entry for a prefix list.
 
     .DESCRIPTION
         Adds an AWS::EC2::PrefixList.Entry resource property to the template.
-
+An entry for a prefix list.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html
 
     .PARAMETER Cidr
+        The CIDR block.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-cidr
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Description
+        A description for the entry.
+Constraints: Up to 255 characters in length.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-description
         UpdateType: Mutable
         PrimitiveType: String

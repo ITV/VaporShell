@@ -1,11 +1,11 @@
 function Add-VSCognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsType resource property to the template. The compromised credentials actions type
+        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsType resource property to the template. The compromised credentials actions type.
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsType resource property to the template.
-The compromised credentials actions type
+The compromised credentials actions type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype.html

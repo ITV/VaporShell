@@ -7,6 +7,8 @@ function Add-VSDLMLifecyclePolicyCreateRule {
         Adds an AWS::DLM::LifecyclePolicy.CreateRule resource property to the template.
 Specifies when to create snapshots of EBS volumes.
 
+You must specify either a Cron expression or an interval, interval unit, and start time. You cannot specify both.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html
 
@@ -27,7 +29,7 @@ The operation occurs within a one-hour window following the specified time. If y
         UpdateType: Mutable
 
     .PARAMETER CronExpression
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. For more information, see Cron expressions: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions in the *Amazon CloudWatch User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-cronexpression
         PrimitiveType: String
@@ -38,6 +40,15 @@ The operation occurs within a one-hour window following the specified time. If y
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-interval
         PrimitiveType: Integer
+        UpdateType: Mutable
+
+    .PARAMETER Location
+        Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify CLOUD. To create snapshots on the same Outpost as the source resource, specify OUTPOST_LOCAL. If you omit this parameter, CLOUD is used by default.
+If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource.
+If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-location
+        PrimitiveType: String
         UpdateType: Mutable
 
     .FUNCTIONALITY
@@ -81,7 +92,18 @@ The operation occurs within a one-hour window following the specified time. If y
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Interval
+        $Interval,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Location
     )
     Begin {
         $obj = [PSCustomObject]@{}

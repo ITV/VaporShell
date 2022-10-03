@@ -10,15 +10,22 @@ An object that represents a Transport Layer Security (TLS validation context tru
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html
 
+    .PARAMETER SDS
+        A reference to an object that represents a Transport Layer Security TLS Secret Discovery Service validation context trust.
+
+        Type: TlsValidationContextSdsTrust
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-sds
+        UpdateType: Mutable
+
     .PARAMETER ACM
-        A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager ACM certificate.
+        A reference to an object that represents a Transport Layer Security TLS validation context trust for an AWS Certificate Manager certificate.
 
         Type: TlsValidationContextAcmTrust
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-acm
         UpdateType: Mutable
 
     .PARAMETER File
-        An object that represents a TLS validation context trust for a local file.
+        An object that represents a Transport Layer Security TLS validation context trust for a local file.
 
         Type: TlsValidationContextFileTrust
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-file
@@ -31,6 +38,8 @@ An object that represents a Transport Layer Security (TLS validation context tru
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $SDS,
         [parameter(Mandatory = $false)]
         $ACM,
         [parameter(Mandatory = $false)]

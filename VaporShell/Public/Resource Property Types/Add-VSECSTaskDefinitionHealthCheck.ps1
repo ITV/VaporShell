@@ -19,8 +19,11 @@ The following are notes about container health check support:
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html
 
     .PARAMETER Command
-        A string array representing the command that the container runs to determine if it is healthy. The string array must start with CMD to execute the command arguments directly, or CMD-SHELL to run the command with the container's default shell. For example:
+        A string array representing the command that the container runs to determine if it is healthy. The string array must start with CMD to execute the command arguments directly, or CMD-SHELL to run the command with the container's default shell.
+When you use the AWS Management Console JSON panel, the AWS Command Line Interface, or the APIs, enclose the list of commands in brackets.
  "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]
+You don't need to include the brackets when you use the AWS Management Console.
+ "CMD-SHELL", "curl -f http://localhost/ || exit 1" 
 An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see HealthCheck in the Create a container: https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate section of the Docker Remote API: https://docs.docker.com/engine/api/v1.35/.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
@@ -50,7 +53,7 @@ An exit code of 0 indicates success, and non-zero exit code indicates failure. F
         PrimitiveType: Integer
 
     .PARAMETER StartPeriod
-        The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.
+        The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the startPeriod is disabled.
 If a health check succeeds within the startPeriod, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod

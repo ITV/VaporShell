@@ -1,30 +1,32 @@
 function Add-VSIoTEventsDetectorModelOnInput {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.OnInput resource property to the template. When an input is received and the "condition" is TRUE, perform the specified "actions".
+        Adds an AWS::IoTEvents::DetectorModel.OnInput resource property to the template. Specifies the actions performed when the condition evaluates to TRUE.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.OnInput resource property to the template.
-When an input is received and the "condition" is TRUE, perform the specified "actions".
+Specifies the actions performed when the condition evaluates to TRUE.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html
 
     .PARAMETER Events
-        Specifies the actions that are performed when an input is received and the "condition" is TRUE.
+        Specifies the actions performed when the condition evaluates to TRUE.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
-        ItemType: Event
         UpdateType: Mutable
+        Type: List
+        ItemType: Event
+        DuplicatesAllowed: True
 
     .PARAMETER TransitionEvents
-        Specifies the actions performed, and the next state entered, when an input is received and a "condition" evaluates to TRUE.
+        Specifies the actions performed, and the next state entered, when a condition evaluates to TRUE.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
-        ItemType: TransitionEvent
         UpdateType: Mutable
+        Type: List
+        ItemType: TransitionEvent
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

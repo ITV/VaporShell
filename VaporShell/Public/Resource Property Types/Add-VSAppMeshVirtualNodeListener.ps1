@@ -10,8 +10,15 @@ An object that represents a listener for a virtual node.
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html
 
+    .PARAMETER ConnectionPool
+        The connection pool information for the listener.
+
+        Type: VirtualNodeConnectionPool
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool
+        UpdateType: Mutable
+
     .PARAMETER Timeout
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        An object that represents timeouts for different protocols.
 
         Type: ListenerTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-timeout
@@ -38,6 +45,13 @@ An object that represents a listener for a virtual node.
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
         UpdateType: Mutable
 
+    .PARAMETER OutlierDetection
+        The outlier detection information for the listener.
+
+        Type: OutlierDetection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -46,13 +60,17 @@ An object that represents a listener for a virtual node.
     Param
     (
         [parameter(Mandatory = $false)]
+        $ConnectionPool,
+        [parameter(Mandatory = $false)]
         $Timeout,
         [parameter(Mandatory = $false)]
         $HealthCheck,
         [parameter(Mandatory = $false)]
         $TLS,
         [parameter(Mandatory = $true)]
-        $PortMapping
+        $PortMapping,
+        [parameter(Mandatory = $false)]
+        $OutlierDetection
     )
     Begin {
         $obj = [PSCustomObject]@{}

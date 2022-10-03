@@ -1,17 +1,17 @@
 function Add-VSCloudWatchAlarmDimension {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudWatch::Alarm.Dimension resource property to the template. Dimension is an embedded property of the AWS::CloudWatch::Alarm type. Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric. You can specify a maximum of 10 dimensions for a given metric.
+        Adds an AWS::CloudWatch::Alarm.Dimension resource property to the template. Dimension is an embedded property of the AWS::CloudWatch::Alarm type. Dimensions are name/value pairs that can be associated with a CloudWatch metric. You can specify a maximum of 10 dimensions for a given metric.
 
     .DESCRIPTION
         Adds an AWS::CloudWatch::Alarm.Dimension resource property to the template.
-Dimension is an embedded property of the AWS::CloudWatch::Alarm type. Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric. You can specify a maximum of 10 dimensions for a given metric.
+Dimension is an embedded property of the AWS::CloudWatch::Alarm type. Dimensions are name/value pairs that can be associated with a CloudWatch metric. You can specify a maximum of 10 dimensions for a given metric.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html
 
     .PARAMETER Name
-        The name of the dimension, from 1–255 characters in length.
+        The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html#cfn-cloudwatch-alarm-dimension-name
         PrimitiveType: String

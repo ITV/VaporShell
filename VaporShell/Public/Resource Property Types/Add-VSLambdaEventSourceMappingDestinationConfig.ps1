@@ -1,11 +1,11 @@
 function Add-VSLambdaEventSourceMappingDestinationConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::EventSourceMapping.DestinationConfig resource property to the template. (Streams An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+        Adds an AWS::Lambda::EventSourceMapping.DestinationConfig resource property to the template. A configuration object that specifies the destination of an event after Lambda processes it.
 
     .DESCRIPTION
         Adds an AWS::Lambda::EventSourceMapping.DestinationConfig resource property to the template.
-(Streams An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+A configuration object that specifies the destination of an event after Lambda processes it.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
@@ -14,8 +14,8 @@ function Add-VSLambdaEventSourceMappingDestinationConfig {
         The destination configuration for failed invocations.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
-        Type: OnFailure
         UpdateType: Mutable
+        Type: OnFailure
 
     .FUNCTIONALITY
         Vaporshell
@@ -24,7 +24,7 @@ function Add-VSLambdaEventSourceMappingDestinationConfig {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $OnFailure
     )
     Begin {

@@ -27,7 +27,8 @@ The information to include in the launch template.
         UpdateType: Mutable
 
     .PARAMETER UserData
-        The Base64-encoded user data to make available to the instance. For more information, see Running Commands on Your Linux Instance at Launch: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Linux and Adding User Data: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Windows.
+        The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see Running Commands on Your Linux Instance at Launch: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Linux or Adding User Data: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Windows.
+If you are creating the launch template for use with AWS Batch, the user data must be provided in the  MIME multi-part archive format: https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive. For more information, see Amazon EC2 user data in launch templates: https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html in the * AWS Batch User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-userdata
         PrimitiveType: String
@@ -41,8 +42,15 @@ The information to include in the launch template.
         ItemType: BlockDeviceMapping
         UpdateType: Mutable
 
+    .PARAMETER MaintenanceOptions
+        +  RequestLaunchTemplateData: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html in the *Amazon EC2 API Reference*
+
+        Type: MaintenanceOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-maintenanceoptions
+        UpdateType: Mutable
+
     .PARAMETER IamInstanceProfile
-        The IAM instance profile.
+        The name or Amazon Resource Name ARN of an IAM instance profile.
 
         Type: IamInstanceProfile
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile
@@ -50,7 +58,7 @@ The information to include in the launch template.
 
     .PARAMETER KernelId
         The ID of the kernel.
-We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User Provided Kernels: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html in the *Amazon Elastic Compute Cloud User Guide*.
+We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User Provided Kernels: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html in the *Amazon EC2 User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-kernelid
         PrimitiveType: String
@@ -94,6 +102,14 @@ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more inf
         ItemType: NetworkInterface
         UpdateType: Mutable
 
+    .PARAMETER EnclaveOptions
+        Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see  What is AWS Nitro Enclaves?: https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html in the * AWS Nitro Enclaves User Guide*.
+You can't enable AWS Nitro Enclaves and hibernation on the same instance.
+
+        Type: EnclaveOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+        UpdateType: Mutable
+
     .PARAMETER ImageId
         The ID of the AMI.
 
@@ -103,6 +119,7 @@ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more inf
 
     .PARAMETER InstanceType
         The instance type. For more information, see Instance Types: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html in the *Amazon Elastic Compute Cloud User Guide*.
+If you specify InstanceTypes, you can't specify InstanceRequirements.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancetype
         PrimitiveType: String
@@ -116,7 +133,7 @@ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more inf
         UpdateType: Mutable
 
     .PARAMETER HibernationOptions
-        Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the hibernation prerequisites: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites. For more information, see Hibernate Your Instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html in the *Amazon Elastic Compute Cloud User Guide*.
+        Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the hibernation prerequisites: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites. For more information, see Hibernate your instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html in the *Amazon Elastic Compute Cloud User Guide*.
 
         Type: HibernationOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
@@ -145,11 +162,25 @@ Default: stop
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER DisableApiStop
+        +  RequestLaunchTemplateData: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html in the *Amazon EC2 API Reference*
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-disableapistop
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER CpuOptions
         The CPU options for the instance. For more information, see Optimizing CPU Options: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html in the *Amazon Elastic Compute Cloud User Guide*.
 
         Type: CpuOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions
+        UpdateType: Mutable
+
+    .PARAMETER PrivateDnsNameOptions
+        The options for the instance hostname. The default values are inherited from the subnet.
+
+        Type: PrivateDnsNameOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-privatednsnameoptions
         UpdateType: Mutable
 
     .PARAMETER SecurityGroupIds
@@ -182,6 +213,13 @@ If you do not specify a key pair, you can't connect to the instance unless you c
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions
         UpdateType: Mutable
 
+    .PARAMETER InstanceRequirements
+        Not currently supported by AWS CloudFormation.
+
+        Type: InstanceRequirements
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancerequirements
+        UpdateType: Mutable
+
     .PARAMETER RamDiskId
         The ID of the RAM disk.
 We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User Provided Kernels: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html in the *Amazon Elastic Compute Cloud User Guide*.
@@ -198,7 +236,7 @@ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more inf
         UpdateType: Mutable
 
     .PARAMETER CreditSpecification
-        The credit option for CPU usage of the instance. Valid for T2 or T3 instances only.
+        The credit option for CPU usage of the instance. Valid for T2, T3, or T3a instances only.
 
         Type: CreditSpecification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification
@@ -246,6 +284,8 @@ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more inf
                 }
             })]
         $BlockDeviceMappings,
+        [parameter(Mandatory = $false)]
+        $MaintenanceOptions,
         [parameter(Mandatory = $false)]
         $IamInstanceProfile,
         [parameter(Mandatory = $false)]
@@ -306,6 +346,8 @@ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more inf
             })]
         $NetworkInterfaces,
         [parameter(Mandatory = $false)]
+        $EnclaveOptions,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -356,7 +398,20 @@ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more inf
             })]
         $InstanceInitiatedShutdownBehavior,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DisableApiStop,
+        [parameter(Mandatory = $false)]
         $CpuOptions,
+        [parameter(Mandatory = $false)]
+        $PrivateDnsNameOptions,
         [parameter(Mandatory = $false)]
         $SecurityGroupIds,
         [parameter(Mandatory = $false)]
@@ -383,6 +438,8 @@ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more inf
         $DisableApiTermination,
         [parameter(Mandatory = $false)]
         $InstanceMarketOptions,
+        [parameter(Mandatory = $false)]
+        $InstanceRequirements,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

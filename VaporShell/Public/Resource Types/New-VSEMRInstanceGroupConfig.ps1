@@ -6,6 +6,10 @@ function New-VSEMRInstanceGroupConfig {
     .DESCRIPTION
         Adds an AWS::EMR::InstanceGroupConfig resource to the template. Use InstanceGroupConfig to define instance groups for an EMR cluster. A cluster can not use both instance groups and instance fleets. For more information, see Create a Cluster with Instance Fleets or Uniform Instance Groups: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html in the *Amazon EMR Management Guide*.
 
+**Important**
+
+You can currently only add task instance groups to a cluster with this resource. If you use this resource, CloudFormation waits for the cluster launch to complete before adding the task instance group to the cluster. In order to add task instance groups to the cluster as part of the cluster launch and minimize delays in provisioning task nodes, use the TaskInstanceGroups subproperty for the AWS::EMR::Cluster JobFlowInstancesConfig: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html property instead. To use this subproperty, see AWS::EMR::Cluster: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html for examples.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
 
@@ -20,7 +24,7 @@ function New-VSEMRInstanceGroupConfig {
         UpdateType: Mutable
 
     .PARAMETER BidPrice
-        The bid price for each EC2 Spot instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-bidprice
         PrimitiveType: String
@@ -34,6 +38,13 @@ The list of configurations supplied for an EMR cluster instance group. You can s
         DuplicatesAllowed: False
         ItemType: Configuration
         Type: List
+        UpdateType: Immutable
+
+    .PARAMETER CustomAmiId
+        The custom AMI ID to use for the provisioned instance group.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-customamiid
+        PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER EbsConfiguration
@@ -52,6 +63,7 @@ The list of configurations supplied for an EMR cluster instance group. You can s
 
     .PARAMETER InstanceRole
         The role of the instance group in the cluster.
+*Allowed Values*: TASK
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancerole
         PrimitiveType: String
@@ -172,6 +184,17 @@ The list of configurations supplied for an EMR cluster instance group. You can s
             })]
         $Configurations,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomAmiId,
+        [parameter(Mandatory = $false)]
         $EbsConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -239,6 +262,17 @@ The list of configurations supplied for an EMR cluster instance group. You can s
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

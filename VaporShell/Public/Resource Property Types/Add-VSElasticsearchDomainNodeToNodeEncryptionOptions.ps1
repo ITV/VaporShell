@@ -7,6 +7,10 @@ function Add-VSElasticsearchDomainNodeToNodeEncryptionOptions {
         Adds an AWS::Elasticsearch::Domain.NodeToNodeEncryptionOptions resource property to the template.
 Specifies whether node-to-node encryption is enabled.
 
+**Important**
+
+The AWS::Elasticsearch::Domain resource is being replaced by the AWS::OpenSearchService::Domain: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see New resource types: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource in the *Amazon OpenSearch Service Developer Guide*.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html
 
@@ -15,7 +19,7 @@ Specifies whether node-to-node encryption is enabled.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html#cfn-elasticsearch-domain-nodetonodeencryptionoptions-enabled
         PrimitiveType: Boolean
-        UpdateType: Immutable
+        UpdateType: Conditional
 
     .FUNCTIONALITY
         Vaporshell

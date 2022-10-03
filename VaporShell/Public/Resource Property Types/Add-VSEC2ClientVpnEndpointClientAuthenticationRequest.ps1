@@ -1,11 +1,11 @@
 function Add-VSEC2ClientVpnEndpointClientAuthenticationRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::ClientVpnEndpoint.ClientAuthenticationRequest resource property to the template. Describes the authentication method to be used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see Authentication: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication in the *AWS Client VPN Administrator Guide*.
+        Adds an AWS::EC2::ClientVpnEndpoint.ClientAuthenticationRequest resource property to the template. Describes the authentication method to be used by a Client VPN endpoint. For more information, see Authentication: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication in the * AWS Client VPN Administrator Guide*.
 
     .DESCRIPTION
         Adds an AWS::EC2::ClientVpnEndpoint.ClientAuthenticationRequest resource property to the template.
-Describes the authentication method to be used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see Authentication: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication in the *AWS Client VPN Administrator Guide*.
+Describes the authentication method to be used by a Client VPN endpoint. For more information, see Authentication: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication in the * AWS Client VPN Administrator Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html
@@ -18,14 +18,14 @@ Describes the authentication method to be used by a Client VPN endpoint. Client 
         UpdateType: Mutable
 
     .PARAMETER Type
-        The type of client authentication to be used. Specify certificate-authentication to use certificate-based authentication, or directory-service-authentication to use Active Directory authentication.
+        The type of client authentication to be used.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-type
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER FederatedAuthentication
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        Information about the IAM SAML identity provider, if applicable.
 
         Type: FederatedAuthenticationRequest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-federatedauthentication

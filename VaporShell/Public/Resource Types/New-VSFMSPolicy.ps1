@@ -8,13 +8,17 @@ function New-VSFMSPolicy {
 
 Firewall Manager provides the following types of policies:
 
-+ A Shield Advanced policy, which applies Shield Advanced protection to specified accounts and resources.
++ An AWS Shield Advanced policy, which applies Shield Advanced protection to specified accounts and resources.
 
 + An AWS WAF policy (type WAFV2, which defines rule groups to run first in the corresponding AWS WAF web ACL and rule groups to run last in the web ACL.
 
-+ An AWS WAF Classic policy, which defines a rule group. AWS WAF Classic doesn't support rule groups in CloudFormation, so, to create WAF Classic policies through CloudFormation, you first need to create your rule groups outside of CloudFormation.
++ An AWS WAF Classic policy, which defines a rule group. AWS WAF Classic doesn't support rule groups in Amazon CloudFront, so, to create AWS WAF Classic policies through CloudFront, you first need to create your rule groups outside of CloudFront.
 
 + A security group policy, which manages VPC security groups across your AWS organization.
+
++ An AWS Network Firewall policy, which provides firewall rules to filter network traffic in specified Amazon VPCs.
+
++ A DNS Firewall policy, which provides Amazon Route 53 Resolver DNS Firewall rules to filter DNS queries for specified Amazon VPCs.
 
 Each policy is specific to one of the types. If you want to enforce more than one policy type across accounts, create multiple policies. You can create multiple policies for each type.
 
@@ -31,8 +35,8 @@ These policies require some setup to use. For more information, see the sections
 You can specify inclusions or exclusions, but not both. If you specify an IncludeMap, AWS Firewall Manager applies the policy to all accounts specified by the IncludeMap, and does not evaluate any ExcludeMap specifications. If you do not specify an IncludeMap, then Firewall Manager applies the policy to all accounts except for those specified by the ExcludeMap.
 You can specify account IDs, OUs, or a combination:
 + Specify account IDs by setting the key to ACCOUNT. For example, the following is a valid map: {“ACCOUNT” : “accountID1”, “accountID2”]}.
-+ Specify OUs by setting the key to ORG_UNIT. For example, the following is a valid map: {“ORG_UNIT” : “ouid111”, “ouid112”]}.
-+ Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: {“ACCOUNT” : “accountID1”, “accountID2”], “ORG_UNIT” : “ouid111”, “ouid112”]}.
++ Specify OUs by setting the key to ORGUNIT. For example, the following is a valid map: {“ORGUNIT” : “ouid111”, “ouid112”]}.
++ Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: {“ACCOUNT” : “accountID1”, “accountID2”], “ORGUNIT” : “ouid111”, “ouid112”]}.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
         UpdateType: Mutable
@@ -46,15 +50,19 @@ You can specify account IDs, OUs, or a combination:
         PrimitiveType: Boolean
 
     .PARAMETER IncludeMap
-        Specifies the AWS account IDs to include in the policy. If IncludeMap is not set, all accounts in the organization in AWS Organizations are included in the policy. If IncludeMap is set, only values listed in IncludeMap are included in the policy.
-The key to the map is ACCOUNT. For example, a valid IncludeMap would be {“ACCOUNT” : “accountID1”, “accountID2”]}.
+        Specifies the AWS account IDs and AWS Organizations organizational units OUs to include in the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+You can specify inclusions or exclusions, but not both. If you specify an IncludeMap, AWS Firewall Manager applies the policy to all accounts specified by the IncludeMap, and does not evaluate any ExcludeMap specifications. If you do not specify an IncludeMap, then Firewall Manager applies the policy to all accounts except for those specified by the ExcludeMap.
+You can specify account IDs, OUs, or a combination:
++ Specify account IDs by setting the key to ACCOUNT. For example, the following is a valid map: {“ACCOUNT” : “accountID1”, “accountID2”]}.
++ Specify OUs by setting the key to ORGUNIT. For example, the following is a valid map: {“ORGUNIT” : “ouid111”, “ouid112”]}.
++ Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: {“ACCOUNT” : “accountID1”, “accountID2”], “ORGUNIT” : “ouid111”, “ouid112”]}.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
         UpdateType: Mutable
         Type: IEMap
 
     .PARAMETER PolicyName
-        The friendly name of the AWS Firewall Manager policy.
+        The name of the AWS Firewall Manager policy.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
         UpdateType: Mutable
@@ -76,14 +84,15 @@ The key to the map is ACCOUNT. For example, a valid IncludeMap would be {“ACCO
         ItemType: ResourceTag
 
     .PARAMETER ResourceType
-        The type of resource protected by or in scope of the policy. This is in the format shown in the AWS Resource Types Reference: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html. For AWS WAF and Shield Advanced, examples include AWS::ElasticLoadBalancingV2::LoadBalancer and AWS::CloudFront::Distribution. For a security group common policy, valid values are AWS::EC2::NetworkInterface and AWS::EC2::Instance. For a security group content audit policy, valid values are AWS::EC2::SecurityGroup, AWS::EC2::NetworkInterface, and AWS::EC2::Instance. For a security group usage audit policy, the value is AWS::EC2::SecurityGroup.
+        The type of resource protected by or in scope of the policy. This is in the format shown in the AWS Resource Types Reference: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html. To apply this policy to multiple resource types, specify a resource type of ResourceTypeList and then specify the resource types in a ResourceTypeList.
+For AWS WAF and Shield Advanced, example resource types include AWS::ElasticLoadBalancingV2::LoadBalancer and AWS::CloudFront::Distribution. For a security group common policy, valid values are AWS::EC2::NetworkInterface and AWS::EC2::Instance. For a security group content audit policy, valid values are AWS::EC2::SecurityGroup, AWS::EC2::NetworkInterface, and AWS::EC2::Instance. For a security group usage audit policy, the value is AWS::EC2::SecurityGroup. For an AWS Network Firewall policy or DNS Firewall policy, the value is AWS::EC2::VPC.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ResourceTypeList
-        An array of ResourceType.
+        An array of ResourceType objects. Use this only to specify multiple resource types. To specify a single resource type, use ResourceType.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
         UpdateType: Mutable
@@ -94,13 +103,12 @@ The key to the map is ACCOUNT. For example, a valid IncludeMap would be {“ACCO
         Details about the security service that is being used to protect the resources.
 This contains the following settings:
 + Type - Indicates the service type that the policy uses to protect the resource. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support.
-Valid values: WAFV2 | WAF |SHIELD_ADVANCED | SECURITY_GROUPS_COMMON | SECURITY_GROUPS_CONTENT_AUDIT | SECURITY_GROUPS_USAGE_AUDIT.
-+ ManagedServiceData - Details about the service that are specific to the service type, in JSON format. For SHIELD_ADVANCED, this is an empty string.
-+ Example: WAFV2
-"ManagedServiceData": "{"type":"WAFV2","defaultAction":{"type":"ALLOW"},"preProcessRuleGroups":{"managedRuleGroupIdentifier":null,"ruleGroupArn":"rulegrouparn","overrideAction":{"type":"COUNT"},"excludedRules":{"name":"EntityName"}],"ruleGroupType":"RuleGroup"}],"postProcessRuleGroups":{"managedRuleGroupIdentifier":{"managedRuleGroupName":"AWSManagedRulesAdminProtectionRuleSet","vendor":"AWS"},"ruleGroupArn":"rulegrouparn","overrideAction":{"type":"NONE"},"excludedRules":],"ruleGroupType":"ManagedRuleGroup"}],"overrideCustomerWebACLAssociation":false}"
-+ Example: WAF Classic
-"ManagedServiceData": "{"type": "WAF", "ruleGroups": {"id":"12345678-1bcd-9012-efga-0987654321ab", "overrideAction" : {"type": "COUNT"}}],"defaultAction": {"type": "BLOCK"}}
-AWS WAF Classic doesn't support rule groups in CloudFormation. To create a WAF Classic policy through CloudFormation, create your rule groups outside of CloudFormation, then provide the rule group IDs in the WAF managed service data specification.
+Valid values: DNS_FIREWALL | NETWORK_FIREWALL | SECURITY_GROUPS_COMMON | SECURITY_GROUPS_CONTENT_AUDIT | SECURITY_GROUPS_USAGE_AUDIT | SHIELD_ADVANCED | WAFV2 | WAF
++ ManagedServiceData - Details about the service that are specific to the service type, in JSON format.
++ Example: DNS_FIREWALL
+"ManagedServiceData": "{ "type": "DNS_FIREWALL", "preProcessRuleGroups": {"ruleGroupId": "rslvr-frg-123456", "priority": 11}], "postProcessRuleGroups": {"ruleGroupId": "rslvr-frg-123456", "priority": 9902}]}"
++ Example: NETWORK_FIREWALL
+"ManagedServiceData":"{"type":"NETWORK_FIREWALL","networkFirewallStatelessRuleGroupReferences":{"resourceARN":"arn:aws:network-firewall:us-east-1:000000000000:stateless-rulegroup/example","priority":1}],"networkFirewallStatelessDefaultActions":"aws:drop","example"],"networkFirewallStatelessFragmentDefaultActions":"aws:drop","example"],"networkFirewallStatelessCustomActions":{"actionName":"example","actionDefinition":{"publishMetricAction":{"dimensions":{"value":"example"}]}}}],"networkFirewallStatefulRuleGroupReferences":{"resourceARN":"arn:aws:network-firewall:us-east-1:000000000000:stateful-rulegroup/example"}],"networkFirewallOrchestrationConfig":{"singleFirewallEndpointPerVPC":false,"allowedIPV4CidrList":]}}"
 + Example: SECURITY_GROUPS_COMMON
 "SecurityServicePolicyData":{"Type":"SECURITY_GROUPS_COMMON","ManagedServiceData":"{"type":"SECURITY_GROUPS_COMMON","revertManualSecurityGroupChanges":false,"exclusiveResourceSecurityGroupManagement":false,"securityGroups":{"id":" sg-000e55995d61a06bd"}]}"},"RemediationEnabled":false,"ResourceType":"AWS::EC2::NetworkInterface"}
 + Example: SECURITY_GROUPS_CONTENT_AUDIT
@@ -108,15 +116,26 @@ AWS WAF Classic doesn't support rule groups in CloudFormation. To create a WAF C
 The security group action for content audit can be ALLOW or DENY. For ALLOW, all in-scope security group rules must be within the allowed range of the policy's security group rules. For DENY, all in-scope security group rules must not contain a value or a range that matches a rule value or range in the policy security group.
 + Example: SECURITY_GROUPS_USAGE_AUDIT
 "SecurityServicePolicyData":{"Type":"SECURITY_GROUPS_USAGE_AUDIT","ManagedServiceData":"{"type":"SECURITY_GROUPS_USAGE_AUDIT","deleteUnusedSecurityGroups":true,"coalesceRedundantSecurityGroups":true}"},"RemediationEnabled":false,"Resou rceType":"AWS::EC2::SecurityGroup"}
++ Specification for SHIELD_ADVANCED for Amazon CloudFront distributions
+"ManagedServiceData": "{"type": "SHIELD_ADVANCED", "automaticResponseConfiguration": {"automaticResponseStatus":"ENABLED|IGNORED|DISABLED", "automaticResponseAction":"BLOCK|COUNT"}, "overrideCustomerWebaclClassic":true|false}"
+For example: "ManagedServiceData": "{"type":"SHIELD_ADVANCED","automaticResponseConfiguration": {"automaticResponseStatus":"ENABLED", "automaticResponseAction":"COUNT"}}"
+The default value for automaticResponseStatus is IGNORED. The value for automaticResponseAction is only required when automaticResponseStatus is set to ENABLED. The default value for overrideCustomerWebaclClassic is false.
+For other resource types that you can protect with a Shield Advanced policy, this ManagedServiceData configuration is an empty string.
++ Example: WAFV2
+"ManagedServiceData": "{"type":"WAFV2","preProcessRuleGroups":{"ruleGroupArn":null,"overrideAction":{"type":"NONE"},"managedRuleGroupIdentifier":{"version":null,"vendorName":"AWS","managedRuleGroupName":"AWSManagedRulesAmazonIpReputationList"},"ruleGroupType":"ManagedRuleGroup","excludeRules":]}],"postProcessRuleGroups":],"defaultAction":{"type":"ALLOW"},"overrideCustomerWebACLAssociation":false,"loggingConfiguration":{"logDestinationConfigs":"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination"],"redactedFields":{"redactedFieldType":"SingleHeader","redactedFieldValue":"Cookies"},{"redactedFieldType":"Method"}]}}"
+In the loggingConfiguration, you can specify one logDestinationConfigs, you can optionally provide up to 20 redactedFields, and the RedactedFieldType must be one of URI, QUERY_STRING, HEADER, or METHOD.
++ Example: WAF Classic
+"ManagedServiceData": "{"type": "WAF", "ruleGroups": {"id":"12345678-1bcd-9012-efga-0987654321ab", "overrideAction" : {"type": "COUNT"}}],"defaultAction": {"type": "BLOCK"}}
+AWS WAF Classic doesn't support rule groups in CloudFront. To create a WAF Classic policy through CloudFormation, create your rule groups outside of CloudFront, then provide the rule group IDs in the WAF managed service data specification.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: SecurityServicePolicyData
 
     .PARAMETER DeleteAllPolicyResources
         Used when deleting a policy. If true, Firewall Manager performs cleanup according to the policy type.
 For AWS WAF and Shield Advanced policies, Firewall Manager does the following:
-+ Deletes rule groups created by AWS Firewall Manager
++ Deletes rule groups created by Firewall Manager
 + Removes web ACLs from in-scope resources
 + Deletes web ACLs that contain no rules or rule groups
 For security group policies, Firewall Manager does the following for each security group in the policy:
@@ -125,6 +144,15 @@ For security group policies, Firewall Manager does the following for each securi
 After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER ResourcesCleanUp
+        Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
+By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
+This option is not available for Shield Advanced or AWS WAF Classic policies.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcescleanup
         UpdateType: Mutable
         PrimitiveType: Boolean
 
@@ -260,15 +288,6 @@ After the cleanup, in-scope resources are no longer protected by web ACLs in thi
         [parameter(Mandatory = $false)]
         $ResourceTypeList,
         [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $SecurityServicePolicyData,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -283,6 +302,17 @@ After the cleanup, in-scope resources are no longer protected by web ACLs in thi
         $DeleteAllPolicyResources,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ResourcesCleanUp,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.FMS.Policy.PolicyTag"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -292,6 +322,17 @@ After the cleanup, in-scope resources are no longer protected by web ACLs in thi
                 }
             })]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -372,23 +413,6 @@ After the cleanup, in-scope resources are no longer protected by web ACLs in thi
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
-                }
-                SecurityServicePolicyData {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

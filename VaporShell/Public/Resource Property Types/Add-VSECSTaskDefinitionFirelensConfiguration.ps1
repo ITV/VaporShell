@@ -26,7 +26,8 @@ If specified, valid option keys are:
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
         UpdateType: Immutable
-        Type: Options
+        Type: Map
+        PrimitiveItemType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -47,6 +48,7 @@ If specified, valid option keys are:
             })]
         $Type,
         [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
         $Options
     )
     Begin {

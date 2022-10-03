@@ -14,10 +14,10 @@ Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the 
         One or more target groups.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html#cfn-ec2-spotfleet-targetgroupsconfig-targetgroups
-        DuplicatesAllowed: False
-        ItemType: TargetGroup
+        UpdateType: Immutable
         Type: List
-        UpdateType: Mutable
+        ItemType: TargetGroup
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

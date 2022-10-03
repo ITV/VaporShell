@@ -27,7 +27,7 @@ LaunchTemplateSpecification is a property of the AWS::EC2::Instance: https://doc
         UpdateType: Mutable
 
     .PARAMETER Version
-        The version number of the launch template.AWS CloudFormation does not support specifying $Latest, or $Default for the template version number.
+        The version number of the launch template. AWS CloudFormation does not support specifying $Latest, or $Default for the template version number.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-version
         PrimitiveType: String

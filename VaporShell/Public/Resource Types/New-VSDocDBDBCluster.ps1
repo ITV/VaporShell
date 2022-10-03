@@ -19,8 +19,15 @@ function New-VSDocDBDBCluster {
         PrimitiveType: Boolean
         UpdateType: Immutable
 
+    .PARAMETER RestoreToTime
+        +  ModifyDBCluster: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_ModifyDBCluster.html
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-restoretotime
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER EngineVersion
-        The version number of the database engine to use.
+        The version number of the database engine to use. The --engine-version will default to the latest major engine version. For production workloads, we recommend explicitly declaring this parameter with the intended major engine version.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-engineversion
         PrimitiveType: String
@@ -30,10 +37,8 @@ function New-VSDocDBDBCluster {
         The AWS KMS key identifier for an encrypted cluster.
 The AWS KMS key identifier is the Amazon Resource Name ARN for the AWS KMS encryption key. If you are creating a cluster using the same AWS account that owns the AWS KMS encryption key that is used to encrypt the new cluster, you can use the AWS KMS key alias instead of the ARN for the AWS KMS encryption key.
 If an encryption key is not specified in KmsKeyId:
-+ If ReplicationSourceIdentifier identifies an encrypted source, then Amazon DocumentDB uses the encryption key that is used to encrypt the source. Otherwise, Amazon DocumentDB uses your default encryption key.
-+ If the StorageEncrypted parameter is true and ReplicationSourceIdentifier is not specified, Amazon DocumentDB uses your default encryption key.
-AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
-If you create a replica of an encrypted cluster in another AWS Region, you must set KmsKeyId to a KMS key ID that is valid in the destination AWS Region. This key is used to encrypt the replica in that AWS Region.
++ If the StorageEncrypted parameter is true, Amazon DocumentDB uses your default encryption key.
+AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Regions.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-kmskeyid
         PrimitiveType: String
@@ -116,6 +121,13 @@ Constraints:
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER UseLatestRestorableTime
+        +  ModifyDBCluster: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_ModifyDBCluster.html
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-uselatestrestorabletime
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER MasterUserPassword
         The password for the master database user. This password can contain any printable ASCII character except forward slash /, double quote ", or the "at" symbol @.
 Constraints: Must contain from 8 to 100 characters.
@@ -131,6 +143,13 @@ Constraints: Must contain from 8 to 100 characters.
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-vpcsecuritygroupids
         UpdateType: Mutable
+
+    .PARAMETER SourceDBClusterIdentifier
+        +  ModifyDBCluster: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_ModifyDBCluster.html
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-sourcedbclusteridentifier
+        PrimitiveType: String
+        UpdateType: Immutable
 
     .PARAMETER MasterUsername
         The name of the master user for the cluster.
@@ -150,6 +169,13 @@ Constraints:
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER CopyTagsToSnapshot
+        Not currently supported by AWS CloudFormation.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-copytagstosnapshot
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER BackupRetentionPeriod
         The number of days for which automated backups are retained. You must specify a minimum value of 1.
 Default: 1
@@ -158,6 +184,13 @@ Constraints:
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-backupretentionperiod
         PrimitiveType: Integer
+        UpdateType: Mutable
+
+    .PARAMETER RestoreType
+        +  ModifyDBCluster: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_ModifyDBCluster.html
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-restoretype
+        PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Tags
@@ -169,7 +202,7 @@ Constraints:
         UpdateType: Mutable
 
     .PARAMETER EnableCloudwatchLogsExports
-        A list of log types that need to be enabled for exporting to Amazon CloudWatch Logs.
+        The list of log types that need to be enabled for exporting to Amazon CloudWatch Logs. You can enable audit logs or profiler logs. For more information, see Auditing Amazon DocumentDB Events: https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html and Profiling Amazon DocumentDB Operations: https://docs.aws.amazon.com/documentdb/latest/developerguide/profiling.html.
 
         PrimitiveItemType: String
         Type: List
@@ -251,6 +284,17 @@ Constraints:
                 }
             })]
         $StorageEncrypted,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RestoreToTime,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -352,7 +396,18 @@ Constraints:
                 }
             })]
         $PreferredBackupWindow,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UseLatestRestorableTime,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -365,7 +420,18 @@ Constraints:
         $MasterUserPassword,
         [parameter(Mandatory = $false)]
         $VpcSecurityGroupIds,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SourceDBClusterIdentifier,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -389,6 +455,17 @@ Constraints:
         $DBClusterParameterGroupName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CopyTagsToSnapshot,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -398,11 +475,33 @@ Constraints:
                 }
             })]
         $BackupRetentionPeriod,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RestoreType,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
         [parameter(Mandatory = $false)]
         $EnableCloudwatchLogsExports,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

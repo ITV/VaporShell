@@ -1,10 +1,10 @@
 function New-VSAthenaNamedQuery {
     <#
     .SYNOPSIS
-        Adds an AWS::Athena::NamedQuery resource to the template. The AWS::Athena::NamedQuery resource specifies an Amazon Athena query, where QueryString is the list of SQL query statements that comprise the query. For more information, see CreateNamedQuery: https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateNamedQuery.html in the *Amazon Athena API Reference*.
+        Adds an AWS::Athena::NamedQuery resource to the template. The AWS::Athena::NamedQuery resource specifies an Amazon Athena saved query, where QueryString contains the SQL query statements that make up the query.
 
     .DESCRIPTION
-        Adds an AWS::Athena::NamedQuery resource to the template. The AWS::Athena::NamedQuery resource specifies an Amazon Athena query, where QueryString is the list of SQL query statements that comprise the query. For more information, see CreateNamedQuery: https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateNamedQuery.html in the *Amazon Athena API Reference*.
+        Adds an AWS::Athena::NamedQuery resource to the template. The AWS::Athena::NamedQuery resource specifies an Amazon Athena saved query, where QueryString contains the SQL query statements that make up the query.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
@@ -34,9 +34,16 @@ function New-VSAthenaNamedQuery {
         PrimitiveType: String
 
     .PARAMETER QueryString
-        The SQL query statements that comprise the query.
+        The SQL statements that make up the query.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER WorkGroup
+        The name of the workgroup that contains the named query.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -146,6 +153,28 @@ function New-VSAthenaNamedQuery {
                 }
             })]
         $QueryString,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $WorkGroup,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -1,10 +1,10 @@
 function New-VSKinesisAnalyticsV2ApplicationReferenceDataSource {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource resource to the template. Adds a reference data source to an existing SQL-based Amazon Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource resource to the template. Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.
 
     .DESCRIPTION
-        Adds an AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource resource to the template. Adds a reference data source to an existing SQL-based Amazon Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource resource to the template. Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.
 
 Kinesis Data Analytics reads reference data (that is, an Amazon S3 object and creates an in-application table within your application. In the request, you provide the source (S3 bucket name and object key name, name of the in-application table to create, and the necessary mapping information that describes how data in an Amazon S3 object maps to columns in the resulting in-application table.
 
@@ -22,7 +22,7 @@ Kinesis Data Analytics reads reference data (that is, an Amazon S3 object and cr
         UpdateType: Immutable
 
     .PARAMETER ReferenceDataSource
-        For an SQL-based Amazon Kinesis Data Analytics application, describes the reference data source by providing the source information Amazon S3 bucket name and object key name, the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.
+        For a SQL-based Kinesis Data Analytics application, describes the reference data source by providing the source information Amazon S3 bucket name and object key name, the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.
 
         Type: ReferenceDataSource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource
@@ -103,6 +103,17 @@ Kinesis Data Analytics reads reference data (that is, an Amazon S3 object and cr
         $ApplicationName,
         [parameter(Mandatory = $true)]
         $ReferenceDataSource,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

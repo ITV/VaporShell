@@ -12,13 +12,6 @@ function New-VSGlueCrawler {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Role
-        The Amazon Resource Name ARN of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service Amazon S3 data.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-role
-        PrimitiveType: String
-        UpdateType: Mutable
-
     .PARAMETER Classifiers
         A list of UTF-8 strings that specify the custom classifiers that are associated with the crawler.
 
@@ -48,11 +41,11 @@ function New-VSGlueCrawler {
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER Schedule
-        For scheduled crawlers, the schedule when the crawler runs.
+    .PARAMETER RecrawlPolicy
+        A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
 
-        Type: Schedule
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-schedule
+        Type: RecrawlPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-recrawlpolicy
         UpdateType: Mutable
 
     .PARAMETER DatabaseName
@@ -76,6 +69,27 @@ function New-VSGlueCrawler {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER Name
+        The name of the crawler.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-name
+        PrimitiveType: String
+        UpdateType: Immutable
+
+    .PARAMETER Role
+        The Amazon Resource Name ARN of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service Amazon S3 data.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-role
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER Schedule
+        For scheduled crawlers, the schedule when the crawler runs.
+
+        Type: Schedule
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-schedule
+        UpdateType: Mutable
+
     .PARAMETER TablePrefix
         The prefix added to the names of tables that are created.
 
@@ -89,13 +103,6 @@ function New-VSGlueCrawler {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tags
         PrimitiveType: Json
         UpdateType: Mutable
-
-    .PARAMETER Name
-        The name of the crawler.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-name
-        PrimitiveType: String
-        UpdateType: Immutable
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -159,17 +166,6 @@ function New-VSGlueCrawler {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Role,
         [parameter(Mandatory = $false)]
         $Classifiers,
         [parameter(Mandatory = $false)]
@@ -197,7 +193,7 @@ function New-VSGlueCrawler {
             })]
         $Configuration,
         [parameter(Mandatory = $false)]
-        $Schedule,
+        $RecrawlPolicy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -232,6 +228,30 @@ function New-VSGlueCrawler {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $Name,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Role,
+        [parameter(Mandatory = $false)]
+        $Schedule,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $TablePrefix,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -246,7 +266,7 @@ function New-VSGlueCrawler {
         $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -254,7 +274,7 @@ function New-VSGlueCrawler {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -1,11 +1,11 @@
 function Add-VSPinpointCampaignLimits {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Campaign.Limits resource property to the template. Specifies limits on the messages that a campaign can send.
+        Adds an AWS::Pinpoint::Campaign.Limits resource property to the template. Specifies the limits on the messages that a campaign can send.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Campaign.Limits resource property to the template.
-Specifies limits on the messages that a campaign can send.
+Specifies the limits on the messages that a campaign can send.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-limits.html
@@ -35,6 +35,13 @@ Specifies limits on the messages that a campaign can send.
         The maximum number of messages that a campaign can send each second. The minimum value is 50. The maximum value is 20,000.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-limits.html#cfn-pinpoint-campaign-limits-messagespersecond
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
+    .PARAMETER Session
+        Not currently supported by AWS CloudFormation.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-limits.html#cfn-pinpoint-campaign-limits-session
         PrimitiveType: Integer
         UpdateType: Mutable
 
@@ -88,7 +95,18 @@ Specifies limits on the messages that a campaign can send.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MessagesPerSecond
+        $MessagesPerSecond,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Session
     )
     Begin {
         $obj = [PSCustomObject]@{}

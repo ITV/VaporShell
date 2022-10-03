@@ -1,10 +1,12 @@
 function New-VSQLDBStream {
     <#
     .SYNOPSIS
-        Adds an AWS::QLDB::Stream resource to the template. 
+        Adds an AWS::QLDB::Stream resource to the template. The AWS::QLDB::Stream resource specifies a journal stream for a given Amazon Quantum Ledger Database (Amazon QLDB ledger. The stream captures every document revision that is committed to the ledger's journal and delivers the data to a specified Amazon Kinesis Data Streams resource.
 
     .DESCRIPTION
-        Adds an AWS::QLDB::Stream resource to the template. 
+        Adds an AWS::QLDB::Stream resource to the template. The AWS::QLDB::Stream resource specifies a journal stream for a given Amazon Quantum Ledger Database (Amazon QLDB ledger. The stream captures every document revision that is committed to the ledger's journal and delivers the data to a specified Amazon Kinesis Data Streams resource.
+
+For more information, see StreamJournalToKinesis: https://docs.aws.amazon.com/qldb/latest/developerguide/API_StreamJournalToKinesis.html in the *Amazon QLDB API Reference*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html
@@ -13,36 +15,56 @@ function New-VSQLDBStream {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER LedgerName
+        The name of the ledger.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER StreamName
+        The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
+Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in Quotas in Amazon QLDB: https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming in the *Amazon QLDB Developer Guide*.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
+        The Amazon Resource Name ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the iam:PassRole action on the IAM role resource. This is required for all journal stream requests.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER InclusiveStartTime
+        The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time UTC. For example: 2019-06-13T21:36:34Z.
+The InclusiveStartTime cannot be in the future and must be before ExclusiveEndTime.
+If you provide an InclusiveStartTime that is before the ledger's CreationDateTime, QLDB effectively defaults it to the ledger's CreationDateTime.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ExclusiveEndTime
+        The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
+The ExclusiveEndTime must be in ISO 8601 date and time format and in Universal Coordinated Time UTC. For example: 2019-06-13T21:36:34Z.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER KinesisConfiguration
+        The configuration settings of the Kinesis Data Streams destination for your stream request.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
         UpdateType: Immutable
         Type: KinesisConfiguration
 
     .PARAMETER Tags
+        An array of key-value pairs to apply to this resource.
+For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
         UpdateType: Mutable
         Type: List
@@ -171,6 +193,17 @@ function New-VSQLDBStream {
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

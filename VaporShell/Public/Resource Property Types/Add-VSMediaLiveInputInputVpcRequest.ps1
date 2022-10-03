@@ -1,11 +1,13 @@
 function Add-VSMediaLiveInputInputVpcRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.InputVpcRequest resource property to the template. The settings for an Amazon VPC input.
+        Adds an AWS::MediaLive::Input.InputVpcRequest resource property to the template. Settings that apply only if the input is an push input where the source is on Amazon VPC.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.InputVpcRequest resource property to the template.
-The settings for an Amazon VPC input.
+Settings that apply only if the input is an push input where the source is on Amazon VPC.
+
+The parent of this entity is Input.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputvpcrequest.html

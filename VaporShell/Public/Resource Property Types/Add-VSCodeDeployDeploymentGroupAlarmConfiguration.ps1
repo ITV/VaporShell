@@ -1,11 +1,11 @@
 function Add-VSCodeDeployDeploymentGroupAlarmConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.AlarmConfiguration resource property to the template. The AlarmConfiguration property type configuresCloudWatch alarms for an AWS CodeDeploy deployment group. AlarmConfiguration is a property of the DeploymentGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html resource.
+        Adds an AWS::CodeDeploy::DeploymentGroup.AlarmConfiguration resource property to the template. The AlarmConfiguration property type configures CloudWatch alarms for an AWS CodeDeploy deployment group. AlarmConfiguration is a property of the DeploymentGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html resource.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.AlarmConfiguration resource property to the template.
-The AlarmConfiguration property type configuresCloudWatch alarms for an AWS CodeDeploy deployment group. AlarmConfiguration is a property of the DeploymentGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html resource.
+The AlarmConfiguration property type configures CloudWatch alarms for an AWS CodeDeploy deployment group. AlarmConfiguration is a property of the DeploymentGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html
@@ -28,8 +28,8 @@ The AlarmConfiguration property type configuresCloudWatch alarms for an AWS Code
 
     .PARAMETER IgnorePollAlarmFailure
         Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
-+  true: The deployment proceeds even if alarm status information can't be retrieved from Amazon CloudWatch.
-+  false: The deployment stops if alarm status information can't be retrieved from Amazon CloudWatch.
++  true: The deployment proceeds even if alarm status information can't be retrieved from CloudWatch.
++  false: The deployment stops if alarm status information can't be retrieved from CloudWatch.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html#cfn-codedeploy-deploymentgroup-alarmconfiguration-ignorepollalarmfailure
         PrimitiveType: Boolean

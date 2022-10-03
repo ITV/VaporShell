@@ -1,13 +1,15 @@
 function Add-VSAutoScalingAutoScalingGroupNotificationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration resource property to the template. NotificationConfiguration specifies a list of notification configurations for the NotificationConfigurations property of AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html. NotificationConfiguration specifies the events that the Amazon EC2 Auto Scaling group sends notifications for.
+        Adds an AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration resource property to the template. NotificationConfiguration specifies a notification configuration for the NotificationConfigurations property of AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html. NotificationConfiguration specifies the events that the Amazon EC2 Auto Scaling group sends notifications for.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration resource property to the template.
-NotificationConfiguration specifies a list of notification configurations for the NotificationConfigurations property of AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html. NotificationConfiguration specifies the events that the Amazon EC2 Auto Scaling group sends notifications for.
+NotificationConfiguration specifies a notification configuration for the NotificationConfigurations property of AWS::AutoScaling::AutoScalingGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html. NotificationConfiguration specifies the events that the Amazon EC2 Auto Scaling group sends notifications for.
 
-For example snippets, see Auto Scaling Group with Notifications: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html#scenario-as-notification.
+For example snippets, see Declaring an Auto Scaling group with a launch template and notifications: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html#scenario-as-notification.
+
+For more information, see Getting Amazon SNS notifications when your Auto Scaling group scales: https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html in the *Amazon EC2 Auto Scaling User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html
@@ -28,7 +30,7 @@ For example snippets, see Auto Scaling Group with Notifications: https://docs.aw
         UpdateType: Mutable
 
     .PARAMETER TopicARN
-        The Amazon Resource Name ARN of the Amazon Simple Notification Service Amazon SNS topic.
+        The Amazon Resource Name ARN of the Amazon SNS topic.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html#cfn-autoscaling-autoscalinggroup-notificationconfigurations-topicarn
         PrimitiveType: String

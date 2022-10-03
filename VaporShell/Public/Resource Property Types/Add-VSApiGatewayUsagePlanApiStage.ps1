@@ -14,25 +14,24 @@ ApiStage is a property of the AWS::ApiGateway::UsagePlan: https://docs.aws.amazo
         The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Stage
         The name of the stage to associate with the usage plan.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Throttle
-        Map containing method-level throttling information for API stage in a usage plan.
+        Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, "/pets/GET".
 Duplicates are not allowed.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
-        DuplicatesAllowed: False
-        ItemType: ThrottleSettings
-        Type: Map
         UpdateType: Mutable
+        Type: Map
+        ItemType: ThrottleSettings
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,10 +1,10 @@
 function New-VSAppSyncGraphQLApi {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::GraphQLApi resource to the template. The AWS::AppSync::GraphQLApi resource creates a new AppSync GraphQL API. This is the top-level construct for your application. For more information, see Quick Start: https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html in the *AWS AppSync Developer Guide*.
+        Adds an AWS::AppSync::GraphQLApi resource to the template. The AWS::AppSync::GraphQLApi resource creates a new AWS AppSync GraphQL API. This is the top-level construct for your application. For more information, see Quick Start: https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html in the *AWS AppSync Developer Guide*.
 
     .DESCRIPTION
-        Adds an AWS::AppSync::GraphQLApi resource to the template. The AWS::AppSync::GraphQLApi resource creates a new AppSync GraphQL API. This is the top-level construct for your application. For more information, see Quick Start: https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html in the *AWS AppSync Developer Guide*.
+        Adds an AWS::AppSync::GraphQLApi resource to the template. The AWS::AppSync::GraphQLApi resource creates a new AWS AppSync GraphQL API. This is the top-level construct for your application. For more information, see Quick Start: https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html in the *AWS AppSync Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
@@ -19,8 +19,15 @@ function New-VSAppSyncGraphQLApi {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
         UpdateType: Mutable
 
+    .PARAMETER LambdaAuthorizerConfig
+        A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
+
+        Type: LambdaAuthorizerConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig
+        UpdateType: Mutable
+
     .PARAMETER XrayEnabled
-        A flag representing whether X-Ray tracing is enabled for this GraphqlApi.
+        A flag indicating whether to use AWS X-Ray tracing for this GraphqlApi.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled
         PrimitiveType: Boolean
@@ -36,8 +43,9 @@ function New-VSAppSyncGraphQLApi {
     .PARAMETER Tags
         An arbitrary set of tags key-value pairs for this GraphQL API.
 
-        Type: Tags
+        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
+        ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER Name
@@ -48,7 +56,7 @@ function New-VSAppSyncGraphQLApi {
         UpdateType: Mutable
 
     .PARAMETER AuthenticationType
-        Security configuration for your GraphQL API. For allowed values such as API_KEY, AWS_IAM, or AMAZON_COGNITO_USER_POOLS, OPENID_CONNECT, see Security: https://docs.aws.amazon.com/appsync/latest/devguide/security.html in the *AWS AppSync Developer Guide*.
+        Security configuration for your GraphQL API. For allowed values such as API_KEY, AWS_IAM, AMAZON_COGNITO_USER_POOLS, OPENID_CONNECT, or AWS_LAMBDA, see Security: https://docs.aws.amazon.com/appsync/latest/devguide/security.html in the *AWS AppSync Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
         PrimitiveType: String
@@ -64,8 +72,9 @@ function New-VSAppSyncGraphQLApi {
     .PARAMETER AdditionalAuthenticationProviders
         A list of additional authentication providers for the GraphqlApi API.
 
-        Type: AdditionalAuthenticationProviders
+        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
+        ItemType: AdditionalAuthenticationProvider
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -133,6 +142,8 @@ function New-VSAppSyncGraphQLApi {
         [parameter(Mandatory = $false)]
         $OpenIDConnectConfig,
         [parameter(Mandatory = $false)]
+        $LambdaAuthorizerConfig,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -145,6 +156,7 @@ function New-VSAppSyncGraphQLApi {
         $XrayEnabled,
         [parameter(Mandatory = $false)]
         $UserPoolConfig,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
         [parameter(Mandatory = $true)]
@@ -172,7 +184,27 @@ function New-VSAppSyncGraphQLApi {
         [parameter(Mandatory = $false)]
         $LogConfig,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.AppSync.GraphQLApi.AdditionalAuthenticationProvider"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $AdditionalAuthenticationProviders,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -235,6 +267,18 @@ function New-VSAppSyncGraphQLApi {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                AdditionalAuthenticationProviders {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AdditionalAuthenticationProviders -Value @($AdditionalAuthenticationProviders)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

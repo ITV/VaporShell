@@ -7,7 +7,7 @@ function Add-VSEC2LaunchTemplatePrivateIpAdd {
         Adds an AWS::EC2::LaunchTemplate.PrivateIpAdd resource property to the template.
 Specifies a secondary private IPv4 address for a network interface.
 
-PrivateIpAdd is a property of the Amazon EC2 LaunchTemplate NetworkInterface: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html property type.
+PrivateIpAdd is a property of AWS::EC2::LaunchTemplate NetworkInterface: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html

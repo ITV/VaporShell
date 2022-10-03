@@ -7,9 +7,9 @@ function Add-VSWAFRegionalByteMatchSetByteMatchTuple {
         Adds an AWS::WAFRegional::ByteMatchSet.ByteMatchTuple resource property to the template.
 **Note**
 
-This is **AWS WAF Classic** documentation. For more information, see AWS WAF Classic: https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html in the developer guide.
+This is ** AWS WAF Classic** documentation. For more information, see AWS WAF Classic: https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html in the developer guide.
 
-**For the latest version of AWS WAF**, use the AWS WAFV2 API and see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html. With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+**For the latest version of AWS WAF **, use the AWS WAFV2 API and see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html. With the latest version, AWS WAF has a single set of endpoints for regional and global use.
 
 The bytes (typically a string that corresponds with ASCII characters that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
 
@@ -103,7 +103,7 @@ Specify NONE if you don't want to perform any text transformations.
         UpdateType: Mutable
 
     .PARAMETER FieldToMatch
-        The part of a web request that you want AWS WAF to search, such as a specified header or a query string.
+        The part of a web request that you want AWS WAF to inspect, such as a specific header or a query string.
 
         Type: FieldToMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-fieldtomatch

@@ -1,21 +1,25 @@
 function Add-VSS3BucketMetrics {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.Metrics resource property to the template. 
+        Adds an AWS::S3::Bucket.Metrics resource property to the template. A container specifying replication metrics-related settings enabling replication metrics and events.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.Metrics resource property to the template.
-
+A container specifying replication metrics-related settings enabling replication metrics and events.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html
 
     .PARAMETER EventThreshold
+        A container specifying the time threshold for emitting the s3:Replication:OperationMissedThreshold event.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
         Type: ReplicationTimeValue
         UpdateType: Mutable
 
     .PARAMETER Status
+        Specifies whether the replication metrics are enabled.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
         PrimitiveType: String
         UpdateType: Mutable
@@ -27,7 +31,7 @@ function Add-VSS3BucketMetrics {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $EventThreshold,
         [parameter(Mandatory = $true)]
         [ValidateScript( {

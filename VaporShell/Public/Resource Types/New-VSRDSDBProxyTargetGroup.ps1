@@ -1,10 +1,26 @@
 function New-VSRDSDBProxyTargetGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::DBProxyTargetGroup resource to the template. 
+        Adds an AWS::RDS::DBProxyTargetGroup resource to the template. The AWS::RDS::DBProxyTargetGroup resource represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group is associated with exactly one RDS DB instance or Aurora DB cluster.
 
     .DESCRIPTION
-        Adds an AWS::RDS::DBProxyTargetGroup resource to the template. 
+        Adds an AWS::RDS::DBProxyTargetGroup resource to the template. The AWS::RDS::DBProxyTargetGroup resource represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group is associated with exactly one RDS DB instance or Aurora DB cluster.
+
+This data type is used as a response element in the DescribeDBProxyTargetGroups action.
+
+For information about RDS Proxy for Amazon RDS, see  Managing Connections with Amazon RDS Proxy: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html in the *Amazon RDS User Guide*.
+
+For information about RDS Proxy for Amazon Aurora, see  Managing Connections with Amazon RDS Proxy: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html in the *Amazon Aurora User Guide*.
+
+For a sample template that creates a DB proxy and registers a DB instance, see  Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#aws-resource-rds-dbproxy--examples in AWS::RDS::DBProxy.
+
+**Note**
+
+Limitations apply to RDS Proxy, including DB engine version limitations and AWS Region limitations.
+
+For information about limitations that apply to RDS Proxy for Amazon RDS, see  Limitations for RDS Proxy: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy.limitations in the *Amazon RDS User Guide*.
+
+For information about that apply to RDS Proxy for Amazon Aurora, see  Limitations for RDS Proxy: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html#rds-proxy.limitations in the *Amazon Aurora User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
@@ -13,27 +29,38 @@ function New-VSRDSDBProxyTargetGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DBProxyName
+        The identifier of the DBProxy that is associated with the DBProxyTargetGroup.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER TargetGroupName
+        The identifier for the target group.
+Currently, this property must be set to default.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ConnectionPoolConfigurationInfo
+        Settings that control the size and behavior of the connection pool associated with a DBProxyTargetGroup.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
         UpdateType: Mutable
         Type: ConnectionPoolConfigurationInfoFormat
 
     .PARAMETER DBInstanceIdentifiers
+        One or more DB instance identifiers.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
 
     .PARAMETER DBClusterIdentifiers
+        One or more DB cluster identifiers.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
         UpdateType: Mutable
         Type: List
@@ -129,6 +156,17 @@ function New-VSRDSDBProxyTargetGroup {
         $DBInstanceIdentifiers,
         [parameter(Mandatory = $false)]
         $DBClusterIdentifiers,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

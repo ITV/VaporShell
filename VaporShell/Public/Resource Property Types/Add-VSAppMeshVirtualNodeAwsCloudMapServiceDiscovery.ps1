@@ -7,6 +7,10 @@ function Add-VSAppMeshVirtualNodeAwsCloudMapServiceDiscovery {
         Adds an AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery resource property to the template.
 An object that represents the AWS Cloud Map service discovery information for your virtual node.
 
+**Note**
+
+AWS Cloud Map is not available in the eu-south-1 Region.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html
 
@@ -21,6 +25,13 @@ An object that represents the AWS Cloud Map service discovery information for yo
         The name of the AWS Cloud Map service to use.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-servicename
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER IpPreference
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-ippreference
         PrimitiveType: String
         UpdateType: Mutable
 
@@ -61,6 +72,17 @@ An object that represents the AWS Cloud Map service discovery information for yo
                 }
             })]
         $ServiceName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IpPreference,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppMesh.VirtualNode.AwsCloudMapInstanceAttribute"

@@ -11,7 +11,7 @@ If this canary is to test an endpoint in a VPC, this structure contains informat
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html
 
     .PARAMETER VpcId
-        The IDs of the VPC where this canary is to run.
+        The ID of the VPC where this canary is to run.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
         UpdateType: Mutable

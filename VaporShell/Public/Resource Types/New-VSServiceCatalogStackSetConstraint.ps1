@@ -53,8 +53,8 @@ function New-VSServiceCatalogStackSetConstraint {
     .PARAMETER RegionList
         One or more AWS Regions where the provisioned product will be available.
 Applicable only to a CFN_STACKSET provisioned product type.
-The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the DescribeProvisioningParameters operation.
-If no values are specified, the default value is all regions from the STACKSET constraint.
+The specified Regions should be within the list of Regions from the STACKSET constraint. To get the list of Regions in the STACKSET constraint, use the DescribeProvisioningParameters operation.
+If no values are specified, the default value is all Regions from the STACKSET constraint.
 
         PrimitiveItemType: String
         Type: List
@@ -226,6 +226,17 @@ If no values are specified, the default value is all regions from the STACKSET c
                 }
             })]
         $ExecutionRole,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

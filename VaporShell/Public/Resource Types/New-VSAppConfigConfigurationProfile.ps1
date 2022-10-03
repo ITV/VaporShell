@@ -1,10 +1,10 @@
 function New-VSAppConfigConfigurationProfile {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::ConfigurationProfile resource to the template. The AWS::AppConfig::ConfigurationProfile resource creates a configuration profile that enables AppConfig to access the configuration source. Valid configuration sources include Systems Manager (SSM documents, SSM Parameter Store parameters, and Amazon S3. A configuration profile includes the following information.
+        Adds an AWS::AppConfig::ConfigurationProfile resource to the template. The AWS::AppConfig::ConfigurationProfile resource creates a configuration profile that enables AWS AppConfig to access the configuration source. Valid configuration sources include AWS Systems Manager (SSM documents, SSM Parameter Store parameters, and Amazon S3. A configuration profile includes the following information.
 
     .DESCRIPTION
-        Adds an AWS::AppConfig::ConfigurationProfile resource to the template. The AWS::AppConfig::ConfigurationProfile resource creates a configuration profile that enables AppConfig to access the configuration source. Valid configuration sources include Systems Manager (SSM documents, SSM Parameter Store parameters, and Amazon S3. A configuration profile includes the following information.
+        Adds an AWS::AppConfig::ConfigurationProfile resource to the template. The AWS::AppConfig::ConfigurationProfile resource creates a configuration profile that enables AWS AppConfig to access the configuration source. Valid configuration sources include AWS Systems Manager (SSM documents, SSM Parameter Store parameters, and Amazon S3. A configuration profile includes the following information.
 
 + The Uri location of the configuration data.
 
@@ -12,7 +12,7 @@ function New-VSAppConfigConfigurationProfile {
 
 + A validator for the configuration data. Available validators include either a JSON Schema or the Amazon Resource Name (ARN of an AWS Lambda function.
 
-AppConfig requires that you create resources and deploy a configuration in the following order:
+AWS AppConfig requires that you create resources and deploy a configuration in the following order:
 
 1. Create an application
 
@@ -24,7 +24,7 @@ AppConfig requires that you create resources and deploy a configuration in the f
 
 1. Deploy the configuration
 
-For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html in the *AWS Systems Manager User Guide*.
+For more information, see AWS AppConfig: https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html in the *AWS AppConfig User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html
@@ -33,9 +33,18 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER LocationUri
-        A URI to locate the configuration. You can specify a Systems Manager SSM document, an SSM Parameter Store parameter, or an Amazon S3 object. For an SSM document, specify either the document name in the format ssm-document://<Document_name> or the Amazon Resource Name ARN. For a parameter, specify either the parameter name in the format ssm-parameter://<Parameter_name> or the ARN. For an Amazon S3 object, specify the URI in the following format: s3://<bucket>/<objectKey> . Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json
+        A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager SSM document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store and for feature flags, specify hosted. For an SSM document, specify either the document name in the format ssm-document://<Document_name> or the Amazon Resource Name ARN. For a parameter, specify either the parameter name in the format ssm-parameter://<Parameter_name> or the ARN. For an Amazon S3 object, specify the URI in the following format: s3://<bucket>/<objectKey> . Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-locationuri
+        PrimitiveType: String
+        UpdateType: Immutable
+
+    .PARAMETER Type
+        The type of configurations contained in the profile. AWS AppConfig supports feature flags and freeform configurations. We recommend you create feature flag configurations to enable or disable new features and freeform configurations to distribute configurations to an application. When calling this API, enter one of the following values for Type:
+AWS.AppConfig.FeatureFlags
+AWS.Freeform
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-type
         PrimitiveType: String
         UpdateType: Immutable
 
@@ -56,6 +65,7 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
 
     .PARAMETER RetrievalRoleArn
         The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+A retrieval role ARN is not required for configurations stored in the AWS AppConfig hosted configuration store. It is required for all other sources that store your configuration.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-retrievalrolearn
         PrimitiveType: String
@@ -69,7 +79,7 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
         UpdateType: Immutable
 
     .PARAMETER Tags
-        Metadata to assign to the configuration profile. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-tags
@@ -166,6 +176,17 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $Type,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $Description,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -222,6 +243,17 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/systems-man
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

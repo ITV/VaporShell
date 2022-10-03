@@ -18,7 +18,7 @@ The name and data type of an individual column in a table.
         PrimitiveType: String
 
     .PARAMETER ColumnType
-        The data type of the column. For more information, see Data Types: https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types in the the *Amazon Keyspaces Developer Guide*.
+        The data type of the column. For more information, see Data types: https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types in the *Amazon Keyspaces Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype
         UpdateType: Mutable

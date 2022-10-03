@@ -1,10 +1,10 @@
 function New-VSPinpointPushTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::PushTemplate resource to the template. The AWS::Pinpoint::PushTemplate resource is a message template that you can use in messages that are sent through a push notification channel. A *message template* is a set of content and settings that you can define, save, and reuse in messages for one or more Amazon Pinpoint applications.
+        Adds an AWS::Pinpoint::PushTemplate resource to the template. Creates a message template that you can use in messages that are sent through a push notification channel. A *message template* is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
 
     .DESCRIPTION
-        Adds an AWS::Pinpoint::PushTemplate resource to the template. The AWS::Pinpoint::PushTemplate resource is a message template that you can use in messages that are sent through a push notification channel. A *message template* is a set of content and settings that you can define, save, and reuse in messages for one or more Amazon Pinpoint applications.
+        Adds an AWS::Pinpoint::PushTemplate resource to the template. Creates a message template that you can use in messages that are sent through a push notification channel. A *message template* is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html
@@ -69,7 +69,8 @@ function New-VSPinpointPushTemplate {
         UpdateType: Mutable
 
     .PARAMETER Tags
-        A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
+        An array of key-value pairs to apply to this resource.
+For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-tags
         PrimitiveType: Json
@@ -191,6 +192,17 @@ function New-VSPinpointPushTemplate {
                 }
             })]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

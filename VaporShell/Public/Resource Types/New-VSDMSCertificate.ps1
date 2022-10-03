@@ -27,7 +27,7 @@ function New-VSDMSCertificate {
         UpdateType: Immutable
 
     .PARAMETER CertificateWallet
-        The location of an imported Oracle Wallet certificate for use with SSL.
+        The location of an imported Oracle Wallet certificate for use with SSL. Example: filebase64"${path.root}/rds-ca-2019-root.sso"
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificatewallet
         PrimitiveType: String
@@ -128,6 +128,17 @@ function New-VSDMSCertificate {
                 }
             })]
         $CertificateWallet,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

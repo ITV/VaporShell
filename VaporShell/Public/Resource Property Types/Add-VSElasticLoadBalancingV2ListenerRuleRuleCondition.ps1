@@ -8,7 +8,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleRuleCondition {
 Specifies a condition for a listener rule.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html
 
     .PARAMETER Field
         The field in the HTTP request. The following are the possible values:
@@ -19,51 +19,9 @@ Specifies a condition for a listener rule.
 +  query-string
 +  source-ip
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-field
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-field
+        UpdateType: Mutable
         PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER HostHeaderConfig
-        Information for a host header condition. Specify only when Field is host-header.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
-        Type: HostHeaderConfig
-        UpdateType: Mutable
-
-    .PARAMETER HttpHeaderConfig
-        Information for an HTTP header condition. Specify only when Field is http-header.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
-        Type: HttpHeaderConfig
-        UpdateType: Mutable
-
-    .PARAMETER HttpRequestMethodConfig
-        Information for an HTTP method condition. Specify only when Field is http-request-method.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
-        Type: HttpRequestMethodConfig
-        UpdateType: Mutable
-
-    .PARAMETER PathPatternConfig
-        Information for a path pattern condition. Specify only when Field is path-pattern.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
-        Type: PathPatternConfig
-        UpdateType: Mutable
-
-    .PARAMETER QueryStringConfig
-        Information for a query string condition. Specify only when Field is query-string.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
-        Type: QueryStringConfig
-        UpdateType: Mutable
-
-    .PARAMETER SourceIpConfig
-        Information for a source IP condition. Specify only when Field is source-ip.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
-        Type: SourceIpConfig
-        UpdateType: Mutable
 
     .PARAMETER Values
         The condition value. Specify only when Field is host-header or path-pattern. Alternatively, to specify multiple host names or multiple path patterns, use HostHeaderConfig or PathPatternConfig.
@@ -79,11 +37,53 @@ If Field is path-pattern and you're not using PathPatternConfig, you can specify
 + * matches 0 or more characters
 + ? matches exactly 1 character
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-values
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER HttpRequestMethodConfig
+        Information for an HTTP method condition. Specify only when Field is http-request-method.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
+        UpdateType: Mutable
+        Type: HttpRequestMethodConfig
+
+    .PARAMETER PathPatternConfig
+        Information for a path pattern condition. Specify only when Field is path-pattern.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
+        UpdateType: Mutable
+        Type: PathPatternConfig
+
+    .PARAMETER HttpHeaderConfig
+        Information for an HTTP header condition. Specify only when Field is http-header.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
+        UpdateType: Mutable
+        Type: HttpHeaderConfig
+
+    .PARAMETER SourceIpConfig
+        Information for a source IP condition. Specify only when Field is source-ip.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
+        UpdateType: Mutable
+        Type: SourceIpConfig
+
+    .PARAMETER HostHeaderConfig
+        Information for a host header condition. Specify only when Field is host-header.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
+        UpdateType: Mutable
+        Type: HostHeaderConfig
+
+    .PARAMETER QueryStringConfig
+        Information for a query string condition. Specify only when Field is query-string.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
+        UpdateType: Mutable
+        Type: QueryStringConfig
 
     .FUNCTIONALITY
         Vaporshell
@@ -104,19 +104,19 @@ If Field is path-pattern and you're not using PathPatternConfig, you can specify
             })]
         $Field,
         [parameter(Mandatory = $false)]
-        $HostHeaderConfig,
-        [parameter(Mandatory = $false)]
-        $HttpHeaderConfig,
+        $Values,
         [parameter(Mandatory = $false)]
         $HttpRequestMethodConfig,
         [parameter(Mandatory = $false)]
         $PathPatternConfig,
         [parameter(Mandatory = $false)]
-        $QueryStringConfig,
+        $HttpHeaderConfig,
         [parameter(Mandatory = $false)]
         $SourceIpConfig,
         [parameter(Mandatory = $false)]
-        $Values
+        $HostHeaderConfig,
+        [parameter(Mandatory = $false)]
+        $QueryStringConfig
     )
     Begin {
         $obj = [PSCustomObject]@{}

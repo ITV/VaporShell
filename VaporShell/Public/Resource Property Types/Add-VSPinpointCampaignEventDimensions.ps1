@@ -1,11 +1,11 @@
 function Add-VSPinpointCampaignEventDimensions {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Campaign.EventDimensions resource property to the template. Specifies the dimensions for an event filter that determines when a campaign is sent.
+        Adds an AWS::Pinpoint::Campaign.EventDimensions resource property to the template. Specifies the dimensions for an event filter that determines when a campaign is sent or a journey activity is performed.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Campaign.EventDimensions resource property to the template.
-Specifies the dimensions for an event filter that determines when a campaign is sent.
+Specifies the dimensions for an event filter that determines when a campaign is sent or a journey activity is performed.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html
@@ -18,7 +18,7 @@ Specifies the dimensions for an event filter that determines when a campaign is 
         UpdateType: Mutable
 
     .PARAMETER EventType
-        The name of the event that causes the campaign to be sent. This can be a standard type of event that Amazon Pinpoint generates, such as _email.delivered, or a custom event that's specific to your application.
+        The name of the event that causes the campaign to be sent or the journey activity to be performed. This can be a standard event that Amazon Pinpoint generates, such as _email.delivered. For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see Streaming Amazon Pinpoint Events: https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html in the *Amazon Pinpoint Developer Guide*.
 
         Type: SetDimension
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html#cfn-pinpoint-campaign-eventdimensions-eventtype

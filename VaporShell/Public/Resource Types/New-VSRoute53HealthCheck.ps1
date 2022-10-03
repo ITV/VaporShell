@@ -8,6 +8,10 @@ function New-VSRoute53HealthCheck {
 
 For information about associating health checks with records, see HealthCheckId: https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId in ChangeResourceRecordSets: https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html.
 
+**Note**
+
+You can't create a health check with simple routing.
+
 **ELB Load Balancers**
 
 If you're registering EC2 instances with an Elastic Load Balancing (ELB load balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to a Route 53 health check.
@@ -30,19 +34,20 @@ You can associate health checks with failover records in a private hosted zone. 
 
     .PARAMETER HealthCheckConfig
         A complex type that contains detailed information about one health check.
+For the values to enter for HealthCheckConfig, see HealthCheckConfig: https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-        Type: HealthCheckConfig
-        UpdateType: Conditional
+        UpdateType: Mutable
+        PrimitiveType: Json
 
     .PARAMETER HealthCheckTags
         The HealthCheckTags property describes key-value pairs that are associated with an AWS::Route53::HealthCheck resource.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-        DuplicatesAllowed: True
-        ItemType: HealthCheckTag
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: HealthCheckTag
+        DuplicatesAllowed: False
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -107,6 +112,15 @@ You can associate health checks with failover records in a private hosted zone. 
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $HealthCheckConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -119,6 +133,17 @@ You can associate health checks with failover records in a private hosted zone. 
                 }
             })]
         $HealthCheckTags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -187,6 +212,23 @@ You can associate health checks with failover records in a private hosted zone. 
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name HealthCheckTags -Value @($HealthCheckTags)
+                }
+                HealthCheckConfig {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

@@ -1,11 +1,11 @@
 function Add-VSLambdaFunctionTracingConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::Function.TracingConfig resource property to the template. The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
+        Adds an AWS::Lambda::Function.TracingConfig resource property to the template. The function's AWS X-Ray: https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html tracing configuration. To sample and record incoming requests, set Mode to Active.
 
     .DESCRIPTION
         Adds an AWS::Lambda::Function.TracingConfig resource property to the template.
-The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
+The function's AWS X-Ray: https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html tracing configuration. To sample and record incoming requests, set Mode to Active.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html
@@ -14,8 +14,8 @@ The function's AWS X-Ray tracing configuration. To sample and record incoming re
         The tracing mode.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html#cfn-lambda-function-tracingconfig-mode
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

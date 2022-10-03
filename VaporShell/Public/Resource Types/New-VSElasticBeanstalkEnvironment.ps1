@@ -44,6 +44,14 @@ If you specify a name, you cannot perform updates that require replacement of th
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER OperationsRole
+        The operations role feature of AWS Elastic Beanstalk is in beta release and is subject to change.
+The Amazon Resource Name ARN of an existing IAM role to be used as the environment's operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream services during this call and during subsequent calls acting on this environment. To specify an operations role, you must have the iam:PassRole permission for the role.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-operations-role
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER OptionSettings
         Key-value pairs defining configuration options for this environment, such as the instance type. These options override the values that are defined in the solution stack or the configuration template: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html. If you remove any options during a stack update, the removed options retain their current values.
 
@@ -54,7 +62,7 @@ If you specify a name, you cannot perform updates that require replacement of th
         UpdateType: Mutable
 
     .PARAMETER PlatformArn
-        The Amazon Resource Name ARN of the custom platform to use with the environment. For more information, see  Custom Platforms: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html in the *AWS Elastic Beanstalk Developer Guide*.
+        The Amazon Resource Name ARN of the custom platform to use with the environment. For more information, see Custom Platforms: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html in the * AWS Elastic Beanstalk Developer Guide*.
 If you specify PlatformArn, don't specify SolutionStackName.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn
@@ -62,7 +70,7 @@ If you specify PlatformArn, don't specify SolutionStackName.
         UpdateType: Mutable
 
     .PARAMETER SolutionStackName
-        The name of an Elastic Beanstalk solution stack platform version to use with the environment. If specified, Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. For a list of current solution stacks, see Elastic Beanstalk Supported Platforms: https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html in the *AWS Elastic Beanstalk Platforms* guide.
+        The name of an Elastic Beanstalk solution stack platform version to use with the environment. If specified, Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. For a list of current solution stacks, see Elastic Beanstalk Supported Platforms: https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html in the * AWS Elastic Beanstalk Platforms* guide.
 If you specify SolutionStackName, don't specify PlatformArn or TemplateName.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-solutionstackname
@@ -209,6 +217,17 @@ Default: If not specified, Elastic Beanstalk attempts to deploy the sample appli
         $EnvironmentName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OperationsRole,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ElasticBeanstalk.Environment.OptionSetting"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -267,6 +286,17 @@ Default: If not specified, Elastic Beanstalk attempts to deploy the sample appli
                 }
             })]
         $VersionLabel,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

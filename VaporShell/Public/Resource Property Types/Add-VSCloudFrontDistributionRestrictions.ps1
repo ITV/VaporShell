@@ -13,9 +13,9 @@ A complex type that identifies ways in which you want to restrict distribution o
     .PARAMETER GeoRestriction
         A complex type that controls the countries in which your content is distributed. CloudFront determines the location of your users using MaxMind GeoIP databases. To disable geo restriction, remove the Restrictions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions property from your stack template.
 
-        Type: GeoRestriction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
         UpdateType: Mutable
+        Type: GeoRestriction
 
     .FUNCTIONALITY
         Vaporshell

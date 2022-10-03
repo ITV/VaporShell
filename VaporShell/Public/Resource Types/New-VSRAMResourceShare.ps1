@@ -12,8 +12,23 @@ function New-VSRAMResourceShare {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER PermissionArns
+        Specifies the Amazon Resource Names ARNs: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-permissionarns
+        UpdateType: Mutable
+
     .PARAMETER Principals
-        The principals to associate with the resource share. The possible values are IDs of AWS accounts, the ARN of an OU or organization from AWS Organizations.
+        Specifies a list of one or more principals to associate with the resource share.
+You can include the following values:
++ An AWS account ID, for example: 123456789012
++ An Amazon Resoure Name ARN: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html of an organization in AWS Organizations, for example: arn:aws:organizations::123456789012:organization/o-exampleorgid
++ An ARN of an organizational unit OU in AWS Organizations, for example: arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123
++ An ARN of an IAM role, for example: arn:aws:iam::123456789012:role/rolename
++ An ARN of an IAM user, for example: arn:aws:iam::123456789012user/username
+Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users: https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types in the * AWS Resource Access Manager User Guide*.
 
         PrimitiveItemType: String
         Type: List
@@ -21,14 +36,14 @@ function New-VSRAMResourceShare {
         UpdateType: Mutable
 
     .PARAMETER AllowExternalPrincipals
-        Indicates whether principals outside your AWS organization can be associated with a resource share.
+        Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share. A value of true lets you share with individual AWS accounts that are *not* in your organization. A value of false only has meaning if your account is a member of an AWS Organization. The default value is true.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-allowexternalprincipals
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ResourceArns
-        The Amazon Resource Names ARN of the resources to associate with the resource share.
+        Specifies a list of one or more ARNs of the resources to associate with the resource share.
 
         PrimitiveItemType: String
         Type: List
@@ -36,7 +51,7 @@ function New-VSRAMResourceShare {
         UpdateType: Mutable
 
     .PARAMETER Tags
-        One or more tags.
+        Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
 
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-tags
@@ -44,7 +59,7 @@ function New-VSRAMResourceShare {
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the resource share.
+        Specifies the name of the resource share.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-name
         PrimitiveType: String
@@ -113,6 +128,8 @@ function New-VSRAMResourceShare {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $PermissionArns,
+        [parameter(Mandatory = $false)]
         $Principals,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -141,6 +158,17 @@ function New-VSRAMResourceShare {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -203,6 +231,12 @@ function New-VSRAMResourceShare {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                PermissionArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name PermissionArns -Value @($PermissionArns)
                 }
                 Principals {
                     if (!($ResourceParams["Properties"])) {

@@ -1,17 +1,19 @@
 function Add-VSMediaLiveInputInputSourceRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.InputSourceRequest resource property to the template. The settings for a pull input.
+        Adds an AWS::MediaLive::Input.InputSourceRequest resource property to the template. Settings that apply only if the input is a pull type of input.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.InputSourceRequest resource property to the template.
-The settings for a pull input.
+Settings that apply only if the input is a pull type of input.
+
+The parent of this entity is Input.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html
 
     .PARAMETER Username
-        The user name for accessing the upstream system. The user name applies only if the upstream system requires credentials.
+        The user name to connect to the upstream system. The user name applies only if the upstream system requires credentials.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-username
         PrimitiveType: String

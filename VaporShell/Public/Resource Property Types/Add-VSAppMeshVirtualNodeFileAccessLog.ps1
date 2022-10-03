@@ -18,6 +18,13 @@ The Envoy process must have write permissions to the path that you specify here.
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER Format
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Type: LoggingFormat
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html#cfn-appmesh-virtualnode-fileaccesslog-format
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -35,7 +42,9 @@ The Envoy process must have write permissions to the path that you specify here.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Path
+        $Path,
+        [parameter(Mandatory = $false)]
+        $Format
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,22 +1,23 @@
 function Add-VSIoTEventsDetectorModelOnEnter {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.OnEnter resource property to the template. When entering this state, perform these "actions" if the "condition" is TRUE.
+        Adds an AWS::IoTEvents::DetectorModel.OnEnter resource property to the template. When entering this state, perform these actions if the condition is TRUE.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.OnEnter resource property to the template.
-When entering this state, perform these "actions" if the "condition" is TRUE.
+When entering this state, perform these actions if the condition is TRUE.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html
 
     .PARAMETER Events
-        Specifies the actions that are performed when the state is entered and the "condition" is TRUE.
+        Specifies the actions that are performed when the state is entered and the condition is TRUE.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events
-        ItemType: Event
         UpdateType: Mutable
+        Type: List
+        ItemType: Event
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

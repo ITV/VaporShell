@@ -6,7 +6,7 @@ function New-VSPinpointBaiduChannel {
     .DESCRIPTION
         Adds an AWS::Pinpoint::BaiduChannel resource to the template. A *channel* is a type of platform that you can deliver messages to. You can use the Baidu channel to send notifications to the Baidu Cloud Push notification service. Before you can use Amazon Pinpoint to send notifications to the Baidu Cloud Push service, you have to enable the Baidu channel for an Amazon Pinpoint application.
 
-The AWS::Pinpoint::BaiduChannel resource defines the status and authentication settings of the Baidu channel for an application.
+The BaiduChannel resource represents the status and authentication settings of the Baidu channel for an application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-baiduchannel.html
@@ -36,7 +36,7 @@ The AWS::Pinpoint::BaiduChannel resource defines the status and authentication s
         UpdateType: Mutable
 
     .PARAMETER ApplicationId
-        The unique identifier for the application that the Baidu channel applies to.
+        The unique identifier for the Amazon Pinpoint application that you're configuring the Baidu channel for.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-baiduchannel.html#cfn-pinpoint-baiduchannel-applicationid
         PrimitiveType: String
@@ -148,6 +148,17 @@ The AWS::Pinpoint::BaiduChannel resource defines the status and authentication s
                 }
             })]
         $ApplicationId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

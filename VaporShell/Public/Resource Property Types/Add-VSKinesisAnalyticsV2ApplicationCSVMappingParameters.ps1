@@ -1,11 +1,11 @@
 function Add-VSKinesisAnalyticsV2ApplicationCSVMappingParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.CSVMappingParameters resource property to the template. For an SQL-based application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the *'n'* as the row delimiter and a comma ("," as the column delimiter:
+        Adds an AWS::KinesisAnalyticsV2::Application.CSVMappingParameters resource property to the template. For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the *'n'* as the row delimiter and a comma ("," as the column delimiter:
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.CSVMappingParameters resource property to the template.
-For an SQL-based application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the *'n'* as the row delimiter and a comma ("," as the column delimiter:
+For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the *'n'* as the row delimiter and a comma ("," as the column delimiter:
 
 "name1", "address1"
 
@@ -14,19 +14,19 @@ For an SQL-based application, provides additional mapping information when the r
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-csvmappingparameters.html
 
-    .PARAMETER RecordRowDelimiter
-        The row delimiter. For example, in a CSV format, *'n'* is the typical row delimiter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-csvmappingparameters.html#cfn-kinesisanalyticsv2-application-csvmappingparameters-recordrowdelimiter
-        PrimitiveType: String
-        UpdateType: Mutable
-
     .PARAMETER RecordColumnDelimiter
         The column delimiter. For example, in a CSV format, a comma "," is the typical column delimiter.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-csvmappingparameters.html#cfn-kinesisanalyticsv2-application-csvmappingparameters-recordcolumndelimiter
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER RecordRowDelimiter
+        The row delimiter. For example, in a CSV format, *'n'* is the typical row delimiter.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-csvmappingparameters.html#cfn-kinesisanalyticsv2-application-csvmappingparameters-recordrowdelimiter
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -45,7 +45,7 @@ For an SQL-based application, provides additional mapping information when the r
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RecordRowDelimiter,
+        $RecordColumnDelimiter,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -56,7 +56,7 @@ For an SQL-based application, provides additional mapping information when the r
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RecordColumnDelimiter
+        $RecordRowDelimiter
     )
     Begin {
         $obj = [PSCustomObject]@{}

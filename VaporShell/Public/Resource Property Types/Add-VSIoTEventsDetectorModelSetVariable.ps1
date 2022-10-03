@@ -1,28 +1,28 @@
 function Add-VSIoTEventsDetectorModelSetVariable {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.SetVariable resource property to the template. Sets a variable to a specified value.
+        Adds an AWS::IoTEvents::DetectorModel.SetVariable resource property to the template. Information about the variable and its new value.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.SetVariable resource property to the template.
-Sets a variable to a specified value.
+Information about the variable and its new value.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html
-
-    .PARAMETER VariableName
-        The name of the variable.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
-        PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER Value
         The new value of the variable.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER VariableName
+        The name of the variable.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,7 +31,7 @@ Sets a variable to a specified value.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,8 +41,8 @@ Sets a variable to a specified value.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VariableName,
-        [parameter(Mandatory = $false)]
+        $Value,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,7 +52,7 @@ Sets a variable to a specified value.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $VariableName
     )
     Begin {
         $obj = [PSCustomObject]@{}

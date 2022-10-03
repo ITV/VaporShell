@@ -20,9 +20,9 @@ Account takeover action type.
     .PARAMETER EventAction
         The event action.
 +  BLOCK Choosing this action will block the request.
-+  MFA_IF_CONFIGURED Throw MFA challenge if user has configured it, else allow the request.
-+  MFA_REQUIRED Throw MFA challenge if user has configured it, else block the request.
-+  NO_ACTION Allow the user sign-in.
++  MFA_IF_CONFIGURED Present an MFA challenge if user has configured it, else allow the request.
++  MFA_REQUIRED Present an MFA challenge if user has configured it, else block the request.
++  NO_ACTION Allow the user to sign in.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype-eventaction
         PrimitiveType: String

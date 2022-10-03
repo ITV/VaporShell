@@ -43,11 +43,10 @@ function New-VSImageBuilderInfrastructureConfiguration {
         PrimitiveItemType: String
 
     .PARAMETER Logging
-        The logging configuration of the infrastructure configuration.
+        The logging configuration defines where Image Builder uploads your logs.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
         UpdateType: Mutable
-        PrimitiveType: Json
         Type: Logging
 
     .PARAMETER SubnetId
@@ -58,7 +57,7 @@ function New-VSImageBuilderInfrastructureConfiguration {
         PrimitiveType: String
 
     .PARAMETER KeyPair
-        The EC2 key pair of the infrastructure configuration.
+        The Amazon EC2 key pair of the infrastructure configuration.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
         UpdateType: Mutable
@@ -78,6 +77,13 @@ function New-VSImageBuilderInfrastructureConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER InstanceMetadataOptions
+        The instance metadata option settings for the infrastructure configuration.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancemetadataoptions
+        UpdateType: Mutable
+        Type: InstanceMetadataOptions
+
     .PARAMETER SnsTopicArn
         The Amazon Resource Name ARN of the SNS topic for the infrastructure configuration.
 
@@ -86,7 +92,7 @@ function New-VSImageBuilderInfrastructureConfiguration {
         PrimitiveType: String
 
     .PARAMETER ResourceTags
-        Returns the Amazon Resource Name ARN of the infrastructure configuration. The following pattern is applied: ^arn:aws^:]*:imagebuilder:^:]+:?:d{12}|aws:?:image-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline/a-z0-9-_]+?:/?:?:x|d+.?:x|d+.?:x|d+?:/d+??$.
+        The tags attached to the resource created by Image Builder.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
         UpdateType: Mutable
@@ -190,15 +196,6 @@ function New-VSImageBuilderInfrastructureConfiguration {
         [parameter(Mandatory = $false)]
         $SecurityGroupIds,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Logging,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -245,6 +242,8 @@ function New-VSImageBuilderInfrastructureConfiguration {
             })]
         $InstanceProfileName,
         [parameter(Mandatory = $false)]
+        $InstanceMetadataOptions,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -261,6 +260,17 @@ function New-VSImageBuilderInfrastructureConfiguration {
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -335,23 +345,6 @@ function New-VSImageBuilderInfrastructureConfiguration {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SecurityGroupIds -Value @($SecurityGroupIds)
-                }
-                Logging {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

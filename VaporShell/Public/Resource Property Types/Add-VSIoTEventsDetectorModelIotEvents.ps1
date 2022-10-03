@@ -1,11 +1,11 @@
 function Add-VSIoTEventsDetectorModelIotEvents {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.IotEvents resource property to the template. Sends an IoT Events input, passing in information about the detector model instance and the event which triggered the action.
+        Adds an AWS::IoTEvents::DetectorModel.IotEvents resource property to the template. Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.IotEvents resource property to the template.
-Sends an IoT Events input, passing in information about the detector model instance and the event which triggered the action.
+Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html
@@ -14,15 +14,15 @@ Sends an IoT Events input, passing in information about the detector model insta
         The name of the AWS IoT Events input where the data is sent.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Payload
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        You can configure the action payload when you send a message to an AWS IoT Events input.
 
-        Type: Payload
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
         UpdateType: Mutable
+        Type: Payload
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,7 +31,7 @@ Sends an IoT Events input, passing in information about the detector model insta
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

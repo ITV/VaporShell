@@ -14,16 +14,26 @@ Specifies an object containing properties used to create a backup plan.
         The display name of a backup plan.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER AdvancedBackupSettings
+        A list of backup options for each resource type.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
+        UpdateType: Mutable
+        Type: List
+        ItemType: AdvancedBackupSettingResourceType
+        DuplicatesAllowed: True
 
     .PARAMETER BackupPlanRule
         An array of BackupRule objects, each of which specifies a scheduled task that is used to back up a selection of resources.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
-        ItemType: BackupRuleResourceType
         UpdateType: Mutable
+        Type: List
+        ItemType: BackupRuleResourceType
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -43,6 +53,17 @@ Specifies an object containing properties used to create a backup plan.
                 }
             })]
         $BackupPlanName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Backup.BackupPlan.AdvancedBackupSettingResourceType"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AdvancedBackupSettings,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Backup.BackupPlan.BackupRuleResourceType"

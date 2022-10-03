@@ -1,14 +1,16 @@
 function New-VSEC2VPCEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::VPCEndpoint resource to the template. Specifies a VPC endpoint for a service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace partner, or another AWS account. For more information, see VPC Endpoints: https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html in the *Amazon Virtual Private Cloud User Guide*.
+        Adds an AWS::EC2::VPCEndpoint resource to the template. Specifies a VPC endpoint for a service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace Partner, or another AWS account. For more information, see the AWS PrivateLink User Guide: https://docs.aws.amazon.com/vpc/latest/privatelink/.
 
     .DESCRIPTION
-        Adds an AWS::EC2::VPCEndpoint resource to the template. Specifies a VPC endpoint for a service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace partner, or another AWS account. For more information, see VPC Endpoints: https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html in the *Amazon Virtual Private Cloud User Guide*.
+        Adds an AWS::EC2::VPCEndpoint resource to the template. Specifies a VPC endpoint for a service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace Partner, or another AWS account. For more information, see the AWS PrivateLink User Guide: https://docs.aws.amazon.com/vpc/latest/privatelink/.
 
-A gateway endpoint serves as a target for a route in your route table for traffic destined for the AWS service. You can specify an endpoint policy to attach to the endpoint that will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.
+An interface endpoint establishes connections between the subnets in your VPC and an AWS service, your own service, or a service hosted by another AWS account. You can specify the subnets in which to create the endpoint and the security groups to associate with the endpoint network interface.
 
-An interface endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.
+A gateway endpoint serves as a target for a route in your route table for traffic destined for Amazon S3 or Amazon DynamoDB. You can specify an endpoint policy for the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint. For information about connectivity to Amazon S3, see Why can’t I connect to an S3 bucket using a gateway VPC endpoint?: http://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint
+
+A Gateway Load Balancer endpoint provides private connectivity between your VPC and virtual appliances from a service provider.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html
@@ -17,15 +19,17 @@ An interface endpoint is a network interface in your subnet that serves as an en
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER PolicyDocument
-        A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.
+        A policy that controls access to the service from the VPC. If this parameter is not specified, the default policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
+For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation converts YAML policies to JSON format before calling the API to create or modify the VPC endpoint.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER PrivateDnsEnabled
-        Interface endpoint Indicate whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region for example, kinesis.us-east-1.amazonaws.com which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.
+        Indicate whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region for example, kinesis.us-east-1.amazonaws.com, which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.
 To use a private hosted zone, you must set the following VPC attributes to true: enableDnsHostnames and enableDnsSupport.
+This property is supported only for interface endpoints.
 Default: false
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled
@@ -33,7 +37,7 @@ Default: false
         UpdateType: Mutable
 
     .PARAMETER RouteTableIds
-        Gateway endpoint One or more route table IDs.
+        The route table IDs. Routing is supported only for gateway endpoints.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
         DuplicatesAllowed: False
@@ -42,8 +46,7 @@ Default: false
         UpdateType: Mutable
 
     .PARAMETER SecurityGroupIds
-        Interface endpoint The ID of one or more security groups to associate with the endpoint network interface.
-This field is required when the endpoint is an interface.
+        The IDs of the security groups to associate with the endpoint network interface. Security groups are supported only for interface endpoints.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids
         DuplicatesAllowed: False
@@ -52,15 +55,14 @@ This field is required when the endpoint is an interface.
         UpdateType: Mutable
 
     .PARAMETER ServiceName
-        The service name. To get a list of available services, use the DescribeVpcEndpointServices: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html request, or get the name from the service provider.
+        The service name. To list the available services, use DescribeVpcEndpointServices: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html. Otherwise, get the name from the service provider.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER SubnetIds
-        Interface endpoint The ID of one or more subnets in which to create an endpoint network interface.
-This field is required when the endpoint is an interface.
+        The ID of the subnets in which to create an endpoint network interface. You must specify this property for an interface endpoints or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids
         DuplicatesAllowed: False
@@ -78,7 +80,6 @@ Default: Gateway
 
     .PARAMETER VpcId
         The ID of the VPC in which the endpoint will be used.
-This field is required when the endpoint is an interface.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid
         PrimitiveType: String
@@ -207,6 +208,17 @@ This field is required when the endpoint is an interface.
                 }
             })]
         $VpcId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -22,7 +22,7 @@ For more information, see Task Placement Constraints: https://docs.aws.amazon.co
         PrimitiveType: String
 
     .PARAMETER Expression
-        A cluster query language expression to apply to the constraint. For more information, see Cluster Query Language: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html in the *Amazon Elastic Container Service Developer Guide*.
+        A cluster query language expression to apply to the constraint. For more information, see Cluster query language: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html in the *Amazon Elastic Container Service Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-expression
         UpdateType: Immutable

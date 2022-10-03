@@ -39,8 +39,8 @@ A MediaLive channel ingests and transcodes (decodes and encodes source content f
     .PARAMETER EncoderSettings
         The encoding configuration for the output content.
 
+        Type: EncoderSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings
-        PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER Destinations
@@ -49,6 +49,20 @@ A MediaLive channel ingests and transcodes (decodes and encodes source content f
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-destinations
         ItemType: OutputDestination
+        UpdateType: Mutable
+
+    .PARAMETER Vpc
+        Settings to enable VPC mode in the channel, so that the endpoints for all outputs are in your VPC.
+
+        Type: VpcOutputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-vpc
+        UpdateType: Immutable
+
+    .PARAMETER CdiInputSpecification
+        Specification of CDI inputs for this channel.
+
+        Type: CdiInputSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-cdiinputspecification
         UpdateType: Mutable
 
     .PARAMETER LogLevel
@@ -166,15 +180,6 @@ A MediaLive channel ingests and transcodes (decodes and encodes source content f
             })]
         $ChannelClass,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $EncoderSettings,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -187,6 +192,10 @@ A MediaLive channel ingests and transcodes (decodes and encodes source content f
                 }
             })]
         $Destinations,
+        [parameter(Mandatory = $false)]
+        $Vpc,
+        [parameter(Mandatory = $false)]
+        $CdiInputSpecification,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -231,6 +240,17 @@ A MediaLive channel ingests and transcodes (decodes and encodes source content f
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -305,23 +325,6 @@ A MediaLive channel ingests and transcodes (decodes and encodes source content f
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Destinations -Value @($Destinations)
-                }
-                EncoderSettings {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Tags {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){

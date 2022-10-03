@@ -1,16 +1,12 @@
 function New-VSCodeStarConnectionsConnection {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeStarConnections::Connection resource to the template. **Important**
+        Adds an AWS::CodeStarConnections::Connection resource to the template. The AWS::CodeStarConnections::Connection resource can be used to connect external source providers with services like AWS CodePipeline.
 
     .DESCRIPTION
-        Adds an AWS::CodeStarConnections::Connection resource to the template. **Important**
+        Adds an AWS::CodeStarConnections::Connection resource to the template. The AWS::CodeStarConnections::Connection resource can be used to connect external source providers with services like AWS CodePipeline.
 
-The CodeStar Connections feature is in preview release and is subject to change.
-
-The AWS::CodeStarConnections::Connection resource can be used to connect external source providers with services like AWS CodePipeline.
-
-**Note:** A connection created through CloudFormation is in PENDING status by default. You can make its status AVAILABLE by editing the connection in the CodePipeline console.
+**Note:** A connection created through AWS CloudFormation is in PENDING status by default. You can make its status AVAILABLE by updating the connection in the console.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html
@@ -26,18 +22,22 @@ The AWS::CodeStarConnections::Connection resource can be used to connect externa
         PrimitiveType: String
 
     .PARAMETER ProviderType
-        The name of the external provider where your third-party code repository is configured. Currently, the valid provider type is Bitbucket.
+        The name of the external provider where your third-party code repository is configured.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER HostArn
+        The Amazon Resource Name ARN of the host associated with the connection.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
+        Specifies the tags applied to the resource.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
         UpdateType: Mutable
         Type: List
@@ -141,6 +141,17 @@ The AWS::CodeStarConnections::Connection resource can be used to connect externa
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

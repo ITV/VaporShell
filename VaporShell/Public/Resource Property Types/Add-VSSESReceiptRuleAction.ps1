@@ -7,7 +7,7 @@ function Add-VSSESReceiptRuleAction {
         Adds an AWS::SES::ReceiptRule.Action resource property to the template.
 An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
 
-For information about setting up receipt rules, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html.
+For information about setting up receipt rules, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html
@@ -41,7 +41,7 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
         UpdateType: Mutable
 
     .PARAMETER WorkmailAction
-        Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
+        Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
 
         Type: WorkmailAction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-workmailaction

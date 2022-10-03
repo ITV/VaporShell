@@ -20,18 +20,37 @@ function New-VSCodeGuruProfilerProfilingGroup {
         PrimitiveType: String
 
     .PARAMETER ComputePlatform
-        The full Amazon Resource Name ARN for that profiling group.
+        The compute platform of the profiling group. Use AWSLambda if your application runs on AWS Lambda. Use Default if your application runs on a compute platform that is not AWS Lambda, such an Amazon EC2 instance, an on-premises server, or a different platform. If not specified, Default is used. This property is immutable.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AgentPermissions
-        The full Amazon Resource Name ARN for that profiling group.
+        The agent permissions attached to this profiling group. This action group grants ConfigureAgent and PostAgentProfile permissions to perform actions required by the profiling agent. The Json consists of key Principals.
+*Principals*: A list of string ARNs for the roles and users you want to grant access to the profiling group. Wildcards are not supported in the ARNs. You are allowed to provide up to 50 ARNs. An empty list is not permitted. This is a required key.
+For more information, see Resource-based policies in CodeGuru Profiler: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html in the *Amazon CodeGuru Profiler user guide*, ConfigureAgent: https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html, and PostAgentProfile: https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
         UpdateType: Mutable
         PrimitiveType: Json
+
+    .PARAMETER AnomalyDetectionNotificationConfiguration
+        Adds anomaly notifications for a profiling group.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+        UpdateType: Mutable
+        Type: List
+        ItemType: Channel
+
+    .PARAMETER Tags
+        A list of tags to add to the created profiling group.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: False
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -128,6 +147,31 @@ function New-VSCodeGuruProfilerProfilingGroup {
                 }
             })]
         $AgentPermissions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CodeGuruProfiler.ProfilingGroup.Channel"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AnomalyDetectionNotificationConfiguration,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -190,6 +234,18 @@ function New-VSCodeGuruProfilerProfilingGroup {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                AnomalyDetectionNotificationConfiguration {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AnomalyDetectionNotificationConfiguration -Value @($AnomalyDetectionNotificationConfiguration)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 AgentPermissions {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){

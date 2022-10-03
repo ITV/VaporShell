@@ -17,8 +17,8 @@ For more information, see Using Amazon Aurora Serverless: https://docs.aws.amazo
 If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-autopause
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER MaxCapacity
         The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
@@ -27,8 +27,8 @@ For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 3
 The maximum capacity must be greater than or equal to the minimum capacity.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-maxcapacity
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER MinCapacity
         The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
@@ -37,15 +37,16 @@ For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 3
 The minimum capacity must be less than or equal to the maximum capacity.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-mincapacity
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER SecondsUntilAutoPause
         The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+Specify a value between 300 and 86,400 seconds.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell

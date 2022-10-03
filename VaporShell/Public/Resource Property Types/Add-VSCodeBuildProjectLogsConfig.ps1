@@ -11,7 +11,7 @@ LogsConfig is a property of the AWS CodeBuild Project: https://docs.aws.amazon.c
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html
 
     .PARAMETER CloudWatchLogs
-        Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
+        Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default.
 
         Type: CloudWatchLogsConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html#cfn-codebuild-project-logsconfig-cloudwatchlogs

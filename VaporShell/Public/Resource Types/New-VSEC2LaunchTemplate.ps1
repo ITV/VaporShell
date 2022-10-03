@@ -1,10 +1,10 @@
 function New-VSEC2LaunchTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate resource to the template. Specifies a launch template for an Amazon EC2 instance. A launch template contains the parameters to launch an instance.
+        Adds an AWS::EC2::LaunchTemplate resource to the template. Specifies a launch template for an Amazon EC2 instance. A launch template contains the parameters to launch an instance. For more information, see Launch an instance from a launch template: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-launch-templates.html in the *Amazon EC2 User Guide*.
 
     .DESCRIPTION
-        Adds an AWS::EC2::LaunchTemplate resource to the template. Specifies a launch template for an Amazon EC2 instance. A launch template contains the parameters to launch an instance.
+        Adds an AWS::EC2::LaunchTemplate resource to the template. Specifies a launch template for an Amazon EC2 instance. A launch template contains the parameters to launch an instance. For more information, see Launch an instance from a launch template: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-launch-templates.html in the *Amazon EC2 User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html
@@ -24,6 +24,21 @@ function New-VSEC2LaunchTemplate {
 
         Type: LaunchTemplateData
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-launchtemplatedata
+        UpdateType: Mutable
+
+    .PARAMETER VersionDescription
+        +  CreateLaunchTemplate: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html in the *Amazon EC2 API Reference*
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-versiondescription
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER TagSpecifications
+        The tags to apply to the launch template during creation.
+
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications
+        ItemType: LaunchTemplateTagSpecification
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -99,8 +114,41 @@ function New-VSEC2LaunchTemplate {
                 }
             })]
         $LaunchTemplateName,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         $LaunchTemplateData,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $VersionDescription,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EC2.LaunchTemplate.LaunchTemplateTagSpecification"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TagSpecifications,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -163,6 +211,12 @@ function New-VSEC2LaunchTemplate {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                TagSpecifications {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name TagSpecifications -Value @($TagSpecifications)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

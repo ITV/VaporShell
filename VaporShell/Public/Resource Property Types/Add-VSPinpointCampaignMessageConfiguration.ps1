@@ -31,6 +31,13 @@ Specifies the message configuration settings for a campaign.
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-defaultmessage
         UpdateType: Mutable
 
+    .PARAMETER InAppMessage
+        The default message for the in-app messaging channel. This message overrides the default message DefaultMessage.
+
+        Type: CampaignInAppMessage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-inappmessage
+        UpdateType: Mutable
+
     .PARAMETER EmailMessage
         The message that the campaign sends through the email channel. If specified, this message overrides the default message.
 
@@ -50,6 +57,13 @@ Specifies the message configuration settings for a campaign.
 
         Type: CampaignSmsMessage
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-smsmessage
+        UpdateType: Mutable
+
+    .PARAMETER CustomMessage
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Type: CampaignCustomMessage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-custommessage
         UpdateType: Mutable
 
     .PARAMETER ADMMessage
@@ -73,11 +87,15 @@ Specifies the message configuration settings for a campaign.
         [parameter(Mandatory = $false)]
         $DefaultMessage,
         [parameter(Mandatory = $false)]
+        $InAppMessage,
+        [parameter(Mandatory = $false)]
         $EmailMessage,
         [parameter(Mandatory = $false)]
         $GCMMessage,
         [parameter(Mandatory = $false)]
         $SMSMessage,
+        [parameter(Mandatory = $false)]
+        $CustomMessage,
         [parameter(Mandatory = $false)]
         $ADMMessage
     )

@@ -1,28 +1,30 @@
 function Add-VSCodeStarNotificationsNotificationRuleTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeStarNotifications::NotificationRule.Target resource property to the template. Information about the SNS topics or AWS Chatbot clients associated with a notification rule.
+        Adds an AWS::CodeStarNotifications::NotificationRule.Target resource property to the template. Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
 
     .DESCRIPTION
         Adds an AWS::CodeStarNotifications::NotificationRule.Target resource property to the template.
-Information about the SNS topics or AWS Chatbot clients associated with a notification rule.
+Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html
 
     .PARAMETER TargetType
-        The target type. Can be an Amazon SNS topic or AWS Chatbot client.
+        The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
++ Amazon Simple Notification Service topics are specified as SNS.
++ AWS Chatbot clients are specified as AWSChatbotSlack.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targettype
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER TargetAddress
-        The Amazon Resource Name ARN of the Amazon SNS topic or AWS Chatbot client.
+        The Amazon Resource Name ARN of the AWS Chatbot topic or AWS Chatbot client.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targetaddress
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,7 +33,7 @@ Information about the SNS topics or AWS Chatbot clients associated with a notifi
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +44,7 @@ Information about the SNS topics or AWS Chatbot clients associated with a notifi
                 }
             })]
         $TargetType,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

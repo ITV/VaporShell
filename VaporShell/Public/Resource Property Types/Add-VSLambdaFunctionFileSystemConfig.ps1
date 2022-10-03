@@ -1,24 +1,28 @@
 function Add-VSLambdaFunctionFileSystemConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::Function.FileSystemConfig resource property to the template. 
+        Adds an AWS::Lambda::Function.FileSystemConfig resource property to the template. Details about the connection between a Lambda function and an Amazon EFS file system: https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html.
 
     .DESCRIPTION
         Adds an AWS::Lambda::Function.FileSystemConfig resource property to the template.
-
+Details about the connection between a Lambda function and an Amazon EFS file system: https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html
 
     .PARAMETER Arn
+        The Amazon Resource Name ARN of the Amazon EFS access point that provides access to the file system.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER LocalMountPath
+        The path where the function can access the file system, starting with /mnt/.
+
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

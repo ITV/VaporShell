@@ -9,6 +9,8 @@ The MaintenanceWindowAutomationParameters property type specifies the parameters
 
 MaintenanceWindowAutomationParameters is a property of the TaskInvocationParameters: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html property type.
 
+For information about available parameters in Automation runbooks, you can view the content of the runbook itself in the Systems Manager console. For information, see View runbook content: https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents-reference-details.html#view-automation-json in the *AWS Systems Manager User Guide*.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html
 
@@ -20,7 +22,7 @@ MaintenanceWindowAutomationParameters is a property of the TaskInvocationParamet
         UpdateType: Mutable
 
     .PARAMETER DocumentVersion
-        The version of an Automation document to use during task execution.
+        The version of an Automation runbook to use during task execution.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
         PrimitiveType: String

@@ -1,14 +1,14 @@
 function New-VSGreengrassGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::Group resource to the template. AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS IoT Greengrass, connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely – even when not connected to the internet. For more information, see the AWS IoT Greengrass Developer Guide: https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html.
+        Adds an AWS::Greengrass::Group resource to the template. AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS IoT Greengrass, connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely – even when not connected to the internet. For more information, see the AWS IoT Greengrass Version 1 Developer Guide: https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html.
 
     .DESCRIPTION
-        Adds an AWS::Greengrass::Group resource to the template. AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS IoT Greengrass, connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely – even when not connected to the internet. For more information, see the AWS IoT Greengrass Developer Guide: https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html.
+        Adds an AWS::Greengrass::Group resource to the template. AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS IoT Greengrass, connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely – even when not connected to the internet. For more information, see the AWS IoT Greengrass Version 1 Developer Guide: https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html.
 
 **Note**
 
-For AWS Region support, see  AWS CloudFormation Support for AWS IoT Greengrass: https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html in the *AWS IoT Greengrass Developer Guide*.
+For AWS Region support, see AWS CloudFormation Support for AWS IoT Greengrass: https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html in the *AWS IoT Greengrass Version 1 Developer Guide*.
 
 The AWS::Greengrass::Group resource represents a group in AWS IoT Greengrass. In the AWS IoT Greengrass API, groups are used to organize your group versions.
 
@@ -24,7 +24,7 @@ To change group components (such as devices, subscriptions, or functions, you mu
 
 **Deploying a Group Version**
 
-After you create the group version in your AWS CloudFormation template, you can deploy it using the https://docs.aws.amazon.com/greengrass/latest/apireference/createdeployment-post.html: https://docs.aws.amazon.com/greengrass/latest/apireference/createdeployment-post.html command in the AWS CLI or from the **Greengrass** node in the AWS IoT console. To deploy a group version, you must have a Greengrass service role associated with your AWS account. For more information, see AWS CloudFormation Support for AWS IoT Greengrass: https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html in the *AWS IoT Greengrass Developer Guide*.
+After you create the group version in your AWS CloudFormation template, you can deploy it using the https://docs.aws.amazon.com/greengrass/latest/apireference/createdeployment-post.html: https://docs.aws.amazon.com/greengrass/latest/apireference/createdeployment-post.html command in the AWS CLI or from the **Greengrass** node in the AWS IoT console. To deploy a group version, you must have a Greengrass service role associated with your AWS account. For more information, see AWS CloudFormation Support for AWS IoT Greengrass: https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html in the *AWS IoT Greengrass Version 1 Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html
@@ -48,7 +48,7 @@ To associate a group version after the group is created, create an https://docs.
         UpdateType: Mutable
 
     .PARAMETER Tags
-        Application-specific metadata to attach to the group. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see Tagging Your AWS IoT Greengrass Resources: https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html in the *AWS IoT Greengrass Developer Guide*.
+        Application-specific metadata to attach to the group. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see Tagging Your AWS IoT Greengrass Resources: https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html in the *AWS IoT Greengrass Version 1 Developer Guide*.
 This Json property type is processed as a map of key-value pairs. It uses the following format, which is different from most Tags implementations in AWS CloudFormation templates.
 
 "Tags": {
@@ -166,6 +166,17 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

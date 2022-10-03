@@ -1,16 +1,18 @@
 function Add-VSAppMeshVirtualNodeTcpTimeout {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.TcpTimeout resource property to the template. 
+        Adds an AWS::AppMesh::VirtualNode.TcpTimeout resource property to the template. An object that represents types of timeouts.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.TcpTimeout resource property to the template.
-
+An object that represents types of timeouts.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tcptimeout.html
 
     .PARAMETER Idle
+        An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
+
         Type: Duration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tcptimeout.html#cfn-appmesh-virtualnode-tcptimeout-idle
         UpdateType: Mutable

@@ -11,7 +11,8 @@ The location in Amazon S3 where build or script files are stored for access by A
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html
 
     .PARAMETER Bucket
-        An S3 bucket identifier. This is the name of the S3 bucket.
+        An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+GameLift currently does not support uploading from Amazon S3 buckets with names that contain a dot ..
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storage-bucket
         PrimitiveType: String
@@ -32,7 +33,7 @@ The location in Amazon S3 where build or script files are stored for access by A
         UpdateType: Immutable
 
     .PARAMETER RoleArn
-        The Amazon Resource Name ARN: https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html for an IAM role that allows Amazon GameLift to access the S3 bucket.
+        The Amazon Resource Name ARN: https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html for an IAM role that allows Amazon Web Services to access the S3 bucket.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storage-rolearn
         PrimitiveType: String

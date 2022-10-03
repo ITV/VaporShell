@@ -11,14 +11,14 @@ Describes a Delta Sync configuration.
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html
 
     .PARAMETER BaseTableTTL
-        The number of minutes an Item is stored in the datasource.
+        The number of minutes that an Item is stored in the data source.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-basetablettl
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DeltaSyncTableTTL
-        The number of minutes a Delta Sync log entry is stored in the Delta Sync table.
+        The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-deltasynctablettl
         PrimitiveType: String

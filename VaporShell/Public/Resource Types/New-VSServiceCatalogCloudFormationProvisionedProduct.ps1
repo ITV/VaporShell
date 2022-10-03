@@ -6,7 +6,7 @@ function New-VSServiceCatalogCloudFormationProvisionedProduct {
     .DESCRIPTION
         Adds an AWS::ServiceCatalog::CloudFormationProvisionedProduct resource to the template. Provisions the specified product.
 
-A provisioned product is a resourced instance of a product. For example, provisioning a product based on a CloudFormation template launches a CloudFormation stack and its underlying resources. You can check the status of this request using DescribeRecord: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_DescribeRecord.html.
+A provisioned product is a resourced instance of a product. For example, provisioning a product based on a AWS CloudFormation template launches a AWS CloudFormation stack and its underlying resources. You can check the status of this request using DescribeRecord: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_DescribeRecord.html.
 
 If the request contains a tag key with an empty list of values, there is a tag conflict for that key. Do not include conflicted keys as tags, or this causes the error "Parameter validation failed: Missing required parameter in Tags*N*]:*Value*".
 
@@ -27,7 +27,7 @@ If the request contains a tag key with an empty list of values, there is a tag c
         PrimitiveType: String
 
     .PARAMETER NotificationArns
-        Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+        Passed to AWS CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
         UpdateType: Immutable
@@ -37,8 +37,17 @@ If the request contains a tag key with an empty list of values, there is a tag c
 
     .PARAMETER PathId
         The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use ListLaunchPaths: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html.
+You must provide the name or ID, but not both.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER PathName
+        The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use ListLaunchPaths: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html.
+You must provide the name or ID, but not both.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -52,7 +61,7 @@ You must specify either the ID or the name of the product, but not both.
 
     .PARAMETER ProductName
         A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
-Each time a stack is created or updated, if ProductName is provided it will successfully resolve to ProductId as long as only one product exists in the account/region with that ProductName.
+Each time a stack is created or updated, if ProductName is provided it will successfully resolve to ProductId as long as only one product exists in the account or Region with that ProductName.
 You must specify either the name or the ID of the product, but not both.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
@@ -76,7 +85,7 @@ You must specify either the ID or the name of the provisioning artifact, but not
 
     .PARAMETER ProvisioningArtifactName
         The name of the provisioning artifact also known as a version for the product. This name must be unique for the product.
-You must specify either the name or the ID of the provisioning artifact, but not both.
+You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
         UpdateType: Mutable
@@ -202,6 +211,17 @@ Requires the provisioned product to have an ResourceUpdateConstraint: https://do
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $PathName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $ProductId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -263,6 +283,17 @@ Requires the provisioned product to have an ResourceUpdateConstraint: https://do
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

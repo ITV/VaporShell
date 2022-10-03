@@ -1,13 +1,13 @@
 function Add-VSAutoScalingScalingPolicyTargetTrackingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration resource property to the template. TargetTrackingConfiguration is a subproperty of ScalingPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html that specifies a target tracking scaling policy to use with Amazon EC2 Auto Scaling.
+        Adds an AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration resource property to the template. TargetTrackingConfiguration is a property of the AWS::AutoScaling::ScalingPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html resource that specifies a target tracking scaling policy configuration for Amazon EC2 Auto Scaling.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration resource property to the template.
-TargetTrackingConfiguration is a subproperty of ScalingPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html that specifies a target tracking scaling policy to use with Amazon EC2 Auto Scaling.
+TargetTrackingConfiguration is a property of the AWS::AutoScaling::ScalingPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html resource that specifies a target tracking scaling policy configuration for Amazon EC2 Auto Scaling.
 
-For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html in the *Amazon EC2 Auto Scaling API Reference*. For more information about scaling policies, see Dynamic Scaling: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html in the *Amazon EC2 Auto Scaling User Guide*.
+For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html in the *Amazon EC2 Auto Scaling API Reference*. For more information about scaling policies, see Dynamic scaling: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html in the *Amazon EC2 Auto Scaling User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html
@@ -16,29 +16,29 @@ For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscal
         A customized metric. You must specify either a predefined metric or a customized metric.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-customizedmetricspecification
+        UpdateType: Mutable
         Type: CustomizedMetricSpecification
-        UpdateType: Mutable
-
-    .PARAMETER DisableScaleIn
-        Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is false.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-disablescalein
-        PrimitiveType: Boolean
-        UpdateType: Mutable
-
-    .PARAMETER PredefinedMetricSpecification
-        A predefined metric. You must specify either a predefined metric or a customized metric.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-predefinedmetricspecification
-        Type: PredefinedMetricSpecification
-        UpdateType: Mutable
 
     .PARAMETER TargetValue
         The target value for the metric.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-targetvalue
-        PrimitiveType: Double
         UpdateType: Mutable
+        PrimitiveType: Double
+
+    .PARAMETER DisableScaleIn
+        Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is false.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-disablescalein
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER PredefinedMetricSpecification
+        A predefined metric. You must specify either a predefined metric or a customized metric.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-predefinedmetricspecification
+        UpdateType: Mutable
+        Type: PredefinedMetricSpecification
 
     .FUNCTIONALITY
         Vaporshell
@@ -49,6 +49,17 @@ For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscal
     (
         [parameter(Mandatory = $false)]
         $CustomizedMetricSpecification,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TargetValue,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -61,18 +72,7 @@ For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscal
             })]
         $DisableScaleIn,
         [parameter(Mandatory = $false)]
-        $PredefinedMetricSpecification,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TargetValue
+        $PredefinedMetricSpecification
     )
     Begin {
         $obj = [PSCustomObject]@{}

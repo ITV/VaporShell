@@ -1,17 +1,17 @@
 function Add-VSPinpointSegmentBehavior {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Segment.Behavior resource property to the template. Specifies behavior-based criteria, such as how recently users have used your app, for a segment.
+        Adds an AWS::Pinpoint::Segment.Behavior resource property to the template. Specifies behavior-based criteria for the segment, such as how recently users have used your app.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Segment.Behavior resource property to the template.
-Specifies behavior-based criteria, such as how recently users have used your app, for a segment.
+Specifies behavior-based criteria for the segment, such as how recently users have used your app.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-behavior.html
 
     .PARAMETER Recency
-        The dimension settings that are based on how recently an endpoint was active.
+        Specifies how recently segment members were active.
 
         Type: Recency
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-behavior.html#cfn-pinpoint-segment-segmentdimensions-behavior-recency

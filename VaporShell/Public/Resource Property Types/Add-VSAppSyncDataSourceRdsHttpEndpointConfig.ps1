@@ -1,11 +1,11 @@
 function Add-VSAppSyncDataSourceRdsHttpEndpointConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::DataSource.RdsHttpEndpointConfig resource property to the template. Use the RdsHttpEndpointConfig property type to specify RdsHttpEndpoint for an AWS AppSync relational database.
+        Adds an AWS::AppSync::DataSource.RdsHttpEndpointConfig resource property to the template. Use the RdsHttpEndpointConfig property type to specify the RdsHttpEndpoint for an AWS AppSync relational database.
 
     .DESCRIPTION
         Adds an AWS::AppSync::DataSource.RdsHttpEndpointConfig resource property to the template.
-Use the RdsHttpEndpointConfig property type to specify RdsHttpEndpoint for an AWS AppSync relational database.
+Use the RdsHttpEndpointConfig property type to specify the RdsHttpEndpoint for an AWS AppSync relational database.
 
 RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalDatabaseConfig: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html resource.
 
@@ -34,14 +34,14 @@ RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalData
         UpdateType: Mutable
 
     .PARAMETER DbClusterIdentifier
-        Amazon RDS cluster ARN.
+        Amazon RDS cluster Amazon Resource Name ARN.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-dbclusteridentifier
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AwsSecretStoreArn
-        AWS secret store ARN for database credentials.
+        The ARN for database credentials stored in AWS Secrets Manager.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-awssecretstorearn
         PrimitiveType: String

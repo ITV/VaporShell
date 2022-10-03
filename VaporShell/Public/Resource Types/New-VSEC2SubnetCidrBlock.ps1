@@ -1,10 +1,10 @@
 function New-VSEC2SubnetCidrBlock {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SubnetCidrBlock resource to the template. Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
+        Adds an AWS::EC2::SubnetCidrBlock resource to the template. Associates a CIDR block with your subnet. You can associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
 
     .DESCRIPTION
-        Adds an AWS::EC2::SubnetCidrBlock resource to the template. Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
+        Adds an AWS::EC2::SubnetCidrBlock resource to the template. Associates a CIDR block with your subnet. You can associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html
@@ -14,6 +14,7 @@ function New-VSEC2SubnetCidrBlock {
 
     .PARAMETER Ipv6CidrBlock
         The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
+This parameter is required for an IPv6 only subnet.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-ipv6cidrblock
         PrimitiveType: String
@@ -110,6 +111,17 @@ function New-VSEC2SubnetCidrBlock {
                 }
             })]
         $SubnetId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

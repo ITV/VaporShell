@@ -39,7 +39,7 @@ An object that specifies organization managed rule metadata such as resource typ
         UpdateType: Mutable
 
     .PARAMETER RuleIdentifier
-        For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using AWS Managed Config Rules: https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html.
+        For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using AWS Config managed rules: https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-ruleidentifier
         PrimitiveType: String
@@ -54,7 +54,7 @@ An object that specifies organization managed rule metadata such as resource typ
         UpdateType: Mutable
 
     .PARAMETER MaximumExecutionFrequency
-        The maximum frequency with which AWS Config runs evaluations for a rule. You are using an AWS managed rule that is triggered at a periodic frequency.
+        The maximum frequency with which AWS Config runs evaluations for a rule. You are using an AWS Config managed rule that is triggered at a periodic frequency.
 By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the MaximumExecutionFrequency parameter.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-maximumexecutionfrequency

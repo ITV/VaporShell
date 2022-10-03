@@ -1,14 +1,10 @@
 function Add-VSWAFv2RuleGroupVisibilityConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.VisibilityConfig resource property to the template. **Note**
+        Adds an AWS::WAFv2::RuleGroup.VisibilityConfig resource property to the template. Defines and enables Amazon CloudWatch metrics and web request sample collection.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.VisibilityConfig resource property to the template.
-**Note**
-
-This is the latest version of **AWS WAF**, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
 Defines and enables Amazon CloudWatch metrics and web request sample collection.
 
     .LINK
@@ -22,14 +18,14 @@ Defines and enables Amazon CloudWatch metrics and web request sample collection.
         PrimitiveType: Boolean
 
     .PARAMETER CloudWatchMetricsEnabled
-        A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see AWS WAF Metrics: https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics.
+        A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see AWS WAF Metrics: https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER MetricName
-        A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters A-Z, a-z, 0-9, with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example "All" and "Default_Action." You can't change a MetricName after you create a VisibilityConfig.
+        The descriptive name of the Amazon CloudWatch metric. The name can contain only alphanumeric characters A-Z, a-z, 0-9, with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example "All" and "Default_Action." You can't change a MetricName after you create a VisibilityConfig.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
         UpdateType: Mutable

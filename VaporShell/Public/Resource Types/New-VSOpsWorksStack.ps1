@@ -17,7 +17,7 @@ function New-VSOpsWorksStack {
     .PARAMETER AgentVersion
         The default AWS OpsWorks Stacks agent version. You have the following options:
 + Auto-update - Set this parameter to LATEST. AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.
-+ Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances.
++ Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks installs that version on the stack's instances.
 The default setting is the most recent release of the agent. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call DescribeAgentVersions: https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
 You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.
 
@@ -96,13 +96,13 @@ For more information about custom JSON, see Use Custom JSON to Modify the Stack 
 
     .PARAMETER DefaultOs
         The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.
-+ A supported Linux operating system: An Amazon Linux version, such as Amazon Linux 2018.03, Amazon Linux 2017.09, Amazon Linux 2017.03, Amazon Linux 2016.09, Amazon Linux 2016.03, Amazon Linux 2015.09, or Amazon Linux 2015.03.
-+ A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04 LTS, or Ubuntu 12.04 LTS.
++ A supported Linux operating system: An Amazon Linux version, such as Amazon Linux 2, Amazon Linux 2018.03, Amazon Linux 2017.09, Amazon Linux 2017.03, Amazon Linux 2016.09, Amazon Linux 2016.03, Amazon Linux 2015.09, or Amazon Linux 2015.03.
++ A supported Ubuntu operating system, such as Ubuntu 18.04 LTS, Ubuntu 16.04 LTS, Ubuntu 14.04 LTS, or Ubuntu 12.04 LTS.
 +  CentOS Linux 7
 +  Red Hat Enterprise Linux 7
 + A supported Windows operating system, such as Microsoft Windows Server 2012 R2 Base, Microsoft Windows Server 2012 R2 with SQL Server Express, Microsoft Windows Server 2012 R2 with SQL Server Standard, or Microsoft Windows Server 2012 R2 with SQL Server Web.
 + A custom AMI: Custom. You specify the custom AMI you want to use when you create instances. For more information, see  Using Custom AMIs: https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html.
-The default option is the current Amazon Linux version. For more information about supported operating systems, see AWS OpsWorks Stacks Operating Systems: https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html.
+The default option is the current Amazon Linux version. Not all operating systems are supported with all versions of Chef. For more information about supported operating systems, see AWS OpsWorks Stacks Operating Systems: https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-defaultos
         PrimitiveType: String
@@ -167,15 +167,15 @@ To obtain a generated host name, call GetHostNameSuggestion, which returns a hos
         UpdateType: Mutable
 
     .PARAMETER Name
-        The stack name.
+        The stack name. Stack names can be a maximum of 64 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RdsDbInstances
-        The Amazon Relational Database Service Amazon RDS DB instance to register with the AWS OpsWorks stack.
-If you specify a DB instance that's registered with another AWS OpsWorks stack, AWS CloudFormation deregisters the existing association before registering the DB instance.
+        The Amazon Relational Database Service Amazon RDS database instance to register with the AWS OpsWorks stack.
+If you specify a database instance that's registered with another AWS OpsWorks stack, AWS CloudFormation deregisters the existing association before registering the database instance.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-rdsdbinstances
         DuplicatesAllowed: False
@@ -184,7 +184,7 @@ If you specify a DB instance that's registered with another AWS OpsWorks stack, 
         UpdateType: Mutable
 
     .PARAMETER ServiceRoleArn
-        The stack's AWS Identity and Access Management IAM role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name ARN for an existing IAM role. For more information about IAM ARNs, see Using Identifiers: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html.
+        The stack's IAM role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name ARN for an existing IAM role. For more information about IAM ARNs, see Using Identifiers: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-servicerolearn
         PrimitiveType: String
@@ -528,6 +528,17 @@ For more information about how to use AWS OpsWorks Stacks with a VPC, see Runnin
                 }
             })]
         $VpcId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

@@ -1,11 +1,11 @@
 function Add-VSCognitoUserPoolNumberAttributeConstraints {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPool.NumberAttributeConstraints resource property to the template. The minimum and maximum value of an attribute that is of the number data type.
+        Adds an AWS::Cognito::UserPool.NumberAttributeConstraints resource property to the template. The minimum and maximum values of an attribute that is of the number data type.
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPool.NumberAttributeConstraints resource property to the template.
-The minimum and maximum value of an attribute that is of the number data type.
+The minimum and maximum values of an attribute that is of the number data type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html

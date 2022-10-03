@@ -1,19 +1,41 @@
 function Add-VSEventsRuleEcsParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.EcsParameters resource property to the template. The EcsParameters property type specifies custom parameters to be used when the target is an Amazon ECS task.
+        Adds an AWS::Events::Rule.EcsParameters resource property to the template. The custom parameters to be used when the target is an Amazon ECS task.
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.EcsParameters resource property to the template.
-The EcsParameters property type specifies custom parameters to be used when the target is an Amazon ECS task.
-
-EcsParameters is a property of the Target: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html property type.
+The custom parameters to be used when the target is an Amazon ECS task.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html
 
+    .PARAMETER CapacityProviderStrategy
+        The capacity provider strategy to use for the task.
+If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-capacityproviderstrategy
+        DuplicatesAllowed: False
+        ItemType: CapacityProviderStrategyItem
+        Type: List
+        UpdateType: Mutable
+
+    .PARAMETER EnableECSManagedTags
+        Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html in the Amazon Elastic Container Service Developer Guide.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-enableecsmanagedtags
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER EnableExecuteCommand
+        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-enableexecutecommand
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER Group
-        Specifies an ECS task group for the task. The maximum length is 255 characters. For more information, see Task Groups: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#task-groups.
+        Specifies an ECS task group for the task. The maximum length is 255 characters.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-group
         PrimitiveType: String
@@ -27,19 +49,60 @@ EcsParameters is a property of the Target: https://docs.aws.amazon.com/AWSCloudF
         UpdateType: Mutable
 
     .PARAMETER NetworkConfiguration
-        Use this structure if the ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks.
+        Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks.
 If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-networkconfiguration
         Type: NetworkConfiguration
         UpdateType: Mutable
 
+    .PARAMETER PlacementConstraints
+        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task including constraints in the task definition and those specified at runtime.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-placementconstraints
+        DuplicatesAllowed: False
+        ItemType: PlacementConstraint
+        Type: List
+        UpdateType: Mutable
+
+    .PARAMETER PlacementStrategies
+        The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-placementstrategies
+        DuplicatesAllowed: False
+        ItemType: PlacementStrategy
+        Type: List
+        UpdateType: Mutable
+
     .PARAMETER PlatformVersion
-        Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. If you omit this, the latest platform version is used.
+        Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0.
 This structure is used only if LaunchType is FARGATE. For more information about valid platform versions, see AWS Fargate Platform Versions: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html in the *Amazon Elastic Container Service Developer Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-platformversion
         PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER PropagateTags
+        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-propagatetags
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER ReferenceId
+        The reference ID to use for the task.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-referenceid
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER TagList
+        The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags in the Amazon ECS API Reference.
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-taglist
+        DuplicatesAllowed: False
+        ItemType: Tag
+        Type: List
         UpdateType: Mutable
 
     .PARAMETER TaskCount
@@ -50,7 +113,7 @@ This structure is used only if LaunchType is FARGATE. For more information about
         UpdateType: Mutable
 
     .PARAMETER TaskDefinitionArn
-        The ARN of the task definition to use. If no task revision is supplied, it defaults to the most recent revision at the time of resource creation.
+        The ARN of the task definition to use if the event target is an Amazon ECS task.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-taskdefinitionarn
         PrimitiveType: String
@@ -63,6 +126,39 @@ This structure is used only if LaunchType is FARGATE. For more information about
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Events.Rule.CapacityProviderStrategyItem"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CapacityProviderStrategy,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableECSManagedTags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableExecuteCommand,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -89,6 +185,28 @@ This structure is used only if LaunchType is FARGATE. For more information about
         $NetworkConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Events.Rule.PlacementConstraint"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PlacementConstraints,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Events.Rule.PlacementStrategy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PlacementStrategies,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -98,6 +216,31 @@ This structure is used only if LaunchType is FARGATE. For more information about
                 }
             })]
         $PlatformVersion,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PropagateTags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ReferenceId,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $TagList,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

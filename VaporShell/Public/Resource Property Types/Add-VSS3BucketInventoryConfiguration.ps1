@@ -1,11 +1,11 @@
 function Add-VSS3BucketInventoryConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.InventoryConfiguration resource property to the template. Specifies the inventory configuration for an Amazon S3 bucket. For more information, see GET Bucket inventory: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html in the *Amazon Simple Storage Service API Reference*.
+        Adds an AWS::S3::Bucket.InventoryConfiguration resource property to the template. Specifies the inventory configuration for an Amazon S3 bucket. For more information, see GET Bucket inventory: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html in the *Amazon S3 API Reference*.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.InventoryConfiguration resource property to the template.
-Specifies the inventory configuration for an Amazon S3 bucket. For more information, see GET Bucket inventory: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html in the *Amazon Simple Storage Service API Reference*.
+Specifies the inventory configuration for an Amazon S3 bucket. For more information, see GET Bucket inventory: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html in the *Amazon S3 API Reference*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html
@@ -40,6 +40,7 @@ Specifies the inventory configuration for an Amazon S3 bucket. For more informat
 
     .PARAMETER OptionalFields
         Contains the optional fields that are included in the inventory results.
+*Valid values*:  Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | ReplicationStatus | EncryptionStatus | ObjectLockRetainUntilDate | ObjectLockMode | ObjectLockLegalHoldStatus | IntelligentTieringAccessTier | BucketKeyStatus 
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-optionalfields
         DuplicatesAllowed: False
@@ -48,14 +49,15 @@ Specifies the inventory configuration for an Amazon S3 bucket. For more informat
         UpdateType: Mutable
 
     .PARAMETER Prefix
-        The prefix that is prepended to all inventory results.
+        Specifies the inventory filter prefix.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-prefix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ScheduleFrequency
-        Specifies the schedule for generating inventory results. Valid Values: Daily | Weekly.
+        Specifies the schedule for generating inventory results.
+*Allowed values*: Daily | Weekly
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-schedulefrequency
         PrimitiveType: String

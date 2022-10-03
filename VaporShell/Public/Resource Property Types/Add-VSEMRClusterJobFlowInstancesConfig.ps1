@@ -7,6 +7,8 @@ function Add-VSEMRClusterJobFlowInstancesConfig {
         Adds an AWS::EMR::Cluster.JobFlowInstancesConfig resource property to the template.
 JobFlowInstancesConfig is a property of the AWS::EMR::Cluster resource. JobFlowInstancesConfig defines the instance groups or instance fleets that comprise the cluster. JobFlowInstancesConfig must contain either InstanceFleetConfig or InstanceGroupConfig. They cannot be used together.
 
+You can now define task instance groups or task instance fleets using the TaskInstanceGroups and TaskInstanceFleets subproperties. Using these subproperties reduces delays in provisioning task nodes compared to specifying task nodes with the InstanceFleetConfig and InstanceGroupConfig resources.
+
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html
 
@@ -43,7 +45,7 @@ JobFlowInstancesConfig is a property of the AWS::EMR::Cluster resource. JobFlowI
         UpdateType: Immutable
 
     .PARAMETER Ec2KeyName
-        The name of the EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
+        The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called "hadoop."
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-ec2keyname
         PrimitiveType: String
@@ -67,28 +69,28 @@ The instance fleet configuration is available only in Amazon EMR versions 4.8.0 
         UpdateType: Immutable
 
     .PARAMETER EmrManagedMasterSecurityGroup
-        The identifier of the Amazon EC2 security group for the master node.
+        The identifier of the Amazon EC2 security group for the master node. If you specify EmrManagedMasterSecurityGroup, you must also specify EmrManagedSlaveSecurityGroup.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-emrmanagedmastersecuritygroup
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER EmrManagedSlaveSecurityGroup
-        The identifier of the Amazon EC2 security group for the core and task nodes.
+        The identifier of the Amazon EC2 security group for the core and task nodes. If you specify EmrManagedSlaveSecurityGroup, you must also specify EmrManagedMasterSecurityGroup.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-emrmanagedslavesecuritygroup
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER HadoopVersion
-        Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" deprecated, "0.20" deprecated, "0.20.205" deprecated, "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+        Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" no longer maintained, "0.20" no longer maintained, "0.20.205" no longer maintained, "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-hadoopversion
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER KeepJobFlowAliveWhenNoSteps
-        Specifies whether the cluster should remain available after completing all steps.
+        Specifies whether the cluster should remain available after completing all steps. Defaults to true. For more information about configuring cluster termination, see Control Cluster Termination: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html in the *EMR Management Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-keepjobflowalivewhennosteps
         PrimitiveType: Boolean
@@ -121,6 +123,24 @@ The instance fleet configuration is available only in Amazon EMR versions 4.8.0 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-serviceaccesssecuritygroup
         PrimitiveType: String
         UpdateType: Immutable
+
+    .PARAMETER TaskInstanceFleets
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-taskinstancefleets
+        DuplicatesAllowed: False
+        ItemType: InstanceFleetConfig
+        Type: List
+        UpdateType: Conditional
+
+    .PARAMETER TaskInstanceGroups
+        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-taskinstancegroups
+        DuplicatesAllowed: False
+        ItemType: InstanceGroupConfig
+        Type: List
+        UpdateType: Conditional
 
     .PARAMETER TerminationProtected
         Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
@@ -229,6 +249,28 @@ The instance fleet configuration is available only in Amazon EMR versions 4.8.0 
                 }
             })]
         $ServiceAccessSecurityGroup,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EMR.Cluster.InstanceFleetConfig"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TaskInstanceFleets,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EMR.Cluster.InstanceGroupConfig"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TaskInstanceGroups,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

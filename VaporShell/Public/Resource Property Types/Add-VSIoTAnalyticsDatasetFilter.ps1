@@ -13,9 +13,9 @@ Information which is used to filter message data, to segregate it according to t
     .PARAMETER DeltaTime
         Used to limit data to that which has arrived since the last execution of the action.
 
-        Type: DeltaTime
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html#cfn-iotanalytics-dataset-filter-deltatime
         UpdateType: Mutable
+        Type: DeltaTime
 
     .FUNCTIONALITY
         Vaporshell

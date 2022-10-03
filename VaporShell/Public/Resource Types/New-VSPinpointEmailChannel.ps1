@@ -6,7 +6,7 @@ function New-VSPinpointEmailChannel {
     .DESCRIPTION
         Adds an AWS::Pinpoint::EmailChannel resource to the template. A *channel* is a type of platform that you can deliver messages to. You can use the email channel to send email to users. Before you can use Amazon Pinpoint to send email, you must enable the email channel for an Amazon Pinpoint application.
 
-The AWS::Pinpoint::EmailChannel resource defines the status, identity, and other settings of the email channel for an application.
+The EmailChannel resource represents the status, identity, and other settings of the email channel for an application
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html
@@ -15,7 +15,7 @@ The AWS::Pinpoint::EmailChannel resource defines the status, identity, and other
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ConfigurationSet
-        The configuration set that you want to apply to email that you send through the channel by using the Amazon Pinpoint Email API.
+        The Amazon SES configuration set: https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html that you want to apply to messages that you send through the channel.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-configurationset
         PrimitiveType: String
@@ -36,7 +36,7 @@ The AWS::Pinpoint::EmailChannel resource defines the status, identity, and other
         UpdateType: Mutable
 
     .PARAMETER ApplicationId
-        The unique identifier for the application that the email channel applies to.
+        The unique identifier for the Amazon Pinpoint application that you're specifying the email channel for.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-applicationid
         PrimitiveType: String
@@ -184,6 +184,17 @@ The AWS::Pinpoint::EmailChannel resource defines the status, identity, and other
                 }
             })]
         $RoleArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

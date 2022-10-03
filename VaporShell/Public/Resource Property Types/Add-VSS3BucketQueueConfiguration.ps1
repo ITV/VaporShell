@@ -11,7 +11,7 @@ Specifies the configuration for publishing messages to an Amazon Simple Queue Se
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html
 
     .PARAMETER Event
-        The Amazon S3 bucket event about which you want to publish messages to Amazon SQS. For more information, see Supported Event Types: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html in the *Amazon Simple Storage Service Developer Guide*.
+        The Amazon S3 bucket event about which you want to publish messages to Amazon SQS. For more information, see Supported Event Types: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html in the *Amazon S3 User Guide*.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-event
         PrimitiveType: String
@@ -25,7 +25,7 @@ Specifies the configuration for publishing messages to an Amazon Simple Queue Se
         UpdateType: Mutable
 
     .PARAMETER Queue
-        The Amazon Resource Name ARN of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
+        The Amazon Resource Name ARN of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type. FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-queue
         PrimitiveType: String

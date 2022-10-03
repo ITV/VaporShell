@@ -1,12 +1,10 @@
 function New-VSPinpointEventStream {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::EventStream resource to the template. You can configure Amazon Pinpoint to stream events to Amazon Kinesis Data Firehose or Amazon Kinesis Data Streams. By streaming events, you enable more flexible options for analysis and storage. The AWS::Pinpoint::EventStream resource defines the settings of an event stream for an Amazon Pinpoint application.
+        Adds an AWS::Pinpoint::EventStream resource to the template. Creates a new event stream for an application or updates the settings of an existing event stream for an application.
 
     .DESCRIPTION
-        Adds an AWS::Pinpoint::EventStream resource to the template. You can configure Amazon Pinpoint to stream events to Amazon Kinesis Data Firehose or Amazon Kinesis Data Streams. By streaming events, you enable more flexible options for analysis and storage. The AWS::Pinpoint::EventStream resource defines the settings of an event stream for an Amazon Pinpoint application.
-
-You can configure only one event stream for each Amazon Pinpoint application. To combine data from multiple applications, configure each application to use the same stream.
+        Adds an AWS::Pinpoint::EventStream resource to the template. Creates a new event stream for an application or updates the settings of an existing event stream for an application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html
@@ -15,7 +13,7 @@ You can configure only one event stream for each Amazon Pinpoint application. To
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ApplicationId
-        The unique identifier for the Amazon Pinpoint application that you want to publish event data for.
+        The unique identifier for the Amazon Pinpoint application that you want to export data from.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html#cfn-pinpoint-eventstream-applicationid
         PrimitiveType: String
@@ -31,7 +29,7 @@ For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose
         UpdateType: Mutable
 
     .PARAMETER RoleArn
-        The Amazon Resource Name ARN of the AWS Identity and Access Management IAM role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.
+        The AWS Identity and Access Management IAM role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html#cfn-pinpoint-eventstream-rolearn
         PrimitiveType: String
@@ -132,6 +130,17 @@ For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose
                 }
             })]
         $RoleArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

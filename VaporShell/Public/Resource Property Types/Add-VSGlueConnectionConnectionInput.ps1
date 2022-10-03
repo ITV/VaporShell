@@ -18,7 +18,12 @@ A structure that is used to specify a connection to create or update.
         UpdateType: Mutable
 
     .PARAMETER ConnectionType
-        The type of the connection. Currently, only JDBC is supported; SFTP is not supported.
+        The type of the connection. Currently, these types are supported:
++ JDBC - Designates a connection to a database through Java Database Connectivity JDBC.
++ KAFKA - Designates a connection to an Apache Kafka streaming platform.
++ MONGODB - Designates a connection to a MongoDB document database.
++ NETWORK - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment Amazon VPC.
+SFTP is not supported.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
         PrimitiveType: String
@@ -86,7 +91,7 @@ A structure that is used to specify a connection to create or update.
         $MatchCriteria,
         [parameter(Mandatory = $false)]
         $PhysicalConnectionRequirements,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

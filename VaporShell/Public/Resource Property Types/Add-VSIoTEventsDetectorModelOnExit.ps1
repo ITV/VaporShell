@@ -1,22 +1,23 @@
 function Add-VSIoTEventsDetectorModelOnExit {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.OnExit resource property to the template. When exiting this state, perform these "actions" if the "condition" is TRUE.
+        Adds an AWS::IoTEvents::DetectorModel.OnExit resource property to the template. When exiting this state, perform these actions if the specified condition is TRUE.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.OnExit resource property to the template.
-When exiting this state, perform these "actions" if the "condition" is TRUE.
+When exiting this state, perform these actions if the specified condition is TRUE.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html
 
     .PARAMETER Events
-        Specifies the actions that are performed when the state is exited and the "condition" is TRUE.
+        Specifies the actions that are performed when the state is exited and the condition is TRUE.
 
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events
-        ItemType: Event
         UpdateType: Mutable
+        Type: List
+        ItemType: Event
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

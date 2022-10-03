@@ -6,7 +6,7 @@ function New-VSPinpointADMChannel {
     .DESCRIPTION
         Adds an AWS::Pinpoint::ADMChannel resource to the template. A *channel* is a type of platform that you can deliver messages to. You can use the ADM channel to send push notifications through the Amazon Device Messaging (ADM service to apps that run on Amazon devices, such as Kindle Fire tablets. Before you can use Amazon Pinpoint to send messages to Amazon devices, you have to enable the ADM channel for an Amazon Pinpoint application.
 
-The AWS::Pinpoint::ADMChannel resource defines the status and authentication settings of the ADM channel for an application.
+The ADMChannel resource represents the status and authentication settings for the ADM channel for an application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-admchannel.html
@@ -36,7 +36,7 @@ The AWS::Pinpoint::ADMChannel resource defines the status and authentication set
         UpdateType: Mutable
 
     .PARAMETER ApplicationId
-        The unique identifier for the application that the ADM channel applies to.
+        The unique identifier for the Amazon Pinpoint application that the ADM channel applies to.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-admchannel.html#cfn-pinpoint-admchannel-applicationid
         PrimitiveType: String
@@ -148,6 +148,17 @@ The AWS::Pinpoint::ADMChannel resource defines the status and authentication set
                 }
             })]
         $ApplicationId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CreationPolicy,
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,

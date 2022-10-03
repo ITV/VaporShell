@@ -1,28 +1,28 @@
 function Add-VSIoTEventsDetectorModelIotTopicPublish {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.IotTopicPublish resource property to the template. Sends information about the detector model instance and the event which triggered the action in an MQTT message with the given topic to the AWS IoT message broker.
+        Adds an AWS::IoTEvents::DetectorModel.IotTopicPublish resource property to the template. Information required to publish the MQTT message through the AWS IoT message broker.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.IotTopicPublish resource property to the template.
-Sends information about the detector model instance and the event which triggered the action in an MQTT message with the given topic to the AWS IoT message broker.
+Information required to publish the MQTT message through the AWS IoT message broker.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html
 
     .PARAMETER MqttTopic
-        The MQTT topic of the message.
+        The MQTT topic of the message. You can use a string expression that includes variables $variable.<variable-name> and input values $input.<input-name>.<path-to-datum> as the topic string.
 
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Payload
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
+        You can configure the action payload when you publish a message to an AWS IoT Core topic.
 
-        Type: Payload
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload
         UpdateType: Mutable
+        Type: Payload
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,7 +31,7 @@ Sends information about the detector model instance and the event which triggere
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
