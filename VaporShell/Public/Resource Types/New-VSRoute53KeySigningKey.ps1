@@ -1,10 +1,10 @@
 function New-VSRoute53KeySigningKey {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53::KeySigningKey resource to the template. The AWS::Route53::KeySigningKey resource creates a new key-signing key (KSK in a hosted zone. The hosted zone ID is passed as a parameter in the KSK properties. You can specify the properties of this KSK using the Name, Status, and KeyManagementServiceArn properties of the resource.
+        Adds an AWS::Route53::KeySigningKey resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Route53::KeySigningKey resource to the template. The AWS::Route53::KeySigningKey resource creates a new key-signing key (KSK in a hosted zone. The hosted zone ID is passed as a parameter in the KSK properties. You can specify the properties of this KSK using the Name, Status, and KeyManagementServiceArn properties of the resource.
+        Adds an AWS::Route53::KeySigningKey resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html
@@ -12,42 +12,23 @@ function New-VSRoute53KeySigningKey {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER HostedZoneId
-        The unique string ID that is used to identify a hosted zone. For example: Z00001111A1ABCaaABC11.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-hostedzoneid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Status
-        A string that represents the current key-signing key KSK status.
-Status can have one of the following values:
-ACTIVE
-The KSK is being used for signing.
-INACTIVE
-The KSK is not being used for signing.
-DELETING
-The KSK is in the process of being deleted.
-ACTION_NEEDED
-There is a problem with the KSK that requires you to take action to resolve. For example, the customer managed key might have been deleted, or the permissions for the customer managed key might have been changed.
-INTERNAL_FAILURE
-There was an error during a request. Before you can continue to work with DNSSEC signing, including actions that involve this KSK, you must correct the problem. For example, you may need to activate or deactivate the KSK.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-status
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        A string used to identify a key-signing key KSK. Name can include numbers, letters, and underscores _. Name must be unique for each key-signing key in the same hosted zone.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-name
+    .PARAMETER KeyManagementServiceArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-keymanagementservicearn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER KeyManagementServiceArn
-        The Amazon resource name ARN for a customer managed customer master key CMK in AWS Key Management Service AWS KMS . The KeyManagementServiceArn must be unique for each key-signing key KSK in a single hosted zone. For example: arn:aws:kms:us-east-1:111122223333:key/111a2222-a11b-1ab1-2ab2-1ab21a2b3a111.
+    .PARAMETER HostedZoneId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-hostedzoneid
+        UpdateType: Immutable
+        PrimitiveType: String
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-keymanagementservicearn
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-name
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -123,17 +104,6 @@ There was an error during a request. Before you can continue to work with DNSSEC
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $HostedZoneId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Status,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -145,7 +115,7 @@ There was an error during a request. Before you can continue to work with DNSSEC
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $KeyManagementServiceArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -156,7 +126,18 @@ There was an error during a request. Before you can continue to work with DNSSEC
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $KeyManagementServiceArn,
+        $HostedZoneId,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

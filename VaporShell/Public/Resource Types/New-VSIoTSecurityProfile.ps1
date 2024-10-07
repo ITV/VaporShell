@@ -1,10 +1,10 @@
 function New-VSIoTSecurityProfile {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::SecurityProfile resource to the template. Use the AWS::IoT::SecurityProfile resource to create a Device Defender security profile. For API reference, see CreateSecurityProfile: https://docs.aws.amazon.com/iot/latest/apireference/API_CreateSecurityProfile.html and for general information, see Detect: https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html.
+        Adds an AWS::IoT::SecurityProfile resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::SecurityProfile resource to the template. Use the AWS::IoT::SecurityProfile resource to create a Device Defender security profile. For API reference, see CreateSecurityProfile: https://docs.aws.amazon.com/iot/latest/apireference/API_CreateSecurityProfile.html and for general information, see Detect: https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html.
+        Adds an AWS::IoT::SecurityProfile resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html
@@ -12,62 +12,48 @@ function New-VSIoTSecurityProfile {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER SecurityProfileName
-        The name you gave to the security profile.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER SecurityProfileDescription
-        A description of the security profile.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Behaviors
-        Specifies the behaviors that, when violated by a device thing, cause an alert.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
-        UpdateType: Mutable
-        Type: List
-        ItemType: Behavior
-        DuplicatesAllowed: False
-
-    .PARAMETER AlertTargets
-        Specifies the destinations to which alerts are sent. Alerts are always sent to the console. Alerts are generated when a device thing violates a behavior.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
-        UpdateType: Mutable
-        Type: Map
-        ItemType: AlertTarget
-
     .PARAMETER AdditionalMetricsToRetainV2
-        A list of metrics whose data is retained stored. By default, data is retained for any metric used in the profile's behaviors, but it's also retained for any metric specified here. Can be used with custom metrics; can't be used with dimensions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
         UpdateType: Mutable
         Type: List
         ItemType: MetricToRetain
         DuplicatesAllowed: False
 
-    .PARAMETER Tags
-        Metadata that can be used to manage the security profile.
+    .PARAMETER SecurityProfileDescription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
+        UpdateType: Mutable
+        PrimitiveType: String
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
+    .PARAMETER Behaviors
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
         UpdateType: Mutable
         Type: List
-        ItemType: Tag
+        ItemType: Behavior
         DuplicatesAllowed: False
 
-    .PARAMETER TargetArns
-        The ARN of the target thing group to which the security profile is attached.
+    .PARAMETER SecurityProfileName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER AlertTargets
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
+        UpdateType: Mutable
+        Type: Map
+        ItemType: AlertTarget
+
+    .PARAMETER TargetArns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
         DuplicatesAllowed: False
 
     .PARAMETER DeletionPolicy
@@ -134,7 +120,7 @@ function New-VSIoTSecurityProfile {
         $LogicalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "Vaporshell.Resource.IoT.SecurityProfile.MetricToRetain"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -142,7 +128,7 @@ function New-VSIoTSecurityProfile {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SecurityProfileName,
+        $AdditionalMetricsToRetainV2,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -167,6 +153,17 @@ function New-VSIoTSecurityProfile {
         $Behaviors,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SecurityProfileName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoT.SecurityProfile.AlertTarget"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -177,21 +174,10 @@ function New-VSIoTSecurityProfile {
             })]
         $AlertTargets,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.IoT.SecurityProfile.MetricToRetain"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AdditionalMetricsToRetainV2,
+        $TargetArns,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        $TargetArns,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -266,29 +252,29 @@ function New-VSIoTSecurityProfile {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Behaviors {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Behaviors -Value @($Behaviors)
-                }
                 AdditionalMetricsToRetainV2 {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AdditionalMetricsToRetainV2 -Value @($AdditionalMetricsToRetainV2)
                 }
-                Tags {
+                Behaviors {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Behaviors -Value @($Behaviors)
                 }
                 TargetArns {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name TargetArns -Value @($TargetArns)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

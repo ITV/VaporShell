@@ -1,18 +1,16 @@
 function Add-VSTimestreamScheduledQueryTargetConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::ScheduledQuery.TargetConfiguration resource property to the template. Configuration used for writing the output of a query.
+        Adds an AWS::Timestream::ScheduledQuery.TargetConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Timestream::ScheduledQuery.TargetConfiguration resource property to the template.
-Configuration used for writing the output of a query.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html
 
     .PARAMETER TimestreamConfiguration
-        Configuration needed to write data into the Timestream database and table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html#cfn-timestream-scheduledquery-targetconfiguration-timestreamconfiguration
         UpdateType: Immutable
         Type: TimestreamConfiguration

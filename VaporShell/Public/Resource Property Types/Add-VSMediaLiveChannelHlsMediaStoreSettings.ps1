@@ -1,48 +1,36 @@
 function Add-VSMediaLiveChannelHlsMediaStoreSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.HlsMediaStoreSettings resource property to the template. The configuration of a MediaStore container as the destination for an HLS output.
+        Adds an AWS::MediaLive::Channel.HlsMediaStoreSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.HlsMediaStoreSettings resource property to the template.
-The configuration of a MediaStore container as the destination for an HLS output.
 
-The parent of this entity is HlsCdnSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html
 
     .PARAMETER FilecacheDuration
-        The size, in seconds, of the file cache for streaming outputs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-filecacheduration
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER NumRetries
-        The number of retry attempts that are made before the channel is put into an error state.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-numretries
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER MediaStoreStorageClass
-        When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-mediastorestorageclass
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RestartDelay
-        If a streaming output fails, the number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-restartdelay
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ConnectionRetryInterval
-        The number of seconds to wait before retrying a connection to the CDN if the connection is lost.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-connectionretryinterval
         PrimitiveType: Integer
         UpdateType: Mutable

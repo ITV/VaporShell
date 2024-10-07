@@ -1,50 +1,36 @@
 function Add-VSCodeBuildProjectProjectBuildBatchConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::Project.ProjectBuildBatchConfig resource property to the template. Contains configuration information about a batch build project.
+        Adds an AWS::CodeBuild::Project.ProjectBuildBatchConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::Project.ProjectBuildBatchConfig resource property to the template.
-Contains configuration information about a batch build project.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html
 
     .PARAMETER CombineArtifacts
-        Specifies if the build artifacts for the batch build should be combined into a single artifact location.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-combineartifacts
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ServiceRole
-        Specifies the service role ARN for the batch build project.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-servicerole
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER BatchReportMode
-        Specifies how build status reports are sent to the source provider for the batch build. This property is only used when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider.
-REPORT_AGGREGATED_BATCH
-Default Aggregate all of the build statuses into a single status report.
-REPORT_INDIVIDUAL_BUILDS
-Send a separate status report for each individual build.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-batchreportmode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TimeoutInMins
-        Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-timeoutinmins
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Restrictions
-        A BatchRestrictions object that specifies the restrictions for the batch build.
-
         Type: BatchRestrictions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-restrictions
         UpdateType: Mutable

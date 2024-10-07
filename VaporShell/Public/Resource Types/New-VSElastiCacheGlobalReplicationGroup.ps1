@@ -1,12 +1,10 @@
 function New-VSElastiCacheGlobalReplicationGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::ElastiCache::GlobalReplicationGroup resource to the template. Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary cluster automatically replicates updates to the secondary cluster.
+        Adds an AWS::ElastiCache::GlobalReplicationGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ElastiCache::GlobalReplicationGroup resource to the template. Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary cluster automatically replicates updates to the secondary cluster.
-
-+ The **GlobalReplicationGroupIdSuffix** represents the name of the Global datastore, which is what you use to associate a secondary cluster.
+        Adds an AWS::ElastiCache::GlobalReplicationGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html
@@ -15,72 +13,53 @@ function New-VSElastiCacheGlobalReplicationGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER GlobalReplicationGroupIdSuffix
-        The suffix name of a Global Datastore. The suffix guarantees uniqueness of the Global Datastore name across multiple regions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupidsuffix
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER AutomaticFailoverEnabled
-        Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
-AutomaticFailoverEnabled must be enabled for Redis cluster mode enabled replication groups.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
     .PARAMETER CacheNodeType
-        The cache node type of the Global datastore
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cachenodetype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EngineVersion
-        The Elasticache Redis engine version.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER CacheParameterGroupName
-        The name of the cache parameter group to use with the Global datastore. It must be compatible with the major engine version used by the Global datastore.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER GlobalNodeGroupCount
-        The number of node groups that comprise the Global Datastore.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalnodegroupcount
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER GlobalReplicationGroupDescription
-        The optional description of the Global datastore
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupdescription
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Members
-        The replication groups that comprise the Global datastore.
+    .PARAMETER RegionalConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: RegionalConfiguration
+        DuplicatesAllowed: False
 
+    .PARAMETER CacheParameterGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Members
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members
         UpdateType: Mutable
         Type: List
         ItemType: GlobalReplicationGroupMember
         DuplicatesAllowed: False
 
-    .PARAMETER RegionalConfigurations
-        The Amazon Regions that comprise the Global Datastore.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
+    .PARAMETER AutomaticFailoverEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled
         UpdateType: Mutable
-        Type: List
-        ItemType: RegionalConfiguration
-        DuplicatesAllowed: False
+        PrimitiveType: Boolean
+
+    .PARAMETER GlobalNodeGroupCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalnodegroupcount
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -157,17 +136,6 @@ AutomaticFailoverEnabled must be enabled for Redis cluster mode enabled replicat
         $GlobalReplicationGroupIdSuffix,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AutomaticFailoverEnabled,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -198,10 +166,10 @@ AutomaticFailoverEnabled must be enabled for Redis cluster mode enabled replicat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CacheParameterGroupName,
+        $GlobalReplicationGroupDescription,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "Vaporshell.Resource.ElastiCache.GlobalReplicationGroup.RegionalConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -209,7 +177,7 @@ AutomaticFailoverEnabled must be enabled for Redis cluster mode enabled replicat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $GlobalNodeGroupCount,
+        $RegionalConfigurations,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -220,7 +188,7 @@ AutomaticFailoverEnabled must be enabled for Redis cluster mode enabled replicat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $GlobalReplicationGroupDescription,
+        $CacheParameterGroupName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ElastiCache.GlobalReplicationGroup.GlobalReplicationGroupMember"
@@ -234,7 +202,7 @@ AutomaticFailoverEnabled must be enabled for Redis cluster mode enabled replicat
         $Members,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.ElastiCache.GlobalReplicationGroup.RegionalConfiguration"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -242,7 +210,18 @@ AutomaticFailoverEnabled must be enabled for Redis cluster mode enabled replicat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RegionalConfigurations,
+        $AutomaticFailoverEnabled,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $GlobalNodeGroupCount,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -317,17 +296,17 @@ AutomaticFailoverEnabled must be enabled for Redis cluster mode enabled replicat
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Members {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Members -Value @($Members)
-                }
                 RegionalConfigurations {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name RegionalConfigurations -Value @($RegionalConfigurations)
+                }
+                Members {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Members -Value @($Members)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

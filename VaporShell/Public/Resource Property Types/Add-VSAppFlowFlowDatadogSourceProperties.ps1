@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowDatadogSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.DatadogSourceProperties resource property to the template. The properties that are applied when Datadog is being used as a source.
+        Adds an AWS::AppFlow::Flow.DatadogSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.DatadogSourceProperties resource property to the template.
-The properties that are applied when Datadog is being used as a source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html
 
     .PARAMETER Object
-        The object specified in the Datadog flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html#cfn-appflow-flow-datadogsourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

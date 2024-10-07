@@ -1,18 +1,16 @@
 function Add-VSLexBotInputContext {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.InputContext resource property to the template. The name of a context that must be active for an intent to be selected by Amazon Lex.
+        Adds an AWS::Lex::Bot.InputContext resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.InputContext resource property to the template.
-The name of a context that must be active for an intent to be selected by Amazon Lex.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-inputcontext.html
 
     .PARAMETER Name
-        The name of the context.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-inputcontext.html#cfn-lex-bot-inputcontext-name
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,33 +1,28 @@
 function Add-VSLexBotFulfillmentStartResponseSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.FulfillmentStartResponseSpecification resource property to the template. Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+        Adds an AWS::Lex::Bot.FulfillmentStartResponseSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.FulfillmentStartResponseSpecification resource property to the template.
-Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html
 
-    .PARAMETER MessageGroups
-        One to 5 message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html#cfn-lex-bot-fulfillmentstartresponsespecification-messagegroups
-        UpdateType: Mutable
-        Type: List
-        ItemType: MessageGroup
-
     .PARAMETER DelayInSeconds
-        The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html#cfn-lex-bot-fulfillmentstartresponsespecification-delayinseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER AllowInterrupt
-        Determines whether the user can interrupt the start message while it is playing.
+    .PARAMETER MessageGroups
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html#cfn-lex-bot-fulfillmentstartresponsespecification-messagegroups
+        UpdateType: Mutable
+        Type: List
+        ItemType: MessageGroup
+        DuplicatesAllowed: True
 
+    .PARAMETER AllowInterrupt
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html#cfn-lex-bot-fulfillmentstartresponsespecification-allowinterrupt
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -41,17 +36,6 @@ Provides settings for a message that is sent to the user when a fulfillment Lamb
     (
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Lex.Bot.MessageGroup"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MessageGroups,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -61,6 +45,17 @@ Provides settings for a message that is sent to the user when a fulfillment Lamb
                 }
             })]
         $DelayInSeconds,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Lex.Bot.MessageGroup"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MessageGroups,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

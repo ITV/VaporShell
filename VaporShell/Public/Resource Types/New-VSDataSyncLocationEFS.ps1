@@ -1,10 +1,10 @@
 function New-VSDataSyncLocationEFS {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationEFS resource to the template. The AWS::DataSync::LocationEFS resource specifies an endpoint for an Amazon EFS location.
+        Adds an AWS::DataSync::LocationEFS resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DataSync::LocationEFS resource to the template. The AWS::DataSync::LocationEFS resource specifies an endpoint for an Amazon EFS location.
+        Adds an AWS::DataSync::LocationEFS resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html
@@ -12,31 +12,23 @@ function New-VSDataSyncLocationEFS {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Ec2Config
-        The subnet and security group that the Amazon EFS file system uses. The security group that you provide needs to be able to communicate with the security group on the mount target in the subnet specified.
-The exact relationship between security group M of the mount target and security group S which you provide for DataSync to use at this stage is as follows:
-+  Security group M which you associate with the mount target must allow inbound access for the Transmission Control Protocol TCP on the NFS port 2049 from security group S. You can enable inbound connections either by IP address CIDR range or security group.
-+ Security group S provided to DataSync to access EFS should have a rule that enables outbound connections to the NFS port on one of the file system’s mount targets. You can enable outbound connections either by IP address CIDR range or security group.
-For information about security groups and mount targets, see Security Groups for Amazon EC2 Instances and Mount Targets: https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access in the *Amazon EFS User Guide.*
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-ec2config
-        UpdateType: Immutable
-        Type: Ec2Config
-
     .PARAMETER EfsFilesystemArn
-        The Amazon Resource Name ARN for the Amazon EFS file system.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER Ec2Config
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-ec2config
+        UpdateType: Immutable
+        Type: Ec2Config
 
     .PARAMETER AccessPointArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-accesspointarn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER FileSystemAccessRoleArn
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-filesystemaccessrolearn
+    .PARAMETER Subdirectory
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-subdirectory
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -45,17 +37,12 @@ For information about security groups and mount targets, see Security Groups for
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Subdirectory
-        A subdirectory in the location’s path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination. By default, AWS DataSync uses the root directory.
-Subdirectory must be specified with forward slashes. For example, /path/to/folder.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-subdirectory
+    .PARAMETER FileSystemAccessRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-filesystemaccessrolearn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-tags
         UpdateType: Mutable
         Type: List
@@ -124,9 +111,7 @@ Subdirectory must be specified with forward slashes. For example, /path/to/folde
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        $Ec2Config,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -137,6 +122,8 @@ Subdirectory must be specified with forward slashes. For example, /path/to/folde
                 }
             })]
         $EfsFilesystemArn,
+        [parameter(Mandatory = $true)]
+        $Ec2Config,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -158,7 +145,7 @@ Subdirectory must be specified with forward slashes. For example, /path/to/folde
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FileSystemAccessRoleArn,
+        $Subdirectory,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -180,7 +167,7 @@ Subdirectory must be specified with forward slashes. For example, /path/to/folde
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Subdirectory,
+        $FileSystemAccessRoleArn,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

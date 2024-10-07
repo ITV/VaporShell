@@ -1,25 +1,21 @@
 function Add-VSGlueDatabaseDatabaseIdentifier {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Database.DatabaseIdentifier resource property to the template. A structure that describes a target database for resource linking.
+        Adds an AWS::Glue::Database.DatabaseIdentifier resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Database.DatabaseIdentifier resource property to the template.
-A structure that describes a target database for resource linking.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
 
     .PARAMETER DatabaseName
-        The name of the catalog database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CatalogId
-        The ID of the Data Catalog in which the database resides.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
         PrimitiveType: String
         UpdateType: Mutable

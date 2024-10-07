@@ -1,32 +1,26 @@
 function Add-VSGlueTableTableIdentifier {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Table.TableIdentifier resource property to the template. A structure that describes a target table for resource linking.
+        Adds an AWS::Glue::Table.TableIdentifier resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Table.TableIdentifier resource property to the template.
-A structure that describes a target table for resource linking.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html
 
     .PARAMETER DatabaseName
-        The name of the catalog database that contains the target table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CatalogId
-        The ID of the Data Catalog in which the table resides.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the target table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
         PrimitiveType: String
         UpdateType: Mutable

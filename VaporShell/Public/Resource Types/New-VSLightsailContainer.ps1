@@ -1,12 +1,10 @@
 function New-VSLightsailContainer {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Container resource to the template. The AWS::Lightsail::Container resource specifies a container service.
+        Adds an AWS::Lightsail::Container resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lightsail::Container resource to the template. The AWS::Lightsail::Container resource specifies a container service.
-
-A Lightsail container service is a compute resource to which you can deploy containers.
+        Adds an AWS::Lightsail::Container resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html
@@ -14,60 +12,39 @@ A Lightsail container service is a compute resource to which you can deploy cont
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ServiceName
-        The name of the container service.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-servicename
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Power
-        The power specification of the container service.
-The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-power
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Scale
-        The scale specification of the container service.
-The scale specifies the allocated compute nodes of the container service.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-scale
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER PublicDomainNames
-        The public domain name of the container service, such as example.com and www.example.com.
-You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container that is configured as the public endpoint of your container service.
-If you don't specify public domain names, then you can use the default domain of the container service.
-You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the AWS::Lightsail::Certificate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html resource to create a certificate for the public domain names that you want to use with your container service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-publicdomainnames
         UpdateType: Mutable
         Type: List
         ItemType: PublicDomainName
         DuplicatesAllowed: False
 
-    .PARAMETER ContainerServiceDeployment
-        An object that describes the current container deployment of the container service.
+    .PARAMETER ServiceName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-servicename
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER ContainerServiceDeployment
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-containerservicedeployment
         UpdateType: Mutable
         Type: ContainerServiceDeployment
 
     .PARAMETER IsDisabled
-        A Boolean value indicating whether the container service is disabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-isdisabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html in the *AWS CloudFormation User Guide*.
-The Value of Tags is optional for Lightsail resources.
+    .PARAMETER Scale
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-scale
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
+    .PARAMETER Power
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-power
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-tags
         UpdateType: Mutable
         Type: List
@@ -136,39 +113,6 @@ The Value of Tags is optional for Lightsail resources.
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ServiceName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Power,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Scale,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Lightsail.Container.PublicDomainName"
@@ -180,6 +124,17 @@ The Value of Tags is optional for Lightsail resources.
                 }
             })]
         $PublicDomainNames,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ServiceName,
         [parameter(Mandatory = $false)]
         $ContainerServiceDeployment,
         [parameter(Mandatory = $false)]
@@ -193,6 +148,28 @@ The Value of Tags is optional for Lightsail resources.
                 }
             })]
         $IsDisabled,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Scale,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Power,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

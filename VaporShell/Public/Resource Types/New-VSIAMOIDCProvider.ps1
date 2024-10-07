@@ -1,26 +1,10 @@
 function New-VSIAMOIDCProvider {
     <#
     .SYNOPSIS
-        Adds an AWS::IAM::OIDCProvider resource to the template. Creates an IAM entity to describe an identity provider (IdP that supports OpenID Connect (OIDC: http://openid.net/connect/.
+        Adds an AWS::IAM::OIDCProvider resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IAM::OIDCProvider resource to the template. Creates an IAM entity to describe an identity provider (IdP that supports OpenID Connect (OIDC: http://openid.net/connect/.
-
-The OIDC provider that you create with this operation can be used as a principal in a role's trust policy. Such a policy establishes a trust relationship between AWS and the OIDC provider.
-
-When you create the IAM OIDC provider, you specify the following:
-
-+ The URL of the OIDC identity provider (IdP to trust
-
-+ A list of client IDs (also known as audiences that identify the application or applications that are allowed to authenticate using the OIDC provider
-
-+ A list of thumbprints of one or more server certificates that the IdP uses
-
-You get all of this information from the OIDC IdP that you want to use to access AWS.
-
-**Note**
-
-The trust for the OIDC provider is derived from the IAM provider that this operation creates. Therefore, it is best to limit access to the CreateOpenIDConnectProvider: https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html operation to highly privileged users.
+        Adds an AWS::IAM::OIDCProvider resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html
@@ -29,31 +13,25 @@ The trust for the OIDC provider is derived from the IAM provider that this opera
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ClientIdList
-        A list of client IDs also known as audiences that are associated with the specified IAM OIDC provider resource object. For more information, see CreateOpenIDConnectProvider: https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-clientidlist
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER Url
-        The URL that the IAM OIDC provider resource object is associated with. For more information, see CreateOpenIDConnectProvider: https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-url
-        UpdateType: Immutable
-        PrimitiveType: String
+        DuplicatesAllowed: True
 
     .PARAMETER ThumbprintList
-        A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see CreateOpenIDConnectProvider: https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Url
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-url
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Tags
-        A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see Tagging IAM resources: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html in the *IAM User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-tags
         UpdateType: Mutable
         Type: List
@@ -124,6 +102,8 @@ The trust for the OIDC provider is derived from the IAM provider that this opera
         $LogicalId,
         [parameter(Mandatory = $false)]
         $ClientIdList,
+        [parameter(Mandatory = $true)]
+        $ThumbprintList,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -135,8 +115,6 @@ The trust for the OIDC provider is derived from the IAM provider that this opera
                 }
             })]
         $Url,
-        [parameter(Mandatory = $true)]
-        $ThumbprintList,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

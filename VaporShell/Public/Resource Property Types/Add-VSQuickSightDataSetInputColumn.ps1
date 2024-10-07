@@ -1,25 +1,21 @@
 function Add-VSQuickSightDataSetInputColumn {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.InputColumn resource property to the template. Metadata for a column that is used as the input of a transform operation.
+        Adds an AWS::QuickSight::DataSet.InputColumn resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.InputColumn resource property to the template.
-Metadata for a column that is used as the input of a transform operation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html
 
     .PARAMETER Type
-        The data type of the column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-type
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of this column in the underlying data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-name
         UpdateType: Mutable
         PrimitiveType: String

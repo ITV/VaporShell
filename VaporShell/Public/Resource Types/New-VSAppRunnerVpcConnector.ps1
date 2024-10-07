@@ -1,12 +1,10 @@
 function New-VSAppRunnerVpcConnector {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::VpcConnector resource to the template. The AWS::AppRunner::VpcConnector resource is an AWS App Runner resource type that specifies an App Runner VPC connector.
+        Adds an AWS::AppRunner::VpcConnector resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppRunner::VpcConnector resource to the template. The AWS::AppRunner::VpcConnector resource is an AWS App Runner resource type that specifies an App Runner VPC connector.
-
-App Runner requires this resource when you want to associate your App Runner service to a custom Amazon Virtual Private Cloud (Amazon VPC.
+        Adds an AWS::AppRunner::VpcConnector resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html
@@ -14,39 +12,31 @@ App Runner requires this resource when you want to associate your App Runner ser
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER VpcConnectorName
-        A name for the VPC connector.
-If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-vpcconnectorname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Subnets
-        A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-subnets
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
-
     .PARAMETER SecurityGroups
-        A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-securitygroups
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER Tags
-        A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
+    .PARAMETER Subnets
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-subnets
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
+    .PARAMETER VpcConnectorName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-vpcconnectorname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -111,6 +101,10 @@ If you don't specify a name, AWS CloudFormation generates a name for your VPC co
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $SecurityGroups,
+        [parameter(Mandatory = $true)]
+        $Subnets,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -121,10 +115,6 @@ If you don't specify a name, AWS CloudFormation generates a name for your VPC co
                 }
             })]
         $VpcConnectorName,
-        [parameter(Mandatory = $true)]
-        $Subnets,
-        [parameter(Mandatory = $false)]
-        $SecurityGroups,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -202,17 +192,17 @@ If you don't specify a name, AWS CloudFormation generates a name for your VPC co
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Subnets {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Subnets -Value @($Subnets)
-                }
                 SecurityGroups {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SecurityGroups -Value @($SecurityGroups)
+                }
+                Subnets {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Subnets -Value @($Subnets)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

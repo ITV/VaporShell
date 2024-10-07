@@ -1,25 +1,21 @@
 function Add-VSAutoScalingAutoScalingGroupMemoryMiBRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.MemoryMiBRequest resource property to the template. MemoryMiBRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum instance memory size for an instance type, in MiB.
+        Adds an AWS::AutoScaling::AutoScalingGroup.MemoryMiBRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.MemoryMiBRequest resource property to the template.
-MemoryMiBRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum instance memory size for an instance type, in MiB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorymibrequest.html
 
     .PARAMETER Max
-        The memory maximum in MiB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorymibrequest.html#cfn-autoscaling-autoscalinggroup-memorymibrequest-max
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Min
-        The memory minimum in MiB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorymibrequest.html#cfn-autoscaling-autoscalinggroup-memorymibrequest-min
         PrimitiveType: Integer
         UpdateType: Mutable

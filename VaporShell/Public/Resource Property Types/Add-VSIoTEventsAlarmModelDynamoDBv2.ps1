@@ -10,15 +10,15 @@ function Add-VSIoTEventsAlarmModelDynamoDBv2 {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodbv2.html
 
-    .PARAMETER Payload
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodbv2.html#cfn-iotevents-alarmmodel-dynamodbv2-payload
-        UpdateType: Mutable
-        Type: Payload
-
     .PARAMETER TableName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodbv2.html#cfn-iotevents-alarmmodel-dynamodbv2-tablename
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER Payload
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodbv2.html#cfn-iotevents-alarmmodel-dynamodbv2-payload
+        UpdateType: Mutable
+        Type: Payload
 
     .FUNCTIONALITY
         Vaporshell
@@ -27,8 +27,6 @@ function Add-VSIoTEventsAlarmModelDynamoDBv2 {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Payload,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -39,7 +37,9 @@ function Add-VSIoTEventsAlarmModelDynamoDBv2 {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TableName
+        $TableName,
+        [parameter(Mandatory = $false)]
+        $Payload
     )
     Begin {
         $obj = [PSCustomObject]@{}

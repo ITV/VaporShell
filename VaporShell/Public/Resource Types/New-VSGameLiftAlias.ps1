@@ -1,10 +1,10 @@
 function New-VSGameLiftAlias {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::Alias resource to the template. The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift fleet destination. There are two types of routing strategies for aliases: simple and terminal. A simple alias points to an active fleet. A terminal alias displays a message instead of routing players to an active fleet. For example, a terminal alias might display a URL link that directs players to an upgrade site. You can use aliases to define destinations in a game session queue or when requesting new game sessions.
+        Adds an AWS::GameLift::Alias resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::GameLift::Alias resource to the template. The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift fleet destination. There are two types of routing strategies for aliases: simple and terminal. A simple alias points to an active fleet. A terminal alias displays a message instead of routing players to an active fleet. For example, a terminal alias might display a URL link that directs players to an upgrade site. You can use aliases to define destinations in a game session queue or when requesting new game sessions.
+        Adds an AWS::GameLift::Alias resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
@@ -13,25 +13,19 @@ function New-VSGameLiftAlias {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A human-readable description of the alias.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        A descriptive label that is associated with an alias. Alias names do not need to be unique.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER RoutingStrategy
-        The routing configuration, including routing type and fleet target, for the alias.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
         UpdateType: Mutable
         Type: RoutingStrategy
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -107,6 +101,8 @@ function New-VSGameLiftAlias {
             })]
         $Description,
         [parameter(Mandatory = $true)]
+        $RoutingStrategy,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -117,8 +113,6 @@ function New-VSGameLiftAlias {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $true)]
-        $RoutingStrategy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

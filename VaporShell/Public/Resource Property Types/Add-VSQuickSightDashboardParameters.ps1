@@ -1,46 +1,42 @@
 function Add-VSQuickSightDashboardParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.Parameters resource property to the template. A list of Amazon QuickSight parameters and the list's override values.
+        Adds an AWS::QuickSight::Dashboard.Parameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.Parameters resource property to the template.
-A list of Amazon QuickSight parameters and the list's override values.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html
 
     .PARAMETER StringParameters
-        The parameters that have a data type of string.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
         UpdateType: Mutable
         Type: List
         ItemType: StringParameter
+        DuplicatesAllowed: True
 
     .PARAMETER DecimalParameters
-        The parameters that have a data type of decimal.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
         UpdateType: Mutable
         Type: List
         ItemType: DecimalParameter
+        DuplicatesAllowed: True
 
     .PARAMETER IntegerParameters
-        The parameters that have a data type of integer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
         UpdateType: Mutable
         Type: List
         ItemType: IntegerParameter
+        DuplicatesAllowed: True
 
     .PARAMETER DateTimeParameters
-        The parameters that have a data type of date-time.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
         UpdateType: Mutable
         Type: List
         ItemType: DateTimeParameter
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

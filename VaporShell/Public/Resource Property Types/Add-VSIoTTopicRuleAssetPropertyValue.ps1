@@ -1,35 +1,29 @@
 function Add-VSIoTTopicRuleAssetPropertyValue {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.AssetPropertyValue resource property to the template. An asset property value entry containing the following information.
+        Adds an AWS::IoT::TopicRule.AssetPropertyValue resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.AssetPropertyValue resource property to the template.
-An asset property value entry containing the following information.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html
 
-    .PARAMETER Value
-        The value of the asset property.
+    .PARAMETER Quality
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Value
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
         UpdateType: Mutable
         Type: AssetPropertyVariant
 
     .PARAMETER Timestamp
-        The asset property value timestamp.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
         UpdateType: Mutable
         Type: AssetPropertyTimestamp
-
-    .PARAMETER Quality
-        Optional. A string that describes the quality of the value. Accepts substitution templates. Must be GOOD, BAD, or UNCERTAIN.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,10 +32,6 @@ An asset property value entry containing the following information.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $Value,
-        [parameter(Mandatory = $true)]
-        $Timestamp,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +42,11 @@ An asset property value entry containing the following information.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Quality
+        $Quality,
+        [parameter(Mandatory = $true)]
+        $Value,
+        [parameter(Mandatory = $true)]
+        $Timestamp
     )
     Begin {
         $obj = [PSCustomObject]@{}

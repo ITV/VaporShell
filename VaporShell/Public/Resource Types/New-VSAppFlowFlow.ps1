@@ -1,14 +1,10 @@
 function New-VSAppFlowFlow {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow resource to the template. The AWS::AppFlow::Flow resource is an Amazon AppFlow resource type that specifies a new flow.
+        Adds an AWS::AppFlow::Flow resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppFlow::Flow resource to the template. The AWS::AppFlow::Flow resource is an Amazon AppFlow resource type that specifies a new flow.
-
-**Note**
-
-If you want to use AWS CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics, you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
+        Adds an AWS::AppFlow::Flow resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
@@ -16,64 +12,56 @@ If you want to use AWS CloudFormation to create a connector profile for connecto
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER FlowName
-        The specified name of the flow. Spaces are not allowed. Use underscores _ or hyphens - only.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        A user-entered description of the flow.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER KMSArn
-        The ARN Amazon Resource Name of the Key Management Service KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER TriggerConfig
-        The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
-        UpdateType: Mutable
-        Type: TriggerConfig
-
-    .PARAMETER SourceFlowConfig
-        Contains information about the configuration of the source connector used in the flow.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
-        UpdateType: Mutable
-        Type: SourceFlowConfig
-
-    .PARAMETER DestinationFlowConfigList
-        The configuration that controls how Amazon AppFlow places data in the destination connector.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
-        UpdateType: Mutable
-        Type: List
-        ItemType: DestinationFlowConfig
-
     .PARAMETER Tasks
-        A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
         UpdateType: Mutable
         Type: List
         ItemType: Task
+        DuplicatesAllowed: True
+
+    .PARAMETER FlowName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER TriggerConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        UpdateType: Mutable
+        Type: TriggerConfig
+
+    .PARAMETER DestinationFlowConfigList
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
+        UpdateType: Mutable
+        Type: List
+        ItemType: DestinationFlowConfig
+        DuplicatesAllowed: True
+
+    .PARAMETER SourceFlowConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+        UpdateType: Mutable
+        Type: SourceFlowConfig
 
     .PARAMETER Tags
-        The tags used to organize, track, or control access for your flow.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER MetadataCatalogConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-metadatacatalogconfig
+        UpdateType: Mutable
+        Type: MetadataCatalogConfig
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -137,17 +125,6 @@ If you want to use AWS CloudFormation to create a connector profile for connecto
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $FlowName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -171,9 +148,29 @@ If you want to use AWS CloudFormation to create a connector profile for connecto
             })]
         $KMSArn,
         [parameter(Mandatory = $true)]
-        $TriggerConfig,
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.AppFlow.Flow.Task"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Tasks,
         [parameter(Mandatory = $true)]
-        $SourceFlowConfig,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FlowName,
+        [parameter(Mandatory = $true)]
+        $TriggerConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppFlow.Flow.DestinationFlowConfig"
@@ -186,19 +183,12 @@ If you want to use AWS CloudFormation to create a connector profile for connecto
             })]
         $DestinationFlowConfigList,
         [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.AppFlow.Flow.Task"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Tasks,
+        $SourceFlowConfig,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        $MetadataCatalogConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -273,17 +263,17 @@ If you want to use AWS CloudFormation to create a connector profile for connecto
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                DestinationFlowConfigList {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DestinationFlowConfigList -Value @($DestinationFlowConfigList)
-                }
                 Tasks {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tasks -Value @($Tasks)
+                }
+                DestinationFlowConfigList {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DestinationFlowConfigList -Value @($DestinationFlowConfigList)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

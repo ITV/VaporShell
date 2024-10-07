@@ -1,28 +1,21 @@
 function Add-VSEC2EC2FleetFleetLaunchTemplateConfigRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.FleetLaunchTemplateConfigRequest resource property to the template. Specifies a launch template and overrides for an EC2 Fleet.
+        Adds an AWS::EC2::EC2Fleet.FleetLaunchTemplateConfigRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.FleetLaunchTemplateConfigRequest resource property to the template.
-Specifies a launch template and overrides for an EC2 Fleet.
 
-FleetLaunchTemplateConfigRequest is a property of the AWS::EC2::EC2Fleet: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html
 
     .PARAMETER LaunchTemplateSpecification
-        The launch template to use. You must specify either the launch template ID or launch template name in the request.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification
         UpdateType: Immutable
         Type: FleetLaunchTemplateSpecificationRequest
 
     .PARAMETER Overrides
-        Any parameters that you specify override the same parameters in the launch template.
-For fleets of type request and maintain, a maximum of 300 items is allowed across all launch templates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides
         UpdateType: Immutable
         Type: List

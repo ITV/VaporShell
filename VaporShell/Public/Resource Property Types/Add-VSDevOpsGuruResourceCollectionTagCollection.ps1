@@ -20,6 +20,7 @@ function Add-VSDevOpsGuruResourceCollectionTagCollection {
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

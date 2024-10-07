@@ -1,26 +1,22 @@
 function Add-VSRedshiftEndpointAccessVpcSecurityGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::Redshift::EndpointAccess.VpcSecurityGroup resource property to the template. The security groups associated with the endpoint.
+        Adds an AWS::Redshift::EndpointAccess.VpcSecurityGroup resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Redshift::EndpointAccess.VpcSecurityGroup resource property to the template.
-The security groups associated with the endpoint.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html
 
-    .PARAMETER VpcSecurityGroupId
-        The identifier of the VPC security group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-vpcsecuritygroupid
+    .PARAMETER Status
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-status
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Status
-        The status of the endpoint.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-status
+    .PARAMETER VpcSecurityGroupId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-vpcsecuritygroupid
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ The security groups associated with the endpoint.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VpcSecurityGroupId,
+        $Status,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ The security groups associated with the endpoint.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Status
+        $VpcSecurityGroupId
     )
     Begin {
         $obj = [PSCustomObject]@{}

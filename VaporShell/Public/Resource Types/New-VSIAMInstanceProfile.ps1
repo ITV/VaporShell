@@ -1,12 +1,10 @@
 function New-VSIAMInstanceProfile {
     <#
     .SYNOPSIS
-        Adds an AWS::IAM::InstanceProfile resource to the template. Creates a new instance profile. For information about instance profiles, see Using instance profiles: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html.
+        Adds an AWS::IAM::InstanceProfile resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IAM::InstanceProfile resource to the template. Creates a new instance profile. For information about instance profiles, see Using instance profiles: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html.
-
-For information about the number of instance profiles you can create, see IAM object quotas: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html in the *IAM User Guide*.
+        Adds an AWS::IAM::InstanceProfile resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
@@ -15,30 +13,21 @@ For information about the number of instance profiles you can create, see IAM ob
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Path
-        The path to the instance profile. For more information about paths, see IAM Identifiers: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html in the *IAM User Guide*.
-This parameter is optional. If it is not included, it defaults to a slash /.
-This parameter allows through its regex pattern: http://wikipedia.org/wiki/regex a string of characters consisting of either a forward slash / by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! u0021 through the DEL character u007F, including most punctuation characters, digits, and upper and lowercased letters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-path
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Roles
-        The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+    .PARAMETER InstanceProfileName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-instanceprofilename
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Roles
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
-
-    .PARAMETER InstanceProfileName
-        The name of the instance profile to create.
-This parameter allows through its regex pattern: http://wikipedia.org/wiki/regex a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-instanceprofilename
-        UpdateType: Immutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -113,8 +102,6 @@ This parameter allows through its regex pattern: http://wikipedia.org/wiki/regex
                 }
             })]
         $Path,
-        [parameter(Mandatory = $true)]
-        $Roles,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -126,6 +113,8 @@ This parameter allows through its regex pattern: http://wikipedia.org/wiki/regex
                 }
             })]
         $InstanceProfileName,
+        [parameter(Mandatory = $true)]
+        $Roles,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

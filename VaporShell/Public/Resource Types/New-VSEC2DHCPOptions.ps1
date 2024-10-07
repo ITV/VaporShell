@@ -1,12 +1,10 @@
 function New-VSEC2DHCPOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::DHCPOptions resource to the template. Specifies a set of DHCP options for your VPC.
+        Adds an AWS::EC2::DHCPOptions resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::DHCPOptions resource to the template. Specifies a set of DHCP options for your VPC.
-
-You must specify at least one of the following properties: DomainNameServers, NetbiosNameServers, NtpServers. If you specify NetbiosNameServers, you must specify NetbiosNodeType.
+        Adds an AWS::EC2::DHCPOptions resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html
@@ -14,50 +12,38 @@ You must specify at least one of the following properties: DomainNameServers, Ne
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DomainName
-        This value is used to complete unqualified DNS hostnames. If you're using AmazonProvidedDNS in us-east-1, specify ec2.internal. If you're using AmazonProvidedDNS in another Region, specify *region*.compute.internal for example, ap-northeast-1.compute.internal. Otherwise, specify a domain name for example, *MyCompany.com*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DomainNameServers
-        The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS. The default is AmazonProvidedDNS. To have your instance receive a custom DNS hostname as specified in DomainName, you must set this property to a custom DNS server.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
-
     .PARAMETER NetbiosNameServers
-        The IPv4 addresses of up to four NetBIOS name servers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER NetbiosNodeType
-        The NetBIOS node type 1, 2, 4, or 8. We recommend that you specify 2 broadcast and multicast are not currently supported.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
-        UpdateType: Immutable
-        PrimitiveType: Integer
-
     .PARAMETER NtpServers
-        The IPv4 addresses of up to four Network Time Protocol NTP servers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
-    .PARAMETER Tags
-        Any tags assigned to the DHCP options set.
+    .PARAMETER DomainName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER NetbiosNodeType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
+    .PARAMETER DomainNameServers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
         UpdateType: Mutable
         Type: List
@@ -127,6 +113,10 @@ You must specify at least one of the following properties: DomainNameServers, Ne
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $NetbiosNameServers,
+        [parameter(Mandatory = $false)]
+        $NtpServers,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -137,10 +127,6 @@ You must specify at least one of the following properties: DomainNameServers, Ne
                 }
             })]
         $DomainName,
-        [parameter(Mandatory = $false)]
-        $DomainNameServers,
-        [parameter(Mandatory = $false)]
-        $NetbiosNameServers,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -153,7 +139,7 @@ You must specify at least one of the following properties: DomainNameServers, Ne
             })]
         $NetbiosNodeType,
         [parameter(Mandatory = $false)]
-        $NtpServers,
+        $DomainNameServers,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -231,12 +217,6 @@ You must specify at least one of the following properties: DomainNameServers, Ne
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                DomainNameServers {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DomainNameServers -Value @($DomainNameServers)
-                }
                 NetbiosNameServers {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -248,6 +228,12 @@ You must specify at least one of the following properties: DomainNameServers, Ne
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name NtpServers -Value @($NtpServers)
+                }
+                DomainNameServers {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DomainNameServers -Value @($DomainNameServers)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

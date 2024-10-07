@@ -1,32 +1,31 @@
 function Add-VSIoTTopicRuleRepublishAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.RepublishAction resource property to the template. Describes an action to republish to another topic.
+        Adds an AWS::IoT::TopicRule.RepublishAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.RepublishAction resource property to the template.
-Describes an action to republish to another topic.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html
 
     .PARAMETER Qos
-        The Quality of Service QoS level to use when republishing messages. The default value is 0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER Topic
-        The name of the MQTT topic.
+    .PARAMETER Headers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-headers
+        UpdateType: Mutable
+        Type: RepublishActionHeaders
 
+    .PARAMETER Topic
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the IAM role that grants access.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -49,6 +48,8 @@ Describes an action to republish to another topic.
                 }
             })]
         $Qos,
+        [parameter(Mandatory = $false)]
+        $Headers,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

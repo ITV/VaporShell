@@ -1,20 +1,10 @@
 function New-VSLambdaFunction {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::Function resource to the template. The AWS::Lambda::Function resource creates a Lambda function. To create a function, you need a deployment package: https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html and an execution role: https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html. The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
+        Adds an AWS::Lambda::Function resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lambda::Function resource to the template. The AWS::Lambda::Function resource creates a Lambda function. To create a function, you need a deployment package: https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html and an execution role: https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html. The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
-
-You set the package type to Image if the deployment package is a container image: https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html. For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties.
-
-You set the package type to Zip if the deployment package is a .zip file archive: https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip. For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and runtime properties. For a Python example, see  Deploy Python Lambda functions with .zip file archives: https://docs.aws.amazon.com/lambda/latest/dg/python-package.html.
-
-You can use code signing: https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with UpdateFunctionCode, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-
-Note that you configure provisioned concurrency: https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html on a AWS::Lambda::Version or a AWS::Lambda::Alias.
-
-For a complete introduction to Lambda functions, see What is Lambda?: https://docs.aws.amazon.com/lambda/latest/dg/lambda-welcome.html in the *Lambda developer guide.*
+        Adds an AWS::Lambda::Function resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
@@ -22,149 +12,104 @@ For a complete introduction to Lambda functions, see What is Lambda?: https://do
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Description
-        A description of the function.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER TracingConfig
-        Set Mode to Active to sample and trace a subset of incoming requests with X-Ray: https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
-        UpdateType: Mutable
-        Type: TracingConfig
-
-    .PARAMETER VpcConfig
-        For network connectivity to AWS resources in a VPC: https://docs.aws.amazon.com/lambda/latest/dg/configuration-network.html, specify a list of security groups and subnets in the VPC.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
-        UpdateType: Mutable
-        Type: VpcConfig
-
-    .PARAMETER ReservedConcurrentExecutions
-        The number of simultaneous executions to reserve for the function.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
-    .PARAMETER FileSystemConfigs
-        Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
-For more information about using the DependsOn attribute, see DependsOn Attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
-        UpdateType: Mutable
-        Type: List
-        ItemType: FileSystemConfig
-
-    .PARAMETER FunctionName
-        The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
-If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Runtime
-        The identifier of the function's runtime: https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html. Runtime is required if the deployment package is a .zip file archive.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER KmsKeyArn
-        The ARN of the AWS Key Management Service AWS KMS key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER PackageType
-        The type of deployment package. Set to Image for container image and set Zip for .zip file archive.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER CodeSigningConfigArn
-        To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Layers
-        A list of function layers: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html to add to the function's execution environment. Specify each layer by its ARN, including the version.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: True
-
-    .PARAMETER Tags
-        A list of tags: https://docs.aws.amazon.com/lambda/latest/dg/tagging.html to apply to the function.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
-        UpdateType: Mutable
-        Type: List
-        ItemType: Tag
-        DuplicatesAllowed: False
-
     .PARAMETER ImageConfig
-        Configuration values that override the container image Dockerfile settings. See Container settings: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
         UpdateType: Mutable
         Type: ImageConfig
 
     .PARAMETER MemorySize
-        The amount of memory available to the function: https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER DeadLetterConfig
-        A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see Dead Letter Queues: https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq.
+    .PARAMETER Description
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER TracingConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
+        UpdateType: Mutable
+        Type: TracingConfig
+
+    .PARAMETER VpcConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
+        UpdateType: Mutable
+        Type: VpcConfig
+
+    .PARAMETER DeadLetterConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
         UpdateType: Mutable
         Type: DeadLetterConfig
 
     .PARAMETER Timeout
-        The amount of time in seconds that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see Lambda execution environment: https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER Handler
-        The name of the method within your code that Lambda calls to execute your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see Programming Model: https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html.
+    .PARAMETER RuntimeManagementConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtimemanagementconfig
+        UpdateType: Mutable
+        Type: RuntimeManagementConfig
 
+    .PARAMETER Handler
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Code
-        The code for the function.
+    .PARAMETER ReservedConcurrentExecutions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
+    .PARAMETER SnapStart
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-snapstart
+        UpdateType: Mutable
+        Type: SnapStart
+
+    .PARAMETER Code
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
         UpdateType: Mutable
         Type: Code
 
     .PARAMETER Role
-        The Amazon Resource Name ARN of the function's execution role.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Environment
-        Environment variables that are accessible from function code during execution.
+    .PARAMETER FileSystemConfigs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+        UpdateType: Mutable
+        Type: List
+        ItemType: FileSystemConfig
+        DuplicatesAllowed: True
 
+    .PARAMETER FunctionName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Runtime
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER KmsKeyArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER PackageType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER CodeSigningConfigArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Environment
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
         UpdateType: Mutable
         Type: Environment
@@ -174,9 +119,21 @@ If you specify a name, you cannot perform updates that require replacement of th
         UpdateType: Mutable
         Type: EphemeralStorage
 
-    .PARAMETER Architectures
-        The instruction set architecture that the function supports. Enter a string array with one of the valid values arm64 or x86_64. The default value is x86_64.
+    .PARAMETER Layers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: False
+
+    .PARAMETER Architectures
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-architectures
         UpdateType: Mutable
         Type: List
@@ -246,6 +203,19 @@ If you specify a name, you cannot perform updates that require replacement of th
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $ImageConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MemorySize,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -261,6 +231,32 @@ If you specify a name, you cannot perform updates that require replacement of th
         [parameter(Mandatory = $false)]
         $VpcConfig,
         [parameter(Mandatory = $false)]
+        $DeadLetterConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Timeout,
+        [parameter(Mandatory = $false)]
+        $RuntimeManagementConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Handler,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -271,6 +267,21 @@ If you specify a name, you cannot perform updates that require replacement of th
                 }
             })]
         $ReservedConcurrentExecutions,
+        [parameter(Mandatory = $false)]
+        $SnapStart,
+        [parameter(Mandatory = $true)]
+        $Code,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Role,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Lambda.Function.FileSystemConfig"
@@ -338,64 +349,14 @@ If you specify a name, you cannot perform updates that require replacement of th
             })]
         $CodeSigningConfigArn,
         [parameter(Mandatory = $false)]
+        $Environment,
+        [parameter(Mandatory = $false)]
+        $EphemeralStorage,
+        [parameter(Mandatory = $false)]
         $Layers,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        $ImageConfig,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MemorySize,
-        [parameter(Mandatory = $false)]
-        $DeadLetterConfig,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Timeout,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Handler,
-        [parameter(Mandatory = $true)]
-        $Code,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Role,
-        [parameter(Mandatory = $false)]
-        $Environment,
-        [parameter(Mandatory = $false)]
-        $EphemeralStorage,
         [parameter(Mandatory = $false)]
         $Architectures,
         [parameter(Mandatory = $false)]

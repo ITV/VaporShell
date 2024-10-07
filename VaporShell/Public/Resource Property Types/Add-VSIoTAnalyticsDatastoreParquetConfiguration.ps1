@@ -1,18 +1,16 @@
 function Add-VSIoTAnalyticsDatastoreParquetConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.ParquetConfiguration resource property to the template. Contains the configuration information of the Parquet format.
+        Adds an AWS::IoTAnalytics::Datastore.ParquetConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.ParquetConfiguration resource property to the template.
-Contains the configuration information of the Parquet format.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-parquetconfiguration.html
 
     .PARAMETER SchemaDefinition
-        Information needed to define a schema.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-parquetconfiguration.html#cfn-iotanalytics-datastore-parquetconfiguration-schemadefinition
         UpdateType: Mutable
         Type: SchemaDefinition

@@ -1,10 +1,10 @@
 function New-VSIoTWirelessPartnerAccount {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::PartnerAccount resource to the template. A partner account. If PartnerAccountId and PartnerType are null, returns all partner accounts.
+        Adds an AWS::IoTWireless::PartnerAccount resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTWireless::PartnerAccount resource to the template. A partner account. If PartnerAccountId and PartnerType are null, returns all partner accounts.
+        Adds an AWS::IoTWireless::PartnerAccount resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html
@@ -12,51 +12,37 @@ function New-VSIoTWirelessPartnerAccount {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Sidewalk
-        The Sidewalk account credentials.
+    .PARAMETER PartnerType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partnertype
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER SidewalkResponse
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalkresponse
+        UpdateType: Mutable
+        Type: SidewalkAccountInfoWithFingerprint
+
+    .PARAMETER AccountLinked
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-accountlinked
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER Sidewalk
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalk
         UpdateType: Mutable
         Type: SidewalkAccountInfo
 
     .PARAMETER PartnerAccountId
-        The ID of the partner account to update.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partneraccountid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER PartnerType
-        The Sidewalk account credentials.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partnertype
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER AccountLinked
-        The Sidewalk account credentials.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-accountlinked
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
     .PARAMETER SidewalkUpdate
-        The Sidewalk account credentials.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalkupdate
         UpdateType: Mutable
         Type: SidewalkUpdateAccount
 
-    .PARAMETER Fingerprint
-        The Sidewalk account credentials.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-fingerprint
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Tags
-        The tags are an array of key-value pairs to attach to the specified resource. Tags can have a minimum of 0 and a maximum of 50 items.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-tags
         UpdateType: Mutable
         Type: List
@@ -126,6 +112,30 @@ function New-VSIoTWirelessPartnerAccount {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PartnerType,
+        [parameter(Mandatory = $false)]
+        $SidewalkResponse,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AccountLinked,
+        [parameter(Mandatory = $false)]
         $Sidewalk,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -139,40 +149,7 @@ function New-VSIoTWirelessPartnerAccount {
             })]
         $PartnerAccountId,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PartnerType,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AccountLinked,
-        [parameter(Mandatory = $false)]
         $SidewalkUpdate,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Fingerprint,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

@@ -1,32 +1,26 @@
 function Add-VSGluePartitionSchemaId {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Partition.SchemaId resource property to the template. A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+        Adds an AWS::Glue::Partition.SchemaId resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Partition.SchemaId resource property to the template.
-A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html
 
     .PARAMETER RegistryName
-        The name of the schema registry that contains the schema.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SchemaName
-        The name of the schema. One of SchemaArn or SchemaName has to be provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SchemaArn
-        The Amazon Resource Name ARN of the schema. One of SchemaArn or SchemaName has to be provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
         PrimitiveType: String
         UpdateType: Mutable

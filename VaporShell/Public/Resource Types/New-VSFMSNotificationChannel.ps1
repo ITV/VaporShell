@@ -1,12 +1,10 @@
 function New-VSFMSNotificationChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::FMS::NotificationChannel resource to the template. Designates the IAM role and Amazon Simple Notification Service (SNS topic to use to record SNS logs.
+        Adds an AWS::FMS::NotificationChannel resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::FMS::NotificationChannel resource to the template. Designates the IAM role and Amazon Simple Notification Service (SNS topic to use to record SNS logs.
-
-To perform this action outside of the console, you must configure the SNS topic to allow the role AWSServiceRoleForFMS to publish SNS logs. For more information, see Firewall Manager required permissions for API actions: https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html in the * AWS Firewall Manager Developer Guide*.
+        Adds an AWS::FMS::NotificationChannel resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
@@ -14,17 +12,13 @@ To perform this action outside of the console, you must configure the SNS topic 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER SnsRoleName
-        The Amazon Resource Name ARN of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
+    .PARAMETER SnsTopicArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER SnsTopicArn
-        The Amazon Resource Name ARN of the SNS topic that collects notifications from AWS Firewall Manager.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
+    .PARAMETER SnsRoleName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -100,7 +94,7 @@ To perform this action outside of the console, you must configure the SNS topic 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SnsRoleName,
+        $SnsTopicArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -111,7 +105,7 @@ To perform this action outside of the console, you must configure the SNS topic 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SnsTopicArn,
+        $SnsRoleName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

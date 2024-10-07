@@ -1,10 +1,10 @@
 function New-VSRedshiftClusterParameterGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::Redshift::ClusterParameterGroup resource to the template. Describes a parameter group.
+        Adds an AWS::Redshift::ClusterParameterGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Redshift::ClusterParameterGroup resource to the template. Describes a parameter group.
+        Adds an AWS::Redshift::ClusterParameterGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html
@@ -13,36 +13,33 @@ function New-VSRedshiftClusterParameterGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        The description of the parameter group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-description
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ParameterGroupFamily
-        The name of the cluster parameter group family that this cluster parameter group is compatible with.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-parametergroupfamily
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Parameters
-        An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
-For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional.
-For the workload management WLM configuration, you must supply all the name-value pairs in the wlm_json_configuration parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-parameters
         UpdateType: Mutable
         Type: List
         ItemType: Parameter
+        DuplicatesAllowed: True
+
+    .PARAMETER ParameterGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-parametergroupname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ParameterGroupFamily
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-parametergroupfamily
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Tags
-        The list of tags for the cluster parameter group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -117,17 +114,6 @@ For the workload management WLM configuration, you must supply all the name-valu
                 }
             })]
         $Description,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ParameterGroupFamily,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Redshift.ClusterParameterGroup.Parameter"
@@ -139,6 +125,28 @@ For the workload management WLM configuration, you must supply all the name-valu
                 }
             })]
         $Parameters,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ParameterGroupName,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ParameterGroupFamily,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

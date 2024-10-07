@@ -1,18 +1,16 @@
 function Add-VSIoTMitigationActionUpdateCACertificateParams {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction.UpdateCACertificateParams resource property to the template. Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+        Adds an AWS::IoT::MitigationAction.UpdateCACertificateParams resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::MitigationAction.UpdateCACertificateParams resource property to the template.
-Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html
 
     .PARAMETER Action
-        The action that you want to apply to the CA certificate. The only supported value is DEACTIVATE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html#cfn-iot-mitigationaction-updatecacertificateparams-action
         UpdateType: Mutable
         PrimitiveType: String

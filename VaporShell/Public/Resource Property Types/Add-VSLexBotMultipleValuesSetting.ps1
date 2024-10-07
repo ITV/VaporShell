@@ -1,19 +1,16 @@
 function Add-VSLexBotMultipleValuesSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.MultipleValuesSetting resource property to the template. Indicates whether a slot can return multiple values.
+        Adds an AWS::Lex::Bot.MultipleValuesSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.MultipleValuesSetting resource property to the template.
-Indicates whether a slot can return multiple values.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html
 
     .PARAMETER AllowMultipleValues
-        Indicates whether a slot can return multiple values. When true, the slot may return more than one value in a response. When false, the slot returns only a single value. If AllowMultipleValues is not set, the default value is false.
-Multi-value slots are only available in the en-US locale.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html#cfn-lex-bot-multiplevaluessetting-allowmultiplevalues
         UpdateType: Mutable
         PrimitiveType: Boolean

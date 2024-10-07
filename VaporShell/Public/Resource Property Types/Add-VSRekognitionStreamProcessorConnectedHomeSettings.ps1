@@ -10,16 +10,17 @@ function Add-VSRekognitionStreamProcessorConnectedHomeSettings {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html
 
+    .PARAMETER MinConfidence
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html#cfn-rekognition-streamprocessor-connectedhomesettings-minconfidence
+        UpdateType: Immutable
+        PrimitiveType: Double
+
     .PARAMETER Labels
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html#cfn-rekognition-streamprocessor-connectedhomesettings-labels
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER MinConfidence
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html#cfn-rekognition-streamprocessor-connectedhomesettings-minconfidence
-        UpdateType: Immutable
-        PrimitiveType: Double
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
@@ -28,8 +29,6 @@ function Add-VSRekognitionStreamProcessorConnectedHomeSettings {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $Labels,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
@@ -40,7 +39,9 @@ function Add-VSRekognitionStreamProcessorConnectedHomeSettings {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MinConfidence
+        $MinConfidence,
+        [parameter(Mandatory = $true)]
+        $Labels
     )
     Begin {
         $obj = [PSCustomObject]@{}

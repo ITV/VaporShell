@@ -1,25 +1,21 @@
 function Add-VSMSKClusterPrometheus {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.Prometheus resource property to the template. Prometheus settings for open monitoring.
+        Adds an AWS::MSK::Cluster.Prometheus resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.Prometheus resource property to the template.
-Prometheus settings for open monitoring.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html
 
     .PARAMETER JmxExporter
-        Indicates whether you want to enable or disable the JMX Exporter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-jmxexporter
         UpdateType: Mutable
         Type: JmxExporter
 
     .PARAMETER NodeExporter
-        Indicates whether you want to enable or disable the Node Exporter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-nodeexporter
         UpdateType: Mutable
         Type: NodeExporter

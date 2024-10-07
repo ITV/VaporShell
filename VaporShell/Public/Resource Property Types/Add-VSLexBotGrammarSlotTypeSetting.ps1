@@ -1,18 +1,16 @@
 function Add-VSLexBotGrammarSlotTypeSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.GrammarSlotTypeSetting resource property to the template. Settings required for a slot type based on a grammar that you provide.
+        Adds an AWS::Lex::Bot.GrammarSlotTypeSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.GrammarSlotTypeSetting resource property to the template.
-Settings required for a slot type based on a grammar that you provide.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesetting.html
 
     .PARAMETER Source
-        The source of the grammar used to create the slot type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesetting.html#cfn-lex-bot-grammarslottypesetting-source
         UpdateType: Mutable
         Type: GrammarSlotTypeSource

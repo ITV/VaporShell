@@ -1,33 +1,27 @@
 function Add-VSLexBotAliasS3BucketLogDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.S3BucketLogDestination resource property to the template. Specifies an Amazon S3 bucket for logging audio conversations
+        Adds an AWS::Lex::BotAlias.S3BucketLogDestination resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.S3BucketLogDestination resource property to the template.
-Specifies an Amazon S3 bucket for logging audio conversations
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html
 
-    .PARAMETER S3BucketArn
-        The Amazon Resource Name ARN of an Amazon S3 bucket where audio log files are stored.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html#cfn-lex-botalias-s3bucketlogdestination-s3bucketarn
+    .PARAMETER KmsKeyArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html#cfn-lex-botalias-s3bucketlogdestination-kmskeyarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER LogPrefix
-        The S3 prefix to assign to audio log files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html#cfn-lex-botalias-s3bucketlogdestination-logprefix
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER KmsKeyArn
-        The Amazon Resource Name ARN of an AWS Key Management Service key for encrypting audio log files stored in an S3 bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html#cfn-lex-botalias-s3bucketlogdestination-kmskeyarn
+    .PARAMETER S3BucketArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html#cfn-lex-botalias-s3bucketlogdestination-s3bucketarn
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -38,7 +32,7 @@ Specifies an Amazon S3 bucket for logging audio conversations
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,7 +42,7 @@ Specifies an Amazon S3 bucket for logging audio conversations
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3BucketArn,
+        $KmsKeyArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -60,7 +54,7 @@ Specifies an Amazon S3 bucket for logging audio conversations
                 }
             })]
         $LogPrefix,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +64,7 @@ Specifies an Amazon S3 bucket for logging audio conversations
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $KmsKeyArn
+        $S3BucketArn
     )
     Begin {
         $obj = [PSCustomObject]@{}

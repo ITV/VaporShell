@@ -1,25 +1,21 @@
 function Add-VSGroundStationConfigEirp {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.Eirp resource property to the template. Defines an equivalent isotropically radiated power (EIRP.
+        Adds an AWS::GroundStation::Config.Eirp resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.Eirp resource property to the template.
-Defines an equivalent isotropically radiated power (EIRP.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html
 
     .PARAMETER Value
-        The value of the EIRP. Valid values are between 20.0 to 50.0 dBW.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-value
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Units
-        The units of the EIRP.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-units
         UpdateType: Mutable
         PrimitiveType: String

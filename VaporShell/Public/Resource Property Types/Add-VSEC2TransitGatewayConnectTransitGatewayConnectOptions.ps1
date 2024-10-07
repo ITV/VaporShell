@@ -1,18 +1,16 @@
 function Add-VSEC2TransitGatewayConnectTransitGatewayConnectOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayConnect.TransitGatewayConnectOptions resource property to the template. Describes the Connect attachment options.
+        Adds an AWS::EC2::TransitGatewayConnect.TransitGatewayConnectOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::TransitGatewayConnect.TransitGatewayConnectOptions resource property to the template.
-Describes the Connect attachment options.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html
 
     .PARAMETER Protocol
-        The tunnel protocol.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html#cfn-ec2-transitgatewayconnect-transitgatewayconnectoptions-protocol
         UpdateType: Immutable
         PrimitiveType: String

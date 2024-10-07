@@ -1,28 +1,24 @@
 function Add-VSRoute53RecoveryReadinessResourceSetTargetResource {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53RecoveryReadiness::ResourceSet.TargetResource resource property to the template. The target resource that the Route 53 record points to.
+        Adds an AWS::Route53RecoveryReadiness::ResourceSet.TargetResource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Route53RecoveryReadiness::ResourceSet.TargetResource resource property to the template.
-The target resource that the Route 53 record points to.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html
 
-    .PARAMETER NLBResource
-        The Network Load Balancer resource that a DNS target resource points to.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
-        UpdateType: Mutable
-        Type: NLBResource
-
     .PARAMETER R53Resource
-        The Route 53 resource that a DNS target resource record points to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
         UpdateType: Mutable
         Type: R53ResourceRecord
+
+    .PARAMETER NLBResource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
+        UpdateType: Mutable
+        Type: NLBResource
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ The target resource that the Route 53 record points to.
     Param
     (
         [parameter(Mandatory = $false)]
-        $NLBResource,
+        $R53Resource,
         [parameter(Mandatory = $false)]
-        $R53Resource
+        $NLBResource
     )
     Begin {
         $obj = [PSCustomObject]@{}

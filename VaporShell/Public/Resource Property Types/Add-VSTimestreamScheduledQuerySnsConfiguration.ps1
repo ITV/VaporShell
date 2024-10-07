@@ -1,18 +1,16 @@
 function Add-VSTimestreamScheduledQuerySnsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::ScheduledQuery.SnsConfiguration resource property to the template. Details on SNS that are required to send the notification.
+        Adds an AWS::Timestream::ScheduledQuery.SnsConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Timestream::ScheduledQuery.SnsConfiguration resource property to the template.
-Details on SNS that are required to send the notification.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-snsconfiguration.html
 
     .PARAMETER TopicArn
-        SNS topic ARN that the scheduled query status notifications will be sent to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-snsconfiguration.html#cfn-timestream-scheduledquery-snsconfiguration-topicarn
         UpdateType: Immutable
         PrimitiveType: String

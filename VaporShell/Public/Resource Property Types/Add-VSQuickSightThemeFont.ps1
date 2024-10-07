@@ -1,18 +1,16 @@
 function Add-VSQuickSightThemeFont {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.Font resource property to the template. <a name="aws-properties-quicksight-theme-font-description"></a>The Font property type specifies Not currently supported by AWS CloudFormation. for an AWS::QuickSight::Theme: aws-resource-quicksight-theme.md.
+        Adds an AWS::QuickSight::Theme.Font resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.Font resource property to the template.
-<a name="aws-properties-quicksight-theme-font-description"></a>The Font property type specifies Not currently supported by AWS CloudFormation. for an AWS::QuickSight::Theme: aws-resource-quicksight-theme.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html
 
     .PARAMETER FontFamily
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html#cfn-quicksight-theme-font-fontfamily
         UpdateType: Mutable
         PrimitiveType: String

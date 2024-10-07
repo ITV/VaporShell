@@ -1,25 +1,21 @@
 function Add-VSKinesisAnalyticsV2ApplicationS3ContentBaseLocation {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation resource property to the template. The base location of the Amazon Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation resource property to the template.
-The base location of the Amazon Data Analytics application.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentbaselocation.html
 
     .PARAMETER BucketARN
-        The Amazon Resource Name ARN of the S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentbaselocation.html#cfn-kinesisanalyticsv2-application-s3contentbaselocation-bucketarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BasePath
-        The base path for the S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentbaselocation.html#cfn-kinesisanalyticsv2-application-s3contentbaselocation-basepath
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,43 +1,34 @@
 function Add-VSLexBotFulfillmentUpdatesSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.FulfillmentUpdatesSpecification resource property to the template. Provides information for updating the user on the progress of fulfilling an intent.
+        Adds an AWS::Lex::Bot.FulfillmentUpdatesSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.FulfillmentUpdatesSpecification resource property to the template.
-Provides information for updating the user on the progress of fulfilling an intent.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html
 
-    .PARAMETER StartResponse
-        Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-startresponse
-        UpdateType: Mutable
-        Type: FulfillmentStartResponseSpecification
-
     .PARAMETER UpdateResponse
-        Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-updateresponse
         UpdateType: Mutable
         Type: FulfillmentUpdateResponseSpecification
 
-    .PARAMETER TimeoutInSeconds
-        The length of time that the fulfillment Lambda function should run before it times out.
+    .PARAMETER Active
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-active
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
+    .PARAMETER TimeoutInSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-timeoutinseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER Active
-        Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
-If the active field is set to true, the startResponse, updateResponse, and timeoutInSeconds fields are required.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-active
+    .PARAMETER StartResponse
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-startresponse
         UpdateType: Mutable
-        PrimitiveType: Boolean
+        Type: FulfillmentStartResponseSpecification
 
     .FUNCTIONALITY
         Vaporshell
@@ -47,9 +38,18 @@ If the active field is set to true, the startResponse, updateResponse, and timeo
     Param
     (
         [parameter(Mandatory = $false)]
-        $StartResponse,
-        [parameter(Mandatory = $false)]
         $UpdateResponse,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Active,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -61,17 +61,8 @@ If the active field is set to true, the startResponse, updateResponse, and timeo
                 }
             })]
         $TimeoutInSeconds,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Active
+        [parameter(Mandatory = $false)]
+        $StartResponse
     )
     Begin {
         $obj = [PSCustomObject]@{}

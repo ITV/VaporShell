@@ -1,14 +1,10 @@
 function New-VSDynamoDBTable {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::Table resource to the template. The AWS::DynamoDB::Table resource creates a DynamoDB table. For more information, see CreateTable: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html in the *Amazon DynamoDB API Reference*.
+        Adds an AWS::DynamoDB::Table resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DynamoDB::Table resource to the template. The AWS::DynamoDB::Table resource creates a DynamoDB table. For more information, see CreateTable: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html in the *Amazon DynamoDB API Reference*.
-
-You should be aware of the following behaviors when working with DynamoDB tables:
-
-+ AWS CloudFormation typically creates DynamoDB tables in parallel. However, if your template includes multiple DynamoDB tables with indexes, you must declare dependencies so that the tables are created sequentially. Amazon DynamoDB limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DynamoDB returns an error and the stack operation fails. For an example, see DynamoDB Table with a DependsOn Attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-examples-dependson.
+        Adds an AWS::DynamoDB::Table resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
@@ -16,11 +12,47 @@ You should be aware of the following behaviors when working with DynamoDB tables
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AttributeDefinitions
-        A list of attributes that describe the key schema for the table and indexes.
-This property is required to create a DynamoDB table.
-Update requires: Some interruptions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt. Replacement if you edit an existing AttributeDefinition.
+    .PARAMETER SSESpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification
+        UpdateType: Mutable
+        Type: SSESpecification
 
+    .PARAMETER KinesisStreamSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-kinesisstreamspecification
+        UpdateType: Mutable
+        Type: KinesisStreamSpecification
+
+    .PARAMETER StreamSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification
+        UpdateType: Mutable
+        Type: StreamSpecification
+
+    .PARAMETER ContributorInsightsSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-contributorinsightsspecification
+        UpdateType: Mutable
+        Type: ContributorInsightsSpecification
+
+    .PARAMETER ImportSourceSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-importsourcespecification
+        UpdateType: Immutable
+        Type: ImportSourceSpecification
+
+    .PARAMETER PointInTimeRecoverySpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-pointintimerecoveryspecification
+        UpdateType: Mutable
+        Type: PointInTimeRecoverySpecification
+
+    .PARAMETER ProvisionedThroughput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
+        UpdateType: Mutable
+        Type: ProvisionedThroughput
+
+    .PARAMETER TableName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER AttributeDefinitions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedefinitions
         UpdateType: Mutable
         Type: List
@@ -28,24 +60,11 @@ Update requires: Some interruptions: https://docs.aws.amazon.com/AWSCloudFormati
         DuplicatesAllowed: False
 
     .PARAMETER BillingMode
-        Specify how you are charged for read and write throughput and how you manage capacity.
-Valid values include:
-+  PROVISIONED - We recommend using PROVISIONED for predictable workloads. PROVISIONED sets the billing mode to Provisioned Mode: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual.
-+  PAY_PER_REQUEST - We recommend using PAY_PER_REQUEST for unpredictable workloads. PAY_PER_REQUEST sets the billing mode to On-Demand Mode: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand.
-If not specified, the default is PROVISIONED.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-billingmode
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER GlobalSecondaryIndexes
-        Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
-If you update a table to include a new global secondary index, AWS CloudFormation initiates the index creation and then proceeds with the stack update. AWS CloudFormation doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ACTIVE. You can track its status by using the DynamoDB DescribeTable: https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html command.
-If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index.
-Updates are not supported. The following are exceptions:
-+ If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
-+ You can delete or add one global secondary index without interruption. If you do both in the same update for example, by changing the index's logical ID, the update fails.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-globalsecondaryindexes
         UpdateType: Mutable
         Type: List
@@ -53,71 +72,30 @@ Updates are not supported. The following are exceptions:
         DuplicatesAllowed: True
 
     .PARAMETER KeySchema
-        Specifies the attributes that make up the primary key for the table. The attributes in the KeySchema property must also be defined in the AttributeDefinitions property.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema
         UpdateType: Immutable
-        Type: List
         DuplicatesAllowed: False
         ItemType: KeySchema
+        Type: List
 
     .PARAMETER LocalSecondaryIndexes
-        Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-localsecondaryindexes
         UpdateType: Mutable
         Type: List
         ItemType: LocalSecondaryIndex
         DuplicatesAllowed: True
 
-    .PARAMETER PointInTimeRecoverySpecification
-        The settings used to enable point in time recovery.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-pointintimerecoveryspecification
+    .PARAMETER DeletionProtectionEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-deletionprotectionenabled
         UpdateType: Mutable
-        Type: PointInTimeRecoverySpecification
+        PrimitiveType: Boolean
 
     .PARAMETER TableClass
-        The table class of the new table. Valid values are STANDARD and STANDARD_INFREQUENT_ACCESS.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tableclass
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ProvisionedThroughput
-        Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits. For more information about the contents of a provisioned throughput structure, see Amazon DynamoDB Table ProvisionedThroughput: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html.
-If you set BillingMode as PROVISIONED, you must specify this property. If you set BillingMode as PAY_PER_REQUEST, you cannot specify this property.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
-        UpdateType: Mutable
-        Type: ProvisionedThroughput
-
-    .PARAMETER SSESpecification
-        Specifies the settings to enable server-side encryption.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification
-        UpdateType: Mutable
-        Type: SSESpecification
-
-    .PARAMETER StreamSpecification
-        The settings for the DynamoDB table stream, which capture changes to items stored in the table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification
-        UpdateType: Mutable
-        Type: StreamSpecification
-
-    .PARAMETER TableName
-        A name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name. For more information, see Name Type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tags
         UpdateType: Mutable
         Type: List
@@ -125,31 +103,9 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
         DuplicatesAllowed: True
 
     .PARAMETER TimeToLiveSpecification
-        Specifies the Time to Live TTL settings for the table.
-For detailed information about the limits in DynamoDB, see Limits in Amazon DynamoDB: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html in the Amazon DynamoDB Developer Guide.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-timetolivespecification
         UpdateType: Mutable
         Type: TimeToLiveSpecification
-
-    .PARAMETER ContributorInsightsSpecification
-        The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-contributorinsightsspecification
-        UpdateType: Mutable
-        Type: ContributorInsightsSpecification
-
-    .PARAMETER KinesisStreamSpecification
-        The Kinesis Data Streams configuration for the specified table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-kinesisstreamspecification
-        UpdateType: Mutable
-        Type: KinesisStreamSpecification
-
-    .PARAMETER ImportSourceSpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-importsourcespecification
-        UpdateType: Immutable
-        Type: ImportSourceSpecification
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -214,6 +170,31 @@ For detailed information about the limits in DynamoDB, see Limits in Amazon Dyna
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $SSESpecification,
+        [parameter(Mandatory = $false)]
+        $KinesisStreamSpecification,
+        [parameter(Mandatory = $false)]
+        $StreamSpecification,
+        [parameter(Mandatory = $false)]
+        $ContributorInsightsSpecification,
+        [parameter(Mandatory = $false)]
+        $ImportSourceSpecification,
+        [parameter(Mandatory = $false)]
+        $PointInTimeRecoverySpecification,
+        [parameter(Mandatory = $false)]
+        $ProvisionedThroughput,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TableName,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DynamoDB.Table.AttributeDefinition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -269,7 +250,16 @@ For detailed information about the limits in DynamoDB, see Limits in Amazon Dyna
             })]
         $LocalSecondaryIndexes,
         [parameter(Mandatory = $false)]
-        $PointInTimeRecoverySpecification,
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DeletionProtectionEnabled,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -281,34 +271,11 @@ For detailed information about the limits in DynamoDB, see Limits in Amazon Dyna
                 }
             })]
         $TableClass,
-        [parameter(Mandatory = $false)]
-        $ProvisionedThroughput,
-        [parameter(Mandatory = $false)]
-        $SSESpecification,
-        [parameter(Mandatory = $false)]
-        $StreamSpecification,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TableName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
         [parameter(Mandatory = $false)]
         $TimeToLiveSpecification,
-        [parameter(Mandatory = $false)]
-        $ContributorInsightsSpecification,
-        [parameter(Mandatory = $false)]
-        $KinesisStreamSpecification,
-        [parameter(Mandatory = $false)]
-        $ImportSourceSpecification,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

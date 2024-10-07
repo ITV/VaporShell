@@ -1,25 +1,28 @@
 function Add-VSAppFlowFlowPrefixConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.PrefixConfig resource property to the template. Determines the prefix that Amazon AppFlow applies to the destination folder name. You can name your destination folders according to the flow frequency and date.
+        Adds an AWS::AppFlow::Flow.PrefixConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.PrefixConfig resource property to the template.
-Determines the prefix that Amazon AppFlow applies to the destination folder name. You can name your destination folders according to the flow frequency and date.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html
 
     .PARAMETER PrefixType
-        Determines the format of the prefix, and whether it applies to the file name, file path, or both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER PrefixFormat
-        Determines the level of granularity that's included in the prefix.
+    .PARAMETER PathPrefixHierarchy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-pathprefixhierarchy
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER PrefixFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat
         UpdateType: Mutable
         PrimitiveType: String
@@ -42,6 +45,8 @@ Determines the prefix that Amazon AppFlow applies to the destination folder name
                 }
             })]
         $PrefixType,
+        [parameter(Mandatory = $false)]
+        $PathPrefixHierarchy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

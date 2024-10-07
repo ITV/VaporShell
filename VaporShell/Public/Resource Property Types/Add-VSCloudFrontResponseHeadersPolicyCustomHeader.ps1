@@ -1,35 +1,29 @@
 function Add-VSCloudFrontResponseHeadersPolicyCustomHeader {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy.CustomHeader resource property to the template. An HTTP response header name and its value. CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that’s associated with this response headers policy.
+        Adds an AWS::CloudFront::ResponseHeadersPolicy.CustomHeader resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ResponseHeadersPolicy.CustomHeader resource property to the template.
-An HTTP response header name and its value. CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that’s associated with this response headers policy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html
 
     .PARAMETER Header
-        The HTTP response header name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-header
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Override
-        A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-override
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
     .PARAMETER Value
-        The value for the HTTP response header.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-value
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER Override
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-override
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
@@ -51,17 +45,6 @@ An HTTP response header name and its value. CloudFront includes this header in H
         $Header,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Override,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -70,7 +53,18 @@ An HTTP response header name and its value. CloudFront includes this header in H
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Value,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Override
     )
     Begin {
         $obj = [PSCustomObject]@{}

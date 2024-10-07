@@ -1,18 +1,16 @@
 function Add-VSGroundStationConfigDecodeConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.DecodeConfig resource property to the template. Defines decoding settings.
+        Adds an AWS::GroundStation::Config.DecodeConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.DecodeConfig resource property to the template.
-Defines decoding settings.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html
 
     .PARAMETER UnvalidatedJSON
-        The decoding settings are in JSON format and define a set of steps to perform to decode the data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html#cfn-groundstation-config-decodeconfig-unvalidatedjson
         UpdateType: Mutable
         PrimitiveType: String

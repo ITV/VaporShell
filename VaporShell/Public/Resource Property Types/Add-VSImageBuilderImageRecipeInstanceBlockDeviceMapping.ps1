@@ -1,44 +1,34 @@
 function Add-VSImageBuilderImageRecipeInstanceBlockDeviceMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ImageRecipe.InstanceBlockDeviceMapping resource property to the template. Defines block device mappings for the instance used to configure your image.
+        Adds an AWS::ImageBuilder::ImageRecipe.InstanceBlockDeviceMapping resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::ImageRecipe.InstanceBlockDeviceMapping resource property to the template.
-Defines block device mappings for the instance used to configure your image.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
 
-    .PARAMETER DeviceName
-        The device to which these mappings apply.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
+    .PARAMETER Ebs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
         UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER VirtualName
-        Manages the instance ephemeral devices.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
-        UpdateType: Immutable
-        PrimitiveType: String
+        Type: EbsInstanceBlockDeviceSpecification
 
     .PARAMETER NoDevice
-        Enter an empty string to remove a mapping from the parent image.
-The following is an example of an empty string value in the NoDevice field.
-NoDevice:""
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Ebs
-        Use to manage Amazon EBS-specific configuration for this mapping.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
+    .PARAMETER VirtualName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
         UpdateType: Immutable
-        Type: EbsInstanceBlockDeviceSpecification
+        PrimitiveType: String
+
+    .PARAMETER DeviceName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -47,6 +37,8 @@ NoDevice:""
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $Ebs,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -57,7 +49,7 @@ NoDevice:""
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DeviceName,
+        $NoDevice,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -79,9 +71,7 @@ NoDevice:""
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $NoDevice,
-        [parameter(Mandatory = $false)]
-        $Ebs
+        $DeviceName
     )
     Begin {
         $obj = [PSCustomObject]@{}

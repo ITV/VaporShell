@@ -1,16 +1,10 @@
 function New-VSS3OutpostsEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::S3Outposts::Endpoint resource to the template. This AWS::S3Outposts::Endpoint resource specifies an endpoint and associates it with the specified Outpost.
+        Adds an AWS::S3Outposts::Endpoint resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::S3Outposts::Endpoint resource to the template. This AWS::S3Outposts::Endpoint resource specifies an endpoint and associates it with the specified Outpost.
-
-Amazon S3 on Outposts access points simplify managing data access at scale for shared datasets in S3 on Outposts. S3 on Outposts uses endpoints to connect to S3 on Outposts buckets so that you can perform actions within your virtual private cloud (VPC. For more information, see  Accessing S3 on Outposts using VPC-only access points: https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html.
-
-**Note**
-
-It can take up to 5 minutes for this resource to be created.
+        Adds an AWS::S3Outposts::Endpoint resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html
@@ -19,37 +13,26 @@ It can take up to 5 minutes for this resource to be created.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER OutpostId
-        The ID of the Outpost.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SecurityGroupId
-        The ID of the security group to use with the endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-securitygroupid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SubnetId
-        The ID of the subnet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AccessType
-        The container for the type of connectivity used to access the Amazon S3 on Outposts endpoint. To use the Amazon VPC, choose Private. To use the endpoint with an on-premises network, choose CustomerOwnedIp. If you choose CustomerOwnedIp, you must also provide the customer-owned IP address pool CoIP pool.
-Private is the default access type value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-accesstype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER CustomerOwnedIpv4Pool
-        The ID of the customer-owned IPv4 address pool CoIP pool for the endpoint. IP addresses are allocated from this pool for the endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-customerownedipv4pool
         UpdateType: Immutable
         PrimitiveType: String

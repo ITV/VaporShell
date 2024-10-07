@@ -1,28 +1,24 @@
 function Add-VSSSMIncidentsReplicationSetReplicationRegion {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMIncidents::ReplicationSet.ReplicationRegion resource property to the template. The ReplicationRegion property type specifies the Region and KMS key to add to the replication set.
+        Adds an AWS::SSMIncidents::ReplicationSet.ReplicationRegion resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSMIncidents::ReplicationSet.ReplicationRegion resource property to the template.
-The ReplicationRegion property type specifies the Region and KMS key to add to the replication set.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html
 
-    .PARAMETER RegionName
-        Specifies the region name to add to the replication set.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER RegionConfiguration
-        Specifies the Region configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionconfiguration
         UpdateType: Mutable
         Type: RegionConfiguration
+
+    .PARAMETER RegionName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,6 +27,8 @@ The ReplicationRegion property type specifies the Region and KMS key to add to t
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $RegionConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -41,9 +39,7 @@ The ReplicationRegion property type specifies the Region and KMS key to add to t
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RegionName,
-        [parameter(Mandatory = $false)]
-        $RegionConfiguration
+        $RegionName
     )
     Begin {
         $obj = [PSCustomObject]@{}

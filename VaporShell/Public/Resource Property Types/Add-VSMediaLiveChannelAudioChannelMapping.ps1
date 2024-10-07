@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelAudioChannelMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioChannelMapping resource property to the template. The settings for remixing audio.
+        Adds an AWS::MediaLive::Channel.AudioChannelMapping resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioChannelMapping resource property to the template.
-The settings for remixing audio.
 
-The parent of this entity is RemixSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html
 
     .PARAMETER OutputChannel
-        The index of the output channel that is being produced.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html#cfn-medialive-channel-audiochannelmapping-outputchannel
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER InputChannelLevels
-        The indices and gain values for each input channel that should be remixed into this output channel.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html#cfn-medialive-channel-audiochannelmapping-inputchannellevels
         ItemType: InputChannelLevel

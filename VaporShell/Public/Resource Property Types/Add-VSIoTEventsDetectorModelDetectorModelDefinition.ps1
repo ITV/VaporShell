@@ -1,30 +1,26 @@
 function Add-VSIoTEventsDetectorModelDetectorModelDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.DetectorModelDefinition resource property to the template. Information that defines how a detector operates.
+        Adds an AWS::IoTEvents::DetectorModel.DetectorModelDefinition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.DetectorModelDefinition resource property to the template.
-Information that defines how a detector operates.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html
 
-    .PARAMETER InitialStateName
-        The state that is entered at the creation of each detector instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER States
-        Information about the states of the detector.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
         UpdateType: Mutable
         Type: List
         ItemType: State
         DuplicatesAllowed: True
+
+    .PARAMETER InitialStateName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -35,17 +31,6 @@ Information that defines how a detector operates.
     (
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $InitialStateName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTEvents.DetectorModel.State"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -54,7 +39,18 @@ Information that defines how a detector operates.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $States
+        $States,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InitialStateName
     )
     Begin {
         $obj = [PSCustomObject]@{}

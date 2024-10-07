@@ -1,22 +1,16 @@
 function Add-VSLightsailDiskAutoSnapshotAddOn {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Disk.AutoSnapshotAddOn resource property to the template. AutoSnapshotAddOn is a property of the AddOn: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html property. It describes the automatic snapshot add-on for a disk.
+        Adds an AWS::Lightsail::Disk.AutoSnapshotAddOn resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Disk.AutoSnapshotAddOn resource property to the template.
-AutoSnapshotAddOn is a property of the AddOn: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html property. It describes the automatic snapshot add-on for a disk.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-autosnapshotaddon.html
 
     .PARAMETER SnapshotTimeOfDay
-        The daily time when an automatic snapshot will be created.
-Constraints:
-+ Must be in HH:00 format, and in an hourly increment.
-+ Specified in Coordinated Universal Time UTC.
-+ The snapshot will be automatically created between the time specified and up to 45 minutes after.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-autosnapshotaddon.html#cfn-lightsail-disk-autosnapshotaddon-snapshottimeofday
         UpdateType: Mutable
         PrimitiveType: String

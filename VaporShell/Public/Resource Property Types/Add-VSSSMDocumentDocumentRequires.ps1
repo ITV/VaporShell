@@ -1,26 +1,22 @@
 function Add-VSSSMDocumentDocumentRequires {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::Document.DocumentRequires resource property to the template. An SSM document required by the current document.
+        Adds an AWS::SSM::Document.DocumentRequires resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSM::Document.DocumentRequires resource property to the template.
-An SSM document required by the current document.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
 
-    .PARAMETER Name
-        The name of the required SSM document. The name can be an Amazon Resource Name ARN.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+    .PARAMETER Version
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Version
-        The document version required by the current document.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ An SSM document required by the current document.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $Version,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ An SSM document required by the current document.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Version
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

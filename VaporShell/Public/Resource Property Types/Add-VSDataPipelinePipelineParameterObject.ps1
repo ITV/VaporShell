@@ -1,30 +1,26 @@
 function Add-VSDataPipelinePipelineParameterObject {
     <#
     .SYNOPSIS
-        Adds an AWS::DataPipeline::Pipeline.ParameterObject resource property to the template. Contains information about a parameter object.
+        Adds an AWS::DataPipeline::Pipeline.ParameterObject resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataPipeline::Pipeline.ParameterObject resource property to the template.
-Contains information about a parameter object.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html
 
     .PARAMETER Attributes
-        The attributes of the parameter object.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html#cfn-datapipeline-pipeline-parameterobjects-attributes
-        DuplicatesAllowed: True
-        ItemType: ParameterAttribute
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-attributes
         UpdateType: Mutable
+        Type: List
+        ItemType: ParameterAttribute
+        DuplicatesAllowed: True
 
     .PARAMETER Id
-        The ID of the parameter object.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html#cfn-datapipeline-pipeline-parameterobjects-id
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-id
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

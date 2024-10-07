@@ -1,28 +1,24 @@
 function Add-VSIoTWirelessWirelessDeviceAbpV10x {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::WirelessDevice.AbpV10x resource property to the template. ABP device object for LoRaWAN specification v1.0.x.
+        Adds an AWS::IoTWireless::WirelessDevice.AbpV10x resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::WirelessDevice.AbpV10x resource property to the template.
-ABP device object for LoRaWAN specification v1.0.x.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html
 
-    .PARAMETER DevAddr
-        The DevAddr value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER SessionKeys
-        Session keys for ABP v1.0.x
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
         UpdateType: Mutable
         Type: SessionKeysAbpV10x
+
+    .PARAMETER DevAddr
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,6 +27,8 @@ ABP device object for LoRaWAN specification v1.0.x.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $SessionKeys,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -41,9 +39,7 @@ ABP device object for LoRaWAN specification v1.0.x.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DevAddr,
-        [parameter(Mandatory = $true)]
-        $SessionKeys
+        $DevAddr
     )
     Begin {
         $obj = [PSCustomObject]@{}

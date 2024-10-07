@@ -1,10 +1,10 @@
 function New-VSRekognitionProject {
     <#
     .SYNOPSIS
-        Adds an AWS::Rekognition::Project resource to the template. The AWS::Rekognition::Project type creates an Amazon Rekognition Custom Labels project. A project is a group of resources needed to create and manage versions of an Amazon Rekognition Custom Labels model.
+        Adds an AWS::Rekognition::Project resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Rekognition::Project resource to the template. The AWS::Rekognition::Project type creates an Amazon Rekognition Custom Labels project. A project is a group of resources needed to create and manage versions of an Amazon Rekognition Custom Labels model.
+        Adds an AWS::Rekognition::Project resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-project.html
@@ -13,8 +13,6 @@ function New-VSRekognitionProject {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ProjectName
-        The name of the project to create.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-project.html#cfn-rekognition-project-projectname
         UpdateType: Immutable
         PrimitiveType: String

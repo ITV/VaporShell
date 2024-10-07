@@ -1,10 +1,10 @@
 function New-VSEC2IPAMAllocation {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::IPAMAllocation resource to the template. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.
+        Adds an AWS::EC2::IPAMAllocation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::IPAMAllocation resource to the template. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.
+        Adds an AWS::EC2::IPAMAllocation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html
@@ -12,37 +12,23 @@ function New-VSEC2IPAMAllocation {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER IpamPoolId
-        The ID of the IPAM pool from which you would like to allocate a CIDR.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html#cfn-ec2-ipamallocation-ipampoolid
+    .PARAMETER Description
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html#cfn-ec2-ipamallocation-description
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Cidr
-        The CIDR you would like to allocate from the IPAM pool. Note the following:
-+ If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
-+ If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
-Possible values: Any available IPv4 or IPv6 CIDR.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html#cfn-ec2-ipamallocation-cidr
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER NetmaskLength
-        The netmask length of the CIDR you would like to allocate from the IPAM pool. Note the following:
-+ If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
-+ If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
-Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html#cfn-ec2-ipamallocation-netmasklength
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER Description
-        A description for the allocation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html#cfn-ec2-ipamallocation-description
+    .PARAMETER IpamPoolId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html#cfn-ec2-ipamallocation-ipampoolid
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -108,7 +94,7 @@ Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -118,7 +104,7 @@ Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IpamPoolId,
+        $Description,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -141,7 +127,7 @@ Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths
                 }
             })]
         $NetmaskLength,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -151,7 +137,7 @@ Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Description,
+        $IpamPoolId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -15,13 +15,13 @@ function Add-VSMediaTailorPlaybackConfigurationDashConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER OriginManifestType
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-dashconfiguration.html#cfn-mediatailor-playbackconfiguration-dashconfiguration-originmanifesttype
+    .PARAMETER ManifestEndpointPrefix
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-dashconfiguration.html#cfn-mediatailor-playbackconfiguration-dashconfiguration-manifestendpointprefix
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ManifestEndpointPrefix
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-dashconfiguration.html#cfn-mediatailor-playbackconfiguration-dashconfiguration-manifestendpointprefix
+    .PARAMETER OriginManifestType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-dashconfiguration.html#cfn-mediatailor-playbackconfiguration-dashconfiguration-originmanifesttype
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -53,7 +53,7 @@ function Add-VSMediaTailorPlaybackConfigurationDashConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OriginManifestType,
+        $ManifestEndpointPrefix,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -64,7 +64,7 @@ function Add-VSMediaTailorPlaybackConfigurationDashConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ManifestEndpointPrefix
+        $OriginManifestType
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,18 +1,16 @@
 function Add-VSCloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfig resource property to the template. Origin access identity configuration. Send a GET request to the /CloudFront API version/CloudFront/identity ID/config resource.
+        Adds an AWS::CloudFront::CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfig resource property to the template.
-Origin access identity configuration. Send a GET request to the /CloudFront API version/CloudFront/identity ID/config resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
 
     .PARAMETER Comment
-        A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
         UpdateType: Mutable
         PrimitiveType: String

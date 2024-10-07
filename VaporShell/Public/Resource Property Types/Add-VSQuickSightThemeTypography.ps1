@@ -1,22 +1,21 @@
 function Add-VSQuickSightThemeTypography {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.Typography resource property to the template. <a name="aws-properties-quicksight-theme-typography-description"></a>The Typography property type specifies Not currently supported by AWS CloudFormation. for an AWS::QuickSight::Theme: aws-resource-quicksight-theme.md.
+        Adds an AWS::QuickSight::Theme.Typography resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.Typography resource property to the template.
-<a name="aws-properties-quicksight-theme-typography-description"></a>The Typography property type specifies Not currently supported by AWS CloudFormation. for an AWS::QuickSight::Theme: aws-resource-quicksight-theme.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html
 
     .PARAMETER FontFamilies
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
         UpdateType: Mutable
         Type: List
         ItemType: Font
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

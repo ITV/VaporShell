@@ -1,12 +1,10 @@
 function New-VSEC2TransitGatewayRouteTableAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayRouteTableAssociation resource to the template. Associates the specified attachment with the specified transit gateway route table. You can associate one route table with an attachment.
+        Adds an AWS::EC2::TransitGatewayRouteTableAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::TransitGatewayRouteTableAssociation resource to the template. Associates the specified attachment with the specified transit gateway route table. You can associate one route table with an attachment.
-
-Before you can update the route table associated with an attachment, you must disassociate the transit gateway route table that is currently associated with the attachment. First update the stack to remove the associated transit gateway route table, and then update the stack with the ID of the new transit gateway route table to associate.
+        Adds an AWS::EC2::TransitGatewayRouteTableAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html
@@ -15,15 +13,11 @@ Before you can update the route table associated with an attachment, you must di
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER TransitGatewayRouteTableId
-        The ID of the route table for the transit gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html#cfn-ec2-transitgatewayroutetableassociation-transitgatewayroutetableid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER TransitGatewayAttachmentId
-        The ID of the attachment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html#cfn-ec2-transitgatewayroutetableassociation-transitgatewayattachmentid
         PrimitiveType: String
         UpdateType: Immutable

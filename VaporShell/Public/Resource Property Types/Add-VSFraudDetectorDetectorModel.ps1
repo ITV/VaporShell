@@ -1,18 +1,16 @@
 function Add-VSFraudDetectorDetectorModel {
     <#
     .SYNOPSIS
-        Adds an AWS::FraudDetector::Detector.Model resource property to the template. The model.
+        Adds an AWS::FraudDetector::Detector.Model resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::FraudDetector::Detector.Model resource property to the template.
-The model.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
 
     .PARAMETER Arn
-        The ARN of the model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
         UpdateType: Mutable
         PrimitiveType: String

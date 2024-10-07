@@ -1,18 +1,16 @@
 function Add-VSWisdomKnowledgeBaseServerSideEncryptionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration resource property to the template. The KMS key used for encryption.
+        Adds an AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration resource property to the template.
-The KMS key used for encryption.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-serversideencryptionconfiguration.html
 
     .PARAMETER KmsKeyId
-        The KMS key. For information about valid ID values, see Key identifiers KeyId: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-serversideencryptionconfiguration.html#cfn-wisdom-knowledgebase-serversideencryptionconfiguration-kmskeyid
         UpdateType: Immutable
         PrimitiveType: String

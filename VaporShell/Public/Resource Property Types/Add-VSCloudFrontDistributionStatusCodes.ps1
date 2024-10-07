@@ -1,25 +1,21 @@
 function Add-VSCloudFrontDistributionStatusCodes {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.StatusCodes resource property to the template. A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
+        Adds an AWS::CloudFront::Distribution.StatusCodes resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.StatusCodes resource property to the template.
-A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html
 
     .PARAMETER Quantity
-        The number of status codes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Items
-        The items status codes for an origin group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
         UpdateType: Mutable
         Type: List

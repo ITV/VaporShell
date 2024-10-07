@@ -1,18 +1,16 @@
 function Add-VSS3BucketEncryptionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.EncryptionConfiguration resource property to the template. Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+        Adds an AWS::S3::Bucket.EncryptionConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.EncryptionConfiguration resource property to the template.
-Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html
 
     .PARAMETER ReplicaKmsKeyID
-        Specifies the ID Key ARN or Alias ARN of the customer managed AWS KMS key stored in AWS Key Management Service KMS for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric, customer managed KMS keys. For more information, see Using symmetric and asymmetric keys: https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html in the * AWS Key Management Service Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html#cfn-s3-bucket-encryptionconfiguration-replicakmskeyid
         PrimitiveType: String
         UpdateType: Mutable

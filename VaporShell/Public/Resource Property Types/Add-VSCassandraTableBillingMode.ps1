@@ -1,30 +1,21 @@
 function Add-VSCassandraTableBillingMode {
     <#
     .SYNOPSIS
-        Adds an AWS::Cassandra::Table.BillingMode resource property to the template. Determines the billing mode for the table - On-demand or provisioned.
+        Adds an AWS::Cassandra::Table.BillingMode resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cassandra::Table.BillingMode resource property to the template.
-Determines the billing mode for the table - On-demand or provisioned.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html
 
     .PARAMETER Mode
-        The billing mode for the table:
-+ On-demand mode - ON_DEMAND
-+ Provisioned mode - PROVISIONED
-**Note**
-If you choose PROVISIONED mode, then you also need to specify provisioned throughput read and write capacity for the table.
-Valid values: ON_DEMAND | PROVISIONED
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ProvisionedThroughput
-        The provisioned read capacity and write capacity for the table. For more information, see Provisioned throughput capacity mode: https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned in the *Amazon Keyspaces Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput
         UpdateType: Mutable
         Type: ProvisionedThroughput

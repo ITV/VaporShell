@@ -1,18 +1,16 @@
 function Add-VSQuickSightDataSetFilterOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.FilterOperation resource property to the template. A transform operation that filters rows based on a condition.
+        Adds an AWS::QuickSight::DataSet.FilterOperation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.FilterOperation resource property to the template.
-A transform operation that filters rows based on a condition.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html
 
     .PARAMETER ConditionExpression
-        An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
         UpdateType: Mutable
         PrimitiveType: String

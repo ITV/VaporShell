@@ -1,37 +1,38 @@
 function Add-VSAppRunnerServiceImageConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.ImageConfiguration resource property to the template. Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
+        Adds an AWS::AppRunner::Service.ImageConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.ImageConfiguration resource property to the template.
-Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html
 
-    .PARAMETER StartCommand
-        An optional command that App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+    .PARAMETER RuntimeEnvironmentSecrets
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentsecrets
+        UpdateType: Mutable
+        Type: List
+        ItemType: KeyValuePair
+        DuplicatesAllowed: True
 
+    .PARAMETER StartCommand
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-startcommand
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Port
-        The port that your application listens to in the container.
-Default: 8080
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER RuntimeEnvironmentVariables
-        Environment variables that are available to your running App Runner service. An array of key-value pairs. Keys with a prefix of AWSAPPRUNNER are reserved for system use and aren't valid.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables
         UpdateType: Mutable
         Type: List
         ItemType: KeyValuePair
+        DuplicatesAllowed: True
+
+    .PARAMETER Port
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -40,6 +41,17 @@ Default: 8080
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.AppRunner.Service.KeyValuePair"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RuntimeEnvironmentSecrets,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -53,17 +65,6 @@ Default: 8080
         $StartCommand,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Port,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppRunner.Service.KeyValuePair"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -72,7 +73,18 @@ Default: 8080
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RuntimeEnvironmentVariables
+        $RuntimeEnvironmentVariables,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Port
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,25 +1,21 @@
 function Add-VSLicenseManagerLicenseValidityDateFormat {
     <#
     .SYNOPSIS
-        Adds an AWS::LicenseManager::License.ValidityDateFormat resource property to the template. Date and time range during which the license is valid, in ISO8601-UTC format.
+        Adds an AWS::LicenseManager::License.ValidityDateFormat resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LicenseManager::License.ValidityDateFormat resource property to the template.
-Date and time range during which the license is valid, in ISO8601-UTC format.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html
 
     .PARAMETER Begin
-        Start of the time range.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER End
-        End of the time range.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
         UpdateType: Mutable
         PrimitiveType: String

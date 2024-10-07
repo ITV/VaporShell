@@ -1,12 +1,10 @@
 function New-VSEC2VPCDHCPOptionsAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::VPCDHCPOptionsAssociation resource to the template. Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
+        Adds an AWS::EC2::VPCDHCPOptionsAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::VPCDHCPOptionsAssociation resource to the template. Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
-
-After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
+        Adds an AWS::EC2::VPCDHCPOptionsAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcdhcpoptionsassociation.html
@@ -14,17 +12,13 @@ After you associate the options with the VPC, any existing instances and all new
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DhcpOptionsId
-        The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcdhcpoptionsassociation.html#cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid
+    .PARAMETER VpcId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcdhcpoptionsassociation.html#cfn-ec2-vpcdhcpoptionsassociation-vpcid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER VpcId
-        The ID of the VPC.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcdhcpoptionsassociation.html#cfn-ec2-vpcdhcpoptionsassociation-vpcid
+    .PARAMETER DhcpOptionsId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcdhcpoptionsassociation.html#cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -100,7 +94,7 @@ After you associate the options with the VPC, any existing instances and all new
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DhcpOptionsId,
+        $VpcId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -111,7 +105,7 @@ After you associate the options with the VPC, any existing instances and all new
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VpcId,
+        $DhcpOptionsId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

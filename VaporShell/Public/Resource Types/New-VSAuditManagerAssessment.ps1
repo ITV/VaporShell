@@ -1,10 +1,10 @@
 function New-VSAuditManagerAssessment {
     <#
     .SYNOPSIS
-        Adds an AWS::AuditManager::Assessment resource to the template. The AWS::AuditManager::Assessment resource is an AWS Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager. An Audit Manager assessment is an implementation of an Audit Manager framework.
+        Adds an AWS::AuditManager::Assessment resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AuditManager::Assessment resource to the template. The AWS::AuditManager::Assessment resource is an AWS Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager. An Audit Manager assessment is an implementation of an Audit Manager framework.
+        Adds an AWS::AuditManager::Assessment resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
@@ -12,68 +12,59 @@ function New-VSAuditManagerAssessment {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER FrameworkId
-        The unique identifier for the framework.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER AwsAccount
-        The AWS account that's associated with the assessment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-        UpdateType: Immutable
-        Type: AWSAccount
-
-    .PARAMETER Tags
-        The tags that are associated with the assessment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
-        UpdateType: Mutable
-        Type: List
-        ItemType: Tag
-
-    .PARAMETER Roles
-        The roles that are associated with the assessment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
-        UpdateType: Mutable
-        Type: List
-        ItemType: Role
-
-    .PARAMETER Scope
-        The wrapper of AWS accounts and services that are in scope for the assessment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-        UpdateType: Mutable
-        Type: Scope
-
-    .PARAMETER AssessmentReportsDestination
-        The destination that evidence reports are stored in for the assessment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
-        UpdateType: Mutable
-        Type: AssessmentReportsDestination
-
     .PARAMETER Status
-        The overall status of the assessment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        The name of the assessment.
+    .PARAMETER AssessmentReportsDestination
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
+        UpdateType: Mutable
+        Type: AssessmentReportsDestination
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
+    .PARAMETER Delegations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-delegations
+        UpdateType: Mutable
+        Type: List
+        ItemType: Delegation
+        DuplicatesAllowed: True
+
+    .PARAMETER Description
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Description
-        The description of the assessment.
+    .PARAMETER Scope
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
+        UpdateType: Mutable
+        Type: Scope
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
+    .PARAMETER AwsAccount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
+        UpdateType: Immutable
+        Type: AWSAccount
+
+    .PARAMETER Roles
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+        UpdateType: Mutable
+        Type: List
+        ItemType: Role
+        DuplicatesAllowed: True
+
+    .PARAMETER FrameworkId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -149,12 +140,35 @@ function New-VSAuditManagerAssessment {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FrameworkId,
+        $Status,
+        [parameter(Mandatory = $false)]
+        $AssessmentReportsDestination,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.AuditManager.Assessment.Delegation"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Delegations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Description,
+        [parameter(Mandatory = $false)]
+        $Scope,
         [parameter(Mandatory = $false)]
         $AwsAccount,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AuditManager.Assessment.Role"
@@ -167,10 +181,6 @@ function New-VSAuditManagerAssessment {
             })]
         $Roles,
         [parameter(Mandatory = $false)]
-        $Scope,
-        [parameter(Mandatory = $false)]
-        $AssessmentReportsDestination,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -180,7 +190,10 @@ function New-VSAuditManagerAssessment {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Status,
+        $FrameworkId,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -192,17 +205,6 @@ function New-VSAuditManagerAssessment {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Description,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -277,17 +279,23 @@ function New-VSAuditManagerAssessment {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Tags {
+                Delegations {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Delegations -Value @($Delegations)
                 }
                 Roles {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Roles -Value @($Roles)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

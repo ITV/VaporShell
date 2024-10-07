@@ -1,10 +1,10 @@
 function New-VSServiceCatalogAppRegistryResourceAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceCatalogAppRegistry::ResourceAssociation resource to the template. The AWS::ServiceCatalogAppRegistry::ResourceAssociation resource for ServiceCatalogAppRegistry.
+        Adds an AWS::ServiceCatalogAppRegistry::ResourceAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ServiceCatalogAppRegistry::ResourceAssociation resource to the template. The AWS::ServiceCatalogAppRegistry::ResourceAssociation resource for ServiceCatalogAppRegistry.
+        Adds an AWS::ServiceCatalogAppRegistry::ResourceAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html
@@ -12,24 +12,18 @@ function New-VSServiceCatalogAppRegistryResourceAssociation {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Application
-        The name or ID of the application.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Resource
-        The name or ID of the resource of which the application will be associated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ResourceType
-        The type of resource of which the application will be associated. Possible values: CFN_STACK.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Application
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -105,17 +99,6 @@ function New-VSServiceCatalogAppRegistryResourceAssociation {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Application,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Resource,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -128,6 +111,17 @@ function New-VSServiceCatalogAppRegistryResourceAssociation {
                 }
             })]
         $ResourceType,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Application,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

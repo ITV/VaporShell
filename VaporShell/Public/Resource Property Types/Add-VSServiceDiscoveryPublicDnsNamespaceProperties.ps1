@@ -1,18 +1,16 @@
 function Add-VSServiceDiscoveryPublicDnsNamespaceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceDiscovery::PublicDnsNamespace.Properties resource property to the template. Properties for the public DNS namespace.
+        Adds an AWS::ServiceDiscovery::PublicDnsNamespace.Properties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ServiceDiscovery::PublicDnsNamespace.Properties resource property to the template.
-Properties for the public DNS namespace.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-properties.html
 
     .PARAMETER DnsProperties
-        DNS properties for the public DNS namespace.
-
         Type: PublicDnsPropertiesMutable
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-properties.html#cfn-servicediscovery-publicdnsnamespace-properties-dnsproperties
         UpdateType: Mutable

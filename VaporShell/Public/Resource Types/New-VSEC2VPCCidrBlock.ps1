@@ -1,12 +1,10 @@
 function New-VSEC2VPCCidrBlock {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::VPCCidrBlock resource to the template. Associates a CIDR block with your VPC. You can only associate a single IPv6 CIDR block with your VPC. The IPv6 CIDR block size is fixed at /56.
+        Adds an AWS::EC2::VPCCidrBlock resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::VPCCidrBlock resource to the template. Associates a CIDR block with your VPC. You can only associate a single IPv6 CIDR block with your VPC. The IPv6 CIDR block size is fixed at /56.
-
-For more information about associating CIDR blocks with your VPC and applicable restrictions, see VPC and Subnet Sizing: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing in the *Amazon Virtual Private Cloud User Guide*.
+        Adds an AWS::EC2::VPCCidrBlock resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
@@ -15,65 +13,46 @@ For more information about associating CIDR blocks with your VPC and applicable 
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AmazonProvidedIpv6CidrBlock
-        Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-amazonprovidedipv6cidrblock
         PrimitiveType: Boolean
         UpdateType: Immutable
 
     .PARAMETER CidrBlock
-        An IPv4 CIDR block to associate with the VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-cidrblock
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Ipv4IpamPoolId
-        Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager IPAM, see What is IPAM?: /vpc/latest/ipam/what-is-it-ipam.html in the *Amazon VPC IPAM User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv4ipampoolid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Ipv4NetmaskLength
-        The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager IPAM pool. For more information about IPAM, see What is IPAM?: /vpc/latest/ipam/what-is-it-ipam.html in the *Amazon VPC IPAM User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv4netmasklength
         PrimitiveType: Integer
         UpdateType: Immutable
 
     .PARAMETER Ipv6CidrBlock
-        An IPv6 CIDR block from the IPv6 address pool. You must also specify Ipv6Pool in the request.
-To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6cidrblock
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Ipv6IpamPoolId
-        Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager IPAM, see What is IPAM?: /vpc/latest/ipam/what-is-it-ipam.html in the *Amazon VPC IPAM User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6ipampoolid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Ipv6NetmaskLength
-        The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager IPAM pool. For more information about IPAM, see What is IPAM?: /vpc/latest/ipam/what-is-it-ipam.html in the *Amazon VPC IPAM User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6netmasklength
         PrimitiveType: Integer
         UpdateType: Immutable
 
     .PARAMETER Ipv6Pool
-        The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6pool
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER VpcId
-        The ID of the VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-vpcid
         PrimitiveType: String
         UpdateType: Immutable

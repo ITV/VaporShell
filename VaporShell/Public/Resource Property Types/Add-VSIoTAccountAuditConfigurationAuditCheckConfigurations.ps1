@@ -1,110 +1,92 @@
 function Add-VSIoTAccountAuditConfigurationAuditCheckConfigurations {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::AccountAuditConfiguration.AuditCheckConfigurations resource property to the template. The types of audit checks that can be performed.
+        Adds an AWS::IoT::AccountAuditConfiguration.AuditCheckConfigurations resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::AccountAuditConfiguration.AuditCheckConfigurations resource property to the template.
-The types of audit checks that can be performed.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html
 
-    .PARAMETER AuthenticatedCognitoRoleOverlyPermissiveCheck
-        Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
+    .PARAMETER IotRoleAliasOverlyPermissiveCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasoverlypermissivecheck
+        UpdateType: Mutable
+        Type: AuditCheckConfiguration
 
+    .PARAMETER DeviceCertificateSharedCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck
+        UpdateType: Mutable
+        Type: AuditCheckConfiguration
+
+    .PARAMETER ConflictingClientIdsCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck
+        UpdateType: Mutable
+        Type: AuditCheckConfiguration
+
+    .PARAMETER IntermediateCaRevokedForActiveDeviceCertificatesCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-intermediatecarevokedforactivedevicecertificatescheck
+        UpdateType: Mutable
+        Type: AuditCheckConfiguration
+
+    .PARAMETER IotRoleAliasAllowsAccessToUnusedServicesCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasallowsaccesstounusedservicescheck
+        UpdateType: Mutable
+        Type: AuditCheckConfiguration
+
+    .PARAMETER RevokedCaCertificateStillActiveCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokedcacertificatestillactivecheck
+        UpdateType: Mutable
+        Type: AuditCheckConfiguration
+
+    .PARAMETER LoggingDisabledCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-loggingdisabledcheck
+        UpdateType: Mutable
+        Type: AuditCheckConfiguration
+
+    .PARAMETER UnauthenticatedCognitoRoleOverlyPermissiveCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-unauthenticatedcognitoroleoverlypermissivecheck
+        UpdateType: Mutable
+        Type: AuditCheckConfiguration
+
+    .PARAMETER AuthenticatedCognitoRoleOverlyPermissiveCheck
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-authenticatedcognitoroleoverlypermissivecheck
         UpdateType: Mutable
         Type: AuditCheckConfiguration
 
     .PARAMETER CaCertificateExpiringCheck
-        Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificateexpiringcheck
         UpdateType: Mutable
         Type: AuditCheckConfiguration
 
-    .PARAMETER CaCertificateKeyQualityCheck
-        Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are ACTIVE or PENDING_TRANSFER.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificatekeyqualitycheck
-        UpdateType: Mutable
-        Type: AuditCheckConfiguration
-
-    .PARAMETER ConflictingClientIdsCheck
-        Checks if multiple devices connect using the same client ID.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck
-        UpdateType: Mutable
-        Type: AuditCheckConfiguration
-
     .PARAMETER DeviceCertificateExpiringCheck
-        Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck
         UpdateType: Mutable
         Type: AuditCheckConfiguration
 
-    .PARAMETER DeviceCertificateKeyQualityCheck
-        Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck
-        UpdateType: Mutable
-        Type: AuditCheckConfiguration
-
-    .PARAMETER DeviceCertificateSharedCheck
-        Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck
+    .PARAMETER IoTPolicyPotentialMisConfigurationCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicypotentialmisconfigurationcheck
         UpdateType: Mutable
         Type: AuditCheckConfiguration
 
     .PARAMETER IotPolicyOverlyPermissiveCheck
-        Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck
         UpdateType: Mutable
         Type: AuditCheckConfiguration
 
-    .PARAMETER IotRoleAliasAllowsAccessToUnusedServicesCheck
-        Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasallowsaccesstounusedservicescheck
-        UpdateType: Mutable
-        Type: AuditCheckConfiguration
-
-    .PARAMETER IotRoleAliasOverlyPermissiveCheck
-        Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasoverlypermissivecheck
-        UpdateType: Mutable
-        Type: AuditCheckConfiguration
-
-    .PARAMETER LoggingDisabledCheck
-        Checks if AWS IoT logs are disabled.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-loggingdisabledcheck
-        UpdateType: Mutable
-        Type: AuditCheckConfiguration
-
-    .PARAMETER RevokedCaCertificateStillActiveCheck
-        Checks if a revoked CA certificate is still active.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokedcacertificatestillactivecheck
-        UpdateType: Mutable
-        Type: AuditCheckConfiguration
-
     .PARAMETER RevokedDeviceCertificateStillActiveCheck
-        Checks if a revoked device certificate is still active.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokeddevicecertificatestillactivecheck
         UpdateType: Mutable
         Type: AuditCheckConfiguration
 
-    .PARAMETER UnauthenticatedCognitoRoleOverlyPermissiveCheck
-        Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
+    .PARAMETER DeviceCertificateKeyQualityCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck
+        UpdateType: Mutable
+        Type: AuditCheckConfiguration
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-unauthenticatedcognitoroleoverlypermissivecheck
+    .PARAMETER CaCertificateKeyQualityCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificatekeyqualitycheck
         UpdateType: Mutable
         Type: AuditCheckConfiguration
 
@@ -116,33 +98,37 @@ The types of audit checks that can be performed.
     Param
     (
         [parameter(Mandatory = $false)]
+        $IotRoleAliasOverlyPermissiveCheck,
+        [parameter(Mandatory = $false)]
+        $DeviceCertificateSharedCheck,
+        [parameter(Mandatory = $false)]
+        $ConflictingClientIdsCheck,
+        [parameter(Mandatory = $false)]
+        $IntermediateCaRevokedForActiveDeviceCertificatesCheck,
+        [parameter(Mandatory = $false)]
+        $IotRoleAliasAllowsAccessToUnusedServicesCheck,
+        [parameter(Mandatory = $false)]
+        $RevokedCaCertificateStillActiveCheck,
+        [parameter(Mandatory = $false)]
+        $LoggingDisabledCheck,
+        [parameter(Mandatory = $false)]
+        $UnauthenticatedCognitoRoleOverlyPermissiveCheck,
+        [parameter(Mandatory = $false)]
         $AuthenticatedCognitoRoleOverlyPermissiveCheck,
         [parameter(Mandatory = $false)]
         $CaCertificateExpiringCheck,
         [parameter(Mandatory = $false)]
-        $CaCertificateKeyQualityCheck,
-        [parameter(Mandatory = $false)]
-        $ConflictingClientIdsCheck,
-        [parameter(Mandatory = $false)]
         $DeviceCertificateExpiringCheck,
         [parameter(Mandatory = $false)]
-        $DeviceCertificateKeyQualityCheck,
-        [parameter(Mandatory = $false)]
-        $DeviceCertificateSharedCheck,
+        $IoTPolicyPotentialMisConfigurationCheck,
         [parameter(Mandatory = $false)]
         $IotPolicyOverlyPermissiveCheck,
         [parameter(Mandatory = $false)]
-        $IotRoleAliasAllowsAccessToUnusedServicesCheck,
-        [parameter(Mandatory = $false)]
-        $IotRoleAliasOverlyPermissiveCheck,
-        [parameter(Mandatory = $false)]
-        $LoggingDisabledCheck,
-        [parameter(Mandatory = $false)]
-        $RevokedCaCertificateStillActiveCheck,
-        [parameter(Mandatory = $false)]
         $RevokedDeviceCertificateStillActiveCheck,
         [parameter(Mandatory = $false)]
-        $UnauthenticatedCognitoRoleOverlyPermissiveCheck
+        $DeviceCertificateKeyQualityCheck,
+        [parameter(Mandatory = $false)]
+        $CaCertificateKeyQualityCheck
     )
     Begin {
         $obj = [PSCustomObject]@{}

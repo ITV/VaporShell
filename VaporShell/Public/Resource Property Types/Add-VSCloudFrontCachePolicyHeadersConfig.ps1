@@ -1,32 +1,26 @@
 function Add-VSCloudFrontCachePolicyHeadersConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::CachePolicy.HeadersConfig resource property to the template. An object that determines whether any HTTP headers (and if so, which headers are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+        Adds an AWS::CloudFront::CachePolicy.HeadersConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::CachePolicy.HeadersConfig resource property to the template.
-An object that determines whether any HTTP headers (and if so, which headers are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
 
-    .PARAMETER HeaderBehavior
-        Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
-+  none – HTTP headers are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to none, any headers that are listed in an OriginRequestPolicy *are* included in origin requests.
-+  whitelist – The HTTP headers that are listed in the Headers type are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Headers
-        Contains a list of HTTP header names.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
+
+    .PARAMETER HeaderBehavior
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -35,6 +29,8 @@ An object that determines whether any HTTP headers (and if so, which headers are
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $Headers,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -45,9 +41,7 @@ An object that determines whether any HTTP headers (and if so, which headers are
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $HeaderBehavior,
-        [parameter(Mandatory = $false)]
-        $Headers
+        $HeaderBehavior
     )
     Begin {
         $obj = [PSCustomObject]@{}

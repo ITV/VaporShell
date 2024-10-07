@@ -1,25 +1,21 @@
 function Add-VSAppFlowConnectorProfileConnectorOAuthRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.ConnectorOAuthRequest resource property to the template. The ConnectorOAuthRequest property type specifies the select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
+        Adds an AWS::AppFlow::ConnectorProfile.ConnectorOAuthRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.ConnectorOAuthRequest resource property to the template.
-The ConnectorOAuthRequest property type specifies the select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html
 
     .PARAMETER AuthCode
-        The code provided by the connector when it has been authenticated via the connected app.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-authcode
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RedirectUri
-        The URL to which the authentication server redirects the browser after authorization has been granted.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-redirecturi
         UpdateType: Mutable
         PrimitiveType: String

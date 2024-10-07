@@ -1,62 +1,46 @@
 function Add-VSDLMLifecyclePolicyCrossRegionCopyRule {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.CrossRegionCopyRule resource property to the template. Specifies a rule for cross-Region snapshot copies.
+        Adds an AWS::DLM::LifecyclePolicy.CrossRegionCopyRule resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.CrossRegionCopyRule resource property to the template.
-Specifies a rule for cross-Region snapshot copies.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html
 
     .PARAMETER TargetRegion
-        Avoid using this parameter when creating new policies. Instead, use **Target** to specify a target Region or a target Outpost for snapshot copies.
-For policies created before the **Target** parameter was introduced, this parameter indicates the target Region for snapshot copies.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-targetregion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Target
-        The target Region or the Amazon Resource Name ARN of the target Outpost for the snapshot copies.
-Use this parameter instead of **TargetRegion**. Do not specify both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-target
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DeprecateRule
-        The AMI deprecation rule for cross-Region AMI copies created by the rule.
-
         Type: CrossRegionCopyDeprecateRule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-deprecaterule
         UpdateType: Mutable
 
     .PARAMETER Encrypted
-        To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-encrypted
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER CmkArn
-        The Amazon Resource Name ARN of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-cmkarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RetainRule
-        The retention rule that indicates how long snapshot copies are to be retained in the destination Region.
-
         Type: CrossRegionCopyRetainRule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-retainrule
         UpdateType: Mutable
 
     .PARAMETER CopyTags
-        Indicates whether to copy all user-defined tags from the source snapshot to the cross-Region snapshot copy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-copytags
         PrimitiveType: Boolean
         UpdateType: Mutable

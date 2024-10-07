@@ -1,16 +1,10 @@
 function New-VSCloudFrontResponseHeadersPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy resource to the template. A response headers policy.
+        Adds an AWS::CloudFront::ResponseHeadersPolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFront::ResponseHeadersPolicy resource to the template. A response headers policy.
-
-A response headers policy contains information about a set of HTTP response headers and their values.
-
-After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it’s attached to a cache behavior, CloudFront adds the headers in the policy to HTTP responses that it sends for requests that match the cache behavior.
-
-For more information, see Adding HTTP headers to CloudFront responses: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-response-headers.html in the *Amazon CloudFront Developer Guide*.
+        Adds an AWS::CloudFront::ResponseHeadersPolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html
@@ -19,9 +13,6 @@ For more information, see Adding HTTP headers to CloudFront responses: https://d
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ResponseHeadersPolicyConfig
-        A response headers policy configuration.
-A response headers policy contains information about a set of HTTP response headers and their values. CloudFront adds the headers in the policy to HTTP responses that it sends for requests that match a cache behavior that’s associated with the policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig
         UpdateType: Mutable
         Type: ResponseHeadersPolicyConfig

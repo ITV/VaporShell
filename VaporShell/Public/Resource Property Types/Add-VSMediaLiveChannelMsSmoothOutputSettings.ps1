@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelMsSmoothOutputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.MsSmoothOutputSettings resource property to the template. Configuration of a Microsoft Smooth output.
+        Adds an AWS::MediaLive::Channel.MsSmoothOutputSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.MsSmoothOutputSettings resource property to the template.
-Configuration of a Microsoft Smooth output.
 
-The parent of this entity is OutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mssmoothoutputsettings.html
 
     .PARAMETER NameModifier
-        A string that is concatenated to the end of the destination file name. This is required for multiple outputs of the same type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mssmoothoutputsettings.html#cfn-medialive-channel-mssmoothoutputsettings-namemodifier
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER H265PackagingType
-        Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mssmoothoutputsettings.html#cfn-medialive-channel-mssmoothoutputsettings-h265packagingtype
         PrimitiveType: String
         UpdateType: Mutable

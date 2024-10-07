@@ -1,12 +1,10 @@
 function New-VSEvidentlyExperiment {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Experiment resource to the template. Creates or updates an Evidently *experiment*. Before you create an experiment, you must create the feature to use for the experiment.
+        Adds an AWS::Evidently::Experiment resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Evidently::Experiment resource to the template. Creates or updates an Evidently *experiment*. Before you create an experiment, you must create the feature to use for the experiment.
-
-An experiment helps you make feature design decisions based on evidence and data. An experiment can test as many as five variations at once. Evidently collects experiment data and analyzes it by statistical methods, and provides clear recommendations about which variations perform better.
+        Adds an AWS::Evidently::Experiment resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html
@@ -14,100 +12,71 @@ An experiment helps you make feature design decisions based on evidence and data
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        A name for the new experiment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Project
-        The name or the ARN of the project where this experiment is to be created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-project
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Description
-        An optional description of the experiment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-description
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER RunningStatus
-        The ARN of the experiment. For example, arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-runningstatus
         UpdateType: Mutable
         Type: RunningStatusObject
 
-    .PARAMETER RandomizationSalt
-        When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the experiment name as the randomizationSalt.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-randomizationsalt
+    .PARAMETER Description
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Treatments
-        An array of structures that describe the configuration of each feature variation used in the experiment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-treatments
-        UpdateType: Mutable
-        Type: List
-        ItemType: TreatmentObject
-        DuplicatesAllowed: False
-
     .PARAMETER MetricGoals
-        An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-metricgoals
         UpdateType: Mutable
         Type: List
         ItemType: MetricGoalObject
         DuplicatesAllowed: False
 
-    .PARAMETER SamplingRate
-        The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
-This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-samplingrate
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER OnlineAbConfig
-        A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-onlineabconfig
         UpdateType: Mutable
         Type: OnlineAbConfigObject
 
-    .PARAMETER Segment
-        The ARN of the experiment. For example, arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-segment
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER RemoveSegment
-        The ARN of the experiment. For example, arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-removesegment
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER Tags
-        Assigns one or more tags key-value pairs to the experiment.
-Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-You can associate as many as 50 tags with an experiment.
-For more information, see Tagging AWS resources: https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html.
+    .PARAMETER RandomizationSalt
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-randomizationsalt
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Treatments
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-treatments
+        UpdateType: Mutable
+        Type: List
+        ItemType: TreatmentObject
+        DuplicatesAllowed: False
+
+    .PARAMETER SamplingRate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-samplingrate
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER Segment
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-segment
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -181,18 +150,9 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Project,
+        [parameter(Mandatory = $false)]
+        $RunningStatus,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -204,8 +164,30 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $Description,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Evidently.Experiment.MetricGoalObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MetricGoals,
+        [parameter(Mandatory = $true)]
+        $OnlineAbConfig,
         [parameter(Mandatory = $false)]
-        $RunningStatus,
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RemoveSegment,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -228,17 +210,6 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $Treatments,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Evidently.Experiment.MetricGoalObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MetricGoals,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -250,8 +221,6 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $SamplingRate,
-        [parameter(Mandatory = $true)]
-        $OnlineAbConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -263,9 +232,12 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $Segment,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -273,10 +245,7 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RemoveSegment,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -351,17 +320,17 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Treatments {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Treatments -Value @($Treatments)
-                }
                 MetricGoals {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name MetricGoals -Value @($MetricGoals)
+                }
+                Treatments {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Treatments -Value @($Treatments)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

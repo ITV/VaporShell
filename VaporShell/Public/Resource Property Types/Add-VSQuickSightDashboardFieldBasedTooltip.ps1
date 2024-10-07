@@ -1,0 +1,88 @@
+function Add-VSQuickSightDashboardFieldBasedTooltip {
+    <#
+    .SYNOPSIS
+        Adds an AWS::QuickSight::Dashboard.FieldBasedTooltip resource property to the template. 
+
+    .DESCRIPTION
+        Adds an AWS::QuickSight::Dashboard.FieldBasedTooltip resource property to the template.
+
+
+    .LINK
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldbasedtooltip.html
+
+    .PARAMETER TooltipFields
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldbasedtooltip.html#cfn-quicksight-dashboard-fieldbasedtooltip-tooltipfields
+        UpdateType: Mutable
+        Type: List
+        ItemType: TooltipItem
+        DuplicatesAllowed: True
+
+    .PARAMETER AggregationVisibility
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldbasedtooltip.html#cfn-quicksight-dashboard-fieldbasedtooltip-aggregationvisibility
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER TooltipTitleType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldbasedtooltip.html#cfn-quicksight-dashboard-fieldbasedtooltip-tooltiptitletype
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .FUNCTIONALITY
+        Vaporshell
+    #>
+    [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FieldBasedTooltip')]
+    [cmdletbinding()]
+    Param
+    (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.TooltipItem"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TooltipFields,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AggregationVisibility,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TooltipTitleType
+    )
+    Begin {
+        $obj = [PSCustomObject]@{}
+        $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
+    }
+    Process {
+        foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
+            switch ($key) {
+                Default {
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
+                }
+            }
+        }
+    }
+    End {
+        $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.FieldBasedTooltip'
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
+    }
+}

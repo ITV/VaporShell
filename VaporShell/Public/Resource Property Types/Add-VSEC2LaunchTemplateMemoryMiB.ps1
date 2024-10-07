@@ -1,25 +1,21 @@
 function Add-VSEC2LaunchTemplateMemoryMiB {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.MemoryMiB resource property to the template. The minimum and maximum amount of memory, in MiB.
+        Adds an AWS::EC2::LaunchTemplate.MemoryMiB resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.MemoryMiB resource property to the template.
-The minimum and maximum amount of memory, in MiB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorymib.html
 
     .PARAMETER Min
-        The minimum amount of memory, in MiB. To specify no minimum limit, specify 0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorymib.html#cfn-ec2-launchtemplate-memorymib-min
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Max
-        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorymib.html#cfn-ec2-launchtemplate-memorymib-max
         PrimitiveType: Integer
         UpdateType: Mutable

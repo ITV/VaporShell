@@ -1,25 +1,21 @@
 function Add-VSS3BucketSourceSelectionCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template. A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
+        Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template.
-A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
 
     .PARAMETER ReplicaModifications
-        A filter that you can specify for selection for modifications on replicas.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
         Type: ReplicaModifications
         UpdateType: Mutable
 
     .PARAMETER SseKmsEncryptedObjects
-        A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
         Type: SseKmsEncryptedObjects
         UpdateType: Mutable

@@ -1,26 +1,10 @@
 function New-VSAppConfigDeployment {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::Deployment resource to the template. The AWS::AppConfig::Deployment resource starts a deployment. Starting a deployment in AWS AppConfig calls the StartDeployment API action. This call includes the IDs of the AWS AppConfig application, the environment, the configuration profile, and (optionally the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
+        Adds an AWS::AppConfig::Deployment resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppConfig::Deployment resource to the template. The AWS::AppConfig::Deployment resource starts a deployment. Starting a deployment in AWS AppConfig calls the StartDeployment API action. This call includes the IDs of the AWS AppConfig application, the environment, the configuration profile, and (optionally the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
-
-AWS AppConfig monitors the distribution to all hosts and reports status. If a distribution fails, then AWS AppConfig rolls back the configuration.
-
-AWS AppConfig requires that you create resources and deploy a configuration in the following order:
-
-1. Create an application
-
-1. Create an environment
-
-1. Create a configuration profile
-
-1. Create a deployment strategy
-
-1. Deploy the configuration
-
-For more information, see AWS AppConfig: https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html in the *AWS AppConfig User Guide*.
+        Adds an AWS::AppConfig::Deployment resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html
@@ -29,54 +13,45 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/appconfig/l
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DeploymentStrategyId
-        The deployment strategy ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-deploymentstrategyid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ConfigurationProfileId
-        The configuration profile ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-configurationprofileid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER EnvironmentId
-        The environment ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-environmentid
         PrimitiveType: String
         UpdateType: Immutable
 
-    .PARAMETER Description
-        A description of the deployment.
+    .PARAMETER KmsKeyIdentifier
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-kmskeyidentifier
+        PrimitiveType: String
+        UpdateType: Immutable
 
+    .PARAMETER Description
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-description
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ConfigurationVersion
-        The configuration version to deploy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-configurationversion
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ApplicationId
-        The application ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-applicationid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Tags
-        Metadata to assign to the deployment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-tags
         ItemType: Tags
-        UpdateType: Mutable
+        UpdateType: Immutable
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -173,6 +148,17 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/appconfig/l
                 }
             })]
         $EnvironmentId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $KmsKeyIdentifier,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

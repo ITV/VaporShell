@@ -1,25 +1,21 @@
 function Add-VSMSKClusterCloudWatchLogs {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.CloudWatchLogs resource property to the template. Details of the CloudWatch Logs destination for broker logs.
+        Adds an AWS::MSK::Cluster.CloudWatchLogs resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.CloudWatchLogs resource property to the template.
-Details of the CloudWatch Logs destination for broker logs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html
 
     .PARAMETER LogGroup
-        The CloudWatch Logs group that is the destination for broker logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-loggroup
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Enabled
-        Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

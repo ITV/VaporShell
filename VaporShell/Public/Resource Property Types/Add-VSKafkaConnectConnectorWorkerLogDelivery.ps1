@@ -1,35 +1,29 @@
 function Add-VSKafkaConnectConnectorWorkerLogDelivery {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.WorkerLogDelivery resource property to the template. Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+        Adds an AWS::KafkaConnect::Connector.WorkerLogDelivery resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.WorkerLogDelivery resource property to the template.
-Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html
 
-    .PARAMETER CloudWatchLogs
-        Details about delivering logs to Amazon CloudWatch Logs.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-cloudwatchlogs
+    .PARAMETER S3
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-s3
         UpdateType: Immutable
-        Type: CloudWatchLogsLogDelivery
+        Type: S3LogDelivery
 
     .PARAMETER Firehose
-        Details about delivering logs to Amazon Kinesis Data Firehose.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-firehose
         UpdateType: Immutable
         Type: FirehoseLogDelivery
 
-    .PARAMETER S3
-        Details about delivering logs to Amazon S3.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-s3
+    .PARAMETER CloudWatchLogs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-cloudwatchlogs
         UpdateType: Immutable
-        Type: S3LogDelivery
+        Type: CloudWatchLogsLogDelivery
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,11 +33,11 @@ Workers can send worker logs to different destination types. This configuration 
     Param
     (
         [parameter(Mandatory = $false)]
-        $CloudWatchLogs,
+        $S3,
         [parameter(Mandatory = $false)]
         $Firehose,
         [parameter(Mandatory = $false)]
-        $S3
+        $CloudWatchLogs
     )
     Begin {
         $obj = [PSCustomObject]@{}

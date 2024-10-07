@@ -1,14 +1,10 @@
 function New-VSAppMeshGatewayRoute {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute resource to the template. Creates a gateway route.
+        Adds an AWS::AppMesh::GatewayRoute resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppMesh::GatewayRoute resource to the template. Creates a gateway route.
-
-A gateway route is attached to a virtual gateway and routes traffic to an existing virtual service. If a route matches a request, it can distribute traffic to a target virtual service.
-
-For more information about gateway routes, see Gateway routes: https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html.
+        Adds an AWS::AppMesh::GatewayRoute resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html
@@ -17,43 +13,31 @@ For more information about gateway routes, see Gateway routes: https://docs.aws.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER MeshName
-        The name of the service mesh that the resource resides in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER VirtualGatewayName
-        The virtual gateway that the gateway route is associated with.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-virtualgatewayname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER MeshOwner
-        The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see Working with shared meshes: https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshowner
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER GatewayRouteName
-        The name of the gateway route.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-gatewayroutename
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Spec
-        The specifications of the gateway route.
-
         Type: GatewayRouteSpec
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-spec
         UpdateType: Mutable
 
     .PARAMETER Tags
-        Optional metadata that you can apply to the gateway route to assist with categorization and organization. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-tags
         ItemType: Tag

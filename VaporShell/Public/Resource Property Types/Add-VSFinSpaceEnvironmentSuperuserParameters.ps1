@@ -1,32 +1,26 @@
 function Add-VSFinSpaceEnvironmentSuperuserParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::FinSpace::Environment.SuperuserParameters resource property to the template. Configuration information for the superuser.
+        Adds an AWS::FinSpace::Environment.SuperuserParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::FinSpace::Environment.SuperuserParameters resource property to the template.
-Configuration information for the superuser.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html
 
     .PARAMETER FirstName
-        The first name of the superuser.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html#cfn-finspace-environment-superuserparameters-firstname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER LastName
-        The last name of the superuser.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html#cfn-finspace-environment-superuserparameters-lastname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER EmailAddress
-        The email address of the superuser.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html#cfn-finspace-environment-superuserparameters-emailaddress
         UpdateType: Immutable
         PrimitiveType: String

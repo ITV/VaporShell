@@ -1,42 +1,34 @@
 function Add-VSAppFlowConnectorProfileSalesforceConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileCredentials resource property to the template. The SalesforceConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Salesforce.
+        Adds an AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileCredentials resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileCredentials resource property to the template.
-The SalesforceConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Salesforce.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html
 
-    .PARAMETER AccessToken
-        The credentials used to access protected Salesforce resources.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER RefreshToken
-        The credentials used to acquire new access tokens.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ConnectorOAuthRequest
-        Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
+    .PARAMETER AccessToken
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
         UpdateType: Mutable
-        Type: ConnectorOAuthRequest
+        PrimitiveType: String
 
     .PARAMETER ClientCredentialsArn
-        The secret manager ARN, which contains the client ID and client secret of the connected app.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-clientcredentialsarn
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER ConnectorOAuthRequest
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
+        UpdateType: Mutable
+        Type: ConnectorOAuthRequest
 
     .FUNCTIONALITY
         Vaporshell
@@ -47,6 +39,17 @@ The SalesforceConnectorProfileCredentials property type specifies the connector-
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","ClientCredentialsArn")]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RefreshToken,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -68,20 +71,9 @@ The SalesforceConnectorProfileCredentials property type specifies the connector-
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RefreshToken,
+        $ClientCredentialsArn,
         [parameter(Mandatory = $false)]
-        $ConnectorOAuthRequest,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ClientCredentialsArn
+        $ConnectorOAuthRequest
     )
     Begin {
         $obj = [PSCustomObject]@{}

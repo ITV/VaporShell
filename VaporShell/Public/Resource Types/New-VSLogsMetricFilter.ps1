@@ -1,12 +1,10 @@
 function New-VSLogsMetricFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::Logs::MetricFilter resource to the template. The AWS::Logs::MetricFilter resource specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
+        Adds an AWS::Logs::MetricFilter resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Logs::MetricFilter resource to the template. The AWS::Logs::MetricFilter resource specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
-
-The maximum number of metric filters that can be associated with a log group is 100.
+        Adds an AWS::Logs::MetricFilter resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
@@ -14,32 +12,27 @@ The maximum number of metric filters that can be associated with a log group is 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER FilterName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-filtername
-        UpdateType: Immutable
-        PrimitiveType: String
+    .PARAMETER MetricTransformations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-metrictransformations
+        UpdateType: Mutable
+        Type: List
+        ItemType: MetricTransformation
+        DuplicatesAllowed: True
 
     .PARAMETER FilterPattern
-        A filter pattern for extracting metric data out of ingested log events. For more information, see Filter and Pattern Syntax: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-filterpattern
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER LogGroupName
-        The name of an existing log group that you want to associate with this metric filter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-loggroupname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER MetricTransformations
-        The metric transformations.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-metrictransformations
-        UpdateType: Mutable
-        Type: List
-        ItemType: MetricTransformation
+    .PARAMETER FilterName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-filtername
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -103,9 +96,9 @@ The maximum number of metric filters that can be associated with a log group is 
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "Vaporshell.Resource.Logs.MetricFilter.MetricTransformation"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -113,7 +106,7 @@ The maximum number of metric filters that can be associated with a log group is 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FilterName,
+        $MetricTransformations,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -136,9 +129,9 @@ The maximum number of metric filters that can be associated with a log group is 
                 }
             })]
         $LogGroupName,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Logs.MetricFilter.MetricTransformation"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -146,7 +139,7 @@ The maximum number of metric filters that can be associated with a log group is 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MetricTransformations,
+        $FilterName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

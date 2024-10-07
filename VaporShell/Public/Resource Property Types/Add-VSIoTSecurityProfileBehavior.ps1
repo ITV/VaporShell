@@ -1,49 +1,39 @@
 function Add-VSIoTSecurityProfileBehavior {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::SecurityProfile.Behavior resource property to the template. A Device Defender security profile behavior.
+        Adds an AWS::IoT::SecurityProfile.Behavior resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::SecurityProfile.Behavior resource property to the template.
-A Device Defender security profile behavior.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html
 
-    .PARAMETER Name
-        The name you've given to the behavior.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name
+    .PARAMETER SuppressAlerts
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts
         UpdateType: Mutable
-        PrimitiveType: String
+        PrimitiveType: Boolean
 
     .PARAMETER Metric
-        What is measured by the behavior.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER MetricDimension
-        The dimension of the metric.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metricdimension
-        UpdateType: Mutable
-        Type: MetricDimension
-
     .PARAMETER Criteria
-        The criteria that determine if a device is behaving normally in regard to the metric.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria
         UpdateType: Mutable
         Type: BehaviorCriteria
 
-    .PARAMETER SuppressAlerts
-        The alert status. If you set the value to true, alerts will be suppressed.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts
+    .PARAMETER MetricDimension
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metricdimension
         UpdateType: Mutable
-        PrimitiveType: Boolean
+        Type: MetricDimension
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -52,9 +42,9 @@ A Device Defender security profile behavior.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -62,7 +52,7 @@ A Device Defender security profile behavior.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $SuppressAlerts,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -75,12 +65,12 @@ A Device Defender security profile behavior.
             })]
         $Metric,
         [parameter(Mandatory = $false)]
-        $MetricDimension,
-        [parameter(Mandatory = $false)]
         $Criteria,
         [parameter(Mandatory = $false)]
+        $MetricDimension,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -88,7 +78,7 @@ A Device Defender security profile behavior.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SuppressAlerts
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

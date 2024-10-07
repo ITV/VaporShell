@@ -1,35 +1,29 @@
 function Add-VSWAFv2WebACLVisibilityConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.VisibilityConfig resource property to the template. Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        Adds an AWS::WAFv2::WebACL.VisibilityConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.VisibilityConfig resource property to the template.
-Defines and enables Amazon CloudWatch metrics and web request sample collection.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html
 
-    .PARAMETER SampledRequestsEnabled
-        A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+    .PARAMETER MetricName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-metricname
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER SampledRequestsEnabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-sampledrequestsenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER CloudWatchMetricsEnabled
-        A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see AWS WAF Metrics: https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-cloudwatchmetricsenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
-
-    .PARAMETER MetricName
-        The descriptive name of the Amazon CloudWatch metric. The name can contain only alphanumeric characters A-Z, a-z, 0-9, with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example "All" and "Default_Action." You can't change a MetricName after you create a VisibilityConfig.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-metricname
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,6 +32,17 @@ Defines and enables Amazon CloudWatch metrics and web request sample collection.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MetricName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -59,18 +64,7 @@ Defines and enables Amazon CloudWatch metrics and web request sample collection.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CloudWatchMetricsEnabled,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MetricName
+        $CloudWatchMetricsEnabled
     )
     Begin {
         $obj = [PSCustomObject]@{}

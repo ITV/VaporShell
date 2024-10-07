@@ -1,39 +1,31 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteSpec {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteSpec resource property to the template. An object that represents a gateway route specification. Specify one gateway route type.
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteSpec resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteSpec resource property to the template.
-An object that represents a gateway route specification. Specify one gateway route type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html
 
     .PARAMETER HttpRoute
-        An object that represents the specification of an HTTP gateway route.
-
         Type: HttpGatewayRoute
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-httproute
         UpdateType: Mutable
 
     .PARAMETER Priority
-        The ordering of the gateway routes spec.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-priority
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Http2Route
-        An object that represents the specification of an HTTP/2 gateway route.
-
         Type: HttpGatewayRoute
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-http2route
         UpdateType: Mutable
 
     .PARAMETER GrpcRoute
-        An object that represents the specification of a gRPC gateway route.
-
         Type: GrpcGatewayRoute
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-grpcroute
         UpdateType: Mutable

@@ -1,18 +1,16 @@
 function Add-VSSageMakerEndpointAutoRollbackConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Endpoint.AutoRollbackConfig resource property to the template. Automatic rollback configuration for handling endpoint deployment failures and recovery.
+        Adds an AWS::SageMaker::Endpoint.AutoRollbackConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Endpoint.AutoRollbackConfig resource property to the template.
-Automatic rollback configuration for handling endpoint deployment failures and recovery.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html
 
     .PARAMETER Alarms
-        List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html#cfn-sagemaker-endpoint-autorollbackconfig-alarms
         ItemType: Alarm

@@ -1,10 +1,10 @@
 function New-VSWisdomKnowledgeBase {
     <#
     .SYNOPSIS
-        Adds an AWS::Wisdom::KnowledgeBase resource to the template. Specifies a knowledge base.
+        Adds an AWS::Wisdom::KnowledgeBase resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Wisdom::KnowledgeBase resource to the template. Specifies a knowledge base.
+        Adds an AWS::Wisdom::KnowledgeBase resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html
@@ -13,55 +13,41 @@ function New-VSWisdomKnowledgeBase {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        The description.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-description
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER KnowledgeBaseType
-        The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-knowledgebasetype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        The name of the knowledge base.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER RenderingConfiguration
-        Information about how to render the content.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-renderingconfiguration
-        UpdateType: Mutable
-        Type: RenderingConfiguration
-
-    .PARAMETER ServerSideEncryptionConfiguration
-        The KMS key used for encryption.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-serversideencryptionconfiguration
-        UpdateType: Immutable
-        Type: ServerSideEncryptionConfiguration
-
     .PARAMETER SourceConfiguration
-        The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-sourceconfiguration
         UpdateType: Immutable
         Type: SourceConfiguration
 
-    .PARAMETER Tags
-        The tags used to organize, track, or control access for this resource.
+    .PARAMETER ServerSideEncryptionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-serversideencryptionconfiguration
+        UpdateType: Immutable
+        Type: ServerSideEncryptionConfiguration
 
+    .PARAMETER RenderingConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-renderingconfiguration
+        UpdateType: Mutable
+        Type: RenderingConfiguration
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -147,6 +133,15 @@ function New-VSWisdomKnowledgeBase {
                 }
             })]
         $KnowledgeBaseType,
+        [parameter(Mandatory = $false)]
+        $SourceConfiguration,
+        [parameter(Mandatory = $false)]
+        $ServerSideEncryptionConfiguration,
+        [parameter(Mandatory = $false)]
+        $RenderingConfiguration,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -158,15 +153,6 @@ function New-VSWisdomKnowledgeBase {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
-        $RenderingConfiguration,
-        [parameter(Mandatory = $false)]
-        $ServerSideEncryptionConfiguration,
-        [parameter(Mandatory = $false)]
-        $SourceConfiguration,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

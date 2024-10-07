@@ -1,10 +1,10 @@
 function New-VSImageBuilderImageRecipe {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ImageRecipe resource to the template. An Image Builder image recipe is a document that defines the source image and the components to be applied to the source image to produce the desired configuration for the output image. You can use an image recipe to duplicate builds. Image Builder image recipes can be shared, branched, and edited using the console wizard, the AWS CLI, or the API. You can use image recipes with your version control software to maintain shareable versioned image recipes.
+        Adds an AWS::ImageBuilder::ImageRecipe resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ImageBuilder::ImageRecipe resource to the template. An Image Builder image recipe is a document that defines the source image and the components to be applied to the source image to produce the desired configuration for the output image. You can use an image recipe to duplicate builds. Image Builder image recipes can be shared, branched, and edited using the console wizard, the AWS CLI, or the API. You can use image recipes with your version control software to maintain shareable versioned image recipes.
+        Adds an AWS::ImageBuilder::ImageRecipe resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
@@ -12,71 +12,55 @@ function New-VSImageBuilderImageRecipe {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the image recipe.
+    .PARAMETER Components
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
+        UpdateType: Immutable
+        Type: List
+        ItemType: ComponentConfiguration
+        DuplicatesAllowed: True
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
+    .PARAMETER WorkingDirectory
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ParentImage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Description
-        The description of the image recipe.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Version
-        The semantic version of the image recipe.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Components
-        The components of the image recipe. Components are orchestration documents that define a sequence of steps for downloading, installing, configuring, and testing software packages. They also define validation and security hardening steps. A component is defined using a YAML document format.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
-        UpdateType: Immutable
-        Type: List
-        ItemType: ComponentConfiguration
-
     .PARAMETER BlockDeviceMappings
-        The block device mappings to apply when creating images from this recipe.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
         UpdateType: Immutable
         Type: List
         ItemType: InstanceBlockDeviceMapping
-
-    .PARAMETER ParentImage
-        The parent image of the image recipe. The string must be either an Image ARN SemVers is ok or an AMI ID.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER WorkingDirectory
-        The working directory to be used during build and test workflows.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
-        UpdateType: Immutable
-        PrimitiveType: String
+        DuplicatesAllowed: True
 
     .PARAMETER AdditionalInstanceConfiguration
-        Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration. Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
         UpdateType: Mutable
         Type: AdditionalInstanceConfiguration
 
     .PARAMETER Tags
-        The tags of the image recipe.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -142,6 +126,17 @@ function New-VSImageBuilderImageRecipe {
         $LogicalId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ImageBuilder.ImageRecipe.ComponentConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Components,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -150,7 +145,18 @@ function New-VSImageBuilderImageRecipe {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $WorkingDirectory,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ParentImage,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -173,17 +179,6 @@ function New-VSImageBuilderImageRecipe {
                 }
             })]
         $Version,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.ImageBuilder.ImageRecipe.ComponentConfiguration"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Components,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ImageBuilder.ImageRecipe.InstanceBlockDeviceMapping"
@@ -195,6 +190,11 @@ function New-VSImageBuilderImageRecipe {
                 }
             })]
         $BlockDeviceMappings,
+        [parameter(Mandatory = $false)]
+        $AdditionalInstanceConfiguration,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -205,23 +205,7 @@ function New-VSImageBuilderImageRecipe {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ParentImage,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $WorkingDirectory,
-        [parameter(Mandatory = $false)]
-        $AdditionalInstanceConfiguration,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Tags,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

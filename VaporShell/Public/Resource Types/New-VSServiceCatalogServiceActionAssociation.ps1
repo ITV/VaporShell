@@ -1,10 +1,10 @@
 function New-VSServiceCatalogServiceActionAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceCatalog::ServiceActionAssociation resource to the template. A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
+        Adds an AWS::ServiceCatalog::ServiceActionAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ServiceCatalog::ServiceActionAssociation resource to the template. A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
+        Adds an AWS::ServiceCatalog::ServiceActionAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html
@@ -12,24 +12,18 @@ function New-VSServiceCatalogServiceActionAssociation {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ProductId
-        The product identifier. For example, prod-abcdzk7xy33qa.
+    .PARAMETER ServiceActionId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER ProductId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ProvisioningArtifactId
-        The identifier of the provisioning artifact. For example, pa-4abcdjnxjj6ne.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ServiceActionId
-        The self-service action identifier. For example, act-fs7abcd89wxyz.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -105,6 +99,17 @@ function New-VSServiceCatalogServiceActionAssociation {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $ServiceActionId,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $ProductId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -117,17 +122,6 @@ function New-VSServiceCatalogServiceActionAssociation {
                 }
             })]
         $ProvisioningArtifactId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ServiceActionId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

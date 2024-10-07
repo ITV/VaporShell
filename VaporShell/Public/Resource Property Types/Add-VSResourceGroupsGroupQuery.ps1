@@ -1,39 +1,33 @@
 function Add-VSResourceGroupsGroupQuery {
     <#
     .SYNOPSIS
-        Adds an AWS::ResourceGroups::Group.Query resource property to the template. Specifies details within a ResourceQuery structure that determines the membership of the resource group. The contents required in the Query structure are determined by the Type property of the containing ResourceQuery structure.
+        Adds an AWS::ResourceGroups::Group.Query resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ResourceGroups::Group.Query resource property to the template.
-Specifies details within a ResourceQuery structure that determines the membership of the resource group. The contents required in the Query structure are determined by the Type property of the containing ResourceQuery structure.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
 
-    .PARAMETER ResourceTypeFilters
-        Specifies limits to the types of resources that can be included in the resource group. For example, if ResourceTypeFilters is "AWS::EC2::Instance", "AWS::DynamoDB::Table"], only EC2 instances or DynamoDB tables can be members of this resource group. The default value is "AWS::AllSupported"].
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER StackIdentifier
-        Specifies the ARN of a CloudFormation stack. All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
-You can specify a value for StackIdentifier only when the ResourceQuery.Type property is CLOUDFORMATION_STACK_1_0.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER TagFilters
-        A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the ResourceQuery.Type property is TAG_FILTERS_1_0.
-A resource must have a tag that matches every filter that is provided in the TagFilters list.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
         UpdateType: Mutable
         Type: List
         ItemType: TagFilter
+        DuplicatesAllowed: True
+
+    .PARAMETER ResourceTypeFilters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER StackIdentifier
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -42,6 +36,17 @@ A resource must have a tag that matches every filter that is provided in the Tag
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ResourceGroups.Group.TagFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TagFilters,
         [parameter(Mandatory = $false)]
         $ResourceTypeFilters,
         [parameter(Mandatory = $false)]
@@ -54,18 +59,7 @@ A resource must have a tag that matches every filter that is provided in the Tag
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StackIdentifier,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.ResourceGroups.Group.TagFilter"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TagFilters
+        $StackIdentifier
     )
     Begin {
         $obj = [PSCustomObject]@{}

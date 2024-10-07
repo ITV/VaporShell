@@ -1,32 +1,26 @@
 function Add-VSGluePartitionSchemaReference {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Partition.SchemaReference resource property to the template. An object that references a schema stored in the AWS Glue Schema Registry.
+        Adds an AWS::Glue::Partition.SchemaReference resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Partition.SchemaReference resource property to the template.
-An object that references a schema stored in the AWS Glue Schema Registry.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html
 
     .PARAMETER SchemaVersionId
-        The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SchemaId
-        A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
-
         Type: SchemaId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
         UpdateType: Mutable
 
     .PARAMETER SchemaVersionNumber
-        The version number of the schema.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
         PrimitiveType: Integer
         UpdateType: Mutable

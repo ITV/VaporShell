@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSourceOracleParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.OracleParameters resource property to the template. Oracle parameters.
+        Adds an AWS::QuickSight::DataSource.OracleParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.OracleParameters resource property to the template.
-Oracle parameters.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html
 
     .PARAMETER Port
-        Port.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Database
-        Database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-database
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Host
-        Host.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-host
         UpdateType: Mutable
         PrimitiveType: String

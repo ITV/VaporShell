@@ -1,26 +1,23 @@
 function Add-VSQuickSightDashboardStringParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.StringParameter resource property to the template. A string parameter.
+        Adds an AWS::QuickSight::Dashboard.StringParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.StringParameter resource property to the template.
-A string parameter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html
 
     .PARAMETER Values
-        The values of a string parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-values
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Name
-        A display name for a string parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-name
         UpdateType: Mutable
         PrimitiveType: String

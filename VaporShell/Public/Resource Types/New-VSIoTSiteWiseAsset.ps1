@@ -1,10 +1,10 @@
 function New-VSIoTSiteWiseAsset {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::Asset resource to the template. Creates an asset from an existing asset model. For more information, see Creating assets: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html in the *AWS IoT SiteWise User Guide*.
+        Adds an AWS::IoTSiteWise::Asset resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTSiteWise::Asset resource to the template. Creates an asset from an existing asset model. For more information, see Creating assets: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html in the *AWS IoT SiteWise User Guide*.
+        Adds an AWS::IoTSiteWise::Asset resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html
@@ -13,51 +13,39 @@ function New-VSIoTSiteWiseAsset {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AssetModelId
-        The ID of the asset model from which to create the asset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER AssetName
-        A unique, friendly name for the asset.
-The maximum length is 256 characters with the pattern ^u0000-u001Fu007F]+.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER AssetDescription
-        For more information about using the Ref function, see Ref: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetdescription
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER AssetProperties
-        The list of asset properties for the asset.
-This object doesn't include properties that you define in composite models. You can find composite model properties in the assetCompositeModels object.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
         UpdateType: Mutable
         Type: List
         ItemType: AssetProperty
+        DuplicatesAllowed: True
 
-    .PARAMETER AssetHierarchies
-        A list of asset hierarchies that each contain a hierarchyLogicalId. A hierarchy specifies allowed parent/child asset relationships.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
+    .PARAMETER AssetName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
         UpdateType: Mutable
-        Type: List
-        ItemType: AssetHierarchy
+        PrimitiveType: String
 
     .PARAMETER Tags
-        A list of key-value pairs that contain metadata for the asset. For more information, see Tagging your AWS IoT SiteWise resources: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html in the *AWS IoT SiteWise User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER AssetHierarchies
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
+        UpdateType: Mutable
+        Type: List
+        ItemType: AssetHierarchy
         DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
@@ -133,17 +121,6 @@ This object doesn't include properties that you define in composite models. You 
                 }
             })]
         $AssetModelId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AssetName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -166,6 +143,20 @@ This object doesn't include properties that you define in composite models. You 
                 }
             })]
         $AssetProperties,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AssetName,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTSiteWise.Asset.AssetHierarchy"
@@ -177,9 +168,6 @@ This object doesn't include properties that you define in composite models. You 
                 }
             })]
         $AssetHierarchies,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -260,17 +248,17 @@ This object doesn't include properties that you define in composite models. You 
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AssetProperties -Value @($AssetProperties)
                 }
-                AssetHierarchies {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AssetHierarchies -Value @($AssetHierarchies)
-                }
                 Tags {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                AssetHierarchies {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AssetHierarchies -Value @($AssetHierarchies)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

@@ -1,26 +1,21 @@
 function Add-VSIoTSiteWiseAssetAssetHierarchy {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::Asset.AssetHierarchy resource property to the template. Describes an asset hierarchy that contains a childAssetId and hierarchyLogicalId.
+        Adds an AWS::IoTSiteWise::Asset.AssetHierarchy resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::Asset.AssetHierarchy resource property to the template.
-Describes an asset hierarchy that contains a childAssetId and hierarchyLogicalId.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html
 
     .PARAMETER LogicalId
-        The LogicalID of the hierarchy. This ID is a hierarchyLogicalId.
-The maximum length is 256 characters, with the pattern ^u0000-u001Fu007F]+.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ChildAssetId
-        The Id of the child asset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,26 +1,22 @@
 function Add-VSIoTWirelessFuotaTaskLoRaWAN {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::FuotaTask.LoRaWAN resource property to the template. The LoRaWAN information used with a FUOTA task.
+        Adds an AWS::IoTWireless::FuotaTask.LoRaWAN resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::FuotaTask.LoRaWAN resource property to the template.
-The LoRaWAN information used with a FUOTA task.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-fuotatask-lorawan.html
 
-    .PARAMETER StartTime
-        Start time of a FUOTA task.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-fuotatask-lorawan.html#cfn-iotwireless-fuotatask-lorawan-starttime
+    .PARAMETER RfRegion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-fuotatask-lorawan.html#cfn-iotwireless-fuotatask-lorawan-rfregion
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RfRegion
-        The frequency band RFRegion value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-fuotatask-lorawan.html#cfn-iotwireless-fuotatask-lorawan-rfregion
+    .PARAMETER StartTime
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-fuotatask-lorawan.html#cfn-iotwireless-fuotatask-lorawan-starttime
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -31,17 +27,6 @@ The LoRaWAN information used with a FUOTA task.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $StartTime,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +37,18 @@ The LoRaWAN information used with a FUOTA task.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RfRegion
+        $RfRegion,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StartTime
     )
     Begin {
         $obj = [PSCustomObject]@{}

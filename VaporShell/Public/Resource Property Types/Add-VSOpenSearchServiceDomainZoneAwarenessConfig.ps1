@@ -1,19 +1,16 @@
 function Add-VSOpenSearchServiceDomainZoneAwarenessConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::OpenSearchService::Domain.ZoneAwarenessConfig resource property to the template. Specifies zone awareness configuration options. Only use if ZoneAwarenessEnabled is true.
+        Adds an AWS::OpenSearchService::Domain.ZoneAwarenessConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::OpenSearchService::Domain.ZoneAwarenessConfig resource property to the template.
-Specifies zone awareness configuration options. Only use if ZoneAwarenessEnabled is true.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-zoneawarenessconfig.html
 
     .PARAMETER AvailabilityZoneCount
-        If you enabled multiple Availability Zones AZs, the number of AZs that you want the domain to use.
-Valid values are 2 and 3. Default is 2.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-zoneawarenessconfig.html#cfn-opensearchservice-domain-zoneawarenessconfig-availabilityzonecount
         UpdateType: Mutable
         PrimitiveType: Integer

@@ -1,50 +1,41 @@
 function Add-VSTimestreamScheduledQueryMixedMeasureMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::ScheduledQuery.MixedMeasureMapping resource property to the template. MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
+        Adds an AWS::Timestream::ScheduledQuery.MixedMeasureMapping resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Timestream::ScheduledQuery.MixedMeasureMapping resource property to the template.
-MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html
 
     .PARAMETER MeasureName
-        Refers to the value of measure_name in a result row. This field is required if MeasureNameColumn is provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-measurename
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SourceColumn
-        This field refers to the source column from which measure-value is to be read for result materialization.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-sourcecolumn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER TargetMeasureName
-        Target measure name to be used. If not provided, the target measure name by default would be measure-name if provided, or sourceColumn otherwise.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-targetmeasurename
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER MeasureValueType
-        Type of the value that is to be read from sourceColumn. If the mapping is for MULTI, use MeasureValueType.MULTI.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-measurevaluetype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER MultiMeasureAttributeMappings
-        Required when measureValueType is MULTI. Attribute mappings for MULTI value measures.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-multimeasureattributemappings
         UpdateType: Immutable
         Type: List
         ItemType: MultiMeasureAttributeMapping
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

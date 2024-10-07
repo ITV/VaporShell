@@ -1,18 +1,16 @@
 function Add-VSWAFv2RuleGroupCaptchaConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.CaptchaConfig resource property to the template. Specifies how AWS WAF should handle CAPTCHA evaluations. This is available at the web ACL level and in each rule.
+        Adds an AWS::WAFv2::RuleGroup.CaptchaConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.CaptchaConfig resource property to the template.
-Specifies how AWS WAF should handle CAPTCHA evaluations. This is available at the web ACL level and in each rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-captchaconfig.html
 
     .PARAMETER ImmunityTimeProperty
-        Determines how long a CAPTCHA token remains valid after the client successfully solves a CAPTCHA puzzle.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-captchaconfig.html#cfn-wafv2-rulegroup-captchaconfig-immunitytimeproperty
         UpdateType: Mutable
         Type: ImmunityTimeProperty

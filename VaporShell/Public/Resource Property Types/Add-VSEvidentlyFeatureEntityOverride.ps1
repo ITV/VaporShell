@@ -1,25 +1,21 @@
 function Add-VSEvidentlyFeatureEntityOverride {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Feature.EntityOverride resource property to the template. A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+        Adds an AWS::Evidently::Feature.EntityOverride resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Evidently::Feature.EntityOverride resource property to the template.
-A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-entityoverride.html
 
     .PARAMETER EntityId
-        The entity ID to be served the variation specified in Variation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-entityoverride.html#cfn-evidently-feature-entityoverride-entityid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Variation
-        The name of the variation to serve to the user session that matches the EntityId.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-entityoverride.html#cfn-evidently-feature-entityoverride-variation
         UpdateType: Mutable
         PrimitiveType: String

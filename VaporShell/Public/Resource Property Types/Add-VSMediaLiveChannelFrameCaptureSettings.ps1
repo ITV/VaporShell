@@ -1,27 +1,26 @@
 function Add-VSMediaLiveChannelFrameCaptureSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.FrameCaptureSettings resource property to the template. The frame capture settings.
+        Adds an AWS::MediaLive::Channel.FrameCaptureSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.FrameCaptureSettings resource property to the template.
-The frame capture settings.
 
-The parent of this entity is VideoCodecSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html
 
-    .PARAMETER CaptureInterval
-        The frequency, in seconds, for capturing frames for inclusion in the output. For example, "10" means capture a frame every 10 seconds.
+    .PARAMETER TimecodeBurninSettings
+        Type: TimecodeBurninSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-timecodeburninsettings
+        UpdateType: Mutable
 
+    .PARAMETER CaptureInterval
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureinterval
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER CaptureIntervalUnits
-        Unit for the frame capture interval.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureintervalunits
         PrimitiveType: String
         UpdateType: Mutable
@@ -33,6 +32,8 @@ The parent of this entity is VideoCodecSettings.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $TimecodeBurninSettings,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

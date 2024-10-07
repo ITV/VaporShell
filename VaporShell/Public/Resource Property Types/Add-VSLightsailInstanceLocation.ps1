@@ -1,26 +1,22 @@
 function Add-VSLightsailInstanceLocation {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Instance.Location resource property to the template. Location is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the location for an instance.
+        Adds an AWS::Lightsail::Instance.Location resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Instance.Location resource property to the template.
-Location is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the location for an instance.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html
 
-    .PARAMETER AvailabilityZone
-        The Availability Zone for the instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html#cfn-lightsail-instance-location-availabilityzone
+    .PARAMETER RegionName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html#cfn-lightsail-instance-location-regionname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RegionName
-        The name of the AWS Region for the instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html#cfn-lightsail-instance-location-regionname
+    .PARAMETER AvailabilityZone
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html#cfn-lightsail-instance-location-availabilityzone
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Location is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AvailabilityZone,
+        $RegionName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Location is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RegionName
+        $AvailabilityZone
     )
     Begin {
         $obj = [PSCustomObject]@{}

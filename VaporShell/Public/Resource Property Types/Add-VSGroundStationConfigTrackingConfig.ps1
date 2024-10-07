@@ -1,18 +1,16 @@
 function Add-VSGroundStationConfigTrackingConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.TrackingConfig resource property to the template. Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+        Adds an AWS::GroundStation::Config.TrackingConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.TrackingConfig resource property to the template.
-Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html
 
     .PARAMETER Autotrack
-        Specifies whether or not to use autotrack. REMOVED specifies that program track should only be used during the contact. PREFERRED specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. REQUIRED specifies that autotracking is required during the contact and not to use program track if the signal is lost.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html#cfn-groundstation-config-trackingconfig-autotrack
         UpdateType: Mutable
         PrimitiveType: String

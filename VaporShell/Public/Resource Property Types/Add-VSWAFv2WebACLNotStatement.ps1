@@ -1,18 +1,16 @@
 function Add-VSWAFv2WebACLNotStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.NotStatement resource property to the template. A logical rule statement used to negate the results of another rule statement. You provide one Statement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement within the NotStatement.
+        Adds an AWS::WAFv2::WebACL.NotStatement resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.NotStatement resource property to the template.
-A logical rule statement used to negate the results of another rule statement. You provide one Statement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement within the NotStatement.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html
 
     .PARAMETER Statement
-        The statement to negate. You can use any statement that can be nested.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
         UpdateType: Mutable
         Type: Statement

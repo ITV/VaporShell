@@ -1,46 +1,36 @@
 function Add-VSIoTTopicRuleOpenSearchAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.OpenSearchAction resource property to the template. Describes an action that writes data to an Amazon OpenSearch Service domain.
+        Adds an AWS::IoT::TopicRule.OpenSearchAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.OpenSearchAction resource property to the template.
-Describes an action that writes data to an Amazon OpenSearch Service domain.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html
 
     .PARAMETER Type
-        The type of document you are storing.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-type
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Index
-        The OpenSearch index where you want to store your data.
+    .PARAMETER Endpoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-endpoint
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Index
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-index
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Id
-        The unique identifier for the document you are storing.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-id
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Endpoint
-        The endpoint of your OpenSearch domain.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-endpoint
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER RoleArn
-        The IAM role ARN that has access to OpenSearch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -73,6 +63,17 @@ Describes an action that writes data to an Amazon OpenSearch Service domain.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $Endpoint,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $Index,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -85,17 +86,6 @@ Describes an action that writes data to an Amazon OpenSearch Service domain.
                 }
             })]
         $Id,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Endpoint,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

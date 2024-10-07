@@ -1,41 +1,31 @@
 function Add-VSMediaLiveChannelHlsBasicPutSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.HlsBasicPutSettings resource property to the template. The configuration of HLS Basic Put Settings.
+        Adds an AWS::MediaLive::Channel.HlsBasicPutSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.HlsBasicPutSettings resource property to the template.
-The configuration of HLS Basic Put Settings.
 
-The parent of this entity is HlsCdnSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html
 
     .PARAMETER FilecacheDuration
-        The size, in seconds, of the file cache for streaming outputs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-filecacheduration
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER NumRetries
-        The number of retry attempts that MediaLive makes before the channel is put into an error state.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-numretries
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER RestartDelay
-        If a streaming output fails, the number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-restartdelay
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ConnectionRetryInterval
-        The number of seconds to wait before retrying a connection to the CDN if the connection is lost.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-connectionretryinterval
         PrimitiveType: Integer
         UpdateType: Mutable

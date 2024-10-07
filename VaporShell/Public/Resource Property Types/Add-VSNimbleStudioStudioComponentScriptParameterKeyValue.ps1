@@ -1,25 +1,21 @@
 function Add-VSNimbleStudioStudioComponentScriptParameterKeyValue {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::StudioComponent.ScriptParameterKeyValue resource property to the template. A parameter for a studio component script, in the form of a key:value pair.
+        Adds an AWS::NimbleStudio::StudioComponent.ScriptParameterKeyValue resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::StudioComponent.ScriptParameterKeyValue resource property to the template.
-A parameter for a studio component script, in the form of a key:value pair.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html
 
     .PARAMETER Value
-        A script parameter value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-value
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Key
-        A script parameter key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-key
         UpdateType: Mutable
         PrimitiveType: String

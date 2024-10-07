@@ -1,18 +1,16 @@
 function Add-VSLexBotObfuscationSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.ObfuscationSetting resource property to the template. Determines whether Amazon Lex obscures slot values in conversation logs.
+        Adds an AWS::Lex::Bot.ObfuscationSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.ObfuscationSetting resource property to the template.
-Determines whether Amazon Lex obscures slot values in conversation logs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-obfuscationsetting.html
 
     .PARAMETER ObfuscationSettingType
-        Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-obfuscationsetting.html#cfn-lex-bot-obfuscationsetting-obfuscationsettingtype
         UpdateType: Mutable
         PrimitiveType: String

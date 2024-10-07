@@ -1,25 +1,21 @@
 function Add-VSEFSFileSystemLifecyclePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::EFS::FileSystem.LifecyclePolicy resource property to the template. A policy used by EFS lifecycle management to transition files to the Infrequent Access (IA storage classes. For more information, see EFS Lifecycle Management: https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html in the *Amazon EFS User Guide*.
+        Adds an AWS::EFS::FileSystem.LifecyclePolicy resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EFS::FileSystem.LifecyclePolicy resource property to the template.
-A policy used by EFS lifecycle management to transition files to the Infrequent Access (IA storage classes. For more information, see EFS Lifecycle Management: https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html in the *Amazon EFS User Guide*.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
 
     .PARAMETER TransitionToIA
-        Describes the period of time that a file is not accessed, after which it transitions to IA storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TransitionToPrimaryStorageClass
-        Describes when to transition a file from IA storage to primary storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
         UpdateType: Mutable
         PrimitiveType: String

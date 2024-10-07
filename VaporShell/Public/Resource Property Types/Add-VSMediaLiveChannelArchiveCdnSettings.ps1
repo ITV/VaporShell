@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelArchiveCdnSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.ArchiveCdnSettings resource property to the template. Settings to configure the destination of an Archive output.
+        Adds an AWS::MediaLive::Channel.ArchiveCdnSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.ArchiveCdnSettings resource property to the template.
-Settings to configure the destination of an Archive output.
 
-The parent of this entity is ArchiveGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecdnsettings.html
 
     .PARAMETER ArchiveS3Settings
-        Sets up Amazon S3 as the destination for this Archive output.
-
         Type: ArchiveS3Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecdnsettings.html#cfn-medialive-channel-archivecdnsettings-archives3settings
         UpdateType: Mutable

@@ -1,32 +1,26 @@
 function Add-VSAppFlowFlowUpsolverDestinationProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.UpsolverDestinationProperties resource property to the template. The properties that are applied when Upsolver is used as a destination.
+        Adds an AWS::AppFlow::Flow.UpsolverDestinationProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.UpsolverDestinationProperties resource property to the template.
-The properties that are applied when Upsolver is used as a destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html
 
     .PARAMETER BucketName
-        The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BucketPrefix
-        The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketprefix
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3OutputFormatConfig
-        The configuration that determines how data is formatted when Upsolver is used as the flow destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
         UpdateType: Mutable
         Type: UpsolverS3OutputFormatConfig

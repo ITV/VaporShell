@@ -1,25 +1,21 @@
 function Add-VSLexBotAliasBotAliasLocaleSettingsItem {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.BotAliasLocaleSettingsItem resource property to the template. Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        Adds an AWS::Lex::BotAlias.BotAliasLocaleSettingsItem resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.BotAliasLocaleSettingsItem resource property to the template.
-Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html
 
     .PARAMETER LocaleId
-        The unique identifier of the locale.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-localeid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BotAliasLocaleSetting
-        Specifies settings that are unique to a locale.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-botaliaslocalesetting
         UpdateType: Mutable
         Type: BotAliasLocaleSettings

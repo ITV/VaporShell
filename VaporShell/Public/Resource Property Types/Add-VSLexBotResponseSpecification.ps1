@@ -1,26 +1,23 @@
 function Add-VSLexBotResponseSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.ResponseSpecification resource property to the template. Specifies a list of message groups that Amazon Lex uses to respond to user input.
+        Adds an AWS::Lex::Bot.ResponseSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.ResponseSpecification resource property to the template.
-Specifies a list of message groups that Amazon Lex uses to respond to user input.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html
 
     .PARAMETER MessageGroupsList
-        A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html#cfn-lex-bot-responsespecification-messagegroupslist
         UpdateType: Mutable
         Type: List
         ItemType: MessageGroup
+        DuplicatesAllowed: True
 
     .PARAMETER AllowInterrupt
-        Indicates whether the user can interrupt a speech response from Amazon Lex.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html#cfn-lex-bot-responsespecification-allowinterrupt
         UpdateType: Mutable
         PrimitiveType: Boolean

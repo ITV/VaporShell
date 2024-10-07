@@ -1,18 +1,16 @@
 function Add-VSSageMakerMonitoringScheduleStatisticsResource {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.StatisticsResource resource property to the template. The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
+        Adds an AWS::SageMaker::MonitoringSchedule.StatisticsResource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.StatisticsResource resource property to the template.
-The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
 
     .PARAMETER S3Uri
-        The S3 URI for the statistics resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
         UpdateType: Mutable
         PrimitiveType: String

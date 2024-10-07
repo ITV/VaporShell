@@ -1,61 +1,53 @@
 function Add-VSMediaPackagePackagingConfigurationDashPackage {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingConfiguration.DashPackage resource property to the template. Parameters for a packaging configuration that uses Dynamic Adaptive Streaming over HTTP (DASH packaging.
+        Adds an AWS::MediaPackage::PackagingConfiguration.DashPackage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::PackagingConfiguration.DashPackage resource property to the template.
-Parameters for a packaging configuration that uses Dynamic Adaptive Streaming over HTTP (DASH packaging.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html
 
-    .PARAMETER DashManifests
-        A list of DASH manifest configurations that are available from this endpoint.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
-        UpdateType: Mutable
-        Type: List
-        ItemType: DashManifest
-
-    .PARAMETER Encryption
-        Parameters for encrypting content.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
-        UpdateType: Mutable
-        Type: DashEncryption
-
     .PARAMETER PeriodTriggers
-        Controls whether MediaPackage produces single-period or multi-period DASH manifests. For more information about periods, see Multi-period DASH in AWS Elemental MediaPackage: https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html.
-Valid values:
-+  **ADS** - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.
-+  *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER IncludeIframeOnlyStream
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeiframeonlystream
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER SegmentDurationSeconds
-        Duration in seconds of each fragment. Actual fragments are rounded to the nearest multiple of the source segment duration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER SegmentTemplateFormat
-        Determines the type of SegmentTemplate included in the Media Presentation Description MPD. When set to **NUMBER_WITH_TIMELINE**, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to **TIME_WITH_TIMELINE**, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to **NUMBER_WITH_DURATION**, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+    .PARAMETER Encryption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
+        UpdateType: Mutable
+        Type: DashEncryption
 
+    .PARAMETER SegmentTemplateFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER IncludeEncoderConfigurationInSegments
-        When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set SPS, Picture Parameter Set PPS, and Video Parameter Set VPS metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
         UpdateType: Mutable
         PrimitiveType: Boolean
+
+    .PARAMETER DashManifests
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
+        UpdateType: Mutable
+        Type: List
+        ItemType: DashManifest
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -64,9 +56,11 @@ Valid values:
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        $PeriodTriggers,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.MediaPackage.PackagingConfiguration.DashManifest"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -74,11 +68,7 @@ Valid values:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DashManifests,
-        [parameter(Mandatory = $false)]
-        $Encryption,
-        [parameter(Mandatory = $false)]
-        $PeriodTriggers,
+        $IncludeIframeOnlyStream,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -90,6 +80,8 @@ Valid values:
                 }
             })]
         $SegmentDurationSeconds,
+        [parameter(Mandatory = $false)]
+        $Encryption,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -111,7 +103,18 @@ Valid values:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IncludeEncoderConfigurationInSegments
+        $IncludeEncoderConfigurationInSegments,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.MediaPackage.PackagingConfiguration.DashManifest"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DashManifests
     )
     Begin {
         $obj = [PSCustomObject]@{}

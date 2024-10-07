@@ -1,46 +1,36 @@
 function Add-VSIoTAnalyticsPipelineDeviceShadowEnrich {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich resource property to the template. An activity that adds information from the AWS IoT Device Shadows service to a message.
+        Adds an AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich resource property to the template.
-An activity that adds information from the AWS IoT Device Shadows service to a message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html
 
     .PARAMETER Attribute
-        The name of the attribute that is added to the message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-attribute
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Next
-        The next activity in the pipeline.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-next
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ThingName
-        The name of the IoT device whose shadow information is added to the message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-thingname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the role that allows access to the device's shadow.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the 'deviceShadowEnrich' activity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-name
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,18 +1,21 @@
 function Add-VSSageMakerMonitoringScheduleMonitoringInput {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.MonitoringInput resource property to the template. The inputs for a monitoring job.
+        Adds an AWS::SageMaker::MonitoringSchedule.MonitoringInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.MonitoringInput resource property to the template.
-The inputs for a monitoring job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
 
-    .PARAMETER EndpointInput
-        The endpoint for a monitoring job.
+    .PARAMETER BatchTransformInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-batchtransforminput
+        UpdateType: Mutable
+        Type: BatchTransformInput
 
+    .PARAMETER EndpointInput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
         UpdateType: Mutable
         Type: EndpointInput
@@ -24,7 +27,9 @@ The inputs for a monitoring job.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        $BatchTransformInput,
+        [parameter(Mandatory = $false)]
         $EndpointInput
     )
     Begin {

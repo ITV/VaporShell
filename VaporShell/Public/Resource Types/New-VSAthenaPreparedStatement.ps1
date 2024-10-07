@@ -1,10 +1,10 @@
 function New-VSAthenaPreparedStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::Athena::PreparedStatement resource to the template. Specifies a prepared statement for use with SQL queries in Athena.
+        Adds an AWS::Athena::PreparedStatement resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Athena::PreparedStatement resource to the template. Specifies a prepared statement for use with SQL queries in Athena.
+        Adds an AWS::Athena::PreparedStatement resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html
@@ -13,29 +13,21 @@ function New-VSAthenaPreparedStatement {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER StatementName
-        The name of the prepared statement.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER WorkGroup
-        The workgroup to which the prepared statement belongs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Description
-        The description of the prepared statement.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER QueryStatement
-        The query string for the prepared statement.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
         UpdateType: Mutable
         PrimitiveType: String

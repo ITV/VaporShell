@@ -1,18 +1,16 @@
 function Add-VSLexBotAliasTextLogDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.TextLogDestination resource property to the template. Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+        Adds an AWS::Lex::BotAlias.TextLogDestination resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.TextLogDestination resource property to the template.
-Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogdestination.html
 
     .PARAMETER CloudWatch
-        Defines the Amazon CloudWatch Logs log group where text and metadata logs are delivered.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogdestination.html#cfn-lex-botalias-textlogdestination-cloudwatch
         UpdateType: Mutable
         Type: CloudWatchLogGroupLogDestination

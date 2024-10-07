@@ -1,25 +1,21 @@
 function Add-VSACMPCACertificateAuthorityOtherName {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::CertificateAuthority.OtherName resource property to the template. Defines a custom ASN.1 X.400 GeneralName using an object identifier (OID and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of Object Identifier (OID: https://csrc.nist.gov/glossary/term/Object_Identifier.
+        Adds an AWS::ACMPCA::CertificateAuthority.OtherName resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::CertificateAuthority.OtherName resource property to the template.
-Defines a custom ASN.1 X.400 GeneralName using an object identifier (OID and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of Object Identifier (OID: https://csrc.nist.gov/glossary/term/Object_Identifier.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html
 
     .PARAMETER TypeId
-        Specifies an OID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Value
-        Specifies an OID value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-value
         UpdateType: Immutable
         PrimitiveType: String

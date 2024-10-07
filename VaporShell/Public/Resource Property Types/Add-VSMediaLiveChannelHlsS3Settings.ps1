@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelHlsS3Settings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.HlsS3Settings resource property to the template. Sets up Amazon S3 as the destination for this HLS output.
+        Adds an AWS::MediaLive::Channel.HlsS3Settings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.HlsS3Settings resource property to the template.
-Sets up Amazon S3 as the destination for this HLS output.
 
-The parent of this entity is HlsCdnSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlss3settings.html
 
     .PARAMETER CannedAcl
-        Specify the canned ACL to apply to each S3 request. Defaults to none.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlss3settings.html#cfn-medialive-channel-hlss3settings-cannedacl
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelVideoSelectorColorSpaceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.VideoSelectorColorSpaceSettings resource property to the template. Settings to configure color space settings in the incoming video.
+        Adds an AWS::MediaLive::Channel.VideoSelectorColorSpaceSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.VideoSelectorColorSpaceSettings resource property to the template.
-Settings to configure color space settings in the incoming video.
 
-The parent of this entity is VideoSelector.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorcolorspacesettings.html
 
     .PARAMETER Hdr10Settings
-        Settings to configure color space settings in the incoming video.
-
         Type: Hdr10Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorcolorspacesettings.html#cfn-medialive-channel-videoselectorcolorspacesettings-hdr10settings
         UpdateType: Mutable

@@ -1,22 +1,21 @@
 function Add-VSNetworkFirewallLoggingConfigurationLoggingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::LoggingConfiguration.LoggingConfiguration resource property to the template. Defines how AWS Network Firewall performs logging for a AWS::NetworkFirewall::Firewall: aws-resource-networkfirewall-firewall.md.
+        Adds an AWS::NetworkFirewall::LoggingConfiguration.LoggingConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::LoggingConfiguration.LoggingConfiguration resource property to the template.
-Defines how AWS Network Firewall performs logging for a AWS::NetworkFirewall::Firewall: aws-resource-networkfirewall-firewall.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html
 
     .PARAMETER LogDestinationConfigs
-        Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
         UpdateType: Mutable
         Type: List
         ItemType: LogDestinationConfig
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

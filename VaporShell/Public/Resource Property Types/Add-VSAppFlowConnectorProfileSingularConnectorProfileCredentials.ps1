@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileSingularConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.SingularConnectorProfileCredentials resource property to the template. The SingularConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Singular.
+        Adds an AWS::AppFlow::ConnectorProfile.SingularConnectorProfileCredentials resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.SingularConnectorProfileCredentials resource property to the template.
-The SingularConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Singular.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html
 
     .PARAMETER ApiKey
-        A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey
         UpdateType: Mutable
         PrimitiveType: String

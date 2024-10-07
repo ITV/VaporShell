@@ -1,27 +1,26 @@
 function Add-VSMediaLiveChannelNielsenNaesIiNw {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.NielsenNaesIiNw resource property to the template. Complete these fields only if you want to insert watermarks of type Nielsen NAES II (N2 and Nielsen NAES VI (NW.
+        Adds an AWS::MediaLive::Channel.NielsenNaesIiNw resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.NielsenNaesIiNw resource property to the template.
-Complete these fields only if you want to insert watermarks of type Nielsen NAES II (N2 and Nielsen NAES VI (NW.
 
-The parent of this entity is NielsenWatermarksSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html
 
-    .PARAMETER CheckDigitString
-        Enter the check digit string for the watermark
+    .PARAMETER Timezone
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-timezone
+        PrimitiveType: String
+        UpdateType: Mutable
 
+    .PARAMETER CheckDigitString
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-checkdigitstring
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Sid
-        Enter the Nielsen Source ID SID to include in the watermark
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-sid
         PrimitiveType: Double
         UpdateType: Mutable
@@ -33,6 +32,17 @@ The parent of this entity is NielsenWatermarksSettings.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Timezone,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

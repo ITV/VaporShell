@@ -1,26 +1,22 @@
 function Add-VSECRReplicationConfigurationRepositoryFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::ReplicationConfiguration.RepositoryFilter resource property to the template. The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no repository filter is specified, all images in the repository are replicated.
+        Adds an AWS::ECR::ReplicationConfiguration.RepositoryFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECR::ReplicationConfiguration.RepositoryFilter resource property to the template.
-The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no repository filter is specified, all images in the repository are replicated.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html
 
-    .PARAMETER Filter
-        The repository filter details. When the PREFIX_MATCH filter type is specified, this value is required and should be the repository name prefix to configure replication for.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html#cfn-ecr-replicationconfiguration-repositoryfilter-filter
+    .PARAMETER FilterType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html#cfn-ecr-replicationconfiguration-repositoryfilter-filtertype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER FilterType
-        The repository filter type. The only supported value is PREFIX_MATCH, which is a repository name prefix specified with the filter parameter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html#cfn-ecr-replicationconfiguration-repositoryfilter-filtertype
+    .PARAMETER Filter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html#cfn-ecr-replicationconfiguration-repositoryfilter-filter
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ The filter settings used with image replication. Specifying a repository filter 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Filter,
+        $FilterType,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ The filter settings used with image replication. Specifying a repository filter 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FilterType
+        $Filter
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelKeyProviderSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.KeyProviderSettings resource property to the template. The configuration of key provider settings.
+        Adds an AWS::MediaLive::Channel.KeyProviderSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.KeyProviderSettings resource property to the template.
-The configuration of key provider settings.
 
-The parent of this entity is HlsGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-keyprovidersettings.html
 
     .PARAMETER StaticKeySettings
-        The configuration of static key settings.
-
         Type: StaticKeySettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-keyprovidersettings.html#cfn-medialive-channel-keyprovidersettings-statickeysettings
         UpdateType: Mutable

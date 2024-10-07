@@ -1,25 +1,27 @@
 function Add-VSSageMakerEndpointConfigAsyncInferenceNotificationConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceNotificationConfig resource property to the template. Specifies the configuration for notifications of inference results for asynchronous inference.
+        Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceNotificationConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceNotificationConfig resource property to the template.
-Specifies the configuration for notifications of inference results for asynchronous inference.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html
 
-    .PARAMETER SuccessTopic
-        Amazon SNS topic to post a notification to when an inference completes successfully. If no topic is provided, no notification is sent on success.
+    .PARAMETER IncludeInferenceResponseIn
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-includeinferenceresponsein
+        UpdateType: Immutable
 
+    .PARAMETER SuccessTopic
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-successtopic
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ErrorTopic
-        Amazon SNS topic to post a notification to when an inference fails. If no topic is provided, no notification is sent on failure.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-errortopic
         PrimitiveType: String
         UpdateType: Immutable
@@ -31,6 +33,8 @@ Specifies the configuration for notifications of inference results for asynchron
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $IncludeInferenceResponseIn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

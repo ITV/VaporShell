@@ -1,25 +1,21 @@
 function Add-VSKafkaConnectConnectorFirehoseLogDelivery {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.FirehoseLogDelivery resource property to the template. The settings for delivering logs to Amazon Kinesis Data Firehose.
+        Adds an AWS::KafkaConnect::Connector.FirehoseLogDelivery resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.FirehoseLogDelivery resource property to the template.
-The settings for delivering logs to Amazon Kinesis Data Firehose.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-firehoselogdelivery.html
 
     .PARAMETER DeliveryStream
-        The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-firehoselogdelivery.html#cfn-kafkaconnect-connector-firehoselogdelivery-deliverystream
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Enabled
-        Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-firehoselogdelivery.html#cfn-kafkaconnect-connector-firehoselogdelivery-enabled
         UpdateType: Immutable
         PrimitiveType: Boolean

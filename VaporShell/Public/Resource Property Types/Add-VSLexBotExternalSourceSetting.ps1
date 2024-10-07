@@ -1,18 +1,16 @@
 function Add-VSLexBotExternalSourceSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.ExternalSourceSetting resource property to the template. Provides information about the external source of the slot type's definition.
+        Adds an AWS::Lex::Bot.ExternalSourceSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.ExternalSourceSetting resource property to the template.
-Provides information about the external source of the slot type's definition.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-externalsourcesetting.html
 
     .PARAMETER GrammarSlotTypeSetting
-        Settings required for a slot type based on a grammar that you provide.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-externalsourcesetting.html#cfn-lex-bot-externalsourcesetting-grammarslottypesetting
         UpdateType: Mutable
         Type: GrammarSlotTypeSetting

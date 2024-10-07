@@ -1,39 +1,31 @@
 function Add-VSQuickSightThemeThemeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.ThemeConfiguration resource property to the template. The theme configuration. This configuration contains all of the display properties for a theme.
+        Adds an AWS::QuickSight::Theme.ThemeConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.ThemeConfiguration resource property to the template.
-The theme configuration. This configuration contains all of the display properties for a theme.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html
 
     .PARAMETER DataColorPalette
-        Color properties that apply to chart data colors.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-datacolorpalette
         UpdateType: Mutable
         Type: DataColorPalette
 
     .PARAMETER UIColorPalette
-        Color properties that apply to the UI and to charts, excluding the colors that apply to data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-uicolorpalette
         UpdateType: Mutable
         Type: UIColorPalette
 
     .PARAMETER Sheet
-        Display options related to sheets.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet
         UpdateType: Mutable
         Type: SheetStyle
 
     .PARAMETER Typography
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography
         UpdateType: Mutable
         Type: Typography

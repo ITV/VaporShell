@@ -1,20 +1,16 @@
 function Add-VSWAFv2WebACLFieldIdentifier {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.FieldIdentifier resource property to the template. The identifier of the username or password field, used in the ManagedRuleGroupConfig settings.
+        Adds an AWS::WAFv2::WebACL.FieldIdentifier resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.FieldIdentifier resource property to the template.
-The identifier of the username or password field, used in the ManagedRuleGroupConfig settings.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldidentifier.html
 
     .PARAMETER Identifier
-        The name of the username or password field, used in the ManagedRuleGroupConfig settings.
-When the PayloadType is JSON, the identifier must be in JSON pointer syntax. For example /form/username. For information about the JSON Pointer syntax, see the Internet Engineering Task Force IETF documentation JavaScript Object Notation JSON Pointer: https://tools.ietf.org/html/rfc6901.
-When the PayloadType is FORM_ENCODED, use the HTML form names. For example, username.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldidentifier.html#cfn-wafv2-webacl-fieldidentifier-identifier
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,22 +1,21 @@
 function Add-VSQuickSightDataSetCreateColumnsOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.CreateColumnsOperation resource property to the template. A transform operation that creates calculated columns. Columns created in one such operation form a lexical closure.
+        Adds an AWS::QuickSight::DataSet.CreateColumnsOperation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.CreateColumnsOperation resource property to the template.
-A transform operation that creates calculated columns. Columns created in one such operation form a lexical closure.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html
 
     .PARAMETER Columns
-        Calculated columns to create.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns
         UpdateType: Mutable
         Type: List
         ItemType: CalculatedColumn
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

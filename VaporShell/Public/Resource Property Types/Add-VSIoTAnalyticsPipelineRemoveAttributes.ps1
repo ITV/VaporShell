@@ -1,25 +1,21 @@
 function Add-VSIoTAnalyticsPipelineRemoveAttributes {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Pipeline.RemoveAttributes resource property to the template. An activity that removes attributes from a message.
+        Adds an AWS::IoTAnalytics::Pipeline.RemoveAttributes resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Pipeline.RemoveAttributes resource property to the template.
-An activity that removes attributes from a message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html
 
     .PARAMETER Next
-        The next activity in the pipeline.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-next
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Attributes
-        A list of 1-50 attributes to remove from the message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-attributes
         UpdateType: Mutable
         Type: List
@@ -27,8 +23,6 @@ An activity that removes attributes from a message.
         DuplicatesAllowed: True
 
     .PARAMETER Name
-        The name of the 'removeAttributes' activity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-name
         UpdateType: Mutable
         PrimitiveType: String

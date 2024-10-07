@@ -1,18 +1,16 @@
 function Add-VSCloudFrontResponseHeadersPolicyCustomHeadersConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy.CustomHeadersConfig resource property to the template. A list of HTTP response header names and their values. CloudFront includes these headers in HTTP responses that it sends for requests that match a cache behavior that’s associated with this response headers policy.
+        Adds an AWS::CloudFront::ResponseHeadersPolicy.CustomHeadersConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ResponseHeadersPolicy.CustomHeadersConfig resource property to the template.
-A list of HTTP response header names and their values. CloudFront includes these headers in HTTP responses that it sends for requests that match a cache behavior that’s associated with this response headers policy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html
 
     .PARAMETER Items
-        The list of HTTP response headers and their values.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html#cfn-cloudfront-responseheaderspolicy-customheadersconfig-items
         UpdateType: Mutable
         Type: List

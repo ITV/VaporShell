@@ -1,10 +1,10 @@
 function New-VSSageMakerDevice {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Device resource to the template. The AWS::SageMaker::Device resource is an Amazon SageMaker resource type that allows you to register your Devices against an existing SageMaker Edge Manager DeviceFleet. Each device must be listed individually in the CFN specification.
+        Adds an AWS::SageMaker::Device resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::Device resource to the template. The AWS::SageMaker::Device resource is an Amazon SageMaker resource type that allows you to register your Devices against an existing SageMaker Edge Manager DeviceFleet. Each device must be listed individually in the CFN specification.
+        Adds an AWS::SageMaker::Device resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
@@ -13,26 +13,21 @@ function New-VSSageMakerDevice {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DeviceFleetName
-        The name of the fleet the device belongs to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Device
-        Edge device you want to create.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
         UpdateType: Mutable
         Type: Device
 
     .PARAMETER Tags
-        An array of key-value pairs that contain metadata to help you categorize and organize your devices. Each tag consists of a key and a value, both of which you define.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

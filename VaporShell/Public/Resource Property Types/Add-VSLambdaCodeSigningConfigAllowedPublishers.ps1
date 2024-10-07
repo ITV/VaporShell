@@ -1,22 +1,21 @@
 function Add-VSLambdaCodeSigningConfigAllowedPublishers {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::CodeSigningConfig.AllowedPublishers resource property to the template. List of signing profiles that can sign a code package.
+        Adds an AWS::Lambda::CodeSigningConfig.AllowedPublishers resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lambda::CodeSigningConfig.AllowedPublishers resource property to the template.
-List of signing profiles that can sign a code package.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html
 
     .PARAMETER SigningProfileVersionArns
-        The Amazon Resource Name ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

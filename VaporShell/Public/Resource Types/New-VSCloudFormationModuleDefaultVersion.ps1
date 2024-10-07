@@ -1,14 +1,10 @@
 function New-VSCloudFormationModuleDefaultVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::ModuleDefaultVersion resource to the template. Specifies the default version of a module. The default version of the module will be used in CloudFormation operations for this account and Region.
+        Adds an AWS::CloudFormation::ModuleDefaultVersion resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFormation::ModuleDefaultVersion resource to the template. Specifies the default version of a module. The default version of the module will be used in CloudFormation operations for this account and Region.
-
-To register a module version, use the AWS::CloudFormation::ModuleVersion: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html resource.
-
-For more information using modules, see Using modules to encapsulate and reuse resource configurations: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html and Registering extensions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-register in the *CloudFormation User Guide*. For information on developing modules, see Developing modules: https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/modules.html in the *CloudFormation CLI User Guide*.
+        Adds an AWS::CloudFormation::ModuleDefaultVersion resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
@@ -16,27 +12,18 @@ For more information using modules, see Using modules to encapsulate and reuse r
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Arn
-        The Amazon Resource Name ARN of the module version to set as the default version.
-Conditional: You must specify either Arn, or ModuleName and VersionId.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+    .PARAMETER VersionId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ModuleName
-        The name of the module.
-Conditional: You must specify either Arn, or ModuleName and VersionId.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER VersionId
-        The ID for the specific version of the module.
-Conditional: You must specify either Arn, or ModuleName and VersionId.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+    .PARAMETER Arn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -112,7 +99,7 @@ Conditional: You must specify either Arn, or ModuleName and VersionId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Arn,
+        $VersionId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -134,7 +121,7 @@ Conditional: You must specify either Arn, or ModuleName and VersionId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VersionId,
+        $Arn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

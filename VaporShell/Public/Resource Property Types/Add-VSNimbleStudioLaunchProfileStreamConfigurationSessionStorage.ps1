@@ -1,29 +1,26 @@
 function Add-VSNimbleStudioLaunchProfileStreamConfigurationSessionStorage {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::LaunchProfile.StreamConfigurationSessionStorage resource property to the template. The configuration for a streaming session’s upload storage.
+        Adds an AWS::NimbleStudio::LaunchProfile.StreamConfigurationSessionStorage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::LaunchProfile.StreamConfigurationSessionStorage resource property to the template.
-The configuration for a streaming session’s upload storage.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfigurationsessionstorage.html
 
     .PARAMETER Root
-        The configuration for the upload storage root of the streaming session.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfigurationsessionstorage.html#cfn-nimblestudio-launchprofile-streamconfigurationsessionstorage-root
         UpdateType: Mutable
         Type: StreamingSessionStorageRoot
 
     .PARAMETER Mode
-        Allows artists to upload files to their workstations. The only valid option is UPLOAD.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfigurationsessionstorage.html#cfn-nimblestudio-launchprofile-streamconfigurationsessionstorage-mode
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,30 +1,26 @@
 function Add-VSKinesisFirehoseDeliveryStreamProcessor {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.Processor resource property to the template. The Processor property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        Adds an AWS::KinesisFirehose::DeliveryStream.Processor resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.Processor resource property to the template.
-The Processor property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html
 
-    .PARAMETER Parameters
-        The processor parameters.
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Parameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters
         UpdateType: Mutable
         Type: List
         ItemType: ProcessorParameter
         DuplicatesAllowed: False
-
-    .PARAMETER Type
-        The type of processor. Valid values: Lambda.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,17 +29,6 @@ The Processor property specifies a data processor for an Amazon Kinesis Data Fir
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.KinesisFirehose.DeliveryStream.ProcessorParameter"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Parameters,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -54,7 +39,18 @@ The Processor property specifies a data processor for an Amazon Kinesis Data Fir
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Type
+        $Type,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.KinesisFirehose.DeliveryStream.ProcessorParameter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Parameters
     )
     Begin {
         $obj = [PSCustomObject]@{}

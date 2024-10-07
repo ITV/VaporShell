@@ -1,42 +1,34 @@
 function Add-VSImageBuilderContainerRecipeInstanceBlockDeviceMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ContainerRecipe.InstanceBlockDeviceMapping resource property to the template. Defines block device mappings for the instance used to configure your image.
+        Adds an AWS::ImageBuilder::ContainerRecipe.InstanceBlockDeviceMapping resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::ContainerRecipe.InstanceBlockDeviceMapping resource property to the template.
-Defines block device mappings for the instance used to configure your image.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
 
-    .PARAMETER DeviceName
-        The device to which these mappings apply.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+    .PARAMETER Ebs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
         UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER VirtualName
-        Use to manage instance ephemeral devices.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
-        UpdateType: Immutable
-        PrimitiveType: String
+        Type: EbsInstanceBlockDeviceSpecification
 
     .PARAMETER NoDevice
-        Use to remove a mapping from the base image.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Ebs
-        Use to manage Amazon EBS-specific configuration for this mapping.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+    .PARAMETER VirtualName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
         UpdateType: Immutable
-        Type: EbsInstanceBlockDeviceSpecification
+        PrimitiveType: String
+
+    .PARAMETER DeviceName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -45,6 +37,8 @@ Defines block device mappings for the instance used to configure your image.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $Ebs,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -55,7 +49,7 @@ Defines block device mappings for the instance used to configure your image.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DeviceName,
+        $NoDevice,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -77,9 +71,7 @@ Defines block device mappings for the instance used to configure your image.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $NoDevice,
-        [parameter(Mandatory = $false)]
-        $Ebs
+        $DeviceName
     )
     Begin {
         $obj = [PSCustomObject]@{}

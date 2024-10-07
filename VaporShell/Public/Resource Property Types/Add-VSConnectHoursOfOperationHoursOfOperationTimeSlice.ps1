@@ -1,25 +1,21 @@
 function Add-VSConnectHoursOfOperationHoursOfOperationTimeSlice {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice resource property to the template. The start time or end time for an hours of operation.
+        Adds an AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice resource property to the template.
-The start time or end time for an hours of operation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html
 
     .PARAMETER Hours
-        The hours.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html#cfn-connect-hoursofoperation-hoursofoperationtimeslice-hours
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Minutes
-        The minutes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html#cfn-connect-hoursofoperation-hoursofoperationtimeslice-minutes
         UpdateType: Mutable
         PrimitiveType: Integer

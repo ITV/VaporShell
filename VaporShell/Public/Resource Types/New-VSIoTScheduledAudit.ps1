@@ -1,10 +1,10 @@
 function New-VSIoTScheduledAudit {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::ScheduledAudit resource to the template. Use the AWS::IoT::ScheduledAudit resource to create a scheduled audit that is run at a specified time interval. For API reference, see CreateScheduleAudit: https://docs.aws.amazon.com/iot/latest/apireference/API_CreateScheduledAudit.html and for general information, see Audit: https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit.html.
+        Adds an AWS::IoT::ScheduledAudit resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::ScheduledAudit resource to the template. Use the AWS::IoT::ScheduledAudit resource to create a scheduled audit that is run at a specified time interval. For API reference, see CreateScheduleAudit: https://docs.aws.amazon.com/iot/latest/apireference/API_CreateScheduledAudit.html and for general information, see Audit: https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit.html.
+        Adds an AWS::IoT::ScheduledAudit resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html
@@ -12,61 +12,34 @@ function New-VSIoTScheduledAudit {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ScheduledAuditName
-        The name of the scheduled audit.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-scheduledauditname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Frequency
-        How often the scheduled audit occurs.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-frequency
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER DayOfMonth
-        The day of the month on which the scheduled audit is run if the frequency is "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofmonth
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER DayOfWeek
-        The day of the week on which the scheduled audit is run if the frequency is "WEEKLY" or "BIWEEKLY".
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofweek
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TargetCheckNames
-        Which checks are performed during the scheduled audit. Checks must be enabled for your account. Use DescribeAccountAuditConfiguration to see the list of all checks, including those that are enabled or use UpdateAccountAuditConfiguration to select which checks are enabled.
-The following checks are currently aviable:
-+ AUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK
-+ CA_CERTIFICATE_EXPIRING_CHECK
-+ CA_CERTIFICATE_KEY_QUALITY_CHECK
-+ CONFLICTING_CLIENT_IDS_CHECK
-+ DEVICE_CERTIFICATE_EXPIRING_CHECK
-+ DEVICE_CERTIFICATE_KEY_QUALITY_CHECK
-+ DEVICE_CERTIFICATE_SHARED_CHECK
-+ IOT_POLICY_OVERLY_PERMISSIVE_CHECK
-+ IOT_ROLE_ALIAS_ALLOWS_ACCESS_TO_UNUSED_SERVICES_CHECK
-+ IOT_ROLE_ALIAS_OVERLY_PERMISSIVE_CHECK
-+ LOGGING_DISABLED_CHECK
-+ REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK
-+ REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK
-+ UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-targetchecknames
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER Tags
-        Metadata that can be used to manage the scheduled audit.
+    .PARAMETER ScheduledAuditName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-scheduledauditname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER DayOfMonth
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofmonth
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Frequency
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-frequency
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-tags
         UpdateType: Mutable
         Type: List
@@ -145,8 +118,10 @@ The following checks are currently aviable:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ScheduledAuditName,
+        $DayOfWeek,
         [parameter(Mandatory = $true)]
+        $TargetCheckNames,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -156,7 +131,7 @@ The following checks are currently aviable:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Frequency,
+        $ScheduledAuditName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -168,7 +143,7 @@ The following checks are currently aviable:
                 }
             })]
         $DayOfMonth,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -178,9 +153,7 @@ The following checks are currently aviable:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DayOfWeek,
-        [parameter(Mandatory = $true)]
-        $TargetCheckNames,
+        $Frequency,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

@@ -1,18 +1,16 @@
 function Add-VSQuickSightDashboardSheetControlsOption {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.SheetControlsOption resource property to the template. Sheet controls option.
+        Adds an AWS::QuickSight::Dashboard.SheetControlsOption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.SheetControlsOption resource property to the template.
-Sheet controls option.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html
 
     .PARAMETER VisibilityState
-        Visibility state.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
         UpdateType: Mutable
         PrimitiveType: String

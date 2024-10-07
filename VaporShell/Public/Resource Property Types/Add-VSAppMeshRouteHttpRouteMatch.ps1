@@ -1,61 +1,47 @@
 function Add-VSAppMeshRouteHttpRouteMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.HttpRouteMatch resource property to the template. An object that represents the requirements for a route to match HTTP requests for a virtual router.
+        Adds an AWS::AppMesh::Route.HttpRouteMatch resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.HttpRouteMatch resource property to the template.
-An object that represents the requirements for a route to match HTTP requests for a virtual router.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html
 
     .PARAMETER Path
-        The client request path to match on.
-
         Type: HttpPathMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-path
         UpdateType: Mutable
 
     .PARAMETER Scheme
-        The client request scheme to match on. Specify only one. Applicable only for HTTP2 routes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-scheme
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Headers
-        The client request headers to match on.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-headers
         ItemType: HttpRouteHeader
         UpdateType: Mutable
 
     .PARAMETER Port
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-port
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Prefix
-        Specifies the path to match requests with. This parameter must always start with /, which by itself matches all requests to the virtual service name. You can also match for path-based routing of requests. For example, if your virtual service name is my-service.local and you want the route to match requests to my-service.local/metrics, your prefix should be /metrics.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-prefix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Method
-        The client request method to match on. Specify only one.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-method
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER QueryParameters
-        The client request query parameters to match on.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-queryparameters
         ItemType: QueryParameter

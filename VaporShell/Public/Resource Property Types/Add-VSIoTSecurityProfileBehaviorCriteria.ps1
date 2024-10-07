@@ -1,67 +1,49 @@
 function Add-VSIoTSecurityProfileBehaviorCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::SecurityProfile.BehaviorCriteria resource property to the template. The criteria by which the behavior is determined to be normal.
+        Adds an AWS::IoT::SecurityProfile.BehaviorCriteria resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::SecurityProfile.BehaviorCriteria resource property to the template.
-The criteria by which the behavior is determined to be normal.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html
 
     .PARAMETER ComparisonOperator
-        The operator that relates the thing measured metric to the criteria containing a value or statisticalThreshold. Valid operators include:
-+  string-list: in-set and not-in-set
-+  number-list: in-set and not-in-set
-+  ip-address-list: in-cidr-set and not-in-cidr-set
-+  number: less-than, less-than-equals, greater-than, and greater-than-equals
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The value to be compared with the metric.
+    .PARAMETER MlDetectionConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
+        UpdateType: Mutable
+        Type: MachineLearningDetectionConfig
 
+    .PARAMETER Value
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value
         UpdateType: Mutable
         Type: MetricValue
 
-    .PARAMETER DurationSeconds
-        Use this to specify the time duration over which the behavior is evaluated, for those criteria that have a time dimension for example, NUM_MESSAGES_SENT. For a statisticalThreshhold metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank. Cannot be used with list-based metric datatypes.
+    .PARAMETER StatisticalThreshold
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
+        UpdateType: Mutable
+        Type: StatisticalThreshold
 
+    .PARAMETER DurationSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER ConsecutiveDatapointsToAlarm
-        If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER ConsecutiveDatapointsToClear
-        If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
         UpdateType: Mutable
         PrimitiveType: Integer
-
-    .PARAMETER StatisticalThreshold
-        A statistical ranking percentilethat indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
-        UpdateType: Mutable
-        Type: StatisticalThreshold
-
-    .PARAMETER MlDetectionConfig
-        The confidence level of the detection model.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
-        UpdateType: Mutable
-        Type: MachineLearningDetectionConfig
 
     .FUNCTIONALITY
         Vaporshell
@@ -82,7 +64,11 @@ The criteria by which the behavior is determined to be normal.
             })]
         $ComparisonOperator,
         [parameter(Mandatory = $false)]
+        $MlDetectionConfig,
+        [parameter(Mandatory = $false)]
         $Value,
+        [parameter(Mandatory = $false)]
+        $StatisticalThreshold,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -115,11 +101,7 @@ The criteria by which the behavior is determined to be normal.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ConsecutiveDatapointsToClear,
-        [parameter(Mandatory = $false)]
-        $StatisticalThreshold,
-        [parameter(Mandatory = $false)]
-        $MlDetectionConfig
+        $ConsecutiveDatapointsToClear
     )
     Begin {
         $obj = [PSCustomObject]@{}

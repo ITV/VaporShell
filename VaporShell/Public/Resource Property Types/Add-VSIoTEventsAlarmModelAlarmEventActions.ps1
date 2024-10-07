@@ -15,6 +15,7 @@ function Add-VSIoTEventsAlarmModelAlarmEventActions {
         UpdateType: Mutable
         Type: List
         ItemType: AlarmAction
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

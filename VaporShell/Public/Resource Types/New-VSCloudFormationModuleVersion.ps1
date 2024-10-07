@@ -1,14 +1,10 @@
 function New-VSCloudFormationModuleVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::ModuleVersion resource to the template. Registers the specified version of the module with the CloudFormation service. Registering a module makes it available for use in CloudFormation templates in your AWS account and Region.
+        Adds an AWS::CloudFormation::ModuleVersion resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFormation::ModuleVersion resource to the template. Registers the specified version of the module with the CloudFormation service. Registering a module makes it available for use in CloudFormation templates in your AWS account and Region.
-
-To specify a module version as the default version, use the AWS::CloudFormation::ModuleDefaultVersion: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html resource.
-
-For more information using modules, see Using modules to encapsulate and reuse resource configurations: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html and Registering extensions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-register in the *CloudFormation User Guide*. For information on developing modules, see Developing modules: https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/modules.html in the *CloudFormation CLI User Guide*.
+        Adds an AWS::CloudFormation::ModuleVersion resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
@@ -16,18 +12,13 @@ For more information using modules, see Using modules to encapsulate and reuse r
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ModuleName
-        The name of the module being registered.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+    .PARAMETER ModulePackage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ModulePackage
-        A URL to the S3 bucket containing the package that contains the template fragment and schema files for the module version to register.
-The user registering the module version must be able to access the module package in the S3 bucket. That's, the user needs to have GetObject: https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html permissions for the package. For more information, see Actions, Resources, and Condition Keys for Amazon S3: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html in the *AWS Identity and Access Management User Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+    .PARAMETER ModuleName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -103,7 +94,7 @@ The user registering the module version must be able to access the module packag
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ModuleName,
+        $ModulePackage,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -114,7 +105,7 @@ The user registering the module version must be able to access the module packag
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ModulePackage,
+        $ModuleName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

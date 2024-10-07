@@ -1,20 +1,16 @@
 function Add-VSAutoScalingWarmPoolInstanceReusePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::WarmPool.InstanceReusePolicy resource property to the template. A structure that specifies an instance reuse policy for the InstanceReusePolicy property of the AWS::AutoScaling::WarmPool: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html resource type.
+        Adds an AWS::AutoScaling::WarmPool.InstanceReusePolicy resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::WarmPool.InstanceReusePolicy resource property to the template.
-A structure that specifies an instance reuse policy for the InstanceReusePolicy property of the AWS::AutoScaling::WarmPool: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html resource type.
 
-For more information, see Warm pools for Amazon EC2 Auto Scaling: https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html in the *Amazon EC2 Auto Scaling User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-warmpool-instancereusepolicy.html
 
     .PARAMETER ReuseOnScaleIn
-        Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-warmpool-instancereusepolicy.html#cfn-autoscaling-warmpool-instancereusepolicy-reuseonscalein
         UpdateType: Mutable
         PrimitiveType: Boolean

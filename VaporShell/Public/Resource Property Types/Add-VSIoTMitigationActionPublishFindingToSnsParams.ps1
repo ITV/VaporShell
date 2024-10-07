@@ -1,18 +1,16 @@
 function Add-VSIoTMitigationActionPublishFindingToSnsParams {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction.PublishFindingToSnsParams resource property to the template. Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+        Adds an AWS::IoT::MitigationAction.PublishFindingToSnsParams resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::MitigationAction.PublishFindingToSnsParams resource property to the template.
-Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html
 
     .PARAMETER TopicArn
-        The ARN of the topic to which you want to publish the findings.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html#cfn-iot-mitigationaction-publishfindingtosnsparams-topicarn
         UpdateType: Mutable
         PrimitiveType: String

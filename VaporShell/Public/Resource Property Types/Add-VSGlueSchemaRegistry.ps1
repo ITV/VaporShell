@@ -1,26 +1,22 @@
 function Add-VSGlueSchemaRegistry {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Schema.Registry resource property to the template. Specifies a registry in the AWS Glue Schema Registry.
+        Adds an AWS::Glue::Schema.Registry resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Schema.Registry resource property to the template.
-Specifies a registry in the AWS Glue Schema Registry.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
 
-    .PARAMETER Name
-        The name of the registry.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
+    .PARAMETER Arn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Arn
-        The Amazon Resource Name ARN of the registry.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Specifies a registry in the AWS Glue Schema Registry.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $Arn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Specifies a registry in the AWS Glue Schema Registry.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Arn
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowTrendmicroSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.TrendmicroSourceProperties resource property to the template. The properties that are applied when using Trend Micro as a flow source.
+        Adds an AWS::AppFlow::Flow.TrendmicroSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.TrendmicroSourceProperties resource property to the template.
-The properties that are applied when using Trend Micro as a flow source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html
 
     .PARAMETER Object
-        The object specified in the Trend Micro flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html#cfn-appflow-flow-trendmicrosourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

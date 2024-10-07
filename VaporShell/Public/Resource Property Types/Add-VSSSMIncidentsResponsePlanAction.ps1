@@ -1,18 +1,16 @@
 function Add-VSSSMIncidentsResponsePlanAction {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMIncidents::ResponsePlan.Action resource property to the template. The Action property type specifies the configuration to launch.
+        Adds an AWS::SSMIncidents::ResponsePlan.Action resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSMIncidents::ResponsePlan.Action resource property to the template.
-The Action property type specifies the configuration to launch.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html
 
     .PARAMETER SsmAutomation
-        Details about the Systems Manager automation document that will be used as a runbook during an incident.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html#cfn-ssmincidents-responseplan-action-ssmautomation
         UpdateType: Mutable
         Type: SsmAutomation

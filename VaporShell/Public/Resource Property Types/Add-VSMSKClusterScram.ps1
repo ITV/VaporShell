@@ -1,18 +1,16 @@
 function Add-VSMSKClusterScram {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.Scram resource property to the template. Details for SASL/SCRAM client authentication.
+        Adds an AWS::MSK::Cluster.Scram resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.Scram resource property to the template.
-Details for SASL/SCRAM client authentication.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html
 
     .PARAMETER Enabled
-        SASL/SCRAM authentication is enabled or not.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html#cfn-msk-cluster-scram-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

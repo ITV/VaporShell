@@ -1,30 +1,28 @@
 function Add-VSLexBotAliasConversationLogSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.ConversationLogSettings resource property to the template. Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        Adds an AWS::Lex::BotAlias.ConversationLogSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.ConversationLogSettings resource property to the template.
-Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html
 
-    .PARAMETER AudioLogSettings
-        The Amazon S3 settings for logging audio to an S3 bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html#cfn-lex-botalias-conversationlogsettings-audiologsettings
-        UpdateType: Mutable
-        Type: List
-        ItemType: AudioLogSetting
-
     .PARAMETER TextLogSettings
-        The Amazon CloudWatch Logs settings for logging text and metadata.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html#cfn-lex-botalias-conversationlogsettings-textlogsettings
         UpdateType: Mutable
         Type: List
         ItemType: TextLogSetting
+        DuplicatesAllowed: False
+
+    .PARAMETER AudioLogSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html#cfn-lex-botalias-conversationlogsettings-audiologsettings
+        UpdateType: Mutable
+        Type: List
+        ItemType: AudioLogSetting
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
@@ -35,17 +33,6 @@ Configures conversation logging that saves audio, text, and metadata for the con
     (
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Lex.BotAlias.AudioLogSetting"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AudioLogSettings,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Lex.BotAlias.TextLogSetting"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -54,7 +41,18 @@ Configures conversation logging that saves audio, text, and metadata for the con
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TextLogSettings
+        $TextLogSettings,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Lex.BotAlias.AudioLogSetting"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AudioLogSettings
     )
     Begin {
         $obj = [PSCustomObject]@{}

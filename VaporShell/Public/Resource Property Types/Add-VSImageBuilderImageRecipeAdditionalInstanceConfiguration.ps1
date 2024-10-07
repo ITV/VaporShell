@@ -1,33 +1,24 @@
 function Add-VSImageBuilderImageRecipeAdditionalInstanceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ImageRecipe.AdditionalInstanceConfiguration resource property to the template. In addition to your infrastruction configuration, these settings provide an extra layer of control over your build instances. For instances where Image Builder installs the Systems Manager agent, you can choose whether to keep it for the AMI that you create. You can also specify commands to run on launch for all of your build instances.
+        Adds an AWS::ImageBuilder::ImageRecipe.AdditionalInstanceConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::ImageRecipe.AdditionalInstanceConfiguration resource property to the template.
-In addition to your infrastruction configuration, these settings provide an extra layer of control over your build instances. For instances where Image Builder installs the Systems Manager agent, you can choose whether to keep it for the AMI that you create. You can also specify commands to run on launch for all of your build instances.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
 
-    .PARAMETER SystemsManagerAgent
-        Contains settings for the Systems Manager agent on your build instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
-        UpdateType: Mutable
-        Type: SystemsManagerAgent
-
     .PARAMETER UserDataOverride
-        Use this property to provide commands or a command script to run when you launch your build instance.
-The userDataOverride property replaces any commands that Image Builder might have added to ensure that Systems Manager is installed on your Linux build instance. If you override the user data, make sure that you add commands to install Systems Manager, if it is not pre-installed on your base image.
-The user data is always base 64 encoded. For example, the following commands are encoded as IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$:
-*#!/bin/bash*
-mkdir -p /var/bb/
-touch /var
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER SystemsManagerAgent
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+        UpdateType: Mutable
+        Type: SystemsManagerAgent
 
     .FUNCTIONALITY
         Vaporshell
@@ -36,8 +27,6 @@ touch /var
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $SystemsManagerAgent,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -48,7 +37,9 @@ touch /var
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $UserDataOverride
+        $UserDataOverride,
+        [parameter(Mandatory = $false)]
+        $SystemsManagerAgent
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,25 +1,21 @@
 function Add-VSCognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationType resource property to the template. The compromised credentials risk configuration type.
+        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationType resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationType resource property to the template.
-The compromised credentials risk configuration type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html
 
     .PARAMETER Actions
-        The compromised credentials risk configuration actions.
-
         Type: CompromisedCredentialsActionsType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype-actions
         UpdateType: Mutable
 
     .PARAMETER EventFilter
-        Perform the action for these events. The default is to perform all events if no event filter is specified.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype-eventfilter

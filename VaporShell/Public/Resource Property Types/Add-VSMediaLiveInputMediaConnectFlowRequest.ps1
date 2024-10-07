@@ -1,20 +1,16 @@
 function Add-VSMediaLiveInputMediaConnectFlowRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.MediaConnectFlowRequest resource property to the template. Settings that apply only if the input is a MediaConnect input.
+        Adds an AWS::MediaLive::Input.MediaConnectFlowRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.MediaConnectFlowRequest resource property to the template.
-Settings that apply only if the input is a MediaConnect input.
 
-The parent of this entity is Input.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-mediaconnectflowrequest.html
 
     .PARAMETER FlowArn
-        The ARN of one or two MediaConnect flows that are the sources for this MediaConnect input.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-mediaconnectflowrequest.html#cfn-medialive-input-mediaconnectflowrequest-flowarn
         PrimitiveType: String
         UpdateType: Mutable

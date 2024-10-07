@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelAudioTrack {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioTrack resource property to the template. Information about one audio track to extract. You can select multiple tracks.
+        Adds an AWS::MediaLive::Channel.AudioTrack resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioTrack resource property to the template.
-Information about one audio track to extract. You can select multiple tracks.
 
-The parent of this entity is AudioTrackSelection.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html
 
     .PARAMETER Track
-        1-based integer value that maps to a specific audio track
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html#cfn-medialive-channel-audiotrack-track
         PrimitiveType: Integer
         UpdateType: Mutable

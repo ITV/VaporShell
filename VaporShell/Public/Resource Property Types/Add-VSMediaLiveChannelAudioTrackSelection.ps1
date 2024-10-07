@@ -1,20 +1,21 @@
 function Add-VSMediaLiveChannelAudioTrackSelection {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioTrackSelection resource property to the template. Information about the audio track to extract.
+        Adds an AWS::MediaLive::Channel.AudioTrackSelection resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioTrackSelection resource property to the template.
-Information about the audio track to extract.
 
-The parent of this entity is AudioSelectorSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html
 
-    .PARAMETER Tracks
-        Selects one or more unique audio tracks from within a source.
+    .PARAMETER DolbyEDecode
+        Type: AudioDolbyEDecode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html#cfn-medialive-channel-audiotrackselection-dolbyedecode
+        UpdateType: Mutable
 
+    .PARAMETER Tracks
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html#cfn-medialive-channel-audiotrackselection-tracks
         ItemType: AudioTrack
@@ -27,6 +28,8 @@ The parent of this entity is AudioSelectorSettings.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $DolbyEDecode,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.AudioTrack"

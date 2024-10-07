@@ -1,26 +1,22 @@
 function Add-VSEC2NetworkInsightsAnalysisAlternatePathHint {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAnalysis.AlternatePathHint resource property to the template. Describes an potential intermediate component of a feasible path.
+        Adds an AWS::EC2::NetworkInsightsAnalysis.AlternatePathHint resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAnalysis.AlternatePathHint resource property to the template.
-Describes an potential intermediate component of a feasible path.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html
 
-    .PARAMETER ComponentId
-        The ID of the component.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentid
+    .PARAMETER ComponentArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ComponentArn
-        The Amazon Resource Name ARN of the component.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentarn
+    .PARAMETER ComponentId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentid
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Describes an potential intermediate component of a feasible path.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ComponentId,
+        $ComponentArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Describes an potential intermediate component of a feasible path.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ComponentArn
+        $ComponentId
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,32 +1,26 @@
 function Add-VSBackupBackupSelectionConditionResourceType {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupSelection.ConditionResourceType resource property to the template. Specifies an object that contains an array of triplets made up of a condition type (such as STRINGEQUALS, a key, and a value. Conditions are used to filter resources in a selection that is assigned to a backup plan.
+        Adds an AWS::Backup::BackupSelection.ConditionResourceType resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Backup::BackupSelection.ConditionResourceType resource property to the template.
-Specifies an object that contains an array of triplets made up of a condition type (such as STRINGEQUALS, a key, and a value. Conditions are used to filter resources in a selection that is assigned to a backup plan.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html
 
-    .PARAMETER ConditionKey
-        The key in a key-value pair. For example, in "Department": "accounting", "Department" is the key.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER ConditionValue
-        The value in a key-value pair. For example, in "Department": "accounting", "accounting" is the value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ConditionType
-        An operation, such as STRINGEQUALS, that is applied to a key-value pair used to filter resources in a selection.
+    .PARAMETER ConditionKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER ConditionType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype
         UpdateType: Immutable
         PrimitiveType: String
@@ -48,7 +42,7 @@ Specifies an object that contains an array of triplets made up of a condition ty
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ConditionKey,
+        $ConditionValue,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,7 +53,7 @@ Specifies an object that contains an array of triplets made up of a condition ty
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ConditionValue,
+        $ConditionKey,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

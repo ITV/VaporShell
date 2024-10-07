@@ -1,45 +1,40 @@
 function Add-VSBudgetsBudgetsActionIamActionDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::BudgetsAction.IamActionDefinition resource property to the template. The AWS Identity and Access Management (IAM action definition details.
+        Adds an AWS::Budgets::BudgetsAction.IamActionDefinition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Budgets::BudgetsAction.IamActionDefinition resource property to the template.
-The AWS Identity and Access Management (IAM action definition details.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html
 
     .PARAMETER PolicyArn
-        The Amazon Resource Name ARN of the policy to be attached.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-policyarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Roles
-        A list of roles to be attached. There must be at least one role.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER Groups
-        A list of groups to be attached. There must be at least one group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-groups
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Roles
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Users
-        A list of users to be attached. There must be at least one user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-users
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -60,9 +55,9 @@ The AWS Identity and Access Management (IAM action definition details.
             })]
         $PolicyArn,
         [parameter(Mandatory = $false)]
-        $Roles,
-        [parameter(Mandatory = $false)]
         $Groups,
+        [parameter(Mandatory = $false)]
+        $Roles,
         [parameter(Mandatory = $false)]
         $Users
     )

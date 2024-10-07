@@ -1,78 +1,16 @@
 function New-VSCloudWatchMetricStream {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudWatch::MetricStream resource to the template. Creates or updates a metric stream. Metrics streams can automatically stream CloudWatch metrics to AWS destinations including Amazon S3 and to many third-party solutions. For more information, see  Metric streams: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html.
+        Adds an AWS::CloudWatch::MetricStream resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudWatch::MetricStream resource to the template. Creates or updates a metric stream. Metrics streams can automatically stream CloudWatch metrics to AWS destinations including Amazon S3 and to many third-party solutions. For more information, see  Metric streams: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html.
-
-To create a metric stream, you must be logged on to an account that has the iam:PassRole permission and either the **CloudWatchFullAccess** policy or the cloudwatch:PutMetricStream permission.
-
-When you create or update a metric stream, you choose one of the following:
-
-+ Stream metrics from all metric namespaces in the account.
-
-+ Stream metrics from all metric namespaces in the account, except for the namespaces that you list in ExcludeFilters.
-
-+ Stream metrics from only the metric namespaces that you list in IncludeFilters.
-
-When you create a metric stream, the stream is created in the running state. If you update an existing metric stream, the state does not change.
+        Adds an AWS::CloudWatch::MetricStream resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
-
-    .PARAMETER ExcludeFilters
-        If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. You cannot specify both IncludeFilters and ExcludeFilters in the same metric stream.
-When you modify the IncludeFilters or ExcludeFilters of an existing metric stream in any way, the metric stream is effectively restarted, so after such a change you will get only the datapoints that have a timestamp after the time of the update.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
-        UpdateType: Mutable
-        Type: List
-        ItemType: MetricStreamFilter
-        DuplicatesAllowed: False
-
-    .PARAMETER FirehoseArn
-        The ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream. This Amazon Kinesis Firehose delivery stream must already exist and must be in the same account as the metric stream.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER IncludeFilters
-        If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. You cannot specify both IncludeFilters and ExcludeFilters in the same metric stream.
-When you modify the IncludeFilters or ExcludeFilters of an existing metric stream in any way, the metric stream is effectively restarted, so after such a change you will get only the datapoints that have a timestamp after the time of the update.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
-        UpdateType: Mutable
-        Type: List
-        ItemType: MetricStreamFilter
-        DuplicatesAllowed: False
-
-    .PARAMETER Name
-        If you are creating a new metric stream, this is the name for the new stream. The name must be different than the names of other metric streams in this account and Region.
-If you are updating a metric stream, specify the name of that stream here.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER RoleArn
-        The ARN of an IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. This IAM role must already exist and must be in the same account as the metric stream. This IAM role must include the firehose:PutRecord and firehose:PutRecordBatch permissions.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER OutputFormat
-        The output format for the stream. Valid values are json and opentelemetry0.7 For more information about metric stream output formats, see  Metric streams output formats: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html.
-This parameter is required.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER StatisticsConfigurations
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-statisticsconfigurations
@@ -81,15 +19,51 @@ This parameter is required.
         ItemType: MetricStreamStatisticsConfiguration
         DuplicatesAllowed: False
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to the metric stream.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+    .PARAMETER FirehoseArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER IncludeLinkedAccountsMetrics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includelinkedaccountsmetrics
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER IncludeFilters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+        UpdateType: Mutable
+        Type: List
+        ItemType: MetricStreamFilter
+        DuplicatesAllowed: False
+
+    .PARAMETER OutputFormat
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ExcludeFilters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+        UpdateType: Mutable
+        Type: List
+        ItemType: MetricStreamFilter
+        DuplicatesAllowed: False
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -155,6 +129,61 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
         $LogicalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CloudWatch.MetricStream.MetricStreamStatisticsConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StatisticsConfigurations,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FirehoseArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IncludeLinkedAccountsMetrics,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CloudWatch.MetricStream.MetricStreamFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IncludeFilters,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OutputFormat,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudWatch.MetricStream.MetricStreamFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -174,18 +203,10 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FirehoseArn,
+        $RoleArn,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CloudWatch.MetricStream.MetricStreamFilter"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $IncludeFilters,
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -197,42 +218,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $Name,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RoleArn,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $OutputFormat,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CloudWatch.MetricStream.MetricStreamStatisticsConfiguration"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $StatisticsConfigurations,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -307,11 +292,11 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                ExcludeFilters {
+                StatisticsConfigurations {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ExcludeFilters -Value @($ExcludeFilters)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name StatisticsConfigurations -Value @($StatisticsConfigurations)
                 }
                 IncludeFilters {
                     if (!($ResourceParams["Properties"])) {
@@ -319,11 +304,11 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name IncludeFilters -Value @($IncludeFilters)
                 }
-                StatisticsConfigurations {
+                ExcludeFilters {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name StatisticsConfigurations -Value @($StatisticsConfigurations)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ExcludeFilters -Value @($ExcludeFilters)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

@@ -1,28 +1,22 @@
 function Add-VSKendraIndexCapacityUnitsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::Index.CapacityUnitsConfiguration resource property to the template. Specifies capacity units configured for your enterprise edition index. You can add and remove capacity units to tune an index to your requirements.
+        Adds an AWS::Kendra::Index.CapacityUnitsConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::Index.CapacityUnitsConfiguration resource property to the template.
-Specifies capacity units configured for your enterprise edition index. You can add and remove capacity units to tune an index to your requirements.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html
 
-    .PARAMETER StorageCapacityUnits
-        The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-storagecapacityunits
+    .PARAMETER QueryCapacityUnits
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-querycapacityunits
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER QueryCapacityUnits
-        The amount of extra query capacity for an index and GetQuerySuggestions: https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html capacity.
-A single extra capacity unit for an index provides 0.1 queries per second or approximately 8,000 queries per day.
-GetQuerySuggestions capacity is five times the provisioned query capacity for an index, or the base capacity of 2.5 calls per second, whichever is higher. For example, the base capacity for an index is 0.1 queries per second, and GetQuerySuggestions capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second to total 0.2 queries per second for an index, the GetQuerySuggestions capacity is 2.5 calls per second higher than five times 0.2 queries per second.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-querycapacityunits
+    .PARAMETER StorageCapacityUnits
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-storagecapacityunits
         UpdateType: Mutable
         PrimitiveType: Integer
 
@@ -43,7 +37,7 @@ GetQuerySuggestions capacity is five times the provisioned query capacity for an
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StorageCapacityUnits,
+        $QueryCapacityUnits,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -54,7 +48,7 @@ GetQuerySuggestions capacity is five times the provisioned query capacity for an
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $QueryCapacityUnits
+        $StorageCapacityUnits
     )
     Begin {
         $obj = [PSCustomObject]@{}

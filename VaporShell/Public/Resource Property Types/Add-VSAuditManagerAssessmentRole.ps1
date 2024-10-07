@@ -1,29 +1,22 @@
 function Add-VSAuditManagerAssessmentRole {
     <#
     .SYNOPSIS
-        Adds an AWS::AuditManager::Assessment.Role resource property to the template. The Role property type specifies the wrapper that contains AWS Audit Manager role information, such as the role type and IAM Amazon Resource Name (ARN.
+        Adds an AWS::AuditManager::Assessment.Role resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AuditManager::Assessment.Role resource property to the template.
-The Role property type specifies the wrapper that contains AWS Audit Manager role information, such as the role type and IAM Amazon Resource Name (ARN.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
 
-    .PARAMETER RoleArn
-        The Amazon Resource Name ARN of the IAM role.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
+    .PARAMETER RoleType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RoleType
-        The type of customer persona.
-In CreateAssessment, roleType can only be PROCESS_OWNER.
-In UpdateSettings, roleType can only be PROCESS_OWNER.
-In BatchCreateDelegationByAssessment, roleType can only be RESOURCE_OWNER.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -44,7 +37,7 @@ In BatchCreateDelegationByAssessment, roleType can only be RESOURCE_OWNER.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleArn,
+        $RoleType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -55,7 +48,7 @@ In BatchCreateDelegationByAssessment, roleType can only be RESOURCE_OWNER.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleType
+        $RoleArn
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,25 +1,21 @@
 function Add-VSS3StorageLensDataExport {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.DataExport resource property to the template. This resource contains the details of the Amazon S3 Storage Lens metrics export.
+        Adds an AWS::S3::StorageLens.DataExport resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.DataExport resource property to the template.
-This resource contains the details of the Amazon S3 Storage Lens metrics export.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
 
     .PARAMETER S3BucketDestination
-        This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
         UpdateType: Mutable
         Type: S3BucketDestination
 
     .PARAMETER CloudWatchMetrics
-        This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-cloudwatchmetrics
         UpdateType: Mutable
         Type: CloudWatchMetrics

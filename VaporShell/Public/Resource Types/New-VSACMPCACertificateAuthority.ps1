@@ -1,14 +1,10 @@
 function New-VSACMPCACertificateAuthority {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::CertificateAuthority resource to the template. Use the AWS::ACMPCA::CertificateAuthority resource to create a private CA. Once the CA exists, you can use the AWS::ACMPCA::Certificate resource to issue a new CA certificate. Alternatively, you can issue a CA certificate using an on-premises CA, and then use the AWS::ACMPCA::CertificateAuthorityActivation resource to import the new CA certificate and activate the CA.
+        Adds an AWS::ACMPCA::CertificateAuthority resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ACMPCA::CertificateAuthority resource to the template. Use the AWS::ACMPCA::CertificateAuthority resource to create a private CA. Once the CA exists, you can use the AWS::ACMPCA::Certificate resource to issue a new CA certificate. Alternatively, you can issue a CA certificate using an on-premises CA, and then use the AWS::ACMPCA::CertificateAuthorityActivation resource to import the new CA certificate and activate the CA.
-
-**Note**
-
-Before removing a AWS::ACMPCA::CertificateAuthority resource from the CloudFormation stack, disable the affected CA. Otherwise, the action will fail. You can disable the CA by removing its associated AWS::ACMPCA::CertificateAuthorityActivation resource from CloudFormation.
+        Adds an AWS::ACMPCA::CertificateAuthority resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html
@@ -16,63 +12,50 @@ Before removing a AWS::ACMPCA::CertificateAuthority resource from the CloudForma
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Type
-        Type of your private CA.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER KeyAlgorithm
-        Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate. When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER SigningAlgorithm
-        Name of the algorithm your private CA uses to sign certificate requests.
-This parameter should not be confused with the SigningAlgorithm parameter used to sign certificates when they are issued.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Subject
-        Structure that contains X.500 distinguished name information for your private CA.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
-        UpdateType: Immutable
-        Type: Subject
-
-    .PARAMETER RevocationConfiguration
-        Information about the certificate revocation list CRL created and maintained by your private CA. Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions. Your certificate authority can create and maintain a certificate revocation list CRL. A CRL contains information about certificates that have been revoked.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
-        UpdateType: Mutable
-        Type: RevocationConfiguration
-
-    .PARAMETER Tags
-        Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see Controlling Access Using IAM Tags: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
-        UpdateType: Mutable
-        Type: List
-        ItemType: Tag
-
     .PARAMETER CsrExtensions
-        Specifies information to be added to the extension section of the certificate signing request CSR.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
         UpdateType: Immutable
         Type: CsrExtensions
 
-    .PARAMETER KeyStorageSecurityStandard
-        Specifies a cryptographic key management compliance standard used for handling CA keys.
-Default: FIPS_140_2_LEVEL_3_OR_HIGHER
-Note: FIPS_140_2_LEVEL_3_OR_HIGHER is not supported in Region ap-northeast-3. When creating a CA in the ap-northeast-3, you must provide FIPS_140_2_LEVEL_2_OR_HIGHER as the argument for KeyStorageSecurityStandard. Failure to do this results in an InvalidArgsException with the message, "A certificate authority cannot be created in this region with the specified security standard."
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER RevocationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
+        UpdateType: Mutable
+        Type: RevocationConfiguration
+
+    .PARAMETER UsageMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-usagemode
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER SigningAlgorithm
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER KeyStorageSecurityStandard
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Subject
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
+        UpdateType: Immutable
+        Type: Subject
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER KeyAlgorithm
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -138,6 +121,8 @@ Note: FIPS_140_2_LEVEL_3_OR_HIGHER is not supported in Region ap-northeast-3. Wh
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $CsrExtensions,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -149,7 +134,9 @@ Note: FIPS_140_2_LEVEL_3_OR_HIGHER is not supported in Region ap-northeast-3. Wh
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        $RevocationConfiguration,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -159,7 +146,7 @@ Note: FIPS_140_2_LEVEL_3_OR_HIGHER is not supported in Region ap-northeast-3. Wh
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $KeyAlgorithm,
+        $UsageMode,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -171,15 +158,6 @@ Note: FIPS_140_2_LEVEL_3_OR_HIGHER is not supported in Region ap-northeast-3. Wh
                 }
             })]
         $SigningAlgorithm,
-        [parameter(Mandatory = $true)]
-        $Subject,
-        [parameter(Mandatory = $false)]
-        $RevocationConfiguration,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
-        [parameter(Mandatory = $false)]
-        $CsrExtensions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -191,6 +169,22 @@ Note: FIPS_140_2_LEVEL_3_OR_HIGHER is not supported in Region ap-northeast-3. Wh
                 }
             })]
         $KeyStorageSecurityStandard,
+        [parameter(Mandatory = $true)]
+        $Subject,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $KeyAlgorithm,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

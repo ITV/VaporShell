@@ -1,25 +1,21 @@
 function Add-VSElastiCacheReplicationGroupDestinationDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::ElastiCache::ReplicationGroup.DestinationDetails resource property to the template. Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+        Adds an AWS::ElastiCache::ReplicationGroup.DestinationDetails resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ElastiCache::ReplicationGroup.DestinationDetails resource property to the template.
-Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html
 
     .PARAMETER CloudWatchLogsDetails
-        The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-cloudwatchlogsdetails
         Type: CloudWatchLogsDestinationDetails
         UpdateType: Mutable
 
     .PARAMETER KinesisFirehoseDetails
-        The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-kinesisfirehosedetails
         Type: KinesisFirehoseDestinationDetails
         UpdateType: Mutable

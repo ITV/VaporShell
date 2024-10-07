@@ -1,10 +1,10 @@
 function New-VSIoTResourceSpecificLogging {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::ResourceSpecificLogging resource to the template. Configure resource-specific logging.
+        Adds an AWS::IoT::ResourceSpecificLogging resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::ResourceSpecificLogging resource to the template. Configure resource-specific logging.
+        Adds an AWS::IoT::ResourceSpecificLogging resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html
@@ -13,22 +13,16 @@ function New-VSIoTResourceSpecificLogging {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER TargetType
-        The target type. Valid Values: DEFAULT | THING_GROUP
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html#cfn-iot-resourcespecificlogging-targettype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER TargetName
-        The target name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html#cfn-iot-resourcespecificlogging-targetname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER LogLevel
-        The default log level.Valid Values: DEBUG | INFO | ERROR | WARN | DISABLED
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html#cfn-iot-resourcespecificlogging-loglevel
         UpdateType: Mutable
         PrimitiveType: String

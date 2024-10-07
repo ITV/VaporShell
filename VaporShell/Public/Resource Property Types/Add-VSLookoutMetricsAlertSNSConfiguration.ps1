@@ -1,26 +1,22 @@
 function Add-VSLookoutMetricsAlertSNSConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::Alert.SNSConfiguration resource property to the template. Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+        Adds an AWS::LookoutMetrics::Alert.SNSConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::Alert.SNSConfiguration resource property to the template.
-Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html
 
-    .PARAMETER RoleArn
-        The ARN of the IAM role that has access to the target SNS topic.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn
+    .PARAMETER SnsTopicArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER SnsTopicArn
-        The ARN of the target SNS topic.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Contains information about the SNS topic to which you want to send your alerts a
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleArn,
+        $SnsTopicArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Contains information about the SNS topic to which you want to send your alerts a
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SnsTopicArn
+        $RoleArn
     )
     Begin {
         $obj = [PSCustomObject]@{}

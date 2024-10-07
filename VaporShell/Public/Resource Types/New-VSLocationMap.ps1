@@ -1,10 +1,10 @@
 function New-VSLocationMap {
     <#
     .SYNOPSIS
-        Adds an AWS::Location::Map resource to the template. The AWS::Location::Map resource specifies a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.
+        Adds an AWS::Location::Map resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Location::Map resource to the template. The AWS::Location::Map resource specifies a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.
+        Adds an AWS::Location::Map resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html
@@ -12,35 +12,22 @@ function New-VSLocationMap {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Configuration
-        Specifies the map style selected from an available data provider.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
-        UpdateType: Immutable
-        Type: MapConfiguration
-
-    .PARAMETER Description
-        An optional description for the map resource.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER MapName
-        The name for the map resource.
-Requirements:
-+ Must contain only alphanumeric characters A–Z, a–z, 0–9, hyphens -, periods ., and underscores _.
-+ Must be a unique map resource name.
-+ No spaces allowed. For example, ExampleMap.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER PricingPlan
-        No longer used. If included, the only allowed value is RequestBasedUsage.
-*Allowed Values*: RequestBasedUsage
+    .PARAMETER Description
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Configuration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
+        UpdateType: Immutable
+        Type: MapConfiguration
+
+    .PARAMETER PricingPlan
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
         UpdateType: Immutable
         PrimitiveType: String
@@ -108,7 +95,16 @@ Requirements:
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
-        $Configuration,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MapName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -121,16 +117,7 @@ Requirements:
             })]
         $Description,
         [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MapName,
+        $Configuration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

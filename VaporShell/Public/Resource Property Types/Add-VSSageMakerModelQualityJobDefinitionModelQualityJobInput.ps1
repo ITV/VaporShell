@@ -1,28 +1,29 @@
 function Add-VSSageMakerModelQualityJobDefinitionModelQualityJobInput {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelQualityJobDefinition.ModelQualityJobInput resource property to the template. The input for the model quality monitoring job. Currently endponts are supported for input for model quality monitoring jobs.
+        Adds an AWS::SageMaker::ModelQualityJobDefinition.ModelQualityJobInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelQualityJobDefinition.ModelQualityJobInput resource property to the template.
-The input for the model quality monitoring job. Currently endponts are supported for input for model quality monitoring jobs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
 
-    .PARAMETER EndpointInput
-        Input object for the endpoint
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
-        UpdateType: Immutable
-        Type: EndpointInput
-
     .PARAMETER GroundTruthS3Input
-        The ground truth label provided for the model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
         UpdateType: Immutable
         Type: MonitoringGroundTruthS3Input
+
+    .PARAMETER BatchTransformInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-batchtransforminput
+        UpdateType: Immutable
+        Type: BatchTransformInput
+
+    .PARAMETER EndpointInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
+        UpdateType: Immutable
+        Type: EndpointInput
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +33,11 @@ The input for the model quality monitoring job. Currently endponts are supported
     Param
     (
         [parameter(Mandatory = $true)]
-        $EndpointInput,
-        [parameter(Mandatory = $true)]
-        $GroundTruthS3Input
+        $GroundTruthS3Input,
+        [parameter(Mandatory = $false)]
+        $BatchTransformInput,
+        [parameter(Mandatory = $false)]
+        $EndpointInput
     )
     Begin {
         $obj = [PSCustomObject]@{}

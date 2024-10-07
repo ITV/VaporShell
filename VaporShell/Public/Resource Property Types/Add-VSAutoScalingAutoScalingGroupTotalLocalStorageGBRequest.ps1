@@ -1,25 +1,21 @@
 function Add-VSAutoScalingAutoScalingGroupTotalLocalStorageGBRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.TotalLocalStorageGBRequest resource property to the template. TotalLocalStorageGBRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum total local storage size for an instance type, in GB.
+        Adds an AWS::AutoScaling::AutoScalingGroup.TotalLocalStorageGBRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.TotalLocalStorageGBRequest resource property to the template.
-TotalLocalStorageGBRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum total local storage size for an instance type, in GB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-totallocalstoragegbrequest.html
 
     .PARAMETER Max
-        The storage maximum in GB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-totallocalstoragegbrequest.html#cfn-autoscaling-autoscalinggroup-totallocalstoragegbrequest-max
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Min
-        The storage minimum in GB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-totallocalstoragegbrequest.html#cfn-autoscaling-autoscalinggroup-totallocalstoragegbrequest-min
         PrimitiveType: Integer
         UpdateType: Mutable

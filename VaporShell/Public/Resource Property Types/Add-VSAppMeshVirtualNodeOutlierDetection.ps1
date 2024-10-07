@@ -1,39 +1,31 @@
 function Add-VSAppMeshVirtualNodeOutlierDetection {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.OutlierDetection resource property to the template. An object that represents the outlier detection for a virtual node's listener.
+        Adds an AWS::AppMesh::VirtualNode.OutlierDetection resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.OutlierDetection resource property to the template.
-An object that represents the outlier detection for a virtual node's listener.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html
 
     .PARAMETER MaxEjectionPercent
-        Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxejectionpercent
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER BaseEjectionDuration
-        The base amount of time for which a host is ejected.
-
         Type: Duration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-baseejectionduration
         UpdateType: Mutable
 
     .PARAMETER MaxServerErrors
-        Number of consecutive 5xx errors required for ejection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxservererrors
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Interval
-        The time interval between ejection sweep analysis.
-
         Type: Duration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-interval
         UpdateType: Mutable

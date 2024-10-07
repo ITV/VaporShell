@@ -1,36 +1,26 @@
 function Add-VSDataBrewRecipeConditionExpression {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Recipe.ConditionExpression resource property to the template. Represents an individual condition that evaluates to true or false.
+        Adds an AWS::DataBrew::Recipe.ConditionExpression resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Recipe.ConditionExpression resource property to the template.
-Represents an individual condition that evaluates to true or false.
 
-Conditions are used with recipe actions. The action is only performed for column values where the condition evaluates to true.
-
-If a recipe requires more than one condition, then the recipe must specify multiple ConditionExpression elements. Each condition is applied to the rows in a dataset first, before the recipe action is performed.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
 
     .PARAMETER Condition
-        A specific condition to apply to a recipe action. For more information, see Recipe structure: https://docs.aws.amazon.com/databrew/latest/dg/recipe-structure.html in the *AWS Glue DataBrew Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Value
-        A value that the condition must evaluate to for the condition to succeed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-value
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TargetColumn
-        A column to apply this condition to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-targetcolumn
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,28 +1,24 @@
 function Add-VSKafkaConnectConnectorCapacity {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.Capacity resource property to the template. Information about the capacity of the connector, whether it is auto scaled or provisioned.
+        Adds an AWS::KafkaConnect::Connector.Capacity resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.Capacity resource property to the template.
-Information about the capacity of the connector, whether it is auto scaled or provisioned.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-capacity.html
 
-    .PARAMETER AutoScaling
-        Information about the auto scaling parameters for the connector.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-capacity.html#cfn-kafkaconnect-connector-capacity-autoscaling
-        UpdateType: Mutable
-        Type: AutoScaling
-
     .PARAMETER ProvisionedCapacity
-        Details about a fixed capacity allocated to a connector.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-capacity.html#cfn-kafkaconnect-connector-capacity-provisionedcapacity
         UpdateType: Mutable
         Type: ProvisionedCapacity
+
+    .PARAMETER AutoScaling
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-capacity.html#cfn-kafkaconnect-connector-capacity-autoscaling
+        UpdateType: Mutable
+        Type: AutoScaling
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ Information about the capacity of the connector, whether it is auto scaled or pr
     Param
     (
         [parameter(Mandatory = $false)]
-        $AutoScaling,
+        $ProvisionedCapacity,
         [parameter(Mandatory = $false)]
-        $ProvisionedCapacity
+        $AutoScaling
     )
     Begin {
         $obj = [PSCustomObject]@{}

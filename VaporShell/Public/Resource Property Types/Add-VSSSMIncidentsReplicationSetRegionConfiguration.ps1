@@ -1,18 +1,16 @@
 function Add-VSSSMIncidentsReplicationSetRegionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMIncidents::ReplicationSet.RegionConfiguration resource property to the template. The RegionConfiguration property specifies the Region and KMS key to add to the replication set.
+        Adds an AWS::SSMIncidents::ReplicationSet.RegionConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSMIncidents::ReplicationSet.RegionConfiguration resource property to the template.
-The RegionConfiguration property specifies the Region and KMS key to add to the replication set.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html
 
     .PARAMETER SseKmsKeyId
-        The KMS key ID to use to encrypt your replication set.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
         UpdateType: Mutable
         PrimitiveType: String

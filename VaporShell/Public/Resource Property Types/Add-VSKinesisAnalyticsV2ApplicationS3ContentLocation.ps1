@@ -1,32 +1,26 @@
 function Add-VSKinesisAnalyticsV2ApplicationS3ContentLocation {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.S3ContentLocation resource property to the template. The location of an application or a custom artifact.
+        Adds an AWS::KinesisAnalyticsV2::Application.S3ContentLocation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.S3ContentLocation resource property to the template.
-The location of an application or a custom artifact.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html
 
     .PARAMETER BucketARN
-        The Amazon Resource Name ARN for the S3 bucket containing the application code.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-bucketarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER FileKey
-        The file key for the object containing the application code.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-filekey
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ObjectVersion
-        The version of the object containing the application code.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-objectversion
         UpdateType: Mutable
         PrimitiveType: String

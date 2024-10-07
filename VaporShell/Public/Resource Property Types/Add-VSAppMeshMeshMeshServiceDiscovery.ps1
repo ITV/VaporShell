@@ -1,11 +1,11 @@
 function Add-VSAppMeshMeshMeshServiceDiscovery {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Mesh.MeshServiceDiscovery resource property to the template. <a name="aws-properties-appmesh-mesh-meshservicediscovery-description"></a>The MeshServiceDiscovery property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppMesh::Mesh: aws-resource-appmesh-mesh.md.
+        Adds an AWS::AppMesh::Mesh.MeshServiceDiscovery resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Mesh.MeshServiceDiscovery resource property to the template.
-<a name="aws-properties-appmesh-mesh-meshservicediscovery-description"></a>The MeshServiceDiscovery property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppMesh::Mesh: aws-resource-appmesh-mesh.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html

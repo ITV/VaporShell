@@ -1,25 +1,21 @@
 function Add-VSCognitoUserPoolCustomEmailSender {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPool.CustomEmailSender resource property to the template. A custom email sender AWS Lambda trigger.
+        Adds an AWS::Cognito::UserPool.CustomEmailSender resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPool.CustomEmailSender resource property to the template.
-A custom email sender AWS Lambda trigger.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html
 
     .PARAMETER LambdaArn
-        The Amazon Resource Name ARN of the AWS Lambda function that Amazon Cognito triggers to send email notifications to users.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER LambdaVersion
-        The Lambda version represents the signature of the "request" attribute in the "event" information that Amazon Cognito passes to your custom email sender AWS Lambda function. The only supported value is V1_0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaversion
         PrimitiveType: String
         UpdateType: Mutable

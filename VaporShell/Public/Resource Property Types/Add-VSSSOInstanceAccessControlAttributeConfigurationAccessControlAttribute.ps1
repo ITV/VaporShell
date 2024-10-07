@@ -1,28 +1,24 @@
 function Add-VSSSOInstanceAccessControlAttributeConfigurationAccessControlAttribute {
     <#
     .SYNOPSIS
-        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttribute resource property to the template. These are AWS SSO identity store attributes that you can configure for use in attributes-based access control (ABAC. You can create permissions policies that determine who can access your AWS resources based upon the configured attribute values. When you enable ABAC and specify AccessControlAttributes, AWS SSO passes the attribute values of the authenticated user into IAM for use in policy evaluation.
+        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttribute resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttribute resource property to the template.
-These are AWS SSO identity store attributes that you can configure for use in attributes-based access control (ABAC. You can create permissions policies that determine who can access your AWS resources based upon the configured attribute values. When you enable ABAC and specify AccessControlAttributes, AWS SSO passes the attribute values of the authenticated user into IAM for use in policy evaluation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html
 
-    .PARAMETER Key
-        The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-key
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Value
-        The value used for mapping a specified attribute to an identity source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-value
         UpdateType: Mutable
         Type: AccessControlAttributeValue
+
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-key
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,6 +27,8 @@ These are AWS SSO identity store attributes that you can configure for use in at
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -41,9 +39,7 @@ These are AWS SSO identity store attributes that you can configure for use in at
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
-        [parameter(Mandatory = $true)]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

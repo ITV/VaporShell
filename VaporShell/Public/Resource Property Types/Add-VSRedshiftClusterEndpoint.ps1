@@ -1,26 +1,22 @@
 function Add-VSRedshiftClusterEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::Redshift::Cluster.Endpoint resource property to the template. Describes a connection endpoint.
+        Adds an AWS::Redshift::Cluster.Endpoint resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Redshift::Cluster.Endpoint resource property to the template.
-Describes a connection endpoint.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html
 
-    .PARAMETER Port
-        The port that the database engine is listening on.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-port
+    .PARAMETER Address
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-address
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Address
-        The DNS address of the Cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-address
+    .PARAMETER Port
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-port
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Describes a connection endpoint.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Port,
+        $Address,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Describes a connection endpoint.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Address
+        $Port
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,30 +1,21 @@
 function Add-VSCassandraTableEncryptionSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Cassandra::Table.EncryptionSpecification resource property to the template. Specifies the encryption at rest option selected for the table.
+        Adds an AWS::Cassandra::Table.EncryptionSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cassandra::Table.EncryptionSpecification resource property to the template.
-Specifies the encryption at rest option selected for the table.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html
 
     .PARAMETER EncryptionType
-        The encryption at rest options for the table.
-+ **AWS owned key** default - AWS_OWNED_KMS_KEY
-+ **Customer managed key** - CUSTOMER_MANAGED_KMS_KEY
-**Important**
-If you choose CUSTOMER_MANAGED_KMS_KEY, a kms_key_identifier in the format of a key ARN is required.
-Valid values: CUSTOMER_MANAGED_KMS_KEY | AWS_OWNED_KMS_KEY.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER KmsKeyIdentifier
-        Requires a kms_key_identifier in the format of a key ARN.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
         UpdateType: Mutable
         PrimitiveType: String

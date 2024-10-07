@@ -1,18 +1,16 @@
 function Add-VSGuardDutyDetectorCFNS3LogsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GuardDuty::Detector.CFNS3LogsConfiguration resource property to the template. Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+        Adds an AWS::GuardDuty::Detector.CFNS3LogsConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GuardDuty::Detector.CFNS3LogsConfiguration resource property to the template.
-Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html
 
     .PARAMETER Enable
-        The status of S3 data event logs as a data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable
         PrimitiveType: Boolean
         UpdateType: Mutable

@@ -1,32 +1,26 @@
 function Add-VSSageMakerUserProfileSharingSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::UserProfile.SharingSettings resource property to the template. Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html API is called, and as part of UserSettings when the CreateUserProfile: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html API is called.
+        Adds an AWS::SageMaker::UserProfile.SharingSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::UserProfile.SharingSettings resource property to the template.
-Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html API is called, and as part of UserSettings when the CreateUserProfile: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html API is called.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
 
     .PARAMETER NotebookOutputOption
-        Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3KmsKeyId
-        When NotebookOutputOption is Allowed, the AWS Key Management Service KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3OutputPath
-        When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
         UpdateType: Mutable
         PrimitiveType: String

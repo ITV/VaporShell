@@ -1,12 +1,10 @@
 function New-VSEFSAccessPoint {
     <#
     .SYNOPSIS
-        Adds an AWS::EFS::AccessPoint resource to the template. The AWS::EFS::AccessPoint resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see Mounting a file system using EFS access points: https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html.
+        Adds an AWS::EFS::AccessPoint resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EFS::AccessPoint resource to the template. The AWS::EFS::AccessPoint resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see Mounting a file system using EFS access points: https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html.
-
-This operation requires permissions for the elasticfilesystem:CreateAccessPoint action.
+        Adds an AWS::EFS::AccessPoint resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
@@ -14,43 +12,32 @@ This operation requires permissions for the elasticfilesystem:CreateAccessPoint 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ClientToken
-        The opaque string specified in the request to ensure idempotent creation.
+    .PARAMETER FileSystemId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER RootDirectory
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        UpdateType: Immutable
+        Type: RootDirectory
+
+    .PARAMETER ClientToken
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AccessPointTags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
         UpdateType: Mutable
         Type: List
         ItemType: AccessPointTag
         DuplicatesAllowed: False
 
-    .PARAMETER FileSystemId
-        The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example fs-0123456789abcedf2.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER PosixUser
-        The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
         UpdateType: Immutable
         Type: PosixUser
-
-    .PARAMETER RootDirectory
-        The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
-        UpdateType: Immutable
-        Type: RootDirectory
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -114,6 +101,19 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FileSystemId,
+        [parameter(Mandatory = $false)]
+        $RootDirectory,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -136,21 +136,8 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $AccessPointTags,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $FileSystemId,
         [parameter(Mandatory = $false)]
         $PosixUser,
-        [parameter(Mandatory = $false)]
-        $RootDirectory,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

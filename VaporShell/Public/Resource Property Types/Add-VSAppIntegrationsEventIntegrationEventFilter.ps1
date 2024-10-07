@@ -1,18 +1,16 @@
 function Add-VSAppIntegrationsEventIntegrationEventFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::AppIntegrations::EventIntegration.EventFilter resource property to the template. The event integration filter.
+        Adds an AWS::AppIntegrations::EventIntegration.EventFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppIntegrations::EventIntegration.EventFilter resource property to the template.
-The event integration filter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html
 
     .PARAMETER Source
-        The source of the events.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html#cfn-appintegrations-eventintegration-eventfilter-source
         UpdateType: Immutable
         PrimitiveType: String

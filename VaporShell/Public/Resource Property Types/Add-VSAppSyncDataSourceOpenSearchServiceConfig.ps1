@@ -1,27 +1,21 @@
 function Add-VSAppSyncDataSourceOpenSearchServiceConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::DataSource.OpenSearchServiceConfig resource property to the template. The OpenSearchServiceConfig property type specifies the AwsRegion and Endpoints for an Amazon OpenSearch Service domain in your account for an AWS AppSync data source.
+        Adds an AWS::AppSync::DataSource.OpenSearchServiceConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppSync::DataSource.OpenSearchServiceConfig resource property to the template.
-The OpenSearchServiceConfig property type specifies the AwsRegion and Endpoints for an Amazon OpenSearch Service domain in your account for an AWS AppSync data source.
 
-OpenSearchServiceConfig is a property of the AWS::AppSync::DataSource: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-opensearchserviceconfig.html
 
     .PARAMETER AwsRegion
-        The AWS Region.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-opensearchserviceconfig.html#cfn-appsync-datasource-opensearchserviceconfig-awsregion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Endpoint
-        The endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-opensearchserviceconfig.html#cfn-appsync-datasource-opensearchserviceconfig-endpoint
         PrimitiveType: String
         UpdateType: Mutable

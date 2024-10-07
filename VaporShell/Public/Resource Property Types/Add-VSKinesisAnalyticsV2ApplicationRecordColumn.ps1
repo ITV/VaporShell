@@ -1,35 +1,27 @@
 function Add-VSKinesisAnalyticsV2ApplicationRecordColumn {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.RecordColumn resource property to the template. For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+        Adds an AWS::KinesisAnalyticsV2::Application.RecordColumn resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.RecordColumn resource property to the template.
-For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
 
-Also used to describe the format of the reference data source.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html
 
     .PARAMETER Mapping
-        A reference to the data element in the streaming input or the reference data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-mapping
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        The name of the column that is created in the in-application input stream or reference table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-name
+    .PARAMETER SqlType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-sqltype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER SqlType
-        The type of column created in the in-application input stream or reference table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-sqltype
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-name
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -61,7 +53,7 @@ Also used to describe the format of the reference data source.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $SqlType,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -72,7 +64,7 @@ Also used to describe the format of the reference data source.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SqlType
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,25 +1,21 @@
 function Add-VSMediaPackageOriginEndpointAuthorization {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::OriginEndpoint.Authorization resource property to the template. Parameters for enabling CDN authorization on the endpoint.
+        Adds an AWS::MediaPackage::OriginEndpoint.Authorization resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::OriginEndpoint.Authorization resource property to the template.
-Parameters for enabling CDN authorization on the endpoint.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html
 
     .PARAMETER SecretsRoleArn
-        The Amazon Resource Name ARN for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER CdnIdentifierSecret
-        The Amazon Resource Name ARN for the secret in AWS Secrets Manager that your Content Distribution Network CDN uses for authorization to access your endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,28 +1,21 @@
 function Add-VSAutoScalingScalingPolicyMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.Metric resource property to the template. Represents a specific metric.
+        Adds an AWS::AutoScaling::ScalingPolicy.Metric resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.Metric resource property to the template.
-Represents a specific metric.
 
-Metric is a property of the AWS::AutoScaling::ScalingPolicy MetricStat: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricstat.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html
 
     .PARAMETER MetricName
-        The name of the metric.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html#cfn-autoscaling-scalingpolicy-metric-metricname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Dimensions
-        The dimensions for the metric. For the list of available dimensions, see the AWS documentation available from the table in AWS services that publish CloudWatch metrics : https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html in the *Amazon CloudWatch User Guide*.
-Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html#cfn-autoscaling-scalingpolicy-metric-dimensions
         UpdateType: Mutable
         Type: List
@@ -30,8 +23,6 @@ Conditional: If you published your metric with dimensions, you must specify the 
         DuplicatesAllowed: False
 
     .PARAMETER Namespace
-        The namespace of the metric. For more information, see the table in AWS services that publish CloudWatch metrics : https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html in the *Amazon CloudWatch User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html#cfn-autoscaling-scalingpolicy-metric-namespace
         UpdateType: Mutable
         PrimitiveType: String

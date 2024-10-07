@@ -1,18 +1,16 @@
 function Add-VSCloudWatchMetricStreamMetricStreamFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudWatch::MetricStream.MetricStreamFilter resource property to the template. This structure contains the name of one of the metric namespaces that is listed in a filter of a metric stream.
+        Adds an AWS::CloudWatch::MetricStream.MetricStreamFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudWatch::MetricStream.MetricStreamFilter resource property to the template.
-This structure contains the name of one of the metric namespaces that is listed in a filter of a metric stream.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
 
     .PARAMETER Namespace
-        The name of the metric namespace in the filter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
         UpdateType: Mutable
         PrimitiveType: String

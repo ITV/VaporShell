@@ -1,18 +1,16 @@
 function Add-VSAutoScalingScalingPolicyPredictiveScalingCustomizedCapacityMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedCapacityMetric resource property to the template. Contains capacity metric information for the CustomizedCapacityMetricSpecification property of the AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html property type.
+        Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedCapacityMetric resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedCapacityMetric resource property to the template.
-Contains capacity metric information for the CustomizedCapacityMetricSpecification property of the AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html property type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html
 
     .PARAMETER MetricDataQueries
-        One or more metric data queries to provide the data points for a capacity metric. Use multiple metric data queries only if you are performing a math expression on returned data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html#cfn-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric-metricdataqueries
         UpdateType: Mutable
         Type: List

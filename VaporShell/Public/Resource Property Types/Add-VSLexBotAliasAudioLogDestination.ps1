@@ -1,18 +1,16 @@
 function Add-VSLexBotAliasAudioLogDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.AudioLogDestination resource property to the template. Specifies the S3 bucket location where audio logs are stored.
+        Adds an AWS::Lex::BotAlias.AudioLogDestination resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.AudioLogDestination resource property to the template.
-Specifies the S3 bucket location where audio logs are stored.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html
 
     .PARAMETER S3Bucket
-        The S3 bucket location where audio logs are stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html#cfn-lex-botalias-audiologdestination-s3bucket
         UpdateType: Mutable
         Type: S3BucketLogDestination

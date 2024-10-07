@@ -1,26 +1,22 @@
 function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskEntry {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskEntry resource property to the template. LoRaWANUpdateGatewayTaskEntry object.
+        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskEntry resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskEntry resource property to the template.
-LoRaWANUpdateGatewayTaskEntry object.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html
 
-    .PARAMETER CurrentVersion
-        The version of the gateways that should receive the update.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion
+    .PARAMETER UpdateVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion
         UpdateType: Mutable
         Type: LoRaWANGatewayVersion
 
-    .PARAMETER UpdateVersion
-        The firmware version to update the gateway to.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion
+    .PARAMETER CurrentVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion
         UpdateType: Mutable
         Type: LoRaWANGatewayVersion
 
@@ -32,9 +28,9 @@ LoRaWANUpdateGatewayTaskEntry object.
     Param
     (
         [parameter(Mandatory = $false)]
-        $CurrentVersion,
+        $UpdateVersion,
         [parameter(Mandatory = $false)]
-        $UpdateVersion
+        $CurrentVersion
     )
     Begin {
         $obj = [PSCustomObject]@{}

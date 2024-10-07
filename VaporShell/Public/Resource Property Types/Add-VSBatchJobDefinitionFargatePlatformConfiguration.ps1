@@ -1,18 +1,16 @@
 function Add-VSBatchJobDefinitionFargatePlatformConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Batch::JobDefinition.FargatePlatformConfiguration resource property to the template. The platform configuration for jobs that are running on Fargate resources. Jobs that run on EC2 resources must not specify this parameter.
+        Adds an AWS::Batch::JobDefinition.FargatePlatformConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Batch::JobDefinition.FargatePlatformConfiguration resource property to the template.
-The platform configuration for jobs that are running on Fargate resources. Jobs that run on EC2 resources must not specify this parameter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html
 
     .PARAMETER PlatformVersion
-        The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the LATEST platform version is used by default. This uses a recent, approved version of the AWS Fargate platform for compute resources. For more information, see AWS Fargate platform versions: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html in the *Amazon Elastic Container Service Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration-platformversion
         PrimitiveType: String
         UpdateType: Mutable

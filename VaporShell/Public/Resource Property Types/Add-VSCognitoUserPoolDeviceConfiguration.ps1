@@ -1,30 +1,21 @@
 function Add-VSCognitoUserPoolDeviceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPool.DeviceConfiguration resource property to the template. The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.
+        Adds an AWS::Cognito::UserPool.DeviceConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPool.DeviceConfiguration resource property to the template.
-The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.
 
-**Note**
-
-When you provide values for any DeviceConfiguration field, you activate device tracking.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html
 
     .PARAMETER DeviceOnlyRememberedOnUserPrompt
-        When true, users can opt in to remembering their device. Your app code must use callback functions to return the user's choice.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html#cfn-cognito-userpool-deviceconfiguration-deviceonlyrememberedonuserprompt
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ChallengeRequiredOnNewDevice
-        When true, device authentication can replace SMS and time-based one-time password TOTP factors for multi-factor authentication MFA.
-Users that sign in with devices that have not been confirmed or remembered will still have to provide a second factor, whether or not ChallengeRequiredOnNewDevice is true, when your user pool requires MFA.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html#cfn-cognito-userpool-deviceconfiguration-challengerequiredonnewdevice
         PrimitiveType: Boolean
         UpdateType: Mutable

@@ -1,28 +1,22 @@
 function Add-VSApiGatewayStageAccessLogSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::Stage.AccessLogSetting resource property to the template. The AccessLogSetting property type specifies settings for logging access in this stage.
+        Adds an AWS::ApiGateway::Stage.AccessLogSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApiGateway::Stage.AccessLogSetting resource property to the template.
-The AccessLogSetting property type specifies settings for logging access in this stage.
 
-AccessLogSetting is a property of the AWS::ApiGateway::Stage: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html
 
-    .PARAMETER DestinationArn
-        The Amazon Resource Name ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn
+    .PARAMETER Format
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Format
-        A single line format of the access logs of data, as specified by selected $context variables: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference. The format must include at least $context.requestId. This parameter is required to enable access logging.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format
+    .PARAMETER DestinationArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -43,7 +37,7 @@ AccessLogSetting is a property of the AWS::ApiGateway::Stage: https://docs.aws.a
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DestinationArn,
+        $Format,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -54,7 +48,7 @@ AccessLogSetting is a property of the AWS::ApiGateway::Stage: https://docs.aws.a
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Format
+        $DestinationArn
     )
     Begin {
         $obj = [PSCustomObject]@{}

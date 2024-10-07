@@ -1,18 +1,16 @@
 function Add-VSDMSEndpointDynamoDbSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::DMS::Endpoint.DynamoDbSettings resource property to the template. Provides the Amazon Resource Name (ARN of the AWS Identity and Access Management (IAM role used to define an Amazon DynamoDB target endpoint.
+        Adds an AWS::DMS::Endpoint.DynamoDbSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DMS::Endpoint.DynamoDbSettings resource property to the template.
-Provides the Amazon Resource Name (ARN of the AWS Identity and Access Management (IAM role used to define an Amazon DynamoDB target endpoint.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html
 
     .PARAMETER ServiceAccessRoleArn
-        The Amazon Resource Name ARN used by the service to access the IAM role. The role must allow the iam:PassRole action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html#cfn-dms-endpoint-dynamodbsettings-serviceaccessrolearn
         PrimitiveType: String
         UpdateType: Mutable

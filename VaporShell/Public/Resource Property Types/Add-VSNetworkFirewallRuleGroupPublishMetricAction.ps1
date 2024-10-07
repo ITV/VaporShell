@@ -1,11 +1,11 @@
 function Add-VSNetworkFirewallRuleGroupPublishMetricAction {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.PublishMetricAction resource property to the template. Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+        Adds an AWS::NetworkFirewall::RuleGroup.PublishMetricAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.PublishMetricAction resource property to the template.
-Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html

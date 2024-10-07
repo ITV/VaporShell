@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowS3InputFormatConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.S3InputFormatConfig resource property to the template. <a name="aws-properties-appflow-flow-s3inputformatconfig-description"></a>The S3InputFormatConfig property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppFlow::Flow: aws-resource-appflow-flow.md.
+        Adds an AWS::AppFlow::Flow.S3InputFormatConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.S3InputFormatConfig resource property to the template.
-<a name="aws-properties-appflow-flow-s3inputformatconfig-description"></a>The S3InputFormatConfig property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppFlow::Flow: aws-resource-appflow-flow.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3inputformatconfig.html
 
     .PARAMETER S3InputFileType
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3inputformatconfig.html#cfn-appflow-flow-s3inputformatconfig-s3inputfiletype
         UpdateType: Mutable
         PrimitiveType: String

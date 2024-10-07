@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelSmpteTtDestinationSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.SmpteTtDestinationSettings resource property to the template. The setup of SMPTE-TT captions in the output.
+        Adds an AWS::MediaLive::Channel.SmpteTtDestinationSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.SmpteTtDestinationSettings resource property to the template.
-The setup of SMPTE-TT captions in the output.
 
-The parent of this entity is CaptionDestinationSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-smptettdestinationsettings.html

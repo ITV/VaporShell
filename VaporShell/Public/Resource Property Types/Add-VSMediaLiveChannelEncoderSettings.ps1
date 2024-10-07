@@ -1,101 +1,75 @@
 function Add-VSMediaLiveChannelEncoderSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.EncoderSettings resource property to the template. The settings for the encoding of outputs.
+        Adds an AWS::MediaLive::Channel.EncoderSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.EncoderSettings resource property to the template.
-The settings for the encoding of outputs.
 
-This entity is at the top level in the channel.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html
 
     .PARAMETER AudioDescriptions
-        The encoding information for output audio.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-audiodescriptions
         ItemType: AudioDescription
         UpdateType: Mutable
 
     .PARAMETER VideoDescriptions
-        The encoding information for output videos.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-videodescriptions
         ItemType: VideoDescription
         UpdateType: Mutable
 
     .PARAMETER FeatureActivations
-        Settings to enable specific features.
-
         Type: FeatureActivations
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-featureactivations
         UpdateType: Mutable
 
     .PARAMETER GlobalConfiguration
-        The configuration settings that apply to the entire channel.
-
         Type: GlobalConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-globalconfiguration
         UpdateType: Mutable
 
     .PARAMETER CaptionDescriptions
-        The encoding information for output captions.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-captiondescriptions
         ItemType: CaptionDescription
         UpdateType: Mutable
 
     .PARAMETER AvailConfiguration
-        The configuration settings for the ad avail handling.
-
         Type: AvailConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-availconfiguration
         UpdateType: Mutable
 
     .PARAMETER MotionGraphicsConfiguration
-        Settings to enable and configure the motion graphics overlay feature in the channel.
-
         Type: MotionGraphicsConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-motiongraphicsconfiguration
         UpdateType: Mutable
 
     .PARAMETER OutputGroups
-        The settings for the output groups in the channel.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-outputgroups
         ItemType: OutputGroup
         UpdateType: Mutable
 
     .PARAMETER AvailBlanking
-        The settings for ad avail blanking.
-
         Type: AvailBlanking
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-availblanking
         UpdateType: Mutable
 
     .PARAMETER NielsenConfiguration
-        The settings to configure Nielsen watermarks.
-
         Type: NielsenConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-nielsenconfiguration
         UpdateType: Mutable
 
     .PARAMETER BlackoutSlate
-        The settings for the blackout slate.
-
         Type: BlackoutSlate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-blackoutslate
         UpdateType: Mutable
 
     .PARAMETER TimecodeConfig
-        Contains settings used to acquire and adjust timecode information from the inputs.
-
         Type: TimecodeConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-timecodeconfig
         UpdateType: Mutable

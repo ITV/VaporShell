@@ -1,40 +1,33 @@
 function Add-VSDeviceFarmTestGridProjectVpcConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::DeviceFarm::TestGridProject.VpcConfig resource property to the template. The VPC security groups and subnets attached to the TestGrid project.
+        Adds an AWS::DeviceFarm::TestGridProject.VpcConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DeviceFarm::TestGridProject.VpcConfig resource property to the template.
-The VPC security groups and subnets attached to the TestGrid project.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-testgridproject-vpcconfig.html
 
-    .PARAMETER SecurityGroupIds
-        A list of VPC security group IDs.
-A security group allows inbound traffic from network interfaces and their associated instances that are assigned to the same security group. See Security groups: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html in the *Amazon Virtual Private Cloud user guide*.
+    .PARAMETER VpcId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-testgridproject-vpcconfig.html#cfn-devicefarm-testgridproject-vpcconfig-vpcid
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER SecurityGroupIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-testgridproject-vpcconfig.html#cfn-devicefarm-testgridproject-vpcconfig-securitygroupids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER SubnetIds
-        A list of VPC subnet IDs.
-A subnet is a range of IP addresses in your VPC. You can launch Amazon resources, such as EC2 instances, into a specific subnet. When you create a subnet, you specify the IPv4 CIDR block for the subnet, which is a subset of the VPC CIDR block. See VPCs and subnets: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html in the *Amazon Virtual Private Cloud user guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-testgridproject-vpcconfig.html#cfn-devicefarm-testgridproject-vpcconfig-subnetids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER VpcId
-        A list of VPC IDs.
-Each VPC is given a unique ID upon creation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-testgridproject-vpcconfig.html#cfn-devicefarm-testgridproject-vpcconfig-vpcid
-        UpdateType: Mutable
-        PrimitiveType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -43,10 +36,6 @@ Each VPC is given a unique ID upon creation.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $SecurityGroupIds,
-        [parameter(Mandatory = $true)]
-        $SubnetIds,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -57,7 +46,11 @@ Each VPC is given a unique ID upon creation.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VpcId
+        $VpcId,
+        [parameter(Mandatory = $true)]
+        $SecurityGroupIds,
+        [parameter(Mandatory = $true)]
+        $SubnetIds
     )
     Begin {
         $obj = [PSCustomObject]@{}

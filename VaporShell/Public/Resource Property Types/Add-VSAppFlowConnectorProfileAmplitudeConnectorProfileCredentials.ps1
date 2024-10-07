@@ -1,26 +1,22 @@
 function Add-VSAppFlowConnectorProfileAmplitudeConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.AmplitudeConnectorProfileCredentials resource property to the template. The AmplitudeConnectorProfileCredentials property type specifies the connector-specific credentials required when using Amplitude.
+        Adds an AWS::AppFlow::ConnectorProfile.AmplitudeConnectorProfileCredentials resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.AmplitudeConnectorProfileCredentials resource property to the template.
-The AmplitudeConnectorProfileCredentials property type specifies the connector-specific credentials required when using Amplitude.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html
 
-    .PARAMETER ApiKey
-        A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
+    .PARAMETER SecretKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER SecretKey
-        The Secret Access Key portion of the credentials.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
+    .PARAMETER ApiKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ The AmplitudeConnectorProfileCredentials property type specifies the connector-s
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ApiKey,
+        $SecretKey,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ The AmplitudeConnectorProfileCredentials property type specifies the connector-s
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SecretKey
+        $ApiKey
     )
     Begin {
         $obj = [PSCustomObject]@{}

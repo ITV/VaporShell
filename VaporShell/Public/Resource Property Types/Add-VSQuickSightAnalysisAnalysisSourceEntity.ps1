@@ -1,18 +1,16 @@
 function Add-VSQuickSightAnalysisAnalysisSourceEntity {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.AnalysisSourceEntity resource property to the template. The source entity of an analysis.
+        Adds an AWS::QuickSight::Analysis.AnalysisSourceEntity resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.AnalysisSourceEntity resource property to the template.
-The source entity of an analysis.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html
 
     .PARAMETER SourceTemplate
-        The source template for the source entity of the analysis.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html#cfn-quicksight-analysis-analysissourceentity-sourcetemplate
         UpdateType: Mutable
         Type: AnalysisSourceTemplate

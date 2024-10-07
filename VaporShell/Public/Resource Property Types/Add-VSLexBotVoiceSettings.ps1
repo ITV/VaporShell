@@ -1,25 +1,21 @@
 function Add-VSLexBotVoiceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.VoiceSettings resource property to the template. Identifies the Amazon Polly voice used for audio interaction with the user.
+        Adds an AWS::Lex::Bot.VoiceSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.VoiceSettings resource property to the template.
-Identifies the Amazon Polly voice used for audio interaction with the user.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html
 
     .PARAMETER VoiceId
-        The Amazon Polly voice used for voice interaction with the user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html#cfn-lex-bot-voicesettings-voiceid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Engine
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html#cfn-lex-bot-voicesettings-engine
         UpdateType: Mutable
         PrimitiveType: String

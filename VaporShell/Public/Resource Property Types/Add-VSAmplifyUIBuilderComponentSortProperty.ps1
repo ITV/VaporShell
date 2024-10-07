@@ -1,25 +1,21 @@
 function Add-VSAmplifyUIBuilderComponentSortProperty {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Component.SortProperty resource property to the template. The SortProperty property specifies how to sort the data that you bind to a component.
+        Adds an AWS::AmplifyUIBuilder::Component.SortProperty resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Component.SortProperty resource property to the template.
-The SortProperty property specifies how to sort the data that you bind to a component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-sortproperty.html
 
     .PARAMETER Field
-        The field to perform the sort on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-sortproperty.html#cfn-amplifyuibuilder-component-sortproperty-field
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Direction
-        The direction of the sort, either ascending or descending.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-sortproperty.html#cfn-amplifyuibuilder-component-sortproperty-direction
         UpdateType: Mutable
         PrimitiveType: String

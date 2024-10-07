@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelRawSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.RawSettings resource property to the template. The container for WAV audio in the output group.
+        Adds an AWS::MediaLive::Channel.RawSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.RawSettings resource property to the template.
-The container for WAV audio in the output group.
 
-The parent of this entity is ArchiveContainerSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rawsettings.html

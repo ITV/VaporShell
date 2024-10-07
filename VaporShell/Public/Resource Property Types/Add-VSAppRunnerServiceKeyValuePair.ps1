@@ -1,26 +1,22 @@
 function Add-VSAppRunnerServiceKeyValuePair {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.KeyValuePair resource property to the template. Describes a key-value pair, which is a string-to-string mapping.
+        Adds an AWS::AppRunner::Service.KeyValuePair resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.KeyValuePair resource property to the template.
-Describes a key-value pair, which is a string-to-string mapping.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html
 
-    .PARAMETER Name
-        The key name string to map to a value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-name
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-value
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The value string to which the key name is mapped.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-value
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-name
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Describes a key-value pair, which is a string-to-string mapping.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $Value,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Describes a key-value pair, which is a string-to-string mapping.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

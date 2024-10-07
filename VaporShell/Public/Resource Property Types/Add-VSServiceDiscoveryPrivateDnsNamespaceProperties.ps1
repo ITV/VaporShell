@@ -1,18 +1,16 @@
 function Add-VSServiceDiscoveryPrivateDnsNamespaceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceDiscovery::PrivateDnsNamespace.Properties resource property to the template. Properties for the private DNS namespace.
+        Adds an AWS::ServiceDiscovery::PrivateDnsNamespace.Properties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ServiceDiscovery::PrivateDnsNamespace.Properties resource property to the template.
-Properties for the private DNS namespace.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-properties.html
 
     .PARAMETER DnsProperties
-        DNS properties for the private DNS namespace.
-
         Type: PrivateDnsPropertiesMutable
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-properties.html#cfn-servicediscovery-privatednsnamespace-properties-dnsproperties
         UpdateType: Mutable

@@ -1,10 +1,10 @@
 function New-VSApiGatewayRequestValidator {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::RequestValidator resource to the template. The AWS::ApiGateway::RequestValidator resource sets up basic validation rules for incoming requests to your API. For more information, see Enable Basic Request Validation for an API in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGateway::RequestValidator resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGateway::RequestValidator resource to the template. The AWS::ApiGateway::RequestValidator resource sets up basic validation rules for incoming requests to your API. For more information, see Enable Basic Request Validation for an API in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGateway::RequestValidator resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
@@ -12,33 +12,25 @@ function New-VSApiGatewayRequestValidator {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of this request validator.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
-        UpdateType: Immutable
-        PrimitiveType: String
+    .PARAMETER ValidateRequestParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER RestApiId
-        The identifier of the targeted API entity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ValidateRequestBody
-        Indicates whether to validate the request body according to the configured schema for the targeted API and method.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER ValidateRequestParameters
-        Indicates whether to validate request parameters.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
-        UpdateType: Mutable
-        PrimitiveType: Boolean
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -104,7 +96,7 @@ function New-VSApiGatewayRequestValidator {
         $LogicalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -112,7 +104,7 @@ function New-VSApiGatewayRequestValidator {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $ValidateRequestParameters,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -137,7 +129,7 @@ function New-VSApiGatewayRequestValidator {
         $ValidateRequestBody,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -145,7 +137,7 @@ function New-VSApiGatewayRequestValidator {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ValidateRequestParameters,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

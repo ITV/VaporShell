@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileDynatraceConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.DynatraceConnectorProfileCredentials resource property to the template. The DynatraceConnectorProfileCredentials property type specifies the connector-specific profile credentials required by Dynatrace.
+        Adds an AWS::AppFlow::ConnectorProfile.DynatraceConnectorProfileCredentials resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.DynatraceConnectorProfileCredentials resource property to the template.
-The DynatraceConnectorProfileCredentials property type specifies the connector-specific profile credentials required by Dynatrace.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html
 
     .PARAMETER ApiToken
-        The API tokens used by Dynatrace API to authenticate various API calls.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
         UpdateType: Mutable
         PrimitiveType: String

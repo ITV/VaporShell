@@ -1,10 +1,10 @@
 function New-VSIVSRecordingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IVS::RecordingConfiguration resource to the template. The AWS::IVS::RecordingConfiguration resource specifies an Amazon IVS recording configuration. A recording configuration enables the recording of a channel’s live streams to a data store. Multiple channels can reference the same recording configuration. For more information, see RecordingConfiguration: https://docs.aws.amazon.com/ivs/latest/APIReference/API_RecordingConfiguration.html in the *Amazon Interactive Video Service API Reference*.
+        Adds an AWS::IVS::RecordingConfiguration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IVS::RecordingConfiguration resource to the template. The AWS::IVS::RecordingConfiguration resource specifies an Amazon IVS recording configuration. A recording configuration enables the recording of a channel’s live streams to a data store. Multiple channels can reference the same recording configuration. For more information, see RecordingConfiguration: https://docs.aws.amazon.com/ivs/latest/APIReference/API_RecordingConfiguration.html in the *Amazon Interactive Video Service API Reference*.
+        Adds an AWS::IVS::RecordingConfiguration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html
@@ -12,24 +12,17 @@ function New-VSIVSRecordingConfiguration {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        Recording-configuration name. The value does not need to be unique.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER DestinationConfiguration
-        A destination configuration contains information about where recorded video will be stored. See the  DestinationConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html property type for more information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
         UpdateType: Immutable
         Type: DestinationConfiguration
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+    .PARAMETER RecordingReconnectWindowSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-recordingreconnectwindowseconds
+        UpdateType: Immutable
+        PrimitiveType: Integer
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
         UpdateType: Mutable
         Type: List
@@ -37,11 +30,14 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
         DuplicatesAllowed: False
 
     .PARAMETER ThumbnailConfiguration
-        A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thunbnailconfiguration.html property type for more information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration
         UpdateType: Immutable
         Type: ThumbnailConfiguration
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -105,6 +101,24 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $true)]
+        $DestinationConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RecordingReconnectWindowSeconds,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $false)]
+        $ThumbnailConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -116,13 +130,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $Name,
-        [parameter(Mandatory = $true)]
-        $DestinationConfiguration,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
-        [parameter(Mandatory = $false)]
-        $ThumbnailConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

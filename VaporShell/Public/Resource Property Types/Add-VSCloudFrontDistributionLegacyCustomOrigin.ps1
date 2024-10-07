@@ -1,25 +1,21 @@
 function Add-VSCloudFrontDistributionLegacyCustomOrigin {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.LegacyCustomOrigin resource property to the template. <a name="aws-properties-cloudfront-distribution-legacycustomorigin-description"></a>The LegacyCustomOrigin property type specifies Not currently supported by AWS CloudFormation. for an AWS::CloudFront::Distribution: aws-resource-cloudfront-distribution.md.
+        Adds an AWS::CloudFront::Distribution.LegacyCustomOrigin resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.LegacyCustomOrigin resource property to the template.
-<a name="aws-properties-cloudfront-distribution-legacycustomorigin-description"></a>The LegacyCustomOrigin property type specifies Not currently supported by AWS CloudFormation. for an AWS::CloudFront::Distribution: aws-resource-cloudfront-distribution.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html
 
     .PARAMETER HTTPSPort
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpsport
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER OriginSSLProtocols
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originsslprotocols
         UpdateType: Mutable
         Type: List
@@ -27,22 +23,16 @@ function Add-VSCloudFrontDistributionLegacyCustomOrigin {
         DuplicatesAllowed: True
 
     .PARAMETER DNSName
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-dnsname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER HTTPPort
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpport
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER OriginProtocolPolicy
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originprotocolpolicy
         UpdateType: Mutable
         PrimitiveType: String

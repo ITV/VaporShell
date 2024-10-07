@@ -1,25 +1,21 @@
 function Add-VSMediaPackagePackagingConfigurationMssManifest {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingConfiguration.MssManifest resource property to the template. Parameters for a Microsoft Smooth manifest.
+        Adds an AWS::MediaPackage::PackagingConfiguration.MssManifest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::PackagingConfiguration.MssManifest resource property to the template.
-Parameters for a Microsoft Smooth manifest.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html
 
     .PARAMETER ManifestName
-        A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER StreamSelection
-        Video bitrate limitations for outputs from this packaging configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
         UpdateType: Mutable
         Type: StreamSelection

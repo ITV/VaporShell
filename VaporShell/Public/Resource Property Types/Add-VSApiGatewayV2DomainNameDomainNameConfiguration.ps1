@@ -1,48 +1,36 @@
 function Add-VSApiGatewayV2DomainNameDomainNameConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::DomainName.DomainNameConfiguration resource property to the template. The DomainNameConfiguration property type specifies the configuration for a an API's domain name.
+        Adds an AWS::ApiGatewayV2::DomainName.DomainNameConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApiGatewayV2::DomainName.DomainNameConfiguration resource property to the template.
-The DomainNameConfiguration property type specifies the configuration for a an API's domain name.
 
-DomainNameConfiguration is a property of the AWS::ApiGatewayV2::DomainName: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html
 
     .PARAMETER OwnershipVerificationCertificateArn
-        The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-ownershipverificationcertificatearn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SecurityPolicy
-        The Transport Layer Security TLS version of the security policy for this domain name. The valid values are TLS_1_0 and TLS_1_2.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-securitypolicy
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER EndpointType
-        The endpoint type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-endpointtype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CertificateName
-        The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CertificateArn
-        An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatearn
         PrimitiveType: String
         UpdateType: Mutable

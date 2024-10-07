@@ -1,28 +1,21 @@
 function Add-VSGroundStationConfigFrequencyBandwidth {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.FrequencyBandwidth resource property to the template. Defines a bandwidth.
+        Adds an AWS::GroundStation::Config.FrequencyBandwidth resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.FrequencyBandwidth resource property to the template.
-Defines a bandwidth.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html
 
     .PARAMETER Value
-        The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations:
-+ For AntennaDownlinkDemodDecodeconfig, valid values are between 125 kHz to 650 MHz.
-+ For AntennaDownlinkconfig, valid values are between 10 kHz to 54 MHz.
-+ For AntennaUplinkConfig, valid values are between 10 kHz to 54 MHz.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-value
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Units
-        The units of the bandwidth.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-units
         UpdateType: Mutable
         PrimitiveType: String

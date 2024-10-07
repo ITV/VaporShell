@@ -12,6 +12,11 @@ function New-VSIoTEventsAlarmModel {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER AlarmRule
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-alarmrule
+        UpdateType: Mutable
+        Type: AlarmRule
+
     .PARAMETER AlarmModelName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-alarmmodelname
         UpdateType: Immutable
@@ -21,6 +26,16 @@ function New-VSIoTEventsAlarmModel {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-alarmmodeldescription
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER Severity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-severity
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER AlarmCapabilities
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-alarmcapabilities
+        UpdateType: Mutable
+        Type: AlarmCapabilities
 
     .PARAMETER RoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-rolearn
@@ -32,25 +47,10 @@ function New-VSIoTEventsAlarmModel {
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Severity
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-severity
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
-    .PARAMETER AlarmRule
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-alarmrule
-        UpdateType: Mutable
-        Type: AlarmRule
-
     .PARAMETER AlarmEventActions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-alarmeventactions
         UpdateType: Mutable
         Type: AlarmEventActions
-
-    .PARAMETER AlarmCapabilities
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-alarmcapabilities
-        UpdateType: Mutable
-        Type: AlarmCapabilities
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html#cfn-iotevents-alarmmodel-tags
@@ -121,6 +121,8 @@ function New-VSIoTEventsAlarmModel {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $true)]
+        $AlarmRule,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -143,6 +145,19 @@ function New-VSIoTEventsAlarmModel {
                 }
             })]
         $AlarmModelDescription,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Severity,
+        [parameter(Mandatory = $false)]
+        $AlarmCapabilities,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -166,22 +181,7 @@ function New-VSIoTEventsAlarmModel {
             })]
         $Key,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Severity,
-        [parameter(Mandatory = $true)]
-        $AlarmRule,
-        [parameter(Mandatory = $false)]
         $AlarmEventActions,
-        [parameter(Mandatory = $false)]
-        $AlarmCapabilities,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

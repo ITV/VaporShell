@@ -1,42 +1,34 @@
 function Add-VSKinesisFirehoseDeliveryStreamDataFormatConversionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.DataFormatConversionConfiguration resource property to the template. Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see Kinesis Data Firehose Record Format Conversion: https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html.
+        Adds an AWS::KinesisFirehose::DeliveryStream.DataFormatConversionConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.DataFormatConversionConfiguration resource property to the template.
-Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see Kinesis Data Firehose Record Format Conversion: https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html
 
-    .PARAMETER Enabled
-        Defaults to true. Set it to false if you want to disable format conversion while preserving the configuration details.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
     .PARAMETER InputFormatConfiguration
-        Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. This parameter is required if Enabled is set to true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration
         UpdateType: Mutable
         Type: InputFormatConfiguration
 
-    .PARAMETER OutputFormatConfiguration
-        Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if Enabled is set to true.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration
+    .PARAMETER Enabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled
         UpdateType: Mutable
-        Type: OutputFormatConfiguration
+        PrimitiveType: Boolean
 
     .PARAMETER SchemaConfiguration
-        Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if Enabled is set to true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-schemaconfiguration
         UpdateType: Mutable
         Type: SchemaConfiguration
+
+    .PARAMETER OutputFormatConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration
+        UpdateType: Mutable
+        Type: OutputFormatConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -45,6 +37,8 @@ Specifies that you want Kinesis Data Firehose to convert data from the JSON form
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $InputFormatConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -57,11 +51,9 @@ Specifies that you want Kinesis Data Firehose to convert data from the JSON form
             })]
         $Enabled,
         [parameter(Mandatory = $false)]
-        $InputFormatConfiguration,
+        $SchemaConfiguration,
         [parameter(Mandatory = $false)]
-        $OutputFormatConfiguration,
-        [parameter(Mandatory = $false)]
-        $SchemaConfiguration
+        $OutputFormatConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

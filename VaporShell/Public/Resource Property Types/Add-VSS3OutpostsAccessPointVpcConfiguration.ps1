@@ -1,18 +1,16 @@
 function Add-VSS3OutpostsAccessPointVpcConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3Outposts::AccessPoint.VpcConfiguration resource property to the template. Contains the virtual private cloud (VPC configuration for the specified access point.
+        Adds an AWS::S3Outposts::AccessPoint.VpcConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3Outposts::AccessPoint.VpcConfiguration resource property to the template.
-Contains the virtual private cloud (VPC configuration for the specified access point.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html
 
     .PARAMETER VpcId
-        The ID of the VPC configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
         UpdateType: Immutable
         PrimitiveType: String

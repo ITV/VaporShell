@@ -10,25 +10,25 @@ function Add-VSSageMakerModelPackageDriftCheckBaselines {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html
 
-    .PARAMETER Bias
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-bias
-        UpdateType: Immutable
-        Type: DriftCheckBias
-
-    .PARAMETER Explainability
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-explainability
-        UpdateType: Immutable
-        Type: DriftCheckExplainability
-
     .PARAMETER ModelDataQuality
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-modeldataquality
         UpdateType: Immutable
         Type: DriftCheckModelDataQuality
 
+    .PARAMETER Bias
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-bias
+        UpdateType: Immutable
+        Type: DriftCheckBias
+
     .PARAMETER ModelQuality
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-modelquality
         UpdateType: Immutable
         Type: DriftCheckModelQuality
+
+    .PARAMETER Explainability
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-explainability
+        UpdateType: Immutable
+        Type: DriftCheckExplainability
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,13 +38,13 @@ function Add-VSSageMakerModelPackageDriftCheckBaselines {
     Param
     (
         [parameter(Mandatory = $false)]
-        $Bias,
-        [parameter(Mandatory = $false)]
-        $Explainability,
-        [parameter(Mandatory = $false)]
         $ModelDataQuality,
         [parameter(Mandatory = $false)]
-        $ModelQuality
+        $Bias,
+        [parameter(Mandatory = $false)]
+        $ModelQuality,
+        [parameter(Mandatory = $false)]
+        $Explainability
     )
     Begin {
         $obj = [PSCustomObject]@{}

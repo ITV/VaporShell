@@ -1,18 +1,16 @@
 function Add-VSPanoramaApplicationInstanceManifestPayload {
     <#
     .SYNOPSIS
-        Adds an AWS::Panorama::ApplicationInstance.ManifestPayload resource property to the template. A application verion's manifest file. This is a JSON document that has a single key (PayloadData where the value is an escaped string representation of the application manifest (graph.json. This file is located in the graphs folder in your application source.
+        Adds an AWS::Panorama::ApplicationInstance.ManifestPayload resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Panorama::ApplicationInstance.ManifestPayload resource property to the template.
-A application verion's manifest file. This is a JSON document that has a single key (PayloadData where the value is an escaped string representation of the application manifest (graph.json. This file is located in the graphs folder in your application source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestpayload.html
 
     .PARAMETER PayloadData
-        The application manifest.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestpayload.html#cfn-panorama-applicationinstance-manifestpayload-payloaddata
         UpdateType: Immutable
         PrimitiveType: String

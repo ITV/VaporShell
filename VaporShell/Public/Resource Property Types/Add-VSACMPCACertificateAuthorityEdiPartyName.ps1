@@ -1,25 +1,21 @@
 function Add-VSACMPCACertificateAuthorityEdiPartyName {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::CertificateAuthority.EdiPartyName resource property to the template. Describes an Electronic Data Interchange (EDI entity as described in as defined in Subject Alternative Name: https://tools.ietf.org/html/rfc5280 in RFC 5280.
+        Adds an AWS::ACMPCA::CertificateAuthority.EdiPartyName resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::CertificateAuthority.EdiPartyName resource property to the template.
-Describes an Electronic Data Interchange (EDI entity as described in as defined in Subject Alternative Name: https://tools.ietf.org/html/rfc5280 in RFC 5280.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html
 
     .PARAMETER PartyName
-        Specifies the party name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER NameAssigner
-        Specifies the name assigner.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
         UpdateType: Immutable
         PrimitiveType: String

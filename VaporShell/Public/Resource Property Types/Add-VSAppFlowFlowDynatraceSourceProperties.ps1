@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowDynatraceSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.DynatraceSourceProperties resource property to the template. The properties that are applied when Dynatrace is being used as a source.
+        Adds an AWS::AppFlow::Flow.DynatraceSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.DynatraceSourceProperties resource property to the template.
-The properties that are applied when Dynatrace is being used as a source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html
 
     .PARAMETER Object
-        The object specified in the Dynatrace flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html#cfn-appflow-flow-dynatracesourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

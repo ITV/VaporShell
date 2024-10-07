@@ -1,26 +1,21 @@
 function Add-VSLightsailContainerPortInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Container.PortInfo resource property to the template. PortInfo is a property of the Container: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-container.html property. It describes the ports to open and the protocols to use for a container on a Amazon Lightsail container service.
+        Adds an AWS::Lightsail::Container.PortInfo resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Container.PortInfo resource property to the template.
-PortInfo is a property of the Container: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-container.html property. It describes the ports to open and the protocols to use for a container on a Amazon Lightsail container service.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-portinfo.html
 
     .PARAMETER Port
-        The open firewall ports of the container.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-portinfo.html#cfn-lightsail-container-portinfo-port
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Protocol
-        The protocol name for the open ports.
-*Allowed values*: HTTP | HTTPS | TCP | UDP
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-portinfo.html#cfn-lightsail-container-portinfo-protocol
         UpdateType: Mutable
         PrimitiveType: String

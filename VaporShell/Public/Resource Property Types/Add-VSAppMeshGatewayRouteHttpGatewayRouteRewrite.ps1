@@ -1,32 +1,26 @@
 function Add-VSAppMeshGatewayRouteHttpGatewayRouteRewrite {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteRewrite resource property to the template. An object representing the gateway route to rewrite.
+        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteRewrite resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteRewrite resource property to the template.
-An object representing the gateway route to rewrite.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html
 
     .PARAMETER Path
-        The path to rewrite.
-
         Type: HttpGatewayRoutePathRewrite
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-path
         UpdateType: Mutable
 
     .PARAMETER Hostname
-        The host name to rewrite.
-
         Type: GatewayRouteHostnameRewrite
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-hostname
         UpdateType: Mutable
 
     .PARAMETER Prefix
-        The specified beginning characters to rewrite.
-
         Type: HttpGatewayRoutePrefixRewrite
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-prefix
         UpdateType: Mutable

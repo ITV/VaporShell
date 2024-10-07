@@ -1,18 +1,21 @@
 function Add-VSNetworkFirewallFirewallPolicyStatefulEngineOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions resource property to the template. Configuration settings for the handling of the stateful rule groups in a firewall policy.
+        Adds an AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions resource property to the template.
-Configuration settings for the handling of the stateful rule groups in a firewall policy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html
 
-    .PARAMETER RuleOrder
-        Indicates how to manage the order of stateful rule evaluation for the policy. DEFAULT_ACTION_ORDER is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see Evaluation order for stateful rules: https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html in the * AWS Network Firewall Developer Guide*.
+    .PARAMETER StreamExceptionPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html#cfn-networkfirewall-firewallpolicy-statefulengineoptions-streamexceptionpolicy
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER RuleOrder
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html#cfn-networkfirewall-firewallpolicy-statefulengineoptions-ruleorder
         UpdateType: Mutable
         PrimitiveType: String
@@ -24,6 +27,17 @@ Configuration settings for the handling of the stateful rule groups in a firewal
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StreamExceptionPolicy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

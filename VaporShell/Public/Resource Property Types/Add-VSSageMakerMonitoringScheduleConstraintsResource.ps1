@@ -1,18 +1,16 @@
 function Add-VSSageMakerMonitoringScheduleConstraintsResource {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.ConstraintsResource resource property to the template. The Amazon S3 URI for the constraints resource.
+        Adds an AWS::SageMaker::MonitoringSchedule.ConstraintsResource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.ConstraintsResource resource property to the template.
-The Amazon S3 URI for the constraints resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html
 
     .PARAMETER S3Uri
-        The Amazon S3 URI for the constraints resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html#cfn-sagemaker-monitoringschedule-constraintsresource-s3uri
         UpdateType: Mutable
         PrimitiveType: String

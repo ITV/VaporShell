@@ -1,25 +1,21 @@
 function Add-VSEC2EC2FleetTotalLocalStorageGBRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.TotalLocalStorageGBRequest resource property to the template. The minimum and maximum amount of total local storage, in GB.
+        Adds an AWS::EC2::EC2Fleet.TotalLocalStorageGBRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.TotalLocalStorageGBRequest resource property to the template.
-The minimum and maximum amount of total local storage, in GB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-totallocalstoragegbrequest.html
 
     .PARAMETER Min
-        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-totallocalstoragegbrequest.html#cfn-ec2-ec2fleet-totallocalstoragegbrequest-min
         UpdateType: Immutable
         PrimitiveType: Double
 
     .PARAMETER Max
-        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-totallocalstoragegbrequest.html#cfn-ec2-ec2fleet-totallocalstoragegbrequest-max
         UpdateType: Immutable
         PrimitiveType: Double

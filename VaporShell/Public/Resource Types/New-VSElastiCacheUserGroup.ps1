@@ -1,10 +1,10 @@
 function New-VSElastiCacheUserGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::ElastiCache::UserGroup resource to the template. For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see Using Role Based Access Control (RBAC: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html
+        Adds an AWS::ElastiCache::UserGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ElastiCache::UserGroup resource to the template. For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see Using Role Based Access Control (RBAC: https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html
+        Adds an AWS::ElastiCache::UserGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
@@ -13,26 +13,27 @@ function New-VSElastiCacheUserGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER UserGroupId
-        The ID of the user group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Engine
-        The current supported value is redis.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER UserIds
-        The list of user IDs that belong to the user group. A user named default must be included.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
         DuplicatesAllowed: False
 
     .PARAMETER DeletionPolicy
@@ -119,8 +120,11 @@ function New-VSElastiCacheUserGroup {
                 }
             })]
         $Engine,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         $UserIds,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -200,6 +204,12 @@ function New-VSElastiCacheUserGroup {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name UserIds -Value @($UserIds)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

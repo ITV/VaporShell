@@ -1,25 +1,21 @@
 function Add-VSEventsRuleRetryPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.RetryPolicy resource property to the template. A RetryPolicy object that includes information about the retry policy settings.
+        Adds an AWS::Events::Rule.RetryPolicy resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.RetryPolicy resource property to the template.
-A RetryPolicy object that includes information about the retry policy settings.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html
 
     .PARAMETER MaximumEventAgeInSeconds
-        The maximum amount of time, in seconds, to continue to make retry attempts.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumeventageinseconds
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER MaximumRetryAttempts
-        The maximum number of retry attempts to make before the request fails. Retry attempts continue until either the maximum number of attempts is made or until the duration of the MaximumEventAgeInSeconds is met.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumretryattempts
         PrimitiveType: Integer
         UpdateType: Mutable

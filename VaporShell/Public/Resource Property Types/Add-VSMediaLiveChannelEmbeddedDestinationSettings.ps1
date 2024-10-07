@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelEmbeddedDestinationSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.EmbeddedDestinationSettings resource property to the template. The configuration of embedded captions in the output.
+        Adds an AWS::MediaLive::Channel.EmbeddedDestinationSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.EmbeddedDestinationSettings resource property to the template.
-The configuration of embedded captions in the output.
 
-The parent of this entity is CaptionDestinationSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddeddestinationsettings.html

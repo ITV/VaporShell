@@ -1,70 +1,63 @@
 function Add-VSEC2NetworkInsightsAccessScopePacketHeaderStatementRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAccessScope.PacketHeaderStatementRequest resource property to the template. Describes a packet header statement.
+        Adds an AWS::EC2::NetworkInsightsAccessScope.PacketHeaderStatementRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAccessScope.PacketHeaderStatementRequest resource property to the template.
-Describes a packet header statement.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html
 
-    .PARAMETER SourceAddresses
-        The source addresses.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-sourceaddresses
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER DestinationAddresses
-        The destination addresses.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-destinationaddresses
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER SourcePorts
-        The source ports.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-sourceports
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER DestinationPorts
-        The destination ports.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-destinationports
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER SourcePrefixLists
-        The source prefix lists.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-sourceprefixlists
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER DestinationPrefixLists
-        The destination prefix lists.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-destinationprefixlists
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER Protocols
-        The protocols.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-protocols
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER DestinationPorts
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-destinationports
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER DestinationAddresses
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-destinationaddresses
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER DestinationPrefixLists
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-destinationprefixlists
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER SourceAddresses
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-sourceaddresses
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER SourcePorts
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-sourceports
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER SourcePrefixLists
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html#cfn-ec2-networkinsightsaccessscope-packetheaderstatementrequest-sourceprefixlists
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -74,19 +67,19 @@ Describes a packet header statement.
     Param
     (
         [parameter(Mandatory = $false)]
-        $SourceAddresses,
-        [parameter(Mandatory = $false)]
-        $DestinationAddresses,
-        [parameter(Mandatory = $false)]
-        $SourcePorts,
+        $Protocols,
         [parameter(Mandatory = $false)]
         $DestinationPorts,
         [parameter(Mandatory = $false)]
-        $SourcePrefixLists,
+        $DestinationAddresses,
         [parameter(Mandatory = $false)]
         $DestinationPrefixLists,
         [parameter(Mandatory = $false)]
-        $Protocols
+        $SourceAddresses,
+        [parameter(Mandatory = $false)]
+        $SourcePorts,
+        [parameter(Mandatory = $false)]
+        $SourcePrefixLists
     )
     Begin {
         $obj = [PSCustomObject]@{}

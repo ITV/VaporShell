@@ -1,18 +1,16 @@
 function Add-VSIoTAccountAuditConfigurationAuditNotificationTargetConfigurations {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations resource property to the template. The configuration of the audit notification target.
+        Adds an AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations resource property to the template.
-The configuration of the audit notification target.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
 
     .PARAMETER Sns
-        The Sns notification target.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
         UpdateType: Mutable
         Type: AuditNotificationTarget

@@ -1,40 +1,10 @@
 function New-VSAmazonMQBroker {
     <#
     .SYNOPSIS
-        Adds an AWS::AmazonMQ::Broker resource to the template. A *broker* is a message broker environment running on Amazon MQ. It is the basic building block of Amazon MQ.
+        Adds an AWS::AmazonMQ::Broker resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AmazonMQ::Broker resource to the template. A *broker* is a message broker environment running on Amazon MQ. It is the basic building block of Amazon MQ.
-
-The AWS::AmazonMQ::Broker resource lets you create Amazon MQ for ActiveMQ and Amazon MQ for RabbitMQ brokers, add configuration changes or modify users for a speified ActiveMQ broker, return information about the specified broker, and delete the broker. For more information, see How Amazon MQ works: https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-how-it-works.html in the *Amazon MQ Developer Guide*.
-
-+ ec2:CreateNetworkInterface
-
-This permission is required to allow Amazon MQ to create an elastic network interface (ENI on behalf of your account.
-
-+ ec2:CreateNetworkInterfacePermission
-
-This permission is required to attach the ENI to the broker instance.
-
-+ ec2:DeleteNetworkInterface
-
-+ ec2:DeleteNetworkInterfacePermission
-
-+ ec2:DetachNetworkInterface
-
-+ ec2:DescribeInternetGateways
-
-+ ec2:DescribeNetworkInterfaces
-
-+ ec2:DescribeNetworkInterfacePermissions
-
-+ ec2:DescribeRouteTables
-
-+ ec2:DescribeSecurityGroups
-
-+ ec2:DescribeSubnets
-
-+ ec2:DescribeVpcs
+        Adds an AWS::AmazonMQ::Broker resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
@@ -43,135 +13,94 @@ This permission is required to attach the ENI to the broker instance.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER SecurityGroups
-        The list of rules 1 minimum, 125 maximum that authorize connections to brokers.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
         UpdateType: Mutable
 
     .PARAMETER StorageType
-        The broker's storage type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-storagetype
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER EngineVersion
-        The version of the broker engine. For a list of supported engine versions, see Engine: https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html in the *Amazon MQ Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Configuration
-        A list of information about the configuration. Does not apply to RabbitMQ brokers.
-
         Type: ConfigurationId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-configuration
         UpdateType: Mutable
 
     .PARAMETER AuthenticationStrategy
-        Optional. The authentication strategy used to secure the broker. The default is SIMPLE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER MaintenanceWindowStartTime
-        The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
-
         Type: MaintenanceWindow
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime
         UpdateType: Mutable
 
     .PARAMETER HostInstanceType
-        The broker's instance type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AutoMinorVersionUpgrade
-        Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Users
-        The list of broker users persons or applications who can access queues and topics. For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent RabbitMQ users are created by via the RabbitMQ web console or by using the RabbitMQ management API.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
         ItemType: User
         UpdateType: Mutable
 
     .PARAMETER Logs
-        Enables Amazon CloudWatch logging for brokers.
-
         Type: LogList
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
         UpdateType: Mutable
 
     .PARAMETER SubnetIds
-        The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet for example, the default subnet. An ACTIVE_STANDBY_MULTI_AZ deployment ACTIVEMQ requires two subnets. A CLUSTER_MULTI_AZ deployment RABBITMQ has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
-If you specify subnets in a shared VPC for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account. Amazon MQ will not be able to create VPC enpoints in VPCs that are not owned by your AWS account.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
         UpdateType: Immutable
 
     .PARAMETER BrokerName
-        The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
-Do not add personally identifiable information PII or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including CCloudWatch Logs. Broker names are not intended to be used for private or sensitive data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-brokername
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER LdapServerMetadata
-        Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.
-
         Type: LdapServerMetadata
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata
         UpdateType: Mutable
 
     .PARAMETER DeploymentMode
-        The deployment mode of the broker. Available values:
-+ SINGLE_INSTANCE
-+ ACTIVE_STANDBY_MULTI_AZ
-+ CLUSTER_MULTI_AZ
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER EngineType
-        The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER PubliclyAccessible
-        Enables connections from applications outside of the VPC that hosts the broker's subnets.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-publiclyaccessible
         PrimitiveType: Boolean
         UpdateType: Immutable
 
     .PARAMETER EncryptionOptions
-        Encryption options for the broker. Does not apply to RabbitMQ brokers.
-
         Type: EncryptionOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-encryptionoptions
         UpdateType: Immutable
 
     .PARAMETER Tags
-        An array of key-value pairs. For more information, see Using Cost Allocation Tags: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html in the *Billing and Cost Management User Guide*.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags
         ItemType: TagsEntry

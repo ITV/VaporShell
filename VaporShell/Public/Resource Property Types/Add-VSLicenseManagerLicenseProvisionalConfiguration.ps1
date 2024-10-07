@@ -1,18 +1,16 @@
 function Add-VSLicenseManagerLicenseProvisionalConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::LicenseManager::License.ProvisionalConfiguration resource property to the template. Details about a provisional configuration.
+        Adds an AWS::LicenseManager::License.ProvisionalConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LicenseManager::License.ProvisionalConfiguration resource property to the template.
-Details about a provisional configuration.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html
 
     .PARAMETER MaxTimeToLiveInMinutes
-        Maximum time for the provisional configuration, in minutes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
         UpdateType: Mutable
         PrimitiveType: Integer

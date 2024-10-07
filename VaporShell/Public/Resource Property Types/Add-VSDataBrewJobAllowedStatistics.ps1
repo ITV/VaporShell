@@ -1,22 +1,21 @@
 function Add-VSDataBrewJobAllowedStatistics {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Job.AllowedStatistics resource property to the template. Configuration of statistics that are allowed to be run on columns that contain detected entities. When undefined, no statistics will be computed on columns that contain detected entities.
+        Adds an AWS::DataBrew::Job.AllowedStatistics resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Job.AllowedStatistics resource property to the template.
-Configuration of statistics that are allowed to be run on columns that contain detected entities. When undefined, no statistics will be computed on columns that contain detected entities.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-allowedstatistics.html
 
     .PARAMETER Statistics
-        One or more column statistics to allow for columns that contain detected entities.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-allowedstatistics.html#cfn-databrew-job-allowedstatistics-statistics
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

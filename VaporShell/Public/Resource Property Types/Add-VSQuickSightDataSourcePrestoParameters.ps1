@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSourcePrestoParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.PrestoParameters resource property to the template. The parameters for Presto.
+        Adds an AWS::QuickSight::DataSource.PrestoParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.PrestoParameters resource property to the template.
-The parameters for Presto.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html
 
     .PARAMETER Port
-        Port.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Host
-        Host.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-host
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Catalog
-        Catalog.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-catalog
         UpdateType: Mutable
         PrimitiveType: String

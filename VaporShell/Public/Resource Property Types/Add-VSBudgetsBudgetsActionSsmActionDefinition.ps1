@@ -1,36 +1,31 @@
 function Add-VSBudgetsBudgetsActionSsmActionDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::BudgetsAction.SsmActionDefinition resource property to the template. The Amazon EC2 Systems Manager (SSM action definition details.
+        Adds an AWS::Budgets::BudgetsAction.SsmActionDefinition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Budgets::BudgetsAction.SsmActionDefinition resource property to the template.
-The Amazon EC2 Systems Manager (SSM action definition details.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html
 
-    .PARAMETER Subtype
-        The action subType.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-subtype
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Region
-        The Region to run the SSM document.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-region
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER InstanceIds
-        The EC2 and RDS instance IDs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-instanceids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Subtype
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-subtype
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -49,7 +44,9 @@ The Amazon EC2 Systems Manager (SSM action definition details.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Subtype,
+        $Region,
+        [parameter(Mandatory = $true)]
+        $InstanceIds,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -60,9 +57,7 @@ The Amazon EC2 Systems Manager (SSM action definition details.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Region,
-        [parameter(Mandatory = $true)]
-        $InstanceIds
+        $Subtype
     )
     Begin {
         $obj = [PSCustomObject]@{}

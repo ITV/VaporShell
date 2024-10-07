@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelArchiveS3Settings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.ArchiveS3Settings resource property to the template. Sets up Amazon S3 as the destination for this Archive output.
+        Adds an AWS::MediaLive::Channel.ArchiveS3Settings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.ArchiveS3Settings resource property to the template.
-Sets up Amazon S3 as the destination for this Archive output.
 
-The parent of this entity is ArchiveCdnSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archives3settings.html
 
     .PARAMETER CannedAcl
-        Specify the canned ACL to apply to each S3 request. Defaults to none.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archives3settings.html#cfn-medialive-channel-archives3settings-cannedacl
         PrimitiveType: String
         UpdateType: Mutable

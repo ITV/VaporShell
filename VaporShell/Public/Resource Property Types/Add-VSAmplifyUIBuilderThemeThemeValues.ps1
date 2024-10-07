@@ -1,28 +1,24 @@
 function Add-VSAmplifyUIBuilderThemeThemeValues {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Theme.ThemeValues resource property to the template. The ThemeValues property specifies key-value pair that defines a property of a theme.
+        Adds an AWS::AmplifyUIBuilder::Theme.ThemeValues resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Theme.ThemeValues resource property to the template.
-The ThemeValues property specifies key-value pair that defines a property of a theme.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html
 
-    .PARAMETER Key
-        The name of the property.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html#cfn-amplifyuibuilder-theme-themevalues-key
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Value
-        The value of the property.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html#cfn-amplifyuibuilder-theme-themevalues-value
         UpdateType: Mutable
         Type: ThemeValue
+
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html#cfn-amplifyuibuilder-theme-themevalues-key
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,6 +27,8 @@ The ThemeValues property specifies key-value pair that defines a property of a t
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $Value,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -41,9 +39,7 @@ The ThemeValues property specifies key-value pair that defines a property of a t
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
-        [parameter(Mandatory = $false)]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

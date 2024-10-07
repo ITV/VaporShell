@@ -10,15 +10,15 @@ function Add-VSWAFv2WebACLCookies {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html
 
-    .PARAMETER MatchPattern
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-matchpattern
-        UpdateType: Mutable
-        Type: CookieMatchPattern
-
     .PARAMETER MatchScope
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-matchscope
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER MatchPattern
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-matchpattern
+        UpdateType: Mutable
+        Type: CookieMatchPattern
 
     .PARAMETER OversizeHandling
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-oversizehandling
@@ -33,8 +33,6 @@ function Add-VSWAFv2WebACLCookies {
     Param
     (
         [parameter(Mandatory = $true)]
-        $MatchPattern,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,6 +43,8 @@ function Add-VSWAFv2WebACLCookies {
                 }
             })]
         $MatchScope,
+        [parameter(Mandatory = $true)]
+        $MatchPattern,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

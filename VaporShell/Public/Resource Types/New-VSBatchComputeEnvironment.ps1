@@ -1,30 +1,10 @@
 function New-VSBatchComputeEnvironment {
     <#
     .SYNOPSIS
-        Adds an AWS::Batch::ComputeEnvironment resource to the template. The AWS::Batch::ComputeEnvironment resource defines your AWS Batch compute environment. You can define MANAGED or UNMANAGED compute environments. MANAGED compute environments can use Amazon EC2 or AWS Fargate resources. UNMANAGED compute environments can only use EC2 resources. For more information, see Compute Environments: https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html in the *AWS Batch User Guide*.
+        Adds an AWS::Batch::ComputeEnvironment resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Batch::ComputeEnvironment resource to the template. The AWS::Batch::ComputeEnvironment resource defines your AWS Batch compute environment. You can define MANAGED or UNMANAGED compute environments. MANAGED compute environments can use Amazon EC2 or AWS Fargate resources. UNMANAGED compute environments can only use EC2 resources. For more information, see Compute Environments: https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html in the *AWS Batch User Guide*.
-
-In a managed compute environment, AWS Batch manages the capacity and instance types of the compute resources within the environment. This is based on the compute resource specification that you define or the launch template: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html that you specify when you create the compute environment. You can choose either to use EC2 On-Demand Instances and EC2 Spot Instances, or to use Fargate and Fargate Spot capacity in your managed compute environment. You can optionally set a maximum price so that Spot Instances only launch when the Spot Instance price is below a specified percentage of the On-Demand price.
-
-**Note**
-
-Multi-node parallel jobs are not supported on Spot Instances.
-
-In an unmanaged compute environment, you can manage your own EC2 compute resources and have a lot of flexibility with how you configure your compute resources. For example, you can use custom AMI. However, you need to verify that your AMI meets the Amazon ECS container instance AMI specification. For more information, see container instance AMIs: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html in the *Amazon Elastic Container Service Developer Guide*. After you have created your unmanaged compute environment, you can use the DescribeComputeEnvironments: https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeComputeEnvironments.html operation to find the Amazon ECS cluster that is associated with it. Then, manually launch your container instances into that Amazon ECS cluster. For more information, see Launching an Amazon ECS container instance: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html in the *Amazon Elastic Container Service Developer Guide*.
-
-**Note**
-
-AWS Batch doesn't upgrade the AMIs in a compute environment after it's created. For example, it doesn't update the AMIs when a newer version of the Amazon ECS optimized AMI is available. Therefore, you're responsible for the management of the guest operating system (including updates and security patches and any additional application software or utilities that you install on the compute resources. To use a new AMI for your AWS Batch jobs, complete these steps:
-
-Create a new compute environment with the new AMI.
-
-Add the compute environment to an existing job queue.
-
-Remove the earlier compute environment from your job queue.
-
-Delete the earlier compute environment.
+        Adds an AWS::Batch::ComputeEnvironment resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html
@@ -32,75 +12,56 @@ Delete the earlier compute environment.
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ComputeEnvironmentName
-        The name for your compute environment. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens -, and underscores _.
+    .PARAMETER UnmanagedvCpus
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-unmanagedvcpus
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-computeenvironmentname
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-type
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ComputeResources
-        The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see Compute Environments: https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html in the *AWS Batch User Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-computeresources
-        UpdateType: Mutable
-        Type: ComputeResources
-
     .PARAMETER ReplaceComputeEnvironment
-        +  Compute Environments: https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html in the *AWS Batch User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-replacecomputeenvironment
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER ServiceRole
-        The full Amazon Resource Name ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see AWS Batch service IAM role: https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html in the * AWS Batch User Guide*.
-If your account already created the AWS Batch service-linked role, that role is used by default for your compute environment unless you specify a different role here. If the AWS Batch service-linked role doesn't exist in your account, and no role is specified here, the service attempts to create the AWS Batch service-linked role in your account.
-If your specified role has a path other than /, then you must specify either the full role ARN recommended or prefix the role name with the path. For example, if a role with the name bar has a path of /foo/ then you would specify /foo/bar as the role name. For more information, see Friendly names and paths: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names in the *IAM User Guide*.
-Depending on how you created your AWS Batch service role, its ARN might contain the service-role path prefix. When you only specify the name of the service role, AWS Batch assumes that your ARN doesn't use the service-role path prefix. Because of this, we recommend that you specify the full ARN of your service role when you create compute environments.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-servicerole
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER State
-        The state of the compute environment. If the state is ENABLED, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
-If the state is ENABLED, then the AWS Batch scheduler can attempt to place jobs from an associated job queue on the compute resources within the environment. If the compute environment is managed, then it can scale its instances out or in automatically, based on the job queue demand.
-If the state is DISABLED, then the AWS Batch scheduler doesn't attempt to place jobs within the environment. Jobs in a STARTING or RUNNING state continue to progress normally. Managed compute environments in the DISABLED state don't scale out. However, they scale in to minvCpus value after instances become idle.
+    .PARAMETER UpdatePolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-updatepolicy
+        UpdateType: Mutable
+        Type: UpdatePolicy
 
+    .PARAMETER EksConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-eksconfiguration
+        UpdateType: Immutable
+        Type: EksConfiguration
+
+    .PARAMETER ComputeEnvironmentName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-computeenvironmentname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ComputeResources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-computeresources
+        UpdateType: Mutable
+        Type: ComputeResources
+
+    .PARAMETER State
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-state
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags applied to the compute environment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-tags
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
-
-    .PARAMETER Type
-        The type of the compute environment: MANAGED or UNMANAGED. For more information, see Compute Environments: https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html in the * AWS Batch User Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-type
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER UpdatePolicy
-        +  Compute Environments: https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html in the *AWS Batch User Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-updatepolicy
-        UpdateType: Mutable
-        Type: UpdatePolicy
-
-    .PARAMETER UnmanagedvCpus
-        The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
-This parameter is only supported when the type parameter is set to UNMANAGED.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-unmanagedvcpus
-        UpdateType: Mutable
-        PrimitiveType: Integer
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -166,6 +127,17 @@ This parameter is only supported when the type parameter is set to UNMANAGED.
         $LogicalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UnmanagedvCpus,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -174,9 +146,7 @@ This parameter is only supported when the type parameter is set to UNMANAGED.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ComputeEnvironmentName,
-        [parameter(Mandatory = $false)]
-        $ComputeResources,
+        $Type,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -200,6 +170,23 @@ This parameter is only supported when the type parameter is set to UNMANAGED.
             })]
         $ServiceRole,
         [parameter(Mandatory = $false)]
+        $UpdatePolicy,
+        [parameter(Mandatory = $false)]
+        $EksConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ComputeEnvironmentName,
+        [parameter(Mandatory = $false)]
+        $ComputeResources,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -213,30 +200,6 @@ This parameter is only supported when the type parameter is set to UNMANAGED.
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Type,
-        [parameter(Mandatory = $false)]
-        $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $UnmanagedvCpus,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

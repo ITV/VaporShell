@@ -1,40 +1,26 @@
 function Add-VSKendraDataSourceDocumentAttributeCondition {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.DocumentAttributeCondition resource property to the template. The condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. You use this with DocumentAttributeTarget to apply the condition: https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html.
+        Adds an AWS::Kendra::DataSource.DocumentAttributeCondition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.DocumentAttributeCondition resource property to the template.
-The condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. You use this with DocumentAttributeTarget to apply the condition: https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html.
 
-For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
-
-Amazon Kendra cannot create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using DocumentAttributeTarget. Amazon Kendra then will map your newly created metadata field to your index field.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html
 
-    .PARAMETER ConditionDocumentAttributeKey
-        The identifier of the document attribute used for the condition.
-For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
-Amazon Kendra currently does not support _document_body as an attribute key used for the condition.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html#cfn-kendra-datasource-documentattributecondition-conditiondocumentattributekey
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Operator
-        The condition operator.
-For example, you can use 'Contains' to partially match a string.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html#cfn-kendra-datasource-documentattributecondition-operator
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ConditionOnValue
-        The value used by the operator.
-For example, you can specify the value 'financial' for strings in the 'Source_URI' field that partially match or contain this value.
+    .PARAMETER ConditionDocumentAttributeKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html#cfn-kendra-datasource-documentattributecondition-conditiondocumentattributekey
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER ConditionOnValue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html#cfn-kendra-datasource-documentattributecondition-conditiononvalue
         UpdateType: Mutable
         Type: DocumentAttributeValue
@@ -56,7 +42,7 @@ For example, you can specify the value 'financial' for strings in the 'Source_UR
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ConditionDocumentAttributeKey,
+        $Operator,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -67,7 +53,7 @@ For example, you can specify the value 'financial' for strings in the 'Source_UR
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Operator,
+        $ConditionDocumentAttributeKey,
         [parameter(Mandatory = $false)]
         $ConditionOnValue
     )

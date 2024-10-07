@@ -1,12 +1,10 @@
 function New-VSEC2NetworkInsightsPath {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsPath resource to the template. Specifies a path to analyze for reachability.
+        Adds an AWS::EC2::NetworkInsightsPath resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::NetworkInsightsPath resource to the template. Specifies a path to analyze for reachability.
-
-VPC Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC. For more information, see the Reachability Analyzer User Guide: https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html.
+        Adds an AWS::EC2::NetworkInsightsPath resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
@@ -14,55 +12,42 @@ VPC Reachability Analyzer enables you to analyze and debug network reachability 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER SourceIp
-        The IP address of the AWS resource that is the source of the path.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DestinationIp
-        The IP address of the AWS resource that is the destination of the path.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Source
-        The AWS resource that is the source of the path.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Destination
-        The AWS resource that is the destination of the path.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Protocol
-        The protocol.
+    .PARAMETER DestinationIp
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER SourceIp
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Protocol
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DestinationPort
-        The destination port.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER Tags
-        The tags to add to the path.
+    .PARAMETER Source
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -136,7 +121,7 @@ VPC Reachability Analyzer enables you to analyze and debug network reachability 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SourceIp,
+        $Destination,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -148,7 +133,7 @@ VPC Reachability Analyzer enables you to analyze and debug network reachability 
                 }
             })]
         $DestinationIp,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -158,18 +143,7 @@ VPC Reachability Analyzer enables you to analyze and debug network reachability 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Source,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Destination,
+        $SourceIp,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -192,6 +166,17 @@ VPC Reachability Analyzer enables you to analyze and debug network reachability 
                 }
             })]
         $DestinationPort,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Source,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

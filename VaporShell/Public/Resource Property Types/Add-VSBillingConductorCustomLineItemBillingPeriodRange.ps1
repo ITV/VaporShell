@@ -1,26 +1,22 @@
 function Add-VSBillingConductorCustomLineItemBillingPeriodRange {
     <#
     .SYNOPSIS
-        Adds an AWS::BillingConductor::CustomLineItem.BillingPeriodRange resource property to the template. The billing period range in which the custom line item request will be applied.
+        Adds an AWS::BillingConductor::CustomLineItem.BillingPeriodRange resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::BillingConductor::CustomLineItem.BillingPeriodRange resource property to the template.
-The billing period range in which the custom line item request will be applied.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-billingperiodrange.html
 
-    .PARAMETER InclusiveStartBillingPeriod
-        The inclusive start billing period that defines a billing period range where a custom line is applied.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-billingperiodrange.html#cfn-billingconductor-customlineitem-billingperiodrange-inclusivestartbillingperiod
+    .PARAMETER ExclusiveEndBillingPeriod
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-billingperiodrange.html#cfn-billingconductor-customlineitem-billingperiodrange-exclusiveendbillingperiod
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ExclusiveEndBillingPeriod
-        The inclusive end billing period that defines a billing period range where a custom line is applied.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-billingperiodrange.html#cfn-billingconductor-customlineitem-billingperiodrange-exclusiveendbillingperiod
+    .PARAMETER InclusiveStartBillingPeriod
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-billingperiodrange.html#cfn-billingconductor-customlineitem-billingperiodrange-inclusivestartbillingperiod
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ The billing period range in which the custom line item request will be applied.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $InclusiveStartBillingPeriod,
+        $ExclusiveEndBillingPeriod,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ The billing period range in which the custom line item request will be applied.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ExclusiveEndBillingPeriod
+        $InclusiveStartBillingPeriod
     )
     Begin {
         $obj = [PSCustomObject]@{}

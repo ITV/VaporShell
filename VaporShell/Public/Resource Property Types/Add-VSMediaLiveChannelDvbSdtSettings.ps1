@@ -1,41 +1,31 @@
 function Add-VSMediaLiveChannelDvbSdtSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.DvbSdtSettings resource property to the template. A DVB Service Description Table (SDT.
+        Adds an AWS::MediaLive::Channel.DvbSdtSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.DvbSdtSettings resource property to the template.
-A DVB Service Description Table (SDT.
 
-The parent of this entity is M2tsSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html
 
     .PARAMETER ServiceProviderName
-        The service provider name placed in the serviceDescriptor in the Service Description Table SDT. The maximum length is 256 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html#cfn-medialive-channel-dvbsdtsettings-serviceprovidername
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER OutputSdt
-        Selects a method of inserting SDT information into an output stream. The sdtFollow setting copies SDT information from input stream to output stream. The sdtFollowIfPresent setting copies SDT information from input stream to output stream if SDT information is present in the input. Otherwise, it falls back on the user-defined values. The sdtManual setting means that the user will enter the SDT information. The sdtNone setting means that the output stream will not contain SDT information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html#cfn-medialive-channel-dvbsdtsettings-outputsdt
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ServiceName
-        The service name placed in the serviceDescriptor in the Service Description Table SDT. The maximum length is 256 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html#cfn-medialive-channel-dvbsdtsettings-servicename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RepInterval
-        The number of milliseconds between instances of this table in the output transport stream.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html#cfn-medialive-channel-dvbsdtsettings-repinterval
         PrimitiveType: Integer
         UpdateType: Mutable

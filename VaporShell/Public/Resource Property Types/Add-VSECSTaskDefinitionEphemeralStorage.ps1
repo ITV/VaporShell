@@ -1,22 +1,16 @@
 function Add-VSECSTaskDefinitionEphemeralStorage {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::TaskDefinition.EphemeralStorage resource property to the template. The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. For more information, see Fargate task storage: https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html in the *Amazon ECS User Guide for AWS Fargate *.
+        Adds an AWS::ECS::TaskDefinition.EphemeralStorage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECS::TaskDefinition.EphemeralStorage resource property to the template.
-The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. For more information, see Fargate task storage: https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html in the *Amazon ECS User Guide for AWS Fargate *.
 
-**Note**
-
-This parameter is only supported for tasks hosted on Fargate using Linux platform version 1.4.0 or later. This parameter is not supported for Windows containers on Fargate.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
 
     .PARAMETER SizeInGiB
-        The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
         UpdateType: Immutable
         PrimitiveType: Integer

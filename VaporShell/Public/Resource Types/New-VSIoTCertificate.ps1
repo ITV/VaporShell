@@ -1,10 +1,10 @@
 function New-VSIoTCertificate {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::Certificate resource to the template. Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate. For information about working with X.509 certificates, see X.509 Client Certificates: https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html in the *AWS IoT Developer Guide*.
+        Adds an AWS::IoT::Certificate resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::Certificate resource to the template. Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate. For information about working with X.509 certificates, see X.509 Client Certificates: https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html in the *AWS IoT Developer Guide*.
+        Adds an AWS::IoT::Certificate resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
@@ -12,41 +12,29 @@ function New-VSIoTCertificate {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER CACertificatePem
-        The CA certificate used to sign the device certificate being registered, not available when CertificateMode is SNI_ONLY.
+    .PARAMETER Status
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER CACertificatePem
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER CertificatePem
-        The certificate data in PEM format. Requires SNI_ONLY for the certificate mode or the accompanying CACertificatePem for registration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER CertificateSigningRequest
-        The certificate signing request CSR.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER CertificateMode
-        Specifies which mode of certificate registration to use with this resource. Valid options are DEFAULT with CaCertificatePem and CertificatePem, SNI_ONLY with CertificatePem, and Default with CertificateSigningRequest.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Status
-        The status of the certificate.
-Valid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.
-The status value REGISTER_INACTIVE is deprecated and should not be used.
+    .PARAMETER CertificateSigningRequest
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
+        UpdateType: Immutable
+        PrimitiveType: String
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
-        UpdateType: Mutable
+    .PARAMETER CertificatePem
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy
@@ -111,6 +99,17 @@ The status value REGISTER_INACTIVE is deprecated and should not be used.
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Status,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -132,7 +131,7 @@ The status value REGISTER_INACTIVE is deprecated and should not be used.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CertificatePem,
+        $CertificateMode,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -154,18 +153,7 @@ The status value REGISTER_INACTIVE is deprecated and should not be used.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CertificateMode,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Status,
+        $CertificatePem,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelArchiveGroupSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.ArchiveGroupSettings resource property to the template. The settings for an archive output group.
+        Adds an AWS::MediaLive::Channel.ArchiveGroupSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.ArchiveGroupSettings resource property to the template.
-The settings for an archive output group.
 
-The parent of this entity is OutputGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html
 
     .PARAMETER Destination
-        A directory and base file name where archive files should be written.
-
         Type: OutputLocationRef
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-destination
         UpdateType: Mutable
 
     .PARAMETER ArchiveCdnSettings
-        Settings to configure the destination of an Archive output.
-
         Type: ArchiveCdnSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-archivecdnsettings
         UpdateType: Mutable
 
     .PARAMETER RolloverInterval
-        The number of seconds to write to an archive file before closing and starting a new one.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-rolloverinterval
         PrimitiveType: Integer
         UpdateType: Mutable

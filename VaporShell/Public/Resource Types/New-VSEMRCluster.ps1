@@ -1,12 +1,10 @@
 function New-VSEMRCluster {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::Cluster resource to the template. The AWS::EMR::Cluster resource specifies an Amazon EMR cluster. This cluster is a collection of Amazon EC2 instances that run open source big data frameworks and applications to process and analyze vast amounts of data. For more information, see the Amazon EMR Management Guide: https://docs.aws.amazon.com/emr/latest/ManagementGuide/.
+        Adds an AWS::EMR::Cluster resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EMR::Cluster resource to the template. The AWS::EMR::Cluster resource specifies an Amazon EMR cluster. This cluster is a collection of Amazon EC2 instances that run open source big data frameworks and applications to process and analyze vast amounts of data. For more information, see the Amazon EMR Management Guide: https://docs.aws.amazon.com/emr/latest/ManagementGuide/.
-
-Amazon EMR now supports launching task instance groups and task instance fleets as part of the AWS::EMR::Cluster resource. This can be done by using the JobFlowInstancesConfig property type's TaskInstanceGroups and TaskInstanceFleets subproperties. Using these subproperties reduces delays in provisioning task nodes compared to specifying task nodes with the AWS::EMR::InstanceGroupConfig and AWS::EMR::InstanceFleetConfig resources. Please refer to the examples at the bottom of this page to learn how to use these subproperties.
+        Adds an AWS::EMR::Cluster resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html
@@ -15,15 +13,11 @@ Amazon EMR now supports launching task instance groups and task instance fleets 
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AdditionalInfo
-        A JSON string for selecting additional features.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-additionalinfo
         PrimitiveType: Json
         UpdateType: Immutable
 
     .PARAMETER Applications
-        The applications to install on this cluster, for example, Spark, Flink, Oozie, Zeppelin, and so on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-applications
         DuplicatesAllowed: False
         ItemType: Application
@@ -31,8 +25,6 @@ Amazon EMR now supports launching task instance groups and task instance fleets 
         UpdateType: Immutable
 
     .PARAMETER AutoScalingRole
-        An IAM role for automatic scaling policies. The default role is EMR_AutoScaling_DefaultRole. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-autoscalingrole
         PrimitiveType: String
         UpdateType: Immutable
@@ -43,8 +35,6 @@ Amazon EMR now supports launching task instance groups and task instance fleets 
         UpdateType: Mutable
 
     .PARAMETER BootstrapActions
-        A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-bootstrapactions
         DuplicatesAllowed: False
         ItemType: BootstrapActionConfig
@@ -52,8 +42,6 @@ Amazon EMR now supports launching task instance groups and task instance fleets 
         UpdateType: Immutable
 
     .PARAMETER Configurations
-        Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied to the EMR cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-configurations
         DuplicatesAllowed: False
         ItemType: Configuration
@@ -61,106 +49,81 @@ Amazon EMR now supports launching task instance groups and task instance fleets 
         UpdateType: Immutable
 
     .PARAMETER CustomAmiId
-        Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-customamiid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER EbsRootVolumeSize
-        The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-ebsrootvolumesize
         PrimitiveType: Integer
         UpdateType: Immutable
 
     .PARAMETER Instances
-        A specification of the number and type of Amazon EC2 instances.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-instances
         Type: JobFlowInstancesConfig
         UpdateType: Conditional
 
     .PARAMETER JobFlowRole
-        Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role. The default role is EMR_EC2_DefaultRole. In order to use the default role, you must have already created it using the CLI or console.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-jobflowrole
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER KerberosAttributes
-        Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see Use Kerberos Authentication: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html in the *Amazon EMR Management Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-kerberosattributes
         Type: KerberosAttributes
         UpdateType: Immutable
 
     .PARAMETER LogEncryptionKmsKeyId
-        The AWS KMS key used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-logencryptionkmskeyid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER LogUri
-        The path to the Amazon S3 location where logs for this cluster are stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ManagedScalingPolicy
-        Creates or updates a managed scaling policy for an Amazon EMR cluster. The managed scaling policy defines the limits for resources, such as EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-managedscalingpolicy
         Type: ManagedScalingPolicy
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-name
         PrimitiveType: String
         UpdateType: Immutable
 
-    .PARAMETER ReleaseLabel
-        The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form emr-x.x.x, where x.x.x is an Amazon EMR release version such as emr-5.14.0. For more information about Amazon EMR release versions and included application versions and features, see https://docs.aws.amazon.com/emr/latest/ReleaseGuide/: https://docs.aws.amazon.com/emr/latest/ReleaseGuide/. The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use AmiVersion.
+    .PARAMETER OSReleaseLabel
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-osreleaselabel
+        PrimitiveType: String
+        UpdateType: Immutable
 
+    .PARAMETER ReleaseLabel
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-releaselabel
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ScaleDownBehavior
-        The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. TERMINATE_AT_INSTANCE_HOUR indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. TERMINATE_AT_TASK_COMPLETION indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. TERMINATE_AT_TASK_COMPLETION is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-scaledownbehavior
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER SecurityConfiguration
-        The name of the security configuration applied to the cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-securityconfiguration
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ServiceRole
-        The IAM role that Amazon EMR assumes in order to access AWS resources on your behalf.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-servicerole
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER StepConcurrencyLevel
-        Specifies the number of steps that can be executed concurrently. The default value is 1. The maximum value is 256.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-stepconcurrencylevel
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Steps
-        A list of steps to run.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-steps
         DuplicatesAllowed: False
         ItemType: StepConfig
@@ -168,8 +131,6 @@ Amazon EMR now supports launching task instance groups and task instance fleets 
         UpdateType: Immutable
 
     .PARAMETER Tags
-        A list of tags associated with a cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-tags
         DuplicatesAllowed: True
         ItemType: Tag
@@ -177,9 +138,6 @@ Amazon EMR now supports launching task instance groups and task instance fleets 
         UpdateType: Mutable
 
     .PARAMETER VisibleToAllUsers
-        Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster. If this value is set to true, all IAM users of that AWS account can view and manage the cluster if they have the proper policy permissions set. If this value is false, only the IAM user that created the cluster can view and manage it. This value can be changed using the SetVisibleToAllUsers action.
-When you create clusters directly through the EMR console or API, this value is set to true by default. However, for AWS::EMR::Cluster resources in CloudFormation, the default is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-visibletoallusers
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -375,6 +333,17 @@ When you create clusters directly through the EMR console or API, this value is 
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OSReleaseLabel,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

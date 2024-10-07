@@ -1,32 +1,26 @@
 function Add-VSLookoutMetricsAnomalyDetectorMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.Metric resource property to the template. A calculation made by contrasting a measure and a dimension from your source data.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.Metric resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.Metric resource property to the template.
-A calculation made by contrasting a measure and a dimension from your source data.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html
 
-    .PARAMETER MetricName
-        The name of the metric.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-metricname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER AggregationFunction
-        The function with which the metric is calculated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-aggregationfunction
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Namespace
-        The namespace for the metric.
+    .PARAMETER MetricName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-metricname
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Namespace
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-namespace
         UpdateType: Mutable
         PrimitiveType: String
@@ -48,7 +42,7 @@ A calculation made by contrasting a measure and a dimension from your source dat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MetricName,
+        $AggregationFunction,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,7 +53,7 @@ A calculation made by contrasting a measure and a dimension from your source dat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AggregationFunction,
+        $MetricName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

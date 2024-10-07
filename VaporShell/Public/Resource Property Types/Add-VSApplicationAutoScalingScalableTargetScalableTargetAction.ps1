@@ -1,25 +1,21 @@
 function Add-VSApplicationAutoScalingScalableTargetScalableTargetAction {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction resource property to the template. ScalableTargetAction specifies the minimum and maximum capacity for the ScalableTargetAction property of the AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html property type.
+        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction resource property to the template.
-ScalableTargetAction specifies the minimum and maximum capacity for the ScalableTargetAction property of the AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html property type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html
 
     .PARAMETER MaxCapacity
-        The maximum capacity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-maxcapacity
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER MinCapacity
-        The minimum capacity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-mincapacity
         PrimitiveType: Integer
         UpdateType: Mutable

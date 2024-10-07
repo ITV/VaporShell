@@ -1,10 +1,10 @@
 function New-VSEC2TransitGatewayVpcAttachment {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayVpcAttachment resource to the template. Specifies a VPC attachment.
+        Adds an AWS::EC2::TransitGatewayVpcAttachment resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::TransitGatewayVpcAttachment resource to the template. Specifies a VPC attachment.
+        Adds an AWS::EC2::TransitGatewayVpcAttachment resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html
@@ -12,23 +12,29 @@ function New-VSEC2TransitGatewayVpcAttachment {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER TransitGatewayId
-        The ID of the transit gateway.
+    .PARAMETER Options
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-options
+        UpdateType: Mutable
+        Type: Options
 
+    .PARAMETER TransitGatewayId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-transitgatewayid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER VpcId
-        The ID of the VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER SubnetIds
-        The IDs of the subnets.
+    .PARAMETER RemoveSubnetIds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-removesubnetids
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER SubnetIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids
         UpdateType: Immutable
         Type: List
@@ -36,41 +42,18 @@ function New-VSEC2TransitGatewayVpcAttachment {
         DuplicatesAllowed: True
 
     .PARAMETER AddSubnetIds
-        The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-addsubnetids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
-    .PARAMETER RemoveSubnetIds
-        The IDs of one or more subnets to remove.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-removesubnetids
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: True
-
     .PARAMETER Tags
-        The tags for the VPC attachment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
-
-    .PARAMETER Options
-        The VPC attachment options in JSON or YAML.
-+ DnsSupport enable | disable
-+ Ipv6Support enable| disable
-+ ApplianceModeSupport enable | disable
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-options
-        UpdateType: Mutable
-        PrimitiveType: Json
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -134,6 +117,8 @@ function New-VSEC2TransitGatewayVpcAttachment {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $Options,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -156,26 +141,15 @@ function New-VSEC2TransitGatewayVpcAttachment {
                 }
             })]
         $VpcId,
+        [parameter(Mandatory = $false)]
+        $RemoveSubnetIds,
         [parameter(Mandatory = $true)]
         $SubnetIds,
         [parameter(Mandatory = $false)]
         $AddSubnetIds,
-        [parameter(Mandatory = $false)]
-        $RemoveSubnetIds,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Options,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -250,6 +224,12 @@ function New-VSEC2TransitGatewayVpcAttachment {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
+                RemoveSubnetIds {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name RemoveSubnetIds -Value @($RemoveSubnetIds)
+                }
                 SubnetIds {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -262,34 +242,11 @@ function New-VSEC2TransitGatewayVpcAttachment {
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AddSubnetIds -Value @($AddSubnetIds)
                 }
-                RemoveSubnetIds {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name RemoveSubnetIds -Value @($RemoveSubnetIds)
-                }
                 Tags {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
-                }
-                Options {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

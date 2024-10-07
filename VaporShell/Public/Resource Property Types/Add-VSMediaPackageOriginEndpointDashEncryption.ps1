@@ -1,25 +1,21 @@
 function Add-VSMediaPackageOriginEndpointDashEncryption {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::OriginEndpoint.DashEncryption resource property to the template. Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Adds an AWS::MediaPackage::OriginEndpoint.DashEncryption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::OriginEndpoint.DashEncryption resource property to the template.
-Holds encryption information so that access to the content can be controlled by a DRM solution.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
 
     .PARAMETER KeyRotationIntervalSeconds
-        Number of seconds before AWS Elemental MediaPackage rotates to a new key. By default, rotation is set to 60 seconds. Set to 0 to disable key rotation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER SpekeKeyProvider
-        Parameters for the SPEKE key provider.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
         UpdateType: Mutable
         Type: SpekeKeyProvider

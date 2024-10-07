@@ -1,10 +1,10 @@
 function New-VSRoboMakerSimulationApplicationVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::RoboMaker::SimulationApplicationVersion resource to the template. The AWS::RoboMaker::SimulationApplicationVersion resource creates a version of an AWS RoboMaker simulation application.
+        Adds an AWS::RoboMaker::SimulationApplicationVersion resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::RoboMaker::SimulationApplicationVersion resource to the template. The AWS::RoboMaker::SimulationApplicationVersion resource creates a version of an AWS RoboMaker simulation application.
+        Adds an AWS::RoboMaker::SimulationApplicationVersion resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html
@@ -12,17 +12,13 @@ function New-VSRoboMakerSimulationApplicationVersion {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Application
-        The application information for the simulation application.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-application
+    .PARAMETER CurrentRevisionId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-currentrevisionid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER CurrentRevisionId
-        The current revision id for the simulation application. If you provide a value and it matches the latest revision ID, a new version will be created.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-currentrevisionid
+    .PARAMETER Application
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-application
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -88,17 +84,6 @@ function New-VSRoboMakerSimulationApplicationVersion {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Application,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -110,6 +95,17 @@ function New-VSRoboMakerSimulationApplicationVersion {
                 }
             })]
         $CurrentRevisionId,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Application,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

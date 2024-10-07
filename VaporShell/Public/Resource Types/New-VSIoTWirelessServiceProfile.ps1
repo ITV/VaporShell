@@ -1,10 +1,10 @@
 function New-VSIoTWirelessServiceProfile {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::ServiceProfile resource to the template. Creates a new service profile.
+        Adds an AWS::IoTWireless::ServiceProfile resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTWireless::ServiceProfile resource to the template. Creates a new service profile.
+        Adds an AWS::IoTWireless::ServiceProfile resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html
@@ -12,28 +12,22 @@ function New-VSIoTWirelessServiceProfile {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the new resource.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER LoRaWAN
-        LoRaWAN service profile object.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
         UpdateType: Mutable
         Type: LoRaWANServiceProfile
 
     .PARAMETER Tags
-        The tags are an array of key-value pairs to attach to the specified resource. Tags can have a minimum of 0 and a maximum of 50 items.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -98,6 +92,11 @@ function New-VSIoTWirelessServiceProfile {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $LoRaWAN,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -108,11 +107,6 @@ function New-VSIoTWirelessServiceProfile {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
-        $LoRaWAN,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

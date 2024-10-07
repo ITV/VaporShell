@@ -1,25 +1,21 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayListenerTlsValidationContextTrust {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTlsValidationContextTrust resource property to the template. An object that represents a virtual gateway's listener's Transport Layer Security (TLS validation context trust.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTlsValidationContextTrust resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTlsValidationContextTrust resource property to the template.
-An object that represents a virtual gateway's listener's Transport Layer Security (TLS validation context trust.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust.html
 
     .PARAMETER SDS
-        A reference to an object that represents a virtual gateway's listener's Transport Layer Security TLS Secret Discovery Service validation context trust.
-
         Type: VirtualGatewayTlsValidationContextSdsTrust
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust-sds
         UpdateType: Mutable
 
     .PARAMETER File
-        An object that represents a Transport Layer Security TLS validation context trust for a local file.
-
         Type: VirtualGatewayTlsValidationContextFileTrust
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust-file
         UpdateType: Mutable

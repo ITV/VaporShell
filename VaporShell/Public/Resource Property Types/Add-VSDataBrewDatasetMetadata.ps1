@@ -1,18 +1,16 @@
 function Add-VSDataBrewDatasetMetadata {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.Metadata resource property to the template. Contains additional resource information needed for specific datasets.
+        Adds an AWS::DataBrew::Dataset.Metadata resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.Metadata resource property to the template.
-Contains additional resource information needed for specific datasets.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-metadata.html
 
     .PARAMETER SourceArn
-        The Amazon Resource Name ARN associated with the dataset. Currently, DataBrew only supports ARNs from Amazon AppFlow.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-metadata.html#cfn-databrew-dataset-metadata-sourcearn
         UpdateType: Mutable
         PrimitiveType: String

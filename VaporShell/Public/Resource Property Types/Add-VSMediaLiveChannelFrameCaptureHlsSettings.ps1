@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelFrameCaptureHlsSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.FrameCaptureHlsSettings resource property to the template. Settings for a frame capture output in an HLS output group.
+        Adds an AWS::MediaLive::Channel.FrameCaptureHlsSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.FrameCaptureHlsSettings resource property to the template.
-Settings for a frame capture output in an HLS output group.
 
-The parent of this entity is HlsSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturehlssettings.html

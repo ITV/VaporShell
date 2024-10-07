@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSourceAuroraParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.AuroraParameters resource property to the template. Parameters for Amazon Aurora.
+        Adds an AWS::QuickSight::DataSource.AuroraParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.AuroraParameters resource property to the template.
-Parameters for Amazon Aurora.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html
 
     .PARAMETER Port
-        Port.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Database
-        Database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-database
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Host
-        Host.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-host
         UpdateType: Mutable
         PrimitiveType: String

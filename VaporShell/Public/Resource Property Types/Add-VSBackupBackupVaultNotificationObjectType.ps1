@@ -1,30 +1,26 @@
 function Add-VSBackupBackupVaultNotificationObjectType {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupVault.NotificationObjectType resource property to the template. Specifies an object containing SNS event notification properties for the target backup vault.
+        Adds an AWS::Backup::BackupVault.NotificationObjectType resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Backup::BackupVault.NotificationObjectType resource property to the template.
-Specifies an object containing SNS event notification properties for the target backup vault.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
 
-    .PARAMETER BackupVaultEvents
-        An array of events that indicate the status of jobs to back up resources to the backup vault. For valid events, see  BackupVaultEvents: https://docs.aws.amazon.com/aws-backup/latest/devguide/API_PutBackupVaultNotifications.html#API_PutBackupVaultNotifications_RequestSyntax in the *AWS Backup API Guide*.
+    .PARAMETER SNSTopicArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER BackupVaultEvents
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
-
-    .PARAMETER SNSTopicArn
-        An ARN that uniquely identifies an Amazon Simple Notification Service Amazon SNS topic; for example, arn:aws:sns:us-west-2:111122223333:MyTopic.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,8 +29,6 @@ Specifies an object containing SNS event notification properties for the target 
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $BackupVaultEvents,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -45,7 +39,9 @@ Specifies an object containing SNS event notification properties for the target 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SNSTopicArn
+        $SNSTopicArn,
+        [parameter(Mandatory = $true)]
+        $BackupVaultEvents
     )
     Begin {
         $obj = [PSCustomObject]@{}

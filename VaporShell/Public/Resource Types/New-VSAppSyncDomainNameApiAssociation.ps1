@@ -1,10 +1,10 @@
 function New-VSAppSyncDomainNameApiAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::DomainNameApiAssociation resource to the template. The AWS::AppSync::DomainNameApiAssociation resource represents the mapping of your custom domain name to the assigned API URL.
+        Adds an AWS::AppSync::DomainNameApiAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppSync::DomainNameApiAssociation resource to the template. The AWS::AppSync::DomainNameApiAssociation resource represents the mapping of your custom domain name to the assigned API URL.
+        Adds an AWS::AppSync::DomainNameApiAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html
@@ -13,15 +13,11 @@ function New-VSAppSyncDomainNameApiAssociation {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DomainName
-        The domain name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html#cfn-appsync-domainnameapiassociation-domainname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ApiId
-        The API ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html#cfn-appsync-domainnameapiassociation-apiid
         UpdateType: Mutable
         PrimitiveType: String

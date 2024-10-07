@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileSlackConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.SlackConnectorProfileProperties resource property to the template. The SlackConnectorProfileProperties property type specifies the connector-specific profile properties required when using Slack.
+        Adds an AWS::AppFlow::ConnectorProfile.SlackConnectorProfileProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.SlackConnectorProfileProperties resource property to the template.
-The SlackConnectorProfileProperties property type specifies the connector-specific profile properties required when using Slack.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Slack resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String

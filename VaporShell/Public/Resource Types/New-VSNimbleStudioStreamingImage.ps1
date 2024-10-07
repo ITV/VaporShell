@@ -1,10 +1,10 @@
 function New-VSNimbleStudioStreamingImage {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::StreamingImage resource to the template. The AWS::NimbleStudio::StreamingImage resource creates a streaming image in a studio. A streaming image defines the operating system and software to be used in an Amazon Nimble Studio streaming session.
+        Adds an AWS::NimbleStudio::StreamingImage resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::NimbleStudio::StreamingImage resource to the template. The AWS::NimbleStudio::StreamingImage resource creates a streaming image in a studio. A streaming image defines the operating system and software to be used in an Amazon Nimble Studio streaming session.
+        Adds an AWS::NimbleStudio::StreamingImage resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html
@@ -13,41 +13,30 @@ function New-VSNimbleStudioStreamingImage {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A human-readable description of the streaming image.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Ec2ImageId
-        The ID of an EC2 machine image with which to create the streaming image.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        A friendly name for a streaming image resource.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER StudioId
-        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -143,7 +132,10 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $StudioId,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -154,10 +146,7 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StudioId,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Tags,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

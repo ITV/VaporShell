@@ -1,28 +1,24 @@
 function Add-VSKinesisAnalyticsV2ApplicationApplicationCodeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.ApplicationCodeConfiguration resource property to the template. Describes code configuration for an application.
+        Adds an AWS::KinesisAnalyticsV2::Application.ApplicationCodeConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.ApplicationCodeConfiguration resource property to the template.
-Describes code configuration for an application.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html
 
-    .PARAMETER CodeContent
-        The location and type of the application code.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontent
-        UpdateType: Mutable
-        Type: CodeContent
-
     .PARAMETER CodeContentType
-        Specifies whether the code content is in text or zip format.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontenttype
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER CodeContent
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontent
+        UpdateType: Mutable
+        Type: CodeContent
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,8 +27,6 @@ Describes code configuration for an application.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $CodeContent,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -43,7 +37,9 @@ Describes code configuration for an application.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CodeContentType
+        $CodeContentType,
+        [parameter(Mandatory = $true)]
+        $CodeContent
     )
     Begin {
         $obj = [PSCustomObject]@{}

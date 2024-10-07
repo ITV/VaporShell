@@ -1,40 +1,32 @@
 function Add-VSCloudWatchAnomalyDetectorSingleMetricAnomalyDetector {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudWatch::AnomalyDetector.SingleMetricAnomalyDetector resource property to the template. Designates the CloudWatch metric and statistic that provides the time series the anomaly detector uses as input.
+        Adds an AWS::CloudWatch::AnomalyDetector.SingleMetricAnomalyDetector resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudWatch::AnomalyDetector.SingleMetricAnomalyDetector resource property to the template.
-Designates the CloudWatch metric and statistic that provides the time series the anomaly detector uses as input.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html
 
     .PARAMETER MetricName
-        The name of the metric to create the anomaly detection model for.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-metricname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Stat
-        The statistic to use for the metric and anomaly detection model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-stat
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Dimensions
-        The metric dimensions to create the anomaly detection model for.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-dimensions
         ItemType: Dimension
         UpdateType: Immutable
 
     .PARAMETER Namespace
-        The namespace of the metric to create the anomaly detection model for.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-namespace
         PrimitiveType: String
         UpdateType: Immutable

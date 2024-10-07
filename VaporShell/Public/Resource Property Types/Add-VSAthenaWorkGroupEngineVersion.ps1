@@ -1,25 +1,21 @@
 function Add-VSAthenaWorkGroupEngineVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::Athena::WorkGroup.EngineVersion resource property to the template. The Athena engine version for running queries.
+        Adds an AWS::Athena::WorkGroup.EngineVersion resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Athena::WorkGroup.EngineVersion resource property to the template.
-The Athena engine version for running queries.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
 
     .PARAMETER SelectedEngineVersion
-        The engine version requested by the user. Possible values are determined by the output of ListEngineVersions, including Auto. The default is Auto.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EffectiveEngineVersion
-        Read only. The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a CreateWorkGroup or UpdateWorkGroup operation, the EffectiveEngineVersion field is ignored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
         UpdateType: Mutable
         PrimitiveType: String

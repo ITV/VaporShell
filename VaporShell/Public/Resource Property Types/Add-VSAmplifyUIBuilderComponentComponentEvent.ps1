@@ -1,25 +1,21 @@
 function Add-VSAmplifyUIBuilderComponentComponentEvent {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Component.ComponentEvent resource property to the template. The ComponentEvent property specifies the configuration of an event. You can bind an event and a corresponding action to a Component or a ComponentChild. A button click is an example of an event.
+        Adds an AWS::AmplifyUIBuilder::Component.ComponentEvent resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Component.ComponentEvent resource property to the template.
-The ComponentEvent property specifies the configuration of an event. You can bind an event and a corresponding action to a Component or a ComponentChild. A button click is an example of an event.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html
 
     .PARAMETER Action
-        The action to perform when a specific event is raised.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-action
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Parameters
-        Describes information about the action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-parameters
         UpdateType: Mutable
         Type: ActionParameters

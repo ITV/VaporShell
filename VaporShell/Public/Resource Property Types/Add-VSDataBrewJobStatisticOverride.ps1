@@ -1,28 +1,25 @@
 function Add-VSDataBrewJobStatisticOverride {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Job.StatisticOverride resource property to the template. Override of a particular evaluation for a profile job.
+        Adds an AWS::DataBrew::Job.StatisticOverride resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Job.StatisticOverride resource property to the template.
-Override of a particular evaluation for a profile job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html
 
-    .PARAMETER Statistic
-        The name of an evaluation
+    .PARAMETER Parameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
+    .PARAMETER Statistic
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER Parameters
-        A map that includes overrides of an evaluation’s parameters.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
-        UpdateType: Mutable
-        Type: ParameterMap
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,6 +28,9 @@ Override of a particular evaluation for a profile job.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        [System.Collections.Hashtable]
+        $Parameters,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -41,9 +41,7 @@ Override of a particular evaluation for a profile job.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Statistic,
-        [parameter(Mandatory = $true)]
-        $Parameters
+        $Statistic
     )
     Begin {
         $obj = [PSCustomObject]@{}

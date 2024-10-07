@@ -1,18 +1,16 @@
 function Add-VSKendraDataSourceAccessControlListConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.AccessControlListConfiguration resource property to the template. Specifies access control list files for the documents in a data source.
+        Adds an AWS::Kendra::DataSource.AccessControlListConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.AccessControlListConfiguration resource property to the template.
-Specifies access control list files for the documents in a data source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html
 
     .PARAMETER KeyPath
-        Path to the AWS S3 bucket that contains the access control list files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html#cfn-kendra-datasource-accesscontrollistconfiguration-keypath
         UpdateType: Mutable
         PrimitiveType: String

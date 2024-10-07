@@ -1,25 +1,21 @@
 function Add-VSEC2SpotFleetAcceleratorTotalMemoryMiBRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.AcceleratorTotalMemoryMiBRequest resource property to the template. The minimum and maximum amount of total accelerator memory, in MiB.
+        Adds an AWS::EC2::SpotFleet.AcceleratorTotalMemoryMiBRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.AcceleratorTotalMemoryMiBRequest resource property to the template.
-The minimum and maximum amount of total accelerator memory, in MiB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratortotalmemorymibrequest.html
 
     .PARAMETER Min
-        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratortotalmemorymibrequest.html#cfn-ec2-spotfleet-acceleratortotalmemorymibrequest-min
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Max
-        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratortotalmemorymibrequest.html#cfn-ec2-spotfleet-acceleratortotalmemorymibrequest-max
         UpdateType: Immutable
         PrimitiveType: Integer

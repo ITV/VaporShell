@@ -1,18 +1,16 @@
 function Add-VSLightsailInstanceMonthlyTransfer {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Instance.MonthlyTransfer resource property to the template. MonthlyTransfer is a property of the Networking: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html property. It describes the amount of allocated monthly data transfer (in GB for an instance.
+        Adds an AWS::Lightsail::Instance.MonthlyTransfer resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Instance.MonthlyTransfer resource property to the template.
-MonthlyTransfer is a property of the Networking: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html property. It describes the amount of allocated monthly data transfer (in GB for an instance.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html
 
     .PARAMETER GbPerMonthAllocated
-        The amount of allocated monthly data transfer in GB for an instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html#cfn-lightsail-instance-monthlytransfer-gbpermonthallocated
         UpdateType: Mutable
         PrimitiveType: String

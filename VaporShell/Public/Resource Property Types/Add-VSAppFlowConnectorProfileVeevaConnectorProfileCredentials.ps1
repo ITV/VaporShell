@@ -1,25 +1,21 @@
 function Add-VSAppFlowConnectorProfileVeevaConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileCredentials resource property to the template. The VeevaConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Veeva.
+        Adds an AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileCredentials resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileCredentials resource property to the template.
-The VeevaConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Veeva.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html
 
     .PARAMETER Username
-        The name of the user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-username
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Password
-        The password that corresponds to the user name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-password
         UpdateType: Mutable
         PrimitiveType: String

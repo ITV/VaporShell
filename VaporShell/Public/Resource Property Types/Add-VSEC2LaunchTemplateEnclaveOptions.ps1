@@ -1,18 +1,16 @@
 function Add-VSEC2LaunchTemplateEnclaveOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.EnclaveOptions resource property to the template. Indicates whether the instance is enabled for AWS Nitro Enclaves.
+        Adds an AWS::EC2::LaunchTemplate.EnclaveOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.EnclaveOptions resource property to the template.
-Indicates whether the instance is enabled for AWS Nitro Enclaves.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html
 
     .PARAMETER Enabled
-        If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions-enabled
         PrimitiveType: Boolean
         UpdateType: Mutable

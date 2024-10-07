@@ -1,14 +1,10 @@
 function New-VSSESConfigurationSetEventDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::ConfigurationSetEventDestination resource to the template. Specifies a configuration set event destination. An event destination is an AWS service that Amazon SES publishes email sending events to. When you specify an event destination, you provide one, and only one, destination. You can send event data to Amazon CloudWatch or Amazon Kinesis Data Firehose.
+        Adds an AWS::SES::ConfigurationSetEventDestination resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SES::ConfigurationSetEventDestination resource to the template. Specifies a configuration set event destination. An event destination is an AWS service that Amazon SES publishes email sending events to. When you specify an event destination, you provide one, and only one, destination. You can send event data to Amazon CloudWatch or Amazon Kinesis Data Firehose.
-
-**Note**
-
-You can't specify Amazon SNS event destinations in CloudFormation templates.
+        Adds an AWS::SES::ConfigurationSetEventDestination resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html
@@ -17,15 +13,11 @@ You can't specify Amazon SNS event destinations in CloudFormation templates.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ConfigurationSetName
-        The name of the configuration set that contains the event destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html#cfn-ses-configurationseteventdestination-configurationsetname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER EventDestination
-        The event destination object.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html#cfn-ses-configurationseteventdestination-eventdestination
         UpdateType: Mutable
         Type: EventDestination

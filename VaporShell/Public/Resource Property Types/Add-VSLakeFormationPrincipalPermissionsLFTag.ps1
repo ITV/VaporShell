@@ -20,6 +20,7 @@ function Add-VSLakeFormationPrincipalPermissionsLFTag {
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

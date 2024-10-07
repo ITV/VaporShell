@@ -15,6 +15,7 @@ function Add-VSLexBotCustomVocabulary {
         UpdateType: Mutable
         Type: List
         ItemType: CustomVocabularyItem
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

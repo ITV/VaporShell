@@ -1,32 +1,24 @@
 function Add-VSIoTAnalyticsDatastoreFileFormatConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.FileFormatConfiguration resource property to the template. Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and Parquet: https://parquet.apache.org/.
+        Adds an AWS::IoTAnalytics::Datastore.FileFormatConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.FileFormatConfiguration resource property to the template.
-Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and Parquet: https://parquet.apache.org/.
 
-The default file format is JSON. You can specify only one format.
-
-You can't change the file format after you create the data store.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html
 
-    .PARAMETER JsonConfiguration
-        Contains the configuration information of the JSON format.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html#cfn-iotanalytics-datastore-fileformatconfiguration-jsonconfiguration
-        UpdateType: Mutable
-        Type: JsonConfiguration
-
     .PARAMETER ParquetConfiguration
-        Contains the configuration information of the Parquet format.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html#cfn-iotanalytics-datastore-fileformatconfiguration-parquetconfiguration
         UpdateType: Mutable
         Type: ParquetConfiguration
+
+    .PARAMETER JsonConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html#cfn-iotanalytics-datastore-fileformatconfiguration-jsonconfiguration
+        UpdateType: Mutable
+        PrimitiveType: Json
 
     .FUNCTIONALITY
         Vaporshell
@@ -36,9 +28,18 @@ You can't change the file format after you create the data store.
     Param
     (
         [parameter(Mandatory = $false)]
-        $JsonConfiguration,
+        $ParquetConfiguration,
         [parameter(Mandatory = $false)]
-        $ParquetConfiguration
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $JsonConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}
@@ -47,6 +48,20 @@ You can't change the file format after you create the data store.
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
+                JsonConfiguration {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

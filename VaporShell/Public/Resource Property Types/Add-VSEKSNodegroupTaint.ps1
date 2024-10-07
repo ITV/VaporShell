@@ -1,33 +1,27 @@
 function Add-VSEKSNodegroupTaint {
     <#
     .SYNOPSIS
-        Adds an AWS::EKS::Nodegroup.Taint resource property to the template. A property that allows a node to repel a set of pods. For more information, see Node taints on managed node groups: https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html.
+        Adds an AWS::EKS::Nodegroup.Taint resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EKS::Nodegroup.Taint resource property to the template.
-A property that allows a node to repel a set of pods. For more information, see Node taints on managed node groups: https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html
 
-    .PARAMETER Key
-        The key of the taint.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-key
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Value
-        The value of the taint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-value
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Effect
-        The effect of the taint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-effect
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -38,17 +32,6 @@ A property that allows a node to repel a set of pods. For more information, see 
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Key,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -70,7 +53,18 @@ A property that allows a node to repel a set of pods. For more information, see 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Effect
+        $Effect,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

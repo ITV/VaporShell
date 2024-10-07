@@ -1,25 +1,21 @@
 function Add-VSCustomerProfilesIntegrationTaskPropertiesMap {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.TaskPropertiesMap resource property to the template. <a name="aws-properties-customerprofiles-integration-taskpropertiesmap-description"></a>The TaskPropertiesMap property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.TaskPropertiesMap resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.TaskPropertiesMap resource property to the template.
-<a name="aws-properties-customerprofiles-integration-taskpropertiesmap-description"></a>The TaskPropertiesMap property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html
 
     .PARAMETER OperatorPropertyKey
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-operatorpropertykey
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Property
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-property
         UpdateType: Mutable
         PrimitiveType: String

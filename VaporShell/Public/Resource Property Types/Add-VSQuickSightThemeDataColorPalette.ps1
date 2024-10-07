@@ -1,37 +1,33 @@
 function Add-VSQuickSightThemeDataColorPalette {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.DataColorPalette resource property to the template. The theme colors that are used for data colors in charts. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with #, for example #37BFF5.
+        Adds an AWS::QuickSight::Theme.DataColorPalette resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.DataColorPalette resource property to the template.
-The theme colors that are used for data colors in charts. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with #, for example #37BFF5.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html
 
     .PARAMETER EmptyFillColor
-        The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-emptyfillcolor
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Colors
-        The hexadecimal codes for the colors.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-colors
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER MinMaxGradient
-        The minimum and maximum hexadecimal codes that describe a color gradient.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-minmaxgradient
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

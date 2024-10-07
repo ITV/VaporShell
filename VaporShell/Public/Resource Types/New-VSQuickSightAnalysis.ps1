@@ -1,10 +1,10 @@
 function New-VSQuickSightAnalysis {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis resource to the template. Creates an analysis in Amazon QuickSight.
+        Adds an AWS::QuickSight::Analysis resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::QuickSight::Analysis resource to the template. Creates an analysis in Amazon QuickSight.
+        Adds an AWS::QuickSight::Analysis resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html
@@ -12,70 +12,57 @@ function New-VSQuickSightAnalysis {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AnalysisId
-        The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER AwsAccountId
-        The ID of the AWS account where you are creating an analysis.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Errors
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
-        UpdateType: Mutable
-        Type: List
-        ItemType: AnalysisError
-
-    .PARAMETER Name
-        A descriptive name for the analysis that you're creating. This name displays for the analysis in the Amazon QuickSight console.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
+    .PARAMETER Status
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-status
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Parameters
-        The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
         UpdateType: Mutable
         Type: Parameters
 
-    .PARAMETER Permissions
-        A structure that describes the principals and the resource-level permissions on an analysis. You can use the Permissions structure to grant permissions by providing a list of AWS Identity and Access Management IAM action information for each principal listed by Amazon Resource Name ARN.
-To specify no permissions, omit Permissions.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
-        UpdateType: Mutable
-        Type: List
-        ItemType: ResourcePermission
-
     .PARAMETER SourceEntity
-        A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
         UpdateType: Mutable
         Type: AnalysisSourceEntity
 
-    .PARAMETER Tags
-        Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+    .PARAMETER ThemeArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER AnalysisId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Definition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-definition
+        UpdateType: Mutable
+        Type: AnalysisDefinition
+
+    .PARAMETER AwsAccountId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Permissions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
+        UpdateType: Mutable
+        Type: List
+        ItemType: ResourcePermission
+        DuplicatesAllowed: True
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
-    .PARAMETER ThemeArn
-        The ARN for the theme to apply to the analysis that you're creating. To see the theme in the Amazon QuickSight console, make sure that you have access to it.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -141,6 +128,32 @@ To specify no permissions, omit Permissions.
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Status,
+        [parameter(Mandatory = $false)]
+        $Parameters,
+        [parameter(Mandatory = $false)]
+        $SourceEntity,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ThemeArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -152,6 +165,8 @@ To specify no permissions, omit Permissions.
                 }
             })]
         $AnalysisId,
+        [parameter(Mandatory = $false)]
+        $Definition,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -165,7 +180,7 @@ To specify no permissions, omit Permissions.
         $AwsAccountId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.AnalysisError"
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.ResourcePermission"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -173,8 +188,11 @@ To specify no permissions, omit Permissions.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Errors,
+        $Permissions,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -185,35 +203,6 @@ To specify no permissions, omit Permissions.
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
-        $Parameters,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.ResourcePermission"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Permissions,
-        [parameter(Mandatory = $true)]
-        $SourceEntity,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ThemeArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -287,12 +276,6 @@ To specify no permissions, omit Permissions.
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
-                }
-                Errors {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Errors -Value @($Errors)
                 }
                 Permissions {
                     if (!($ResourceParams["Properties"])) {

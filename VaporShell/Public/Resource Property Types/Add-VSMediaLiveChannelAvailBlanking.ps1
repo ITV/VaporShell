@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelAvailBlanking {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AvailBlanking resource property to the template. The configuration of ad avail blanking in the output.
+        Adds an AWS::MediaLive::Channel.AvailBlanking resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AvailBlanking resource property to the template.
-The configuration of ad avail blanking in the output.
 
-The parent of this entity is EncoderSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availblanking.html
 
     .PARAMETER State
-        When set to enabled, the video, audio, and captions are blanked when insertion metadata is added.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availblanking.html#cfn-medialive-channel-availblanking-state
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AvailBlankingImage
-        The blanking image to be used. Keep empty for solid black. Only .bmp and .png images are supported.
-
         Type: InputLocation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availblanking.html#cfn-medialive-channel-availblanking-availblankingimage
         UpdateType: Mutable

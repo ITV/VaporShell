@@ -1,10 +1,10 @@
 function New-VSIoTTopicRule {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule resource to the template. Use the AWS::IoT::TopicRule resource to declare an AWS IoT rule. For information about working with AWS IoT rules, see Rules for AWS IoT: https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html in the *AWS IoT Developer Guide*.
+        Adds an AWS::IoT::TopicRule resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::TopicRule resource to the template. Use the AWS::IoT::TopicRule resource to declare an AWS IoT rule. For information about working with AWS IoT rules, see Rules for AWS IoT: https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html in the *AWS IoT Developer Guide*.
+        Adds an AWS::IoT::TopicRule resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
@@ -12,30 +12,22 @@ function New-VSIoTTopicRule {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER RuleName
-        The name of the rule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER TopicRulePayload
-        The rule payload.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
         UpdateType: Mutable
         Type: TopicRulePayload
 
-    .PARAMETER Tags
-        Metadata which can be used to manage the topic rule.
-For URI Request parameters use format: ...key1=value1&key2=value2...
-For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
-For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+    .PARAMETER RuleName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -99,6 +91,8 @@ For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $true)]
+        $TopicRulePayload,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -110,8 +104,6 @@ For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
                 }
             })]
         $RuleName,
-        [parameter(Mandatory = $true)]
-        $TopicRulePayload,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

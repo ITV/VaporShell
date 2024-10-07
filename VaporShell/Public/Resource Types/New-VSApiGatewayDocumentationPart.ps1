@@ -1,10 +1,10 @@
 function New-VSApiGatewayDocumentationPart {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::DocumentationPart resource to the template. The AWS::ApiGateway::DocumentationPart resource creates a documentation part for an API. For more information, see Representation of API Documentation in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGateway::DocumentationPart resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGateway::DocumentationPart resource to the template. The AWS::ApiGateway::DocumentationPart resource creates a documentation part for an API. For more information, see Representation of API Documentation in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGateway::DocumentationPart resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html
@@ -12,26 +12,20 @@ function New-VSApiGatewayDocumentationPart {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Location
-        The location of the API entity that the documentation applies to.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html#cfn-apigateway-documentationpart-location
+    .PARAMETER RestApiId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html#cfn-apigateway-documentationpart-restapiid
         UpdateType: Immutable
-        Type: Location
+        PrimitiveType: String
 
     .PARAMETER Properties
-        The documentation content map of the targeted API entity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html#cfn-apigateway-documentationpart-properties
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RestApiId
-        The identifier of the targeted API entity.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html#cfn-apigateway-documentationpart-restapiid
+    .PARAMETER Location
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html#cfn-apigateway-documentationpart-location
         UpdateType: Immutable
-        PrimitiveType: String
+        Type: Location
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -96,7 +90,16 @@ function New-VSApiGatewayDocumentationPart {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
-        $Location,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RestApiId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -109,16 +112,7 @@ function New-VSApiGatewayDocumentationPart {
             })]
         $Properties,
         [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RestApiId,
+        $Location,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

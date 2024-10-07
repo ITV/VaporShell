@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelPassThroughSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.PassThroughSettings resource property to the template. The settings for passing through audio to the output.
+        Adds an AWS::MediaLive::Channel.PassThroughSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.PassThroughSettings resource property to the template.
-The settings for passing through audio to the output.
 
-The parent of this entity is AudioCodecSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-passthroughsettings.html

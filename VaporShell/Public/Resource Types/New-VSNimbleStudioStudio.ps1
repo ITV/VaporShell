@@ -1,14 +1,10 @@
 function New-VSNimbleStudioStudio {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::Studio resource to the template. The AWS::NimbleStudio::Studio resource creates a new studio resource. In Amazon Nimble Studio, all other resources are contained in a studio.
+        Adds an AWS::NimbleStudio::Studio resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::NimbleStudio::Studio resource to the template. The AWS::NimbleStudio::Studio resource creates a new studio resource. In Amazon Nimble Studio, all other resources are contained in a studio.
-
-When creating a studio, two IAM roles must be provided: the admin role and the user role. These roles are assumed by your users when they log in to the Amazon Nimble Studio portal. The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for the portal to function properly. The Admin Role must have the AmazonNimbleStudio-StudioAdmin managed policy attached for the portal to function properly.
-
-You can optionally specify an AWS Key Management Service key in the StudioEncryptionConfiguration. In Nimble Studio, resource names, descriptions, initialization scripts, and other data you provide are always encrypted at rest using an AWS Key Management Service key. By default, this key is owned by AWS and managed on your behalf. You may provide your own AWS Key Management Service key when calling CreateStudio to encrypt this data using a key that you own and manage. When providing an AWS Key Management Service key during studio creation, Amazon Nimble Studio creates AWS Key Management Service grants in your account to provide your studio user and admin roles access to these AWS Key Management Service keys. If you delete this grant, the studio will no longer be accessible to your portal users. If you delete the studio AWS Key Management Service key, your studio will no longer be accessible.
+        Adds an AWS::NimbleStudio::Studio resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html
@@ -16,49 +12,36 @@ You can optionally specify an AWS Key Management Service key in the StudioEncryp
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AdminRoleArn
-        The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
+    .PARAMETER UserRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DisplayName
-        A friendly name for the studio.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER StudioEncryptionConfiguration
-        Configuration of the encryption method that is used for the studio.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
-        UpdateType: Mutable
-        Type: StudioEncryptionConfiguration
-
     .PARAMETER StudioName
-        The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+    .PARAMETER AdminRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER StudioEncryptionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
+        UpdateType: Mutable
+        Type: StudioEncryptionConfiguration
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
-
-    .PARAMETER UserRoleArn
-        The IAM role that studio users assume when logging in to the Nimble Studio portal.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -132,7 +115,7 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AdminRoleArn,
+        $UserRoleArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -144,8 +127,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $DisplayName,
-        [parameter(Mandatory = $false)]
-        $StudioEncryptionConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -157,9 +138,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $StudioName,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -170,7 +148,12 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $UserRoleArn,
+        $AdminRoleArn,
+        [parameter(Mandatory = $false)]
+        $StudioEncryptionConfiguration,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

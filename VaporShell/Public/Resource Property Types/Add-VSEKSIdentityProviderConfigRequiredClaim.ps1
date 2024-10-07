@@ -1,26 +1,22 @@
 function Add-VSEKSIdentityProviderConfigRequiredClaim {
     <#
     .SYNOPSIS
-        Adds an AWS::EKS::IdentityProviderConfig.RequiredClaim resource property to the template. A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+        Adds an AWS::EKS::IdentityProviderConfig.RequiredClaim resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EKS::IdentityProviderConfig.RequiredClaim resource property to the template.
-A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html
 
-    .PARAMETER Key
-        The key to match from the token.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html#cfn-eks-identityproviderconfig-requiredclaim-key
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html#cfn-eks-identityproviderconfig-requiredclaim-value
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The value for the key from the token.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html#cfn-eks-identityproviderconfig-requiredclaim-value
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html#cfn-eks-identityproviderconfig-requiredclaim-key
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ A key-value pair that describes a required claim in the identity token. If set, 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ A key-value pair that describes a required claim in the identity token. If set, 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

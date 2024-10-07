@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelFrameCaptureOutputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.FrameCaptureOutputSettings resource property to the template. The frame capture output settings.
+        Adds an AWS::MediaLive::Channel.FrameCaptureOutputSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.FrameCaptureOutputSettings resource property to the template.
-The frame capture output settings.
 
-The parent of this entity is OutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptureoutputsettings.html
 
     .PARAMETER NameModifier
-        Required if the output group contains more than one output. This modifier forms part of the output file name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptureoutputsettings.html#cfn-medialive-channel-framecaptureoutputsettings-namemodifier
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,10 +1,10 @@
 function New-VSElasticLoadBalancingV2ListenerRule {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::ListenerRule resource to the template. Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+        Adds an AWS::ElasticLoadBalancingV2::ListenerRule resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ElasticLoadBalancingV2::ListenerRule resource to the template. Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+        Adds an AWS::ElasticLoadBalancingV2::ListenerRule resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
@@ -13,16 +13,11 @@ function New-VSElasticLoadBalancingV2ListenerRule {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ListenerArn
-        The Amazon Resource Name ARN of the listener.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Actions
-        The actions.
-The rule must include exactly one of the following types of actions: forward, fixed-response, or redirect, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
         UpdateType: Mutable
         Type: List
@@ -30,17 +25,11 @@ The rule must include exactly one of the following types of actions: forward, fi
         DuplicatesAllowed: False
 
     .PARAMETER Priority
-        The rule priority. A listener can't have multiple rules with the same priority.
-If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Conditions
-        The conditions.
-The rule can optionally include up to one of each of the following conditions: http-request-method, host-header, path-pattern, and source-ip. A rule can also optionally include one or more of each of the following conditions: http-header and query-string.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
         UpdateType: Mutable
         Type: List
@@ -109,7 +98,7 @@ The rule can optionally include up to one of each of the following conditions: h
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

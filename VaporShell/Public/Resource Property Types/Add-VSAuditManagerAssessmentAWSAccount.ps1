@@ -1,34 +1,28 @@
 function Add-VSAuditManagerAssessmentAWSAccount {
     <#
     .SYNOPSIS
-        Adds an AWS::AuditManager::Assessment.AWSAccount resource property to the template. The AWSAccount property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        Adds an AWS::AuditManager::Assessment.AWSAccount resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AuditManager::Assessment.AWSAccount resource property to the template.
-The AWSAccount property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
 
     .PARAMETER Id
-        The identifier for the AWS account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER EmailAddress
-        The email address that's associated with the AWS account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the AWS account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .FUNCTIONALITY

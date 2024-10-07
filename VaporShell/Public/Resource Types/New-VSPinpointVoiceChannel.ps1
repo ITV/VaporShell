@@ -1,12 +1,10 @@
 function New-VSPinpointVoiceChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::VoiceChannel resource to the template. A *channel* is a type of platform that you can deliver messages to. To send a voice message, you send the message through the voice channel. Before you can use Amazon Pinpoint to send voice messages, you have to enable the voice channel for an Amazon Pinpoint application.
+        Adds an AWS::Pinpoint::VoiceChannel resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Pinpoint::VoiceChannel resource to the template. A *channel* is a type of platform that you can deliver messages to. To send a voice message, you send the message through the voice channel. Before you can use Amazon Pinpoint to send voice messages, you have to enable the voice channel for an Amazon Pinpoint application.
-
-The VoiceChannel resource represents the status and other information about the voice channel for an application.
+        Adds an AWS::Pinpoint::VoiceChannel resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-voicechannel.html
@@ -15,15 +13,11 @@ The VoiceChannel resource represents the status and other information about the 
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Enabled
-        Specifies whether to enable the voice channel for the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-voicechannel.html#cfn-pinpoint-voicechannel-enabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ApplicationId
-        The unique identifier for the Amazon Pinpoint application that the voice channel applies to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-voicechannel.html#cfn-pinpoint-voicechannel-applicationid
         PrimitiveType: String
         UpdateType: Immutable

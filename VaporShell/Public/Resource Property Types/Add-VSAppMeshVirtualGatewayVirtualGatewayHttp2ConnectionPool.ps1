@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayHttp2ConnectionPool {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayHttp2ConnectionPool resource property to the template. An object that represents a type of connection pool.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayHttp2ConnectionPool resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayHttp2ConnectionPool resource property to the template.
-An object that represents a type of connection pool.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html
 
     .PARAMETER MaxRequests
-        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttp2connectionpool-maxrequests
         PrimitiveType: Integer
         UpdateType: Mutable

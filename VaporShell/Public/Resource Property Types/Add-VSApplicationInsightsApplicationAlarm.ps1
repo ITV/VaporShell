@@ -1,25 +1,21 @@
 function Add-VSApplicationInsightsApplicationAlarm {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationInsights::Application.Alarm resource property to the template. The AWS::ApplicationInsights::Application Alarm property type defines a CloudWatch alarm to be monitored for the component.
+        Adds an AWS::ApplicationInsights::Application.Alarm resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApplicationInsights::Application.Alarm resource property to the template.
-The AWS::ApplicationInsights::Application Alarm property type defines a CloudWatch alarm to be monitored for the component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html
 
     .PARAMETER AlarmName
-        The name of the CloudWatch alarm to be monitored for the component.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Severity
-        Indicates the degree of outage when the alarm goes off.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-severity
         UpdateType: Mutable
         PrimitiveType: String

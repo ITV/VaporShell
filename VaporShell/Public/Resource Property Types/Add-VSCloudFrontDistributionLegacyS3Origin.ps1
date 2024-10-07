@@ -1,25 +1,21 @@
 function Add-VSCloudFrontDistributionLegacyS3Origin {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.LegacyS3Origin resource property to the template. <a name="aws-properties-cloudfront-distribution-legacys3origin-description"></a>The LegacyS3Origin property type specifies Not currently supported by AWS CloudFormation. for an AWS::CloudFront::Distribution: aws-resource-cloudfront-distribution.md.
+        Adds an AWS::CloudFront::Distribution.LegacyS3Origin resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.LegacyS3Origin resource property to the template.
-<a name="aws-properties-cloudfront-distribution-legacys3origin-description"></a>The LegacyS3Origin property type specifies Not currently supported by AWS CloudFormation. for an AWS::CloudFront::Distribution: aws-resource-cloudfront-distribution.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html
 
     .PARAMETER OriginAccessIdentity
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-originaccessidentity
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DNSName
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-dnsname
         UpdateType: Mutable
         PrimitiveType: String

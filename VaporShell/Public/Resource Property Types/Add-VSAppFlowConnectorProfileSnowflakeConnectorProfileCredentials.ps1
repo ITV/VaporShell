@@ -1,25 +1,21 @@
 function Add-VSAppFlowConnectorProfileSnowflakeConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.SnowflakeConnectorProfileCredentials resource property to the template. The SnowflakeConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Snowflake.
+        Adds an AWS::AppFlow::ConnectorProfile.SnowflakeConnectorProfileCredentials resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.SnowflakeConnectorProfileCredentials resource property to the template.
-The SnowflakeConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Snowflake.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html
 
     .PARAMETER Username
-        The name of the user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Password
-        The password that corresponds to the user name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
         UpdateType: Mutable
         PrimitiveType: String

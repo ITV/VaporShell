@@ -1,18 +1,16 @@
 function Add-VSLambdaEventSourceMappingFilterCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::EventSourceMapping.FilterCriteria resource property to the template. An object that contains the filters for an event source.
+        Adds an AWS::Lambda::EventSourceMapping.FilterCriteria resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lambda::EventSourceMapping.FilterCriteria resource property to the template.
-An object that contains the filters for an event source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html
 
     .PARAMETER Filters
-        A list of filters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html#cfn-lambda-eventsourcemapping-filtercriteria-filters
         UpdateType: Mutable
         Type: List

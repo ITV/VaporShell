@@ -1,26 +1,22 @@
 function Add-VSLexBotAliasLambdaCodeHook {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.LambdaCodeHook resource property to the template. Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
+        Adds an AWS::Lex::BotAlias.LambdaCodeHook resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.LambdaCodeHook resource property to the template.
-Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-lambdacodehook.html
 
-    .PARAMETER CodeHookInterfaceVersion
-        The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-lambdacodehook.html#cfn-lex-botalias-lambdacodehook-codehookinterfaceversion
+    .PARAMETER LambdaArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-lambdacodehook.html#cfn-lex-botalias-lambdacodehook-lambdaarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER LambdaArn
-        The Amazon Resource Name ARN of the Lambda function.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-lambdacodehook.html#cfn-lex-botalias-lambdacodehook-lambdaarn
+    .PARAMETER CodeHookInterfaceVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-lambdacodehook.html#cfn-lex-botalias-lambdacodehook-codehookinterfaceversion
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Specifies a Lambda function that verifies requests to a bot or fulfills the user
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CodeHookInterfaceVersion,
+        $LambdaArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Specifies a Lambda function that verifies requests to a bot or fulfills the user
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LambdaArn
+        $CodeHookInterfaceVersion
     )
     Begin {
         $obj = [PSCustomObject]@{}

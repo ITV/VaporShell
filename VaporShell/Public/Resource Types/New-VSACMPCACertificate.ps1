@@ -1,10 +1,10 @@
 function New-VSACMPCACertificate {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::Certificate resource to the template. The AWS::ACMPCA::Certificate resource is used to issue a certificate using your private certificate authority. For more information, see the IssueCertificate: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html action.
+        Adds an AWS::ACMPCA::Certificate resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ACMPCA::Certificate resource to the template. The AWS::ACMPCA::Certificate resource is used to issue a certificate using your private certificate authority. For more information, see the IssueCertificate: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html action.
+        Adds an AWS::ACMPCA::Certificate resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html
@@ -12,56 +12,37 @@ function New-VSACMPCACertificate {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ApiPassthrough
-        Specifies X.509 certificate information to be included in the issued certificate. An APIPassthrough or APICSRPassthrough template variant must be selected, or else this parameter is ignored.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+    .PARAMETER TemplateArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
         UpdateType: Immutable
-        Type: ApiPassthrough
+        PrimitiveType: String
 
     .PARAMETER CertificateAuthorityArn
-        The Amazon Resource Name ARN for the private CA issues the certificate.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER CertificateSigningRequest
-        The certificate signing request CSR for the certificate.
+    .PARAMETER Validity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
+        UpdateType: Immutable
+        Type: Validity
 
+    .PARAMETER CertificateSigningRequest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SigningAlgorithm
-        The name of the algorithm that will be used to sign the certificate to be issued.
-This parameter should not be confused with the SigningAlgorithm parameter used to sign a CSR in the CreateCertificateAuthority action.
-The specified signing algorithm family RSA or ECDSA must match the algorithm family of the CA's secret key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER TemplateArn
-        Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template. For more information about ACM Private CA templates, see Using Templates: https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
+    .PARAMETER ApiPassthrough
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
         UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Validity
-        The period of time during which the certificate will be valid.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
-        UpdateType: Immutable
-        Type: Validity
+        Type: ApiPassthrough
 
     .PARAMETER ValidityNotBefore
-        Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-By default, when issuing a certificate, ACM Private CA sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ValidityNotBefore parameter can be used to customize the “Not Before” value.
-Unlike the Validity parameter, the ValidityNotBefore parameter is optional.
-The ValidityNotBefore value is expressed as an explicit date and time, using the Validity type value ABSOLUTE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
         UpdateType: Immutable
         Type: Validity
@@ -129,7 +110,16 @@ The ValidityNotBefore value is expressed as an explicit date and time, using the
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        $ApiPassthrough,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TemplateArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -141,6 +131,8 @@ The ValidityNotBefore value is expressed as an explicit date and time, using the
                 }
             })]
         $CertificateAuthorityArn,
+        [parameter(Mandatory = $true)]
+        $Validity,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -164,18 +156,7 @@ The ValidityNotBefore value is expressed as an explicit date and time, using the
             })]
         $SigningAlgorithm,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TemplateArn,
-        [parameter(Mandatory = $true)]
-        $Validity,
+        $ApiPassthrough,
         [parameter(Mandatory = $false)]
         $ValidityNotBefore,
         [parameter(Mandatory = $false)]

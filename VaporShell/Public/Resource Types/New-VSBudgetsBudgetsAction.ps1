@@ -1,10 +1,10 @@
 function New-VSBudgetsBudgetsAction {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::BudgetsAction resource to the template. The AWS::Budgets::BudgetsAction resource enables you to take predefined actions that are initiated when a budget threshold has been exceeded. For more information, see Managing Your Costs with Budgets: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html in the *AWS Billing and Cost Management User Guide*.
+        Adds an AWS::Budgets::BudgetsAction resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Budgets::BudgetsAction resource to the template. The AWS::Budgets::BudgetsAction resource enables you to take predefined actions that are initiated when a budget threshold has been exceeded. For more information, see Managing Your Costs with Budgets: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html in the *AWS Billing and Cost Management User Guide*.
+        Adds an AWS::Budgets::BudgetsAction resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
@@ -12,62 +12,47 @@ function New-VSBudgetsBudgetsAction {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER BudgetName
-        A string that represents the budget name. ":" and "" characters aren't allowed.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER NotificationType
-        The type of a notification.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER ActionType
-        The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ActionThreshold
-        The trigger threshold of the action.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-        UpdateType: Mutable
-        Type: ActionThreshold
-
     .PARAMETER ExecutionRoleArn
-        The role passed for action execution and reversion. Roles and actions must be in the same account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ApprovalModel
-        This specifies if the action needs manual or automatic approval.
+    .PARAMETER ActionType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER NotificationType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ActionThreshold
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
+        UpdateType: Mutable
+        Type: ActionThreshold
+
+    .PARAMETER Definition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
+        UpdateType: Mutable
+        Type: Definition
+
+    .PARAMETER ApprovalModel
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Subscribers
-        A list of subscribers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
         UpdateType: Mutable
         Type: List
         ItemType: Subscriber
+        DuplicatesAllowed: True
 
-    .PARAMETER Definition
-        Specifies all of the type-specific parameters.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-        UpdateType: Mutable
-        Type: Definition
+    .PARAMETER BudgetName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -141,18 +126,7 @@ function New-VSBudgetsBudgetsAction {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $BudgetName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $NotificationType,
+        $ExecutionRoleArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -165,8 +139,6 @@ function New-VSBudgetsBudgetsAction {
             })]
         $ActionType,
         [parameter(Mandatory = $true)]
-        $ActionThreshold,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -176,7 +148,11 @@ function New-VSBudgetsBudgetsAction {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ExecutionRoleArn,
+        $NotificationType,
+        [parameter(Mandatory = $true)]
+        $ActionThreshold,
+        [parameter(Mandatory = $true)]
+        $Definition,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -200,7 +176,16 @@ function New-VSBudgetsBudgetsAction {
             })]
         $Subscribers,
         [parameter(Mandatory = $true)]
-        $Definition,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BudgetName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

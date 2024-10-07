@@ -1,10 +1,10 @@
 function New-VSRedshiftScheduledAction {
     <#
     .SYNOPSIS
-        Adds an AWS::Redshift::ScheduledAction resource to the template. Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the ResizeCluster API operation.
+        Adds an AWS::Redshift::ScheduledAction resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Redshift::ScheduledAction resource to the template. Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the ResizeCluster API operation.
+        Adds an AWS::Redshift::ScheduledAction resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html
@@ -12,64 +12,45 @@ function New-VSRedshiftScheduledAction {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ScheduledActionName
-        The name of the scheduled action.
+    .PARAMETER ScheduledActionDescription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-scheduledactiondescription
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER ScheduledActionName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-scheduledactionname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER TargetAction
-        A JSON format string of the Amazon Redshift API operation with input parameters.
-"{"ResizeCluster":{"NodeType":"ds2.8xlarge","ClusterIdentifier":"my-test-cluster","NumberOfNodes":3}}".
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-targetaction
+    .PARAMETER EndTime
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-endtime
         UpdateType: Mutable
-        Type: ScheduledActionType
+        PrimitiveType: String
 
     .PARAMETER Schedule
-        The schedule for a one-time at format or recurring cron format scheduled action. Schedule invocations must be separated by at least one hour.
-Format of at expressions is "atyyyy-mm-ddThh:mm:ss". For example, "at2016-03-04T17:27:00".
-Format of cron expressions is "cronMinutes Hours Day-of-month Month Day-of-week Year". For example, "cron0 10 ? * MON *". For more information, see Cron Expressions: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions in the *Amazon CloudWatch Events User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-schedule
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER IamRole
-        The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler Principal scheduler.redshift.amazonaws.com to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see Using Identity-Based Policies for Amazon Redshift: https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html in the *Amazon Redshift Cluster Management Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-iamrole
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ScheduledActionDescription
-        The description of the scheduled action.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-scheduledactiondescription
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER StartTime
-        The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-starttime
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER EndTime
-        The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-endtime
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Enable
-        If true, the schedule is enabled. If false, the scheduled action does not trigger. For more information about state of the scheduled action, see AWS::Redshift::ScheduledAction: #aws-resource-redshift-scheduledaction.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-enable
         UpdateType: Mutable
         PrimitiveType: Boolean
+
+    .PARAMETER TargetAction
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-targetaction
+        UpdateType: Mutable
+        Type: ScheduledActionType
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -133,6 +114,17 @@ Format of cron expressions is "cronMinutes Hours Day-of-month Month Day-of-week 
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ScheduledActionDescription,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -145,7 +137,16 @@ Format of cron expressions is "cronMinutes Hours Day-of-month Month Day-of-week 
             })]
         $ScheduledActionName,
         [parameter(Mandatory = $false)]
-        $TargetAction,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EndTime,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -178,29 +179,7 @@ Format of cron expressions is "cronMinutes Hours Day-of-month Month Day-of-week 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ScheduledActionDescription,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $StartTime,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $EndTime,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -212,6 +191,8 @@ Format of cron expressions is "cronMinutes Hours Day-of-month Month Day-of-week 
                 }
             })]
         $Enable,
+        [parameter(Mandatory = $false)]
+        $TargetAction,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

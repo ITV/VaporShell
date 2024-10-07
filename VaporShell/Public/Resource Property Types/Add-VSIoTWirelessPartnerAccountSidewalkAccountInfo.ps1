@@ -1,18 +1,16 @@
 function Add-VSIoTWirelessPartnerAccountSidewalkAccountInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::PartnerAccount.SidewalkAccountInfo resource property to the template. Information about a Sidewalk account.
+        Adds an AWS::IoTWireless::PartnerAccount.SidewalkAccountInfo resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::PartnerAccount.SidewalkAccountInfo resource property to the template.
-Information about a Sidewalk account.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfo.html
 
     .PARAMETER AppServerPrivateKey
-        The Sidewalk application server private key. The application server private key is a secret key, which you should handle in a similar way as you would an application password. You can protect the application server private key by storing the value in the AWS Secrets Manager and use the secretsmanager: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager to reference this value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfo.html#cfn-iotwireless-partneraccount-sidewalkaccountinfo-appserverprivatekey
         UpdateType: Mutable
         PrimitiveType: String

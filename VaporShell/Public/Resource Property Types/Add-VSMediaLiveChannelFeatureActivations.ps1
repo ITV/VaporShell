@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelFeatureActivations {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.FeatureActivations resource property to the template. Settings to enable specific features. You can't configure these features until you have enabled them in the channel.
+        Adds an AWS::MediaLive::Channel.FeatureActivations resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.FeatureActivations resource property to the template.
-Settings to enable specific features. You can't configure these features until you have enabled them in the channel.
 
-The parent of this entity is EncoderSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html
 
     .PARAMETER InputPrepareScheduleActions
-        Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled. If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html#cfn-medialive-channel-featureactivations-inputpreparescheduleactions
         PrimitiveType: String
         UpdateType: Mutable

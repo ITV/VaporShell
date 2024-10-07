@@ -1,25 +1,21 @@
 function Add-VSLexBotVersionBotVersionLocaleSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotVersion.BotVersionLocaleSpecification resource property to the template. Specifies the locale that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        Adds an AWS::Lex::BotVersion.BotVersionLocaleSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotVersion.BotVersionLocaleSpecification resource property to the template.
-Specifies the locale that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocalespecification.html
 
     .PARAMETER LocaleId
-        The identifier of the locale to add to the version.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocalespecification.html#cfn-lex-botversion-botversionlocalespecification-localeid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BotVersionLocaleDetails
-        The version of a bot used for a bot locale.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocalespecification.html#cfn-lex-botversion-botversionlocalespecification-botversionlocaledetails
         UpdateType: Mutable
         Type: BotVersionLocaleDetails

@@ -1,10 +1,10 @@
 function New-VSDataSyncLocationFSxLustre {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationFSxLustre resource to the template. The AWS::DataSync::LocationFSxLustre resource specifies an endpoint for an Amazon FSx for Lustre file system.
+        Adds an AWS::DataSync::LocationFSxLustre resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DataSync::LocationFSxLustre resource to the template. The AWS::DataSync::LocationFSxLustre resource specifies an endpoint for an Amazon FSx for Lustre file system.
+        Adds an AWS::DataSync::LocationFSxLustre resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html
@@ -12,33 +12,24 @@ function New-VSDataSyncLocationFSxLustre {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER FsxFilesystemArn
-        The Amazon Resource Name ARN for the FSx for Lustre file system.
+    .PARAMETER Subdirectory
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-subdirectory
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER FsxFilesystemArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-fsxfilesystemarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SecurityGroupArns
-        The ARNs of the security groups that are used to configure the FSx for Lustre file system.
-*Pattern*: ^arn:aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b:ec2:a-z-0-9]*:0-9]{12}:security-group/.*$
-*Length constraints*: Maximum length of 128.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-securitygrouparns
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER Subdirectory
-        A subdirectory in the location's path. This subdirectory in the FSx for Lustre file system is used to read data from the FSx for Lustre source location or write data to the FSx for Lustre destination.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-subdirectory
-        UpdateType: Immutable
-        PrimitiveType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
-        The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-tags
         UpdateType: Mutable
         Type: List
@@ -107,7 +98,18 @@ function New-VSDataSyncLocationFSxLustre {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Subdirectory,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -120,17 +122,6 @@ function New-VSDataSyncLocationFSxLustre {
         $FsxFilesystemArn,
         [parameter(Mandatory = $true)]
         $SecurityGroupArns,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Subdirectory,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

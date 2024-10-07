@@ -1,29 +1,26 @@
 function Add-VSACMPCACertificatePolicyInformation {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::Certificate.PolicyInformation resource property to the template. Defines the X.509 CertificatePolicies extension.
+        Adds an AWS::ACMPCA::Certificate.PolicyInformation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::Certificate.PolicyInformation resource property to the template.
-Defines the X.509 CertificatePolicies extension.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html
 
     .PARAMETER CertPolicyId
-        Specifies the object identifier OID of the certificate policy under which the certificate was issued. For more information, see NIST's definition of Object Identifier OID: https://csrc.nist.gov/glossary/term/Object_Identifier.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PolicyQualifiers
-        Modifies the given CertPolicyId with a qualifier. ACM Private CA supports the certification practice statement CPS qualifier.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers
         UpdateType: Immutable
         Type: List
         ItemType: PolicyQualifierInfo
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

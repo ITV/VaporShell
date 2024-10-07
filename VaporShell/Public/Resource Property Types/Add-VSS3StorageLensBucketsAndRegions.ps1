@@ -1,28 +1,24 @@
 function Add-VSS3StorageLensBucketsAndRegions {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.BucketsAndRegions resource property to the template. This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+        Adds an AWS::S3::StorageLens.BucketsAndRegions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.BucketsAndRegions resource property to the template.
-This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
 
-    .PARAMETER Buckets
-        This property contains the details of the buckets for the Amazon S3 Storage Lens configuration. This should be the bucket Amazon Resource NameARN. For valid values, see Buckets ARN format here: https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_Include.html#API_control_Include_Contents in the *Amazon S3 API Reference*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
+    .PARAMETER Regions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER Regions
-        This property contains the details of the Regions for the S3 Storage Lens configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
+    .PARAMETER Buckets
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
@@ -36,9 +32,9 @@ This resource contains the details of the buckets and Regions for the Amazon S3 
     Param
     (
         [parameter(Mandatory = $false)]
-        $Buckets,
+        $Regions,
         [parameter(Mandatory = $false)]
-        $Regions
+        $Buckets
     )
     Begin {
         $obj = [PSCustomObject]@{}

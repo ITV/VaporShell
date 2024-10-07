@@ -1,25 +1,21 @@
 function Add-VSS3BucketReplicationTime {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.ReplicationTime resource property to the template. A container specifying S3 Replication Time Control (S3 RTC related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a Metrics block.
+        Adds an AWS::S3::Bucket.ReplicationTime resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.ReplicationTime resource property to the template.
-A container specifying S3 Replication Time Control (S3 RTC related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a Metrics block.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html
 
     .PARAMETER Status
-        Specifies whether the replication time is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-status
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Time
-        A container specifying the time by which replication should be complete for all objects and operations on objects.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-time
         Type: ReplicationTimeValue
         UpdateType: Mutable

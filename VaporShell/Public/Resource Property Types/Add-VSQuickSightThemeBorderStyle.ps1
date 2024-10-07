@@ -1,18 +1,16 @@
 function Add-VSQuickSightThemeBorderStyle {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.BorderStyle resource property to the template. The display options for tile borders for visuals.
+        Adds an AWS::QuickSight::Theme.BorderStyle resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.BorderStyle resource property to the template.
-The display options for tile borders for visuals.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html
 
     .PARAMETER Show
-        The option to enable display of borders for visuals.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
         UpdateType: Mutable
         PrimitiveType: Boolean

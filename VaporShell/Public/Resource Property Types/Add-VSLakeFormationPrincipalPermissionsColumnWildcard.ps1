@@ -15,6 +15,7 @@ function Add-VSLakeFormationPrincipalPermissionsColumnWildcard {
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,24 +1,10 @@
 function New-VSAppConfigApplication {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::Application resource to the template. The AWS::AppConfig::Application resource creates an application. In AWS AppConfig, an application is simply an organizational construct like a folder. This organizational construct has a relationship with some unit of executable code. For example, you could create an application called MyMobileApp to organize and manage configuration data for a mobile application installed by your users.
+        Adds an AWS::AppConfig::Application resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppConfig::Application resource to the template. The AWS::AppConfig::Application resource creates an application. In AWS AppConfig, an application is simply an organizational construct like a folder. This organizational construct has a relationship with some unit of executable code. For example, you could create an application called MyMobileApp to organize and manage configuration data for a mobile application installed by your users.
-
-AWS AppConfig requires that you create resources and deploy a configuration in the following order:
-
-1. Create an application
-
-1. Create an environment
-
-1. Create a configuration profile
-
-1. Create a deployment strategy
-
-1. Deploy the configuration
-
-For more information, see AWS AppConfig: https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html in the *AWS AppConfig User Guide*.
+        Adds an AWS::AppConfig::Application resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html
@@ -27,23 +13,17 @@ For more information, see AWS AppConfig: https://docs.aws.amazon.com/appconfig/l
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A description of the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html#cfn-appconfig-application-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Tags
-        Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html#cfn-appconfig-application-tags
         ItemType: Tags
         UpdateType: Mutable
 
     .PARAMETER Name
-        A name for the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html#cfn-appconfig-application-name
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,10 +1,10 @@
 function New-VSRedshiftEndpointAccess {
     <#
     .SYNOPSIS
-        Adds an AWS::Redshift::EndpointAccess resource to the template. Creates a Redshift-managed VPC endpoint.
+        Adds an AWS::Redshift::EndpointAccess resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Redshift::EndpointAccess resource to the template. Creates a Redshift-managed VPC endpoint.
+        Adds an AWS::Redshift::EndpointAccess resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html
@@ -12,41 +12,32 @@ function New-VSRedshiftEndpointAccess {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ClusterIdentifier
-        The cluster identifier of the cluster associated with the endpoint.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-clusteridentifier
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ResourceOwner
-        The AWS account ID of the owner of the cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-resourceowner
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER EndpointName
-        The name of the endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-endpointname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER SubnetGroupName
-        The subnet group name where Amazon Redshift chooses to deploy the endpoint.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-subnetgroupname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER VpcSecurityGroupIds
-        The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-vpcsecuritygroupids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER ResourceOwner
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-resourceowner
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER SubnetGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-subnetgroupname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ClusterIdentifier
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-clusteridentifier
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -120,7 +111,9 @@ function New-VSRedshiftEndpointAccess {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ClusterIdentifier,
+        $EndpointName,
+        [parameter(Mandatory = $true)]
+        $VpcSecurityGroupIds,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -142,7 +135,7 @@ function New-VSRedshiftEndpointAccess {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $EndpointName,
+        $SubnetGroupName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -153,9 +146,7 @@ function New-VSRedshiftEndpointAccess {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SubnetGroupName,
-        [parameter(Mandatory = $true)]
-        $VpcSecurityGroupIds,
+        $ClusterIdentifier,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

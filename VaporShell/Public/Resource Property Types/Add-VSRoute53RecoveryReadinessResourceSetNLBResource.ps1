@@ -1,18 +1,16 @@
 function Add-VSRoute53RecoveryReadinessResourceSetNLBResource {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53RecoveryReadiness::ResourceSet.NLBResource resource property to the template. The Network Load Balancer resource that a DNS target resource points to.
+        Adds an AWS::Route53RecoveryReadiness::ResourceSet.NLBResource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Route53RecoveryReadiness::ResourceSet.NLBResource resource property to the template.
-The Network Load Balancer resource that a DNS target resource points to.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html
 
     .PARAMETER Arn
-        The Network Load Balancer resource Amazon Resource Name ARN.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn
         UpdateType: Mutable
         PrimitiveType: String

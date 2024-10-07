@@ -1,75 +1,68 @@
 function Add-VSDynamoDBGlobalTableReplicaSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.ReplicaSpecification resource property to the template. Defines settings specific to a single replica of a global table.
+        Adds an AWS::DynamoDB::GlobalTable.ReplicaSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.ReplicaSpecification resource property to the template.
-Defines settings specific to a single replica of a global table.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html
 
-    .PARAMETER Region
-        The region in which this replica exists.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-region
+    .PARAMETER SSESpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-ssespecification
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: ReplicaSSESpecification
+
+    .PARAMETER KinesisStreamSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-kinesisstreamspecification
+        UpdateType: Mutable
+        Type: KinesisStreamSpecification
+
+    .PARAMETER ContributorInsightsSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-contributorinsightsspecification
+        UpdateType: Mutable
+        Type: ContributorInsightsSpecification
 
     .PARAMETER GlobalSecondaryIndexes
-        Defines additional settings for the global secondary indexes of this replica.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
         UpdateType: Mutable
         Type: List
         ItemType: ReplicaGlobalSecondaryIndexSpecification
         DuplicatesAllowed: False
 
-    .PARAMETER ContributorInsightsSpecification
-        The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-contributorinsightsspecification
+    .PARAMETER Region
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-region
         UpdateType: Mutable
-        Type: ContributorInsightsSpecification
+        PrimitiveType: String
 
     .PARAMETER PointInTimeRecoverySpecification
-        The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
         UpdateType: Mutable
         Type: PointInTimeRecoverySpecification
 
-    .PARAMETER TableClass
-        The table class of the specified table. Valid values are STANDARD and STANDARD_INFREQUENT_ACCESS.
+    .PARAMETER ReadProvisionedThroughputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
+        UpdateType: Mutable
+        Type: ReadProvisionedThroughputSettings
 
+    .PARAMETER TableClass
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-tableclass
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER SSESpecification
-        Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-ssespecification
+    .PARAMETER DeletionProtectionEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-deletionprotectionenabled
         UpdateType: Mutable
-        Type: ReplicaSSESpecification
+        PrimitiveType: Boolean
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this replica.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
-
-    .PARAMETER ReadProvisionedThroughputSettings
-        Defines read capacity settings for the replica table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
-        UpdateType: Mutable
-        Type: ReadProvisionedThroughputSettings
 
     .FUNCTIONALITY
         Vaporshell
@@ -78,6 +71,23 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $SSESpecification,
+        [parameter(Mandatory = $false)]
+        $KinesisStreamSpecification,
+        [parameter(Mandatory = $false)]
+        $ContributorInsightsSpecification,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecification"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $GlobalSecondaryIndexes,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -90,20 +100,9 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             })]
         $Region,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecification"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $GlobalSecondaryIndexes,
-        [parameter(Mandatory = $false)]
-        $ContributorInsightsSpecification,
-        [parameter(Mandatory = $false)]
         $PointInTimeRecoverySpecification,
+        [parameter(Mandatory = $false)]
+        $ReadProvisionedThroughputSettings,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -116,12 +115,19 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             })]
         $TableClass,
         [parameter(Mandatory = $false)]
-        $SSESpecification,
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DeletionProtectionEnabled,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
-        $Tags,
-        [parameter(Mandatory = $false)]
-        $ReadProvisionedThroughputSettings
+        $Tags
     )
     Begin {
         $obj = [PSCustomObject]@{}

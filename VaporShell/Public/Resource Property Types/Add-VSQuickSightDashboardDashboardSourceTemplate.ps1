@@ -1,26 +1,23 @@
 function Add-VSQuickSightDashboardDashboardSourceTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.DashboardSourceTemplate resource property to the template. Dashboard source template.
+        Adds an AWS::QuickSight::Dashboard.DashboardSourceTemplate resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.DashboardSourceTemplate resource property to the template.
-Dashboard source template.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html
 
     .PARAMETER DataSetReferences
-        Dataset references.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
         UpdateType: Mutable
         Type: List
         ItemType: DataSetReference
+        DuplicatesAllowed: True
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
         UpdateType: Mutable
         PrimitiveType: String

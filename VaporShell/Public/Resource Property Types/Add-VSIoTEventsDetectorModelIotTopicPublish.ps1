@@ -1,25 +1,21 @@
 function Add-VSIoTEventsDetectorModelIotTopicPublish {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.IotTopicPublish resource property to the template. Information required to publish the MQTT message through the AWS IoT message broker.
+        Adds an AWS::IoTEvents::DetectorModel.IotTopicPublish resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.IotTopicPublish resource property to the template.
-Information required to publish the MQTT message through the AWS IoT message broker.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html
 
     .PARAMETER MqttTopic
-        The MQTT topic of the message. You can use a string expression that includes variables $variable.<variable-name> and input values $input.<input-name>.<path-to-datum> as the topic string.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Payload
-        You can configure the action payload when you publish a message to an AWS IoT Core topic.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload
         UpdateType: Mutable
         Type: Payload

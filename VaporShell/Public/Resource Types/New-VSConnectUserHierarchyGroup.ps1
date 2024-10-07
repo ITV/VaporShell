@@ -1,10 +1,10 @@
 function New-VSConnectUserHierarchyGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::UserHierarchyGroup resource to the template. Creates a new user hierarchy group.
+        Adds an AWS::Connect::UserHierarchyGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Connect::UserHierarchyGroup resource to the template. Creates a new user hierarchy group.
+        Adds an AWS::Connect::UserHierarchyGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html
@@ -13,22 +13,16 @@ function New-VSConnectUserHierarchyGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER InstanceArn
-        The Amazon Resource Name ARN of the user hierarchy group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-instancearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ParentGroupArn
-        The Amazon Resource Name ARN of the parent group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-parentgrouparn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the user hierarchy group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-name
         UpdateType: Mutable
         PrimitiveType: String

@@ -18,7 +18,8 @@ function Add-VSAppFlowFlowCustomConnectorSourceProperties {
     .PARAMETER CustomProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-customproperties
         UpdateType: Mutable
-        Type: CustomProperties
+        Type: Map
+        PrimitiveItemType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,6 +40,7 @@ function Add-VSAppFlowFlowCustomConnectorSourceProperties {
             })]
         $EntityName,
         [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
         $CustomProperties
     )
     Begin {

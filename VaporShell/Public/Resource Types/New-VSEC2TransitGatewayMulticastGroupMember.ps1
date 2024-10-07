@@ -1,10 +1,10 @@
 function New-VSEC2TransitGatewayMulticastGroupMember {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayMulticastGroupMember resource to the template. Registers members (network interfaces with the transit gateway multicast group. A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For information about supported instances, see Multicast Consideration: https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits in *Amazon VPC Transit Gateways*.
+        Adds an AWS::EC2::TransitGatewayMulticastGroupMember resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::TransitGatewayMulticastGroupMember resource to the template. Registers members (network interfaces with the transit gateway multicast group. A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For information about supported instances, see Multicast Consideration: https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits in *Amazon VPC Transit Gateways*.
+        Adds an AWS::EC2::TransitGatewayMulticastGroupMember resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html
@@ -12,24 +12,18 @@ function New-VSEC2TransitGatewayMulticastGroupMember {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER GroupIpAddress
-        The IP address assigned to the transit gateway multicast group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-groupipaddress
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER TransitGatewayMulticastDomainId
-        The ID of the transit gateway multicast domain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-transitgatewaymulticastdomainid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER NetworkInterfaceId
-        The group members' network interface IDs to register with the transit gateway multicast group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-networkinterfaceid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER GroupIpAddress
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-groupipaddress
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -105,17 +99,6 @@ function New-VSEC2TransitGatewayMulticastGroupMember {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $GroupIpAddress,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $TransitGatewayMulticastDomainId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -128,6 +111,17 @@ function New-VSEC2TransitGatewayMulticastGroupMember {
                 }
             })]
         $NetworkInterfaceId,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $GroupIpAddress,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

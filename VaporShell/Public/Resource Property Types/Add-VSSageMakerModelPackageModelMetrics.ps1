@@ -10,25 +10,25 @@ function Add-VSSageMakerModelPackageModelMetrics {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html
 
-    .PARAMETER Bias
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-bias
-        UpdateType: Immutable
-        Type: Bias
-
-    .PARAMETER Explainability
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-explainability
-        UpdateType: Immutable
-        Type: Explainability
-
     .PARAMETER ModelDataQuality
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-modeldataquality
         UpdateType: Immutable
         Type: ModelDataQuality
 
+    .PARAMETER Bias
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-bias
+        UpdateType: Immutable
+        Type: Bias
+
     .PARAMETER ModelQuality
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-modelquality
         UpdateType: Immutable
         Type: ModelQuality
+
+    .PARAMETER Explainability
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-explainability
+        UpdateType: Immutable
+        Type: Explainability
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,13 +38,13 @@ function Add-VSSageMakerModelPackageModelMetrics {
     Param
     (
         [parameter(Mandatory = $false)]
-        $Bias,
-        [parameter(Mandatory = $false)]
-        $Explainability,
-        [parameter(Mandatory = $false)]
         $ModelDataQuality,
         [parameter(Mandatory = $false)]
-        $ModelQuality
+        $Bias,
+        [parameter(Mandatory = $false)]
+        $ModelQuality,
+        [parameter(Mandatory = $false)]
+        $Explainability
     )
     Begin {
         $obj = [PSCustomObject]@{}

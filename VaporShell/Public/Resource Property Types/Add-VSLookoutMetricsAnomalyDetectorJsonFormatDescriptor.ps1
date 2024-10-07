@@ -1,26 +1,22 @@
 function Add-VSLookoutMetricsAnomalyDetectorJsonFormatDescriptor {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.JsonFormatDescriptor resource property to the template. Contains information about how a source JSON data file should be analyzed.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.JsonFormatDescriptor resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.JsonFormatDescriptor resource property to the template.
-Contains information about how a source JSON data file should be analyzed.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html
 
-    .PARAMETER FileCompression
-        The level of compression of the source CSV file.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression
+    .PARAMETER Charset
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Charset
-        The character set in which the source JSON file is written.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset
+    .PARAMETER FileCompression
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Contains information about how a source JSON data file should be analyzed.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FileCompression,
+        $Charset,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Contains information about how a source JSON data file should be analyzed.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Charset
+        $FileCompression
     )
     Begin {
         $obj = [PSCustomObject]@{}

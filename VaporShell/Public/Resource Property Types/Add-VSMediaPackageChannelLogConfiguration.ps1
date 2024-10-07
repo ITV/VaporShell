@@ -1,18 +1,16 @@
 function Add-VSMediaPackageChannelLogConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::Channel.LogConfiguration resource property to the template. The access log configuration parameters for your channel.
+        Adds an AWS::MediaPackage::Channel.LogConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::Channel.LogConfiguration resource property to the template.
-The access log configuration parameters for your channel.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
 
     .PARAMETER LogGroupName
-        Sets a custom Amazon CloudWatch log group name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
         UpdateType: Mutable
         PrimitiveType: String

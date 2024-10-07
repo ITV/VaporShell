@@ -1,25 +1,21 @@
 function Add-VSAutoScalingAutoScalingGroupMemoryGiBPerVCpuRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest resource property to the template. MemoryGiBPerVCpuRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+        Adds an AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest resource property to the template.
-MemoryGiBPerVCpuRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html
 
     .PARAMETER Max
-        The memory maximum in GiB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html#cfn-autoscaling-autoscalinggroup-memorygibpervcpurequest-max
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Min
-        The memory minimum in GiB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html#cfn-autoscaling-autoscalinggroup-memorygibpervcpurequest-min
         PrimitiveType: Integer
         UpdateType: Mutable

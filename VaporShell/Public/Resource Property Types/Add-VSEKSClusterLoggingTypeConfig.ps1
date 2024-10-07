@@ -1,18 +1,16 @@
 function Add-VSEKSClusterLoggingTypeConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EKS::Cluster.LoggingTypeConfig resource property to the template. The enabled logging type. For a list of the valid logging types, see the types property of LogSetup: https://docs.aws.amazon.com/eks/latest/APIReference/API_LogSetup.html#AmazonEKS-Type-LogSetup-types in the *Amazon EKS API Reference*.
+        Adds an AWS::EKS::Cluster.LoggingTypeConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EKS::Cluster.LoggingTypeConfig resource property to the template.
-The enabled logging type. For a list of the valid logging types, see the types property of LogSetup: https://docs.aws.amazon.com/eks/latest/APIReference/API_LogSetup.html#AmazonEKS-Type-LogSetup-types in the *Amazon EKS API Reference*.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-loggingtypeconfig.html
 
     .PARAMETER Type
-        The name of the log type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-loggingtypeconfig.html#cfn-eks-cluster-loggingtypeconfig-type
         UpdateType: Mutable
         PrimitiveType: String

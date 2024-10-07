@@ -1,10 +1,10 @@
 function New-VSWisdomAssistantAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::Wisdom::AssistantAssociation resource to the template. Specifies an association between an Amazon Connect Wisdom assistant and another resource. Currently, the only supported association is with a knowledge base. An assistant can have only a single association.
+        Adds an AWS::Wisdom::AssistantAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Wisdom::AssistantAssociation resource to the template. Specifies an association between an Amazon Connect Wisdom assistant and another resource. Currently, the only supported association is with a knowledge base. An assistant can have only a single association.
+        Adds an AWS::Wisdom::AssistantAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html
@@ -12,30 +12,22 @@ function New-VSWisdomAssistantAssociation {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AssistantId
-        The identifier of the Wisdom assistant.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html#cfn-wisdom-assistantassociation-assistantid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Association
-        The identifier of the associated resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html#cfn-wisdom-assistantassociation-association
         UpdateType: Immutable
         Type: AssociationData
 
     .PARAMETER AssociationType
-        The type of association.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html#cfn-wisdom-assistantassociation-associationtype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        The tags used to organize, track, or control access for this resource.
+    .PARAMETER AssistantId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html#cfn-wisdom-assistantassociation-assistantid
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html#cfn-wisdom-assistantassociation-tags
         UpdateType: Immutable
         Type: List
@@ -105,17 +97,6 @@ function New-VSWisdomAssistantAssociation {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AssistantId,
-        [parameter(Mandatory = $true)]
         $Association,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -128,6 +109,17 @@ function New-VSWisdomAssistantAssociation {
                 }
             })]
         $AssociationType,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AssistantId,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

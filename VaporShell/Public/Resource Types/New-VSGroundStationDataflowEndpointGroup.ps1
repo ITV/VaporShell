@@ -1,14 +1,10 @@
 function New-VSGroundStationDataflowEndpointGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::DataflowEndpointGroup resource to the template. Creates a Dataflow Endpoint Group request.
+        Adds an AWS::GroundStation::DataflowEndpointGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::GroundStation::DataflowEndpointGroup resource to the template. Creates a Dataflow Endpoint Group request.
-
-Dataflow endpoint groups contain a list of endpoints. When the name of a dataflow endpoint group is specified in a mission profile, the Ground Station service will connect to the endpoints and flow data during a contact.
-
-For more information about dataflow endpoint groups, see Dataflow Endpoint Groups: https://docs.aws.amazon.com/ground-station/latest/ug/dataflowendpointgroups.html.
+        Adds an AWS::GroundStation::DataflowEndpointGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
@@ -16,21 +12,29 @@ For more information about dataflow endpoint groups, see Dataflow Endpoint Group
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER EndpointDetails
-        List of Endpoint Details, containing address and port for each endpoint.
+    .PARAMETER ContactPostPassDurationSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-contactpostpassdurationseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
+    .PARAMETER EndpointDetails
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
         UpdateType: Mutable
         Type: List
         ItemType: EndpointDetails
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
-        Tags assigned to a resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER ContactPrePassDurationSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-contactprepassdurationseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -94,6 +98,17 @@ For more information about dataflow endpoint groups, see Dataflow Endpoint Group
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ContactPostPassDurationSeconds,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.GroundStation.DataflowEndpointGroup.EndpointDetails"
@@ -108,6 +123,17 @@ For more information about dataflow endpoint groups, see Dataflow Endpoint Group
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ContactPrePassDurationSeconds,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,25 +1,21 @@
 function Add-VSEC2ClientVpnEndpointFederatedAuthenticationRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::ClientVpnEndpoint.FederatedAuthenticationRequest resource property to the template. The IAM SAML identity provider used for federated authentication.
+        Adds an AWS::EC2::ClientVpnEndpoint.FederatedAuthenticationRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::ClientVpnEndpoint.FederatedAuthenticationRequest resource property to the template.
-The IAM SAML identity provider used for federated authentication.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html
 
     .PARAMETER SelfServiceSAMLProviderArn
-        The Amazon Resource Name ARN of the IAM SAML identity provider for the self-service portal.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SAMLProviderArn
-        The Amazon Resource Name ARN of the IAM SAML identity provider.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
         PrimitiveType: String
         UpdateType: Mutable

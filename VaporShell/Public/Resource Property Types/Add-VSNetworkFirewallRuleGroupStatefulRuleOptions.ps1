@@ -1,18 +1,16 @@
 function Add-VSNetworkFirewallRuleGroupStatefulRuleOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.StatefulRuleOptions resource property to the template. Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.
+        Adds an AWS::NetworkFirewall::RuleGroup.StatefulRuleOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.StatefulRuleOptions resource property to the template.
-Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulruleoptions.html
 
     .PARAMETER RuleOrder
-        Indicates how to manage the order of the rule evaluation for the rule group. DEFAULT_ACTION_ORDER is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see Evaluation order for stateful rules: https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html in the *AWS Network Firewall Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulruleoptions.html#cfn-networkfirewall-rulegroup-statefulruleoptions-ruleorder
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,26 +1,22 @@
 function Add-VSCognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.RiskExceptionConfigurationType resource property to the template. The type of the configuration to override the risk decision.
+        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.RiskExceptionConfigurationType resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.RiskExceptionConfigurationType resource property to the template.
-The type of the configuration to override the risk decision.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html
 
     .PARAMETER BlockedIPRangeList
-        Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-blockediprangelist
         UpdateType: Mutable
 
     .PARAMETER SkippedIPRangeList
-        Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-skippediprangelist

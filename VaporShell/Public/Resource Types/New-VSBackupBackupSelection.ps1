@@ -1,12 +1,10 @@
 function New-VSBackupBackupSelection {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupSelection resource to the template. Specifies a set of resources to assign to a backup plan.
+        Adds an AWS::Backup::BackupSelection resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Backup::BackupSelection resource to the template. Specifies a set of resources to assign to a backup plan.
-
-For a sample AWS CloudFormation template, see the AWS Backup Developer Guide: https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn.
+        Adds an AWS::Backup::BackupSelection resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
@@ -14,20 +12,15 @@ For a sample AWS CloudFormation template, see the AWS Backup Developer Guide: ht
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER BackupPlanId
-        Uniquely identifies a backup plan.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER BackupSelection
-        Specifies the body of a request to assign a set of resources to a backup plan.
-It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
         UpdateType: Immutable
         Type: BackupSelectionResourceType
+
+    .PARAMETER BackupPlanId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -92,6 +85,8 @@ It includes an array of resources, an optional array of patterns to exclude reso
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
+        $BackupSelection,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -102,8 +97,6 @@ It includes an array of resources, an optional array of patterns to exclude reso
                 }
             })]
         $BackupPlanId,
-        [parameter(Mandatory = $true)]
-        $BackupSelection,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

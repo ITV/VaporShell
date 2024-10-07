@@ -1,16 +1,10 @@
 function New-VSIAMVirtualMFADevice {
     <#
     .SYNOPSIS
-        Adds an AWS::IAM::VirtualMFADevice resource to the template. Creates a new virtual MFA device for the AWS account. After creating the virtual MFA, use EnableMFADevice: https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, see Using a virtual MFA device: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html in the *IAM User Guide*.
+        Adds an AWS::IAM::VirtualMFADevice resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IAM::VirtualMFADevice resource to the template. Creates a new virtual MFA device for the AWS account. After creating the virtual MFA, use EnableMFADevice: https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, see Using a virtual MFA device: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html in the *IAM User Guide*.
-
-For information about the maximum number of MFA devices you can create, see IAM and AWS STS quotas: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html in the *IAM User Guide*.
-
-**Important**
-
-The seed information contained in the QR code and the Base32 string should be treated like any other secret access information. In other words, protect the seed information as you would your AWS access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures.
+        Adds an AWS::IAM::VirtualMFADevice resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html
@@ -18,26 +12,17 @@ The seed information contained in the QR code and the Base32 string should be tr
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER VirtualMfaDeviceName
-        The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-This parameter allows through its regex pattern: http://wikipedia.org/wiki/regex a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Path
-        The path for the virtual MFA device. For more information about paths, see IAM identifiers: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html in the *IAM User Guide*.
-This parameter is optional. If it is not included, it defaults to a slash /.
-This parameter allows through its regex pattern: http://wikipedia.org/wiki/regex a string of characters consisting of either a forward slash / by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! u0021 through the DEL character u007F, including most punctuation characters, digits, and upper and lowercased letters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Users
-        The IAM user associated with this virtual MFA device.
+    .PARAMETER VirtualMfaDeviceName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Users
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
         UpdateType: Mutable
         Type: List
@@ -45,9 +30,6 @@ This parameter allows through its regex pattern: http://wikipedia.org/wiki/regex
         DuplicatesAllowed: True
 
     .PARAMETER Tags
-        A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see Tagging IAM resources: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html in the *IAM User Guide*.
-If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
         UpdateType: Mutable
         Type: List
@@ -126,7 +108,7 @@ If any one of the tags is invalid or if you exceed the allowed maximum number of
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VirtualMfaDeviceName,
+        $Path,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -137,7 +119,7 @@ If any one of the tags is invalid or if you exceed the allowed maximum number of
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Path,
+        $VirtualMfaDeviceName,
         [parameter(Mandatory = $true)]
         $Users,
         [VaporShell.Core.TransformTag()]

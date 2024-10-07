@@ -1,25 +1,21 @@
 function Add-VSDLMLifecyclePolicyEventSource {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.EventSource resource property to the template. Specifies an event that triggers an event-based policy.
+        Adds an AWS::DLM::LifecyclePolicy.EventSource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.EventSource resource property to the template.
-Specifies an event that triggers an event-based policy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html
 
     .PARAMETER Type
-        The source of the event. Currently only managed CloudWatch Events rules are supported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-type
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Parameters
-        Information about the event.
-
         Type: EventParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-parameters
         UpdateType: Mutable

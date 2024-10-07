@@ -1,26 +1,22 @@
 function Add-VSTimestreamScheduledQueryDimensionMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::ScheduledQuery.DimensionMapping resource property to the template. This type is used to map column(s from the query result to a dimension in the destination table.
+        Adds an AWS::Timestream::ScheduledQuery.DimensionMapping resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Timestream::ScheduledQuery.DimensionMapping resource property to the template.
-This type is used to map column(s from the query result to a dimension in the destination table.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html
 
-    .PARAMETER Name
-        Column name from query result.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html#cfn-timestream-scheduledquery-dimensionmapping-name
+    .PARAMETER DimensionValueType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html#cfn-timestream-scheduledquery-dimensionmapping-dimensionvaluetype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER DimensionValueType
-        Type for the dimension.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html#cfn-timestream-scheduledquery-dimensionmapping-dimensionvaluetype
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html#cfn-timestream-scheduledquery-dimensionmapping-name
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ This type is used to map column(s from the query result to a dimension in the de
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $DimensionValueType,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ This type is used to map column(s from the query result to a dimension in the de
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DimensionValueType
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

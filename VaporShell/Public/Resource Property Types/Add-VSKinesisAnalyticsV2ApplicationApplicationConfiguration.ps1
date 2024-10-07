@@ -1,64 +1,51 @@
 function Add-VSKinesisAnalyticsV2ApplicationApplicationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.ApplicationConfiguration resource property to the template. Specifies the creation parameters for a Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::Application.ApplicationConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.ApplicationConfiguration resource property to the template.
-Specifies the creation parameters for a Kinesis Data Analytics application.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html
 
     .PARAMETER ApplicationCodeConfiguration
-        The code location and type parameters for a Flink-based Kinesis Data Analytics application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationcodeconfiguration
         UpdateType: Mutable
         Type: ApplicationCodeConfiguration
 
-    .PARAMETER ApplicationSnapshotConfiguration
-        Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsnapshotconfiguration
-        UpdateType: Mutable
-        Type: ApplicationSnapshotConfiguration
-
     .PARAMETER EnvironmentProperties
-        Describes execution properties for a Flink-based Kinesis Data Analytics application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-environmentproperties
         UpdateType: Mutable
         Type: EnvironmentProperties
 
     .PARAMETER FlinkApplicationConfiguration
-        The creation and update parameters for a Flink-based Kinesis Data Analytics application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-flinkapplicationconfiguration
         UpdateType: Mutable
         Type: FlinkApplicationConfiguration
 
     .PARAMETER SqlApplicationConfiguration
-        The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-sqlapplicationconfiguration
         UpdateType: Mutable
         Type: SqlApplicationConfiguration
 
     .PARAMETER ZeppelinApplicationConfiguration
-        The configuration parameters for a Kinesis Data Analytics Studio notebook.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-zeppelinapplicationconfiguration
         UpdateType: Mutable
         Type: ZeppelinApplicationConfiguration
 
     .PARAMETER VpcConfigurations
-        +  ApplicationConfiguration: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_ApplicationConfiguration.html in the *Amazon Kinesis Data Analytics API Reference*
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-vpcconfigurations
         UpdateType: Mutable
         Type: List
         ItemType: VpcConfiguration
+        DuplicatesAllowed: True
+
+    .PARAMETER ApplicationSnapshotConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsnapshotconfiguration
+        UpdateType: Mutable
+        Type: ApplicationSnapshotConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -69,8 +56,6 @@ Specifies the creation parameters for a Kinesis Data Analytics application.
     (
         [parameter(Mandatory = $false)]
         $ApplicationCodeConfiguration,
-        [parameter(Mandatory = $false)]
-        $ApplicationSnapshotConfiguration,
         [parameter(Mandatory = $false)]
         $EnvironmentProperties,
         [parameter(Mandatory = $false)]
@@ -89,7 +74,9 @@ Specifies the creation parameters for a Kinesis Data Analytics application.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VpcConfigurations
+        $VpcConfigurations,
+        [parameter(Mandatory = $false)]
+        $ApplicationSnapshotConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

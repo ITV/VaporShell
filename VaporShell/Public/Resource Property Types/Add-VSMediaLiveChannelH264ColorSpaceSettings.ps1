@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelH264ColorSpaceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.H264ColorSpaceSettings resource property to the template. Settings for configuring color space in an H264 video encode.
+        Adds an AWS::MediaLive::Channel.H264ColorSpaceSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.H264ColorSpaceSettings resource property to the template.
-Settings for configuring color space in an H264 video encode.
 
-The parent of this entity is H264Settings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html
 
     .PARAMETER Rec601Settings
-        Settings to configure the handling of Rec601 color space.
-
         Type: Rec601Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-rec601settings
         UpdateType: Mutable
 
     .PARAMETER Rec709Settings
-        Settings to configure the handling of Rec709 color space.
-
         Type: Rec709Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-rec709settings
         UpdateType: Mutable
 
     .PARAMETER ColorSpacePassthroughSettings
-        Passthrough applies no color space conversion to the output.
-
         Type: ColorSpacePassthroughSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-colorspacepassthroughsettings
         UpdateType: Mutable

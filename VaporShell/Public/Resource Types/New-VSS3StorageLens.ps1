@@ -1,10 +1,10 @@
 function New-VSS3StorageLens {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens resource to the template. The AWS::S3::StorageLens resource creates an instance of an Amazon S3 Storage Lens configuration.
+        Adds an AWS::S3::StorageLens resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::S3::StorageLens resource to the template. The AWS::S3::StorageLens resource creates an instance of an Amazon S3 Storage Lens configuration.
+        Adds an AWS::S3::StorageLens resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
@@ -13,15 +13,11 @@ function New-VSS3StorageLens {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER StorageLensConfiguration
-        This resource contains the details Amazon S3 Storage Lens configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
         UpdateType: Mutable
         Type: StorageLensConfiguration
 
     .PARAMETER Tags
-        A set of tags key–value pairs to associate with the Storage Lens configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
         UpdateType: Mutable
         Type: List

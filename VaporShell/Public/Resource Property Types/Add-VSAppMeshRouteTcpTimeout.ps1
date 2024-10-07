@@ -1,18 +1,16 @@
 function Add-VSAppMeshRouteTcpTimeout {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.TcpTimeout resource property to the template. An object that represents types of timeouts.
+        Adds an AWS::AppMesh::Route.TcpTimeout resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.TcpTimeout resource property to the template.
-An object that represents types of timeouts.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcptimeout.html
 
     .PARAMETER Idle
-        An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
-
         Type: Duration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcptimeout.html#cfn-appmesh-route-tcptimeout-idle
         UpdateType: Mutable

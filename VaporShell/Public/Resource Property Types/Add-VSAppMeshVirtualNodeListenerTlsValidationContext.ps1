@@ -1,25 +1,21 @@
 function Add-VSAppMeshVirtualNodeListenerTlsValidationContext {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.ListenerTlsValidationContext resource property to the template. An object that represents a listener's Transport Layer Security (TLS validation context.
+        Adds an AWS::AppMesh::VirtualNode.ListenerTlsValidationContext resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.ListenerTlsValidationContext resource property to the template.
-An object that represents a listener's Transport Layer Security (TLS validation context.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html
 
     .PARAMETER SubjectAlternativeNames
-        A reference to an object that represents the SANs for a listener's Transport Layer Security TLS validation context.
-
         Type: SubjectAlternativeNames
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html#cfn-appmesh-virtualnode-listenertlsvalidationcontext-subjectalternativenames
         UpdateType: Mutable
 
     .PARAMETER Trust
-        A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security TLS certificate.
-
         Type: ListenerTlsValidationContextTrust
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html#cfn-appmesh-virtualnode-listenertlsvalidationcontext-trust
         UpdateType: Mutable

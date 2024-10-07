@@ -1,33 +1,27 @@
 function Add-VSDLMLifecyclePolicyShareRule {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.ShareRule resource property to the template. Specifies a rule for sharing snapshots across AWS accounts.
+        Adds an AWS::DLM::LifecyclePolicy.ShareRule resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.ShareRule resource property to the template.
-Specifies a rule for sharing snapshots across AWS accounts.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html
 
     .PARAMETER TargetAccounts
-        The IDs of the AWS accounts with which to share the snapshots.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-targetaccounts
         UpdateType: Mutable
 
     .PARAMETER UnshareIntervalUnit
-        The unit of time for the automatic unsharing interval.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareintervalunit
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER UnshareInterval
-        The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareinterval
         PrimitiveType: Integer
         UpdateType: Mutable

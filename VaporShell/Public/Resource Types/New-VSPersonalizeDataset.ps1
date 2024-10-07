@@ -1,38 +1,10 @@
 function New-VSPersonalizeDataset {
     <#
     .SYNOPSIS
-        Adds an AWS::Personalize::Dataset resource to the template. Creates an empty dataset and adds it to the specified dataset group. Use CreateDatasetImportJob: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html to import your training data to a dataset.
+        Adds an AWS::Personalize::Dataset resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Personalize::Dataset resource to the template. Creates an empty dataset and adds it to the specified dataset group. Use CreateDatasetImportJob: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html to import your training data to a dataset.
-
-There are three types of datasets:
-
-+ Interactions
-
-+ Items
-
-+ Users
-
-Each dataset type has an associated schema with required field types. Only the Interactions dataset is required in order to train a model (also referred to as creating a solution.
-
-A dataset can be in one of the following states:
-
-+ CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-
-+ DELETE PENDING > DELETE IN_PROGRESS
-
-To get the status of the dataset, call DescribeDataset: https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html.
-
-**Related APIs**
-
-+  CreateDatasetGroup: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html
-
-+  ListDatasets: https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html
-
-+  DescribeDataset: https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html
-
-+  DeleteDataset: https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html
+        Adds an AWS::Personalize::Dataset resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html
@@ -40,43 +12,30 @@ To get the status of the dataset, call DescribeDataset: https://docs.aws.amazon.
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the dataset.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DatasetType
-        One of the following values:
-+ Interactions
-+ Items
-+ Users
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasettype
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER DatasetGroupArn
-        The Amazon Resource Name ARN of the dataset group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasetgrouparn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER SchemaArn
-        The ARN of the associated schema.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-schemaarn
+    .PARAMETER DatasetType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasettype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DatasetImportJob
-        Describes a job that imports training data from a data source Amazon S3 bucket to an Amazon Personalize dataset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasetimportjob
         UpdateType: Mutable
         Type: DatasetImportJob
+
+    .PARAMETER SchemaArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-schemaarn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -150,28 +109,6 @@ To get the status of the dataset, call DescribeDataset: https://docs.aws.amazon.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DatasetType,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $DatasetGroupArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -183,9 +120,31 @@ To get the status of the dataset, call DescribeDataset: https://docs.aws.amazon.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SchemaArn,
+        $DatasetType,
         [parameter(Mandatory = $false)]
         $DatasetImportJob,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SchemaArn,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

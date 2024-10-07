@@ -1,10 +1,10 @@
 function New-VSSageMakerModelBiasJobDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelBiasJobDefinition resource to the template. Creates the definition for a model bias job.
+        Adds an AWS::SageMaker::ModelBiasJobDefinition resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::ModelBiasJobDefinition resource to the template. Creates the definition for a model bias job.
+        Adds an AWS::SageMaker::ModelBiasJobDefinition resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
@@ -12,82 +12,62 @@ function New-VSSageMakerModelBiasJobDefinition {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER JobDefinitionName
-        The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ModelBiasBaselineConfig
-        The baseline configuration for a model bias job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
-        UpdateType: Immutable
-        Type: ModelBiasBaselineConfig
-
-    .PARAMETER ModelBiasAppSpecification
-        Configures the model bias job to run a specified Docker container image.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
-        UpdateType: Immutable
-        Type: ModelBiasAppSpecification
-
     .PARAMETER ModelBiasJobInput
-        Inputs for the model bias job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
         UpdateType: Immutable
         Type: ModelBiasJobInput
 
     .PARAMETER ModelBiasJobOutputConfig
-        The output configuration for monitoring jobs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
         UpdateType: Immutable
         Type: MonitoringOutputConfig
-
-    .PARAMETER JobResources
-        Identifies the resources to deploy for a monitoring job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
-        UpdateType: Immutable
-        Type: MonitoringResources
-
-    .PARAMETER NetworkConfig
-        Networking options for a model bias job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
-        UpdateType: Immutable
-        Type: NetworkConfig
 
     .PARAMETER EndpointName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-endpointname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The Amazon Resource Name ARN of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER StoppingCondition
-        A time limit for how long the monitoring job is allowed to run before stopping.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
         UpdateType: Immutable
         Type: StoppingCondition
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+    .PARAMETER JobDefinitionName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER JobResources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
+        UpdateType: Immutable
+        Type: MonitoringResources
+
+    .PARAMETER NetworkConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
+        UpdateType: Immutable
+        Type: NetworkConfig
+
+    .PARAMETER ModelBiasBaselineConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
+        UpdateType: Immutable
+        Type: ModelBiasBaselineConfig
+
+    .PARAMETER ModelBiasAppSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
+        UpdateType: Immutable
+        Type: ModelBiasAppSpecification
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -151,29 +131,10 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $JobDefinitionName,
-        [parameter(Mandatory = $false)]
-        $ModelBiasBaselineConfig,
-        [parameter(Mandatory = $true)]
-        $ModelBiasAppSpecification,
         [parameter(Mandatory = $true)]
         $ModelBiasJobInput,
         [parameter(Mandatory = $true)]
         $ModelBiasJobOutputConfig,
-        [parameter(Mandatory = $true)]
-        $JobResources,
-        [parameter(Mandatory = $false)]
-        $NetworkConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -185,6 +146,27 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $EndpointName,
+        [parameter(Mandatory = $false)]
+        $StoppingCondition,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $JobDefinitionName,
+        [parameter(Mandatory = $true)]
+        $JobResources,
+        [parameter(Mandatory = $false)]
+        $NetworkConfig,
+        [parameter(Mandatory = $false)]
+        $ModelBiasBaselineConfig,
+        [parameter(Mandatory = $true)]
+        $ModelBiasAppSpecification,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -196,8 +178,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $RoleArn,
-        [parameter(Mandatory = $false)]
-        $StoppingCondition,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

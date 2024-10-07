@@ -1,22 +1,21 @@
 function Add-VSWAFv2RuleGroupOrStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.OrStatement resource property to the template. A logical rule statement used to combine other rule statements with OR logic. You provide more than one Statement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement within the OrStatement.
+        Adds an AWS::WAFv2::RuleGroup.OrStatement resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.OrStatement resource property to the template.
-A logical rule statement used to combine other rule statements with OR logic. You provide more than one Statement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement within the OrStatement.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
 
     .PARAMETER Statements
-        The statements to combine with OR logic. You can use any statements that can be nested.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
         UpdateType: Mutable
         Type: List
         ItemType: Statement
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

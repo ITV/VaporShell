@@ -1,18 +1,16 @@
 function Add-VSAppMeshGatewayRouteHttpQueryParameterMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.HttpQueryParameterMatch resource property to the template. An object representing the query parameter to match.
+        Adds an AWS::AppMesh::GatewayRoute.HttpQueryParameterMatch resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.HttpQueryParameterMatch resource property to the template.
-An object representing the query parameter to match.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpqueryparametermatch.html
 
     .PARAMETER Exact
-        The exact query parameter to match on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpqueryparametermatch.html#cfn-appmesh-gatewayroute-httpqueryparametermatch-exact
         PrimitiveType: String
         UpdateType: Mutable

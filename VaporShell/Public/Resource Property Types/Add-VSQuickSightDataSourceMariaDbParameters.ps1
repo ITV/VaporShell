@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSourceMariaDbParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.MariaDbParameters resource property to the template. The parameters for MariaDB.
+        Adds an AWS::QuickSight::DataSource.MariaDbParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.MariaDbParameters resource property to the template.
-The parameters for MariaDB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html
 
     .PARAMETER Port
-        Port.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Database
-        Database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-database
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Host
-        Host.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-host
         UpdateType: Mutable
         PrimitiveType: String

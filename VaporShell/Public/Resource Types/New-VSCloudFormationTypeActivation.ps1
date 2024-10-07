@@ -1,12 +1,10 @@
 function New-VSCloudFormationTypeActivation {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::TypeActivation resource to the template. Activates a public third-party extension, making it available for use in stack templates. For more information, see Using public extensions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html in the * AWS CloudFormation User Guide*.
+        Adds an AWS::CloudFormation::TypeActivation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFormation::TypeActivation resource to the template. Activates a public third-party extension, making it available for use in stack templates. For more information, see Using public extensions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html in the * AWS CloudFormation User Guide*.
-
-Once you have activated a public third-party extension in your account and region, use SetTypeConfiguration: AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html to specify configuration properties for the extension. For more information, see Configuring extensions at the account level: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration in the *CloudFormation User Guide*.
+        Adds an AWS::CloudFormation::TypeActivation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html
@@ -14,82 +12,53 @@ Once you have activated a public third-party extension in your account and regio
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ExecutionRoleArn
-        The name of the IAM execution role to use to activate the extension.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER PublisherId
-        The ID of the extension publisher.
-Conditional: You must specify PublicTypeArn, or TypeName, Type, and PublisherId.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER LoggingConfig
-        Specifies logging configuration information for an extension.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
-        UpdateType: Immutable
-        Type: LoggingConfig
-
-    .PARAMETER PublicTypeArn
-        The Amazon Resource Number ARN of the public extension.
-Conditional: You must specify PublicTypeArn, or TypeName, Type, and PublisherId.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER AutoUpdate
-        Whether to automatically update the extension in this account and region when a new *minor* version is published by the extension publisher. Major versions released by the publisher must be manually updated.
-The default is true.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
-    .PARAMETER TypeNameAlias
-        An alias to assign to the public extension, in this account and region. If you specify an alias for the extension, CloudFormation treats the alias as the extension type name within this account and region. You must use the alias to refer to the extension in your templates, API calls, and CloudFormation console.
-An extension alias must be unique within a given account and region. You can activate the same public resource multiple times in the same account and region, using different type name aliases.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER VersionBump
-        Manually updates a previously-activated type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdate.
-+  MAJOR: CloudFormation updates the extension to the newest major version, if one is available.
-+  MINOR: CloudFormation updates the extension to the newest minor version, if one is available.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER MajorVersion
-        The major version of this extension you want to activate, if multiple major versions are available. The default is the latest major version. CloudFormation uses the latest available *minor* version of the major version selected.
-You can specify MajorVersion or VersionBump, but not both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER TypeName
-        The name of the extension.
-Conditional: You must specify PublicTypeArn, or TypeName, Type, and PublisherId.
+    .PARAMETER ExecutionRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER TypeName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Type
-        The extension type.
-Conditional: You must specify PublicTypeArn, or TypeName, Type, and PublisherId.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-type
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER PublicTypeArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER AutoUpdate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER LoggingConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
+        UpdateType: Immutable
+        Type: LoggingConfig
+
+    .PARAMETER PublisherId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER VersionBump
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER TypeNameAlias
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -165,6 +134,17 @@ Conditional: You must specify PublicTypeArn, or TypeName, Type, and PublisherId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $MajorVersion,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $ExecutionRoleArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -176,9 +156,18 @@ Conditional: You must specify PublicTypeArn, or TypeName, Type, and PublisherId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PublisherId,
+        $TypeName,
         [parameter(Mandatory = $false)]
-        $LoggingConfig,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Type,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -202,6 +191,8 @@ Conditional: You must specify PublicTypeArn, or TypeName, Type, and PublisherId.
             })]
         $AutoUpdate,
         [parameter(Mandatory = $false)]
+        $LoggingConfig,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -211,7 +202,7 @@ Conditional: You must specify PublicTypeArn, or TypeName, Type, and PublisherId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TypeNameAlias,
+        $PublisherId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -233,29 +224,7 @@ Conditional: You must specify PublicTypeArn, or TypeName, Type, and PublisherId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MajorVersion,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TypeName,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Type,
+        $TypeNameAlias,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

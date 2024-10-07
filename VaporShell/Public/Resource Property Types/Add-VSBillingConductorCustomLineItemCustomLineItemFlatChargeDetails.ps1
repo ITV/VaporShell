@@ -1,18 +1,16 @@
 function Add-VSBillingConductorCustomLineItemCustomLineItemFlatChargeDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::BillingConductor::CustomLineItem.CustomLineItemFlatChargeDetails resource property to the template. The charge details of a custom line item. It should contain only one of Flat or Percentage.
+        Adds an AWS::BillingConductor::CustomLineItem.CustomLineItemFlatChargeDetails resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::BillingConductor::CustomLineItem.CustomLineItemFlatChargeDetails resource property to the template.
-The charge details of a custom line item. It should contain only one of Flat or Percentage.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html
 
     .PARAMETER ChargeValue
-        The custom line item's fixed charge value in USD.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html#cfn-billingconductor-customlineitem-customlineitemflatchargedetails-chargevalue
         UpdateType: Mutable
         PrimitiveType: Double

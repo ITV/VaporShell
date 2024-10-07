@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowMarketoSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.MarketoSourceProperties resource property to the template. The properties that are applied when Marketo is being used as a source.
+        Adds an AWS::AppFlow::Flow.MarketoSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.MarketoSourceProperties resource property to the template.
-The properties that are applied when Marketo is being used as a source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html
 
     .PARAMETER Object
-        The object specified in the Marketo flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html#cfn-appflow-flow-marketosourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

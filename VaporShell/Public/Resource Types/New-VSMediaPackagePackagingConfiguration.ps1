@@ -1,12 +1,10 @@
 function New-VSMediaPackagePackagingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingConfiguration resource to the template. Creates a packaging configuration in a packaging group.
+        Adds an AWS::MediaPackage::PackagingConfiguration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::MediaPackage::PackagingConfiguration resource to the template. Creates a packaging configuration in a packaging group.
-
-The packaging configuration represents a single delivery point for an asset. It determines the format and setting for the egressing content. Specify only one package format per configuration, such as HlsPackage.
+        Adds an AWS::MediaPackage::PackagingConfiguration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html
@@ -14,51 +12,37 @@ The packaging configuration represents a single delivery point for an asset. It 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Id
-        Unique identifier that you assign to the packaging configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER PackagingGroupId
-        The ID of the packaging group associated with this packaging configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER CmafPackage
-        Parameters for CMAF packaging.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
-        UpdateType: Mutable
-        Type: CmafPackage
-
-    .PARAMETER DashPackage
-        Parameters for DASH-ISO packaging.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
-        UpdateType: Mutable
-        Type: DashPackage
-
-    .PARAMETER HlsPackage
-        Parameters for Apple HLS packaging.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
-        UpdateType: Mutable
-        Type: HlsPackage
-
     .PARAMETER MssPackage
-        Parameters for Microsoft Smooth Streaming packaging.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
         UpdateType: Mutable
         Type: MssPackage
 
-    .PARAMETER Tags
-        The tags to assign to the packaging configuration.
+    .PARAMETER CmafPackage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
+        UpdateType: Mutable
+        Type: CmafPackage
 
+    .PARAMETER Id
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER HlsPackage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
+        UpdateType: Mutable
+        Type: HlsPackage
+
+    .PARAMETER PackagingGroupId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DashPackage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
+        UpdateType: Mutable
+        Type: DashPackage
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
         UpdateType: Mutable
         Type: List
@@ -127,6 +111,10 @@ The packaging configuration represents a single delivery point for an asset. It 
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $MssPackage,
+        [parameter(Mandatory = $false)]
+        $CmafPackage,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -138,6 +126,8 @@ The packaging configuration represents a single delivery point for an asset. It 
                 }
             })]
         $Id,
+        [parameter(Mandatory = $false)]
+        $HlsPackage,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -150,13 +140,7 @@ The packaging configuration represents a single delivery point for an asset. It 
             })]
         $PackagingGroupId,
         [parameter(Mandatory = $false)]
-        $CmafPackage,
-        [parameter(Mandatory = $false)]
         $DashPackage,
-        [parameter(Mandatory = $false)]
-        $HlsPackage,
-        [parameter(Mandatory = $false)]
-        $MssPackage,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

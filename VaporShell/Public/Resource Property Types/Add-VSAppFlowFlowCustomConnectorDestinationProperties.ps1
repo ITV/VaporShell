@@ -10,8 +10,20 @@ function Add-VSAppFlowFlowCustomConnectorDestinationProperties {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html
 
+    .PARAMETER IdFieldNames
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-idfieldnames
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER EntityName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-entityname
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER WriteOperationType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-writeoperationtype
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -20,21 +32,11 @@ function Add-VSAppFlowFlowCustomConnectorDestinationProperties {
         UpdateType: Mutable
         Type: ErrorHandlingConfig
 
-    .PARAMETER WriteOperationType
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-writeoperationtype
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER IdFieldNames
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-idfieldnames
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER CustomProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-customproperties
         UpdateType: Mutable
-        Type: CustomProperties
+        Type: Map
+        PrimitiveItemType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -43,6 +45,8 @@ function Add-VSAppFlowFlowCustomConnectorDestinationProperties {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $IdFieldNames,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -55,8 +59,6 @@ function Add-VSAppFlowFlowCustomConnectorDestinationProperties {
             })]
         $EntityName,
         [parameter(Mandatory = $false)]
-        $ErrorHandlingConfig,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,8 +70,9 @@ function Add-VSAppFlowFlowCustomConnectorDestinationProperties {
             })]
         $WriteOperationType,
         [parameter(Mandatory = $false)]
-        $IdFieldNames,
+        $ErrorHandlingConfig,
         [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
         $CustomProperties
     )
     Begin {

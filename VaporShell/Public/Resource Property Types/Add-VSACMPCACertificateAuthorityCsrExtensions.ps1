@@ -1,29 +1,26 @@
 function Add-VSACMPCACertificateAuthorityCsrExtensions {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::CertificateAuthority.CsrExtensions resource property to the template. Describes the certificate extensions to be added to the certificate signing request (CSR.
+        Adds an AWS::ACMPCA::CertificateAuthority.CsrExtensions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::CertificateAuthority.CsrExtensions resource property to the template.
-Describes the certificate extensions to be added to the certificate signing request (CSR.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html
 
     .PARAMETER KeyUsage
-        Indicates the purpose of the certificate and of the key contained in the certificate.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
         UpdateType: Immutable
         Type: KeyUsage
 
     .PARAMETER SubjectInformationAccess
-        For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see Subject Information Access: https://tools.ietf.org/html/rfc5280#section-4.2.2.2 in RFC 5280.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
         UpdateType: Immutable
         Type: List
         ItemType: AccessDescription
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

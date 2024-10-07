@@ -1,32 +1,26 @@
 function Add-VSTimestreamScheduledQueryS3Configuration {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::ScheduledQuery.S3Configuration resource property to the template. Details on S3 location for error reports that result from running a query.
+        Adds an AWS::Timestream::ScheduledQuery.S3Configuration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Timestream::ScheduledQuery.S3Configuration resource property to the template.
-Details on S3 location for error reports that result from running a query.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html
 
     .PARAMETER BucketName
-        Name of the S3 bucket under which error reports will be created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-bucketname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ObjectKeyPrefix
-        Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-objectkeyprefix
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER EncryptionOption
-        Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-encryptionoption
         UpdateType: Immutable
         PrimitiveType: String

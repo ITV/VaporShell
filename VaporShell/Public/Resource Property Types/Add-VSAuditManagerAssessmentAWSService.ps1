@@ -1,18 +1,16 @@
 function Add-VSAuditManagerAssessmentAWSService {
     <#
     .SYNOPSIS
-        Adds an AWS::AuditManager::Assessment.AWSService resource property to the template. The AWSService property type specifies an AWS service such as Amazon S3, AWS CloudTrail, and so on.
+        Adds an AWS::AuditManager::Assessment.AWSService resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AuditManager::Assessment.AWSService resource property to the template.
-The AWSService property type specifies an AWS service such as Amazon S3, AWS CloudTrail, and so on.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
 
     .PARAMETER ServiceName
-        The name of the AWS service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
         UpdateType: Mutable
         PrimitiveType: String

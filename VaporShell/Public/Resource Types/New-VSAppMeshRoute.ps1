@@ -1,14 +1,10 @@
 function New-VSAppMeshRoute {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route resource to the template. Creates a route that is associated with a virtual router.
+        Adds an AWS::AppMesh::Route resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppMesh::Route resource to the template. Creates a route that is associated with a virtual router.
-
-You can route several different protocols and define a retry policy for a route. Traffic can be routed to one or more virtual nodes.
-
-For more information about routes, see Routes: https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html.
+        Adds an AWS::AppMesh::Route resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html
@@ -17,43 +13,31 @@ For more information about routes, see Routes: https://docs.aws.amazon.com/app-m
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER MeshName
-        The name of the service mesh to create the route in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-meshname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER VirtualRouterName
-        The name of the virtual router in which to create the route. If the virtual router is in a shared mesh, then you must be the owner of the virtual router resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-virtualroutername
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER MeshOwner
-        The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see Working with shared meshes: https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-meshowner
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER RouteName
-        The name to use for the route.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-routename
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Spec
-        The route specification to apply.
-
         Type: RouteSpec
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-spec
         UpdateType: Mutable
 
     .PARAMETER Tags
-        Optional metadata that you can apply to the route to assist with categorization and organization. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-tags
         ItemType: Tag

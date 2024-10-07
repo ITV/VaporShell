@@ -1,102 +1,76 @@
 function Add-VSDMSEndpointMongoDbSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::DMS::Endpoint.MongoDbSettings resource property to the template. Not currently supported by AWS CloudFormation.
+        Adds an AWS::DMS::Endpoint.MongoDbSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DMS::Endpoint.MongoDbSettings resource property to the template.
-Not currently supported by AWS CloudFormation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html
 
     .PARAMETER Port
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-port
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ExtractDocId
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-extractdocid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DatabaseName
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-databasename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AuthSource
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-authsource
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AuthMechanism
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-authmechanism
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Username
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-username
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DocsToInvestigate
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-docstoinvestigate
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ServerName
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-servername
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SecretsManagerSecretId
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-secretsmanagersecretid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AuthType
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-authtype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SecretsManagerAccessRoleArn
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-secretsmanageraccessrolearn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Password
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-password
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NestingLevel
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-nestinglevel
         PrimitiveType: String
         UpdateType: Mutable

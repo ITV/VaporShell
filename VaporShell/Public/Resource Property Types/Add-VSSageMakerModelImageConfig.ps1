@@ -1,27 +1,21 @@
 function Add-VSSageMakerModelImageConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Model.ImageConfig resource property to the template. Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC.
+        Adds an AWS::SageMaker::Model.ImageConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Model.ImageConfig resource property to the template.
-Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html
 
     .PARAMETER RepositoryAuthConfig
-        Optional Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication.
-
         Type: RepositoryAuthConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig
         UpdateType: Immutable
 
     .PARAMETER RepositoryAccessMode
-        Set this to one of the following values:
-+  Platform - The model image is hosted in Amazon ECR.
-+  Vpc - The model image is hosted in a private Docker registry in your VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryaccessmode
         PrimitiveType: String
         UpdateType: Immutable

@@ -1,26 +1,22 @@
 function Add-VSKinesisFirehoseDeliveryStreamProcessorParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.ProcessorParameter resource property to the template. The ProcessorParameter property specifies a processor parameter in a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        Adds an AWS::KinesisFirehose::DeliveryStream.ProcessorParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.ProcessorParameter resource property to the template.
-The ProcessorParameter property specifies a processor parameter in a data processor for an Amazon Kinesis Data Firehose delivery stream.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
 
-    .PARAMETER ParameterName
-        The name of the parameter. Currently the following default values are supported: 3 for NumberOfRetries, 60 for the BufferIntervalInSeconds, and 3 for the BufferSizeInMBs.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
+    .PARAMETER ParameterValue
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ParameterValue
-        The parameter value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
+    .PARAMETER ParameterName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ The ProcessorParameter property specifies a processor parameter in a data proces
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ParameterName,
+        $ParameterValue,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ The ProcessorParameter property specifies a processor parameter in a data proces
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ParameterValue
+        $ParameterName
     )
     Begin {
         $obj = [PSCustomObject]@{}

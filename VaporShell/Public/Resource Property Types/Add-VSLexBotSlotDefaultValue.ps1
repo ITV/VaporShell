@@ -1,18 +1,16 @@
 function Add-VSLexBotSlotDefaultValue {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SlotDefaultValue resource property to the template. Specifies the default value to use when a user doesn't provide a value for a slot.
+        Adds an AWS::Lex::Bot.SlotDefaultValue resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SlotDefaultValue resource property to the template.
-Specifies the default value to use when a user doesn't provide a value for a slot.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotdefaultvalue.html
 
     .PARAMETER DefaultValue
-        The default value to use when a user doesn't provide a value for a slot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotdefaultvalue.html#cfn-lex-bot-slotdefaultvalue-defaultvalue
         UpdateType: Mutable
         PrimitiveType: String

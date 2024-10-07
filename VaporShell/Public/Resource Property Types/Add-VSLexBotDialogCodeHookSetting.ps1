@@ -1,18 +1,16 @@
 function Add-VSLexBotDialogCodeHookSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.DialogCodeHookSetting resource property to the template. Specifies whether an intent uses the dialog code hook during conversations with a user.
+        Adds an AWS::Lex::Bot.DialogCodeHookSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.DialogCodeHookSetting resource property to the template.
-Specifies whether an intent uses the dialog code hook during conversations with a user.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html
 
     .PARAMETER Enabled
-        Indicates whether an intent uses the dialog code hook during a conversation with a user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html#cfn-lex-bot-dialogcodehooksetting-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

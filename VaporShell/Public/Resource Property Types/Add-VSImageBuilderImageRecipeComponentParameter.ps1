@@ -1,29 +1,26 @@
 function Add-VSImageBuilderImageRecipeComponentParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ImageRecipe.ComponentParameter resource property to the template. Contains a key/value pair that sets the named component parameter.
+        Adds an AWS::ImageBuilder::ImageRecipe.ComponentParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::ImageRecipe.ComponentParameter resource property to the template.
-Contains a key/value pair that sets the named component parameter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
 
-    .PARAMETER Name
-        The name of the component parameter to set.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Value
-        Sets the value for the named component parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,6 +29,8 @@ Contains a key/value pair that sets the named component parameter.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -42,9 +41,7 @@ Contains a key/value pair that sets the named component parameter.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        $Value
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

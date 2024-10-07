@@ -1,18 +1,16 @@
 function Add-VSLookoutMetricsAnomalyDetectorCloudwatchConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.CloudwatchConfig resource property to the template. Details about an Amazon CloudWatch datasource.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.CloudwatchConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.CloudwatchConfig resource property to the template.
-Details about an Amazon CloudWatch datasource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html
 
     .PARAMETER RoleArn
-        An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelEmbeddedPlusScte20DestinationSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.EmbeddedPlusScte20DestinationSettings resource property to the template. The settings for embedded plus SCTE-20 captions in the output.
+        Adds an AWS::MediaLive::Channel.EmbeddedPlusScte20DestinationSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.EmbeddedPlusScte20DestinationSettings resource property to the template.
-The settings for embedded plus SCTE-20 captions in the output.
 
-The parent of this entity is CaptionDestinationSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedplusscte20destinationsettings.html

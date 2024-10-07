@@ -1,10 +1,10 @@
 function New-VSRoute53RecoveryReadinessRecoveryGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53RecoveryReadiness::RecoveryGroup resource to the template. Creates a recovery group in an account. A recovery group corresponds to an application and includes a list of the cells that make up the application.
+        Adds an AWS::Route53RecoveryReadiness::RecoveryGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Route53RecoveryReadiness::RecoveryGroup resource to the template. Creates a recovery group in an account. A recovery group corresponds to an application and includes a list of the cells that make up the application.
+        Adds an AWS::Route53RecoveryReadiness::RecoveryGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html
@@ -13,27 +13,23 @@ function New-VSRoute53RecoveryReadinessRecoveryGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER RecoveryGroupName
-        The name of the recovery group to create.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Cells
-        A list of the cell Amazon Resource Names ARNs in the recovery group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
-        A collection of tags associated with a resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -97,7 +93,7 @@ function New-VSRoute53RecoveryReadinessRecoveryGroup {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

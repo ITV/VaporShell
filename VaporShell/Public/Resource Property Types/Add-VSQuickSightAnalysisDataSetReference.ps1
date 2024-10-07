@@ -1,25 +1,21 @@
 function Add-VSQuickSightAnalysisDataSetReference {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.DataSetReference resource property to the template. Dataset reference.
+        Adds an AWS::QuickSight::Analysis.DataSetReference resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.DataSetReference resource property to the template.
-Dataset reference.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html
 
     .PARAMETER DataSetArn
-        Dataset Amazon Resource Name ARN.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DataSetPlaceholder
-        Dataset placeholder.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetplaceholder
         UpdateType: Mutable
         PrimitiveType: String

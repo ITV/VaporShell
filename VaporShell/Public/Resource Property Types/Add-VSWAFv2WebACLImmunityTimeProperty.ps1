@@ -1,18 +1,16 @@
 function Add-VSWAFv2WebACLImmunityTimeProperty {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.ImmunityTimeProperty resource property to the template. Determines how long a CAPTCHA token remains valid after the client successfully solves a CAPTCHA puzzle.
+        Adds an AWS::WAFv2::WebACL.ImmunityTimeProperty resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.ImmunityTimeProperty resource property to the template.
-Determines how long a CAPTCHA token remains valid after the client successfully solves a CAPTCHA puzzle.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html
 
     .PARAMETER ImmunityTime
-        The amount of time, in seconds, that a CAPTCHA token is valid. The default setting is 300.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html#cfn-wafv2-webacl-immunitytimeproperty-immunitytime
         UpdateType: Mutable
         PrimitiveType: Integer

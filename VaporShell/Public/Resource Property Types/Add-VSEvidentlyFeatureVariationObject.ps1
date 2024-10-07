@@ -1,49 +1,39 @@
 function Add-VSEvidentlyFeatureVariationObject {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Feature.VariationObject resource property to the template. This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: BooleanValue, DoubleValue, LongValue or StringValue.
+        Adds an AWS::Evidently::Feature.VariationObject resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Evidently::Feature.VariationObject resource property to the template.
-This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: BooleanValue, DoubleValue, LongValue or StringValue.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html
 
     .PARAMETER VariationName
-        A name for the variation. It can include up to 127 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-variationname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER BooleanValue
-        The value assigned to this variation, if the variation type is boolean.
+    .PARAMETER DoubleValue
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-doublevalue
+        UpdateType: Mutable
+        PrimitiveType: Double
 
+    .PARAMETER BooleanValue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-booleanvalue
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER StringValue
-        The value assigned to this variation, if the variation type is a string.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-stringvalue
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER LongValue
-        The value assigned to this variation, if the variation type is a long.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-longvalue
         UpdateType: Mutable
         PrimitiveType: Double
 
-    .PARAMETER DoubleValue
-        The value assigned to this variation, if the variation type is a double.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-doublevalue
+    .PARAMETER StringValue
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-stringvalue
         UpdateType: Mutable
-        PrimitiveType: Double
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -52,7 +42,7 @@ This structure contains the name and variation value of one variation of a featu
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,6 +53,17 @@ This structure contains the name and variation value of one variation of a featu
                 }
             })]
         $VariationName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DoubleValue,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -76,17 +77,6 @@ This structure contains the name and variation value of one variation of a featu
         $BooleanValue,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $StringValue,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -98,7 +88,7 @@ This structure contains the name and variation value of one variation of a featu
         $LongValue,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -106,7 +96,7 @@ This structure contains the name and variation value of one variation of a featu
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DoubleValue
+        $StringValue
     )
     Begin {
         $obj = [PSCustomObject]@{}

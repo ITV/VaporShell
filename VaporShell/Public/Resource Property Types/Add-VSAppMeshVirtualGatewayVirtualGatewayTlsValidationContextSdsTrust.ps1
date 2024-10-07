@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayTlsValidationContextSdsTrust {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextSdsTrust resource property to the template. An object that represents a virtual gateway's listener's Transport Layer Security (TLS Secret Discovery Service validation context trust. The proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh TLS documentation: https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html for more info.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextSdsTrust resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextSdsTrust resource property to the template.
-An object that represents a virtual gateway's listener's Transport Layer Security (TLS Secret Discovery Service validation context trust. The proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh TLS documentation: https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html for more info.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust.html
 
     .PARAMETER SecretName
-        A reference to an object that represents the name of the secret for a virtual gateway's Transport Layer Security TLS Secret Discovery Service validation context trust.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust-secretname
         PrimitiveType: String
         UpdateType: Mutable

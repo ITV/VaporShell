@@ -1,36 +1,31 @@
 function Add-VSEC2NetworkInsightsAccessScopeAccessScopePathRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAccessScope.AccessScopePathRequest resource property to the template. Describes a path.
+        Adds an AWS::EC2::NetworkInsightsAccessScope.AccessScopePathRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAccessScope.AccessScopePathRequest resource property to the template.
-Describes a path.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html
 
-    .PARAMETER Source
-        The source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-source
-        UpdateType: Immutable
-        Type: PathStatementRequest
-
     .PARAMETER Destination
-        The destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-destination
         UpdateType: Immutable
         Type: PathStatementRequest
 
     .PARAMETER ThroughResources
-        The through resources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-throughresources
         UpdateType: Immutable
         Type: List
         ItemType: ThroughResourcesStatementRequest
+        DuplicatesAllowed: True
+
+    .PARAMETER Source
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-source
+        UpdateType: Immutable
+        Type: PathStatementRequest
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,8 +34,6 @@ Describes a path.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Source,
         [parameter(Mandatory = $false)]
         $Destination,
         [parameter(Mandatory = $false)]
@@ -53,7 +46,9 @@ Describes a path.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ThroughResources
+        $ThroughResources,
+        [parameter(Mandatory = $false)]
+        $Source
     )
     Begin {
         $obj = [PSCustomObject]@{}

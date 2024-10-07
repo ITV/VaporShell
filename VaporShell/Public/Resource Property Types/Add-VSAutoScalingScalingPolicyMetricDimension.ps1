@@ -1,25 +1,21 @@
 function Add-VSAutoScalingScalingPolicyMetricDimension {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.MetricDimension resource property to the template. MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
+        Adds an AWS::AutoScaling::ScalingPolicy.MetricDimension resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.MetricDimension resource property to the template.
-MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html
 
     .PARAMETER Value
-        The value of the dimension.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-value
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the dimension.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-name
         UpdateType: Mutable
         PrimitiveType: String

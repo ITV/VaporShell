@@ -1,18 +1,16 @@
 function Add-VSApplicationInsightsApplicationAlarmMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationInsights::Application.AlarmMetric resource property to the template. The AWS::ApplicationInsights::Application AlarmMetric property type defines a metric to monitor for the component.
+        Adds an AWS::ApplicationInsights::Application.AlarmMetric resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApplicationInsights::Application.AlarmMetric resource property to the template.
-The AWS::ApplicationInsights::Application AlarmMetric property type defines a metric to monitor for the component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
 
     .PARAMETER AlarmMetricName
-        The name of the metric to be monitored for the component. For metrics supported by Application Insights, see Logs and metrics supported by Amazon CloudWatch Application Insights: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-logs-and-metrics.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
         UpdateType: Mutable
         PrimitiveType: String

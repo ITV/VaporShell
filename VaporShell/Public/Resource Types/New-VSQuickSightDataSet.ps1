@@ -1,10 +1,10 @@
 function New-VSQuickSightDataSet {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet resource to the template. Creates a dataset. This operation doesn't support datasets that include uploaded files as a source.
+        Adds an AWS::QuickSight::DataSet resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::QuickSight::DataSet resource to the template. Creates a dataset. This operation doesn't support datasets that include uploaded files as a source.
+        Adds an AWS::QuickSight::DataSet resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
@@ -12,110 +12,86 @@ function New-VSQuickSightDataSet {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AwsAccountId
-        The AWS account ID.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ColumnGroups
-        Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
-        UpdateType: Mutable
-        Type: List
-        ItemType: ColumnGroup
-
-    .PARAMETER ColumnLevelPermissionRules
-        A set of one or more definitions of a  ColumnLevelPermissionRule .
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
-        UpdateType: Mutable
-        Type: List
-        ItemType: ColumnLevelPermissionRule
-
-    .PARAMETER DataSetId
-        An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER FieldFolders
-        The folder that contains fields and nested subfolders for your dataset.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-        UpdateType: Mutable
-        Type: Map
-        ItemType: FieldFolder
-
-    .PARAMETER ImportMode
-        Indicates whether you want to import the data into SPICE.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER LogicalTableMap
-        Configures the combination and transformation of the data from the physical tables.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-        UpdateType: Mutable
-        Type: Map
-        ItemType: LogicalTable
-
-    .PARAMETER Name
-        The display name for the dataset.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Permissions
-        A list of resource permissions on the dataset.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
-        UpdateType: Mutable
-        Type: List
-        ItemType: ResourcePermission
-
     .PARAMETER PhysicalTableMap
-        Declares the physical tables that are available in the underlying data sources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
         UpdateType: Mutable
         Type: Map
         ItemType: PhysicalTable
 
-    .PARAMETER RowLevelPermissionDataSet
-        The row-level security configuration for the data that you want to create.
+    .PARAMETER FieldFolders
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
+        UpdateType: Mutable
+        Type: Map
+        ItemType: FieldFolder
 
+    .PARAMETER DataSetId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER RowLevelPermissionDataSet
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
         UpdateType: Mutable
         Type: RowLevelPermissionDataSet
 
-    .PARAMETER Tags
-        Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
-        UpdateType: Mutable
-        Type: List
-        ItemType: Tag
-
     .PARAMETER IngestionWaitPolicy
-        The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
         UpdateType: Mutable
         Type: IngestionWaitPolicy
 
-    .PARAMETER DataSetUsageConfiguration
-        OutputColumns  <a name="OutputColumns-fn::getatt"></a>
+    .PARAMETER ColumnLevelPermissionRules
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
+        UpdateType: Mutable
+        Type: List
+        ItemType: ColumnLevelPermissionRule
+        DuplicatesAllowed: True
 
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ColumnGroups
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
+        UpdateType: Mutable
+        Type: List
+        ItemType: ColumnGroup
+        DuplicatesAllowed: True
+
+    .PARAMETER ImportMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER LogicalTableMap
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
+        UpdateType: Mutable
+        Type: Map
+        ItemType: LogicalTable
+
+    .PARAMETER AwsAccountId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Permissions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
+        UpdateType: Mutable
+        Type: List
+        ItemType: ResourcePermission
+        DuplicatesAllowed: True
+
+    .PARAMETER DataSetUsageConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetusageconfiguration
         UpdateType: Mutable
         Type: DataSetUsageConfiguration
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -181,6 +157,28 @@ function New-VSQuickSightDataSet {
         $LogicalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.PhysicalTable"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PhysicalTableMap,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.FieldFolder"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FieldFolders,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -189,18 +187,11 @@ function New-VSQuickSightDataSet {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AwsAccountId,
+        $DataSetId,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.ColumnGroup"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ColumnGroups,
+        $RowLevelPermissionDataSet,
+        [parameter(Mandatory = $false)]
+        $IngestionWaitPolicy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.ColumnLevelPermissionRule"
@@ -222,10 +213,10 @@ function New-VSQuickSightDataSet {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DataSetId,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.FieldFolder"
+                $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.ColumnGroup"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -233,7 +224,7 @@ function New-VSQuickSightDataSet {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FieldFolders,
+        $ColumnGroups,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -266,7 +257,7 @@ function New-VSQuickSightDataSet {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $AwsAccountId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.ResourcePermission"
@@ -279,25 +270,10 @@ function New-VSQuickSightDataSet {
             })]
         $Permissions,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.PhysicalTable"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PhysicalTableMap,
-        [parameter(Mandatory = $false)]
-        $RowLevelPermissionDataSet,
+        $DataSetUsageConfiguration,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        $IngestionWaitPolicy,
-        [parameter(Mandatory = $false)]
-        $DataSetUsageConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -372,17 +348,17 @@ function New-VSQuickSightDataSet {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                ColumnGroups {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ColumnGroups -Value @($ColumnGroups)
-                }
                 ColumnLevelPermissionRules {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ColumnLevelPermissionRules -Value @($ColumnLevelPermissionRules)
+                }
+                ColumnGroups {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ColumnGroups -Value @($ColumnGroups)
                 }
                 Permissions {
                     if (!($ResourceParams["Properties"])) {

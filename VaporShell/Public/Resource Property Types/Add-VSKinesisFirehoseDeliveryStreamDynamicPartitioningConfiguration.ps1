@@ -1,25 +1,21 @@
 function Add-VSKinesisFirehoseDeliveryStreamDynamicPartitioningConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.DynamicPartitioningConfiguration resource property to the template. The DynamicPartitioningConfiguration property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+        Adds an AWS::KinesisFirehose::DeliveryStream.DynamicPartitioningConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.DynamicPartitioningConfiguration resource property to the template.
-The DynamicPartitioningConfiguration property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html
 
     .PARAMETER Enabled
-        Specifies whether dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER RetryOptions
-        Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-retryoptions
         UpdateType: Mutable
         Type: RetryOptions

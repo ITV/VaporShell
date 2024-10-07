@@ -1,10 +1,10 @@
 function New-VSRoboMakerRobotApplication {
     <#
     .SYNOPSIS
-        Adds an AWS::RoboMaker::RobotApplication resource to the template. The AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker robot application.
+        Adds an AWS::RoboMaker::RobotApplication resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::RoboMaker::RobotApplication resource to the template. The AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker robot application.
+        Adds an AWS::RoboMaker::RobotApplication resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html
@@ -12,49 +12,38 @@ function New-VSRoboMakerRobotApplication {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the robot application.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-name
-        UpdateType: Immutable
+    .PARAMETER CurrentRevisionId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-currentrevisionid
+        UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Sources
-        The sources of the robot application.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-sources
-        UpdateType: Mutable
-        Type: List
-        ItemType: SourceConfig
-
     .PARAMETER Environment
-        The environment of the robot application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-environment
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RobotSoftwareSuite
-        The robot software suite ROS distribuition used by the robot application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-robotsoftwaresuite
         UpdateType: Mutable
         Type: RobotSoftwareSuite
 
-    .PARAMETER CurrentRevisionId
-        The current revision id.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-currentrevisionid
+    .PARAMETER Sources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-sources
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: List
+        ItemType: SourceConfig
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
-        A map that contains tag keys and tag values that are attached to the robot application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-tags
         UpdateType: Mutable
         Type: Map
         PrimitiveItemType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -128,18 +117,7 @@ function New-VSRoboMakerRobotApplication {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.RoboMaker.RobotApplication.SourceConfig"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Sources,
+        $CurrentRevisionId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -155,6 +133,20 @@ function New-VSRoboMakerRobotApplication {
         $RobotSoftwareSuite,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.RoboMaker.RobotApplication.SourceConfig"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Sources,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -163,10 +155,7 @@ function New-VSRoboMakerRobotApplication {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CurrentRevisionId,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Tags,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,18 +1,16 @@
 function Add-VSECSClusterClusterConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::Cluster.ClusterConfiguration resource property to the template. The execute command configuration for the cluster.
+        Adds an AWS::ECS::Cluster.ClusterConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECS::Cluster.ClusterConfiguration resource property to the template.
-The execute command configuration for the cluster.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
 
     .PARAMETER ExecuteCommandConfiguration
-        The details of the execute command configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
         UpdateType: Mutable
         Type: ExecuteCommandConfiguration

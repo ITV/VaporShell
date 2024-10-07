@@ -1,25 +1,21 @@
 function Add-VSQuickSightDataSetRenameColumnOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.RenameColumnOperation resource property to the template. A transform operation that renames a column.
+        Adds an AWS::QuickSight::DataSet.RenameColumnOperation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.RenameColumnOperation resource property to the template.
-A transform operation that renames a column.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html
 
     .PARAMETER NewColumnName
-        The new name for the column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ColumnName
-        The name of the column to be renamed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-columnname
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,18 +1,16 @@
 function Add-VSS3StorageLensAwsOrg {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.AwsOrg resource property to the template. This resource contains the details of the AWS Organization for Amazon S3 Storage Lens.
+        Adds an AWS::S3::StorageLens.AwsOrg resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.AwsOrg resource property to the template.
-This resource contains the details of the AWS Organization for Amazon S3 Storage Lens.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
 
     .PARAMETER Arn
-        This resource contains the ARN of the AWS Organization.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,35 +1,29 @@
 function Add-VSAppRunnerServiceCodeRepository {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.CodeRepository resource property to the template. Describes a source code repository.
+        Adds an AWS::AppRunner::Service.CodeRepository resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.CodeRepository resource property to the template.
-Describes a source code repository.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html
 
-    .PARAMETER RepositoryUrl
-        The location of the repository that contains the source code.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER SourceCodeVersion
-        The version that should be used within the source code repository.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion
         UpdateType: Mutable
         Type: SourceCodeVersion
 
     .PARAMETER CodeConfiguration
-        Configuration for building and running the service from a source code repository.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
         UpdateType: Mutable
         Type: CodeConfiguration
+
+    .PARAMETER RepositoryUrl
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,6 +32,10 @@ Describes a source code repository.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $SourceCodeVersion,
+        [parameter(Mandatory = $false)]
+        $CodeConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -48,11 +46,7 @@ Describes a source code repository.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RepositoryUrl,
-        [parameter(Mandatory = $true)]
-        $SourceCodeVersion,
-        [parameter(Mandatory = $false)]
-        $CodeConfiguration
+        $RepositoryUrl
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,25 +1,21 @@
 function Add-VSApiGatewayV2ApiGatewayManagedOverridesAccessLogSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.AccessLogSettings resource property to the template. The AccessLogSettings property overrides the access log settings for an API Gateway-managed stage.
+        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.AccessLogSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.AccessLogSettings resource property to the template.
-The AccessLogSettings property overrides the access log settings for an API Gateway-managed stage.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings.html
 
     .PARAMETER Format
-        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings-format
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DestinationArn
-        The ARN of the CloudWatch Logs log group to receive access logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-accesslogsettings-destinationarn
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,18 +1,16 @@
 function Add-VSQuickSightThemeMarginStyle {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.MarginStyle resource property to the template. The display options for margins around the outside edge of sheets.
+        Adds an AWS::QuickSight::Theme.MarginStyle resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.MarginStyle resource property to the template.
-The display options for margins around the outside edge of sheets.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html
 
     .PARAMETER Show
-        This Boolean value controls whether to display sheet margins.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show
         UpdateType: Mutable
         PrimitiveType: Boolean

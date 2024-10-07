@@ -1,25 +1,21 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayPortMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayPortMapping resource property to the template. An object that represents a port mapping.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayPortMapping resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayPortMapping resource property to the template.
-An object that represents a port mapping.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html
 
     .PARAMETER Port
-        The port used for the port mapping. Specify one protocol.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-port
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Protocol
-        The protocol used for the port mapping.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-protocol
         PrimitiveType: String
         UpdateType: Mutable

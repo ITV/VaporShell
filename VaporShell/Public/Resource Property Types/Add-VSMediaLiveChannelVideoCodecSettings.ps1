@@ -1,41 +1,31 @@
 function Add-VSMediaLiveChannelVideoCodecSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.VideoCodecSettings resource property to the template. The settings for the video codec in the output.
+        Adds an AWS::MediaLive::Channel.VideoCodecSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.VideoCodecSettings resource property to the template.
-The settings for the video codec in the output.
 
-The parent of this entity is VideoDescription.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html
 
     .PARAMETER Mpeg2Settings
-        Settings for video encoded with the MPEG-2 codec.
-
         Type: Mpeg2Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-mpeg2settings
         UpdateType: Mutable
 
     .PARAMETER FrameCaptureSettings
-        The settings for the video codec in a frame capture output.
-
         Type: FrameCaptureSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-framecapturesettings
         UpdateType: Mutable
 
     .PARAMETER H264Settings
-        The settings for the H.264 codec in the output.
-
         Type: H264Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-h264settings
         UpdateType: Mutable
 
     .PARAMETER H265Settings
-        Settings for video encoded with the H265 codec.
-
         Type: H265Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-h265settings
         UpdateType: Mutable

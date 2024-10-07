@@ -1,18 +1,16 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteVirtualService {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteVirtualService resource property to the template. An object that represents the virtual service that traffic is routed to.
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteVirtualService resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteVirtualService resource property to the template.
-An object that represents the virtual service that traffic is routed to.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html
 
     .PARAMETER VirtualServiceName
-        The name of the virtual service that traffic is routed to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html#cfn-appmesh-gatewayroute-gatewayroutevirtualservice-virtualservicename
         PrimitiveType: String
         UpdateType: Mutable

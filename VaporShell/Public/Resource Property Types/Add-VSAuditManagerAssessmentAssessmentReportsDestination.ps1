@@ -1,25 +1,21 @@
 function Add-VSAuditManagerAssessmentAssessmentReportsDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::AuditManager::Assessment.AssessmentReportsDestination resource property to the template. The AssessmentReportsDestination property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        Adds an AWS::AuditManager::Assessment.AssessmentReportsDestination resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AuditManager::Assessment.AssessmentReportsDestination resource property to the template.
-The AssessmentReportsDestination property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
 
     .PARAMETER Destination
-        The destination of the assessment report.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DestinationType
-        The destination type, such as Amazon S3.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
         UpdateType: Mutable
         PrimitiveType: String

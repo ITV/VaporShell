@@ -10,21 +10,22 @@ function Add-VSLakeFormationPrincipalPermissionsLFTagPolicyResource {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html
 
-    .PARAMETER CatalogId
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html#cfn-lakeformation-principalpermissions-lftagpolicyresource-catalogid
+    .PARAMETER Expression
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html#cfn-lakeformation-principalpermissions-lftagpolicyresource-expression
         UpdateType: Immutable
-        PrimitiveType: String
+        Type: List
+        ItemType: LFTag
+        DuplicatesAllowed: True
 
     .PARAMETER ResourceType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html#cfn-lakeformation-principalpermissions-lftagpolicyresource-resourcetype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Expression
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html#cfn-lakeformation-principalpermissions-lftagpolicyresource-expression
+    .PARAMETER CatalogId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html#cfn-lakeformation-principalpermissions-lftagpolicyresource-catalogid
         UpdateType: Immutable
-        Type: List
-        ItemType: LFTag
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -35,7 +36,7 @@ function Add-VSLakeFormationPrincipalPermissionsLFTagPolicyResource {
     (
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "Vaporshell.Resource.LakeFormation.PrincipalPermissions.LFTag"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -43,7 +44,7 @@ function Add-VSLakeFormationPrincipalPermissionsLFTagPolicyResource {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CatalogId,
+        $Expression,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -57,7 +58,7 @@ function Add-VSLakeFormationPrincipalPermissionsLFTagPolicyResource {
         $ResourceType,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.LakeFormation.PrincipalPermissions.LFTag"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -65,7 +66,7 @@ function Add-VSLakeFormationPrincipalPermissionsLFTagPolicyResource {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Expression
+        $CatalogId
     )
     Begin {
         $obj = [PSCustomObject]@{}

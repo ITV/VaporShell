@@ -1,10 +1,10 @@
 function New-VSElasticLoadBalancingV2Listener {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::Listener resource to the template. Specifies a listener for an Application Load Balancer or Network Load Balancer.
+        Adds an AWS::ElasticLoadBalancingV2::Listener resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ElasticLoadBalancingV2::Listener resource to the template. Specifies a listener for an Application Load Balancer or Network Load Balancer.
+        Adds an AWS::ElasticLoadBalancingV2::Listener resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
@@ -12,25 +12,24 @@ function New-VSElasticLoadBalancingV2Listener {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER SslPolicy
-        HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
-For more information, see Security policies: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies in the *Application Load Balancers Guide* and Security policies: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies in the *Network Load Balancers Guide*.
+    .PARAMETER AlpnPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER SslPolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER LoadBalancerArn
-        The Amazon Resource Name ARN of the load balancer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DefaultActions
-        The actions for the default rule. You cannot define a condition for a default rule.
-To create additional rules for an Application Load Balancer, use AWS::ElasticLoadBalancingV2::ListenerRule: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
         UpdateType: Mutable
         Type: List
@@ -38,16 +37,11 @@ To create additional rules for an Application Load Balancer, use AWS::ElasticLoa
         DuplicatesAllowed: False
 
     .PARAMETER Port
-        The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Certificates
-        The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
-To create a certificate list for a secure listener, use AWS::ElasticLoadBalancingV2::ListenerCertificate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
         UpdateType: Mutable
         Type: List
@@ -55,19 +49,9 @@ To create a certificate list for a secure listener, use AWS::ElasticLoadBalancin
         DuplicatesAllowed: False
 
     .PARAMETER Protocol
-        The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER AlpnPolicy
-        TLS listener] The name of the Application-Layer Protocol Negotiation ALPN policy.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -131,6 +115,8 @@ To create a certificate list for a secure listener, use AWS::ElasticLoadBalancin
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $AlpnPolicy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -197,8 +183,6 @@ To create a certificate list for a secure listener, use AWS::ElasticLoadBalancin
                 }
             })]
         $Protocol,
-        [parameter(Mandatory = $false)]
-        $AlpnPolicy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -273,6 +257,12 @@ To create a certificate list for a secure listener, use AWS::ElasticLoadBalancin
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
+                AlpnPolicy {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AlpnPolicy -Value @($AlpnPolicy)
+                }
                 DefaultActions {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -284,12 +274,6 @@ To create a certificate list for a secure listener, use AWS::ElasticLoadBalancin
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Certificates -Value @($Certificates)
-                }
-                AlpnPolicy {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AlpnPolicy -Value @($AlpnPolicy)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

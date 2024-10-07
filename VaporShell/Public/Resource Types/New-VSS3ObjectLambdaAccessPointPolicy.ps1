@@ -1,10 +1,10 @@
 function New-VSS3ObjectLambdaAccessPointPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::S3ObjectLambda::AccessPointPolicy resource to the template. The AWS::S3ObjectLambda::AccessPointPolicy resource specifies the Object Lambda Access Point resource policy document.
+        Adds an AWS::S3ObjectLambda::AccessPointPolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::S3ObjectLambda::AccessPointPolicy resource to the template. The AWS::S3ObjectLambda::AccessPointPolicy resource specifies the Object Lambda Access Point resource policy document.
+        Adds an AWS::S3ObjectLambda::AccessPointPolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html
@@ -12,19 +12,15 @@ function New-VSS3ObjectLambdaAccessPointPolicy {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ObjectLambdaAccessPoint
-        An access point with an attached AWS Lambda function used to access transformed data from an Amazon S3 bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER PolicyDocument
-        Object Lambda Access Point resource policy document.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument
         UpdateType: Mutable
         PrimitiveType: Json
+
+    .PARAMETER ObjectLambdaAccessPoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -90,17 +86,6 @@ function New-VSS3ObjectLambdaAccessPointPolicy {
         $LogicalId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ObjectLambdaAccessPoint,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -110,6 +95,17 @@ function New-VSS3ObjectLambdaAccessPointPolicy {
                 }
             })]
         $PolicyDocument,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ObjectLambdaAccessPoint,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

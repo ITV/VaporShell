@@ -1,18 +1,16 @@
 function Add-VSIoTSiteWiseGatewayGreengrassV2 {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::Gateway.GreengrassV2 resource property to the template. Contains details for a gateway that runs on AWS IoT Greengrass V2. To create a gateway that runs on AWS IoT Greengrass V2, you must deploy the IoT SiteWise Edge component to your gateway device. Your Greengrass device role: https://docs.aws.amazon.com/greengrass/v2/developerguide/device-service-role.html must use the AWSIoTSiteWiseEdgeAccess policy. For more information, see Using AWS IoT SiteWise at the edge: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/sw-gateways.html in the * AWS IoT SiteWise User Guide*.
+        Adds an AWS::IoTSiteWise::Gateway.GreengrassV2 resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::Gateway.GreengrassV2 resource property to the template.
-Contains details for a gateway that runs on AWS IoT Greengrass V2. To create a gateway that runs on AWS IoT Greengrass V2, you must deploy the IoT SiteWise Edge component to your gateway device. Your Greengrass device role: https://docs.aws.amazon.com/greengrass/v2/developerguide/device-service-role.html must use the AWSIoTSiteWiseEdgeAccess policy. For more information, see Using AWS IoT SiteWise at the edge: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/sw-gateways.html in the * AWS IoT SiteWise User Guide*.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html
 
     .PARAMETER CoreDeviceThingName
-        The name of the AWS IoT thing for your AWS IoT Greengrass V2 core device.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html#cfn-iotsitewise-gateway-greengrassv2-coredevicethingname
         UpdateType: Immutable
         PrimitiveType: String

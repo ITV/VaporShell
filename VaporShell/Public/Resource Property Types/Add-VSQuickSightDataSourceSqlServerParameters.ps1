@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSourceSqlServerParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.SqlServerParameters resource property to the template. The parameters for SQL Server.
+        Adds an AWS::QuickSight::DataSource.SqlServerParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.SqlServerParameters resource property to the template.
-The parameters for SQL Server.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html
 
     .PARAMETER Port
-        Port.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Database
-        Database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-database
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Host
-        Host.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-host
         UpdateType: Mutable
         PrimitiveType: String

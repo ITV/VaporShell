@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelMediaPackageGroupSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.MediaPackageGroupSettings resource property to the template. The settings for the MediaPackage group.
+        Adds an AWS::MediaLive::Channel.MediaPackageGroupSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.MediaPackageGroupSettings resource property to the template.
-The settings for the MediaPackage group.
 
-The parent of this entity is OutputGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html
 
     .PARAMETER Destination
-        The MediaPackage channel destination.
-
         Type: OutputLocationRef
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html#cfn-medialive-channel-mediapackagegroupsettings-destination
         UpdateType: Mutable

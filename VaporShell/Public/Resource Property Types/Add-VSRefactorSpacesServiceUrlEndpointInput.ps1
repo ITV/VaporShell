@@ -1,25 +1,21 @@
 function Add-VSRefactorSpacesServiceUrlEndpointInput {
     <#
     .SYNOPSIS
-        Adds an AWS::RefactorSpaces::Service.UrlEndpointInput resource property to the template. The configuration for the URL endpoint type.
+        Adds an AWS::RefactorSpaces::Service.UrlEndpointInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::RefactorSpaces::Service.UrlEndpointInput resource property to the template.
-The configuration for the URL endpoint type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-urlendpointinput.html
 
     .PARAMETER HealthUrl
-        The health check URL of the URL endpoint type. If the URL is a public endpoint, the HealthUrl must also be a public endpoint. If the URL is a private endpoint inside a virtual private cloud VPC, the health URL must also be a private endpoint, and the host must be the same as the URL.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-urlendpointinput.html#cfn-refactorspaces-service-urlendpointinput-healthurl
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Url
-        The URL to route traffic to. The URL must be an rfc3986-formatted URL: https://datatracker.ietf.org/doc/html/rfc3986. If the host is a domain name, the name must be resolvable over the public internet. If the scheme is https, the top level domain of the host must be listed in the IANA root zone database: https://www.iana.org/domains/root/db.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-urlendpointinput.html#cfn-refactorspaces-service-urlendpointinput-url
         UpdateType: Immutable
         PrimitiveType: String

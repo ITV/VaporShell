@@ -1,18 +1,16 @@
 function Add-VSQuickSightThemeGutterStyle {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.GutterStyle resource property to the template. The display options for gutter spacing between tiles on a sheet.
+        Adds an AWS::QuickSight::Theme.GutterStyle resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.GutterStyle resource property to the template.
-The display options for gutter spacing between tiles on a sheet.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html
 
     .PARAMETER Show
-        This Boolean value controls whether to display a gutter space between sheet tiles.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show
         UpdateType: Mutable
         PrimitiveType: Boolean

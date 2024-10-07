@@ -1,30 +1,26 @@
 function Add-VSQuickSightDataSetTagColumnOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.TagColumnOperation resource property to the template. A transform operation that tags a column with additional information.
+        Adds an AWS::QuickSight::DataSet.TagColumnOperation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.TagColumnOperation resource property to the template.
-A transform operation that tags a column with additional information.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html
 
     .PARAMETER ColumnName
-        The column that this operation acts on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-columnname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The dataset column tag, currently only used for geospatial type tagging.
-This is not tags for the AWS tagging feature.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-tags
         UpdateType: Mutable
         Type: List
         ItemType: ColumnTag
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,36 +1,31 @@
 function Add-VSWAFv2RuleGroupRegexMatchStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.RegexMatchStatement resource property to the template. A rule statement used to search web request components for a match against a single regular expression.
+        Adds an AWS::WAFv2::RuleGroup.RegexMatchStatement resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.RegexMatchStatement resource property to the template.
-A rule statement used to search web request components for a match against a single regular expression.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html
 
-    .PARAMETER RegexString
-        The string representing the regular expression.
+    .PARAMETER TextTransformations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-texttransformations
+        UpdateType: Mutable
+        Type: List
+        ItemType: TextTransformation
+        DuplicatesAllowed: True
 
+    .PARAMETER RegexString
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-regexstring
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER FieldToMatch
-        The part of a web request that you want AWS WAF to inspect. For more information, see FieldToMatch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-fieldtomatch
         UpdateType: Mutable
         Type: FieldToMatch
-
-    .PARAMETER TextTransformations
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by FieldToMatch, starting from the lowest priority setting, before inspecting the content for a match.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-texttransformations
-        UpdateType: Mutable
-        Type: List
-        ItemType: TextTransformation
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,6 +34,17 @@ A rule statement used to search web request components for a match against a sin
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.WAFv2.RuleGroup.TextTransformation"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TextTransformations,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -51,18 +57,7 @@ A rule statement used to search web request components for a match against a sin
             })]
         $RegexString,
         [parameter(Mandatory = $true)]
-        $FieldToMatch,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.WAFv2.RuleGroup.TextTransformation"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TextTransformations
+        $FieldToMatch
     )
     Begin {
         $obj = [PSCustomObject]@{}

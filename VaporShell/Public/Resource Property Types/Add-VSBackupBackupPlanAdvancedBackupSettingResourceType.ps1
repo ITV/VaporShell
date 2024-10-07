@@ -1,25 +1,21 @@
 function Add-VSBackupBackupPlanAdvancedBackupSettingResourceType {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupPlan.AdvancedBackupSettingResourceType resource property to the template. Specifies an object containing resource type and backup options. This is only supported for Windows VSS backups.
+        Adds an AWS::Backup::BackupPlan.AdvancedBackupSettingResourceType resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Backup::BackupPlan.AdvancedBackupSettingResourceType resource property to the template.
-Specifies an object containing resource type and backup options. This is only supported for Windows VSS backups.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
 
     .PARAMETER BackupOptions
-        The backup option for the resource. Each option is a key-value pair.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
         UpdateType: Mutable
         PrimitiveType: Json
 
     .PARAMETER ResourceType
-        The name of a resource type. The only supported resource type is EC2.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
         UpdateType: Mutable
         PrimitiveType: String

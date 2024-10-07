@@ -1,26 +1,23 @@
 function Add-VSQuickSightDashboardDateTimeParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.DateTimeParameter resource property to the template. A date-time parameter.
+        Adds an AWS::QuickSight::Dashboard.DateTimeParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.DateTimeParameter resource property to the template.
-A date-time parameter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html
 
     .PARAMETER Values
-        The values for the date-time parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-values
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Name
-        A display name for the date-time parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-name
         UpdateType: Mutable
         PrimitiveType: String

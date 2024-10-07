@@ -1,25 +1,21 @@
 function Add-VSNimbleStudioStudioComponentComputeFarmConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::StudioComponent.ComputeFarmConfiguration resource property to the template. The configuration for a render farm that is associated with a studio resource.
+        Adds an AWS::NimbleStudio::StudioComponent.ComputeFarmConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::StudioComponent.ComputeFarmConfiguration resource property to the template.
-The configuration for a render farm that is associated with a studio resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html
 
     .PARAMETER ActiveDirectoryUser
-        The name of an Active Directory user that is used on ComputeFarm worker instances.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-activedirectoryuser
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Endpoint
-        The endpoint of the ComputeFarm that is accessed by the studio component resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-endpoint
         UpdateType: Mutable
         PrimitiveType: String

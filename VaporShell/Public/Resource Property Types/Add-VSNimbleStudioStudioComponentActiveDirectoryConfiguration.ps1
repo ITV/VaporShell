@@ -1,32 +1,26 @@
 function Add-VSNimbleStudioStudioComponentActiveDirectoryConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::StudioComponent.ActiveDirectoryConfiguration resource property to the template. The configuration for a Microsoft Active Directory (Microsoft AD studio resource.
+        Adds an AWS::NimbleStudio::StudioComponent.ActiveDirectoryConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::StudioComponent.ActiveDirectoryConfiguration resource property to the template.
-The configuration for a Microsoft Active Directory (Microsoft AD studio resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html
 
     .PARAMETER DirectoryId
-        The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER OrganizationalUnitDistinguishedName
-        The distinguished name DN and organizational unit OU of an Active Directory computer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ComputerAttributes
-        A collection of custom attributes for an Active Directory computer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
         UpdateType: Mutable
         Type: List

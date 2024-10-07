@@ -1,25 +1,21 @@
 function Add-VSAppMeshRouteHttpPathMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.HttpPathMatch resource property to the template. An object representing the path to match in the request.
+        Adds an AWS::AppMesh::Route.HttpPathMatch resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.HttpPathMatch resource property to the template.
-An object representing the path to match in the request.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httppathmatch.html
 
     .PARAMETER Regex
-        The regex used to match the path.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httppathmatch.html#cfn-appmesh-route-httppathmatch-regex
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Exact
-        The exact path to match on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httppathmatch.html#cfn-appmesh-route-httppathmatch-exact
         PrimitiveType: String
         UpdateType: Mutable

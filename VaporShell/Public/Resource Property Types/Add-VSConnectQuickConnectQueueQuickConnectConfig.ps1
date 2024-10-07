@@ -1,25 +1,21 @@
 function Add-VSConnectQuickConnectQueueQuickConnectConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::QuickConnect.QueueQuickConnectConfig resource property to the template. Contains information about a queue for a quick connect. The contact flow must be of type Transfer to Queue.
+        Adds an AWS::Connect::QuickConnect.QueueQuickConnectConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Connect::QuickConnect.QueueQuickConnectConfig resource property to the template.
-Contains information about a queue for a quick connect. The contact flow must be of type Transfer to Queue.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html
 
     .PARAMETER ContactFlowArn
-        The Amazon Resource Name ARN of the contact flow.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-contactflowarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER QueueArn
-        The Amazon Resource Name ARN of the queue.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-queuearn
         UpdateType: Mutable
         PrimitiveType: String

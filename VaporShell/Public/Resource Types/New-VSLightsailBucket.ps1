@@ -1,10 +1,10 @@
 function New-VSLightsailBucket {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Bucket resource to the template. The AWS::Lightsail::Bucket resource specifies a bucket.
+        Adds an AWS::Lightsail::Bucket resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lightsail::Bucket resource to the template. The AWS::Lightsail::Bucket resource specifies a bucket.
+        Adds an AWS::Lightsail::Bucket resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html
@@ -12,62 +12,41 @@ function New-VSLightsailBucket {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER BucketName
-        The name of the bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-bucketname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER BundleId
-        The bundle ID for the bucket for example, small_1_0.
-A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-bundleid
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER ObjectVersioning
-        Indicates whether object versioning is enabled for the bucket.
-The following options can be configured:
-+  Enabled - Object versioning is enabled.
-+  Suspended - Object versioning was previously enabled but is currently suspended. Existing object versions are retained.
-+  NeverEnabled - Object versioning has never been enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-objectversioning
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER AccessRules
-        An object that describes the access rules for the bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-accessrules
-        UpdateType: Mutable
-        Type: AccessRules
-
-    .PARAMETER ResourcesReceivingAccess
-        An array of Lightsail instances that have access to the bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-resourcesreceivingaccess
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
-
     .PARAMETER ReadOnlyAccessAccounts
-        An array of AWS account IDs that have read-only access to the bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-readonlyaccessaccounts
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html in the *AWS CloudFormation User Guide*.
-The Value of Tags is optional for Lightsail resources.
+    .PARAMETER BundleId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-bundleid
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER BucketName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-bucketname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER AccessRules
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-accessrules
+        UpdateType: Mutable
+        Type: AccessRules
+
+    .PARAMETER ResourcesReceivingAccess
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-resourcesreceivingaccess
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html#cfn-lightsail-bucket-tags
         UpdateType: Mutable
         Type: List
@@ -136,28 +115,6 @@ The Value of Tags is optional for Lightsail resources.
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $BucketName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $BundleId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -170,11 +127,33 @@ The Value of Tags is optional for Lightsail resources.
             })]
         $ObjectVersioning,
         [parameter(Mandatory = $false)]
+        $ReadOnlyAccessAccounts,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BundleId,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BucketName,
+        [parameter(Mandatory = $false)]
         $AccessRules,
         [parameter(Mandatory = $false)]
         $ResourcesReceivingAccess,
-        [parameter(Mandatory = $false)]
-        $ReadOnlyAccessAccounts,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -252,17 +231,17 @@ The Value of Tags is optional for Lightsail resources.
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                ResourcesReceivingAccess {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ResourcesReceivingAccess -Value @($ResourcesReceivingAccess)
-                }
                 ReadOnlyAccessAccounts {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ReadOnlyAccessAccounts -Value @($ReadOnlyAccessAccounts)
+                }
+                ResourcesReceivingAccess {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ResourcesReceivingAccess -Value @($ResourcesReceivingAccess)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

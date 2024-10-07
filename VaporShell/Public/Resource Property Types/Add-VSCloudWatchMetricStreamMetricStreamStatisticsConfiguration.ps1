@@ -10,18 +10,18 @@ function Add-VSCloudWatchMetricStreamMetricStreamStatisticsConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html
 
-    .PARAMETER AdditionalStatistics
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html#cfn-cloudwatch-metricstream-metricstreamstatisticsconfiguration-additionalstatistics
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
-
     .PARAMETER IncludeMetrics
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html#cfn-cloudwatch-metricstream-metricstreamstatisticsconfiguration-includemetrics
         UpdateType: Mutable
         Type: List
         ItemType: MetricStreamStatisticsMetric
+        DuplicatesAllowed: False
+
+    .PARAMETER AdditionalStatistics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html#cfn-cloudwatch-metricstream-metricstreamstatisticsconfiguration-additionalstatistics
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
         DuplicatesAllowed: False
 
     .FUNCTIONALITY
@@ -32,8 +32,6 @@ function Add-VSCloudWatchMetricStreamMetricStreamStatisticsConfiguration {
     Param
     (
         [parameter(Mandatory = $true)]
-        $AdditionalStatistics,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudWatch.MetricStream.MetricStreamStatisticsMetric"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +41,9 @@ function Add-VSCloudWatchMetricStreamMetricStreamStatisticsConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IncludeMetrics
+        $IncludeMetrics,
+        [parameter(Mandatory = $true)]
+        $AdditionalStatistics
     )
     Begin {
         $obj = [PSCustomObject]@{}

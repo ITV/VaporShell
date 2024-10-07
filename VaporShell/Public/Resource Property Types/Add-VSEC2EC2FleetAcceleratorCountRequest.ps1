@@ -1,25 +1,21 @@
 function Add-VSEC2EC2FleetAcceleratorCountRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.AcceleratorCountRequest resource property to the template. The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips on an instance. To exclude accelerator-enabled instance types, set Max to 0.
+        Adds an AWS::EC2::EC2Fleet.AcceleratorCountRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.AcceleratorCountRequest resource property to the template.
-The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips on an instance. To exclude accelerator-enabled instance types, set Max to 0.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-acceleratorcountrequest.html
 
     .PARAMETER Min
-        The minimum number of accelerators. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-acceleratorcountrequest.html#cfn-ec2-ec2fleet-acceleratorcountrequest-min
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Max
-        The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set Max to 0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-acceleratorcountrequest.html#cfn-ec2-ec2fleet-acceleratorcountrequest-max
         UpdateType: Immutable
         PrimitiveType: Integer

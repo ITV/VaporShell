@@ -1,18 +1,16 @@
 function Add-VSQuickSightDataSetColumnDescription {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.ColumnDescription resource property to the template. Metadata that contains a description for a column.
+        Adds an AWS::QuickSight::DataSet.ColumnDescription resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.ColumnDescription resource property to the template.
-Metadata that contains a description for a column.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html
 
     .PARAMETER Text
-        The text of a description for a column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text
         UpdateType: Mutable
         PrimitiveType: String

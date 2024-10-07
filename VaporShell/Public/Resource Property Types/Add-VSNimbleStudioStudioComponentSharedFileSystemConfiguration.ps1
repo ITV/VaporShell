@@ -1,46 +1,36 @@
 function Add-VSNimbleStudioStudioComponentSharedFileSystemConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::StudioComponent.SharedFileSystemConfiguration resource property to the template. The configuration for a shared file storage system that is associated with a studio resource.
+        Adds an AWS::NimbleStudio::StudioComponent.SharedFileSystemConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::StudioComponent.SharedFileSystemConfiguration resource property to the template.
-The configuration for a shared file storage system that is associated with a studio resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html
 
     .PARAMETER Endpoint
-        The endpoint of the shared file system that is accessed by the studio component resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-endpoint
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER FileSystemId
-        The unique identifier for a file system.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-filesystemid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ShareName
-        The name of the file share.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-sharename
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER WindowsMountDrive
-        The mount location for a shared file system on a Windows virtual workstation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-windowsmountdrive
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER LinuxMountPoint
-        The mount location for a shared file system on a Linux virtual workstation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-linuxmountpoint
         UpdateType: Mutable
         PrimitiveType: String

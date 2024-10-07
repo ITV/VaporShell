@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelInputLossFailoverSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.InputLossFailoverSettings resource property to the template. MediaLive will perform a failover if content is not detected in this input for the specified period.
+        Adds an AWS::MediaLive::Channel.InputLossFailoverSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.InputLossFailoverSettings resource property to the template.
-MediaLive will perform a failover if content is not detected in this input for the specified period.
 
-The parent of this entity is FailoverConditionSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html
 
     .PARAMETER InputLossThresholdMsec
-        The amount of time in milliseconds that no input is detected. After that time, an input failover will occur.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html#cfn-medialive-channel-inputlossfailoversettings-inputlossthresholdmsec
         PrimitiveType: Integer
         UpdateType: Mutable

@@ -1,10 +1,10 @@
 function New-VSImageBuilderImage {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::Image resource to the template. An image build version. An image is a customized, secure, and up-to-date “golden” server image that is pre-installed and pre-configured with software and settings to meet specific IT standards.
+        Adds an AWS::ImageBuilder::Image resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ImageBuilder::Image resource to the template. An image build version. An image is a customized, secure, and up-to-date “golden” server image that is pre-installed and pre-configured with software and settings to meet specific IT standards.
+        Adds an AWS::ImageBuilder::Image resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
@@ -12,51 +12,42 @@ function New-VSImageBuilderImage {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ImageTestsConfiguration
-        The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+    .PARAMETER ImageScanningConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagescanningconfiguration
         UpdateType: Immutable
-        Type: ImageTestsConfiguration
-
-    .PARAMETER ImageRecipeArn
-        The Amazon Resource Name ARN of the image recipe.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ContainerRecipeArn
-        The Amazon Resource Name ARN of the container recipe that is used for this pipeline.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DistributionConfigurationArn
-        The Amazon Resource Name ARN of the distribution configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
-        UpdateType: Immutable
-        PrimitiveType: String
+        Type: ImageScanningConfiguration
 
     .PARAMETER InfrastructureConfigurationArn
-        The Amazon Resource Name ARN of the infrastructure configuration associated with this image pipeline.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER EnhancedImageMetadataEnabled
-        Collects additional information about the image being created, including the operating system OS version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
+    .PARAMETER ImageRecipeArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER DistributionConfigurationArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ContainerRecipeArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ImageTestsConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+        UpdateType: Immutable
+        Type: ImageTestsConfiguration
+
+    .PARAMETER EnhancedImageMetadataEnabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER Tags
-        The tags of the image.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
         UpdateType: Immutable
         Type: Map
@@ -125,7 +116,18 @@ function New-VSImageBuilderImage {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        $ImageTestsConfiguration,
+        $ImageScanningConfiguration,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InfrastructureConfigurationArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -147,7 +149,7 @@ function New-VSImageBuilderImage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ContainerRecipeArn,
+        $DistributionConfigurationArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -158,18 +160,9 @@ function New-VSImageBuilderImage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DistributionConfigurationArn,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $InfrastructureConfigurationArn,
+        $ContainerRecipeArn,
+        [parameter(Mandatory = $false)]
+        $ImageTestsConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

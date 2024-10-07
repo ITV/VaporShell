@@ -1,27 +1,22 @@
 function Add-VSAppFlowFlowTaskPropertiesObject {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.TaskPropertiesObject resource property to the template. A map used to store task-related information. The execution service looks for particular information based on the TaskType.
+        Adds an AWS::AppFlow::Flow.TaskPropertiesObject resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.TaskPropertiesObject resource property to the template.
-A map used to store task-related information. The execution service looks for particular information based on the TaskType.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html
 
-    .PARAMETER Key
-        The task property key.
-*Allowed Values*: VALUE | VALUES | DATA_TYPE | UPPER_BOUND | LOWER_BOUND | SOURCE_DATA_TYPE | DESTINATION_DATA_TYPE | VALIDATION_ACTION | MASK_VALUE | MASK_LENGTH | TRUNCATE_LENGTH | MATH_OPERATION_FIELDS_ORDER | CONCAT_FORMAT | SUBFIELD_CATEGORY_MAP | EXCLUDE_SOURCE_FIELDS_LIST
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-key
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-value
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The task property value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-value
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -42,7 +37,7 @@ A map used to store task-related information. The execution service looks for pa
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -53,7 +48,7 @@ A map used to store task-related information. The execution service looks for pa
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

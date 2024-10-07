@@ -10,20 +10,10 @@ function Add-VSIoTEventsAlarmModelAlarmAction {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html
 
-    .PARAMETER DynamoDB
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-dynamodb
-        UpdateType: Mutable
-        Type: DynamoDB
-
     .PARAMETER DynamoDBv2
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-dynamodbv2
         UpdateType: Mutable
         Type: DynamoDBv2
-
-    .PARAMETER Firehose
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-firehose
-        UpdateType: Mutable
-        Type: Firehose
 
     .PARAMETER IotEvents
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-iotevents
@@ -35,25 +25,35 @@ function Add-VSIoTEventsAlarmModelAlarmAction {
         UpdateType: Mutable
         Type: IotSiteWise
 
+    .PARAMETER Sqs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-sqs
+        UpdateType: Mutable
+        Type: Sqs
+
+    .PARAMETER Firehose
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-firehose
+        UpdateType: Mutable
+        Type: Firehose
+
+    .PARAMETER DynamoDB
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-dynamodb
+        UpdateType: Mutable
+        Type: DynamoDB
+
     .PARAMETER IotTopicPublish
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-iottopicpublish
         UpdateType: Mutable
         Type: IotTopicPublish
-
-    .PARAMETER Lambda
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-lambda
-        UpdateType: Mutable
-        Type: Lambda
 
     .PARAMETER Sns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-sns
         UpdateType: Mutable
         Type: Sns
 
-    .PARAMETER Sqs
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-sqs
+    .PARAMETER Lambda
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-lambda
         UpdateType: Mutable
-        Type: Sqs
+        Type: Lambda
 
     .FUNCTIONALITY
         Vaporshell
@@ -63,23 +63,23 @@ function Add-VSIoTEventsAlarmModelAlarmAction {
     Param
     (
         [parameter(Mandatory = $false)]
-        $DynamoDB,
-        [parameter(Mandatory = $false)]
         $DynamoDBv2,
-        [parameter(Mandatory = $false)]
-        $Firehose,
         [parameter(Mandatory = $false)]
         $IotEvents,
         [parameter(Mandatory = $false)]
         $IotSiteWise,
         [parameter(Mandatory = $false)]
-        $IotTopicPublish,
+        $Sqs,
         [parameter(Mandatory = $false)]
-        $Lambda,
+        $Firehose,
+        [parameter(Mandatory = $false)]
+        $DynamoDB,
+        [parameter(Mandatory = $false)]
+        $IotTopicPublish,
         [parameter(Mandatory = $false)]
         $Sns,
         [parameter(Mandatory = $false)]
-        $Sqs
+        $Lambda
     )
     Begin {
         $obj = [PSCustomObject]@{}

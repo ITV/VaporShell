@@ -1,10 +1,10 @@
 function New-VSIoTSiteWiseAssetModel {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AssetModel resource to the template. Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see Defining asset models: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html in the *AWS IoT SiteWise User Guide*.
+        Adds an AWS::IoTSiteWise::AssetModel resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTSiteWise::AssetModel resource to the template. Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see Defining asset models: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html in the *AWS IoT SiteWise User Guide*.
+        Adds an AWS::IoTSiteWise::AssetModel resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html
@@ -12,54 +12,43 @@ function New-VSIoTSiteWiseAssetModel {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AssetModelName
-        A unique, friendly name for the asset model.
-The maximum length is 256 characters with the pattern ^u0000-u001Fu007F]+.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER AssetModelDescription
-        A description for the asset model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER AssetModelProperties
-        The property definitions of the asset model. For more information, see Defining data properties: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html in the *AWS IoT SiteWise User Guide*.
-You can specify up to 200 properties per asset model. For more information, see Quotas: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html in the *AWS IoT SiteWise User Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
-        UpdateType: Mutable
-        Type: List
-        ItemType: AssetModelProperty
-
     .PARAMETER AssetModelCompositeModels
-        The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties. Each composite model has a type that defines the properties that the composite model supports. You can use composite asset models to define alarms on this asset model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
         UpdateType: Mutable
         Type: List
         ItemType: AssetModelCompositeModel
+        DuplicatesAllowed: True
+
+    .PARAMETER AssetModelName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER AssetModelHierarchies
-        The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. For more information, see Defining relationships between assets: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html in the *AWS IoT SiteWiseUser Guide*.
-You can specify up to 10 hierarchies per asset model. For more information, see Quotas: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html in the *AWS IoT SiteWise User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
         UpdateType: Mutable
         Type: List
         ItemType: AssetModelHierarchy
+        DuplicatesAllowed: True
+
+    .PARAMETER AssetModelProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
+        UpdateType: Mutable
+        Type: List
+        ItemType: AssetModelProperty
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
-        A list of key-value pairs that contain metadata for the asset. For more information, see Tagging your AWS IoT SiteWise resources: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html in the *AWS IoT SiteWise User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -123,17 +112,6 @@ You can specify up to 10 hierarchies per asset model. For more information, see 
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AssetModelName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -147,17 +125,6 @@ You can specify up to 10 hierarchies per asset model. For more information, see 
         $AssetModelDescription,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.IoTSiteWise.AssetModel.AssetModelProperty"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AssetModelProperties,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTSiteWise.AssetModel.AssetModelCompositeModel"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -167,6 +134,17 @@ You can specify up to 10 hierarchies per asset model. For more information, see 
                 }
             })]
         $AssetModelCompositeModels,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AssetModelName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTSiteWise.AssetModel.AssetModelHierarchy"
@@ -178,6 +156,17 @@ You can specify up to 10 hierarchies per asset model. For more information, see 
                 }
             })]
         $AssetModelHierarchies,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.IoTSiteWise.AssetModel.AssetModelProperty"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AssetModelProperties,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -255,12 +244,6 @@ You can specify up to 10 hierarchies per asset model. For more information, see 
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                AssetModelProperties {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AssetModelProperties -Value @($AssetModelProperties)
-                }
                 AssetModelCompositeModels {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -272,6 +255,12 @@ You can specify up to 10 hierarchies per asset model. For more information, see 
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AssetModelHierarchies -Value @($AssetModelHierarchies)
+                }
+                AssetModelProperties {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AssetModelProperties -Value @($AssetModelProperties)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

@@ -1,25 +1,21 @@
 function Add-VSElasticLoadBalancingV2ListenerRuleTargetGroupTuple {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple resource property to the template. Information about how traffic will be distributed between multiple target groups in a forward rule.
+        Adds an AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple resource property to the template.
-Information about how traffic will be distributed between multiple target groups in a forward rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html
 
     .PARAMETER TargetGroupArn
-        The Amazon Resource Name ARN of the target group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-targetgrouparn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Weight
-        The weight. The range is 0 to 999.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-weight
         UpdateType: Mutable
         PrimitiveType: Integer

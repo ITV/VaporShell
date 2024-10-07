@@ -1,18 +1,16 @@
 function Add-VSNetworkFirewallRuleGroupPortSet {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.PortSet resource property to the template. A set of port ranges for use in the rules in a rule group.
+        Adds an AWS::NetworkFirewall::RuleGroup.PortSet resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.PortSet resource property to the template.
-A set of port ranges for use in the rules in a rule group.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html
 
     .PARAMETER Definition
-        The set of port ranges.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
         UpdateType: Mutable
         Type: List

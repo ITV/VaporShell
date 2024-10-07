@@ -1,16 +1,10 @@
 function New-VSEC2NatGateway {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NatGateway resource to the template. Specifies a network address translation (NAT gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
+        Adds an AWS::EC2::NatGateway resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::NatGateway resource to the template. Specifies a network address translation (NAT gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
-
-With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on-premises network using the IP address of the NAT gateway.
-
-If you add a default route (AWS::EC2::Route resource that points to a NAT gateway, specify the NAT gateway ID for the route's NatGatewayId property.
-
-For more information, see NAT Gateways: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html in the *Amazon VPC User Guide*.
+        Adds an AWS::EC2::NatGateway resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
@@ -18,35 +12,56 @@ For more information, see NAT Gateways: https://docs.aws.amazon.com/vpc/latest/u
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ConnectivityType
-        Indicates whether the NAT gateway supports public or private connectivity.
+    .PARAMETER SecondaryAllocationIds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-secondaryallocationids
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
+    .PARAMETER PrivateIpAddress
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-privateipaddress
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ConnectivityType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-connectivitytype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER AllocationId
-        Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
+    .PARAMETER SecondaryPrivateIpAddresses
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-secondaryprivateipaddresses
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
+    .PARAMETER SecondaryPrivateIpAddressCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-secondaryprivateipaddresscount
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER AllocationId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-allocationid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SubnetId
-        The ID of the subnet in which the NAT gateway is located.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags for the NAT gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
+
+    .PARAMETER MaxDrainDurationSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-maxdraindurationseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -111,6 +126,19 @@ For more information, see NAT Gateways: https://docs.aws.amazon.com/vpc/latest/u
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $SecondaryAllocationIds,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PrivateIpAddress,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -121,6 +149,19 @@ For more information, see NAT Gateways: https://docs.aws.amazon.com/vpc/latest/u
                 }
             })]
         $ConnectivityType,
+        [parameter(Mandatory = $false)]
+        $SecondaryPrivateIpAddresses,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SecondaryPrivateIpAddressCount,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -146,6 +187,17 @@ For more information, see NAT Gateways: https://docs.aws.amazon.com/vpc/latest/u
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxDrainDurationSeconds,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -219,6 +271,18 @@ For more information, see NAT Gateways: https://docs.aws.amazon.com/vpc/latest/u
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                SecondaryAllocationIds {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SecondaryAllocationIds -Value @($SecondaryAllocationIds)
+                }
+                SecondaryPrivateIpAddresses {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SecondaryPrivateIpAddresses -Value @($SecondaryPrivateIpAddresses)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

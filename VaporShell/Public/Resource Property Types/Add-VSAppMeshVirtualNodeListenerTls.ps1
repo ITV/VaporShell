@@ -1,35 +1,26 @@
 function Add-VSAppMeshVirtualNodeListenerTls {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.ListenerTls resource property to the template. An object that represents the Transport Layer Security (TLS properties for a listener.
+        Adds an AWS::AppMesh::VirtualNode.ListenerTls resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.ListenerTls resource property to the template.
-An object that represents the Transport Layer Security (TLS properties for a listener.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html
 
     .PARAMETER Validation
-        A reference to an object that represents a listener's Transport Layer Security TLS validation context.
-
         Type: ListenerTlsValidationContext
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-validation
         UpdateType: Mutable
 
     .PARAMETER Mode
-        Specify one of the following modes.
-+ ****STRICT – Listener only accepts connections with TLS enabled.
-+ ****PERMISSIVE – Listener accepts connections with or without TLS enabled.
-+ ****DISABLED – Listener only accepts connections without TLS.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-mode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Certificate
-        A reference to an object that represents a listener's Transport Layer Security TLS certificate.
-
         Type: ListenerTlsCertificate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-certificate
         UpdateType: Mutable

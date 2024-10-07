@@ -1,10 +1,10 @@
 function New-VSConfigRemediationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::RemediationConfiguration resource to the template. An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
+        Adds an AWS::Config::RemediationConfiguration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Config::RemediationConfiguration resource to the template. An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
+        Adds an AWS::Config::RemediationConfiguration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html
@@ -13,75 +13,51 @@ function New-VSConfigRemediationConfiguration {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER TargetVersion
-        Version of the target. For example, version of the SSM document.
-If you make backward incompatible changes to the SSM document, you must call PutRemediationConfiguration API again to ensure the remediations can run.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-targetversion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ExecutionControls
-        An ExecutionControls object.
-
         Type: ExecutionControls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-executioncontrols
         UpdateType: Mutable
 
     .PARAMETER Parameters
-        An object of the RemediationParameterValue.
-The type is a map of strings to RemediationParameterValue.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-parameters
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER TargetType
-        The type of the target. Target executes remediation. For example, SSM document.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-targettype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ConfigRuleName
-        The name of the AWS Config rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-configrulename
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ResourceType
-        The type of a resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-resourcetype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RetryAttemptSeconds
-        Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-For example, if you specify RetryAttemptSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-retryattemptseconds
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER MaximumAutomaticAttempts
-        The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-maximumautomaticattempts
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER TargetId
-        Target ID is the name of the public document.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-targetid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Automatic
-        The remediation is triggered automatically.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-automatic
         PrimitiveType: Boolean
         UpdateType: Mutable

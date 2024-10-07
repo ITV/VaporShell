@@ -1,10 +1,10 @@
 function New-VSLightsailStaticIp {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::StaticIp resource to the template. The AWS::Lightsail::StaticIp resource specifies a static IP that can be attached to an Amazon Lightsail instance that is in the same AWS Region and Availability Zone.
+        Adds an AWS::Lightsail::StaticIp resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lightsail::StaticIp resource to the template. The AWS::Lightsail::StaticIp resource specifies a static IP that can be attached to an Amazon Lightsail instance that is in the same AWS Region and Availability Zone.
+        Adds an AWS::Lightsail::StaticIp resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html
@@ -13,15 +13,11 @@ function New-VSLightsailStaticIp {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER StaticIpName
-        The name of the static IP.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html#cfn-lightsail-staticip-staticipname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AttachedTo
-        The instance that the static IP is attached to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html#cfn-lightsail-staticip-attachedto
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,35 +1,26 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayListenerTls {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTls resource property to the template. An object that represents the Transport Layer Security (TLS properties for a listener.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTls resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTls resource property to the template.
-An object that represents the Transport Layer Security (TLS properties for a listener.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html
 
     .PARAMETER Validation
-        A reference to an object that represents a virtual gateway's listener's Transport Layer Security TLS validation context.
-
         Type: VirtualGatewayListenerTlsValidationContext
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-validation
         UpdateType: Mutable
 
     .PARAMETER Mode
-        Specify one of the following modes.
-+ ****STRICT – Listener only accepts connections with TLS enabled.
-+ ****PERMISSIVE – Listener accepts connections with or without TLS enabled.
-+ ****DISABLED – Listener only accepts connections without TLS.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-mode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Certificate
-        An object that represents a Transport Layer Security TLS certificate.
-
         Type: VirtualGatewayListenerTlsCertificate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-certificate
         UpdateType: Mutable

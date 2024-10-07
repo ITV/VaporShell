@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelStaticKeySettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.StaticKeySettings resource property to the template. The static key settings.
+        Adds an AWS::MediaLive::Channel.StaticKeySettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.StaticKeySettings resource property to the template.
-The static key settings.
 
-The parent of this entity is KeyProviderSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html
 
     .PARAMETER KeyProviderServer
-        The URL of the license server that is used for protecting content.
-
         Type: InputLocation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html#cfn-medialive-channel-statickeysettings-keyproviderserver
         UpdateType: Mutable
 
     .PARAMETER StaticKeyValue
-        The static key value as a 32 character hexadecimal string.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html#cfn-medialive-channel-statickeysettings-statickeyvalue
         PrimitiveType: String
         UpdateType: Mutable

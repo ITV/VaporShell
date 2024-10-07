@@ -1,59 +1,39 @@
 function Add-VSCloudFrontOriginRequestPolicyOriginRequestPolicyConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig resource property to the template. An origin request policy configuration.
+        Adds an AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig resource property to the template.
-An origin request policy configuration.
 
-This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-
-+ The request body and the URL path (without the domain name from the viewer request.
-
-+ The headers that CloudFront automatically includes in every origin request, including Host, User-Agent, and X-Amz-Cf-Id.
-
-+ All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-
-CloudFront sends a request when it can’t find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use CachePolicy.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
 
     .PARAMETER Comment
-        A comment to describe the origin request policy. The comment cannot be longer than 128 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER CookiesConfig
-        The cookies from viewer requests to include in origin requests.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
-        UpdateType: Mutable
-        Type: CookiesConfig
-
     .PARAMETER HeadersConfig
-        The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
         UpdateType: Mutable
         Type: HeadersConfig
 
-    .PARAMETER Name
-        A unique name to identify the origin request policy.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
+    .PARAMETER CookiesConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: CookiesConfig
 
     .PARAMETER QueryStringsConfig
-        The URL query strings from viewer requests to include in origin requests.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
         UpdateType: Mutable
         Type: QueryStringsConfig
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -74,9 +54,11 @@ CloudFront sends a request when it can’t find an object in its cache that matc
             })]
         $Comment,
         [parameter(Mandatory = $true)]
+        $HeadersConfig,
+        [parameter(Mandatory = $true)]
         $CookiesConfig,
         [parameter(Mandatory = $true)]
-        $HeadersConfig,
+        $QueryStringsConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -87,9 +69,7 @@ CloudFront sends a request when it can’t find an object in its cache that matc
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        $QueryStringsConfig
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

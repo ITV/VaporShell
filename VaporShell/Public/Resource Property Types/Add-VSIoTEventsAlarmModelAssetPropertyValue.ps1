@@ -15,15 +15,15 @@ function Add-VSIoTEventsAlarmModelAssetPropertyValue {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Timestamp
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvalue.html#cfn-iotevents-alarmmodel-assetpropertyvalue-timestamp
-        UpdateType: Mutable
-        Type: AssetPropertyTimestamp
-
     .PARAMETER Value
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvalue.html#cfn-iotevents-alarmmodel-assetpropertyvalue-value
         UpdateType: Mutable
         Type: AssetPropertyVariant
+
+    .PARAMETER Timestamp
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvalue.html#cfn-iotevents-alarmmodel-assetpropertyvalue-timestamp
+        UpdateType: Mutable
+        Type: AssetPropertyTimestamp
 
     .FUNCTIONALITY
         Vaporshell
@@ -43,10 +43,10 @@ function Add-VSIoTEventsAlarmModelAssetPropertyValue {
                 }
             })]
         $Quality,
-        [parameter(Mandatory = $false)]
-        $Timestamp,
         [parameter(Mandatory = $true)]
-        $Value
+        $Value,
+        [parameter(Mandatory = $false)]
+        $Timestamp
     )
     Begin {
         $obj = [PSCustomObject]@{}

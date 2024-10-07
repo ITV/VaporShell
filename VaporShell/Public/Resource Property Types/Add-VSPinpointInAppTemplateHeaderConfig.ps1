@@ -1,32 +1,26 @@
 function Add-VSPinpointInAppTemplateHeaderConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::InAppTemplate.HeaderConfig resource property to the template. Specifies the configuration and content of the header or title text of the in-app message.
+        Adds an AWS::Pinpoint::InAppTemplate.HeaderConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::InAppTemplate.HeaderConfig resource property to the template.
-Specifies the configuration and content of the header or title text of the in-app message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-headerconfig.html
 
     .PARAMETER Alignment
-        The text alignment of the title of the message. Acceptable values: LEFT, CENTER, RIGHT.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-headerconfig.html#cfn-pinpoint-inapptemplate-headerconfig-alignment
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Header
-        The title text of the in-app message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-headerconfig.html#cfn-pinpoint-inapptemplate-headerconfig-header
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TextColor
-        The color of the title text, expressed as a hex color code such as #000000 for black.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-headerconfig.html#cfn-pinpoint-inapptemplate-headerconfig-textcolor
         UpdateType: Mutable
         PrimitiveType: String

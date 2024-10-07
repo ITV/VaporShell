@@ -12,62 +12,55 @@ function New-VSRekognitionStreamProcessor {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER KmsKeyId
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-kmskeyid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER RoleArn
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-rolearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER KinesisVideoStream
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-kinesisvideostream
-        UpdateType: Immutable
-        Type: KinesisVideoStream
-
-    .PARAMETER FaceSearchSettings
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-facesearchsettings
-        UpdateType: Immutable
-        Type: FaceSearchSettings
-
-    .PARAMETER ConnectedHomeSettings
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-connectedhomesettings
-        UpdateType: Immutable
-        Type: ConnectedHomeSettings
-
-    .PARAMETER KinesisDataStream
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-kinesisdatastream
-        UpdateType: Immutable
-        Type: KinesisDataStream
-
     .PARAMETER S3Destination
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-s3destination
         UpdateType: Immutable
         Type: S3Destination
-
-    .PARAMETER NotificationChannel
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-notificationchannel
-        UpdateType: Immutable
-        Type: NotificationChannel
 
     .PARAMETER DataSharingPreference
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-datasharingpreference
         UpdateType: Immutable
         Type: DataSharingPreference
 
+    .PARAMETER KmsKeyId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-kmskeyid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER FaceSearchSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-facesearchsettings
+        UpdateType: Immutable
+        Type: FaceSearchSettings
+
     .PARAMETER PolygonRegionsOfInterest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-polygonregionsofinterest
         UpdateType: Immutable
-        Type: List
-        ItemType: List
-        DuplicatesAllowed: False
+        PrimitiveType: Json
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-rolearn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-name
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ConnectedHomeSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-connectedhomesettings
+        UpdateType: Immutable
+        Type: ConnectedHomeSettings
+
+    .PARAMETER NotificationChannel
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-notificationchannel
+        UpdateType: Immutable
+        Type: NotificationChannel
+
+    .PARAMETER KinesisVideoStream
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-kinesisvideostream
+        UpdateType: Immutable
+        Type: KinesisVideoStream
 
     .PARAMETER BoundingBoxRegionsOfInterest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-boundingboxregionsofinterest
@@ -75,6 +68,11 @@ function New-VSRekognitionStreamProcessor {
         Type: List
         ItemType: BoundingBox
         DuplicatesAllowed: False
+
+    .PARAMETER KinesisDataStream
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-kinesisdatastream
+        UpdateType: Immutable
+        Type: KinesisDataStream
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-tags
@@ -146,16 +144,9 @@ function New-VSRekognitionStreamProcessor {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
+        $S3Destination,
+        [parameter(Mandatory = $false)]
+        $DataSharingPreference,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -167,6 +158,19 @@ function New-VSRekognitionStreamProcessor {
                 }
             })]
         $KmsKeyId,
+        [parameter(Mandatory = $false)]
+        $FaceSearchSettings,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PolygonRegionsOfInterest,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -178,23 +182,9 @@ function New-VSRekognitionStreamProcessor {
                 }
             })]
         $RoleArn,
-        [parameter(Mandatory = $true)]
-        $KinesisVideoStream,
-        [parameter(Mandatory = $false)]
-        $FaceSearchSettings,
-        [parameter(Mandatory = $false)]
-        $ConnectedHomeSettings,
-        [parameter(Mandatory = $false)]
-        $KinesisDataStream,
-        [parameter(Mandatory = $false)]
-        $S3Destination,
-        [parameter(Mandatory = $false)]
-        $NotificationChannel,
-        [parameter(Mandatory = $false)]
-        $DataSharingPreference,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Rekognition.StreamProcessor.List"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -202,7 +192,13 @@ function New-VSRekognitionStreamProcessor {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PolygonRegionsOfInterest,
+        $Name,
+        [parameter(Mandatory = $false)]
+        $ConnectedHomeSettings,
+        [parameter(Mandatory = $false)]
+        $NotificationChannel,
+        [parameter(Mandatory = $true)]
+        $KinesisVideoStream,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Rekognition.StreamProcessor.BoundingBox"
@@ -214,6 +210,8 @@ function New-VSRekognitionStreamProcessor {
                 }
             })]
         $BoundingBoxRegionsOfInterest,
+        [parameter(Mandatory = $false)]
+        $KinesisDataStream,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -291,12 +289,6 @@ function New-VSRekognitionStreamProcessor {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                PolygonRegionsOfInterest {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name PolygonRegionsOfInterest -Value @($PolygonRegionsOfInterest)
-                }
                 BoundingBoxRegionsOfInterest {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -308,6 +300,23 @@ function New-VSRekognitionStreamProcessor {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                PolygonRegionsOfInterest {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

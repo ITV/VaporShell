@@ -1,41 +1,31 @@
 function Add-VSMediaLiveChannelRtmpOutputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.RtmpOutputSettings resource property to the template. The settings for one RTMP output.
+        Adds an AWS::MediaLive::Channel.RtmpOutputSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.RtmpOutputSettings resource property to the template.
-The settings for one RTMP output.
 
-The parent of this entity is OutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html
 
     .PARAMETER Destination
-        The RTMP endpoint excluding the stream name for example, rtmp://host/appname.
-
         Type: OutputLocationRef
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-destination
         UpdateType: Mutable
 
     .PARAMETER CertificateMode
-        If set to verifyAuthenticity, verifies the TLS certificate chain to a trusted certificate authority CA. This causes RTMPS outputs with self-signed certificates to fail.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-certificatemode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NumRetries
-        The number of retry attempts.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-numretries
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ConnectionRetryInterval
-        The number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-connectionretryinterval
         PrimitiveType: Integer
         UpdateType: Mutable

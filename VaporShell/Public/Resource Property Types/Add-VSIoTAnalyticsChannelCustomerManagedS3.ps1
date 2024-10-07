@@ -1,32 +1,26 @@
 function Add-VSIoTAnalyticsChannelCustomerManagedS3 {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Channel.CustomerManagedS3 resource property to the template. Used to store channel data in an S3 bucket that you manage.
+        Adds an AWS::IoTAnalytics::Channel.CustomerManagedS3 resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Channel.CustomerManagedS3 resource property to the template.
-Used to store channel data in an S3 bucket that you manage.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html
 
     .PARAMETER Bucket
-        The name of the S3 bucket in which channel data is stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-bucket
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER KeyPrefix
-        Optional The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket each object in a bucket has exactly one key. The prefix must end with a forward slash /.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-keyprefix
         UpdateType: Mutable
         PrimitiveType: String

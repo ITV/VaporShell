@@ -1,32 +1,26 @@
 function Add-VSCodeDeployDeploymentGroupBlueGreenDeploymentConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.BlueGreenDeploymentConfiguration resource property to the template. Information about blue/green deployment options for a deployment group.
+        Adds an AWS::CodeDeploy::DeploymentGroup.BlueGreenDeploymentConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.BlueGreenDeploymentConfiguration resource property to the template.
-Information about blue/green deployment options for a deployment group.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html
 
     .PARAMETER DeploymentReadyOption
-        Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-deploymentreadyoption
         Type: DeploymentReadyOption
         UpdateType: Mutable
 
     .PARAMETER GreenFleetProvisioningOption
-        Information about how instances are provisioned for a replacement environment in a blue/green deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-greenfleetprovisioningoption
         Type: GreenFleetProvisioningOption
         UpdateType: Mutable
 
     .PARAMETER TerminateBlueInstancesOnDeploymentSuccess
-        Information about whether to terminate instances in the original fleet during a blue/green deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-terminateblueinstancesondeploymentsuccess
         Type: BlueInstanceTerminationOption
         UpdateType: Mutable

@@ -1,10 +1,10 @@
 function New-VSLookoutMetricsAlert {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::Alert resource to the template. The AWS::LookoutMetrics::Alert type creates an alert for an anomaly detector.
+        Adds an AWS::LookoutMetrics::Alert resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::LookoutMetrics::Alert resource to the template. The AWS::LookoutMetrics::Alert type creates an alert for an anomaly detector.
+        Adds an AWS::LookoutMetrics::Alert resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html
@@ -12,40 +12,30 @@ function New-VSLookoutMetricsAlert {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AlertName
-        The name of the alert.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER AlertDescription
-        A description of the alert.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER AnomalyDetectorArn
-        The ARN of the detector to which the alert is attached.
+    .PARAMETER Action
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
+        UpdateType: Immutable
+        Type: Action
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
+    .PARAMETER AlertName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AlertSensitivityThreshold
-        An integer from 0 to 100 specifying the alert sensitivity threshold.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertsensitivitythreshold
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER Action
-        Action that will be triggered when there is an alert.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
+    .PARAMETER AnomalyDetectorArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
         UpdateType: Immutable
-        Type: Action
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -119,7 +109,9 @@ function New-VSLookoutMetricsAlert {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AlertName,
+        $AlertDescription,
+        [parameter(Mandatory = $true)]
+        $Action,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -130,18 +122,7 @@ function New-VSLookoutMetricsAlert {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AlertDescription,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AnomalyDetectorArn,
+        $AlertName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -154,7 +135,16 @@ function New-VSLookoutMetricsAlert {
             })]
         $AlertSensitivityThreshold,
         [parameter(Mandatory = $true)]
-        $Action,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AnomalyDetectorArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

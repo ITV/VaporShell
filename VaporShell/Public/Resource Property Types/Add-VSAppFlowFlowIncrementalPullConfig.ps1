@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowIncrementalPullConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.IncrementalPullConfig resource property to the template. Specifies the configuration used when importing incremental records from the source.
+        Adds an AWS::AppFlow::Flow.IncrementalPullConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.IncrementalPullConfig resource property to the template.
-Specifies the configuration used when importing incremental records from the source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html
 
     .PARAMETER DatetimeTypeFieldName
-        A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
         UpdateType: Mutable
         PrimitiveType: String

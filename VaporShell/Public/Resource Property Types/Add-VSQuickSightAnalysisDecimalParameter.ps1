@@ -1,26 +1,23 @@
 function Add-VSQuickSightAnalysisDecimalParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.DecimalParameter resource property to the template. A decimal parameter.
+        Adds an AWS::QuickSight::Analysis.DecimalParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.DecimalParameter resource property to the template.
-A decimal parameter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html
 
     .PARAMETER Values
-        The values for the decimal parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-values
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: Double
+        DuplicatesAllowed: True
 
     .PARAMETER Name
-        A display name for the decimal parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-name
         UpdateType: Mutable
         PrimitiveType: String

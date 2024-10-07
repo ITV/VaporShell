@@ -1,29 +1,26 @@
 function Add-VSIoTFleetMetricAggregationType {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::FleetMetric.AggregationType resource property to the template. The type of aggregation queries.
+        Adds an AWS::IoT::FleetMetric.AggregationType resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::FleetMetric.AggregationType resource property to the template.
-The type of aggregation queries.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
 
-    .PARAMETER Name
-        The name of the aggregation type.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Values
-        A list of the values of aggregation types.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,6 +29,8 @@ The type of aggregation queries.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $Values,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -42,9 +41,7 @@ The type of aggregation queries.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        $Values
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

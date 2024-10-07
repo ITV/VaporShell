@@ -1,21 +1,24 @@
 function Add-VSAppRunnerServiceNetworkConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.NetworkConfiguration resource property to the template. Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+        Adds an AWS::AppRunner::Service.NetworkConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.NetworkConfiguration resource property to the template.
-Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html
 
     .PARAMETER EgressConfiguration
-        Network configuration settings for outbound message traffic.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-egressconfiguration
         UpdateType: Mutable
         Type: EgressConfiguration
+
+    .PARAMETER IngressConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-ingressconfiguration
+        UpdateType: Mutable
+        Type: IngressConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -24,8 +27,10 @@ Describes configuration settings related to network traffic of an AWS App Runner
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $EgressConfiguration
+        [parameter(Mandatory = $false)]
+        $EgressConfiguration,
+        [parameter(Mandatory = $false)]
+        $IngressConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

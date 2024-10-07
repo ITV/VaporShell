@@ -1,46 +1,36 @@
 function Add-VSAppMeshGatewayRouteHttpGatewayRouteHeaderMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeaderMatch resource property to the template. An object that represents the method and value to match with the header value sent in a request. Specify one match method.
+        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeaderMatch resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeaderMatch resource property to the template.
-An object that represents the method and value to match with the header value sent in a request. Specify one match method.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html
 
     .PARAMETER Suffix
-        The value sent by the client must end with the specified characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-suffix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Regex
-        The value sent by the client must include the specified characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-regex
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Exact
-        The value sent by the client must match the specified value exactly.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-exact
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Prefix
-        The value sent by the client must begin with the specified characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-prefix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Range
-        An object that represents the range of values to match on.
-
         Type: GatewayRouteRangeMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-range
         UpdateType: Mutable

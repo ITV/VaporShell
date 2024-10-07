@@ -1,25 +1,21 @@
 function Add-VSACMPCACertificateExtendedKeyUsage {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::Certificate.ExtendedKeyUsage resource property to the template. Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the KeyUsage extension.
+        Adds an AWS::ACMPCA::Certificate.ExtendedKeyUsage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::Certificate.ExtendedKeyUsage resource property to the template.
-Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the KeyUsage extension.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
 
     .PARAMETER ExtendedKeyUsageType
-        Specifies a standard ExtendedKeyUsage as defined as in RFC 5280: https://tools.ietf.org/html/rfc5280#section-4.2.1.12.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ExtendedKeyUsageObjectIdentifier
-        Specifies a custom ExtendedKeyUsage with an object identifier OID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
         UpdateType: Immutable
         PrimitiveType: String

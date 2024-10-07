@@ -1,10 +1,10 @@
 function New-VSDataSyncTask {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::Task resource to the template. The AWS::DataSync::Task resource specifies a task. A task is a set of two locations (source and destination and a set of Options that you use to control the behavior of a task. If you don't specify Options when you create a task, AWS DataSync populates them with service defaults.
+        Adds an AWS::DataSync::Task resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DataSync::Task resource to the template. The AWS::DataSync::Task resource specifies a task. A task is a set of two locations (source and destination and a set of Options that you use to control the behavior of a task. If you don't specify Options when you create a task, AWS DataSync populates them with service defaults.
+        Adds an AWS::DataSync::Task resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
@@ -12,75 +12,55 @@ function New-VSDataSyncTask {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Excludes
-        A list of filter rules that determines which files to exclude from a task. The list should contain a single filter string that consists of the patterns to exclude. The patterns are delimited by "|" that is, a pipe, for example, "/folder1|/folder2".
-
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-        UpdateType: Mutable
-        Type: List
-        ItemType: FilterRule
-
     .PARAMETER Includes
-        A list of filter rules that determines which files to include when running a task. The pattern contains a single filter string that consists of the patterns to include. The patterns are delimited by "|" that is, a pipe, for example, "/folder1|/folder2".
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
         UpdateType: Mutable
         Type: List
         ItemType: FilterRule
+        DuplicatesAllowed: True
+
+    .PARAMETER DestinationLocationArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Options
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
+        UpdateType: Mutable
+        Type: Options
+
+    .PARAMETER Schedule
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
+        UpdateType: Mutable
+        Type: TaskSchedule
+
+    .PARAMETER CloudWatchLogGroupArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER SourceLocationArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Excludes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
+        UpdateType: Mutable
+        Type: List
+        ItemType: FilterRule
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
-        The key-value pair that represents the tag that you want to add to the resource. The value can be an empty string.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
 
-    .PARAMETER CloudWatchLogGroupArn
-        The Amazon Resource Name ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
-For more information about how to use CloudWatch Logs with DataSync, see Monitoring Your Task: https://docs.aws.amazon.com/datasync/latest/userguide/monitor-datasync.html#cloudwatchlogs in the * AWS DataSync User Guide.*
-For more information about these groups, see Working with Log Groups and Log Streams: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html in the *Amazon CloudWatch Logs User Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER DestinationLocationArn
-        The Amazon Resource Name ARN of an AWS storage resource's location.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Name
-        The name of a task. This value is a text reference that is used to identify the task in the console.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Options
-        The set of configuration options that control the behavior of a single execution of the task that occurs when you call StartTaskExecution. You can configure these options to preserve metadata such as user ID UID and group ID GID, file permissions, data integrity verification, and so on.
-For each individual task execution, you can override these options by specifying the OverrideOptions before starting the task execution. For more information, see the StartTaskExecution: https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html operation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-        UpdateType: Mutable
-        Type: Options
-
-    .PARAMETER Schedule
-        Specifies a schedule used to periodically transfer files from a source to a destination location. The schedule should be specified in UTC time. For more information, see Scheduling your task: https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-        UpdateType: Mutable
-        Type: TaskSchedule
-
-    .PARAMETER SourceLocationArn
-        The Amazon Resource Name ARN of the source location for the task.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
-        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy
@@ -155,10 +135,10 @@ For each individual task execution, you can override these options by specifying
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Excludes,
-        [parameter(Mandatory = $false)]
+        $Includes,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DataSync.Task.FilterRule"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -166,10 +146,11 @@ For each individual task execution, you can override these options by specifying
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Includes,
-        [VaporShell.Core.TransformTag()]
+        $DestinationLocationArn,
         [parameter(Mandatory = $false)]
-        $Tags,
+        $Options,
+        [parameter(Mandatory = $false)]
+        $Schedule,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -191,7 +172,21 @@ For each individual task execution, you can override these options by specifying
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DestinationLocationArn,
+        $SourceLocationArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DataSync.Task.FilterRule"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Excludes,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -203,21 +198,6 @@ For each individual task execution, you can override these options by specifying
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
-        $Options,
-        [parameter(Mandatory = $false)]
-        $Schedule,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SourceLocationArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -292,17 +272,17 @@ For each individual task execution, you can override these options by specifying
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Excludes {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Excludes -Value @($Excludes)
-                }
                 Includes {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Includes -Value @($Includes)
+                }
+                Excludes {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Excludes -Value @($Excludes)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSourceAuroraPostgreSqlParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.AuroraPostgreSqlParameters resource property to the template. Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
+        Adds an AWS::QuickSight::DataSource.AuroraPostgreSqlParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.AuroraPostgreSqlParameters resource property to the template.
-Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html
 
     .PARAMETER Port
-        The port that Amazon Aurora PostgreSQL is listening on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Database
-        The Amazon Aurora PostgreSQL database to connect to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Host
-        The Amazon Aurora PostgreSQL-Compatible host to connect to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host
         UpdateType: Mutable
         PrimitiveType: String

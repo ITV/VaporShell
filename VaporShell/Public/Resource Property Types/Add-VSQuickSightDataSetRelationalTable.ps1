@@ -1,47 +1,38 @@
 function Add-VSQuickSightDataSetRelationalTable {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.RelationalTable resource property to the template. A physical table type for relational data sources.
+        Adds an AWS::QuickSight::DataSet.RelationalTable resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.RelationalTable resource property to the template.
-A physical table type for relational data sources.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html
 
     .PARAMETER DataSourceArn
-        The Amazon Resource Name ARN for the data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-datasourcearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER InputColumns
-        The column schema of the table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns
         UpdateType: Mutable
         Type: List
         ItemType: InputColumn
+        DuplicatesAllowed: True
 
     .PARAMETER Schema
-        The schema name. This name applies to certain relational database engines.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-schema
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Catalog
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the relational table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name
         UpdateType: Mutable
         PrimitiveType: String

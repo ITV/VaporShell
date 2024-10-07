@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelDvbTdtSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.DvbTdtSettings resource property to the template. The DVB Time and Date Table (TDT.
+        Adds an AWS::MediaLive::Channel.DvbTdtSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.DvbTdtSettings resource property to the template.
-The DVB Time and Date Table (TDT.
 
-The parent of this entity is M2tsSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbtdtsettings.html
 
     .PARAMETER RepInterval
-        The number of milliseconds between instances of this table in the output transport stream.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbtdtsettings.html#cfn-medialive-channel-dvbtdtsettings-repinterval
         PrimitiveType: Integer
         UpdateType: Mutable

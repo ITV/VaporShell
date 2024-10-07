@@ -1,35 +1,29 @@
 function Add-VSBudgetsBudgetsActionDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::BudgetsAction.Definition resource property to the template. The definition is where you specify all of the type-specific parameters.
+        Adds an AWS::Budgets::BudgetsAction.Definition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Budgets::BudgetsAction.Definition resource property to the template.
-The definition is where you specify all of the type-specific parameters.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html
 
-    .PARAMETER IamActionDefinition
-        The AWS Identity and Access Management IAM action definition details.
+    .PARAMETER SsmActionDefinition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
+        UpdateType: Mutable
+        Type: SsmActionDefinition
 
+    .PARAMETER IamActionDefinition
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition
         UpdateType: Mutable
         Type: IamActionDefinition
 
     .PARAMETER ScpActionDefinition
-        The service control policies SCP action definition details.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition
         UpdateType: Mutable
         Type: ScpActionDefinition
-
-    .PARAMETER SsmActionDefinition
-        The Amazon EC2 Systems Manager SSM action definition details.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
-        UpdateType: Mutable
-        Type: SsmActionDefinition
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,11 +33,11 @@ The definition is where you specify all of the type-specific parameters.
     Param
     (
         [parameter(Mandatory = $false)]
+        $SsmActionDefinition,
+        [parameter(Mandatory = $false)]
         $IamActionDefinition,
         [parameter(Mandatory = $false)]
-        $ScpActionDefinition,
-        [parameter(Mandatory = $false)]
-        $SsmActionDefinition
+        $ScpActionDefinition
     )
     Begin {
         $obj = [PSCustomObject]@{}

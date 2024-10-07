@@ -1,10 +1,10 @@
 function New-VSWorkSpacesConnectionAlias {
     <#
     .SYNOPSIS
-        Adds an AWS::WorkSpaces::ConnectionAlias resource to the template. The AWS::WorkSpaces::ConnectionAlias resource specifies a connection alias. Connection aliases are used for cross-Region redirection. For more information, see  Cross-Region Redirection for Amazon WorkSpaces: https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html.
+        Adds an AWS::WorkSpaces::ConnectionAlias resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::WorkSpaces::ConnectionAlias resource to the template. The AWS::WorkSpaces::ConnectionAlias resource specifies a connection alias. Connection aliases are used for cross-Region redirection. For more information, see  Cross-Region Redirection for Amazon WorkSpaces: https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html.
+        Adds an AWS::WorkSpaces::ConnectionAlias resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
@@ -13,15 +13,11 @@ function New-VSWorkSpacesConnectionAlias {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ConnectionString
-        The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name FQDN, such as www.example.com.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags to associate with the connection alias.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
         UpdateType: Immutable
         Type: List

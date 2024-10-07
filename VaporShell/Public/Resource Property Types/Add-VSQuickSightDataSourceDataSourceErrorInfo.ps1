@@ -1,25 +1,21 @@
 function Add-VSQuickSightDataSourceDataSourceErrorInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.DataSourceErrorInfo resource property to the template. Error information for the data source creation or update.
+        Adds an AWS::QuickSight::DataSource.DataSourceErrorInfo resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.DataSourceErrorInfo resource property to the template.
-Error information for the data source creation or update.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html
 
     .PARAMETER Type
-        Error type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-type
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Message
-        Error message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-message
         UpdateType: Mutable
         PrimitiveType: String

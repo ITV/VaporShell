@@ -1,18 +1,10 @@
 function New-VSEC2TransitGateway {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGateway resource to the template. Specifies a transit gateway.
+        Adds an AWS::EC2::TransitGateway resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::TransitGateway resource to the template. Specifies a transit gateway.
-
-You can use a transit gateway to interconnect your virtual private clouds (VPC and on-premises networks. After the transit gateway enters the available state, you can attach your VPCs and VPN connections to the transit gateway.
-
-To attach your VPCs, use AWS::EC2::TransitGatewayAttachment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html.
-
-To attach a VPN connection, use AWS::EC2::CustomerGateway: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html to create a customer gateway and specify the ID of the customer gateway and the ID of the transit gateway in a call to AWS::EC2::VPNConnection: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html.
-
-When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table and the default propagation route table. You can use AWS::EC2::TransitGatewayRouteTable: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html to create additional transit gateway route tables. If you disable automatic route propagation, we do not create a default transit gateway route table. You can use AWS::EC2::TransitGatewayRouteTablePropagation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html to propagate routes from a resource attachment to a transit gateway route table. If you disable automatic associations, you can use AWS::EC2::TransitGatewayRouteTableAssociation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html to associate a resource attachment with a transit gateway route table.
+        Adds an AWS::EC2::TransitGateway resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html
@@ -21,91 +13,68 @@ When you create a transit gateway, we create a default transit gateway route tab
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DefaultRouteTablePropagation
-        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetablepropagation
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Description
-        The description of the transit gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER AutoAcceptSharedAttachments
-        Enable or disable automatic acceptance of attachment requests. Disabled by default.
+    .PARAMETER TransitGatewayCidrBlocks
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER AssociationDefaultRouteTableId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER AutoAcceptSharedAttachments
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER DefaultRouteTableAssociation
-        Enable or disable automatic association with the default association route table. Enabled by default.
+    .PARAMETER PropagationDefaultRouteTableId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER DefaultRouteTableAssociation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetableassociation
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER VpnEcmpSupport
-        Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DnsSupport
-        Enable or disable DNS support. Enabled by default.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER MulticastSupport
-        Indicates whether multicast is enabled on the transit gateway
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AmazonSideAsn
-        A private Autonomous System Number ASN for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER TransitGatewayCidrBlocks
-        The transit gateway CIDR blocks.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER Tags
-        The tags for the transit gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
-
-    .PARAMETER AssociationDefaultRouteTableId
-        The ID of the default association route table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER PropagationDefaultRouteTableId
-        The ID of the default propagation route table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -192,6 +161,19 @@ When you create a transit gateway, we create a default transit gateway route tab
             })]
         $Description,
         [parameter(Mandatory = $false)]
+        $TransitGatewayCidrBlocks,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AssociationDefaultRouteTableId,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -202,6 +184,17 @@ When you create a transit gateway, we create a default transit gateway route tab
                 }
             })]
         $AutoAcceptSharedAttachments,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PropagationDefaultRouteTableId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -257,33 +250,9 @@ When you create a transit gateway, we create a default transit gateway route tab
                 }
             })]
         $AmazonSideAsn,
-        [parameter(Mandatory = $false)]
-        $TransitGatewayCidrBlocks,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AssociationDefaultRouteTableId,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PropagationDefaultRouteTableId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

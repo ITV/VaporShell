@@ -1,22 +1,16 @@
 function Add-VSLightsailInstanceAutoSnapshotAddOn {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Instance.AutoSnapshotAddOn resource property to the template. AutoSnapshotAddOn is a property of the AddOn: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html property. It describes the automatic snapshot add-on for an instance.
+        Adds an AWS::Lightsail::Instance.AutoSnapshotAddOn resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Instance.AutoSnapshotAddOn resource property to the template.
-AutoSnapshotAddOn is a property of the AddOn: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html property. It describes the automatic snapshot add-on for an instance.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-autosnapshotaddon.html
 
     .PARAMETER SnapshotTimeOfDay
-        The daily time when an automatic snapshot will be created.
-Constraints:
-+ Must be in HH:00 format, and in an hourly increment.
-+ Specified in Coordinated Universal Time UTC.
-+ The snapshot will be automatically created between the time specified and up to 45 minutes after.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-autosnapshotaddon.html#cfn-lightsail-instance-autosnapshotaddon-snapshottimeofday
         UpdateType: Mutable
         PrimitiveType: String

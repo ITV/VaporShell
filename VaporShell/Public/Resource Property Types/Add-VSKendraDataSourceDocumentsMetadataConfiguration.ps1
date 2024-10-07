@@ -1,18 +1,16 @@
 function Add-VSKendraDataSourceDocumentsMetadataConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.DocumentsMetadataConfiguration resource property to the template. Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
+        Adds an AWS::Kendra::DataSource.DocumentsMetadataConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.DocumentsMetadataConfiguration resource property to the template.
-Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html
 
     .PARAMETER S3Prefix
-        A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use S3Prefix to include only the desired metadata files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html#cfn-kendra-datasource-documentsmetadataconfiguration-s3prefix
         UpdateType: Mutable
         PrimitiveType: String

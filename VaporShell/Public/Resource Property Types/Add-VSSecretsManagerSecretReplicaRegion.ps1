@@ -1,25 +1,21 @@
 function Add-VSSecretsManagerSecretReplicaRegion {
     <#
     .SYNOPSIS
-        Adds an AWS::SecretsManager::Secret.ReplicaRegion resource property to the template. A custom type that specifies a Region and the KmsKeyId for a replica secret.
+        Adds an AWS::SecretsManager::Secret.ReplicaRegion resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SecretsManager::Secret.ReplicaRegion resource property to the template.
-A custom type that specifies a Region and the KmsKeyId for a replica secret.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-replicaregion.html
 
     .PARAMETER KmsKeyId
-        The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses aws/secretsmanager.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-replicaregion.html#cfn-secretsmanager-secret-replicaregion-kmskeyid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Region
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-replicaregion.html#cfn-secretsmanager-secret-replicaregion-region
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,26 +1,21 @@
 function Add-VSIoTSiteWiseAssetModelVariableValue {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AssetModel.VariableValue resource property to the template. Identifies a property value used in an expression.
+        Adds an AWS::IoTSiteWise::AssetModel.VariableValue resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::AssetModel.VariableValue resource property to the template.
-Identifies a property value used in an expression.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html
 
     .PARAMETER PropertyLogicalId
-        The LogicalID of the property to use as the variable.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertylogicalid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER HierarchyLogicalId
-        The LogicalID of the hierarchy to query for the PropertyLogicalID.
-You use a hierarchyLogicalID instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see Defining relationships between assets: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html in the *AWS IoT SiteWise User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchylogicalid
         UpdateType: Mutable
         PrimitiveType: String

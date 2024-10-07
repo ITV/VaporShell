@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileVeevaConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileProperties resource property to the template. The VeevaConnectorProfileProperties property type specifies the connector-specific profile properties required when using Veeva.
+        Adds an AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileProperties resource property to the template.
-The VeevaConnectorProfileProperties property type specifies the connector-specific profile properties required when using Veeva.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Veeva resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String

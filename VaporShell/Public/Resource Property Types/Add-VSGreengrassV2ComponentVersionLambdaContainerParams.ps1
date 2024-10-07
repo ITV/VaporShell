@@ -1,46 +1,38 @@
 function Add-VSGreengrassV2ComponentVersionLambdaContainerParams {
     <#
     .SYNOPSIS
-        Adds an AWS::GreengrassV2::ComponentVersion.LambdaContainerParams resource property to the template. Contains information about a container in which AWS Lambda functions run on Greengrass core devices.
+        Adds an AWS::GreengrassV2::ComponentVersion.LambdaContainerParams resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GreengrassV2::ComponentVersion.LambdaContainerParams resource property to the template.
-Contains information about a container in which AWS Lambda functions run on Greengrass core devices.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html
 
-    .PARAMETER MemorySizeInKB
-        The memory size of the container, expressed in kilobytes.
-Default: 16384 16 MB
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb
-        UpdateType: Immutable
-        PrimitiveType: Integer
-
-    .PARAMETER MountROSysfs
-        Whether or not the container can read information from the device's /sys folder.
-Default: false
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-mountrosysfs
-        UpdateType: Immutable
-        PrimitiveType: Boolean
-
     .PARAMETER Volumes
-        The list of volumes that the container can access.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes
         UpdateType: Immutable
         Type: List
         ItemType: LambdaVolumeMount
+        DuplicatesAllowed: True
+
+    .PARAMETER MountROSysfs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-mountrosysfs
+        UpdateType: Immutable
+        PrimitiveType: Boolean
+
+    .PARAMETER MemorySizeInKB
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb
+        UpdateType: Immutable
+        PrimitiveType: Integer
 
     .PARAMETER Devices
-        The list of system devices that the container can access.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices
         UpdateType: Immutable
         Type: List
         ItemType: LambdaDeviceMount
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -51,7 +43,7 @@ Default: false
     (
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaVolumeMount"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -59,7 +51,7 @@ Default: false
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MemorySizeInKB,
+        $Volumes,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -73,7 +65,7 @@ Default: false
         $MountROSysfs,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaVolumeMount"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -81,7 +73,7 @@ Default: false
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Volumes,
+        $MemorySizeInKB,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaDeviceMount"

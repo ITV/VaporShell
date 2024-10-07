@@ -1,34 +1,26 @@
 function Add-VSCloudFrontCachePolicyCookiesConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::CachePolicy.CookiesConfig resource property to the template. An object that determines whether any cookies in viewer requests (and if so, which cookies are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+        Adds an AWS::CloudFront::CachePolicy.CookiesConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::CachePolicy.CookiesConfig resource property to the template.
-An object that determines whether any cookies in viewer requests (and if so, which cookies are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
 
-    .PARAMETER CookieBehavior
-        Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
-+  none – Cookies in viewer requests are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to none, any cookies that are listed in an OriginRequestPolicy *are* included in origin requests.
-+  whitelist – The cookies in viewer requests that are listed in the CookieNames type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-+  allExcept – All cookies in viewer requests that are * **not** * listed in the CookieNames type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-+  all – All cookies in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Cookies
-        Contains a list of cookie names.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
+
+    .PARAMETER CookieBehavior
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -37,6 +29,8 @@ An object that determines whether any cookies in viewer requests (and if so, whi
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $Cookies,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -47,9 +41,7 @@ An object that determines whether any cookies in viewer requests (and if so, whi
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CookieBehavior,
-        [parameter(Mandatory = $false)]
-        $Cookies
+        $CookieBehavior
     )
     Begin {
         $obj = [PSCustomObject]@{}

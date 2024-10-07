@@ -1,42 +1,34 @@
 function Add-VSEventsConnectionOAuthParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Connection.OAuthParameters resource property to the template. <a name="aws-properties-events-connection-oauthparameters-description"></a>The OAuthParameters property type specifies Not currently supported by AWS CloudFormation. for an AWS::Events::Connection: aws-resource-events-connection.md.
+        Adds an AWS::Events::Connection.OAuthParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Connection.OAuthParameters resource property to the template.
-<a name="aws-properties-events-connection-oauthparameters-description"></a>The OAuthParameters property type specifies Not currently supported by AWS CloudFormation. for an AWS::Events::Connection: aws-resource-events-connection.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html
 
     .PARAMETER ClientParameters
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-clientparameters
         UpdateType: Mutable
         Type: ClientParameters
 
-    .PARAMETER AuthorizationEndpoint
-        Not currently supported by AWS CloudFormation.
+    .PARAMETER OAuthHttpParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-oauthhttpparameters
+        UpdateType: Mutable
+        Type: ConnectionHttpParameters
 
+    .PARAMETER AuthorizationEndpoint
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-authorizationendpoint
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER HttpMethod
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-httpmethod
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER OAuthHttpParameters
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-oauthhttpparameters
-        UpdateType: Mutable
-        Type: ConnectionHttpParameters
 
     .FUNCTIONALITY
         Vaporshell
@@ -47,6 +39,8 @@ function Add-VSEventsConnectionOAuthParameters {
     (
         [parameter(Mandatory = $true)]
         $ClientParameters,
+        [parameter(Mandatory = $false)]
+        $OAuthHttpParameters,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -68,9 +62,7 @@ function Add-VSEventsConnectionOAuthParameters {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $HttpMethod,
-        [parameter(Mandatory = $false)]
-        $OAuthHttpParameters
+        $HttpMethod
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,28 +1,24 @@
 function Add-VSWAFv2WebACLDefaultAction {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.DefaultAction resource property to the template. In a WebACL, this is the action that you want AWS WAF to perform when a web request doesn't match any of the rules in the WebACL. The default action must be a terminating action, so count is not allowed.
+        Adds an AWS::WAFv2::WebACL.DefaultAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.DefaultAction resource property to the template.
-In a WebACL, this is the action that you want AWS WAF to perform when a web request doesn't match any of the rules in the WebACL. The default action must be a terminating action, so count is not allowed.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
 
-    .PARAMETER Allow
-        Specifies that AWS WAF should allow requests by default.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
-        UpdateType: Mutable
-        Type: AllowAction
-
     .PARAMETER Block
-        Specifies that AWS WAF should block requests by default.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
         UpdateType: Mutable
         Type: BlockAction
+
+    .PARAMETER Allow
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
+        UpdateType: Mutable
+        Type: AllowAction
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ In a WebACL, this is the action that you want AWS WAF to perform when a web requ
     Param
     (
         [parameter(Mandatory = $false)]
-        $Allow,
+        $Block,
         [parameter(Mandatory = $false)]
-        $Block
+        $Allow
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,10 +1,10 @@
 function New-VSSSMContactsContactChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMContacts::ContactChannel resource to the template. The AWS::SSMContacts::ContactChannel resource specifies a contact channel as the method that Incident Manager uses to engage your contact.
+        Adds an AWS::SSMContacts::ContactChannel resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SSMContacts::ContactChannel resource to the template. The AWS::SSMContacts::ContactChannel resource specifies a contact channel as the method that Incident Manager uses to engage your contact.
+        Adds an AWS::SSMContacts::ContactChannel resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html
@@ -12,43 +12,30 @@ function New-VSSSMContactsContactChannel {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ContactId
-        The Amazon Resource Name ARN of the contact you are adding the contact channel to.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER ChannelName
-        The name of the contact channel.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ChannelType
-        The type of the contact channel. Incident Manager supports three contact methods:
-+ SMS
-+ VOICE
-+ EMAIL
+    .PARAMETER ChannelAddress
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER ContactId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ChannelType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DeferActivation
-        If you want to activate the channel at a later time, you can choose to defer activation. Incident Manager can't engage your contact channel until it has been activated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
         UpdateType: Mutable
         PrimitiveType: Boolean
-
-    .PARAMETER ChannelAddress
-        The details that Incident Manager uses when trying to engage the contact channel.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -122,7 +109,7 @@ function New-VSSSMContactsContactChannel {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ContactId,
+        $ChannelName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -133,7 +120,18 @@ function New-VSSSMContactsContactChannel {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ChannelName,
+        $ChannelAddress,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ContactId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -156,17 +154,6 @@ function New-VSSSMContactsContactChannel {
                 }
             })]
         $DeferActivation,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ChannelAddress,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

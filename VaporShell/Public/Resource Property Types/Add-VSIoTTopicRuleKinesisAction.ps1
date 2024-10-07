@@ -1,32 +1,26 @@
 function Add-VSIoTTopicRuleKinesisAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.KinesisAction resource property to the template. Describes an action to write data to an Amazon Kinesis stream.
+        Adds an AWS::IoT::TopicRule.KinesisAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.KinesisAction resource property to the template.
-Describes an action to write data to an Amazon Kinesis stream.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html
 
-    .PARAMETER PartitionKey
-        The partition key.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-partitionkey
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER StreamName
-        The name of the Amazon Kinesis stream.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-streamname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+    .PARAMETER PartitionKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-partitionkey
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER RoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -38,17 +32,6 @@ Describes an action to write data to an Amazon Kinesis stream.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PartitionKey,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -60,6 +43,17 @@ Describes an action to write data to an Amazon Kinesis stream.
                 }
             })]
         $StreamName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PartitionKey,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

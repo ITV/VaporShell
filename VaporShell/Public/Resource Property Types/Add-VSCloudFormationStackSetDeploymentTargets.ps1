@@ -1,19 +1,21 @@
 function Add-VSCloudFormationStackSetDeploymentTargets {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::StackSet.DeploymentTargets resource property to the template. The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+        Adds an AWS::CloudFormation::StackSet.DeploymentTargets resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFormation::StackSet.DeploymentTargets resource property to the template.
-The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
 
-    .PARAMETER Accounts
-        The names of one or more AWS accounts for which you want to deploy stack set updates.
-*Pattern*: ^0-9]{12}$
+    .PARAMETER AccountFilterType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountfiltertype
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Accounts
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
         UpdateType: Mutable
         Type: List
@@ -21,21 +23,11 @@ The AWS OrganizationalUnitIds or Accounts for which to create stack instances in
         DuplicatesAllowed: False
 
     .PARAMETER OrganizationalUnitIds
-        The organization root ID or organizational unit OU IDs to which StackSets deploys.
-*Pattern*: ^ou-a-z0-9]{4,32}-a-z0-9]{8,32}|r-a-z0-9]{4,32}$
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
-
-    .PARAMETER AccountFilterType
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountfiltertype
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -44,10 +36,6 @@ The AWS OrganizationalUnitIds or Accounts for which to create stack instances in
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Accounts,
-        [parameter(Mandatory = $false)]
-        $OrganizationalUnitIds,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -58,7 +46,11 @@ The AWS OrganizationalUnitIds or Accounts for which to create stack instances in
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AccountFilterType
+        $AccountFilterType,
+        [parameter(Mandatory = $false)]
+        $Accounts,
+        [parameter(Mandatory = $false)]
+        $OrganizationalUnitIds
     )
     Begin {
         $obj = [PSCustomObject]@{}

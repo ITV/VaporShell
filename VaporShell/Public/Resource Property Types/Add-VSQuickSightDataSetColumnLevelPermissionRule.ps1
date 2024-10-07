@@ -1,30 +1,28 @@
 function Add-VSQuickSightDataSetColumnLevelPermissionRule {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.ColumnLevelPermissionRule resource property to the template. A rule defined to grant access on one or more restricted columns. Each dataset can have multiple rules. To create a restricted column, you add it to one or more rules. Each rule must contain at least one column and at least one user or group. To be able to see a restricted column, a user or group needs to be added to a rule for that column.
+        Adds an AWS::QuickSight::DataSet.ColumnLevelPermissionRule resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.ColumnLevelPermissionRule resource property to the template.
-A rule defined to grant access on one or more restricted columns. Each dataset can have multiple rules. To create a restricted column, you add it to one or more rules. Each rule must contain at least one column and at least one user or group. To be able to see a restricted column, a user or group needs to be added to a rule for that column.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html
 
     .PARAMETER ColumnNames
-        An array of column names.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Principals
-        An array of Amazon Resource Names ARNs for Amazon QuickSight users or groups.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

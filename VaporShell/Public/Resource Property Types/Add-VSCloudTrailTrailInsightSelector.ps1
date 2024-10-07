@@ -1,18 +1,16 @@
 function Add-VSCloudTrailTrailInsightSelector {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudTrail::Trail.InsightSelector resource property to the template. A JSON string that contains a list of insight types that are logged on a trail.
+        Adds an AWS::CloudTrail::Trail.InsightSelector resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudTrail::Trail.InsightSelector resource property to the template.
-A JSON string that contains a list of insight types that are logged on a trail.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
 
     .PARAMETER InsightType
-        The type of insights to log on a trail. ApiCallRateInsight and ApiErrorRateInsight are valid insight types.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-insighttype
         UpdateType: Mutable
         PrimitiveType: String

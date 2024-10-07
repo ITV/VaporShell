@@ -1,25 +1,21 @@
 function Add-VSLexBotAliasCloudWatchLogGroupLogDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.CloudWatchLogGroupLogDestination resource property to the template. The Amazon CloudWatch Logs log group where the text and metadata logs are delivered. The log group must exist before you enable logging.
+        Adds an AWS::Lex::BotAlias.CloudWatchLogGroupLogDestination resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.CloudWatchLogGroupLogDestination resource property to the template.
-The Amazon CloudWatch Logs log group where the text and metadata logs are delivered. The log group must exist before you enable logging.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-cloudwatchloggrouplogdestination.html
 
     .PARAMETER CloudWatchLogGroupArn
-        The Amazon Resource Name ARN of the log group where text and metadata logs are delivered.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-cloudwatchloggrouplogdestination.html#cfn-lex-botalias-cloudwatchloggrouplogdestination-cloudwatchloggrouparn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER LogPrefix
-        The prefix of the log stream name within the log group that you specified.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-cloudwatchloggrouplogdestination.html#cfn-lex-botalias-cloudwatchloggrouplogdestination-logprefix
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,10 +1,10 @@
 function New-VSIoTAnalyticsDatastore {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore resource to the template. AWS::IoTAnalytics::Datastore resource is a repository for messages. For more information, see  How to Use AWS IoT Analytics: https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how in the *AWS IoT Analytics User Guide*.
+        Adds an AWS::IoTAnalytics::Datastore resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTAnalytics::Datastore resource to the template. AWS::IoTAnalytics::Datastore resource is a repository for messages. For more information, see  How to Use AWS IoT Analytics: https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how in the *AWS IoT Analytics User Guide*.
+        Adds an AWS::IoTAnalytics::Datastore resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html
@@ -13,46 +13,31 @@ function New-VSIoTAnalyticsDatastore {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DatastoreStorage
-        Where data store data is stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorestorage
         UpdateType: Mutable
         Type: DatastoreStorage
 
-    .PARAMETER DatastoreName
-        The name of the data store.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorename
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DatastorePartitions
-        Information about the partition dimensions in a data store.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorepartitions
-        UpdateType: Mutable
-        Type: DatastorePartitions
-
     .PARAMETER FileFormatConfiguration
-        Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and Parquet: https://parquet.apache.org/.
-The default file format is JSON. You can specify only one format.
-You can't change the file format after you create the data store.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-fileformatconfiguration
         UpdateType: Mutable
         Type: FileFormatConfiguration
 
-    .PARAMETER RetentionPeriod
-        How long, in days, message data is kept for the data store. When customerManagedS3 storage is selected, this parameter is ignored.
+    .PARAMETER DatastorePartitions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorepartitions
+        UpdateType: Mutable
+        Type: DatastorePartitions
 
+    .PARAMETER DatastoreName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorename
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER RetentionPeriod
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-retentionperiod
         UpdateType: Mutable
         Type: RetentionPeriod
 
     .PARAMETER Tags
-        Metadata which can be used to manage the data store.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-tags
         UpdateType: Mutable
         Type: List
@@ -124,6 +109,10 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
         [parameter(Mandatory = $false)]
         $DatastoreStorage,
         [parameter(Mandatory = $false)]
+        $FileFormatConfiguration,
+        [parameter(Mandatory = $false)]
+        $DatastorePartitions,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -134,10 +123,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $DatastoreName,
-        [parameter(Mandatory = $false)]
-        $DatastorePartitions,
-        [parameter(Mandatory = $false)]
-        $FileFormatConfiguration,
         [parameter(Mandatory = $false)]
         $RetentionPeriod,
         [VaporShell.Core.TransformTag()]

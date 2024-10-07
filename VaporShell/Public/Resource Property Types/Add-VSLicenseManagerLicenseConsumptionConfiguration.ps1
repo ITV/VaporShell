@@ -1,35 +1,29 @@
 function Add-VSLicenseManagerLicenseConsumptionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::LicenseManager::License.ConsumptionConfiguration resource property to the template. Details about a consumption configuration.
+        Adds an AWS::LicenseManager::License.ConsumptionConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LicenseManager::License.ConsumptionConfiguration resource property to the template.
-Details about a consumption configuration.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html
 
-    .PARAMETER RenewType
-        Renewal frequency.
+    .PARAMETER BorrowConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
+        UpdateType: Mutable
+        Type: BorrowConfiguration
 
+    .PARAMETER RenewType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ProvisionalConfiguration
-        Details about a provisional configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
         UpdateType: Mutable
         Type: ProvisionalConfiguration
-
-    .PARAMETER BorrowConfiguration
-        Details about a borrow configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
-        UpdateType: Mutable
-        Type: BorrowConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,6 +32,8 @@ Details about a consumption configuration.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $BorrowConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -50,9 +46,7 @@ Details about a consumption configuration.
             })]
         $RenewType,
         [parameter(Mandatory = $false)]
-        $ProvisionalConfiguration,
-        [parameter(Mandatory = $false)]
-        $BorrowConfiguration
+        $ProvisionalConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

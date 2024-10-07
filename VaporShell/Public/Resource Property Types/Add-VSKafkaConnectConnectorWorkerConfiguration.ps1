@@ -1,25 +1,21 @@
 function Add-VSKafkaConnectConnectorWorkerConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.WorkerConfiguration resource property to the template. The configuration of the workers, which are the processes that run the connector logic.
+        Adds an AWS::KafkaConnect::Connector.WorkerConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.WorkerConfiguration resource property to the template.
-The configuration of the workers, which are the processes that run the connector logic.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html
 
     .PARAMETER Revision
-        The revision of the worker configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-revision
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER WorkerConfigurationArn
-        The Amazon Resource Name ARN of the worker configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-workerconfigurationarn
         UpdateType: Immutable
         PrimitiveType: String

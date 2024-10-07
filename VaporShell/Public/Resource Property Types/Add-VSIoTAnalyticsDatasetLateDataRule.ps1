@@ -1,25 +1,21 @@
 function Add-VSIoTAnalyticsDatasetLateDataRule {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Dataset.LateDataRule resource property to the template. A structure that contains the name and configuration information of a late data rule.
+        Adds an AWS::IoTAnalytics::Dataset.LateDataRule resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Dataset.LateDataRule resource property to the template.
-A structure that contains the name and configuration information of a late data rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html
 
     .PARAMETER RuleConfiguration
-        The information needed to configure the late data rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html#cfn-iotanalytics-dataset-latedatarule-ruleconfiguration
         UpdateType: Mutable
         Type: LateDataRuleConfiguration
 
     .PARAMETER RuleName
-        The name of the late data rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html#cfn-iotanalytics-dataset-latedatarule-rulename
         UpdateType: Mutable
         PrimitiveType: String

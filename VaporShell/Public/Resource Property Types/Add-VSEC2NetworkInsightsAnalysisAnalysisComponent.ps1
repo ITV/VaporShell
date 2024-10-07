@@ -1,25 +1,21 @@
 function Add-VSEC2NetworkInsightsAnalysisAnalysisComponent {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisComponent resource property to the template. Describes a path component.
+        Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisComponent resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisComponent resource property to the template.
-Describes a path component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html
 
     .PARAMETER Id
-        The ID of the component.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-id
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the component.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-arn
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,10 +1,10 @@
 function New-VSPanoramaPackage {
     <#
     .SYNOPSIS
-        Adds an AWS::Panorama::Package resource to the template. Creates a package and storage location in an Amazon S3 access point.
+        Adds an AWS::Panorama::Package resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Panorama::Package resource to the template. Creates a package and storage location in an Amazon S3 access point.
+        Adds an AWS::Panorama::Package resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html
@@ -13,15 +13,16 @@ function New-VSPanoramaPackage {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER PackageName
-        A name for the package.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-packagename
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        Tags for the package.
+    .PARAMETER StorageLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-storagelocation
+        UpdateType: Mutable
+        Type: StorageLocation
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-tags
         UpdateType: Mutable
         Type: List
@@ -101,6 +102,8 @@ function New-VSPanoramaPackage {
                 }
             })]
         $PackageName,
+        [parameter(Mandatory = $false)]
+        $StorageLocation,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

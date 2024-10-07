@@ -1,42 +1,34 @@
 function Add-VSSageMakerMonitoringScheduleClusterConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.ClusterConfig resource property to the template. Configuration for the cluster used to run model monitoring jobs.
+        Adds an AWS::SageMaker::MonitoringSchedule.ClusterConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.ClusterConfig resource property to the template.
-Configuration for the cluster used to run model monitoring jobs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html
 
     .PARAMETER InstanceCount
-        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancecount
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER InstanceType
-        The ML compute instance type for the processing job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
+    .PARAMETER VolumeSizeInGB
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumesizeingb
         UpdateType: Mutable
-        PrimitiveType: String
+        PrimitiveType: Integer
 
     .PARAMETER VolumeKmsKeyId
-        The AWS Key Management Service AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the model monitoring job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumekmskeyid
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER VolumeSizeInGB
-        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumesizeingb
+    .PARAMETER InstanceType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
         UpdateType: Mutable
-        PrimitiveType: Integer
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -58,7 +50,7 @@ Configuration for the cluster used to run model monitoring jobs.
         $InstanceCount,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -66,7 +58,7 @@ Configuration for the cluster used to run model monitoring jobs.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $InstanceType,
+        $VolumeSizeInGB,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -80,7 +72,7 @@ Configuration for the cluster used to run model monitoring jobs.
         $VolumeKmsKeyId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -88,7 +80,7 @@ Configuration for the cluster used to run model monitoring jobs.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VolumeSizeInGB
+        $InstanceType
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,18 +1,16 @@
 function Add-VSRedshiftScheduledActionResumeClusterMessage {
     <#
     .SYNOPSIS
-        Adds an AWS::Redshift::ScheduledAction.ResumeClusterMessage resource property to the template. Describes a resume cluster operation. For example, a scheduled action to run the ResumeCluster API operation.
+        Adds an AWS::Redshift::ScheduledAction.ResumeClusterMessage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Redshift::ScheduledAction.ResumeClusterMessage resource property to the template.
-Describes a resume cluster operation. For example, a scheduled action to run the ResumeCluster API operation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html
 
     .PARAMETER ClusterIdentifier
-        The identifier of the cluster to be resumed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html#cfn-redshift-scheduledaction-resumeclustermessage-clusteridentifier
         UpdateType: Mutable
         PrimitiveType: String

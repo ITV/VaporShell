@@ -1,126 +1,99 @@
 function Add-VSAppFlowFlowSourceConnectorProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.SourceConnectorProperties resource property to the template. Specifies the information that is required to query a particular connector.
+        Adds an AWS::AppFlow::Flow.SourceConnectorProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.SourceConnectorProperties resource property to the template.
-Specifies the information that is required to query a particular connector.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html
 
     .PARAMETER Amplitude
-        Specifies the information that is required for querying Amplitude.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
         UpdateType: Mutable
         Type: AmplitudeSourceProperties
 
-    .PARAMETER Datadog
-        Specifies the information that is required for querying Datadog.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
-        UpdateType: Mutable
-        Type: DatadogSourceProperties
-
-    .PARAMETER Dynatrace
-        Specifies the information that is required for querying Dynatrace.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
-        UpdateType: Mutable
-        Type: DynatraceSourceProperties
-
-    .PARAMETER GoogleAnalytics
-        Specifies the information that is required for querying Google Analytics.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
-        UpdateType: Mutable
-        Type: GoogleAnalyticsSourceProperties
-
-    .PARAMETER InforNexus
-        Specifies the information that is required for querying Infor Nexus.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
-        UpdateType: Mutable
-        Type: InforNexusSourceProperties
-
-    .PARAMETER Marketo
-        Specifies the information that is required for querying Marketo.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
-        UpdateType: Mutable
-        Type: MarketoSourceProperties
-
     .PARAMETER S3
-        Specifies the information that is required for querying Amazon S3.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
         UpdateType: Mutable
         Type: S3SourceProperties
 
-    .PARAMETER SAPOData
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-sapodata
+    .PARAMETER GoogleAnalytics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
         UpdateType: Mutable
-        Type: SAPODataSourceProperties
-
-    .PARAMETER Salesforce
-        Specifies the information that is required for querying Salesforce.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
-        UpdateType: Mutable
-        Type: SalesforceSourceProperties
+        Type: GoogleAnalyticsSourceProperties
 
     .PARAMETER ServiceNow
-        Specifies the information that is required for querying ServiceNow.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
         UpdateType: Mutable
         Type: ServiceNowSourceProperties
 
-    .PARAMETER Singular
-        Specifies the information that is required for querying Singular.
+    .PARAMETER CustomConnector
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-customconnector
+        UpdateType: Mutable
+        Type: CustomConnectorSourceProperties
 
+    .PARAMETER SAPOData
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-sapodata
+        UpdateType: Mutable
+        Type: SAPODataSourceProperties
+
+    .PARAMETER Pardot
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-pardot
+        UpdateType: Mutable
+        Type: PardotSourceProperties
+
+    .PARAMETER Veeva
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
+        UpdateType: Mutable
+        Type: VeevaSourceProperties
+
+    .PARAMETER Trendmicro
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
+        UpdateType: Mutable
+        Type: TrendmicroSourceProperties
+
+    .PARAMETER Datadog
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
+        UpdateType: Mutable
+        Type: DatadogSourceProperties
+
+    .PARAMETER Marketo
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
+        UpdateType: Mutable
+        Type: MarketoSourceProperties
+
+    .PARAMETER Singular
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
         UpdateType: Mutable
         Type: SingularSourceProperties
 
     .PARAMETER Slack
-        Specifies the information that is required for querying Slack.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
         UpdateType: Mutable
         Type: SlackSourceProperties
 
-    .PARAMETER Trendmicro
-        Specifies the information that is required for querying Trend Micro.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
+    .PARAMETER Dynatrace
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
         UpdateType: Mutable
-        Type: TrendmicroSourceProperties
-
-    .PARAMETER Veeva
-        Specifies the information that is required for querying Veeva.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
-        UpdateType: Mutable
-        Type: VeevaSourceProperties
+        Type: DynatraceSourceProperties
 
     .PARAMETER Zendesk
-        Specifies the information that is required for querying Zendesk.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
         UpdateType: Mutable
         Type: ZendeskSourceProperties
 
-    .PARAMETER CustomConnector
-        + SourceConnectorProperties: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_SourceConnectorProperties.html in the *Amazon AppFlow API Reference*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-customconnector
+    .PARAMETER InforNexus
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
         UpdateType: Mutable
-        Type: CustomConnectorSourceProperties
+        Type: InforNexusSourceProperties
+
+    .PARAMETER Salesforce
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
+        UpdateType: Mutable
+        Type: SalesforceSourceProperties
 
     .FUNCTIONALITY
         Vaporshell
@@ -132,35 +105,37 @@ Specifies the information that is required to query a particular connector.
         [parameter(Mandatory = $false)]
         $Amplitude,
         [parameter(Mandatory = $false)]
-        $Datadog,
-        [parameter(Mandatory = $false)]
-        $Dynatrace,
+        $S3,
         [parameter(Mandatory = $false)]
         $GoogleAnalytics,
         [parameter(Mandatory = $false)]
-        $InforNexus,
+        $ServiceNow,
         [parameter(Mandatory = $false)]
-        $Marketo,
-        [parameter(Mandatory = $false)]
-        $S3,
+        $CustomConnector,
         [parameter(Mandatory = $false)]
         $SAPOData,
         [parameter(Mandatory = $false)]
-        $Salesforce,
+        $Pardot,
         [parameter(Mandatory = $false)]
-        $ServiceNow,
+        $Veeva,
+        [parameter(Mandatory = $false)]
+        $Trendmicro,
+        [parameter(Mandatory = $false)]
+        $Datadog,
+        [parameter(Mandatory = $false)]
+        $Marketo,
         [parameter(Mandatory = $false)]
         $Singular,
         [parameter(Mandatory = $false)]
         $Slack,
         [parameter(Mandatory = $false)]
-        $Trendmicro,
-        [parameter(Mandatory = $false)]
-        $Veeva,
+        $Dynatrace,
         [parameter(Mandatory = $false)]
         $Zendesk,
         [parameter(Mandatory = $false)]
-        $CustomConnector
+        $InforNexus,
+        [parameter(Mandatory = $false)]
+        $Salesforce
     )
     Begin {
         $obj = [PSCustomObject]@{}

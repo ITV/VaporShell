@@ -1,14 +1,10 @@
 function New-VSLightsailCertificate {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Certificate resource to the template. The AWS::Lightsail::Certificate resource specifies an SSL/TLS certificate that you can use with a content delivery network (CDN distribution and a container service.
+        Adds an AWS::Lightsail::Certificate resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lightsail::Certificate resource to the template. The AWS::Lightsail::Certificate resource specifies an SSL/TLS certificate that you can use with a content delivery network (CDN distribution and a container service.
-
-**Note**
-
-For information about certificates that you can use with a load balancer, see AWS::Lightsail::LoadBalancerTlsCertificate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html.
+        Adds an AWS::Lightsail::Certificate resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html
@@ -16,34 +12,24 @@ For information about certificates that you can use with a load balancer, see AW
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER CertificateName
-        The name of the certificate.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html#cfn-lightsail-certificate-certificatename
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER DomainName
-        The domain name of the certificate.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html#cfn-lightsail-certificate-domainname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SubjectAlternativeNames
-        An array of strings that specify the alternate domains such as example.org and subdomains such as blog.example.com of the certificate.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html#cfn-lightsail-certificate-subjectalternativenames
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html in the *AWS CloudFormation User Guide*.
-The Value of Tags is optional for Lightsail resources.
+    .PARAMETER CertificateName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html#cfn-lightsail-certificate-certificatename
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html#cfn-lightsail-certificate-tags
         UpdateType: Mutable
         Type: List
@@ -122,7 +108,9 @@ The Value of Tags is optional for Lightsail resources.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CertificateName,
+        $DomainName,
+        [parameter(Mandatory = $false)]
+        $SubjectAlternativeNames,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -133,9 +121,7 @@ The Value of Tags is optional for Lightsail resources.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DomainName,
-        [parameter(Mandatory = $false)]
-        $SubjectAlternativeNames,
+        $CertificateName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

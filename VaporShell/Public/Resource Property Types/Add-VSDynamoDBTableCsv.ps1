@@ -10,17 +10,17 @@ function Add-VSDynamoDBTableCsv {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html
 
+    .PARAMETER Delimiter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html#cfn-dynamodb-table-csv-delimiter
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER HeaderList
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html#cfn-dynamodb-table-csv-headerlist
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
-
-    .PARAMETER Delimiter
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html#cfn-dynamodb-table-csv-delimiter
-        UpdateType: Immutable
-        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -29,8 +29,6 @@ function Add-VSDynamoDBTableCsv {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $HeaderList,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -41,7 +39,9 @@ function Add-VSDynamoDBTableCsv {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Delimiter
+        $Delimiter,
+        [parameter(Mandatory = $false)]
+        $HeaderList
     )
     Begin {
         $obj = [PSCustomObject]@{}

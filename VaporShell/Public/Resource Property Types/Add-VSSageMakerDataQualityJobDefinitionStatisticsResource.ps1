@@ -1,18 +1,16 @@
 function Add-VSSageMakerDataQualityJobDefinitionStatisticsResource {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::DataQualityJobDefinition.StatisticsResource resource property to the template. The statistics resource for a monitoring job.
+        Adds an AWS::SageMaker::DataQualityJobDefinition.StatisticsResource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::DataQualityJobDefinition.StatisticsResource resource property to the template.
-The statistics resource for a monitoring job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html
 
     .PARAMETER S3Uri
-        The Amazon S3 URI for the statistics resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html#cfn-sagemaker-dataqualityjobdefinition-statisticsresource-s3uri
         UpdateType: Immutable
         PrimitiveType: String

@@ -1,12 +1,10 @@
 function New-VSSageMakerWorkteam {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Workteam resource to the template. Creates a new work team for labeling your data. A work team is defined by one or more Amazon Cognito user pools. You must first create the user pools before you can create a work team.
+        Adds an AWS::SageMaker::Workteam resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::Workteam resource to the template. Creates a new work team for labeling your data. A work team is defined by one or more Amazon Cognito user pools. You must first create the user pools before you can create a work team.
-
-You cannot create more than 25 work teams in an account and region.
+        Adds an AWS::SageMaker::Workteam resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html
@@ -15,45 +13,32 @@ You cannot create more than 25 work teams in an account and region.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A description of the work team.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NotificationConfiguration
-        Configures SNS notifications of available or expiring work items for work teams.
-
         Type: NotificationConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-notificationconfiguration
         UpdateType: Mutable
 
     .PARAMETER WorkteamName
-        The name of the work team.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-workteamname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER MemberDefinitions
-        A list of MemberDefinition objects that contains objects that identify the workers that make up the work team.
-Workforces can be created using Amazon Cognito or your own OIDC Identity Provider IdP. For private workforces created using Amazon Cognito use CognitoMemberDefinition. For workforces created using your own OIDC identity provider IdP use OidcMemberDefinition.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-memberdefinitions
         ItemType: MemberDefinition
         UpdateType: Mutable
 
     .PARAMETER WorkforceName
-        The name of the work team.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-workforcename
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Tags
-        An array of key-value pairs.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-tags
         ItemType: Tag

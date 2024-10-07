@@ -1,18 +1,10 @@
 function New-VSCloudFrontFunction {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Function resource to the template. Creates a CloudFront function.
+        Adds an AWS::CloudFront::Function resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFront::Function resource to the template. Creates a CloudFront function.
-
-To create a function, you provide the function code and some configuration information about the function. The response contains an Amazon Resource Name (ARN that uniquely identifies the function, and the function’s stage.
-
-By default, when you create a function, it’s in the DEVELOPMENT stage. In this stage, you can test the function: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/test-function.html in the CloudFront console (or with TestFunction in the CloudFront API.
-
-When you’re ready to use your function with a CloudFront distribution, publish the function to the LIVE stage. You can do this in the CloudFront console, with PublishFunction in the CloudFront API, or by updating the AWS::CloudFront::Function resource with the AutoPublish property set to true. When the function is published to the LIVE stage, you can attach it to a distribution’s cache behavior, using the function’s ARN.
-
-To automatically publish the function to the LIVE stage when it’s created, set the AutoPublish property to true.
+        Adds an AWS::CloudFront::Function resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html
@@ -20,30 +12,27 @@ To automatically publish the function to the LIVE stage when it’s created, set
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AutoPublish
-        A flag that determines whether to automatically publish the function to the LIVE stage when it’s created. To automatically publish to the LIVE stage, set this property to true.
+    .PARAMETER FunctionConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
+        UpdateType: Mutable
+        Type: FunctionConfig
 
+    .PARAMETER FunctionMetadata
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
+        UpdateType: Mutable
+        Type: FunctionMetadata
+
+    .PARAMETER AutoPublish
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER FunctionCode
-        The function code. For more information about writing a CloudFront function, see Writing function code for CloudFront Functions: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html in the *Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER FunctionConfig
-        Contains configuration information about a CloudFront function.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-        UpdateType: Mutable
-        Type: FunctionConfig
-
     .PARAMETER Name
-        A name to identify the function.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
         UpdateType: Mutable
         PrimitiveType: String
@@ -110,6 +99,10 @@ To automatically publish the function to the LIVE stage when it’s created, set
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $true)]
+        $FunctionConfig,
+        [parameter(Mandatory = $false)]
+        $FunctionMetadata,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -121,7 +114,7 @@ To automatically publish the function to the LIVE stage when it’s created, set
                 }
             })]
         $AutoPublish,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -132,8 +125,6 @@ To automatically publish the function to the LIVE stage when it’s created, set
                 }
             })]
         $FunctionCode,
-        [parameter(Mandatory = $false)]
-        $FunctionConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

@@ -1,10 +1,10 @@
 function New-VSGuardDutyDetector {
     <#
     .SYNOPSIS
-        Adds an AWS::GuardDuty::Detector resource to the template. The AWS::GuardDuty::Detector resource specifies a new Amazon GuardDuty detector. A detector is an object that represents the Amazon GuardDuty service. A detector is required for Amazon GuardDuty to become operational.
+        Adds an AWS::GuardDuty::Detector resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::GuardDuty::Detector resource to the template. The AWS::GuardDuty::Detector resource specifies a new Amazon GuardDuty detector. A detector is an object that represents the Amazon GuardDuty service. A detector is required for Amazon GuardDuty to become operational.
+        Adds an AWS::GuardDuty::Detector resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
@@ -13,24 +13,24 @@ function New-VSGuardDutyDetector {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER FindingPublishingFrequency
-        Specifies how frequently updated findings are exported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DataSources
-        Describes which data sources will be enabled for the detector.
-
         Type: CFNDataSourceConfigurations
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
         UpdateType: Mutable
 
     .PARAMETER Enable
-        Specifies whether the detector is to be enabled on creation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
         PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER Features
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features
+        ItemType: FeatureConfigurations
         UpdateType: Mutable
 
     .PARAMETER Tags
@@ -125,6 +125,17 @@ function New-VSGuardDutyDetector {
                 }
             })]
         $Enable,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.GuardDuty.Detector.FeatureConfigurations"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Features,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -201,6 +212,12 @@ function New-VSGuardDutyDetector {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Features {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Features -Value @($Features)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

@@ -1,39 +1,22 @@
 function Add-VSWAFv2RuleGroupForwardedIPConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.ForwardedIPConfiguration resource property to the template. The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF header, but you can specify any header name.
+        Adds an AWS::WAFv2::RuleGroup.ForwardedIPConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.ForwardedIPConfiguration resource property to the template.
-The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF header, but you can specify any header name.
 
-**Note**
-
-If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-
-This configuration is used for GeoMatchStatement and RateBasedStatement. For IPSetReferenceStatement, use IPSetForwardedIPConfig instead.
-
-AWS WAF only evaluates the first IP address found in the specified HTTP header.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
 
-    .PARAMETER HeaderName
-        The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For XFF header, set this to X-Forwarded-For.
-If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
+    .PARAMETER FallbackBehavior
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER FallbackBehavior
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
-If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-You can specify the following fallback behaviors:
-+  MATCH - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-+  NO_MATCH - Treat the web request as not matching the rule statement.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
+    .PARAMETER HeaderName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -54,7 +37,7 @@ You can specify the following fallback behaviors:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $HeaderName,
+        $FallbackBehavior,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -65,7 +48,7 @@ You can specify the following fallback behaviors:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FallbackBehavior
+        $HeaderName
     )
     Begin {
         $obj = [PSCustomObject]@{}

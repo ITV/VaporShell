@@ -1,40 +1,32 @@
 function Add-VSIoTTopicRuleAssetPropertyVariant {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.AssetPropertyVariant resource property to the template. Contains an asset property value (of a single type.
+        Adds an AWS::IoT::TopicRule.AssetPropertyVariant resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.AssetPropertyVariant resource property to the template.
-Contains an asset property value (of a single type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html
 
-    .PARAMETER StringValue
-        Optional. The string value of the value entry. Accepts substitution templates.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER DoubleValue
-        Optional. A string that contains the double value of the value entry. Accepts substitution templates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-doublevalue
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BooleanValue
-        Optional. A string that contains the boolean value true or false of the value entry. Accepts substitution templates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER IntegerValue
-        Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-integervalue
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER StringValue
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -45,17 +37,6 @@ Contains an asset property value (of a single type.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $StringValue,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -88,7 +69,18 @@ Contains an asset property value (of a single type.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IntegerValue
+        $IntegerValue,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StringValue
     )
     Begin {
         $obj = [PSCustomObject]@{}

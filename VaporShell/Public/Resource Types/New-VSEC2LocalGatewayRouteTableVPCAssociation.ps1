@@ -1,10 +1,10 @@
 function New-VSEC2LocalGatewayRouteTableVPCAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LocalGatewayRouteTableVPCAssociation resource to the template. Associates the specified VPC with the specified local gateway route table.
+        Adds an AWS::EC2::LocalGatewayRouteTableVPCAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::LocalGatewayRouteTableVPCAssociation resource to the template. Associates the specified VPC with the specified local gateway route table.
+        Adds an AWS::EC2::LocalGatewayRouteTableVPCAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html
@@ -12,23 +12,17 @@ function New-VSEC2LocalGatewayRouteTableVPCAssociation {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER LocalGatewayRouteTableId
-        The ID of the local gateway route table.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER VpcId
-        The ID of the VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        The tags assigned to the association.
+    .PARAMETER LocalGatewayRouteTableId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
         UpdateType: Mutable
         Type: List
@@ -107,7 +101,7 @@ function New-VSEC2LocalGatewayRouteTableVPCAssociation {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LocalGatewayRouteTableId,
+        $VpcId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -118,7 +112,7 @@ function New-VSEC2LocalGatewayRouteTableVPCAssociation {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VpcId,
+        $LocalGatewayRouteTableId,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

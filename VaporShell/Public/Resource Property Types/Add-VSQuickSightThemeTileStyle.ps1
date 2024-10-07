@@ -1,18 +1,16 @@
 function Add-VSQuickSightThemeTileStyle {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.TileStyle resource property to the template. Display options related to tiles on a sheet.
+        Adds an AWS::QuickSight::Theme.TileStyle resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.TileStyle resource property to the template.
-Display options related to tiles on a sheet.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html
 
     .PARAMETER Border
-        The border around a tile.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border
         UpdateType: Mutable
         Type: BorderStyle

@@ -1,28 +1,24 @@
 function Add-VSEC2NetworkInsightsAccessScopePathStatementRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAccessScope.PathStatementRequest resource property to the template. Describes a path statement.
+        Adds an AWS::EC2::NetworkInsightsAccessScope.PathStatementRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAccessScope.PathStatementRequest resource property to the template.
-Describes a path statement.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-pathstatementrequest.html
 
-    .PARAMETER PacketHeaderStatement
-        The packet header statement.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-pathstatementrequest.html#cfn-ec2-networkinsightsaccessscope-pathstatementrequest-packetheaderstatement
-        UpdateType: Immutable
-        Type: PacketHeaderStatementRequest
-
     .PARAMETER ResourceStatement
-        The resource statement.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-pathstatementrequest.html#cfn-ec2-networkinsightsaccessscope-pathstatementrequest-resourcestatement
         UpdateType: Immutable
         Type: ResourceStatementRequest
+
+    .PARAMETER PacketHeaderStatement
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-pathstatementrequest.html#cfn-ec2-networkinsightsaccessscope-pathstatementrequest-packetheaderstatement
+        UpdateType: Immutable
+        Type: PacketHeaderStatementRequest
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ Describes a path statement.
     Param
     (
         [parameter(Mandatory = $false)]
-        $PacketHeaderStatement,
+        $ResourceStatement,
         [parameter(Mandatory = $false)]
-        $ResourceStatement
+        $PacketHeaderStatement
     )
     Begin {
         $obj = [PSCustomObject]@{}

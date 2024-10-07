@@ -10,15 +10,15 @@ function Add-VSIoTEventsAlarmModelAlarmCapabilities {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html
 
-    .PARAMETER InitializationConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html#cfn-iotevents-alarmmodel-alarmcapabilities-initializationconfiguration
-        UpdateType: Mutable
-        Type: InitializationConfiguration
-
     .PARAMETER AcknowledgeFlow
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html#cfn-iotevents-alarmmodel-alarmcapabilities-acknowledgeflow
         UpdateType: Mutable
         Type: AcknowledgeFlow
+
+    .PARAMETER InitializationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html#cfn-iotevents-alarmmodel-alarmcapabilities-initializationconfiguration
+        UpdateType: Mutable
+        Type: InitializationConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -28,9 +28,9 @@ function Add-VSIoTEventsAlarmModelAlarmCapabilities {
     Param
     (
         [parameter(Mandatory = $false)]
-        $InitializationConfiguration,
+        $AcknowledgeFlow,
         [parameter(Mandatory = $false)]
-        $AcknowledgeFlow
+        $InitializationConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

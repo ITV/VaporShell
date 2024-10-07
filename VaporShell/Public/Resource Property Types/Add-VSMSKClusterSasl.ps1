@@ -1,28 +1,24 @@
 function Add-VSMSKClusterSasl {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.Sasl resource property to the template. Details for client authentication using SASL. To turn on SASL, you must also turn on EncryptionInTransit by setting inCluster to true. You must set clientBroker to either TLS or TLS_PLAINTEXT. If you choose TLS_PLAINTEXT, then you must also set unauthenticated to true.
+        Adds an AWS::MSK::Cluster.Sasl resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.Sasl resource property to the template.
-Details for client authentication using SASL. To turn on SASL, you must also turn on EncryptionInTransit by setting inCluster to true. You must set clientBroker to either TLS or TLS_PLAINTEXT. If you choose TLS_PLAINTEXT, then you must also set unauthenticated to true.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html
 
-    .PARAMETER Scram
-        Details for SASL/SCRAM client authentication.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html#cfn-msk-cluster-sasl-scram
-        UpdateType: Mutable
-        Type: Scram
-
     .PARAMETER Iam
-        Details for IAM access control.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html#cfn-msk-cluster-sasl-iam
         UpdateType: Mutable
         Type: Iam
+
+    .PARAMETER Scram
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html#cfn-msk-cluster-sasl-scram
+        UpdateType: Mutable
+        Type: Scram
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ Details for client authentication using SASL. To turn on SASL, you must also tur
     Param
     (
         [parameter(Mandatory = $false)]
-        $Scram,
+        $Iam,
         [parameter(Mandatory = $false)]
-        $Iam
+        $Scram
     )
     Begin {
         $obj = [PSCustomObject]@{}

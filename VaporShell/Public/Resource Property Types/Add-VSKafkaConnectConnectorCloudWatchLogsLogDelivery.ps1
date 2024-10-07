@@ -1,28 +1,24 @@
 function Add-VSKafkaConnectConnectorCloudWatchLogsLogDelivery {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.CloudWatchLogsLogDelivery resource property to the template. The settings for delivering connector logs to Amazon CloudWatch Logs.
+        Adds an AWS::KafkaConnect::Connector.CloudWatchLogsLogDelivery resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.CloudWatchLogsLogDelivery resource property to the template.
-The settings for delivering connector logs to Amazon CloudWatch Logs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-cloudwatchlogslogdelivery.html
 
-    .PARAMETER Enabled
-        Whether log delivery to Amazon CloudWatch Logs is enabled.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-cloudwatchlogslogdelivery.html#cfn-kafkaconnect-connector-cloudwatchlogslogdelivery-enabled
-        UpdateType: Immutable
-        PrimitiveType: Boolean
-
     .PARAMETER LogGroup
-        The name of the CloudWatch log group that is the destination for log delivery.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-cloudwatchlogslogdelivery.html#cfn-kafkaconnect-connector-cloudwatchlogslogdelivery-loggroup
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER Enabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-cloudwatchlogslogdelivery.html#cfn-kafkaconnect-connector-cloudwatchlogslogdelivery-enabled
+        UpdateType: Immutable
+        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,17 +27,6 @@ The settings for delivering connector logs to Amazon CloudWatch Logs.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Enabled,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +37,18 @@ The settings for delivering connector logs to Amazon CloudWatch Logs.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LogGroup
+        $LogGroup,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Enabled
     )
     Begin {
         $obj = [PSCustomObject]@{}

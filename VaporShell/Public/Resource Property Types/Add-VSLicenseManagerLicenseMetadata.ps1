@@ -1,26 +1,22 @@
 function Add-VSLicenseManagerLicenseMetadata {
     <#
     .SYNOPSIS
-        Adds an AWS::LicenseManager::License.Metadata resource property to the template. Describes key/value pairs.
+        Adds an AWS::LicenseManager::License.Metadata resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LicenseManager::License.Metadata resource property to the template.
-Describes key/value pairs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html
 
-    .PARAMETER Name
-        The key name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Describes key/value pairs.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Describes key/value pairs.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

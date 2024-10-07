@@ -1,33 +1,21 @@
 function Add-VSCloudFrontResponseHeadersPolicyAccessControlAllowMethods {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowMethods resource property to the template. A list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header.
+        Adds an AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowMethods resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowMethods resource property to the template.
-A list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header.
 
-For more information about the Access-Control-Allow-Methods HTTP response header, see Access-Control-Allow-Methods: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods in the MDN Web Docs.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolallowmethods.html
 
     .PARAMETER Items
-        The list of HTTP methods. Valid values are:
-+  GET
-+  DELETE
-+  HEAD
-+  OPTIONS
-+  PATCH
-+  POST
-+  PUT
-+  ALL
-ALL is a special value that includes all of the listed HTTP methods.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolallowmethods.html#cfn-cloudfront-responseheaderspolicy-accesscontrolallowmethods-items
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

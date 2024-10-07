@@ -1,12 +1,10 @@
 function New-VSEvidentlyLaunch {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Launch resource to the template. Creates or updates a *launch* of a given feature. Before you create a launch, you must create the feature to use for the launch.
+        Adds an AWS::Evidently::Launch resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Evidently::Launch resource to the template. Creates or updates a *launch* of a given feature. Before you create a launch, you must create the feature to use for the launch.
-
-You can use a launch to safely validate new features by serving them to a specified percentage of your users while you roll out the feature. You can monitor the performance of the new feature to help you decide when to ramp up traffic to more users. This helps you reduce risk and identify unintended consequences before you fully launch the feature.
+        Adds an AWS::Evidently::Launch resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html
@@ -14,80 +12,58 @@ You can use a launch to safely validate new features by serving them to a specif
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name for the launch. It can include up to 127 characters.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Project
-        The name or ARN of the project that you want to create the launch in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-project
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Description
-        An optional description for the launch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RandomizationSalt
-        When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationsSalt.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-randomizationsalt
+    .PARAMETER ExecutionStatus
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-executionstatus
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER ScheduledSplitsConfig
-        An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-scheduledsplitsconfig
-        UpdateType: Mutable
-        Type: List
-        ItemType: StepConfig
-        DuplicatesAllowed: False
+        Type: ExecutionStatusObject
 
     .PARAMETER Groups
-        An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-groups
         UpdateType: Mutable
         Type: List
         ItemType: LaunchGroupObject
         DuplicatesAllowed: False
 
-    .PARAMETER MetricMonitors
-        An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
+    .PARAMETER RandomizationSalt
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-randomizationsalt
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER MetricMonitors
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-metricmonitors
         UpdateType: Mutable
         Type: List
         ItemType: MetricDefinitionObject
         DuplicatesAllowed: False
 
-    .PARAMETER Tags
-        Assigns one or more tags key-value pairs to the launch.
-Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-You can associate as many as 50 tags with a launch.
-For more information, see Tagging AWS resources: https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html.
+    .PARAMETER ScheduledSplitsConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-scheduledsplitsconfig
+        UpdateType: Mutable
+        Type: List
+        ItemType: StepConfig
+        DuplicatesAllowed: False
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
 
-    .PARAMETER ExecutionStatus
-        The ARN of the launch. For example, arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-executionstatus
-        UpdateType: Mutable
-        Type: ExecutionStatusObject
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -161,17 +137,6 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Project,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -185,27 +150,7 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
             })]
         $Description,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RandomizationSalt,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Evidently.Launch.StepConfig"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ScheduledSplitsConfig,
+        $ExecutionStatus,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Evidently.Launch.LaunchGroupObject"
@@ -219,6 +164,17 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
         $Groups,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RandomizationSalt,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Evidently.Launch.MetricDefinitionObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -228,11 +184,31 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $MetricMonitors,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Evidently.Launch.StepConfig"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ScheduledSplitsConfig,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        $ExecutionStatus,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -307,12 +283,6 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                ScheduledSplitsConfig {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ScheduledSplitsConfig -Value @($ScheduledSplitsConfig)
-                }
                 Groups {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -324,6 +294,12 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name MetricMonitors -Value @($MetricMonitors)
+                }
+                ScheduledSplitsConfig {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ScheduledSplitsConfig -Value @($ScheduledSplitsConfig)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

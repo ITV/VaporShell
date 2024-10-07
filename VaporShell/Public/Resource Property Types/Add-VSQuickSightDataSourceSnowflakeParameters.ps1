@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSourceSnowflakeParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.SnowflakeParameters resource property to the template. The parameters for Snowflake.
+        Adds an AWS::QuickSight::DataSource.SnowflakeParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.SnowflakeParameters resource property to the template.
-The parameters for Snowflake.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html
 
     .PARAMETER Warehouse
-        Warehouse.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Database
-        Database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-database
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Host
-        Host.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-host
         UpdateType: Mutable
         PrimitiveType: String

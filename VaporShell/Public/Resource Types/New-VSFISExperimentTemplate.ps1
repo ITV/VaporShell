@@ -1,20 +1,10 @@
 function New-VSFISExperimentTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::FIS::ExperimentTemplate resource to the template. Specifies an experiment template.
+        Adds an AWS::FIS::ExperimentTemplate resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::FIS::ExperimentTemplate resource to the template. Specifies an experiment template.
-
-An experiment template includes the following components:
-
-+ **Targets**: A target can be a specific resource in your AWS environment, or one or more resources that match criteria that you specify, for example, resources that have specific tags.
-
-+ **Actions**: The actions to carry out on the target. You can specify multiple actions, the duration of each action, and when to start each action during an experiment.
-
-+ **Stop conditions**: If a stop condition is triggered while an experiment is running, the experiment is automatically stopped. You can define a stop condition as a CloudWatch alarm.
-
-For more information, see Experiment templates: https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html in the *AWS Fault Injection Simulator User Guide*.
+        Adds an AWS::FIS::ExperimentTemplate resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
@@ -23,53 +13,40 @@ For more information, see Experiment templates: https://docs.aws.amazon.com/fis/
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A description for the experiment template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Targets
-        The targets for the experiment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-        UpdateType: Mutable
-        Type: Map
-        ItemType: ExperimentTemplateTarget
-
     .PARAMETER Actions
-        The actions for the experiment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
         UpdateType: Mutable
         Type: Map
         ItemType: ExperimentTemplateAction
 
     .PARAMETER StopConditions
-        The stop conditions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
         UpdateType: Mutable
         Type: List
         ItemType: ExperimentTemplateStopCondition
+        DuplicatesAllowed: True
+
+    .PARAMETER Targets
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
+        UpdateType: Mutable
+        Type: Map
+        ItemType: ExperimentTemplateTarget
 
     .PARAMETER LogConfiguration
-        The configuration for experiment logging.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-logconfiguration
         UpdateType: Mutable
         Type: ExperimentTemplateLogConfiguration
 
     .PARAMETER RoleArn
-        The Amazon Resource Name ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags to apply to the experiment template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
         UpdateType: Immutable
         Type: Map
@@ -148,17 +125,6 @@ For more information, see Experiment templates: https://docs.aws.amazon.com/fis/
                 }
             })]
         $Description,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateTarget"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Targets,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateAction"
@@ -181,6 +147,17 @@ For more information, see Experiment templates: https://docs.aws.amazon.com/fis/
                 }
             })]
         $StopConditions,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateTarget"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Targets,
         [parameter(Mandatory = $false)]
         $LogConfiguration,
         [parameter(Mandatory = $true)]

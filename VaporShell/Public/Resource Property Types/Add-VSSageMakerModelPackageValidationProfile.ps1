@@ -10,15 +10,15 @@ function Add-VSSageMakerModelPackageValidationProfile {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html
 
-    .PARAMETER TransformJobDefinition
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html#cfn-sagemaker-modelpackage-validationprofile-transformjobdefinition
-        UpdateType: Immutable
-        Type: TransformJobDefinition
-
     .PARAMETER ProfileName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html#cfn-sagemaker-modelpackage-validationprofile-profilename
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER TransformJobDefinition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html#cfn-sagemaker-modelpackage-validationprofile-transformjobdefinition
+        UpdateType: Immutable
+        Type: TransformJobDefinition
 
     .FUNCTIONALITY
         Vaporshell
@@ -27,8 +27,6 @@ function Add-VSSageMakerModelPackageValidationProfile {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $TransformJobDefinition,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -39,7 +37,9 @@ function Add-VSSageMakerModelPackageValidationProfile {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ProfileName
+        $ProfileName,
+        [parameter(Mandatory = $true)]
+        $TransformJobDefinition
     )
     Begin {
         $obj = [PSCustomObject]@{}

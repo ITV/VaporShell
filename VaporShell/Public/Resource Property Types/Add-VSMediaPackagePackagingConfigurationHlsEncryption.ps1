@@ -1,35 +1,29 @@
 function Add-VSMediaPackagePackagingConfigurationHlsEncryption {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingConfiguration.HlsEncryption resource property to the template. Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Adds an AWS::MediaPackage::PackagingConfiguration.HlsEncryption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::PackagingConfiguration.HlsEncryption resource property to the template.
-Holds encryption information so that access to the content can be controlled by a DRM solution.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
 
     .PARAMETER ConstantInitializationVector
-        A 128-bit, 16-byte hex value represented by a 32-character string, used with the key for encrypting blocks. If you don't specify a constant initialization vector IV, MediaPackage periodically rotates the IV.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER EncryptionMethod
-        HLS encryption type.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER SpekeKeyProvider
-        Parameters for the SPEKE key provider.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
         UpdateType: Mutable
         Type: SpekeKeyProvider
+
+    .PARAMETER EncryptionMethod
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -49,6 +43,8 @@ Holds encryption information so that access to the content can be controlled by 
                 }
             })]
         $ConstantInitializationVector,
+        [parameter(Mandatory = $true)]
+        $SpekeKeyProvider,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,9 +55,7 @@ Holds encryption information so that access to the content can be controlled by 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $EncryptionMethod,
-        [parameter(Mandatory = $true)]
-        $SpekeKeyProvider
+        $EncryptionMethod
     )
     Begin {
         $obj = [PSCustomObject]@{}

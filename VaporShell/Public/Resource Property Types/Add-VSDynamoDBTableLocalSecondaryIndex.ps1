@@ -15,17 +15,17 @@ function Add-VSDynamoDBTableLocalSecondaryIndex {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Projection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-localsecondaryindex.html#cfn-dynamodb-table-localsecondaryindex-projection
+        UpdateType: Mutable
+        Type: Projection
+
     .PARAMETER KeySchema
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-localsecondaryindex.html#cfn-dynamodb-table-localsecondaryindex-keyschema
         UpdateType: Mutable
         Type: List
         ItemType: KeySchema
         DuplicatesAllowed: False
-
-    .PARAMETER Projection
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-localsecondaryindex.html#cfn-dynamodb-table-localsecondaryindex-projection
-        UpdateType: Mutable
-        Type: Projection
 
     .FUNCTIONALITY
         Vaporshell
@@ -46,6 +46,8 @@ function Add-VSDynamoDBTableLocalSecondaryIndex {
             })]
         $IndexName,
         [parameter(Mandatory = $true)]
+        $Projection,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DynamoDB.Table.KeySchema"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,9 +57,7 @@ function Add-VSDynamoDBTableLocalSecondaryIndex {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $KeySchema,
-        [parameter(Mandatory = $true)]
-        $Projection
+        $KeySchema
     )
     Begin {
         $obj = [PSCustomObject]@{}

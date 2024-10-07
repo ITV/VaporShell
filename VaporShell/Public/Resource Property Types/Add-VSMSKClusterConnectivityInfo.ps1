@@ -1,18 +1,21 @@
 function Add-VSMSKClusterConnectivityInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.ConnectivityInfo resource property to the template. Specifies whether the cluster's brokers are publicly accessible. By default, they are not.
+        Adds an AWS::MSK::Cluster.ConnectivityInfo resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.ConnectivityInfo resource property to the template.
-Specifies whether the cluster's brokers are publicly accessible. By default, they are not.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html
 
-    .PARAMETER PublicAccess
-        Specifies whether the cluster's brokers are accessible from the internet. Public access is off by default.
+    .PARAMETER VpcConnectivity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html#cfn-msk-cluster-connectivityinfo-vpcconnectivity
+        UpdateType: Mutable
+        Type: VpcConnectivity
 
+    .PARAMETER PublicAccess
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html#cfn-msk-cluster-connectivityinfo-publicaccess
         UpdateType: Mutable
         Type: PublicAccess
@@ -24,6 +27,8 @@ Specifies whether the cluster's brokers are publicly accessible. By default, the
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $VpcConnectivity,
         [parameter(Mandatory = $false)]
         $PublicAccess
     )

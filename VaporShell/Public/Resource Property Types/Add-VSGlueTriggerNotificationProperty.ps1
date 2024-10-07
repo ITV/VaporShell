@@ -1,18 +1,16 @@
 function Add-VSGlueTriggerNotificationProperty {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Trigger.NotificationProperty resource property to the template. Specifies configuration properties of a job run notification.
+        Adds an AWS::Glue::Trigger.NotificationProperty resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Trigger.NotificationProperty resource property to the template.
-Specifies configuration properties of a job run notification.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html
 
     .PARAMETER NotifyDelayAfter
-        After a job run starts, the number of minutes to wait before sending a job run delay notification
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter
         PrimitiveType: Integer
         UpdateType: Mutable

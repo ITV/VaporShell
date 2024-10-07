@@ -1,10 +1,10 @@
 function New-VSRoute53ResolverResolverDNSSECConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53Resolver::ResolverDNSSECConfig resource to the template. The AWS::Route53Resolver::ResolverDNSSECConfig resource is a complex type that contains information about a configuration for DNSSEC validation.
+        Adds an AWS::Route53Resolver::ResolverDNSSECConfig resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Route53Resolver::ResolverDNSSECConfig resource to the template. The AWS::Route53Resolver::ResolverDNSSECConfig resource is a complex type that contains information about a configuration for DNSSEC validation.
+        Adds an AWS::Route53Resolver::ResolverDNSSECConfig resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html
@@ -13,8 +13,6 @@ function New-VSRoute53ResolverResolverDNSSECConfig {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ResourceId
-        The ID of the virtual private cloud VPC that you're configuring the DNSSEC validation status for.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
         UpdateType: Immutable
         PrimitiveType: String

@@ -1,18 +1,16 @@
 function Add-VSKinesisFirehoseDeliveryStreamRetryOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.RetryOptions resource property to the template. Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        Adds an AWS::KinesisFirehose::DeliveryStream.RetryOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.RetryOptions resource property to the template.
-Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html
 
     .PARAMETER DurationInSeconds
-        The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to the custom destination via HTTPS endpoint fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from the specified destination after each attempt.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html#cfn-kinesisfirehose-deliverystream-retryoptions-durationinseconds
         UpdateType: Mutable
         PrimitiveType: Integer

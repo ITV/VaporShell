@@ -1,18 +1,16 @@
 function Add-VSPanoramaApplicationInstanceManifestOverridesPayload {
     <#
     .SYNOPSIS
-        Adds an AWS::Panorama::ApplicationInstance.ManifestOverridesPayload resource property to the template. Parameter overrides for an application instance. This is a JSON document that has a single key (PayloadData where the value is an escaped string representation of the overrides document.
+        Adds an AWS::Panorama::ApplicationInstance.ManifestOverridesPayload resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Panorama::ApplicationInstance.ManifestOverridesPayload resource property to the template.
-Parameter overrides for an application instance. This is a JSON document that has a single key (PayloadData where the value is an escaped string representation of the overrides document.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html
 
     .PARAMETER PayloadData
-        The overrides document.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html#cfn-panorama-applicationinstance-manifestoverridespayload-payloaddata
         UpdateType: Immutable
         PrimitiveType: String

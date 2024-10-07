@@ -1,18 +1,16 @@
 function Add-VSSSMIncidentsResponsePlanNotificationTargetItem {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMIncidents::ResponsePlan.NotificationTargetItem resource property to the template. The SNS topic that's used by AWS Chatbot to notify the incidents chat channel.
+        Adds an AWS::SSMIncidents::ResponsePlan.NotificationTargetItem resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSMIncidents::ResponsePlan.NotificationTargetItem resource property to the template.
-The SNS topic that's used by AWS Chatbot to notify the incidents chat channel.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html
 
     .PARAMETER SnsTopicArn
-        The Amazon Resource Name ARN of the SNS topic.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html#cfn-ssmincidents-responseplan-notificationtargetitem-snstopicarn
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,22 +1,10 @@
 function New-VSCodeGuruReviewerRepositoryAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeGuruReviewer::RepositoryAssociation resource to the template. This resource configures how Amazon CodeGuru Reviewer retrieves the source code to be reviewed. You can use an AWS CloudFormation template to create an association with the following repository types:
+        Adds an AWS::CodeGuruReviewer::RepositoryAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CodeGuruReviewer::RepositoryAssociation resource to the template. This resource configures how Amazon CodeGuru Reviewer retrieves the source code to be reviewed. You can use an AWS CloudFormation template to create an association with the following repository types:
-
-+ AWS CodeCommit - For more information, see Create an AWS CodeCommit repository association: https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/create-codecommit-association.html in the *Amazon CodeGuru Reviewer User Guide*.
-
-+ Bitbucket - For more information, see Create a Bitbucket repository association: https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/create-bitbucket-association.html in the *Amazon CodeGuru Reviewer User Guide*.
-
-+ GitHub Enterprise Server - For more information, see Create a GitHub Enterprise Server repository association: https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/create-github-enterprise-association.html in the *Amazon CodeGuru Reviewer User Guide*.
-
-+ S3Bucket - For more information, see Create code reviews with GitHub Actions: https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/working-with-cicd.html in the *Amazon CodeGuru Reviewer User Guide*.
-
-**Note**
-
-You cannot use a CloudFormation template to create an association with a GitHub repository.
+        Adds an AWS::CodeGuruReviewer::RepositoryAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html
@@ -24,57 +12,37 @@ You cannot use a CloudFormation template to create an association with a GitHub 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the repository.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Type
-        The type of repository that contains the source code to be reviewed. The valid values are:
-+ CodeCommit
-+ Bitbucket
-+ GitHubEnterpriseServer
-+ S3Bucket
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-type
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Owner
-        The owner of the repository. For a GitHub Enterprise Server or Bitbucket repository, this is the username for the account that owns the repository.
-Owner must be specified for Bitbucket and GitHub Enterprise Server repositories. It has no effect if it is specified for an AWS CodeCommit repository.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-owner
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER BucketName
-        The name of the bucket. This is required for your S3Bucket repositoryThe name must start with the prefix, codeguru-reviewer-*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ConnectionArn
-        The Amazon Resource Name ARN of an AWS CodeStar Connections connection. Its format is arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id. For more information, see Connection: https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html in the *AWS CodeStar Connections API Reference*.
-ConnectionArn must be specified for Bitbucket and GitHub Enterprise Server repositories. It has no effect if it is specified for an AWS CodeCommit repository.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:
-+ A *tag key* for example, CostCenter, Environment, Project, or Secret. Tag keys are case sensitive.
-+ An optional field known as a *tag value* for example, 111122223333, Production, or a team name. Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -148,17 +116,6 @@ ConnectionArn must be specified for Bitbucket and GitHub Enterprise Server repos
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Type,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -196,6 +153,17 @@ ConnectionArn must be specified for Bitbucket and GitHub Enterprise Server repos
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

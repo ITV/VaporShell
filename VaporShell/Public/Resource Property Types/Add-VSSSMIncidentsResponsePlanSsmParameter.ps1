@@ -1,30 +1,26 @@
 function Add-VSSSMIncidentsResponsePlanSsmParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMIncidents::ResponsePlan.SsmParameter resource property to the template. The key-value pair parameters to use when running the automation document.
+        Adds an AWS::SSMIncidents::ResponsePlan.SsmParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSMIncidents::ResponsePlan.SsmParameter resource property to the template.
-The key-value pair parameters to use when running the automation document.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html
 
-    .PARAMETER Key
-        The key parameter to use when running the automation document.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Values
-        The value parameter to use when running the automation document.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-values
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
+
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,6 +29,8 @@ The key-value pair parameters to use when running the automation document.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $Values,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -43,9 +41,7 @@ The key-value pair parameters to use when running the automation document.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
-        [parameter(Mandatory = $true)]
-        $Values
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

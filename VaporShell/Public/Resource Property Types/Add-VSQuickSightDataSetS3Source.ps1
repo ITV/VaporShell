@@ -1,34 +1,28 @@
 function Add-VSQuickSightDataSetS3Source {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.S3Source resource property to the template. A physical table type for an S3 data source.
+        Adds an AWS::QuickSight::DataSet.S3Source resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.S3Source resource property to the template.
-A physical table type for an S3 data source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html
 
     .PARAMETER DataSourceArn
-        The Amazon Resource Name ARN for the data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER InputColumns
-        A physical table type for an S3 data source.
-For files that aren't JSON, only STRING data types are supported in input columns.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
         UpdateType: Mutable
         Type: List
         ItemType: InputColumn
+        DuplicatesAllowed: True
 
     .PARAMETER UploadSettings
-        Information about the format for the S3 source file or files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings
         UpdateType: Mutable
         Type: UploadSettings

@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileZendeskConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.ZendeskConnectorProfileProperties resource property to the template. The ZendeskConnectorProfileProperties property type specifies the connector-specific profile properties required when using Zendesk.
+        Adds an AWS::AppFlow::ConnectorProfile.ZendeskConnectorProfileProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.ZendeskConnectorProfileProperties resource property to the template.
-The ZendeskConnectorProfileProperties property type specifies the connector-specific profile properties required when using Zendesk.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Zendesk resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,14 +1,10 @@
 function New-VSApiGatewayRestApi {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::RestApi resource to the template. The AWS::ApiGateway::RestApi resource creates a REST API. For more information, see restapi:create: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/restapi-create/ in the *Amazon API Gateway REST API Reference*.
+        Adds an AWS::ApiGateway::RestApi resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGateway::RestApi resource to the template. The AWS::ApiGateway::RestApi resource creates a REST API. For more information, see restapi:create: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/restapi-create/ in the *Amazon API Gateway REST API Reference*.
-
-**Note**
-
-On January 1, 2016, the Swagger Specification was donated to the OpenAPI initiative: https://www.openapis.org/, becoming the foundation of the OpenAPI Specification.
+        Adds an AWS::ApiGateway::RestApi resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
@@ -16,122 +12,85 @@ On January 1, 2016, the Swagger Specification was donated to the OpenAPI initiat
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ApiKeySourceType
-        The source of the API key for metering requests according to a usage plan. Valid values are:
-+ HEADER to read the API key from the X-API-Key header of a request.
-+ AUTHORIZER to read the API key from the UsageIdentifierKey from a Lambda authorizer.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-apikeysourcetype
-        PrimitiveType: String
+    .PARAMETER Policy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-policy
         UpdateType: Mutable
-
-    .PARAMETER BinaryMediaTypes
-        The list of binary media types that are supported by the RestApi resource. Use ~1 instead of / in the media types, for example image~1png or application~1octet-stream. By default, RestApi supports only UTF-8-encoded text payloads. Duplicates are not allowed. For more information, see Enable Support for Binary Payloads in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings.html in the *API Gateway Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER Body
-        An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body
         PrimitiveType: Json
-        UpdateType: Mutable
 
     .PARAMETER BodyS3Location
-        The Amazon Simple Storage Service Amazon S3 location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-bodys3location
+        UpdateType: Mutable
         Type: S3Location
-        UpdateType: Mutable
-
-    .PARAMETER CloneFrom
-        The ID of the RestApi resource that you want to clone.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-clonefrom
-        PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER Description
-        A description of the RestApi resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-description
+        UpdateType: Mutable
         PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER DisableExecuteApiEndpoint
-        Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-disableexecuteapiendpoint
-        PrimitiveType: Boolean
-        UpdateType: Mutable
-
-    .PARAMETER EndpointConfiguration
-        A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the Parameters property.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-endpointconfiguration
-        Type: EndpointConfiguration
-        UpdateType: Mutable
-
-    .PARAMETER FailOnWarnings
-        Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-failonwarnings
-        PrimitiveType: Boolean
-        UpdateType: Mutable
 
     .PARAMETER MinimumCompressionSize
-        A nullable integer that is used to enable compression with non-negative between 0 and 10485760 10M bytes, inclusive or disable compression with a null value on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-minimumcompressionsize
+        UpdateType: Mutable
         PrimitiveType: Integer
-        UpdateType: Mutable
-
-    .PARAMETER Mode
-        This property applies only when you use OpenAPI to define your REST API. The Mode determines how API Gateway handles resource updates.
-Valid values are overwrite or merge.
-For overwrite, the new API definition replaces the existing one. The existing API identifier remains unchanged.
-For merge, the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API. Use merge to define top-level RestApi properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
-If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is overwrite. Otherwise, the default value is merge.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-mode
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER Name
-        A name for the RestApi resource.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-name
-        PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER Parameters
-        Custom header parameters for the request.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-parameters
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
+        UpdateType: Mutable
         Type: Map
+        PrimitiveItemType: String
+
+    .PARAMETER CloneFrom
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-clonefrom
         UpdateType: Mutable
+        PrimitiveType: String
 
-    .PARAMETER Policy
-        A policy document that contains the permissions for the RestApi resource. To set the ARN for the policy, use the !Join intrinsic function with "" as delimiter and values of "execute-api:/" and "*".
+    .PARAMETER Mode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-mode
+        UpdateType: Mutable
+        PrimitiveType: String
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-policy
+    .PARAMETER DisableExecuteApiEndpoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-disableexecuteapiendpoint
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER FailOnWarnings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-failonwarnings
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER BinaryMediaTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-name
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ApiKeySourceType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-apikeysourcetype
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER EndpointConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-endpointconfiguration
+        UpdateType: Mutable
+        Type: EndpointConfiguration
+
+    .PARAMETER Body
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body
+        UpdateType: Mutable
         PrimitiveType: Json
-        UpdateType: Mutable
 
     .PARAMETER Tags
-        An array of arbitrary tags key-value pairs to associate with the API.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-tags
-        DuplicatesAllowed: True
-        ItemType: Tag
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -197,19 +156,6 @@ If you don't specify this property, a default value is chosen. For REST APIs cre
         $LogicalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ApiKeySourceType,
-        [parameter(Mandatory = $false)]
-        $BinaryMediaTypes,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -218,9 +164,34 @@ If you don't specify this property, a default value is chosen. For REST APIs cre
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Body,
+        $Policy,
         [parameter(Mandatory = $false)]
         $BodyS3Location,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Description,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MinimumCompressionSize,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Parameters,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -242,7 +213,7 @@ If you don't specify this property, a default value is chosen. For REST APIs cre
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Description,
+        $Mode,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -255,8 +226,6 @@ If you don't specify this property, a default value is chosen. For REST APIs cre
             })]
         $DisableExecuteApiEndpoint,
         [parameter(Mandatory = $false)]
-        $EndpointConfiguration,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -268,27 +237,7 @@ If you don't specify this property, a default value is chosen. For REST APIs cre
             })]
         $FailOnWarnings,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MinimumCompressionSize,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Mode,
+        $BinaryMediaTypes,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -301,8 +250,18 @@ If you don't specify this property, a default value is chosen. For REST APIs cre
             })]
         $Name,
         [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Parameters,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ApiKeySourceType,
+        [parameter(Mandatory = $false)]
+        $EndpointConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
@@ -313,7 +272,7 @@ If you don't specify this property, a default value is chosen. For REST APIs cre
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Policy,
+        $Body,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -403,7 +362,7 @@ If you don't specify this property, a default value is chosen. For REST APIs cre
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
-                Body {
+                Policy {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -420,7 +379,7 @@ If you don't specify this property, a default value is chosen. For REST APIs cre
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Policy {
+                Body {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

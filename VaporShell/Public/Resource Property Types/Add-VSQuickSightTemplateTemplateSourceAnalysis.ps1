@@ -1,26 +1,23 @@
 function Add-VSQuickSightTemplateTemplateSourceAnalysis {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.TemplateSourceAnalysis resource property to the template. The source analysis of the template.
+        Adds an AWS::QuickSight::Template.TemplateSourceAnalysis resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.TemplateSourceAnalysis resource property to the template.
-The source analysis of the template.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html
 
     .PARAMETER DataSetReferences
-        A structure containing information about the dataset references used as placeholders in the template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-datasetreferences
         UpdateType: Mutable
         Type: List
         ItemType: DataSetReference
+        DuplicatesAllowed: True
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-arn
         UpdateType: Mutable
         PrimitiveType: String

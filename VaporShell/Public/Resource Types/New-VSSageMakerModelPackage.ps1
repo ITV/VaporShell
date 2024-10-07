@@ -12,35 +12,23 @@ function New-VSSageMakerModelPackage {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Tag
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-tag
-        UpdateType: Mutable
-        Type: Tag
+    .PARAMETER DriftCheckBaselines
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-driftcheckbaselines
+        UpdateType: Immutable
+        Type: DriftCheckBaselines
 
-    .PARAMETER Tags
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-tags
+    .PARAMETER LastModifiedBy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-lastmodifiedby
         UpdateType: Mutable
-        Type: List
-        ItemType: Tag
+        Type: UserContext
 
-    .PARAMETER AdditionalInferenceSpecifications
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-additionalinferencespecifications
-        UpdateType: Mutable
-        Type: List
-        ItemType: AdditionalInferenceSpecificationDefinition
+    .PARAMETER ModelMetrics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelmetrics
+        UpdateType: Immutable
+        Type: ModelMetrics
 
-    .PARAMETER AdditionalInferenceSpecificationDefinition
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-additionalinferencespecificationdefinition
-        UpdateType: Mutable
-        Type: AdditionalInferenceSpecificationDefinition
-
-    .PARAMETER CertifyForMarketplace
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-certifyformarketplace
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
-    .PARAMETER ClientToken
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-clienttoken
+    .PARAMETER Task
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-task
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -50,83 +38,8 @@ function New-VSSageMakerModelPackage {
         Type: Map
         PrimitiveItemType: String
 
-    .PARAMETER Domain
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-domain
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DriftCheckBaselines
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-driftcheckbaselines
-        UpdateType: Immutable
-        Type: DriftCheckBaselines
-
-    .PARAMETER InferenceSpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-inferencespecification
-        UpdateType: Immutable
-        Type: InferenceSpecification
-
-    .PARAMETER MetadataProperties
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-metadataproperties
-        UpdateType: Immutable
-        Type: MetadataProperties
-
     .PARAMETER ModelApprovalStatus
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelapprovalstatus
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER ModelMetrics
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelmetrics
-        UpdateType: Immutable
-        Type: ModelMetrics
-
-    .PARAMETER ModelPackageDescription
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelpackagedescription
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ModelPackageGroupName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelpackagegroupname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ModelPackageName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelpackagename
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER SamplePayloadUrl
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-samplepayloadurl
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER SourceAlgorithmSpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-sourcealgorithmspecification
-        UpdateType: Immutable
-        Type: SourceAlgorithmSpecification
-
-    .PARAMETER Task
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-task
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ValidationSpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-validationspecification
-        UpdateType: Immutable
-        Type: ValidationSpecification
-
-    .PARAMETER ApprovalDescription
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-approvaldescription
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER LastModifiedBy
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-lastmodifiedby
-        UpdateType: Mutable
-        Type: UserContext
-
-    .PARAMETER LastModifiedTime
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-lastmodifiedtime
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -135,32 +48,117 @@ function New-VSSageMakerModelPackage {
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER AdditionalInferenceSpecificationsToAdd
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-additionalinferencespecificationstoadd
-        UpdateType: Mutable
-        Type: List
-        ItemType: AdditionalInferenceSpecificationDefinition
+    .PARAMETER MetadataProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-metadataproperties
+        UpdateType: Immutable
+        Type: MetadataProperties
+
+    .PARAMETER SourceAlgorithmSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-sourcealgorithmspecification
+        UpdateType: Immutable
+        Type: SourceAlgorithmSpecification
 
     .PARAMETER ModelPackageStatusDetails
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelpackagestatusdetails
         UpdateType: Mutable
         Type: ModelPackageStatusDetails
 
+    .PARAMETER ModelPackageDescription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelpackagedescription
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER AdditionalInferenceSpecificationsToAdd
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-additionalinferencespecificationstoadd
+        UpdateType: Mutable
+        Type: List
+        ItemType: AdditionalInferenceSpecificationDefinition
+        DuplicatesAllowed: True
+
+    .PARAMETER InferenceSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-inferencespecification
+        UpdateType: Immutable
+        Type: InferenceSpecification
+
+    .PARAMETER SamplePayloadUrl
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-samplepayloadurl
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER CertifyForMarketplace
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-certifyformarketplace
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER ModelPackageStatusItem
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelpackagestatusitem
         UpdateType: Mutable
         Type: ModelPackageStatusItem
+
+    .PARAMETER ModelPackageGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelpackagegroupname
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER CreatedBy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-createdby
         UpdateType: Mutable
         Type: UserContext
 
+    .PARAMETER ApprovalDescription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-approvaldescription
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ValidationSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-validationspecification
+        UpdateType: Immutable
+        Type: ValidationSpecification
+
+    .PARAMETER ModelPackageName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelpackagename
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER AdditionalInferenceSpecificationDefinition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-additionalinferencespecificationdefinition
+        UpdateType: Mutable
+        Type: AdditionalInferenceSpecificationDefinition
+
+    .PARAMETER LastModifiedTime
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-lastmodifiedtime
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Environment
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-environment
         UpdateType: Mutable
         Type: Map
         PrimitiveItemType: String
+
+    .PARAMETER ClientToken
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-clienttoken
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Domain
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-domain
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER AdditionalInferenceSpecifications
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-additionalinferencespecifications
+        UpdateType: Mutable
+        Type: List
+        ItemType: AdditionalInferenceSpecificationDefinition
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -225,34 +223,11 @@ function New-VSSageMakerModelPackage {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        $Tag,
-        [VaporShell.Core.TransformTag()]
+        $DriftCheckBaselines,
         [parameter(Mandatory = $false)]
-        $Tags,
+        $LastModifiedBy,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.SageMaker.ModelPackage.AdditionalInferenceSpecificationDefinition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AdditionalInferenceSpecifications,
-        [parameter(Mandatory = $false)]
-        $AdditionalInferenceSpecificationDefinition,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $CertifyForMarketplace,
+        $ModelMetrics,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -263,7 +238,7 @@ function New-VSSageMakerModelPackage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ClientToken,
+        $Task,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $CustomerMetadataProperties,
@@ -277,16 +252,10 @@ function New-VSSageMakerModelPackage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Domain,
-        [parameter(Mandatory = $false)]
-        $DriftCheckBaselines,
-        [parameter(Mandatory = $false)]
-        $InferenceSpecification,
-        [parameter(Mandatory = $false)]
-        $MetadataProperties,
+        $ModelApprovalStatus,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -294,9 +263,13 @@ function New-VSSageMakerModelPackage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ModelApprovalStatus,
+        $ModelPackageVersion,
         [parameter(Mandatory = $false)]
-        $ModelMetrics,
+        $MetadataProperties,
+        [parameter(Mandatory = $false)]
+        $SourceAlgorithmSpecification,
+        [parameter(Mandatory = $false)]
+        $ModelPackageStatusDetails,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -310,7 +283,7 @@ function New-VSSageMakerModelPackage {
         $ModelPackageDescription,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "Vaporshell.Resource.SageMaker.ModelPackage.AdditionalInferenceSpecificationDefinition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -318,18 +291,9 @@ function New-VSSageMakerModelPackage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ModelPackageGroupName,
+        $AdditionalInferenceSpecificationsToAdd,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ModelPackageName,
+        $InferenceSpecification,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -341,8 +305,22 @@ function New-VSSageMakerModelPackage {
                 }
             })]
         $SamplePayloadUrl,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
-        $SourceAlgorithmSpecification,
+        $Tags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CertifyForMarketplace,
+        [parameter(Mandatory = $false)]
+        $ModelPackageStatusItem,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -353,9 +331,9 @@ function New-VSSageMakerModelPackage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Task,
+        $ModelPackageGroupName,
         [parameter(Mandatory = $false)]
-        $ValidationSpecification,
+        $CreatedBy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -368,7 +346,20 @@ function New-VSSageMakerModelPackage {
             })]
         $ApprovalDescription,
         [parameter(Mandatory = $false)]
-        $LastModifiedBy,
+        $ValidationSpecification,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ModelPackageName,
+        [parameter(Mandatory = $false)]
+        $AdditionalInferenceSpecificationDefinition,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -381,8 +372,11 @@ function New-VSSageMakerModelPackage {
             })]
         $LastModifiedTime,
         [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Environment,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -390,7 +384,18 @@ function New-VSSageMakerModelPackage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ModelPackageVersion,
+        $ClientToken,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Domain,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.ModelPackage.AdditionalInferenceSpecificationDefinition"
@@ -401,16 +406,7 @@ function New-VSSageMakerModelPackage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AdditionalInferenceSpecificationsToAdd,
-        [parameter(Mandatory = $false)]
-        $ModelPackageStatusDetails,
-        [parameter(Mandatory = $false)]
-        $ModelPackageStatusItem,
-        [parameter(Mandatory = $false)]
-        $CreatedBy,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Environment,
+        $AdditionalInferenceSpecifications,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -485,6 +481,12 @@ function New-VSSageMakerModelPackage {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
+                AdditionalInferenceSpecificationsToAdd {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AdditionalInferenceSpecificationsToAdd -Value @($AdditionalInferenceSpecificationsToAdd)
+                }
                 Tags {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -496,12 +498,6 @@ function New-VSSageMakerModelPackage {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AdditionalInferenceSpecifications -Value @($AdditionalInferenceSpecifications)
-                }
-                AdditionalInferenceSpecificationsToAdd {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AdditionalInferenceSpecificationsToAdd -Value @($AdditionalInferenceSpecificationsToAdd)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

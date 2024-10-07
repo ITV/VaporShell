@@ -1,18 +1,16 @@
 function Add-VSLambdaEventInvokeConfigOnFailure {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::EventInvokeConfig.OnFailure resource property to the template. A destination for events that failed processing.
+        Adds an AWS::Lambda::EventInvokeConfig.OnFailure resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lambda::EventInvokeConfig.OnFailure resource property to the template.
-A destination for events that failed processing.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig-onfailure.html
 
     .PARAMETER Destination
-        The Amazon Resource Name ARN of the destination resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig-onfailure.html#cfn-lambda-eventinvokeconfig-destinationconfig-onfailure-destination
         PrimitiveType: String
         UpdateType: Mutable

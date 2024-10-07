@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayBackendDefaults {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayBackendDefaults resource property to the template. An object that represents the default properties for a backend.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayBackendDefaults resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayBackendDefaults resource property to the template.
-An object that represents the default properties for a backend.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html
 
     .PARAMETER ClientPolicy
-        A reference to an object that represents a client policy.
-
         Type: VirtualGatewayClientPolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html#cfn-appmesh-virtualgateway-virtualgatewaybackenddefaults-clientpolicy
         UpdateType: Mutable

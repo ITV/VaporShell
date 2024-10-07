@@ -1,25 +1,21 @@
 function Add-VSDataSyncLocationHDFSQopConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationHDFS.QopConfiguration resource property to the template. The Quality of Protection (QOP configuration specifies the Remote Procedure Call (RPC and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS cluster.
+        Adds an AWS::DataSync::LocationHDFS.QopConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataSync::LocationHDFS.QopConfiguration resource property to the template.
-The Quality of Protection (QOP configuration specifies the Remote Procedure Call (RPC and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS cluster.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html
 
     .PARAMETER RpcProtection
-        The Remote Procedure Call RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html#cfn-datasync-locationhdfs-qopconfiguration-rpcprotection
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DataTransferProtection
-        The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html#cfn-datasync-locationhdfs-qopconfiguration-datatransferprotection
         UpdateType: Mutable
         PrimitiveType: String

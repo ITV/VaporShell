@@ -1,10 +1,10 @@
 function New-VSS3MultiRegionAccessPoint {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::MultiRegionAccessPoint resource to the template. The AWS::S3::MultiRegionAccessPoint resource creates an Amazon S3 Multi-Region Access Point. To learn more about Multi-Region Access Points, see  Multi-Region Access Points in Amazon S3: https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html in the in the *Amazon S3 User Guide*.
+        Adds an AWS::S3::MultiRegionAccessPoint resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::S3::MultiRegionAccessPoint resource to the template. The AWS::S3::MultiRegionAccessPoint resource creates an Amazon S3 Multi-Region Access Point. To learn more about Multi-Region Access Points, see  Multi-Region Access Points in Amazon S3: https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html in the in the *Amazon S3 User Guide*.
+        Adds an AWS::S3::MultiRegionAccessPoint resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html
@@ -12,28 +12,22 @@ function New-VSS3MultiRegionAccessPoint {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the Multi-Region Access Point.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER PublicAccessBlockConfiguration
-        The PublicAccessBlock configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers an object public, see The Meaning of "Public": https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status in the *Amazon S3 User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration
         UpdateType: Immutable
         Type: PublicAccessBlockConfiguration
 
     .PARAMETER Regions
-        A collection of the Regions and buckets associated with the Multi-Region Access Point.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
         UpdateType: Immutable
         Type: List
         ItemType: Region
         DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -98,17 +92,6 @@ function New-VSS3MultiRegionAccessPoint {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
-        [parameter(Mandatory = $false)]
         $PublicAccessBlockConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -121,6 +104,17 @@ function New-VSS3MultiRegionAccessPoint {
                 }
             })]
         $Regions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

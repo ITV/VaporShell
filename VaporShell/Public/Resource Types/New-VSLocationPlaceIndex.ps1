@@ -1,10 +1,10 @@
 function New-VSLocationPlaceIndex {
     <#
     .SYNOPSIS
-        Adds an AWS::Location::PlaceIndex resource to the template. The AWS::Location::PlaceIndex resource specifies a place index resource in your AWS account, which supports Places functions with geospatial data sourced from your chosen data provider.
+        Adds an AWS::Location::PlaceIndex resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Location::PlaceIndex resource to the template. The AWS::Location::PlaceIndex resource specifies a place index resource in your AWS account, which supports Places functions with geospatial data sourced from your chosen data provider.
+        Adds an AWS::Location::PlaceIndex resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
@@ -12,50 +12,28 @@ function New-VSLocationPlaceIndex {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DataSource
-        Specifies the data provider of geospatial data.
-This field is case-sensitive. Enter the valid values as shown. For example, entering HERE will return an error.
-Valid values include:
-+ Esri
-+ Here
-**Important**
-Place index resources using HERE as a data provider can't be used to store: https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html results for locations in Japan. For more information, see the AWS Service Terms: http://aws.amazon.com/service-terms/ for Amazon Location Service.
-For additional details on data providers, see the Amazon Location Service data providers page: https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DataSourceConfiguration
-        Specifies the data storage option for requesting Places.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
-        UpdateType: Immutable
-        Type: DataSourceConfiguration
-
-    .PARAMETER Description
-        The optional description for the place index resource.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER IndexName
-        The name of the place index resource.
-Requirements:
-+ Contain only alphanumeric characters A–Z, a–z, 0–9, hyphens -, periods ., and underscores _.
-+ Must be a unique place index resource name.
-+ No spaces allowed. For example, ExamplePlaceIndex.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER PricingPlan
-        No longer used. If included, the only allowed value is RequestBasedUsage.
-*Allowed Values*: RequestBasedUsage
+    .PARAMETER Description
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER PricingPlan
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER DataSourceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
+        UpdateType: Immutable
+        Type: DataSourceConfiguration
+
+    .PARAMETER DataSource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -131,30 +109,6 @@ Requirements:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DataSource,
-        [parameter(Mandatory = $false)]
-        $DataSourceConfiguration,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Description,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $IndexName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -166,7 +120,31 @@ Requirements:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $Description,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $PricingPlan,
+        [parameter(Mandatory = $false)]
+        $DataSourceConfiguration,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DataSource,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

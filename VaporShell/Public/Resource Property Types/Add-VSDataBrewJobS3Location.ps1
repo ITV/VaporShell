@@ -1,33 +1,27 @@
 function Add-VSDataBrewJobS3Location {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Job.S3Location resource property to the template. Represents an Amazon S3 location (bucket name, bucket owner, and object key where DataBrew can read input data, or write output from a job.
+        Adds an AWS::DataBrew::Job.S3Location resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Job.S3Location resource property to the template.
-Represents an Amazon S3 location (bucket name, bucket owner, and object key where DataBrew can read input data, or write output from a job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html
 
     .PARAMETER Bucket
-        The Amazon S3 bucket name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Key
-        The unique name of the object in the bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
+    .PARAMETER BucketOwner
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucketowner
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER BucketOwner
-        The AWS account ID of the bucket owner.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucketowner
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -59,7 +53,7 @@ Represents an Amazon S3 location (bucket name, bucket owner, and object key wher
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $BucketOwner,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -70,7 +64,7 @@ Represents an Amazon S3 location (bucket name, bucket owner, and object key wher
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $BucketOwner
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

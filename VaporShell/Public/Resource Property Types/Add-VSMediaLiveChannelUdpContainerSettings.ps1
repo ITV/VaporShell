@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelUdpContainerSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.UdpContainerSettings resource property to the template. The configuration of a UDP output.
+        Adds an AWS::MediaLive::Channel.UdpContainerSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.UdpContainerSettings resource property to the template.
-The configuration of a UDP output.
 
-The parent of this entity is UdpOutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpcontainersettings.html
 
     .PARAMETER M2tsSettings
-        The M2TS configuration for this UDP output.
-
         Type: M2tsSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpcontainersettings.html#cfn-medialive-channel-udpcontainersettings-m2tssettings
         UpdateType: Mutable

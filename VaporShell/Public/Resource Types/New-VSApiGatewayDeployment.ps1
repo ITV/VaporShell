@@ -1,10 +1,10 @@
 function New-VSApiGatewayDeployment {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::Deployment resource to the template. The AWS::ApiGateway::Deployment resource deploys an API Gateway RestApi resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
+        Adds an AWS::ApiGateway::Deployment resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGateway::Deployment resource to the template. The AWS::ApiGateway::Deployment resource deploys an API Gateway RestApi resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
+        Adds an AWS::ApiGateway::Deployment resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html
@@ -12,40 +12,30 @@ function New-VSApiGatewayDeployment {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DeploymentCanarySettings
-        Specifies settings for the canary deployment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-deploymentcanarysettings
-        UpdateType: Immutable
-        Type: DeploymentCanarySettings
-
     .PARAMETER Description
-        A description of the purpose of the API Gateway deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RestApiId
-        The ID of the RestApi resource to deploy.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-restapiid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER StageDescription
-        Configures the stage that API Gateway creates with this deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-stagedescription
         UpdateType: Mutable
         Type: StageDescription
 
     .PARAMETER StageName
-        A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-stagename
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER RestApiId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-restapiid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER DeploymentCanarySettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-deploymentcanarysettings
+        UpdateType: Immutable
+        Type: DeploymentCanarySettings
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -110,8 +100,6 @@ function New-VSApiGatewayDeployment {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        $DeploymentCanarySettings,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -122,17 +110,6 @@ function New-VSApiGatewayDeployment {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RestApiId,
         [parameter(Mandatory = $false)]
         $StageDescription,
         [parameter(Mandatory = $false)]
@@ -146,6 +123,19 @@ function New-VSApiGatewayDeployment {
                 }
             })]
         $StageName,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RestApiId,
+        [parameter(Mandatory = $false)]
+        $DeploymentCanarySettings,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

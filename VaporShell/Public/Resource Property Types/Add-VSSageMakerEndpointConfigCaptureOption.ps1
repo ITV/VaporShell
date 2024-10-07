@@ -1,18 +1,16 @@
 function Add-VSSageMakerEndpointConfigCaptureOption {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::EndpointConfig.CaptureOption resource property to the template. Specifies whether the endpoint captures input data or output data.
+        Adds an AWS::SageMaker::EndpointConfig.CaptureOption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::EndpointConfig.CaptureOption resource property to the template.
-Specifies whether the endpoint captures input data or output data.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html
 
     .PARAMETER CaptureMode
-        Specifies whether the endpoint captures input data or output data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html#cfn-sagemaker-endpointconfig-captureoption-capturemode
         PrimitiveType: String
         UpdateType: Immutable

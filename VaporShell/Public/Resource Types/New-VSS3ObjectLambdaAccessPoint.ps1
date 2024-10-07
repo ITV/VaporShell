@@ -1,10 +1,10 @@
 function New-VSS3ObjectLambdaAccessPoint {
     <#
     .SYNOPSIS
-        Adds an AWS::S3ObjectLambda::AccessPoint resource to the template. The AWS::S3ObjectLambda::AccessPoint resource specifies an Object Lambda Access Point used to access a bucket.
+        Adds an AWS::S3ObjectLambda::AccessPoint resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::S3ObjectLambda::AccessPoint resource to the template. The AWS::S3ObjectLambda::AccessPoint resource specifies an Object Lambda Access Point used to access a bucket.
+        Adds an AWS::S3ObjectLambda::AccessPoint resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html
@@ -12,19 +12,15 @@ function New-VSS3ObjectLambdaAccessPoint {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of this access point.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER ObjectLambdaConfiguration
-        A configuration used when creating an Object Lambda Access Point.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
         UpdateType: Mutable
         Type: ObjectLambdaConfiguration
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -88,6 +84,8 @@ function New-VSS3ObjectLambdaAccessPoint {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $true)]
+        $ObjectLambdaConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -99,8 +97,6 @@ function New-VSS3ObjectLambdaAccessPoint {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $true)]
-        $ObjectLambdaConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

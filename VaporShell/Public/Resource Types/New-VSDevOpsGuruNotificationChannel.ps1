@@ -1,16 +1,10 @@
 function New-VSDevOpsGuruNotificationChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::DevOpsGuru::NotificationChannel resource to the template. Adds a notification channel to DevOps Guru. A notification channel is used to notify you about important DevOps Guru events, such as when an insight is generated.
+        Adds an AWS::DevOpsGuru::NotificationChannel resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DevOpsGuru::NotificationChannel resource to the template. Adds a notification channel to DevOps Guru. A notification channel is used to notify you about important DevOps Guru events, such as when an insight is generated.
-
-If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see Permissions for cross account Amazon SNS topics: https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html.
-
-If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.
-
-If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK, then you must add permissions to the CMK. For more information, see Permissions for AWS KMS–encrypted Amazon SNS topics: https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html.
+        Adds an AWS::DevOpsGuru::NotificationChannel resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
@@ -19,8 +13,6 @@ If you use an Amazon SNS topic that is encrypted by an AWS Key Management Servic
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Config
-        A NotificationChannelConfig object that contains information about configured notification channels.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
         UpdateType: Immutable
         Type: NotificationChannelConfig

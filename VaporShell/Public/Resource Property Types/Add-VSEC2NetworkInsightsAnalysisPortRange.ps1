@@ -1,25 +1,21 @@
 function Add-VSEC2NetworkInsightsAnalysisPortRange {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAnalysis.PortRange resource property to the template. Describes a range of ports.
+        Adds an AWS::EC2::NetworkInsightsAnalysis.PortRange resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAnalysis.PortRange resource property to the template.
-Describes a range of ports.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html
 
     .PARAMETER From
-        The first port in the range.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-from
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER To
-        The last port in the range.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-to
         UpdateType: Mutable
         PrimitiveType: Integer

@@ -1,10 +1,10 @@
 function New-VSLocationGeofenceCollection {
     <#
     .SYNOPSIS
-        Adds an AWS::Location::GeofenceCollection resource to the template. The AWS::Location::GeofenceCollection resource specifies the ability to detect and act when a tracked device enters or exits a defined geographical boundary known as a geofence.
+        Adds an AWS::Location::GeofenceCollection resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Location::GeofenceCollection resource to the template. The AWS::Location::GeofenceCollection resource specifies the ability to detect and act when a tracked device enters or exits a defined geographical boundary known as a geofence.
+        Adds an AWS::Location::GeofenceCollection resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html
@@ -12,40 +12,19 @@ function New-VSLocationGeofenceCollection {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER CollectionName
-        The name for the geofence collection.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        An optional description for the geofence collection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER KmsKeyId
-        A key identifier for an AWS KMS customer managed key: https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html. Enter a key ID, key ARN, alias name, or alias ARN.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER PricingPlan
-        No longer used. If included, the only allowed value is RequestBasedUsage.
-*Allowed Values*: RequestBasedUsage
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
+    .PARAMETER CollectionName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
         UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER PricingPlanDataSource
-        This parameter is no longer used.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
-        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy
@@ -110,17 +89,6 @@ function New-VSLocationGeofenceCollection {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $CollectionName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -143,7 +111,7 @@ function New-VSLocationGeofenceCollection {
                 }
             })]
         $KmsKeyId,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -153,18 +121,7 @@ function New-VSLocationGeofenceCollection {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PricingPlan,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PricingPlanDataSource,
+        $CollectionName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

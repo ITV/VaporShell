@@ -1,41 +1,31 @@
 function Add-VSS3BucketDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.Destination resource property to the template. Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
+        Adds an AWS::S3::Bucket.Destination resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.Destination resource property to the template.
-Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html
 
     .PARAMETER BucketAccountId
-        The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
-Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketaccountid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER BucketArn
-        The Amazon Resource Name ARN of the bucket to which data is exported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Format
-        Specifies the file format used when exporting data to Amazon S3.
-*Allowed values*: CSV | ORC | Parquet
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-format
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Prefix
-        The prefix to use when exporting data. The prefix is prepended to all results.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-prefix
         PrimitiveType: String
         UpdateType: Mutable

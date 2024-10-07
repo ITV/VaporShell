@@ -1,24 +1,10 @@
 function New-VSEventsApiDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::ApiDestination resource to the template. Creates an API destination, which is an HTTP invocation endpoint configured as a target for events.
+        Adds an AWS::Events::ApiDestination resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Events::ApiDestination resource to the template. Creates an API destination, which is an HTTP invocation endpoint configured as a target for events.
-
-When using ApiDesinations with OAuth authentication we recommend these best practices:
-
-+ Create a secret in Secrets Manager with your OAuth credentials.
-
-+ Reference that secret in your CloudFormation template for AWS::Events::Connection using CloudFormation dynamic reference syntax. For more information, see Secrets Manager secrets: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager.
-
-When the Connection resource is created the secret will be passed to EventBridge and stored in the customer account using “Service Linked Secrets,” effectively creating two secrets. This will minimize the cost because the original secret is only accessed when a CloudFormation template is created or updated, not every time an event is sent to the ApiDestination. The secret stored in the customer account by EventBridge is the one used for each event sent to the ApiDestination and AWS is responsible for the fees.
-
-**Note**
-
-The secret stored in the customer account by EventBridge can’t be updated directly, only when a CloudFormation template is updated.
-
-For examples of CloudFormation templates that use secrets, see Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#aws-resource-events-connection--examples.
+        Adds an AWS::Events::ApiDestination resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html
@@ -26,47 +12,35 @@ For examples of CloudFormation templates that use secrets, see Examples: https:/
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name for the API destination to create.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        A description for the API destination to create.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ConnectionArn
-        The ARN of the connection to use for the API destination. The destination endpoint must support the authorization type specified for the connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-connectionarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER InvocationRateLimitPerSecond
-        The maximum number of requests per second to send to the HTTP invocation endpoint.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER InvocationEndpoint
-        The URL to the HTTP invocation endpoint for the API destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationendpoint
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER HttpMethod
-        The method to use for the request to the HTTP invocation endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-httpmethod
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER InvocationRateLimitPerSecond
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -140,17 +114,6 @@ For examples of CloudFormation templates that use secrets, see Examples: https:/
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Description,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -163,17 +126,6 @@ For examples of CloudFormation templates that use secrets, see Examples: https:/
                 }
             })]
         $ConnectionArn,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $InvocationRateLimitPerSecond,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -196,6 +148,28 @@ For examples of CloudFormation templates that use secrets, see Examples: https:/
                 }
             })]
         $HttpMethod,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InvocationRateLimitPerSecond,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

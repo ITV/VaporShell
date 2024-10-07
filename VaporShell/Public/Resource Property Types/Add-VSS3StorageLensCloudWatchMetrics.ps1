@@ -1,20 +1,16 @@
 function Add-VSS3StorageLensCloudWatchMetrics {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.CloudWatchMetrics resource property to the template. This resource enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
+        Adds an AWS::S3::StorageLens.CloudWatchMetrics resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.CloudWatchMetrics resource property to the template.
-This resource enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
 
-For more information, see  Monitor S3 Storage Lens metrics in CloudWatch: https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html in the *Amazon S3 User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-cloudwatchmetrics.html
 
     .PARAMETER IsEnabled
-        This property identifies whether the CloudWatch publishing option for S3 Storage Lens is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-cloudwatchmetrics.html#cfn-s3-storagelens-cloudwatchmetrics-isenabled
         UpdateType: Mutable
         PrimitiveType: Boolean

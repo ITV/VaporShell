@@ -1,28 +1,21 @@
 function Add-VSCloudFrontResponseHeadersPolicyFrameOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy.FrameOptions resource property to the template. Determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value.
+        Adds an AWS::CloudFront::ResponseHeadersPolicy.FrameOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ResponseHeadersPolicy.FrameOptions resource property to the template.
-Determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value.
 
-For more information about the X-Frame-Options HTTP response header, see X-Frame-Options: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options in the MDN Web Docs.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-frameoptions.html
 
     .PARAMETER FrameOption
-        The value of the X-Frame-Options HTTP response header. Valid values are DENY and SAMEORIGIN.
-For more information about these values, see X-Frame-Options: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options in the MDN Web Docs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-frameoptions.html#cfn-cloudfront-responseheaderspolicy-frameoptions-frameoption
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Override
-        A Boolean that determines whether CloudFront overrides the X-Frame-Options HTTP response header received from the origin with the one specified in this response headers policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-frameoptions.html#cfn-cloudfront-responseheaderspolicy-frameoptions-override
         UpdateType: Mutable
         PrimitiveType: Boolean

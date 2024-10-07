@@ -1,25 +1,21 @@
 function Add-VSWAFv2WebACLOverrideAction {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.OverrideAction resource property to the template. The action to use to override the Action settings on the rules in the web ACL. You can use none, in which case the rule actions are in effect, or count, in which case, if a rule matches a web request, it only counts the match.
+        Adds an AWS::WAFv2::WebACL.OverrideAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.OverrideAction resource property to the template.
-The action to use to override the Action settings on the rules in the web ACL. You can use none, in which case the rule actions are in effect, or count, in which case, if a rule matches a web request, it only counts the match.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
 
     .PARAMETER Count
-        Override the rule action settings to count.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
         UpdateType: Mutable
         PrimitiveType: Json
 
     .PARAMETER None
-        Don't override the rule action settings.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
         UpdateType: Mutable
         PrimitiveType: Json

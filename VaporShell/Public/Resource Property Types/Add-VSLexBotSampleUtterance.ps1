@@ -1,18 +1,16 @@
 function Add-VSLexBotSampleUtterance {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SampleUtterance resource property to the template. A sample utterance that invokes and intent or responds to a slot elicitation prompt.
+        Adds an AWS::Lex::Bot.SampleUtterance resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SampleUtterance resource property to the template.
-A sample utterance that invokes and intent or responds to a slot elicitation prompt.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html
 
     .PARAMETER Utterance
-        The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html#cfn-lex-bot-sampleutterance-utterance
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,10 +1,10 @@
 function New-VSIoTSiteWiseAccessPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AccessPolicy resource to the template. Creates an access policy that grants the specified identity (AWS SSO user, AWS SSO group, or IAM user access to the specified AWS IoT SiteWise Monitor portal or project resource.
+        Adds an AWS::IoTSiteWise::AccessPolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTSiteWise::AccessPolicy resource to the template. Creates an access policy that grants the specified identity (AWS SSO user, AWS SSO group, or IAM user access to the specified AWS IoT SiteWise Monitor portal or project resource.
+        Adds an AWS::IoTSiteWise::AccessPolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
@@ -12,26 +12,20 @@ function New-VSIoTSiteWiseAccessPolicy {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AccessPolicyIdentity
-        The identity for this access policy. Choose an AWS SSO user, an AWS SSO group, or an IAM user.
+    .PARAMETER AccessPolicyResource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
+        UpdateType: Mutable
+        Type: AccessPolicyResource
 
+    .PARAMETER AccessPolicyIdentity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
         UpdateType: Mutable
         Type: AccessPolicyIdentity
 
     .PARAMETER AccessPolicyPermission
-        The permission level for this access policy. Choose either a ADMINISTRATOR or VIEWER. Note that a project ADMINISTRATOR is also known as a project owner.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER AccessPolicyResource
-        The AWS IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
-        UpdateType: Mutable
-        Type: AccessPolicyResource
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -96,6 +90,8 @@ function New-VSIoTSiteWiseAccessPolicy {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
+        $AccessPolicyResource,
+        [parameter(Mandatory = $true)]
         $AccessPolicyIdentity,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -108,8 +104,6 @@ function New-VSIoTSiteWiseAccessPolicy {
                 }
             })]
         $AccessPolicyPermission,
-        [parameter(Mandatory = $true)]
-        $AccessPolicyResource,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

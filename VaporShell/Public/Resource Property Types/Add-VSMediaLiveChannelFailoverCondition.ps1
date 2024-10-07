@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelFailoverCondition {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.FailoverCondition resource property to the template. Failover Condition settings. There can be multiple failover conditions inside AutomaticInputFailoverSettings.
+        Adds an AWS::MediaLive::Channel.FailoverCondition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.FailoverCondition resource property to the template.
-Failover Condition settings. There can be multiple failover conditions inside AutomaticInputFailoverSettings.
 
-The parent of this entity is AutomaticInputFailoverSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failovercondition.html
 
     .PARAMETER FailoverConditionSettings
-        Settings for a specific failover condition.
-
         Type: FailoverConditionSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failovercondition.html#cfn-medialive-channel-failovercondition-failoverconditionsettings
         UpdateType: Mutable

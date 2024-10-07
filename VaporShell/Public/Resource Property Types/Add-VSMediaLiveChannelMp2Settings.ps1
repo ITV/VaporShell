@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelMp2Settings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.Mp2Settings resource property to the template. The configuration for this MP2 audio.
+        Adds an AWS::MediaLive::Channel.Mp2Settings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.Mp2Settings resource property to the template.
-The configuration for this MP2 audio.
 
-The parent of this entity is AudioCodecSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html
 
     .PARAMETER CodingMode
-        The MPEG2 Audio coding mode. Valid values are codingMode10 for mono or codingMode20 for stereo.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html#cfn-medialive-channel-mp2settings-codingmode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SampleRate
-        The sample rate in Hz.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html#cfn-medialive-channel-mp2settings-samplerate
         PrimitiveType: Double
         UpdateType: Mutable
 
     .PARAMETER Bitrate
-        The average bitrate in bits/second.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html#cfn-medialive-channel-mp2settings-bitrate
         PrimitiveType: Double
         UpdateType: Mutable

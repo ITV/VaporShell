@@ -1,29 +1,26 @@
 function Add-VSDevOpsGuruResourceCollectionResourceCollectionFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::DevOpsGuru::ResourceCollection.ResourceCollectionFilter resource property to the template. Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        Adds an AWS::DevOpsGuru::ResourceCollection.ResourceCollectionFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DevOpsGuru::ResourceCollection.ResourceCollectionFilter resource property to the template.
-Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html
 
     .PARAMETER CloudFormation
-        Information about AWS CloudFormation stacks. You can use up to 500 stacks to specify which AWS resources in your account to analyze. For more information, see Stacks: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html in the * AWS CloudFormation User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
         UpdateType: Mutable
         Type: CloudFormationCollectionFilter
 
     .PARAMETER Tags
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-tags
         UpdateType: Mutable
         Type: List
         ItemType: TagCollection
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

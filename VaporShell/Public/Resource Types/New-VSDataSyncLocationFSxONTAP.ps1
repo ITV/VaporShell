@@ -17,21 +17,22 @@ function New-VSDataSyncLocationFSxONTAP {
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER SecurityGroupArns
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-securitygrouparns
+    .PARAMETER Subdirectory
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-subdirectory
         UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
+        PrimitiveType: String
 
     .PARAMETER Protocol
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-protocol
         UpdateType: Immutable
         Type: Protocol
 
-    .PARAMETER Subdirectory
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-subdirectory
+    .PARAMETER SecurityGroupArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-securitygrouparns
         UpdateType: Immutable
-        PrimitiveType: String
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-tags
@@ -113,10 +114,6 @@ function New-VSDataSyncLocationFSxONTAP {
                 }
             })]
         $StorageVirtualMachineArn,
-        [parameter(Mandatory = $true)]
-        $SecurityGroupArns,
-        [parameter(Mandatory = $true)]
-        $Protocol,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -128,6 +125,10 @@ function New-VSDataSyncLocationFSxONTAP {
                 }
             })]
         $Subdirectory,
+        [parameter(Mandatory = $false)]
+        $Protocol,
+        [parameter(Mandatory = $true)]
+        $SecurityGroupArns,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

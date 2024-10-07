@@ -1,18 +1,16 @@
 function Add-VSWAFv2RuleGroupLabel {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.Label resource property to the template. A single label container. This is used as an element of a label array in RuleLabels inside a Rule.
+        Adds an AWS::WAFv2::RuleGroup.Label resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.Label resource property to the template.
-A single label container. This is used as an element of a label array in RuleLabels inside a Rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html
 
     .PARAMETER Name
-        The label string.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name
         UpdateType: Mutable
         PrimitiveType: String

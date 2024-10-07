@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelMultiplexGroupSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.MultiplexGroupSettings resource property to the template. The settings for a Multiplex output group.
+        Adds an AWS::MediaLive::Channel.MultiplexGroupSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.MultiplexGroupSettings resource property to the template.
-The settings for a Multiplex output group.
 
-The parent of this entity is OutputGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexgroupsettings.html

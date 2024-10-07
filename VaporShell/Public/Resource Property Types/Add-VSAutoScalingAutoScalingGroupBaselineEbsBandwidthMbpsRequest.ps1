@@ -1,25 +1,21 @@
 function Add-VSAutoScalingAutoScalingGroupBaselineEbsBandwidthMbpsRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest resource property to the template. BaselineEbsBandwidthMbpsRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
+        Adds an AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest resource property to the template.
-BaselineEbsBandwidthMbpsRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html
 
     .PARAMETER Max
-        The maximum value in Mbps.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html#cfn-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest-max
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Min
-        The minimum value in Mbps.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html#cfn-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest-min
         PrimitiveType: Integer
         UpdateType: Mutable

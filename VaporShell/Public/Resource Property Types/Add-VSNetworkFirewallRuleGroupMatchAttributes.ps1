@@ -1,56 +1,16 @@
 function Add-VSNetworkFirewallRuleGroupMatchAttributes {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.MatchAttributes resource property to the template. Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
+        Adds an AWS::NetworkFirewall::RuleGroup.MatchAttributes resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.MatchAttributes resource property to the template.
-Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html
 
-    .PARAMETER Sources
-        The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
-        UpdateType: Mutable
-        Type: List
-        ItemType: Address
-        DuplicatesAllowed: True
-
-    .PARAMETER Destinations
-        The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
-        UpdateType: Mutable
-        Type: List
-        ItemType: Address
-        DuplicatesAllowed: True
-
-    .PARAMETER SourcePorts
-        The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 TCP and 17 UDP.
-You can specify individual ports, for example 1994 and you can specify port ranges, for example 1990:1994.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
-        UpdateType: Mutable
-        Type: List
-        ItemType: PortRange
-        DuplicatesAllowed: True
-
-    .PARAMETER DestinationPorts
-        The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 TCP and 17 UDP.
-You can specify individual ports, for example 1994 and you can specify port ranges, for example 1990:1994.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
-        UpdateType: Mutable
-        Type: List
-        ItemType: PortRange
-        DuplicatesAllowed: True
-
     .PARAMETER Protocols
-        The protocols to inspect for, specified using each protocol's assigned internet protocol number IANA. If not specified, this matches with any protocol.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
         UpdateType: Mutable
         Type: List
@@ -58,12 +18,38 @@ You can specify individual ports, for example 1994 and you can specify port rang
         DuplicatesAllowed: True
 
     .PARAMETER TCPFlags
-        The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 TCP.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
         UpdateType: Mutable
         Type: List
         ItemType: TCPFlagField
+        DuplicatesAllowed: True
+
+    .PARAMETER DestinationPorts
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
+        UpdateType: Mutable
+        Type: List
+        ItemType: PortRange
+        DuplicatesAllowed: True
+
+    .PARAMETER Destinations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
+        UpdateType: Mutable
+        Type: List
+        ItemType: Address
+        DuplicatesAllowed: True
+
+    .PARAMETER Sources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
+        UpdateType: Mutable
+        Type: List
+        ItemType: Address
+        DuplicatesAllowed: True
+
+    .PARAMETER SourcePorts
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
+        UpdateType: Mutable
+        Type: List
+        ItemType: PortRange
         DuplicatesAllowed: True
 
     .FUNCTIONALITY
@@ -74,8 +60,10 @@ You can specify individual ports, for example 1994 and you can specify port rang
     Param
     (
         [parameter(Mandatory = $false)]
+        $Protocols,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.Address"
+                $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.TCPFlagField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -83,7 +71,18 @@ You can specify individual ports, for example 1994 and you can specify port rang
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Sources,
+        $TCPFlags,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.PortRange"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DestinationPorts,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.Address"
@@ -97,7 +96,7 @@ You can specify individual ports, for example 1994 and you can specify port rang
         $Destinations,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.PortRange"
+                $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.Address"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -105,7 +104,7 @@ You can specify individual ports, for example 1994 and you can specify port rang
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SourcePorts,
+        $Sources,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.PortRange"
@@ -116,20 +115,7 @@ You can specify individual ports, for example 1994 and you can specify port rang
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DestinationPorts,
-        [parameter(Mandatory = $false)]
-        $Protocols,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.TCPFlagField"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TCPFlags
+        $SourcePorts
     )
     Begin {
         $obj = [PSCustomObject]@{}

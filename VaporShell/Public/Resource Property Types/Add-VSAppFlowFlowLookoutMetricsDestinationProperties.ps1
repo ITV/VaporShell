@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowLookoutMetricsDestinationProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.LookoutMetricsDestinationProperties resource property to the template. The properties that are applied when Amazon Lookout for Metrics is used as a destination.
+        Adds an AWS::AppFlow::Flow.LookoutMetricsDestinationProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.LookoutMetricsDestinationProperties resource property to the template.
-The properties that are applied when Amazon Lookout for Metrics is used as a destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html
 
     .PARAMETER Object
-        The object specified in the Amazon Lookout for Metrics flow destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
         UpdateType: Mutable
         PrimitiveType: String

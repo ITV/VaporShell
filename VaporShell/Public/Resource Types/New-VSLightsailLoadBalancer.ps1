@@ -1,14 +1,10 @@
 function New-VSLightsailLoadBalancer {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::LoadBalancer resource to the template. The AWS::Lightsail::LoadBalancer resource specifies a load balancer that can be used with Lightsail instances.
+        Adds an AWS::Lightsail::LoadBalancer resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lightsail::LoadBalancer resource to the template. The AWS::Lightsail::LoadBalancer resource specifies a load balancer that can be used with Lightsail instances.
-
-**Note**
-
-You cannot attach attach TLS certificates to a load balancer using the AWS::Lightsail::LoadBalancer resource type. Instead, use the LoadBalancerTlsCertificate resource type to create a certificate and attach it to a load balancer.
+        Adds an AWS::Lightsail::LoadBalancer resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html
@@ -16,71 +12,49 @@ You cannot attach attach TLS certificates to a load balancer using the AWS::Ligh
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER LoadBalancerName
-        The name of the load balancer.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-loadbalancername
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER InstancePort
-        The port that the load balancer uses to direct traffic to your Lightsail instances. For HTTP traffic, specify port 80. For HTTPS traffic, specify port 443.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-instanceport
-        UpdateType: Immutable
-        PrimitiveType: Integer
-
     .PARAMETER IpAddressType
-        The IP address type of the load balancer.
-The possible values are ipv4 for IPv4 only, and dualstack for both IPv4 and IPv6.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-ipaddresstype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER AttachedInstances
-        The Lightsail instances to attach to the load balancer.
+    .PARAMETER SessionStickinessLBCookieDurationSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-sessionstickinesslbcookiedurationseconds
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER LoadBalancerName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-loadbalancername
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER AttachedInstances
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-attachedinstances
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER HealthCheckPath
-        The path on the attached instance where the health check will be performed. If no path is specified, the load balancer tries to make a request to the default root page /index.html.
+    .PARAMETER InstancePort
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-instanceport
+        UpdateType: Immutable
+        PrimitiveType: Integer
 
+    .PARAMETER HealthCheckPath
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-healthcheckpath
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER SessionStickinessEnabled
-        A Boolean value indicating whether session stickiness is enabled.
-Enable session stickiness also known as *session affinity* to bind a user's session to a specific instance. This ensures that all requests from the user during the session are sent to the same instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-sessionstickinessenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER SessionStickinessLBCookieDurationSeconds
-        The time period, in seconds, after which the load balancer session stickiness cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-sessionstickinesslbcookiedurationseconds
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER TlsPolicyName
-        You cannot attach attach TLS certificates to a load balancer using the AWS::Lightsail::LoadBalancer resource type. Instead, use the LoadBalancerTlsCertificate resource type to create and attach certificates to a load balancer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-tlspolicyname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html in the *AWS CloudFormation User Guide*.
-The Value of Tags is optional for Lightsail resources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-tags
         UpdateType: Mutable
         Type: List
@@ -149,28 +123,6 @@ The Value of Tags is optional for Lightsail resources.
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $LoadBalancerName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $InstancePort,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -183,7 +135,40 @@ The Value of Tags is optional for Lightsail resources.
             })]
         $IpAddressType,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SessionStickinessLBCookieDurationSeconds,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LoadBalancerName,
+        [parameter(Mandatory = $false)]
         $AttachedInstances,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InstancePort,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -206,17 +191,6 @@ The Value of Tags is optional for Lightsail resources.
                 }
             })]
         $SessionStickinessEnabled,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SessionStickinessLBCookieDurationSeconds,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

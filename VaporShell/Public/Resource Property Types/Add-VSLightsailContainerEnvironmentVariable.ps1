@@ -1,25 +1,21 @@
 function Add-VSLightsailContainerEnvironmentVariable {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Container.EnvironmentVariable resource property to the template. EnvironmentVariable is a property of the Container: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-container.html property. It describes the environment variables of a container on a container service which are key-value parameters that provide dynamic configuration of the application or script run by the container.
+        Adds an AWS::Lightsail::Container.EnvironmentVariable resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Container.EnvironmentVariable resource property to the template.
-EnvironmentVariable is a property of the Container: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-container.html property. It describes the environment variables of a container on a container service which are key-value parameters that provide dynamic configuration of the application or script run by the container.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html
 
     .PARAMETER Variable
-        The environment variable key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html#cfn-lightsail-container-environmentvariable-variable
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Value
-        The environment variable value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html#cfn-lightsail-container-environmentvariable-value
         UpdateType: Mutable
         PrimitiveType: String

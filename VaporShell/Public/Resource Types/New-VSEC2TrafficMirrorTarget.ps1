@@ -1,16 +1,10 @@
 function New-VSEC2TrafficMirrorTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TrafficMirrorTarget resource to the template. Specifies a target for your Traffic Mirror session.
+        Adds an AWS::EC2::TrafficMirrorTarget resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::TrafficMirrorTarget resource to the template. Specifies a target for your Traffic Mirror session.
-
-A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.
-
-A Traffic Mirror target can be a network interface, or a Network Load Balancer.
-
-To use the target in a Traffic Mirror session, use AWS::EC2::TrafficMirrorSession: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html.
+        Adds an AWS::EC2::TrafficMirrorTarget resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html
@@ -19,36 +13,26 @@ To use the target in a Traffic Mirror session, use AWS::EC2::TrafficMirrorSessio
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER NetworkLoadBalancerArn
-        The Amazon Resource Name ARN of the Network Load Balancer that is associated with the target.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-networkloadbalancerarn
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Description
-        The description of the Traffic Mirror target.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-description
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER NetworkInterfaceId
-        The network interface ID that is associated with the target.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-networkinterfaceid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER GatewayLoadBalancerEndpointId
-        + CreateTrafficMirrorTarget: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorTarget.html in the *Amazon EC2 API Reference*
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-gatewayloadbalancerendpointid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Tags
-        The tags to assign to the Traffic Mirror target.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-tags
         ItemType: Tag

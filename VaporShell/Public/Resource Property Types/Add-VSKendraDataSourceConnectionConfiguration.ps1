@@ -1,47 +1,37 @@
 function Add-VSKendraDataSourceConnectionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.ConnectionConfiguration resource property to the template. Provides the configuration information that's required to connect to a database.
+        Adds an AWS::Kendra::DataSource.ConnectionConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.ConnectionConfiguration resource property to the template.
-Provides the configuration information that's required to connect to a database.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html
 
-    .PARAMETER DatabaseHost
-        The name of the host for the database. Can be either a string host.subdomain.domain.tld or an IPv4 or IPv6 address.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasehost
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER DatabasePort
-        The port that the database uses for connections.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databaseport
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
-    .PARAMETER DatabaseName
-        The name of the database containing the document data.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasename
+    .PARAMETER SecretArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-secretarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TableName
-        The name of the table that contains the document data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-tablename
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER SecretArn
-        The Amazon Resource Name ARN of credentials stored in AWS Secrets Manager. The credentials should be a user/password pair. For more information, see Using a Database Data Source: https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html. For more information about AWS Secrets Manager, see  What Is AWS Secrets Manager: https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html in the * AWS Secrets Manager * user guide.
+    .PARAMETER DatabasePort
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databaseport
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-secretarn
+    .PARAMETER DatabaseHost
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasehost
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DatabaseName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasename
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -62,7 +52,18 @@ Provides the configuration information that's required to connect to a database.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DatabaseHost,
+        $SecretArn,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TableName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -84,7 +85,7 @@ Provides the configuration information that's required to connect to a database.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DatabaseName,
+        $DatabaseHost,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -95,18 +96,7 @@ Provides the configuration information that's required to connect to a database.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TableName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SecretArn
+        $DatabaseName
     )
     Begin {
         $obj = [PSCustomObject]@{}

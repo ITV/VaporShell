@@ -1,32 +1,26 @@
 function Add-VSFSxFileSystemUserAndGroupQuotas {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::FileSystem.UserAndGroupQuotas resource property to the template. The configuration for how much storage a user or group can use on the volume.
+        Adds an AWS::FSx::FileSystem.UserAndGroupQuotas resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::FSx::FileSystem.UserAndGroupQuotas resource property to the template.
-The configuration for how much storage a user or group can use on the volume.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html
 
     .PARAMETER Type
-        A value that specifies whether the quota applies to a user or group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas-type
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Id
-        The ID of the user or group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas-id
         PrimitiveType: Integer
         UpdateType: Immutable
 
     .PARAMETER StorageCapacityQuotaGiB
-        The amount of storage that the user or group can use in gibibytes GiB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas-storagecapacityquotagib
         PrimitiveType: Integer
         UpdateType: Immutable

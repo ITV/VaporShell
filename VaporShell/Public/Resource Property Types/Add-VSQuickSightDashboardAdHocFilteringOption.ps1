@@ -1,18 +1,16 @@
 function Add-VSQuickSightDashboardAdHocFilteringOption {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.AdHocFilteringOption resource property to the template. Ad hoc (one-time filtering option.
+        Adds an AWS::QuickSight::Dashboard.AdHocFilteringOption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.AdHocFilteringOption resource property to the template.
-Ad hoc (one-time filtering option.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html
 
     .PARAMETER AvailabilityStatus
-        Availability status.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html#cfn-quicksight-dashboard-adhocfilteringoption-availabilitystatus
         UpdateType: Mutable
         PrimitiveType: String

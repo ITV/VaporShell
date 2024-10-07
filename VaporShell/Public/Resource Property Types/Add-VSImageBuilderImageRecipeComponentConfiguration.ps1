@@ -1,29 +1,26 @@
 function Add-VSImageBuilderImageRecipeComponentConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ImageRecipe.ComponentConfiguration resource property to the template. Configuration details of the component.
+        Adds an AWS::ImageBuilder::ImageRecipe.ComponentConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::ImageRecipe.ComponentConfiguration resource property to the template.
-Configuration details of the component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
 
-    .PARAMETER ComponentArn
-        The Amazon Resource Name ARN of the component.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Parameters
-        A group of parameter settings that are used to configure the component for a specific recipe.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
         UpdateType: Immutable
         Type: List
         ItemType: ComponentParameter
+        DuplicatesAllowed: True
+
+    .PARAMETER ComponentArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -34,17 +31,6 @@ Configuration details of the component.
     (
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ComponentArn,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ImageBuilder.ImageRecipe.ComponentParameter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -53,7 +39,18 @@ Configuration details of the component.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Parameters
+        $Parameters,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ComponentArn
     )
     Begin {
         $obj = [PSCustomObject]@{}

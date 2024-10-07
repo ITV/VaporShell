@@ -1,30 +1,26 @@
 function Add-VSDataBrewRecipeRecipeStep {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Recipe.RecipeStep resource property to the template. Represents a single step from a DataBrew recipe to be performed.
+        Adds an AWS::DataBrew::Recipe.RecipeStep resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Recipe.RecipeStep resource property to the template.
-Represents a single step from a DataBrew recipe to be performed.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
 
     .PARAMETER Action
-        The particular action to be performed in the recipe step.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
         UpdateType: Mutable
         Type: Action
 
     .PARAMETER ConditionExpressions
-        One or more conditions that must be met for the recipe step to succeed.
-All of the conditions in the array must be met. In other words, all of the conditions must be combined using a logical AND operation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
         UpdateType: Mutable
         Type: List
         ItemType: ConditionExpression
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

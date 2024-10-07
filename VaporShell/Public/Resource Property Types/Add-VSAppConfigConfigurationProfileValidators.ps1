@@ -1,25 +1,21 @@
 function Add-VSAppConfigConfigurationProfileValidators {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::ConfigurationProfile.Validators resource property to the template. A validator provides a syntactic or semantic check to ensure the configuration that you want to deploy functions as intended. To validate your application configuration data, you provide a schema or an AWS Lambda function that runs against the configuration. The configuration deployment or update can only proceed when the configuration data is valid.
+        Adds an AWS::AppConfig::ConfigurationProfile.Validators resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppConfig::ConfigurationProfile.Validators resource property to the template.
-A validator provides a syntactic or semantic check to ensure the configuration that you want to deploy functions as intended. To validate your application configuration data, you provide a schema or an AWS Lambda function that runs against the configuration. The configuration deployment or update can only proceed when the configuration data is valid.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-validators.html
 
     .PARAMETER Type
-        AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-validators.html#cfn-appconfig-configurationprofile-validators-type
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Content
-        Either the JSON Schema content or the Amazon Resource Name ARN of an Lambda function.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-validators.html#cfn-appconfig-configurationprofile-validators-content
         PrimitiveType: String
         UpdateType: Mutable

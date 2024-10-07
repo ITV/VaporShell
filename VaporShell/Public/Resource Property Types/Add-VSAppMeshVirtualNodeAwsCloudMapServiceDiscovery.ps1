@@ -1,43 +1,31 @@
 function Add-VSAppMeshVirtualNodeAwsCloudMapServiceDiscovery {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery resource property to the template. An object that represents the AWS Cloud Map service discovery information for your virtual node.
+        Adds an AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery resource property to the template.
-An object that represents the AWS Cloud Map service discovery information for your virtual node.
 
-**Note**
-
-AWS Cloud Map is not available in the eu-south-1 Region.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html
 
     .PARAMETER NamespaceName
-        The name of the AWS Cloud Map namespace to use.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-namespacename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ServiceName
-        The name of the AWS Cloud Map service to use.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-servicename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER IpPreference
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-ippreference
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Attributes
-        A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-attributes
         ItemType: AwsCloudMapInstanceAttribute

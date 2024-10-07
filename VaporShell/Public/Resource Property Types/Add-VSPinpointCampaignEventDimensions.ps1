@@ -1,32 +1,26 @@
 function Add-VSPinpointCampaignEventDimensions {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Campaign.EventDimensions resource property to the template. Specifies the dimensions for an event filter that determines when a campaign is sent or a journey activity is performed.
+        Adds an AWS::Pinpoint::Campaign.EventDimensions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Campaign.EventDimensions resource property to the template.
-Specifies the dimensions for an event filter that determines when a campaign is sent or a journey activity is performed.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html
 
     .PARAMETER Metrics
-        One or more custom metrics that your application reports to Amazon Pinpoint. You can use these metrics as selection criteria when you create an event filter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html#cfn-pinpoint-campaign-eventdimensions-metrics
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER EventType
-        The name of the event that causes the campaign to be sent or the journey activity to be performed. This can be a standard event that Amazon Pinpoint generates, such as _email.delivered. For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see Streaming Amazon Pinpoint Events: https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html in the *Amazon Pinpoint Developer Guide*.
-
         Type: SetDimension
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html#cfn-pinpoint-campaign-eventdimensions-eventtype
         UpdateType: Mutable
 
     .PARAMETER Attributes
-        One or more custom attributes that your application reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html#cfn-pinpoint-campaign-eventdimensions-attributes
         PrimitiveType: Json
         UpdateType: Mutable

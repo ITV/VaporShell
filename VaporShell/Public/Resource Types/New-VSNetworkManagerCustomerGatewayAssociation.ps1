@@ -1,12 +1,10 @@
 function New-VSNetworkManagerCustomerGatewayAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkManager::CustomerGatewayAssociation resource to the template. Specifies an association between a customer gateway, a device, and optionally, a link. If you specify a link, it must be associated with the specified device. The customer gateway must be connected to a VPN attachment on a transit gateway that's registered in your global network.
+        Adds an AWS::NetworkManager::CustomerGatewayAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::NetworkManager::CustomerGatewayAssociation resource to the template. Specifies an association between a customer gateway, a device, and optionally, a link. If you specify a link, it must be associated with the specified device. The customer gateway must be connected to a VPN attachment on a transit gateway that's registered in your global network.
-
-You cannot associate a customer gateway with more than one device and link.
+        Adds an AWS::NetworkManager::CustomerGatewayAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html
@@ -15,29 +13,21 @@ You cannot associate a customer gateway with more than one device and link.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER GlobalNetworkId
-        The ID of the global network.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER CustomerGatewayArn
-        The Amazon Resource Name ARN of the customer gateway.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER DeviceId
-        The ID of the device.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER LinkId
-        The ID of the link.
+    .PARAMETER CustomerGatewayArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER LinkId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
         UpdateType: Immutable
         PrimitiveType: String
@@ -125,7 +115,7 @@ You cannot associate a customer gateway with more than one device and link.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CustomerGatewayArn,
+        $DeviceId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -136,7 +126,7 @@ You cannot associate a customer gateway with more than one device and link.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DeviceId,
+        $CustomerGatewayArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

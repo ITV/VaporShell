@@ -1,28 +1,24 @@
 function Add-VSIoTWirelessWirelessDeviceAbpV11 {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::WirelessDevice.AbpV11 resource property to the template. ABP device object for create APIs for v1.1.
+        Adds an AWS::IoTWireless::WirelessDevice.AbpV11 resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::WirelessDevice.AbpV11 resource property to the template.
-ABP device object for create APIs for v1.1.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html
 
-    .PARAMETER DevAddr
-        The DevAddr value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER SessionKeys
-        Session keys for ABP v1.1.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys
         UpdateType: Mutable
         Type: SessionKeysAbpV11
+
+    .PARAMETER DevAddr
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,6 +27,8 @@ ABP device object for create APIs for v1.1.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $SessionKeys,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -41,9 +39,7 @@ ABP device object for create APIs for v1.1.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DevAddr,
-        [parameter(Mandatory = $true)]
-        $SessionKeys
+        $DevAddr
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,14 +1,10 @@
 function New-VSAppMeshVirtualGateway {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway resource to the template. Creates a virtual gateway.
+        Adds an AWS::AppMesh::VirtualGateway resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppMesh::VirtualGateway resource to the template. Creates a virtual gateway.
-
-A virtual gateway allows resources outside your mesh to communicate to resources that are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual node, which represents an Envoy running with an application, a virtual gateway represents Envoy deployed by itself.
-
-For more information about virtual gateways, see Virtual gateways: https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html.
+        Adds an AWS::AppMesh::VirtualGateway resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html
@@ -17,36 +13,26 @@ For more information about virtual gateways, see Virtual gateways: https://docs.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER VirtualGatewayName
-        The name of the virtual gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-virtualgatewayname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER MeshName
-        The name of the service mesh that the virtual gateway resides in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER MeshOwner
-        The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see Working with shared meshes: https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshowner
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Spec
-        The specifications of the virtual gateway.
-
         Type: VirtualGatewaySpec
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-spec
         UpdateType: Mutable
 
     .PARAMETER Tags
-        Optional metadata that you can apply to the virtual gateway to assist with categorization and organization. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-tags
         ItemType: Tag

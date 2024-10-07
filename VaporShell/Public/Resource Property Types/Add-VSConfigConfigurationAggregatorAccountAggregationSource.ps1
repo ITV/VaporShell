@@ -1,25 +1,21 @@
 function Add-VSConfigConfigurationAggregatorAccountAggregationSource {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::ConfigurationAggregator.AccountAggregationSource resource property to the template. A collection of accounts and regions.
+        Adds an AWS::Config::ConfigurationAggregator.AccountAggregationSource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Config::ConfigurationAggregator.AccountAggregationSource resource property to the template.
-A collection of accounts and regions.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
 
     .PARAMETER AllAwsRegions
-        If true, aggregate existing AWS Config regions and future regions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER AwsRegions
-        The source regions being aggregated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
         UpdateType: Mutable
         Type: List
@@ -27,8 +23,6 @@ A collection of accounts and regions.
         DuplicatesAllowed: True
 
     .PARAMETER AccountIds
-        The 12-digit account ID of the account being aggregated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
         UpdateType: Mutable
         Type: List

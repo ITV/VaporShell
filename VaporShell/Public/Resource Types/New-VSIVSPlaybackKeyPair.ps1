@@ -1,10 +1,10 @@
 function New-VSIVSPlaybackKeyPair {
     <#
     .SYNOPSIS
-        Adds an AWS::IVS::PlaybackKeyPair resource to the template. The AWS::IVS::PlaybackKeyPair resource specifies an Amazon IVS playback key pair. Amazon IVS uses a public playback key to validate playback tokens that have been signed with the corresponding private key. For more information, see Setting Up Private Channels: https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html in the *Amazon Interactive Video Service User Guide*.
+        Adds an AWS::IVS::PlaybackKeyPair resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IVS::PlaybackKeyPair resource to the template. The AWS::IVS::PlaybackKeyPair resource specifies an Amazon IVS playback key pair. Amazon IVS uses a public playback key to validate playback tokens that have been signed with the corresponding private key. For more information, see Setting Up Private Channels: https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html in the *Amazon Interactive Video Service User Guide*.
+        Adds an AWS::IVS::PlaybackKeyPair resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html
@@ -12,29 +12,22 @@ function New-VSIVSPlaybackKeyPair {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        Playback-key-pair name. The value does not need to be unique.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER PublicKeyMaterial
-        The public portion of a customer-generated key pair.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -108,8 +101,11 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
+        $PublicKeyMaterial,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,10 +115,7 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PublicKeyMaterial,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelInputChannelLevel {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.InputChannelLevel resource property to the template. The setting to remix the audio.
+        Adds an AWS::MediaLive::Channel.InputChannelLevel resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.InputChannelLevel resource property to the template.
-The setting to remix the audio.
 
-The parent of this entity is AudioChannelMappings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html
 
     .PARAMETER InputChannel
-        The index of the input channel that is used as a source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html#cfn-medialive-channel-inputchannellevel-inputchannel
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Gain
-        The remixing value. Units are in dB, and acceptable values are within the range from -60 mute to 6 dB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html#cfn-medialive-channel-inputchannellevel-gain
         PrimitiveType: Integer
         UpdateType: Mutable

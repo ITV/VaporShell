@@ -1,40 +1,32 @@
 function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskCreate resource property to the template. The signature used to verify the update firmware.
+        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskCreate resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskCreate resource property to the template.
-The signature used to verify the update firmware.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html
 
     .PARAMETER UpdateSignature
-        The signature used to verify the update firmware.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updatesignature
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER SigKeyCrc
-        The CRC of the signature private key to check.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER CurrentVersion
-        The version of the gateways that should receive the update.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion
+    .PARAMETER UpdateVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
         UpdateType: Mutable
         Type: LoRaWANGatewayVersion
 
-    .PARAMETER UpdateVersion
-        The firmware version to update the gateway to.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
+    .PARAMETER CurrentVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion
         UpdateType: Mutable
         Type: LoRaWANGatewayVersion
 
@@ -68,9 +60,9 @@ The signature used to verify the update firmware.
             })]
         $SigKeyCrc,
         [parameter(Mandatory = $false)]
-        $CurrentVersion,
+        $UpdateVersion,
         [parameter(Mandatory = $false)]
-        $UpdateVersion
+        $CurrentVersion
     )
     Begin {
         $obj = [PSCustomObject]@{}

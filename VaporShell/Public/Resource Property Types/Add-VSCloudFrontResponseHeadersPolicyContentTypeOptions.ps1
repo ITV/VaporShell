@@ -1,20 +1,16 @@
 function Add-VSCloudFrontResponseHeadersPolicyContentTypeOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy.ContentTypeOptions resource property to the template. Determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff.
+        Adds an AWS::CloudFront::ResponseHeadersPolicy.ContentTypeOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ResponseHeadersPolicy.ContentTypeOptions resource property to the template.
-Determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff.
 
-For more information about the X-Content-Type-Options HTTP response header, see X-Content-Type-Options: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options in the MDN Web Docs.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contenttypeoptions.html
 
     .PARAMETER Override
-        A Boolean that determines whether CloudFront overrides the X-Content-Type-Options HTTP response header received from the origin with the one specified in this response headers policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contenttypeoptions.html#cfn-cloudfront-responseheaderspolicy-contenttypeoptions-override
         UpdateType: Mutable
         PrimitiveType: Boolean

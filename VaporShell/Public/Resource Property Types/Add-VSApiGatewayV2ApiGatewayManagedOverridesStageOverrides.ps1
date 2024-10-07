@@ -1,53 +1,41 @@
 function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.StageOverrides resource property to the template. The StageOverrides property overrides the stage configuration for an API Gateway-managed stage. If you remove this property, API Gateway restores the default values.
+        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.StageOverrides resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.StageOverrides resource property to the template.
-The StageOverrides property overrides the stage configuration for an API Gateway-managed stage. If you remove this property, API Gateway restores the default values.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html
 
     .PARAMETER Description
-        The description for the API stage.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AccessLogSettings
-        Settings for logging access in a stage.
-
         Type: AccessLogSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-accesslogsettings
         UpdateType: Mutable
 
     .PARAMETER AutoDeploy
-        Specifies whether updates to an API automatically trigger a new deployment. The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-autodeploy
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER RouteSettings
-        Route settings for the stage.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-routesettings
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER StageVariables
-        A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match A-Za-z0-9-._~:/?#&=,]+.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-stagevariables
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER DefaultRouteSettings
-        The default route settings for the stage.
-
         Type: RouteSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-defaultroutesettings
         UpdateType: Mutable

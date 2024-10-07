@@ -1,18 +1,10 @@
 function New-VSDataSyncAgent {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::Agent resource to the template. The AWS::DataSync::Agent resource specifies an AWS DataSync agent to be deployed and activated on your host. The activation process associates your agent with your account. In the activation process, you specify information such as the AWS Region that you want to activate the agent in. You activate the agent in the AWS Region where your target locations (in Amazon S3, Amazon EFS, or Amazon FSx for Windows File Server reside. Your tasks are created in this AWS Region.
+        Adds an AWS::DataSync::Agent resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DataSync::Agent resource to the template. The AWS::DataSync::Agent resource specifies an AWS DataSync agent to be deployed and activated on your host. The activation process associates your agent with your account. In the activation process, you specify information such as the AWS Region that you want to activate the agent in. You activate the agent in the AWS Region where your target locations (in Amazon S3, Amazon EFS, or Amazon FSx for Windows File Server reside. Your tasks are created in this AWS Region.
-
-You can activate the agent in a virtual private cloud (VPC or provide the agent access to a VPC endpoint so that you can run tasks without sending them over the public internet.
-
-You can specify an agent to be used for more than one location. If a task uses multiple agents, all of them must have a status of AVAILABLE for the task to run. If you use multiple agents for a source location, the status of all the agents must be AVAILABLE for the task to run.
-
-For more information, see Activating an Agent: https://docs.aws.amazon.com/datasync/latest/userguide/activating-agent.html in the *AWS DataSync User Guide*.
-
-Agents are automatically updated by AWS on a regular basis, using a mechanism that ensures minimal interruption to your tasks.
+        Adds an AWS::DataSync::Agent resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html
@@ -20,52 +12,36 @@ Agents are automatically updated by AWS on a regular basis, using a mechanism th
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AgentName
-        The name you configured for your agent. This value is a text reference that is used to identify the agent in the console.
+    .PARAMETER SubnetArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER AgentName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ActivationKey
-        Your agent activation key. You can get the activation key either by sending an HTTP GET request with redirects that enable you to get the agent IP address port 80. Alternatively, you can get it from the DataSync console.
-The redirect URL returned in the response provides you the activation key for your agent in the query string parameter activationKey. It might also include other activation-related parameters; however, these are merely defaults. The arguments you pass to this API call determine the actual configuration of your agent.
-For more information, see Creating and activating an agent: https://docs.aws.amazon.com/datasync/latest/userguide/activating-agent.html in the * AWS DataSync User Guide.*
+    .PARAMETER VpcEndpointId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER ActivationKey
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SecurityGroupArns
-        The Amazon Resource Names ARNs of the security groups used to protect your data transfer task subnets. See SecurityGroupArns: https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns.
-*Pattern*: ^arn:aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b:ec2:a-z-0-9]*:0-9]{12}:security-group/.*$
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER SubnetArns
-        The Amazon Resource Names ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task. The agent that runs a task must be private. When you start a task that is associated with an agent created in a VPC, or one that has access to an IP address in a VPC, then the task is also private. In this case, DataSync creates four network interfaces for each task in your subnet. For a data transfer to work, the agent must be able to route to all these four network interfaces.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER VpcEndpointId
-        The ID of the virtual private cloud VPC endpoint that the agent has access to. This is the client-side VPC endpoint, powered by AWS PrivateLink. If you don't have an AWS PrivateLink VPC endpoint, see AWS PrivateLink and VPC endpoints: https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html in the *Amazon VPC User Guide*.
-For more information about activating your agent in a private network based on a VPC, see Using AWS DataSync in a Virtual Private Cloud: https://docs.aws.amazon.com/datasync/latest/userguide/datasync-in-vpc.html in the *AWS DataSync User Guide.*
-A VPC endpoint ID looks like this: vpce-01234d5aff67890e1.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
-        UpdateType: Immutable
-        PrimitiveType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
-        The key-value pair that represents the tag that you want to associate with the agent. The value can be an empty string. This value helps you manage, filter, and search for your agents.
-Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
         UpdateType: Mutable
         Type: List
@@ -135,6 +111,8 @@ Valid characters for key and value are letters, spaces, and numbers representabl
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $SubnetArns,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -145,7 +123,18 @@ Valid characters for key and value are letters, spaces, and numbers representabl
                 }
             })]
         $AgentName,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $VpcEndpointId,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -158,19 +147,6 @@ Valid characters for key and value are letters, spaces, and numbers representabl
         $ActivationKey,
         [parameter(Mandatory = $false)]
         $SecurityGroupArns,
-        [parameter(Mandatory = $false)]
-        $SubnetArns,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $VpcEndpointId,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -248,17 +224,17 @@ Valid characters for key and value are letters, spaces, and numbers representabl
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                SecurityGroupArns {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SecurityGroupArns -Value @($SecurityGroupArns)
-                }
                 SubnetArns {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SubnetArns -Value @($SubnetArns)
+                }
+                SecurityGroupArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SecurityGroupArns -Value @($SecurityGroupArns)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

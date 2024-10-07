@@ -1,18 +1,10 @@
 function New-VSEC2VPCEndpointService {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::VPCEndpointService resource to the template. Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles can connect.
+        Adds an AWS::EC2::VPCEndpointService resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::VPCEndpointService resource to the template. Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles can connect.
-
-To create an endpoint service configuration, you must first create one of the following for your service:
-
-+ A Network Load Balancer: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html. Service consumers connect to your service using an interface endpoint.
-
-+ A Gateway Load Balancer: https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html. Service consumers connect to your service using a Gateway Load Balancer endpoint.
-
-For more information, see the AWS PrivateLink User Guide: https://docs.aws.amazon.com/vpc/latest/privatelink/.
+        Adds an AWS::EC2::VPCEndpointService resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html
@@ -21,41 +13,33 @@ For more information, see the AWS PrivateLink User Guide: https://docs.aws.amazo
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER NetworkLoadBalancerArns
-        The Amazon Resource Names ARNs of one or more Network Load Balancers for your service.
-
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER PayerResponsibility
-        The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-payerresponsibility
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER AcceptanceRequired
-        Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER ContributorInsightsEnabled
-        + VPC endpoint services: https://docs.aws.amazon.com/vpc/latest/privatelink/endpoint-service.html in *AWS PrivateLink*
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-contributorinsightsenabled
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER GatewayLoadBalancerArns
-        The Amazon Resource Names ARNs of one or more Gateway Load Balancers.
-
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

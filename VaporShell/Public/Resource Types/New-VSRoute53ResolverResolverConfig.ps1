@@ -1,10 +1,10 @@
 function New-VSRoute53ResolverResolverConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53Resolver::ResolverConfig resource to the template. A complex type that contains information about a Resolver configuration for a VPC.
+        Adds an AWS::Route53Resolver::ResolverConfig resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Route53Resolver::ResolverConfig resource to the template. A complex type that contains information about a Resolver configuration for a VPC.
+        Adds an AWS::Route53Resolver::ResolverConfig resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html
@@ -13,15 +13,11 @@ function New-VSRoute53ResolverResolverConfig {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ResourceId
-        The ID of the Amazon Virtual Private Cloud VPC that you're configuring Resolver for.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html#cfn-route53resolver-resolverconfig-resourceid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AutodefinedReverseFlag
-        Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value of ENABLED.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html#cfn-route53resolver-resolverconfig-autodefinedreverseflag
         UpdateType: Immutable
         PrimitiveType: String

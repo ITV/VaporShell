@@ -1,10 +1,10 @@
 function New-VSDMSCertificate {
     <#
     .SYNOPSIS
-        Adds an AWS::DMS::Certificate resource to the template. The AWS::DMS::Certificate resource creates an SSL certificate that encrypts connections between AWS DMS endpoints and the replication instance.
+        Adds an AWS::DMS::Certificate resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DMS::Certificate resource to the template. The AWS::DMS::Certificate resource creates an SSL certificate that encrypts connections between AWS DMS endpoints and the replication instance.
+        Adds an AWS::DMS::Certificate resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html
@@ -13,22 +13,16 @@ function New-VSDMSCertificate {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CertificateIdentifier
-        A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificateidentifier
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER CertificatePem
-        The contents of a .pem file, which contains an X.509 certificate.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificatepem
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER CertificateWallet
-        The location of an imported Oracle Wallet certificate for use with SSL. Example: filebase64"${path.root}/rds-ca-2019-root.sso"
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificatewallet
         PrimitiveType: String
         UpdateType: Immutable

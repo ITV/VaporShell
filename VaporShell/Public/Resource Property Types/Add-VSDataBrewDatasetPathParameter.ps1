@@ -1,25 +1,21 @@
 function Add-VSDataBrewDatasetPathParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.PathParameter resource property to the template. Represents a single entry in the path parameters of a dataset. Each PathParameter consists of a name and a parameter definition.
+        Adds an AWS::DataBrew::Dataset.PathParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.PathParameter resource property to the template.
-Represents a single entry in the path parameters of a dataset. Each PathParameter consists of a name and a parameter definition.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
 
     .PARAMETER PathParameterName
-        The name of the path parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DatasetParameter
-        The path parameter definition.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
         UpdateType: Mutable
         Type: DatasetParameter

@@ -1,25 +1,21 @@
 function Add-VSQuickSightDataSourceManifestFileLocation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.ManifestFileLocation resource property to the template. Amazon S3 manifest file location.
+        Adds an AWS::QuickSight::DataSource.ManifestFileLocation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.ManifestFileLocation resource property to the template.
-Amazon S3 manifest file location.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html
 
     .PARAMETER Bucket
-        Amazon S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Key
-        Amazon S3 key that identifies an object.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key
         UpdateType: Mutable
         PrimitiveType: String

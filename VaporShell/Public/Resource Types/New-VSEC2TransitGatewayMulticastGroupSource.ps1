@@ -1,12 +1,10 @@
 function New-VSEC2TransitGatewayMulticastGroupSource {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayMulticastGroupSource resource to the template. Registers sources (network interfaces with the specified transit gateway multicast domain.
+        Adds an AWS::EC2::TransitGatewayMulticastGroupSource resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::TransitGatewayMulticastGroupSource resource to the template. Registers sources (network interfaces with the specified transit gateway multicast domain.
-
-A multicast source is a network interface attached to a supported instance that sends multicast traffic. For information about supported instances, see Multicast Considerations: https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits in *Amazon VPC Transit Gateways*.
+        Adds an AWS::EC2::TransitGatewayMulticastGroupSource resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html
@@ -14,24 +12,18 @@ A multicast source is a network interface attached to a supported instance that 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER GroupIpAddress
-        The IP address assigned to the transit gateway multicast group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-groupipaddress
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER TransitGatewayMulticastDomainId
-        The ID of the transit gateway multicast domain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-transitgatewaymulticastdomainid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER NetworkInterfaceId
-        The group sources' network interface IDs to register with the transit gateway multicast group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-networkinterfaceid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER GroupIpAddress
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-groupipaddress
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -107,17 +99,6 @@ A multicast source is a network interface attached to a supported instance that 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $GroupIpAddress,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $TransitGatewayMulticastDomainId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -130,6 +111,17 @@ A multicast source is a network interface attached to a supported instance that 
                 }
             })]
         $NetworkInterfaceId,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $GroupIpAddress,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

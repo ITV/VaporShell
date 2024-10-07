@@ -1,25 +1,21 @@
 function Add-VSApiGatewayUsagePlanThrottleSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::UsagePlan.ThrottleSettings resource property to the template. ThrottleSettings is a property of the AWS::ApiGateway::UsagePlan: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html resource that specifies the overall request rate (average requests per second and burst capacity when users call your REST APIs.
+        Adds an AWS::ApiGateway::UsagePlan.ThrottleSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApiGateway::UsagePlan.ThrottleSettings resource property to the template.
-ThrottleSettings is a property of the AWS::ApiGateway::UsagePlan: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html resource that specifies the overall request rate (average requests per second and burst capacity when users call your REST APIs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
 
     .PARAMETER BurstLimit
-        The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit. For more information about request throttling, see Manage API Request Throttling: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html in the *API Gateway Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER RateLimit
-        The API target request steady-state rate limit. For more information about request throttling, see Manage API Request Throttling: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html in the *API Gateway Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
         UpdateType: Mutable
         PrimitiveType: Double

@@ -1,41 +1,35 @@
 function Add-VSLookoutMetricsAnomalyDetectorS3SourceConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.S3SourceConfig resource property to the template. Contains information about the configuration of the S3 bucket that contains source files.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.S3SourceConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.S3SourceConfig resource property to the template.
-Contains information about the configuration of the S3 bucket that contains source files.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html
 
-    .PARAMETER RoleArn
-        The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER TemplatedPathList
-        A list of templated paths to the source files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER HistoricalDataPathList
-        A list of paths to the historical data files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER FileFormatDescriptor
-        Contains information about a source file's formatting.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-fileformatdescriptor
         UpdateType: Mutable
         Type: FileFormatDescriptor
@@ -47,6 +41,10 @@ Contains information about the configuration of the S3 bucket that contains sour
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $TemplatedPathList,
+        [parameter(Mandatory = $false)]
+        $HistoricalDataPathList,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -58,10 +56,6 @@ Contains information about the configuration of the S3 bucket that contains sour
                 }
             })]
         $RoleArn,
-        [parameter(Mandatory = $false)]
-        $TemplatedPathList,
-        [parameter(Mandatory = $false)]
-        $HistoricalDataPathList,
         [parameter(Mandatory = $true)]
         $FileFormatDescriptor
     )

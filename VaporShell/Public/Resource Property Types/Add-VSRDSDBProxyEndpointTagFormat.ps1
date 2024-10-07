@@ -1,26 +1,22 @@
 function Add-VSRDSDBProxyEndpointTagFormat {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::DBProxyEndpoint.TagFormat resource property to the template. Metadata assigned to a DB proxy endpoint consisting of a key-value pair.
+        Adds an AWS::RDS::DBProxyEndpoint.TagFormat resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::RDS::DBProxyEndpoint.TagFormat resource property to the template.
-Metadata assigned to a DB proxy endpoint consisting of a key-value pair.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
 
-    .PARAMETER Key
-        A value is the optional value of the tag. The string value can be 1-256 Unicode characters in length and can't be prefixed with aws:. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' Java regex: "^p{L}p{Z}p{N}_.:/=+-]*$".
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        Metadata assigned to a DB instance consisting of a key-value pair.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Metadata assigned to a DB proxy endpoint consisting of a key-value pair.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $Value,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Metadata assigned to a DB proxy endpoint consisting of a key-value pair.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

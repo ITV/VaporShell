@@ -1,18 +1,16 @@
 function Add-VSMSKClusterUnauthenticated {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.Unauthenticated resource property to the template. Details for allowing no client authentication.
+        Adds an AWS::MSK::Cluster.Unauthenticated resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.Unauthenticated resource property to the template.
-Details for allowing no client authentication.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-unauthenticated.html
 
     .PARAMETER Enabled
-        Unauthenticated is enabled or not.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-unauthenticated.html#cfn-msk-cluster-unauthenticated-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

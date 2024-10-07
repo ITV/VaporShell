@@ -1,56 +1,44 @@
 function Add-VSKendraDataSourceDatabaseConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.DatabaseConfiguration resource property to the template. Provides the configuration information to connect to a index.
+        Adds an AWS::Kendra::DataSource.DatabaseConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.DatabaseConfiguration resource property to the template.
-Provides the configuration information to connect to a index.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html
 
-    .PARAMETER DatabaseEngineType
-        The type of database engine that runs the database.
+    .PARAMETER SqlConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-sqlconfiguration
+        UpdateType: Mutable
+        Type: SqlConfiguration
 
+    .PARAMETER DatabaseEngineType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-databaseenginetype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ConnectionConfiguration
-        Configuration information that's required to connect to a database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-connectionconfiguration
         UpdateType: Mutable
         Type: ConnectionConfiguration
 
-    .PARAMETER VpcConfiguration
-        Provides information for connecting to an Amazon VPC.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-vpcconfiguration
-        UpdateType: Mutable
-        Type: DataSourceVpcConfiguration
-
     .PARAMETER ColumnConfiguration
-        Information about where the index should get the document information from the database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-columnconfiguration
         UpdateType: Mutable
         Type: ColumnConfiguration
 
-    .PARAMETER AclConfiguration
-        Information about the database column that provides information for user context filtering.
+    .PARAMETER VpcConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-vpcconfiguration
+        UpdateType: Mutable
+        Type: DataSourceVpcConfiguration
 
+    .PARAMETER AclConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-aclconfiguration
         UpdateType: Mutable
         Type: AclConfiguration
-
-    .PARAMETER SqlConfiguration
-        Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-sqlconfiguration
-        UpdateType: Mutable
-        Type: SqlConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -59,6 +47,8 @@ Provides the configuration information to connect to a index.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $SqlConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -72,14 +62,12 @@ Provides the configuration information to connect to a index.
         $DatabaseEngineType,
         [parameter(Mandatory = $true)]
         $ConnectionConfiguration,
-        [parameter(Mandatory = $false)]
-        $VpcConfiguration,
         [parameter(Mandatory = $true)]
         $ColumnConfiguration,
         [parameter(Mandatory = $false)]
-        $AclConfiguration,
+        $VpcConfiguration,
         [parameter(Mandatory = $false)]
-        $SqlConfiguration
+        $AclConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,40 +1,31 @@
 function Add-VSStepFunctionsStateMachineLoggingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::StepFunctions::StateMachine.LoggingConfiguration resource property to the template. Defines what execution history events are logged and where they are logged.
+        Adds an AWS::StepFunctions::StateMachine.LoggingConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::StepFunctions::StateMachine.LoggingConfiguration resource property to the template.
-Defines what execution history events are logged and where they are logged.
 
-**Note**
-
-By default, the level is set to OFF. For more information see Log Levels: https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html in the AWS Step Functions User Guide.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html
 
-    .PARAMETER Level
-        Defines which category of execution history events are logged.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER IncludeExecutionData
-        Determines whether execution data is included in your log. When set to false, data is excluded.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER Destinations
-        An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to OFF.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
         UpdateType: Mutable
         Type: List
         ItemType: LogDestination
+        DuplicatesAllowed: True
+
+    .PARAMETER Level
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -43,17 +34,6 @@ By default, the level is set to OFF. For more information see Log Levels: https:
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Level,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -75,7 +55,18 @@ By default, the level is set to OFF. For more information see Log Levels: https:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Destinations
+        $Destinations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Level
     )
     Begin {
         $obj = [PSCustomObject]@{}

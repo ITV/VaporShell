@@ -1,26 +1,22 @@
 function Add-VSRDSDBInstanceDBInstanceRole {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::DBInstance.DBInstanceRole resource property to the template. Describes an AWS Identity and Access Management (IAM role that is associated with a DB instance.
+        Adds an AWS::RDS::DBInstance.DBInstanceRole resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::RDS::DBInstance.DBInstanceRole resource property to the template.
-Describes an AWS Identity and Access Management (IAM role that is associated with a DB instance.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html
 
-    .PARAMETER FeatureName
-        The name of the feature associated with the AWS Identity and Access Management IAM role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the SupportedFeatureNames description in DBEngineVersion: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html in the *Amazon RDS API Reference*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-featurename
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The Amazon Resource Name ARN of the IAM role that is associated with the DB instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-rolearn
+    .PARAMETER FeatureName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-featurename
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Describes an AWS Identity and Access Management (IAM role that is associated wit
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FeatureName,
+        $RoleArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Describes an AWS Identity and Access Management (IAM role that is associated wit
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleArn
+        $FeatureName
     )
     Begin {
         $obj = [PSCustomObject]@{}

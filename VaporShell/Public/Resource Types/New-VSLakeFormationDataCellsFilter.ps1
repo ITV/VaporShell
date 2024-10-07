@@ -12,18 +12,30 @@ function New-VSLakeFormationDataCellsFilter {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER TableCatalogId
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-tablecatalogid
+    .PARAMETER TableName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-tablename
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER ColumnNames
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-columnnames
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER RowFilter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-rowfilter
+        UpdateType: Immutable
+        Type: RowFilter
 
     .PARAMETER DatabaseName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-databasename
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER TableName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-tablename
+    .PARAMETER TableCatalogId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-tablecatalogid
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -31,17 +43,6 @@ function New-VSLakeFormationDataCellsFilter {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-name
         UpdateType: Immutable
         PrimitiveType: String
-
-    .PARAMETER RowFilter
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-rowfilter
-        UpdateType: Immutable
-        Type: RowFilter
-
-    .PARAMETER ColumnNames
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-columnnames
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
 
     .PARAMETER ColumnWildcard
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-columnwildcard
@@ -120,7 +121,11 @@ function New-VSLakeFormationDataCellsFilter {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TableCatalogId,
+        $TableName,
+        [parameter(Mandatory = $false)]
+        $ColumnNames,
+        [parameter(Mandatory = $false)]
+        $RowFilter,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -142,7 +147,7 @@ function New-VSLakeFormationDataCellsFilter {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TableName,
+        $TableCatalogId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -154,10 +159,6 @@ function New-VSLakeFormationDataCellsFilter {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
-        $RowFilter,
-        [parameter(Mandatory = $false)]
-        $ColumnNames,
         [parameter(Mandatory = $false)]
         $ColumnWildcard,
         [parameter(Mandatory = $false)]

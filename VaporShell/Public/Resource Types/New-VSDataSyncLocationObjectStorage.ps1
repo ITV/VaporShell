@@ -1,10 +1,10 @@
 function New-VSDataSyncLocationObjectStorage {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationObjectStorage resource to the template. The AWS::DataSync::LocationObjectStorage resource specifies an endpoint for a self-managed object storage bucket. For more information about self-managed object storage locations, see Creating a Location for Object Storage: https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html.
+        Adds an AWS::DataSync::LocationObjectStorage resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DataSync::LocationObjectStorage resource to the template. The AWS::DataSync::LocationObjectStorage resource specifies an endpoint for a self-managed object storage bucket. For more information about self-managed object storage locations, see Creating a Location for Object Storage: https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html.
+        Adds an AWS::DataSync::LocationObjectStorage resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html
@@ -12,66 +12,54 @@ function New-VSDataSyncLocationObjectStorage {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AccessKey
-        Optional. The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use AccessKey and SecretKey to provide the user name and password, respectively.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-accesskey
+    .PARAMETER ServerCertificate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-servercertificate
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER AgentArns
-        The Amazon Resource Name ARN of the agents associated with the self-managed object storage server location.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER BucketName
-        The bucket on the self-managed object storage server that is used to read data from.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
-        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SecretKey
-        Optional. The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use AccessKey and SecretKey to provide the user name and password, respectively.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-secretkey
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ServerHostname
-        The name of the self-managed object storage server. This value is the IP address or Domain Name Service DNS name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverhostname
+    .PARAMETER BucketName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ServerPort
-        The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 HTTP or TCP 443 HTTPS. You can specify a custom port if your self-managed object storage server requires one.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverport
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
-    .PARAMETER ServerProtocol
-        The protocol that the object storage server uses to communicate. Valid values are HTTP or HTTPS.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverprotocol
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Subdirectory
-        The subdirectory in the self-managed object storage server that is used to read data from.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-subdirectory
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.
+    .PARAMETER ServerHostname
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverhostname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER AccessKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-accesskey
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ServerProtocol
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverprotocol
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER AgentArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER ServerPort
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverport
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-tags
         UpdateType: Mutable
         Type: List
@@ -150,10 +138,19 @@ function New-VSDataSyncLocationObjectStorage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AccessKey,
-        [parameter(Mandatory = $true)]
-        $AgentArns,
-        [parameter(Mandatory = $true)]
+        $ServerCertificate,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SecretKey,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -174,8 +171,8 @@ function New-VSDataSyncLocationObjectStorage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SecretKey,
-        [parameter(Mandatory = $true)]
+        $Subdirectory,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -188,7 +185,7 @@ function New-VSDataSyncLocationObjectStorage {
         $ServerHostname,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -196,7 +193,7 @@ function New-VSDataSyncLocationObjectStorage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ServerPort,
+        $AccessKey,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -208,9 +205,11 @@ function New-VSDataSyncLocationObjectStorage {
                 }
             })]
         $ServerProtocol,
+        [parameter(Mandatory = $true)]
+        $AgentArns,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -218,7 +217,7 @@ function New-VSDataSyncLocationObjectStorage {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Subdirectory,
+        $ServerPort,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

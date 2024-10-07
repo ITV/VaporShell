@@ -1,20 +1,16 @@
 function Add-VSDataSyncLocationS3S3Config {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationS3.S3Config resource property to the template. The Amazon Resource Name (ARN of the AWS Identity and Access Management (IAM role used to access an Amazon S3 bucket.
+        Adds an AWS::DataSync::LocationS3.S3Config resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataSync::LocationS3.S3Config resource property to the template.
-The Amazon Resource Name (ARN of the AWS Identity and Access Management (IAM role used to access an Amazon S3 bucket.
 
-For detailed information about using such a role, see Creating a Location for Amazon S3: https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location in the * AWS DataSync User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html
 
     .PARAMETER BucketAccessRoleArn
-        The ARN of the IAM role for accessing the S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
         UpdateType: Immutable
         PrimitiveType: String

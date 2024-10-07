@@ -1,26 +1,22 @@
 function Add-VSIoTWirelessWirelessGatewayLoRaWANGateway {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::WirelessGateway.LoRaWANGateway resource property to the template. LoRaWAN wireless gateway object.
+        Adds an AWS::IoTWireless::WirelessGateway.LoRaWANGateway resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::WirelessGateway.LoRaWANGateway resource property to the template.
-LoRaWAN wireless gateway object.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html
 
-    .PARAMETER GatewayEui
-        The gateway's EUI value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
+    .PARAMETER RfRegion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RfRegion
-        The frequency band RFRegion value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
+    .PARAMETER GatewayEui
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ LoRaWAN wireless gateway object.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $GatewayEui,
+        $RfRegion,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ LoRaWAN wireless gateway object.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RfRegion
+        $GatewayEui
     )
     Begin {
         $obj = [PSCustomObject]@{}

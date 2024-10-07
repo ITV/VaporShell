@@ -1,21 +1,16 @@
 function Add-VSEMRContainersVirtualClusterEksInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::EMRContainers::VirtualCluster.EksInfo resource property to the template. The information about the EKS cluster.
+        Adds an AWS::EMRContainers::VirtualCluster.EksInfo resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EMRContainers::VirtualCluster.EksInfo resource property to the template.
-The information about the EKS cluster.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html
 
     .PARAMETER Namespace
-        The namespaces of the EKS cluster.
-*Minimum*: 1
-*Maximum*: 63
-*Pattern*: a-z0-9: -a-z0-9]*a-z0-9]?
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html#cfn-emrcontainers-virtualcluster-eksinfo-namespace
         UpdateType: Immutable
         PrimitiveType: String

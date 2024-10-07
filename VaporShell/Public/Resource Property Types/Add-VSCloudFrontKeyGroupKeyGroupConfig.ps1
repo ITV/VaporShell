@@ -1,27 +1,21 @@
 function Add-VSCloudFrontKeyGroupKeyGroupConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::KeyGroup.KeyGroupConfig resource property to the template. A key group configuration.
+        Adds an AWS::CloudFront::KeyGroup.KeyGroupConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::KeyGroup.KeyGroupConfig resource property to the template.
-A key group configuration.
 
-A key group contains a list of public keys that you can use with CloudFront signed URLs and signed cookies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
 
     .PARAMETER Comment
-        A comment to describe the key group. The comment cannot be longer than 128 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Items
-        A list of the identifiers of the public keys in the key group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
         UpdateType: Mutable
         Type: List
@@ -29,8 +23,6 @@ A key group contains a list of public keys that you can use with CloudFront sign
         DuplicatesAllowed: True
 
     .PARAMETER Name
-        A name to identify the key group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
         UpdateType: Mutable
         PrimitiveType: String

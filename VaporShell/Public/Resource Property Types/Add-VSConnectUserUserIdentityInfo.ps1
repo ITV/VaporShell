@@ -1,33 +1,37 @@
 function Add-VSConnectUserUserIdentityInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::User.UserIdentityInfo resource property to the template. Contains information about the identity of a user.
+        Adds an AWS::Connect::User.UserIdentityInfo resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Connect::User.UserIdentityInfo resource property to the template.
-Contains information about the identity of a user.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html
 
     .PARAMETER Email
-        The email address. If you are using SAML for identity management and include this parameter, an error is returned.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-email
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER FirstName
-        The first name. This is required if you are using Amazon Connect or SAML for identity management.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-firstname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER LastName
-        The last name. This is required if you are using Amazon Connect or SAML for identity management.
+    .PARAMETER SecondaryEmail
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-secondaryemail
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER LastName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-lastname
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Mobile
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-mobile
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -70,7 +74,29 @@ Contains information about the identity of a user.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LastName
+        $SecondaryEmail,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LastName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Mobile
     )
     Begin {
         $obj = [PSCustomObject]@{}

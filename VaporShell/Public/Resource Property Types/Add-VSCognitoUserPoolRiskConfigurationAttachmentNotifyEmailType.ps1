@@ -1,32 +1,26 @@
 function Add-VSCognitoUserPoolRiskConfigurationAttachmentNotifyEmailType {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyEmailType resource property to the template. The notify email type.
+        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyEmailType resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyEmailType resource property to the template.
-The notify email type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html
 
     .PARAMETER TextBody
-        The email text body.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyemailtype-textbody
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER HtmlBody
-        The email HTML body.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyemailtype-htmlbody
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Subject
-        The email subject.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyemailtype-subject
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,32 +1,26 @@
 function Add-VSIoTSiteWiseAccessPolicyAccessPolicyIdentity {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AccessPolicy.AccessPolicyIdentity resource property to the template. The identity (AWS SSO user, AWS SSO group, or IAM user to which this access policy applies.
+        Adds an AWS::IoTSiteWise::AccessPolicy.AccessPolicyIdentity resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::AccessPolicy.AccessPolicyIdentity resource property to the template.
-The identity (AWS SSO user, AWS SSO group, or IAM user to which this access policy applies.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
 
     .PARAMETER User
-        The AWS SSO user to which this access policy maps.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
         UpdateType: Mutable
         Type: User
 
     .PARAMETER IamUser
-        An IAM user identity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
         UpdateType: Mutable
         Type: IamUser
 
     .PARAMETER IamRole
-        An IAM role identity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
         UpdateType: Mutable
         Type: IamRole

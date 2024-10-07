@@ -1,24 +1,16 @@
 function Add-VSLocationPlaceIndexDataSourceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Location::PlaceIndex.DataSourceConfiguration resource property to the template. Specifies the data storage option for requesting Places.
+        Adds an AWS::Location::PlaceIndex.DataSourceConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Location::PlaceIndex.DataSourceConfiguration resource property to the template.
-Specifies the data storage option for requesting Places.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
 
     .PARAMETER IntendedUse
-        Specifies how the results of an operation will be stored by the caller.
-Valid values include:
-+ SingleUse specifies that the results won't be stored.
-+ Storage specifies that the result can be cached or stored in a database.
-**Important**
-Place index resources using HERE as a data provider can't be configured to store results for locations in Japan when choosing Storage for the IntendedUse parameter.
-Default value: SingleUse
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
         UpdateType: Immutable
         PrimitiveType: String

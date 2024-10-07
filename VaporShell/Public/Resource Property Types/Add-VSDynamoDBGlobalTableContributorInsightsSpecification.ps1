@@ -1,18 +1,16 @@
 function Add-VSDynamoDBGlobalTableContributorInsightsSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.ContributorInsightsSpecification resource property to the template. Configures contributor insights settings for a replica or one of its indexes.
+        Adds an AWS::DynamoDB::GlobalTable.ContributorInsightsSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.ContributorInsightsSpecification resource property to the template.
-Configures contributor insights settings for a replica or one of its indexes.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html
 
     .PARAMETER Enabled
-        Indicates whether CloudWatch Contributor Insights are to be enabled true or disabled false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

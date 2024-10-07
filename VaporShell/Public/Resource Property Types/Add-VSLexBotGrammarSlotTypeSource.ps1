@@ -1,33 +1,27 @@
 function Add-VSLexBotGrammarSlotTypeSource {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.GrammarSlotTypeSource resource property to the template. Describes the Amazon S3 bucket name and location for the grammar that is the source of the slot type.
+        Adds an AWS::Lex::Bot.GrammarSlotTypeSource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.GrammarSlotTypeSource resource property to the template.
-Describes the Amazon S3 bucket name and location for the grammar that is the source of the slot type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesource.html
 
-    .PARAMETER S3BucketName
-        The name of the S3 bucket that contains the grammar source.
+    .PARAMETER KmsKeyArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesource.html#cfn-lex-bot-grammarslottypesource-kmskeyarn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER S3BucketName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesource.html#cfn-lex-bot-grammarslottypesource-s3bucketname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3ObjectKey
-        The path to the grammar in the S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesource.html#cfn-lex-bot-grammarslottypesource-s3objectkey
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER KmsKeyArn
-        The AWS Key Management Service key required to decrypt the contents of the grammar, if any.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesource.html#cfn-lex-bot-grammarslottypesource-kmskeyarn
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -38,6 +32,17 @@ Describes the Amazon S3 bucket name and location for the grammar that is the sou
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $KmsKeyArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,18 +64,7 @@ Describes the Amazon S3 bucket name and location for the grammar that is the sou
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3ObjectKey,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $KmsKeyArn
+        $S3ObjectKey
     )
     Begin {
         $obj = [PSCustomObject]@{}

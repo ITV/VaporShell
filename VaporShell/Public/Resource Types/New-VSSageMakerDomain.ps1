@@ -1,32 +1,10 @@
 function New-VSSageMakerDomain {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Domain resource to the template. Creates a Domain used by Amazon SageMaker Studio. A domain consists of an associated Amazon Elastic File System (EFS volume, a list of authorized users, and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC configurations. An AWS account is limited to one domain per region. Users within a domain can share notebook files and other artifacts with each other.
+        Adds an AWS::SageMaker::Domain resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::Domain resource to the template. Creates a Domain used by Amazon SageMaker Studio. A domain consists of an associated Amazon Elastic File System (EFS volume, a list of authorized users, and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC configurations. An AWS account is limited to one domain per region. Users within a domain can share notebook files and other artifacts with each other.
-
-**EFS storage**
-
-When a domain is created, an EFS volume is created for use by all of the users within the domain. Each user receives a private home directory within the EFS volume for notebooks, Git repositories, and data files.
-
-SageMaker uses the AWS Key Management Service (AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed key by default. For more control, you can specify a customer managed key. For more information, see Protect Data at Rest Using Encryption: https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html.
-
-**VPC configuration**
-
-All SageMaker Studio traffic between the domain and the EFS volume is through the specified VPC and subnets. For other Studio traffic, you can specify the AppNetworkAccessType parameter. AppNetworkAccessType corresponds to the network access type that you choose when you onboard to Studio. The following options are available:
-
-+  PublicInternetOnly - Non-EFS traffic goes through a VPC managed by Amazon SageMaker, which allows internet access. This is the default value.
-
-+  VpcOnly - All Studio traffic is through the specified VPC and subnets. Internet access is disabled by default. To allow internet access, you must specify a NAT gateway.
-
-When internet access is disabled, you won't be able to run a Studio notebook or to train or host models unless your VPC has an interface endpoint to the SageMaker API and runtime or a NAT gateway and your security groups allow outbound connections.
-
-**Important**
-
-NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound rules in order to launch a SageMaker Studio app successfully.
-
-For more information, see Connect SageMaker Studio Notebooks to Resources in a VPC: https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html.
+        Adds an AWS::SageMaker::Domain resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html
@@ -35,91 +13,63 @@ For more information, see Connect SageMaker Studio Notebooks to Resources in a V
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AppNetworkAccessType
-        Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
-+ PublicInternetOnly - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access
-+ VpcOnly - All Studio traffic is through the specified VPC and subnets
-*Valid Values*: PublicInternetOnly | VpcOnly
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appnetworkaccesstype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER AuthMode
-        The mode of authentication that members use to access the domain.
-*Valid Values*: SSO | IAM
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-authmode
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DefaultUserSettings
-        The default user settings.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultusersettings
+    .PARAMETER DefaultSpaceSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultspacesettings
         UpdateType: Mutable
-        Type: UserSettings
-
-    .PARAMETER DomainName
-        The domain name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainname
-        UpdateType: Immutable
-        PrimitiveType: String
+        Type: DefaultSpaceSettings
 
     .PARAMETER KmsKeyId
-        SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key CMK by default. For more control, specify a customer managed CMK.
-*Length Constraints*: Maximum length of 2048.
-*Pattern*: .*
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-kmskeyid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER SubnetIds
-        The VPC subnets that Studio uses for communication.
-*Length Constraints*: Maximum length of 32.
-*Array members*: Minimum number of 1 item. Maximum number of 16 items.
-*Pattern*: -0-9a-zA-Z]+
+    .PARAMETER VpcId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-vpcid
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER DomainName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER AppSecurityGroupManagement
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appsecuritygroupmanagement
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DefaultUserSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultusersettings
+        UpdateType: Mutable
+        Type: UserSettings
+
+    .PARAMETER SubnetIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-subnetids
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
-    .PARAMETER Tags
-        Tags to associated with the Domain. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
-Tags that you specify for the Domain are also added to all Apps that are launched in the Domain.
-*Array members*: Minimum number of 0 items. Maximum number of 50 items.
+    .PARAMETER AuthMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-authmode
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
 
-    .PARAMETER VpcId
-        The ID of the Amazon Virtual Private Cloud VPC that Studio uses for communication.
-*Length Constraints*: Maximum length of 32.
-*Pattern*: -0-9a-zA-Z]+
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-vpcid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER DomainSettings
-        The URL for the domain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainsettings
         UpdateType: Mutable
         Type: DomainSettings
-
-    .PARAMETER AppSecurityGroupManagement
-        The URL for the domain.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appsecuritygroupmanagement
-        UpdateType: Immutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -194,6 +144,19 @@ Tags that you specify for the Domain are also added to all Apps that are launche
                 }
             })]
         $AppNetworkAccessType,
+        [parameter(Mandatory = $false)]
+        $DefaultSpaceSettings,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $KmsKeyId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -204,9 +167,7 @@ Tags that you specify for the Domain are also added to all Apps that are launche
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AuthMode,
-        [parameter(Mandatory = $true)]
-        $DefaultUserSettings,
+        $VpcId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -228,36 +189,27 @@ Tags that you specify for the Domain are also added to all Apps that are launche
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $KmsKeyId,
+        $AppSecurityGroupManagement,
+        [parameter(Mandatory = $true)]
+        $DefaultUserSettings,
         [parameter(Mandatory = $true)]
         $SubnetIds,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AuthMode,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $VpcId,
         [parameter(Mandatory = $false)]
         $DomainSettings,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AppSecurityGroupManagement,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,18 +1,16 @@
 function Add-VSAppMeshGatewayRouteGrpcGatewayRouteRewrite {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite resource property to the template. An object that represents the gateway route to rewrite.
+        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite resource property to the template.
-An object that represents the gateway route to rewrite.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html
 
     .PARAMETER Hostname
-        The host name of the gateway route to rewrite.
-
         Type: GatewayRouteHostnameRewrite
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html#cfn-appmesh-gatewayroute-grpcgatewayrouterewrite-hostname
         UpdateType: Mutable

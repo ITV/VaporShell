@@ -1,33 +1,27 @@
 function Add-VSCloudWatchAnomalyDetectorMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudWatch::AnomalyDetector.Metric resource property to the template. Represents a specific metric.
+        Adds an AWS::CloudWatch::AnomalyDetector.Metric resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudWatch::AnomalyDetector.Metric resource property to the template.
-Represents a specific metric.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html
 
     .PARAMETER MetricName
-        The name of the metric. This is a required field.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html#cfn-cloudwatch-anomalydetector-metric-metricname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Dimensions
-        The dimensions for the metric.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html#cfn-cloudwatch-anomalydetector-metric-dimensions
         ItemType: Dimension
         UpdateType: Immutable
 
     .PARAMETER Namespace
-        The namespace of the metric.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html#cfn-cloudwatch-anomalydetector-metric-namespace
         PrimitiveType: String
         UpdateType: Immutable

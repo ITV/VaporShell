@@ -1,34 +1,27 @@
 function Add-VSIoTAnalyticsPipelineAddAttributes {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Pipeline.AddAttributes resource property to the template. An activity that adds other attributes based on existing attributes in the message.
+        Adds an AWS::IoTAnalytics::Pipeline.AddAttributes resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Pipeline.AddAttributes resource property to the template.
-An activity that adds other attributes based on existing attributes in the message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html
 
     .PARAMETER Next
-        The next activity in the pipeline.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-next
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Attributes
-        A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
-The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-attributes
         UpdateType: Mutable
         Type: Map
         PrimitiveItemType: String
 
     .PARAMETER Name
-        The name of the 'addAttributes' activity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-name
         UpdateType: Mutable
         PrimitiveType: String

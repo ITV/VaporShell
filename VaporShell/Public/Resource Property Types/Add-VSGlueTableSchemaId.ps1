@@ -1,32 +1,26 @@
 function Add-VSGlueTableSchemaId {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Table.SchemaId resource property to the template. A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+        Adds an AWS::Glue::Table.SchemaId resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Table.SchemaId resource property to the template.
-A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html
 
     .PARAMETER RegistryName
-        The name of the schema registry that contains the schema.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SchemaName
-        The name of the schema. One of SchemaArn or SchemaName has to be provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SchemaArn
-        The Amazon Resource Name ARN of the schema. One of SchemaArn or SchemaName has to be provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
         PrimitiveType: String
         UpdateType: Mutable

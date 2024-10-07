@@ -1,25 +1,21 @@
 function Add-VSEC2NetworkInsightsAnalysisAnalysisLoadBalancerListener {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisLoadBalancerListener resource property to the template. Describes a load balancer listener.
+        Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisLoadBalancerListener resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisLoadBalancerListener resource property to the template.
-Describes a load balancer listener.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html
 
     .PARAMETER InstancePort
-        Classic Load Balancers] The back-end port for the listener.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-instanceport
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER LoadBalancerPort
-        The port on which the load balancer is listening.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-loadbalancerport
         UpdateType: Mutable
         PrimitiveType: Integer

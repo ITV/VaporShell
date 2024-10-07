@@ -1,10 +1,10 @@
 function New-VSStepFunctionsStateMachine {
     <#
     .SYNOPSIS
-        Adds an AWS::StepFunctions::StateMachine resource to the template. Provisions a state machine. A state machine consists of a collection of states that can do work (Task states, determine to which states to transition next (Choice states, stop an execution with an error (Fail states, and so on. State machines are specified using a JSON-based, structured language.
+        Adds an AWS::StepFunctions::StateMachine resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::StepFunctions::StateMachine resource to the template. Provisions a state machine. A state machine consists of a collection of states that can do work (Task states, determine to which states to transition next (Choice states, stop an execution with an error (Fail states, and so on. State machines are specified using a JSON-based, structured language.
+        Adds an AWS::StepFunctions::StateMachine resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
@@ -13,86 +13,57 @@ function New-VSStepFunctionsStateMachine {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DefinitionString
-        The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See Amazon States Language: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The Amazon Resource Name ARN of the IAM role to use for this state machine.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER StateMachineName
-        The name of the state machine.
-A name must *not* contain:
-+ white space
-+ brackets < > { }  ]
-+ wildcard characters ? *
-+ special characters " # %  ^ | ~  $ & , ; : /
-+ control characters U+0000-001F, U+007F-009F
-If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER StateMachineType
-        Determines whether a STANDARD or EXPRESS state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. For more information on STANDARD and EXPRESS workflows, see Standard Versus Express Workflows: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html in the AWS Step Functions Developer Guide.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER LoggingConfiguration
-        Defines what execution history events are logged and where they are logged.
-By default, the level is set to OFF. For more information see Log Levels: https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html in the AWS Step Functions User Guide.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
         UpdateType: Mutable
         Type: LoggingConfiguration
 
-    .PARAMETER TracingConfiguration
-        Selects whether or not the state machine's AWS X-Ray tracing is enabled.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
-        UpdateType: Mutable
-        Type: TracingConfiguration
-
-    .PARAMETER DefinitionS3Location
-        The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
-        UpdateType: Mutable
-        Type: S3Location
-
     .PARAMETER DefinitionSubstitutions
-        A map string to string that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
         UpdateType: Mutable
         Type: Map
         PrimitiveItemType: Json
 
     .PARAMETER Definition
-        The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your AWS Step Functions template file. See Amazon States Language: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
         UpdateType: Mutable
-        Type: Definition
+        PrimitiveType: Json
+
+    .PARAMETER DefinitionS3Location
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
+        UpdateType: Mutable
+        Type: S3Location
+
+    .PARAMETER StateMachineName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Tags
-        The list of tags to add to a resource.
-Tags may only contain Unicode letters, digits, white space, or these symbols: _ . : / = + - @.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
         UpdateType: Mutable
         Type: List
         ItemType: TagsEntry
         DuplicatesAllowed: True
+
+    .PARAMETER StateMachineType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER TracingConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
+        UpdateType: Mutable
+        Type: TracingConfiguration
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -167,6 +138,35 @@ Tags may only contain Unicode letters, digits, white space, or these symbols: _ 
                 }
             })]
         $DefinitionString,
+        [parameter(Mandatory = $false)]
+        $LoggingConfiguration,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $DefinitionSubstitutions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Definition,
+        [parameter(Mandatory = $false)]
+        $DefinitionS3Location,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StateMachineName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -180,7 +180,7 @@ Tags may only contain Unicode letters, digits, white space, or these symbols: _ 
         $RoleArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "Vaporshell.Resource.StepFunctions.StateMachine.TagsEntry"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -188,7 +188,7 @@ Tags may only contain Unicode letters, digits, white space, or these symbols: _ 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StateMachineName,
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -201,27 +201,7 @@ Tags may only contain Unicode letters, digits, white space, or these symbols: _ 
             })]
         $StateMachineType,
         [parameter(Mandatory = $false)]
-        $LoggingConfiguration,
-        [parameter(Mandatory = $false)]
         $TracingConfiguration,
-        [parameter(Mandatory = $false)]
-        $DefinitionS3Location,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $DefinitionSubstitutions,
-        [parameter(Mandatory = $false)]
-        $Definition,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.StepFunctions.StateMachine.TagsEntry"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -301,6 +281,23 @@ Tags may only contain Unicode letters, digits, white space, or these symbols: _ 
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                Definition {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

@@ -1,18 +1,16 @@
 function Add-VSFSxFileSystemNfsExports {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::FileSystem.NfsExports resource property to the template. The configuration object for mounting a file system.
+        Adds an AWS::FSx::FileSystem.NfsExports resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::FSx::FileSystem.NfsExports resource property to the template.
-The configuration object for mounting a file system.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html
 
     .PARAMETER ClientConfigurations
-        A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations
         ItemType: ClientConfigurations

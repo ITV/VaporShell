@@ -1,33 +1,33 @@
 function Add-VSMediaPackagePackagingConfigurationSpekeKeyProvider {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingConfiguration.SpekeKeyProvider resource property to the template. A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE service that provides encryption keys.
+        Adds an AWS::MediaPackage::PackagingConfiguration.SpekeKeyProvider resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::PackagingConfiguration.SpekeKeyProvider resource property to the template.
-A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE service that provides encryption keys.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html
 
-    .PARAMETER RoleArn
-        The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER SystemIds
-        List of unique identifiers for the DRM systems to use, as defined in the CPIX specification.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER EncryptionContractConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-encryptioncontractconfiguration
+        UpdateType: Mutable
+        Type: EncryptionContractConfiguration
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Url
-        URL for the key provider's key retrieval API endpoint. Must start with https://.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
         UpdateType: Mutable
         PrimitiveType: String
@@ -40,6 +40,10 @@ A configuration for accessing an external Secure Packager and Encoder Key Exchan
     Param
     (
         [parameter(Mandatory = $true)]
+        $SystemIds,
+        [parameter(Mandatory = $false)]
+        $EncryptionContractConfiguration,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,8 +54,6 @@ A configuration for accessing an external Secure Packager and Encoder Key Exchan
                 }
             })]
         $RoleArn,
-        [parameter(Mandatory = $true)]
-        $SystemIds,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

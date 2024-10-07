@@ -1,28 +1,24 @@
 function Add-VSLookoutMetricsAlertAction {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::Alert.Action resource property to the template. A configuration that specifies the action to perform when anomalies are detected.
+        Adds an AWS::LookoutMetrics::Alert.Action resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::Alert.Action resource property to the template.
-A configuration that specifies the action to perform when anomalies are detected.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html
 
-    .PARAMETER SNSConfiguration
-        A configuration for an Amazon SNS channel.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration
-        UpdateType: Immutable
-        Type: SNSConfiguration
-
     .PARAMETER LambdaConfiguration
-        A configuration for an AWS Lambda channel.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-lambdaconfiguration
         UpdateType: Immutable
         Type: LambdaConfiguration
+
+    .PARAMETER SNSConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration
+        UpdateType: Immutable
+        Type: SNSConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ A configuration that specifies the action to perform when anomalies are detected
     Param
     (
         [parameter(Mandatory = $false)]
-        $SNSConfiguration,
+        $LambdaConfiguration,
         [parameter(Mandatory = $false)]
-        $LambdaConfiguration
+        $SNSConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

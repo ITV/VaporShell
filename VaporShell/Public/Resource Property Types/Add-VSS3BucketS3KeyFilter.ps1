@@ -1,22 +1,16 @@
 function Add-VSS3BucketS3KeyFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.S3KeyFilter resource property to the template. A container for object key name prefix and suffix filtering rules.
+        Adds an AWS::S3::Bucket.S3KeyFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.S3KeyFilter resource property to the template.
-A container for object key name prefix and suffix filtering rules.
 
-**Note**
-
-The same type of filter rule cannot be used more than once. For example, you cannot specify two prefix rules.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html
 
     .PARAMETER Rules
-        A list of containers for the key-value pair that defines the criteria for the filter rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules
         DuplicatesAllowed: False
         ItemType: FilterRule

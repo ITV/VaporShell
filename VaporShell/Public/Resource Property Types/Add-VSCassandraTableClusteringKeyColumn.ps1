@@ -1,30 +1,24 @@
 function Add-VSCassandraTableClusteringKeyColumn {
     <#
     .SYNOPSIS
-        Adds an AWS::Cassandra::Table.ClusteringKeyColumn resource property to the template. Defines an individual column within the clustering key.
+        Adds an AWS::Cassandra::Table.ClusteringKeyColumn resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cassandra::Table.ClusteringKeyColumn resource property to the template.
-Defines an individual column within the clustering key.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html
 
-    .PARAMETER Column
-        The name and data type of this clustering key column.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column
-        UpdateType: Immutable
-        Type: Column
-
     .PARAMETER OrderBy
-        The order in which this column's data is stored:
-+ ASC default - The column's data is stored in ascending order.
-+ DESC - The column's data is stored in descending order.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER Column
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column
+        UpdateType: Immutable
+        Type: Column
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,8 +27,6 @@ Defines an individual column within the clustering key.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $Column,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -45,7 +37,9 @@ Defines an individual column within the clustering key.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OrderBy
+        $OrderBy,
+        [parameter(Mandatory = $true)]
+        $Column
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,42 +1,34 @@
 function Add-VSSageMakerMonitoringScheduleMonitoringScheduleConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.MonitoringScheduleConfig resource property to the template. Configures the monitoring schedule and defines the monitoring job.
+        Adds an AWS::SageMaker::MonitoringSchedule.MonitoringScheduleConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.MonitoringScheduleConfig resource property to the template.
-Configures the monitoring schedule and defines the monitoring job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html
 
-    .PARAMETER MonitoringJobDefinition
-        Defines the monitoring job.
+    .PARAMETER ScheduleConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
+        UpdateType: Mutable
+        Type: ScheduleConfig
 
+    .PARAMETER MonitoringJobDefinition
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
         UpdateType: Mutable
         Type: MonitoringJobDefinition
 
     .PARAMETER MonitoringJobDefinitionName
-        The name of the monitoring job definition to schedule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER MonitoringType
-        The type of the monitoring job definition to schedule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER ScheduleConfig
-        Configures the monitoring schedule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
-        UpdateType: Mutable
-        Type: ScheduleConfig
 
     .FUNCTIONALITY
         Vaporshell
@@ -45,6 +37,8 @@ Configures the monitoring schedule and defines the monitoring job.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $ScheduleConfig,
         [parameter(Mandatory = $false)]
         $MonitoringJobDefinition,
         [parameter(Mandatory = $false)]
@@ -68,9 +62,7 @@ Configures the monitoring schedule and defines the monitoring job.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MonitoringType,
-        [parameter(Mandatory = $false)]
-        $ScheduleConfig
+        $MonitoringType
     )
     Begin {
         $obj = [PSCustomObject]@{}

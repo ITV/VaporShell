@@ -1,18 +1,16 @@
 function Add-VSStepFunctionsStateMachineTracingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::StepFunctions::StateMachine.TracingConfiguration resource property to the template. Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set Enabled to true.
+        Adds an AWS::StepFunctions::StateMachine.TracingConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::StepFunctions::StateMachine.TracingConfiguration resource property to the template.
-Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set Enabled to true.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html
 
     .PARAMETER Enabled
-        When set to true, X-Ray tracing is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

@@ -1,12 +1,10 @@
 function New-VSDataSyncLocationS3 {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationS3 resource to the template. The AWS::DataSync::LocationS3 resource specifies an endpoint for an Amazon S3 bucket.
+        Adds an AWS::DataSync::LocationS3 resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DataSync::LocationS3 resource to the template. The AWS::DataSync::LocationS3 resource specifies an endpoint for an Amazon S3 bucket.
-
-For more information, see Create an Amazon S3 location: https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli in the *AWS DataSync User Guide*.
+        Adds an AWS::DataSync::LocationS3 resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html
@@ -14,39 +12,27 @@ For more information, see Create an Amazon S3 location: https://docs.aws.amazon.
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER S3Config
-        The Amazon Resource Name ARN of the AWS Identity and Access Management IAM role that is used to access an Amazon S3 bucket.
-For detailed information about using such a role, see Creating a Location for Amazon S3: https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location in the *AWS DataSync User Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-        UpdateType: Immutable
-        Type: S3Config
-
-    .PARAMETER S3BucketArn
-        The ARN of the Amazon S3 bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Subdirectory
-        A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER S3StorageClass
-        The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. For buckets in AWS Regions, the storage class defaults to S3 Standard.
-For more information about S3 storage classes, see Amazon S3 Storage Classes: http://aws.amazon.com/s3/storage-classes/. Some storage classes have behaviors that can affect your S3 storage costs. For detailed information, see Considerations When Working with Amazon S3 Storage Classes in DataSync: https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.
+    .PARAMETER S3Config
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
+        UpdateType: Immutable
+        Type: S3Config
 
+    .PARAMETER Subdirectory
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER S3BucketArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
         UpdateType: Mutable
         Type: List
@@ -115,9 +101,7 @@ For more information about S3 storage classes, see Amazon S3 Storage Classes: ht
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        $S3Config,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -127,7 +111,9 @@ For more information about S3 storage classes, see Amazon S3 Storage Classes: ht
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3BucketArn,
+        $S3StorageClass,
+        [parameter(Mandatory = $true)]
+        $S3Config,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -149,7 +135,7 @@ For more information about S3 storage classes, see Amazon S3 Storage Classes: ht
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3StorageClass,
+        $S3BucketArn,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

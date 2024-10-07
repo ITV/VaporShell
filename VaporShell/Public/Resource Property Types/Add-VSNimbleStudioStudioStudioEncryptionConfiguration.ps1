@@ -1,25 +1,21 @@
 function Add-VSNimbleStudioStudioStudioEncryptionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::Studio.StudioEncryptionConfiguration resource property to the template. Configuration of the encryption method that is used for the studio.
+        Adds an AWS::NimbleStudio::Studio.StudioEncryptionConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::Studio.StudioEncryptionConfiguration resource property to the template.
-Configuration of the encryption method that is used for the studio.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html
 
     .PARAMETER KeyType
-        The type of KMS key that is used to encrypt studio data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keytype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER KeyArn
-        The ARN for a KMS key that is used to encrypt studio data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keyarn
         UpdateType: Mutable
         PrimitiveType: String

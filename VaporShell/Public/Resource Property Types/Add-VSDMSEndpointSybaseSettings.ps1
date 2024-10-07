@@ -1,25 +1,21 @@
 function Add-VSDMSEndpointSybaseSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::DMS::Endpoint.SybaseSettings resource property to the template. Not currently supported by AWS CloudFormation.
+        Adds an AWS::DMS::Endpoint.SybaseSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DMS::Endpoint.SybaseSettings resource property to the template.
-Not currently supported by AWS CloudFormation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-sybasesettings.html
 
     .PARAMETER SecretsManagerSecretId
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-sybasesettings.html#cfn-dms-endpoint-sybasesettings-secretsmanagersecretid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SecretsManagerAccessRoleArn
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-sybasesettings.html#cfn-dms-endpoint-sybasesettings-secretsmanageraccessrolearn
         PrimitiveType: String
         UpdateType: Mutable

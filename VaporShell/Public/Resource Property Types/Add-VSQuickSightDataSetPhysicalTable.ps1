@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSetPhysicalTable {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.PhysicalTable resource property to the template. A view of a data source that contains information about the shape of the data in the underlying source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        Adds an AWS::QuickSight::DataSet.PhysicalTable resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.PhysicalTable resource property to the template.
-A view of a data source that contains information about the shape of the data in the underlying source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html
 
     .PARAMETER RelationalTable
-        A physical table type for relational data sources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-relationaltable
         UpdateType: Mutable
         Type: RelationalTable
 
     .PARAMETER CustomSql
-        A physical table type built from the results of the custom SQL query.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-customsql
         UpdateType: Mutable
         Type: CustomSql
 
     .PARAMETER S3Source
-        A physical table type for as S3 data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-s3source
         UpdateType: Mutable
         Type: S3Source

@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelUdpGroupSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.UdpGroupSettings resource property to the template. The configuration of a UDP output group.
+        Adds an AWS::MediaLive::Channel.UdpGroupSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.UdpGroupSettings resource property to the template.
-The configuration of a UDP output group.
 
-The parent of this entity is OutputGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpgroupsettings.html
 
     .PARAMETER TimedMetadataId3Frame
-        Indicates the ID3 frame that has the timecode.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpgroupsettings.html#cfn-medialive-channel-udpgroupsettings-timedmetadataid3frame
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TimedMetadataId3Period
-        The timed metadata interval in seconds.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpgroupsettings.html#cfn-medialive-channel-udpgroupsettings-timedmetadataid3period
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER InputLossAction
-        Specifies the behavior of the last resort when the input video is lost, and no more backup inputs are available. When dropTs is selected, the entire transport stream stops emitting. When dropProgram is selected, the program can be dropped from the transport stream and replaced with null packets to meet the TS bitrate requirement. Or when emitProgram is selected, the transport stream continues to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpgroupsettings.html#cfn-medialive-channel-udpgroupsettings-inputlossaction
         PrimitiveType: String
         UpdateType: Mutable

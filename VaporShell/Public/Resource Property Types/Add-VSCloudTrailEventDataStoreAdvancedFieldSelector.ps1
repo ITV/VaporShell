@@ -22,6 +22,20 @@ function Add-VSCloudTrailEventDataStoreAdvancedFieldSelector {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
+    .PARAMETER NotStartsWith
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notstartswith
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER NotEndsWith
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notendswith
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
     .PARAMETER StartsWith
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-startswith
         UpdateType: Mutable
@@ -38,20 +52,6 @@ function Add-VSCloudTrailEventDataStoreAdvancedFieldSelector {
 
     .PARAMETER NotEquals
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notequals
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
-
-    .PARAMETER NotStartsWith
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notstartswith
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
-
-    .PARAMETER NotEndsWith
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notendswith
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
@@ -78,15 +78,15 @@ function Add-VSCloudTrailEventDataStoreAdvancedFieldSelector {
         [parameter(Mandatory = $false)]
         $Equals,
         [parameter(Mandatory = $false)]
+        $NotStartsWith,
+        [parameter(Mandatory = $false)]
+        $NotEndsWith,
+        [parameter(Mandatory = $false)]
         $StartsWith,
         [parameter(Mandatory = $false)]
         $EndsWith,
         [parameter(Mandatory = $false)]
-        $NotEquals,
-        [parameter(Mandatory = $false)]
-        $NotStartsWith,
-        [parameter(Mandatory = $false)]
-        $NotEndsWith
+        $NotEquals
     )
     Begin {
         $obj = [PSCustomObject]@{}

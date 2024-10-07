@@ -1,28 +1,34 @@
 function Add-VSLexBotIntentClosingSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.IntentClosingSetting resource property to the template. Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
+        Adds an AWS::Lex::Bot.IntentClosingSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.IntentClosingSetting resource property to the template.
-Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html
 
-    .PARAMETER ClosingResponse
-        The response that Amazon Lex sends to the user when the intent is complete.
+    .PARAMETER IsActive
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-isactive
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
+    .PARAMETER ClosingResponse
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-closingresponse
         UpdateType: Mutable
         Type: ResponseSpecification
 
-    .PARAMETER IsActive
-        Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user and no closing input from the user is used. If the IsActive field isn't specified, the default is true.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-isactive
+    .PARAMETER Conditional
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-conditional
         UpdateType: Mutable
-        PrimitiveType: Boolean
+        Type: ConditionalSpecification
+
+    .PARAMETER NextStep
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-nextstep
+        UpdateType: Mutable
+        Type: DialogState
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,8 +37,6 @@ Provides a statement the Amazon Lex conveys to the user when the intent is succe
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $ClosingResponse,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -43,7 +47,13 @@ Provides a statement the Amazon Lex conveys to the user when the intent is succe
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IsActive
+        $IsActive,
+        [parameter(Mandatory = $false)]
+        $ClosingResponse,
+        [parameter(Mandatory = $false)]
+        $Conditional,
+        [parameter(Mandatory = $false)]
+        $NextStep
     )
     Begin {
         $obj = [PSCustomObject]@{}

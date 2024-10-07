@@ -1,41 +1,31 @@
 function Add-VSMediaLiveChannelUdpOutputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.UdpOutputSettings resource property to the template. The settings for one UDP output.
+        Adds an AWS::MediaLive::Channel.UdpOutputSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.UdpOutputSettings resource property to the template.
-The settings for one UDP output.
 
-The parent of this entity is OutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html
 
     .PARAMETER Destination
-        The destination address and port number for RTP or UDP packets. These can be unicast or multicast RTP or UDP for example, rtp://239.10.10.10:5001 or udp://10.100.100.100:5002.
-
         Type: OutputLocationRef
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-destination
         UpdateType: Mutable
 
     .PARAMETER FecOutputSettings
-        The settings for enabling and adjusting Forward Error Correction on UDP outputs.
-
         Type: FecOutputSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-fecoutputsettings
         UpdateType: Mutable
 
     .PARAMETER ContainerSettings
-        The settings for the UDP output.
-
         Type: UdpContainerSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-containersettings
         UpdateType: Mutable
 
     .PARAMETER BufferMsec
-        The UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, and so on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-buffermsec
         PrimitiveType: Integer
         UpdateType: Mutable

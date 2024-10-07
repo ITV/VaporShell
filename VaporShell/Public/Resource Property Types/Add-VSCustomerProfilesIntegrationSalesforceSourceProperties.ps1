@@ -1,33 +1,27 @@
 function Add-VSCustomerProfilesIntegrationSalesforceSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.SalesforceSourceProperties resource property to the template. <a name="aws-properties-customerprofiles-integration-salesforcesourceproperties-description"></a>The SalesforceSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.SalesforceSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.SalesforceSourceProperties resource property to the template.
-<a name="aws-properties-customerprofiles-integration-salesforcesourceproperties-description"></a>The SalesforceSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html
 
-    .PARAMETER Object
-        Not currently supported by AWS CloudFormation.
+    .PARAMETER IncludeDeletedRecords
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
+    .PARAMETER Object
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EnableDynamicFieldUpdate
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-enabledynamicfieldupdate
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
-    .PARAMETER IncludeDeletedRecords
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords
         UpdateType: Mutable
         PrimitiveType: Boolean
 
@@ -38,6 +32,17 @@ function Add-VSCustomerProfilesIntegrationSalesforceSourceProperties {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IncludeDeletedRecords,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,18 +64,7 @@ function Add-VSCustomerProfilesIntegrationSalesforceSourceProperties {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $EnableDynamicFieldUpdate,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $IncludeDeletedRecords
+        $EnableDynamicFieldUpdate
     )
     Begin {
         $obj = [PSCustomObject]@{}

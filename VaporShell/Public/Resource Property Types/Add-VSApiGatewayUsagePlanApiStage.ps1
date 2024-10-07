@@ -1,33 +1,26 @@
 function Add-VSApiGatewayUsagePlanApiStage {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::UsagePlan.ApiStage resource property to the template. ApiStage is a property of the AWS::ApiGateway::UsagePlan: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html resource that specifies which stages and APIs to associate with a usage plan.
+        Adds an AWS::ApiGateway::UsagePlan.ApiStage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApiGateway::UsagePlan.ApiStage resource property to the template.
-ApiStage is a property of the AWS::ApiGateway::UsagePlan: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html resource that specifies which stages and APIs to associate with a usage plan.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
 
-    .PARAMETER ApiId
-        The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Stage
-        The name of the stage to associate with the usage plan.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Throttle
-        Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, "/pets/GET".
-Duplicates are not allowed.
+    .PARAMETER ApiId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Throttle
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
         UpdateType: Mutable
         Type: Map
@@ -50,7 +43,7 @@ Duplicates are not allowed.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ApiId,
+        $Stage,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -61,7 +54,7 @@ Duplicates are not allowed.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Stage,
+        $ApiId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApiGateway.UsagePlan.ThrottleSettings"

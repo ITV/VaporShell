@@ -10,15 +10,16 @@ function Add-VSAppFlowConnectorProfileCustomAuthCredentials {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customauthcredentials.html
 
+    .PARAMETER CredentialsMap
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customauthcredentials.html#cfn-appflow-connectorprofile-customauthcredentials-credentialsmap
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
+
     .PARAMETER CustomAuthenticationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customauthcredentials.html#cfn-appflow-connectorprofile-customauthcredentials-customauthenticationtype
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER CredentialsMap
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customauthcredentials.html#cfn-appflow-connectorprofile-customauthcredentials-credentialsmap
-        UpdateType: Mutable
-        Type: CredentialsMap
 
     .FUNCTIONALITY
         Vaporshell
@@ -29,6 +30,9 @@ function Add-VSAppFlowConnectorProfileCustomAuthCredentials {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CredentialsMap")]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $CredentialsMap,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -39,9 +43,7 @@ function Add-VSAppFlowConnectorProfileCustomAuthCredentials {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CustomAuthenticationType,
-        [parameter(Mandatory = $false)]
-        $CredentialsMap
+        $CustomAuthenticationType
     )
     Begin {
         $obj = [PSCustomObject]@{}

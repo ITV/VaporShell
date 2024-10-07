@@ -1,34 +1,26 @@
 function Add-VSLightsailInstanceAddOn {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Instance.AddOn resource property to the template. AddOn is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the add-ons for an instance.
+        Adds an AWS::Lightsail::Instance.AddOn resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Instance.AddOn resource property to the template.
-AddOn is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the add-ons for an instance.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html
 
-    .PARAMETER AddOnType
-        The add-on type for example, AutoSnapshot.
-AutoSnapshot is the only add-on that can be enabled for an instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html#cfn-lightsail-instance-addon-addontype
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Status
-        The status of the add-on.
-Valid Values: Enabled | Disabled
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html#cfn-lightsail-instance-addon-status
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER AutoSnapshotAddOnRequest
-        The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
+    .PARAMETER AddOnType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html#cfn-lightsail-instance-addon-addontype
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER AutoSnapshotAddOnRequest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html#cfn-lightsail-instance-addon-autosnapshotaddonrequest
         UpdateType: Mutable
         Type: AutoSnapshotAddOn
@@ -40,17 +32,6 @@ Valid Values: Enabled | Disabled
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AddOnType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -62,6 +43,17 @@ Valid Values: Enabled | Disabled
                 }
             })]
         $Status,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AddOnType,
         [parameter(Mandatory = $false)]
         $AutoSnapshotAddOnRequest
     )

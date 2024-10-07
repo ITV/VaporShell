@@ -1,18 +1,16 @@
 function Add-VSKendraIndexServerSideEncryptionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::Index.ServerSideEncryptionConfiguration resource property to the template. Provides the identifier of the AWS KMS customer master key (CMK used to encrypt data indexed by Amazon Kendra. We suggest that you use a CMK from your account to help secure your index. Amazon Kendra doesn't support asymmetric CMKs.
+        Adds an AWS::Kendra::Index.ServerSideEncryptionConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::Index.ServerSideEncryptionConfiguration resource property to the template.
-Provides the identifier of the AWS KMS customer master key (CMK used to encrypt data indexed by Amazon Kendra. We suggest that you use a CMK from your account to help secure your index. Amazon Kendra doesn't support asymmetric CMKs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html
 
     .PARAMETER KmsKeyId
-        The identifier of the AWS KMScustomer master key CMK. Amazon Kendra doesn't support asymmetric CMKs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html#cfn-kendra-index-serversideencryptionconfiguration-kmskeyid
         UpdateType: Immutable
         PrimitiveType: String

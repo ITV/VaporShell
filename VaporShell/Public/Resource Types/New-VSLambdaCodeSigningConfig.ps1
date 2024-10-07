@@ -1,10 +1,10 @@
 function New-VSLambdaCodeSigningConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::CodeSigningConfig resource to the template. Details about a Code signing configuration: https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html.
+        Adds an AWS::Lambda::CodeSigningConfig resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lambda::CodeSigningConfig resource to the template. Details about a Code signing configuration: https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html.
+        Adds an AWS::Lambda::CodeSigningConfig resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
@@ -13,22 +13,16 @@ function New-VSLambdaCodeSigningConfig {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        Code signing configuration description.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER AllowedPublishers
-        List of allowed publishers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
         UpdateType: Mutable
         Type: AllowedPublishers
 
     .PARAMETER CodeSigningPolicies
-        The code signing policy controls the validation failure action for signature mismatch or expiry.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
         UpdateType: Mutable
         Type: CodeSigningPolicies

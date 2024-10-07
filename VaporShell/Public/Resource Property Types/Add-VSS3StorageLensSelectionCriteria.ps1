@@ -1,32 +1,26 @@
 function Add-VSS3StorageLensSelectionCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.SelectionCriteria resource property to the template. This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+        Adds an AWS::S3::StorageLens.SelectionCriteria resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.SelectionCriteria resource property to the template.
-This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
 
-    .PARAMETER MaxDepth
-        This property contains the details of the max depth that S3 Storage Lens will collect metrics up to.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER Delimiter
-        This property contains the details of the S3 Storage Lens delimiter being used.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER MinStorageBytesPercentage
-        This property contains the details of the minimum storage bytes percentage threshold that S3 Storage Lens will collect metrics up to.
+    .PARAMETER MaxDepth
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
+    .PARAMETER MinStorageBytesPercentage
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
         UpdateType: Mutable
         PrimitiveType: Double
@@ -40,17 +34,6 @@ This resource contains the details of the Amazon S3 Storage Lens selection crite
     (
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MaxDepth,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -60,6 +43,17 @@ This resource contains the details of the Amazon S3 Storage Lens selection crite
                 }
             })]
         $Delimiter,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxDepth,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"

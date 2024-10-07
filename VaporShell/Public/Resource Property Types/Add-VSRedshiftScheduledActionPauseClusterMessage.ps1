@@ -1,18 +1,16 @@
 function Add-VSRedshiftScheduledActionPauseClusterMessage {
     <#
     .SYNOPSIS
-        Adds an AWS::Redshift::ScheduledAction.PauseClusterMessage resource property to the template. Describes a pause cluster operation. For example, a scheduled action to run the PauseCluster API operation.
+        Adds an AWS::Redshift::ScheduledAction.PauseClusterMessage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Redshift::ScheduledAction.PauseClusterMessage resource property to the template.
-Describes a pause cluster operation. For example, a scheduled action to run the PauseCluster API operation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html
 
     .PARAMETER ClusterIdentifier
-        The identifier of the cluster to be paused.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html#cfn-redshift-scheduledaction-pauseclustermessage-clusteridentifier
         UpdateType: Mutable
         PrimitiveType: String

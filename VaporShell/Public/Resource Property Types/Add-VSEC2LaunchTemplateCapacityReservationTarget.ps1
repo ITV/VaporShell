@@ -1,27 +1,21 @@
 function Add-VSEC2LaunchTemplateCapacityReservationTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.CapacityReservationTarget resource property to the template. Specifies a target Capacity Reservation.
+        Adds an AWS::EC2::LaunchTemplate.CapacityReservationTarget resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.CapacityReservationTarget resource property to the template.
-Specifies a target Capacity Reservation.
 
-CapacityReservationTarget is a property of the  Amazon EC2 LaunchTemplate LaunchTemplateData: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html
 
     .PARAMETER CapacityReservationResourceGroupArn
-        The ARN of the Capacity Reservation resource group in which to run the instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CapacityReservationId
-        The ID of the Capacity Reservation in which to run the instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationid
         PrimitiveType: String
         UpdateType: Mutable

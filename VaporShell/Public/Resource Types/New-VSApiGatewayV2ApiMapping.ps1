@@ -1,10 +1,10 @@
 function New-VSApiGatewayV2ApiMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::ApiMapping resource to the template. The AWS::ApiGatewayV2::ApiMapping resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see CreateApiMapping: https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping in the *Amazon API Gateway V2 API Reference*.
+        Adds an AWS::ApiGatewayV2::ApiMapping resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGatewayV2::ApiMapping resource to the template. The AWS::ApiGatewayV2::ApiMapping resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see CreateApiMapping: https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping in the *Amazon API Gateway V2 API Reference*.
+        Adds an AWS::ApiGatewayV2::ApiMapping resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html
@@ -13,32 +13,24 @@ function New-VSApiGatewayV2ApiMapping {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DomainName
-        The domain name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-domainname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Stage
-        The API stage.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-stage
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ApiMappingKey
-        The API mapping key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apimappingkey
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ApiId
-        The identifier of the API.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apiid
         PrimitiveType: String
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

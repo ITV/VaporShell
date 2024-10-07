@@ -1,78 +1,59 @@
 function Add-VSKinesisFirehoseDeliveryStreamSplunkDestinationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration resource property to the template. The SplunkDestinationConfiguration property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+        Adds an AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration resource property to the template.
-The SplunkDestinationConfiguration property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html
 
-    .PARAMETER CloudWatchLoggingOptions
-        The Amazon CloudWatch logging options for your delivery stream.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-cloudwatchloggingoptions
-        UpdateType: Mutable
-        Type: CloudWatchLoggingOptions
-
-    .PARAMETER HECAcknowledgmentTimeoutInSeconds
-        The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecacknowledgmenttimeoutinseconds
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER HECEndpoint
-        The HTTP Event Collector HEC endpoint to which Kinesis Data Firehose sends your data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpoint
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER HECEndpointType
-        This type can be either Raw or Event.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpointtype
+    .PARAMETER S3Configuration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: S3DestinationConfiguration
 
     .PARAMETER HECToken
-        This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ProcessingConfiguration
-        The data processing configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-processingconfiguration
-        UpdateType: Mutable
-        Type: ProcessingConfiguration
-
     .PARAMETER RetryOptions
-        The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-retryoptions
         UpdateType: Mutable
         Type: SplunkRetryOptions
 
-    .PARAMETER S3BackupMode
-        Defines how documents should be delivered to Amazon S3. When set to FailedEventsOnly, Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to AllEvents, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is FailedEventsOnly.
-You can update this backup mode from FailedEventsOnly to AllEvents. You can't update it from AllEvents to FailedEventsOnly.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3backupmode
+    .PARAMETER HECEndpointType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpointtype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER S3Configuration
-        The configuration for the backup Amazon S3 location.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
+    .PARAMETER HECAcknowledgmentTimeoutInSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecacknowledgmenttimeoutinseconds
         UpdateType: Mutable
-        Type: S3DestinationConfiguration
+        PrimitiveType: Integer
+
+    .PARAMETER ProcessingConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-processingconfiguration
+        UpdateType: Mutable
+        Type: ProcessingConfiguration
+
+    .PARAMETER CloudWatchLoggingOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-cloudwatchloggingoptions
+        UpdateType: Mutable
+        Type: CloudWatchLoggingOptions
+
+    .PARAMETER S3BackupMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3backupmode
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -81,19 +62,6 @@ You can update this backup mode from FailedEventsOnly to AllEvents. You can't up
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $CloudWatchLoggingOptions,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $HECAcknowledgmentTimeoutInSeconds,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -106,16 +74,7 @@ You can update this backup mode from FailedEventsOnly to AllEvents. You can't up
             })]
         $HECEndpoint,
         [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $HECEndpointType,
+        $S3Configuration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -128,9 +87,33 @@ You can update this backup mode from FailedEventsOnly to AllEvents. You can't up
             })]
         $HECToken,
         [parameter(Mandatory = $false)]
+        $RetryOptions,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $HECEndpointType,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $HECAcknowledgmentTimeoutInSeconds,
+        [parameter(Mandatory = $false)]
         $ProcessingConfiguration,
         [parameter(Mandatory = $false)]
-        $RetryOptions,
+        $CloudWatchLoggingOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -141,9 +124,7 @@ You can update this backup mode from FailedEventsOnly to AllEvents. You can't up
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3BackupMode,
-        [parameter(Mandatory = $true)]
-        $S3Configuration
+        $S3BackupMode
     )
     Begin {
         $obj = [PSCustomObject]@{}

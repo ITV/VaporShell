@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelScte35TimeSignalApos {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.Scte35TimeSignalApos resource property to the template. The settings for the SCTE-35 time signal APOS mode.
+        Adds an AWS::MediaLive::Channel.Scte35TimeSignalApos resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.Scte35TimeSignalApos resource property to the template.
-The settings for the SCTE-35 time signal APOS mode.
 
-The parent of this entity is AvailSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35timesignalapos.html
 
     .PARAMETER AdAvailOffset
-        When specified, this offset in milliseconds is added to the input ad avail PTS time. This applies only to embedded SCTE 104/35 messages. It doesn't apply to OOB messages.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35timesignalapos.html#cfn-medialive-channel-scte35timesignalapos-adavailoffset
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER WebDeliveryAllowedFlag
-        When set to ignore, segment descriptors with webDeliveryAllowedFlag set to 0 no longer trigger blackouts or ad avail slates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35timesignalapos.html#cfn-medialive-channel-scte35timesignalapos-webdeliveryallowedflag
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NoRegionalBlackoutFlag
-        When set to ignore, segment descriptors with noRegionalBlackoutFlag set to 0 no longer trigger blackouts or ad avail slates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35timesignalapos.html#cfn-medialive-channel-scte35timesignalapos-noregionalblackoutflag
         PrimitiveType: String
         UpdateType: Mutable

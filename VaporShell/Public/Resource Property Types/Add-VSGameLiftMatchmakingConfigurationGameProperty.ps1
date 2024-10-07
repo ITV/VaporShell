@@ -1,25 +1,21 @@
 function Add-VSGameLiftMatchmakingConfigurationGameProperty {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::MatchmakingConfiguration.GameProperty resource property to the template. Set of key-value pairs that contain information about a game session. When included in a game session request, these properties communicate details to be used when setting up the new game session. For example, a game property might specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session. For more information, see the  GameLift Developer Guide: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create.
+        Adds an AWS::GameLift::MatchmakingConfiguration.GameProperty resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GameLift::MatchmakingConfiguration.GameProperty resource property to the template.
-Set of key-value pairs that contain information about a game session. When included in a game session request, these properties communicate details to be used when setting up the new game session. For example, a game property might specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session. For more information, see the  GameLift Developer Guide: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html
 
     .PARAMETER Value
-        The game property value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html#cfn-gamelift-matchmakingconfiguration-gameproperty-value
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Key
-        The game property identifier.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html#cfn-gamelift-matchmakingconfiguration-gameproperty-key
         PrimitiveType: String
         UpdateType: Mutable

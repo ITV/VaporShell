@@ -1,33 +1,26 @@
 function Add-VSAppRunnerServiceImageRepository {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.ImageRepository resource property to the template. Describes a source image repository.
+        Adds an AWS::AppRunner::Service.ImageRepository resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.ImageRepository resource property to the template.
-Describes a source image repository.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html
 
     .PARAMETER ImageIdentifier
-        The identifier of an image.
-For an image in Amazon Elastic Container Registry Amazon ECR, this is an image name. For the image name format, see Pulling an image: https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html in the *Amazon ECR User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageidentifier
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ImageConfiguration
-        Configuration for running the identified image.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageconfiguration
         UpdateType: Mutable
         Type: ImageConfiguration
 
     .PARAMETER ImageRepositoryType
-        The type of the image repository. This reflects the repository provider and whether the repository is private or public.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imagerepositorytype
         UpdateType: Mutable
         PrimitiveType: String

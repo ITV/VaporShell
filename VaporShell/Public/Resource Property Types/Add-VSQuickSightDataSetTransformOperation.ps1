@@ -1,53 +1,41 @@
 function Add-VSQuickSightDataSetTransformOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.TransformOperation resource property to the template. A data transformation on a logical table. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        Adds an AWS::QuickSight::DataSet.TransformOperation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.TransformOperation resource property to the template.
-A data transformation on a logical table. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html
 
     .PARAMETER TagColumnOperation
-        An operation that tags a column with additional information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-tagcolumnoperation
         UpdateType: Mutable
         Type: TagColumnOperation
 
     .PARAMETER FilterOperation
-        An operation that filters rows based on some condition.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
         UpdateType: Mutable
         Type: FilterOperation
 
     .PARAMETER CastColumnTypeOperation
-        A transform operation that casts a column to a different type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-castcolumntypeoperation
         UpdateType: Mutable
         Type: CastColumnTypeOperation
 
     .PARAMETER CreateColumnsOperation
-        An operation that creates calculated columns. Columns created in one such operation form a lexical closure.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-createcolumnsoperation
         UpdateType: Mutable
         Type: CreateColumnsOperation
 
     .PARAMETER RenameColumnOperation
-        An operation that renames a column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-renamecolumnoperation
         UpdateType: Mutable
         Type: RenameColumnOperation
 
     .PARAMETER ProjectOperation
-        An operation that projects columns. Operations that come after a projection can only refer to projected columns.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-projectoperation
         UpdateType: Mutable
         Type: ProjectOperation

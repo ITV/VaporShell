@@ -1,10 +1,10 @@
 function New-VSAppSyncGraphQLApi {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::GraphQLApi resource to the template. The AWS::AppSync::GraphQLApi resource creates a new AWS AppSync GraphQL API. This is the top-level construct for your application. For more information, see Quick Start: https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html in the *AWS AppSync Developer Guide*.
+        Adds an AWS::AppSync::GraphQLApi resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppSync::GraphQLApi resource to the template. The AWS::AppSync::GraphQLApi resource creates a new AWS AppSync GraphQL API. This is the top-level construct for your application. For more information, see Quick Start: https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html in the *AWS AppSync Developer Guide*.
+        Adds an AWS::AppSync::GraphQLApi resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
@@ -13,65 +13,47 @@ function New-VSAppSyncGraphQLApi {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER OpenIDConnectConfig
-        The OpenID Connect configuration.
-
         Type: OpenIDConnectConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
         UpdateType: Mutable
 
     .PARAMETER LambdaAuthorizerConfig
-        A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
-
         Type: LambdaAuthorizerConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig
         UpdateType: Mutable
 
     .PARAMETER XrayEnabled
-        A flag indicating whether to use AWS X-Ray tracing for this GraphqlApi.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER UserPoolConfig
-        Optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint.
-
         Type: UserPoolConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
         UpdateType: Mutable
 
     .PARAMETER Tags
-        An arbitrary set of tags key-value pairs for this GraphQL API.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER Name
-        The API name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AuthenticationType
-        Security configuration for your GraphQL API. For allowed values such as API_KEY, AWS_IAM, AMAZON_COGNITO_USER_POOLS, OPENID_CONNECT, or AWS_LAMBDA, see Security: https://docs.aws.amazon.com/appsync/latest/devguide/security.html in the *AWS AppSync Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER LogConfig
-        The Amazon CloudWatch Logs configuration.
-
         Type: LogConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-logconfig
         UpdateType: Mutable
 
     .PARAMETER AdditionalAuthenticationProviders
-        A list of additional authentication providers for the GraphqlApi API.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
         ItemType: AdditionalAuthenticationProvider

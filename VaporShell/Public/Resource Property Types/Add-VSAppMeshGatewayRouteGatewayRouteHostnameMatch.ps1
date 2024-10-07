@@ -1,25 +1,21 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteHostnameMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch resource property to the template. An object representing the gateway route host name to match.
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch resource property to the template.
-An object representing the gateway route host name to match.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html
 
     .PARAMETER Suffix
-        The specified ending characters of the host name to match on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html#cfn-appmesh-gatewayroute-gatewayroutehostnamematch-suffix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Exact
-        The exact host name to match on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html#cfn-appmesh-gatewayroute-gatewayroutehostnamematch-exact
         PrimitiveType: String
         UpdateType: Mutable

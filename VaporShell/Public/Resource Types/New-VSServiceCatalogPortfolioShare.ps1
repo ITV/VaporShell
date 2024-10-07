@@ -1,10 +1,10 @@
 function New-VSServiceCatalogPortfolioShare {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceCatalog::PortfolioShare resource to the template. Shares the specified portfolio with the specified account.
+        Adds an AWS::ServiceCatalog::PortfolioShare resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ServiceCatalog::PortfolioShare resource to the template. Shares the specified portfolio with the specified account.
+        Adds an AWS::ServiceCatalog::PortfolioShare resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html
@@ -13,32 +13,21 @@ function New-VSServiceCatalogPortfolioShare {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AccountId
-        The AWS account ID. For example, 123456789012.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html#cfn-servicecatalog-portfolioshare-accountid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER AcceptLanguage
-        The language code.
-+  en - English default
-+  jp - Japanese
-+  zh - Chinese
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html#cfn-servicecatalog-portfolioshare-acceptlanguage
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER PortfolioId
-        The portfolio identifier.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html#cfn-servicecatalog-portfolioshare-portfolioid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ShareTagOptions
-        Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html#cfn-servicecatalog-portfolioshare-sharetagoptions
         PrimitiveType: Boolean
         UpdateType: Mutable

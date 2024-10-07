@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelNielsenConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.NielsenConfiguration resource property to the template. The settings to configure Nielsen watermarks.
+        Adds an AWS::MediaLive::Channel.NielsenConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.NielsenConfiguration resource property to the template.
-The settings to configure Nielsen watermarks.
 
-The parent of this entity is EncoderSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenconfiguration.html
 
     .PARAMETER DistributorId
-        Enter the Distributor ID assigned to your organization by Nielsen.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenconfiguration.html#cfn-medialive-channel-nielsenconfiguration-distributorid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NielsenPcmToId3Tagging
-        Enables Nielsen PCM to ID3 tagging
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenconfiguration.html#cfn-medialive-channel-nielsenconfiguration-nielsenpcmtoid3tagging
         PrimitiveType: String
         UpdateType: Mutable

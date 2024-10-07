@@ -1,27 +1,21 @@
 function Add-VSEKSClusterClusterLogging {
     <#
     .SYNOPSIS
-        Adds an AWS::EKS::Cluster.ClusterLogging resource property to the template. The cluster control plane logging configuration for your cluster.
+        Adds an AWS::EKS::Cluster.ClusterLogging resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EKS::Cluster.ClusterLogging resource property to the template.
-The cluster control plane logging configuration for your cluster.
 
-**Important**
-
-When updating a resource, you must include this ClusterLogging property if the previous CloudFormation template of the resource had it.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-clusterlogging.html
 
     .PARAMETER EnabledTypes
-        The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
-When updating a resource, you must include this EnabledTypes property if the previous CloudFormation template of the resource had it.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-clusterlogging.html#cfn-eks-cluster-clusterlogging-enabledtypes
         UpdateType: Mutable
         Type: List
         ItemType: LoggingTypeConfig
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

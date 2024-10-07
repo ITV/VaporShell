@@ -1,18 +1,16 @@
 function Add-VSQuickSightDashboardExportToCSVOption {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.ExportToCSVOption resource property to the template. Export to .csv option.
+        Adds an AWS::QuickSight::Dashboard.ExportToCSVOption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.ExportToCSVOption resource property to the template.
-Export to .csv option.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html
 
     .PARAMETER AvailabilityStatus
-        Availability status.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html#cfn-quicksight-dashboard-exporttocsvoption-availabilitystatus
         UpdateType: Mutable
         PrimitiveType: String

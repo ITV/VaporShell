@@ -1,25 +1,21 @@
 function Add-VSAppStreamAppBlockS3Location {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::AppBlock.S3Location resource property to the template. The S3 location of the app block.
+        Adds an AWS::AppStream::AppBlock.S3Location resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppStream::AppBlock.S3Location resource property to the template.
-The S3 location of the app block.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-s3location.html
 
     .PARAMETER S3Bucket
-        The S3 bucket of the app block.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-s3location.html#cfn-appstream-appblock-s3location-s3bucket
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER S3Key
-        The S3 key of the S3 object of the virtual hard disk.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-s3location.html#cfn-appstream-appblock-s3location-s3key
         UpdateType: Immutable
         PrimitiveType: String

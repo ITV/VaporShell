@@ -1,18 +1,16 @@
 function Add-VSS3OutpostsBucketLifecycleConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3Outposts::Bucket.LifecycleConfiguration resource property to the template. The container for the lifecycle configuration for the objects stored in an S3 on Outposts bucket.
+        Adds an AWS::S3Outposts::Bucket.LifecycleConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3Outposts::Bucket.LifecycleConfiguration resource property to the template.
-The container for the lifecycle configuration for the objects stored in an S3 on Outposts bucket.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html
 
     .PARAMETER Rules
-        The container for the lifecycle configuration rules for the objects stored in the S3 on Outposts bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
         UpdateType: Mutable
         Type: List

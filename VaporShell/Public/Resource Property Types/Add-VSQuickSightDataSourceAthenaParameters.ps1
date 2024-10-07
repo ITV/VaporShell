@@ -1,18 +1,16 @@
 function Add-VSQuickSightDataSourceAthenaParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.AthenaParameters resource property to the template. Parameters for Amazon Athena.
+        Adds an AWS::QuickSight::DataSource.AthenaParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.AthenaParameters resource property to the template.
-Parameters for Amazon Athena.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html
 
     .PARAMETER WorkGroup
-        The workgroup that Amazon Athena uses.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup
         UpdateType: Mutable
         PrimitiveType: String

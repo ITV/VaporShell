@@ -1,33 +1,27 @@
 function Add-VSSageMakerDataQualityJobDefinitionS3Output {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::DataQualityJobDefinition.S3Output resource property to the template. The Amazon S3 storage location where the results of a monitoring job are saved.
+        Adds an AWS::SageMaker::DataQualityJobDefinition.S3Output resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::DataQualityJobDefinition.S3Output resource property to the template.
-The Amazon S3 storage location where the results of a monitoring job are saved.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
 
-    .PARAMETER LocalPath
-        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
+    .PARAMETER S3Uri
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uri
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER LocalPath
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-localpath
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER S3UploadMode
-        Whether to upload the results of the monitoring job continuously or after the job completes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uploadmode
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER S3Uri
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uri
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -38,6 +32,17 @@ The Amazon S3 storage location where the results of a monitoring job are saved.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $S3Uri,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,18 +64,7 @@ The Amazon S3 storage location where the results of a monitoring job are saved.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3UploadMode,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $S3Uri
+        $S3UploadMode
     )
     Begin {
         $obj = [PSCustomObject]@{}

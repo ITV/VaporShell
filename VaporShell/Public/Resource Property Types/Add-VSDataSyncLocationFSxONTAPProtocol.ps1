@@ -10,15 +10,15 @@ function Add-VSDataSyncLocationFSxONTAPProtocol {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html
 
-    .PARAMETER NFS
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html#cfn-datasync-locationfsxontap-protocol-nfs
-        UpdateType: Immutable
-        Type: NFS
-
     .PARAMETER SMB
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html#cfn-datasync-locationfsxontap-protocol-smb
         UpdateType: Immutable
         Type: SMB
+
+    .PARAMETER NFS
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html#cfn-datasync-locationfsxontap-protocol-nfs
+        UpdateType: Immutable
+        Type: NFS
 
     .FUNCTIONALITY
         Vaporshell
@@ -28,9 +28,9 @@ function Add-VSDataSyncLocationFSxONTAPProtocol {
     Param
     (
         [parameter(Mandatory = $false)]
-        $NFS,
+        $SMB,
         [parameter(Mandatory = $false)]
-        $SMB
+        $NFS
     )
     Begin {
         $obj = [PSCustomObject]@{}

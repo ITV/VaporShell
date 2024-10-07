@@ -1,43 +1,31 @@
 function Add-VSElasticsearchDomainCognitoOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::Elasticsearch::Domain.CognitoOptions resource property to the template. Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
+        Adds an AWS::Elasticsearch::Domain.CognitoOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Elasticsearch::Domain.CognitoOptions resource property to the template.
-Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 
-**Important**
-
-The AWS::Elasticsearch::Domain resource is being replaced by the AWS::OpenSearchService::Domain: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see New resource types: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource in the *Amazon OpenSearch Service Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html
 
     .PARAMETER Enabled
-        Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See Amazon Cognito authentication for OpenSearch Dashboards: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-enabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IdentityPoolId
-        The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-identitypoolid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RoleArn
-        The AmazonESCognitoAccess role that allows OpenSearch Service to configure your user pool and identity pool.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-rolearn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER UserPoolId
-        The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-userpoolid
         PrimitiveType: String
         UpdateType: Mutable

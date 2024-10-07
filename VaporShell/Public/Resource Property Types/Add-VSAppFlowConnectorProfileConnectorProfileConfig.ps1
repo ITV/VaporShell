@@ -1,28 +1,24 @@
 function Add-VSAppFlowConnectorProfileConnectorProfileConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.ConnectorProfileConfig resource property to the template. Defines the connector-specific configuration and credentials for the connector profile.
+        Adds an AWS::AppFlow::ConnectorProfile.ConnectorProfileConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.ConnectorProfileConfig resource property to the template.
-Defines the connector-specific configuration and credentials for the connector profile.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
 
-    .PARAMETER ConnectorProfileProperties
-        The connector-specific properties of the profile configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
-        UpdateType: Mutable
-        Type: ConnectorProfileProperties
-
     .PARAMETER ConnectorProfileCredentials
-        The connector-specific credentials required by each connector.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
         UpdateType: Mutable
         Type: ConnectorProfileCredentials
+
+    .PARAMETER ConnectorProfileProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
+        UpdateType: Mutable
+        Type: ConnectorProfileProperties
 
     .FUNCTIONALITY
         Vaporshell
@@ -34,9 +30,9 @@ Defines the connector-specific configuration and credentials for the connector p
     Param
     (
         [parameter(Mandatory = $false)]
-        $ConnectorProfileProperties,
-        [parameter(Mandatory = $true)]
-        $ConnectorProfileCredentials
+        $ConnectorProfileCredentials,
+        [parameter(Mandatory = $false)]
+        $ConnectorProfileProperties
     )
     Begin {
         $obj = [PSCustomObject]@{}

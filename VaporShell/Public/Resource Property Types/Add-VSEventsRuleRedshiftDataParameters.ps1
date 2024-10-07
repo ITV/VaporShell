@@ -1,53 +1,41 @@
 function Add-VSEventsRuleRedshiftDataParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.RedshiftDataParameters resource property to the template. These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+        Adds an AWS::Events::Rule.RedshiftDataParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.RedshiftDataParameters resource property to the template.
-These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html
 
     .PARAMETER Database
-        The name of the database. Required when authenticating using temporary credentials.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-database
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DbUser
-        The database user name. Required when authenticating using temporary credentials.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-dbuser
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SecretManagerArn
-        The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-secretmanagerarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Sql
-        The SQL statement text to run.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER StatementName
-        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-statementname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER WithEvent
-        Indicates whether to send an event back to EventBridge after the SQL statement runs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-withevent
         PrimitiveType: Boolean
         UpdateType: Mutable

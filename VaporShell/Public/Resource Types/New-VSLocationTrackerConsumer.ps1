@@ -1,14 +1,10 @@
 function New-VSLocationTrackerConsumer {
     <#
     .SYNOPSIS
-        Adds an AWS::Location::TrackerConsumer resource to the template. The AWS::Location::TrackerConsumer resource specifies an association between a geofence collection and a tracker resource. The geofence collection is referred to as the *consumer* of the tracker. This allows the tracker resource to communicate location data to the linked geofence collection.
+        Adds an AWS::Location::TrackerConsumer resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Location::TrackerConsumer resource to the template. The AWS::Location::TrackerConsumer resource specifies an association between a geofence collection and a tracker resource. The geofence collection is referred to as the *consumer* of the tracker. This allows the tracker resource to communicate location data to the linked geofence collection.
-
-**Note**
-
-Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.
+        Adds an AWS::Location::TrackerConsumer resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html
@@ -16,22 +12,13 @@ Currently not supported — Cross-account configurations, such as creating assoc
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ConsumerArn
-        The Amazon Resource Name ARN for the geofence collection that consumes the tracker resource updates.
-+ Format example: arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
+    .PARAMETER TrackerName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER TrackerName
-        The name for the tracker resource.
-Requirements:
-+ Contain only alphanumeric characters A-Z, a-z, 0-9 , hyphens -, periods ., and underscores _.
-+ Must be a unique tracker resource name.
-+ No spaces allowed. For example, ExampleTracker.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
+    .PARAMETER ConsumerArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -107,7 +94,7 @@ Requirements:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ConsumerArn,
+        $TrackerName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -118,7 +105,7 @@ Requirements:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TrackerName,
+        $ConsumerArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,32 +1,26 @@
 function Add-VSAppFlowFlowS3DestinationProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.S3DestinationProperties resource property to the template. The properties that are applied when Amazon S3 is used as a destination.
+        Adds an AWS::AppFlow::Flow.S3DestinationProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.S3DestinationProperties resource property to the template.
-The properties that are applied when Amazon S3 is used as a destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html
 
     .PARAMETER BucketName
-        The Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BucketPrefix
-        The object key for the destination bucket in which Amazon AppFlow places the files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3OutputFormatConfig
-        The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
         UpdateType: Mutable
         Type: S3OutputFormatConfig

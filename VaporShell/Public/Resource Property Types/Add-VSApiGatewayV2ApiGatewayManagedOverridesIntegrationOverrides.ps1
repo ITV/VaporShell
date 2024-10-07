@@ -1,39 +1,31 @@
 function Add-VSApiGatewayV2ApiGatewayManagedOverridesIntegrationOverrides {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.IntegrationOverrides resource property to the template. The IntegrationOverrides property overrides the integration settings for an API Gateway-managed integration. If you remove this property, API Gateway restores the default values.
+        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.IntegrationOverrides resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.IntegrationOverrides resource property to the template.
-The IntegrationOverrides property overrides the integration settings for an API Gateway-managed integration. If you remove this property, API Gateway restores the default values.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html
 
     .PARAMETER Description
-        The description of the integration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER PayloadFormatVersion
-        Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value. To learn more, see Working with AWS Lambda proxy integrations for HTTP APIs: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides-payloadformatversion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TimeoutInMillis
-        Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides-timeoutinmillis
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER IntegrationMethod
-        Specifies the integration's HTTP method type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides-integrationmethod
         PrimitiveType: String
         UpdateType: Mutable

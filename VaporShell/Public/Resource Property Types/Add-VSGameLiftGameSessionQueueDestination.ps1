@@ -1,18 +1,16 @@
 function Add-VSGameLiftGameSessionQueueDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::GameSessionQueue.Destination resource property to the template. A fleet or alias designated in a game session queue. Queues fulfill requests for new game sessions by placing a new game session on any of the queue's destinations.
+        Adds an AWS::GameLift::GameSessionQueue.Destination resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GameLift::GameSessionQueue.Destination resource property to the template.
-A fleet or alias designated in a game session queue. Queues fulfill requests for new game sessions by placing a new game session on any of the queue's destinations.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-destination.html
 
     .PARAMETER DestinationArn
-        The Amazon Resource Name ARN that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-destination.html#cfn-gamelift-gamesessionqueue-destination-destinationarn
         PrimitiveType: String
         UpdateType: Mutable

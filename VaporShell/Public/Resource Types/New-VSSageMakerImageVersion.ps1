@@ -1,18 +1,10 @@
 function New-VSSageMakerImageVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ImageVersion resource to the template. Creates a version of the SageMaker image specified by ImageName. The version represents the Amazon Container Registry (ECR container image specified by BaseImage.
+        Adds an AWS::SageMaker::ImageVersion resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::ImageVersion resource to the template. Creates a version of the SageMaker image specified by ImageName. The version represents the Amazon Container Registry (ECR container image specified by BaseImage.
-
-**Note**
-
-You can use the DependsOn attribute to specify that the creation of a specific resource follows another. You can use it for the following use cases. For more information, see DependsOn attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html.
-
-1. DependsOn can be used to establish a parent/child relationship between ImageVersion and Image where the ImageVersion DependsOnthe Image.
-
-2. DependsOn can be used to establish order among ImageVersions within the same Image namespace. For example, if ImageVersionB DependsOn ImageVersionA and both share the same parent Image, then ImageVersionA is version N and ImageVersionB is N+1.
+        Adds an AWS::SageMaker::ImageVersion resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
@@ -21,19 +13,11 @@ You can use the DependsOn attribute to specify that the creation of a specific r
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ImageName
-        The name of the parent image.
-*Length Constraints*: Minimum length of 1. Maximum length of 63.
-*Pattern*: ^a-zA-Z0-9: -.]?a-zA-Z0-9]{0,62}$
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER BaseImage
-        The container image that the SageMaker image version is based on.
-*Length Constraints*: Minimum length of 1. Maximum length of 255.
-*Pattern*: .*
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
         UpdateType: Immutable
         PrimitiveType: String

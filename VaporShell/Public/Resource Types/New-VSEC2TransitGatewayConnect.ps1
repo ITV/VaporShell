@@ -1,12 +1,10 @@
 function New-VSEC2TransitGatewayConnect {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayConnect resource to the template. Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.
+        Adds an AWS::EC2::TransitGatewayConnect resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::TransitGatewayConnect resource to the template. Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.
-
-A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism.
+        Adds an AWS::EC2::TransitGatewayConnect resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html
@@ -14,28 +12,22 @@ A Connect attachment uses an existing VPC or AWS Direct Connect attachment as th
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER TransportTransitGatewayAttachmentId
-        The ID of the attachment from which the Connect attachment was created.
+    .PARAMETER Options
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+        UpdateType: Immutable
+        Type: TransitGatewayConnectOptions
 
+    .PARAMETER TransportTransitGatewayAttachmentId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags for the attachment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
-
-    .PARAMETER Options
-        The Connect attachment options.
-+ protocol gre
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
-        UpdateType: Immutable
-        Type: TransitGatewayConnectOptions
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -100,6 +92,8 @@ A Connect attachment uses an existing VPC or AWS Direct Connect attachment as th
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
+        $Options,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -113,8 +107,6 @@ A Connect attachment uses an existing VPC or AWS Direct Connect attachment as th
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $true)]
-        $Options,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,18 +1,10 @@
 function New-VSEKSCluster {
     <#
     .SYNOPSIS
-        Adds an AWS::EKS::Cluster resource to the template. Creates an Amazon EKS control plane.
+        Adds an AWS::EKS::Cluster resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EKS::Cluster resource to the template. Creates an Amazon EKS control plane.
-
-The Amazon EKS control plane consists of control plane instances that run the Kubernetes software, such as etcd and the API server. The control plane runs in an account managed by AWS, and the Kubernetes API is exposed by the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is single tenant and unique. It runs on its own set of Amazon EC2 instances.
-
-The cluster control plane is provisioned across multiple Availability Zones and fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC subnets to provide connectivity from the control plane instances to the nodes (for example, to support kubectl exec, logs, and proxy data flows.
-
-Amazon EKS nodes run in your AWS account and connect to your cluster's control plane over the Kubernetes API server endpoint and a certificate file that is created for your cluster.
-
-In most cases, it takes several minutes to create a cluster. After you create an Amazon EKS cluster, you must configure your Kubernetes tooling to communicate with the API server and launch nodes into your cluster. For more information, see Managing Cluster Authentication: https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html and Launching Amazon EKS nodes: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html in the *Amazon EKS User Guide*.
+        Adds an AWS::EKS::Cluster resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html
@@ -20,73 +12,54 @@ In most cases, it takes several minutes to create a cluster. After you create an
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER EncryptionConfig
-        The encryption configuration for the cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
-        UpdateType: Immutable
-        Type: List
-        ItemType: EncryptionConfig
-
-    .PARAMETER KubernetesNetworkConfig
-        The Kubernetes network configuration for the cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
-        UpdateType: Immutable
-        Type: KubernetesNetworkConfig
-
     .PARAMETER Logging
-        The logging configuration for your cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-logging
         UpdateType: Mutable
         Type: Logging
 
-    .PARAMETER Name
-        The unique name to give to your cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ResourcesVpcConfig
-        The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see Cluster VPC Considerations: https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html and Cluster Security Group Considerations: https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html in the *Amazon EKS User Guide*. You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
-Updates require replacement of the SecurityGroupIds and SubnetIds sub-properties.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
-        UpdateType: Mutable
-        Type: ResourcesVpcConfig
-
-    .PARAMETER OutpostConfig
-        +  https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateCluster.html: https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateCluster.html in the *Amazon EKS API Reference*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-outpostconfig
-        UpdateType: Immutable
-        Type: OutpostConfig
-
-    .PARAMETER RoleArn
-        The Amazon Resource Name ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. For more information, see Amazon EKS Service IAM Role: https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html in the * *Amazon EKS User Guide* *.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Version
-        The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        The metadata that you apply to the cluster to assist with categorization and organization. Each tag consists of a key and an optional value, both of which you define. Cluster tags don't propagate to any other resources associated with the cluster.
-You must have the eks:TagResource and eks:UntagResource permissions in your IAM user or IAM role used to manage the CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+    .PARAMETER OutpostConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-outpostconfig
+        UpdateType: Immutable
+        Type: OutpostConfig
 
+    .PARAMETER EncryptionConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
+        UpdateType: Immutable
+        Type: List
+        ItemType: EncryptionConfig
+        DuplicatesAllowed: True
+
+    .PARAMETER KubernetesNetworkConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
+        UpdateType: Immutable
+        Type: KubernetesNetworkConfig
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ResourcesVpcConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
+        UpdateType: Mutable
+        Type: ResourcesVpcConfig
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -151,6 +124,21 @@ You must have the eks:TagResource and eks:UntagResource permissions in your IAM 
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $Logging,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Version,
+        [parameter(Mandatory = $false)]
+        $OutpostConfig,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EKS.Cluster.EncryptionConfig"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -163,23 +151,6 @@ You must have the eks:TagResource and eks:UntagResource permissions in your IAM 
         $EncryptionConfig,
         [parameter(Mandatory = $false)]
         $KubernetesNetworkConfig,
-        [parameter(Mandatory = $false)]
-        $Logging,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        $ResourcesVpcConfig,
-        [parameter(Mandatory = $false)]
-        $OutpostConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -191,6 +162,11 @@ You must have the eks:TagResource and eks:UntagResource permissions in your IAM 
                 }
             })]
         $RoleArn,
+        [parameter(Mandatory = $true)]
+        $ResourcesVpcConfig,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -201,10 +177,7 @@ You must have the eks:TagResource and eks:UntagResource permissions in your IAM 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Version,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

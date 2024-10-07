@@ -1,10 +1,10 @@
 function New-VSAppSyncDataSource {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::DataSource resource to the template. The AWS::AppSync::DataSource resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB, AWS Lambda, and Amazon OpenSearch Service. Resolvers use these data sources to fetch data when clients make GraphQL calls.
+        Adds an AWS::AppSync::DataSource resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppSync::DataSource resource to the template. The AWS::AppSync::DataSource resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB, AWS Lambda, and Amazon OpenSearch Service. Resolvers use these data sources to fetch data when clients make GraphQL calls.
+        Adds an AWS::AppSync::DataSource resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html
@@ -13,87 +13,61 @@ function New-VSAppSyncDataSource {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Type
-        The type of the data source.
-+  **AWS_LAMBDA**: The data source is an AWS Lambda function.
-+  **AMAZON_DYNAMODB**: The data source is an Amazon DynamoDB table.
-+  **AMAZON_ELASTICSEARCH**: The data source is an Amazon OpenSearch Service domain.
-+  **AMAZON_OPENSEARCH_SERVICE**: The data source is an Amazon OpenSearch Service domain.
-+  **NONE**: There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
-+  **HTTP**: The data source is an HTTP endpoint.
-+  **RELATIONAL_DATABASE**: The data source is a relational database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-type
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER OpenSearchServiceConfig
-        AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
-
         Type: OpenSearchServiceConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-opensearchserviceconfig
         UpdateType: Mutable
 
     .PARAMETER Description
-        The description of the data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ServiceRoleArn
-        The AWS Identity and Access Management service role ARN for the data source. The system assumes this role when accessing the data source.
-Required if Type is specified as AWS_LAMBDA, AMAZON_DYNAMODB, AMAZON_ELASTICSEARCH, or AMAZON_OPENSEARCH_SERVICE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-servicerolearn
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER HttpConfig
-        Endpoints for an HTTP data source.
+    .PARAMETER EventBridgeConfig
+        Type: EventBridgeConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-eventbridgeconfig
+        UpdateType: Mutable
 
+    .PARAMETER HttpConfig
         Type: HttpConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-httpconfig
         UpdateType: Mutable
 
     .PARAMETER RelationalDatabaseConfig
-        Relational Database configuration of the relational database data source.
-
         Type: RelationalDatabaseConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-relationaldatabaseconfig
         UpdateType: Mutable
 
     .PARAMETER LambdaConfig
-        An ARN of a Lambda function in valid ARN format. This can be the ARN of a Lambda function that exists in the current account or in another account.
-
         Type: LambdaConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-lambdaconfig
         UpdateType: Mutable
 
     .PARAMETER ApiId
-        Unique AWS AppSync GraphQL API identifier where this data source will be created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-apiid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Name
-        Friendly name for you to identify your AppSync data source after creation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-name
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER DynamoDBConfig
-        AWS Region and TableName for an Amazon DynamoDB table in your account.
-
         Type: DynamoDBConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-dynamodbconfig
         UpdateType: Mutable
 
     .PARAMETER ElasticsearchConfig
-        AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
-As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service. This property is deprecated. For new data sources, use *OpenSearchServiceConfig* to specify an OpenSearch Service data source.
-
         Type: ElasticsearchConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-elasticsearchconfig
         UpdateType: Mutable
@@ -195,6 +169,8 @@ As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service.
                 }
             })]
         $ServiceRoleArn,
+        [parameter(Mandatory = $false)]
+        $EventBridgeConfig,
         [parameter(Mandatory = $false)]
         $HttpConfig,
         [parameter(Mandatory = $false)]

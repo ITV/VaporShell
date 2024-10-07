@@ -1,12 +1,10 @@
 function New-VSConnectUser {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::User resource to the template. Creates a user account for the specified Amazon Connect instance.
+        Adds an AWS::Connect::User resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Connect::User resource to the template. Creates a user account for the specified Amazon Connect instance.
-
-For information about how to create user accounts using the Amazon Connect console, see Add Users: https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html in the *Amazon Connect Administrator Guide*.
+        Adds an AWS::Connect::User resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html
@@ -14,65 +12,42 @@ For information about how to create user accounts using the Amazon Connect conso
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER InstanceArn
-        The Amazon Resource Name ARN of the instance.
+    .PARAMETER RoutingProfileArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-routingprofilearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Username
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-username
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER PhoneConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-phoneconfig
+        UpdateType: Mutable
+        Type: UserPhoneConfig
+
+    .PARAMETER InstanceArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-instancearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DirectoryUserId
-        The identifier of the user account in the directory used for identity management.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-directoryuserid
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER HierarchyGroupArn
-        The Amazon Resource Name ARN of the user's hierarchy group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-hierarchygrouparn
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Username
-        The user name assigned to the user account.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-username
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Password
-        The user's password.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-password
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER RoutingProfileArn
-        The Amazon Resource Name ARN of the user's routing profile.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-routingprofilearn
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER IdentityInfo
-        Information about the user identity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-identityinfo
         UpdateType: Mutable
         Type: UserIdentityInfo
 
-    .PARAMETER PhoneConfig
-        Information about the phone configuration for the user.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-phoneconfig
+    .PARAMETER HierarchyGroupArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-hierarchygrouparn
         UpdateType: Mutable
-        Type: UserPhoneConfig
+        PrimitiveType: String
 
     .PARAMETER SecurityProfileArns
-        The Amazon Resource Name ARN of the user's security profile.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-securityprofilearns
         UpdateType: Mutable
         Type: List
@@ -80,13 +55,16 @@ For information about how to create user accounts using the Amazon Connect conso
         DuplicatesAllowed: False
 
     .PARAMETER Tags
-        The tags.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER Password
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-password
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -162,6 +140,30 @@ For information about how to create user accounts using the Amazon Connect conso
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $RoutingProfileArn,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Username,
+        [parameter(Mandatory = $true)]
+        $PhoneConfig,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $InstanceArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -175,6 +177,8 @@ For information about how to create user accounts using the Amazon Connect conso
             })]
         $DirectoryUserId,
         [parameter(Mandatory = $false)]
+        $IdentityInfo,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -186,16 +190,10 @@ For information about how to create user accounts using the Amazon Connect conso
             })]
         $HierarchyGroupArn,
         [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Username,
+        $SecurityProfileArns,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -207,26 +205,6 @@ For information about how to create user accounts using the Amazon Connect conso
                 }
             })]
         $Password,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RoutingProfileArn,
-        [parameter(Mandatory = $false)]
-        $IdentityInfo,
-        [parameter(Mandatory = $true)]
-        $PhoneConfig,
-        [parameter(Mandatory = $true)]
-        $SecurityProfileArns,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

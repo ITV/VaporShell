@@ -1,10 +1,10 @@
 function New-VSCognitoUserPoolResourceServer {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPoolResourceServer resource to the template. The AWS::Cognito::UserPoolResourceServer resource creates a new OAuth2.0 resource server and defines custom scopes in it.
+        Adds an AWS::Cognito::UserPoolResourceServer resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Cognito::UserPoolResourceServer resource to the template. The AWS::Cognito::UserPoolResourceServer resource creates a new OAuth2.0 resource server and defines custom scopes in it.
+        Adds an AWS::Cognito::UserPoolResourceServer resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html
@@ -13,30 +13,22 @@ function New-VSCognitoUserPoolResourceServer {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER UserPoolId
-        The user pool ID for the user pool.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-userpoolid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Identifier
-        A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: https://my-weather-api.example.com.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-identifier
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Scopes
-        A list of scopes. Each scope is a map with keys ScopeName and ScopeDescription.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-scopes
         ItemType: ResourceServerScopeType
         UpdateType: Mutable
 
     .PARAMETER Name
-        A friendly name for the resource server.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-name
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,18 +1,16 @@
 function Add-VSElastiCacheReplicationGroupKinesisFirehoseDestinationDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::ElastiCache::ReplicationGroup.KinesisFirehoseDestinationDetails resource property to the template. The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+        Adds an AWS::ElastiCache::ReplicationGroup.KinesisFirehoseDestinationDetails resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ElastiCache::ReplicationGroup.KinesisFirehoseDestinationDetails resource property to the template.
-The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html
 
     .PARAMETER DeliveryStream
-        The name of the Kinesis Data Firehose delivery stream.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html#cfn-elasticache-replicationgroup-kinesisfirehosedestinationdetails-deliverystream
         PrimitiveType: String
         UpdateType: Mutable

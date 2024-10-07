@@ -1,27 +1,21 @@
 function Add-VSEC2LaunchTemplateLaunchTemplateTagSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.LaunchTemplateTagSpecification resource property to the template. Specifies the tags to apply to the launch template during creation.
+        Adds an AWS::EC2::LaunchTemplate.LaunchTemplateTagSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.LaunchTemplateTagSpecification resource property to the template.
-Specifies the tags to apply to the launch template during creation.
 
-LaunchTemplateTagSpecification is a property of AWS::EC2::LaunchTemplate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html
 
     .PARAMETER ResourceType
-        The type of resource. To tag the launch template, ResourceType must be launch-template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html#cfn-ec2-launchtemplate-launchtemplatetagspecification-resourcetype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Tags
-        The tags for the resource.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html#cfn-ec2-launchtemplate-launchtemplatetagspecification-tags
         ItemType: Tag

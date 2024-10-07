@@ -1,28 +1,31 @@
 function Add-VSQuickSightAnalysisAnalysisError {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.AnalysisError resource property to the template. Analysis error.
+        Adds an AWS::QuickSight::Analysis.AnalysisError resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.AnalysisError resource property to the template.
-Analysis error.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html
 
     .PARAMETER Type
-        The type of the analysis error.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-type
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Message
-        The message associated with the analysis error.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-message
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER ViolatedEntities
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-violatedentities
+        UpdateType: Mutable
+        Type: List
+        ItemType: Entity
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -52,7 +55,18 @@ Analysis error.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Message
+        $Message,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.Entity"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ViolatedEntities
     )
     Begin {
         $obj = [PSCustomObject]@{}

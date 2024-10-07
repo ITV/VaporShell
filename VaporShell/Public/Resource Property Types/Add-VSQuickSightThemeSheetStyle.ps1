@@ -1,25 +1,21 @@
 function Add-VSQuickSightThemeSheetStyle {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.SheetStyle resource property to the template. The theme display options for sheets.
+        Adds an AWS::QuickSight::Theme.SheetStyle resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.SheetStyle resource property to the template.
-The theme display options for sheets.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html
 
     .PARAMETER TileLayout
-        The layout options for tiles.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tilelayout
         UpdateType: Mutable
         Type: TileLayoutStyle
 
     .PARAMETER Tile
-        The display options for tiles.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile
         UpdateType: Mutable
         Type: TileStyle

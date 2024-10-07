@@ -1,12 +1,10 @@
 function New-VSKendraIndex {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::Index resource to the template. Specifies a new Amazon Kendra index. And index is a collection of documents and associated metadata that you want to search for relevant documents.
+        Adds an AWS::Kendra::Index resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Kendra::Index resource to the template. Specifies a new Amazon Kendra index. And index is a collection of documents and associated metadata that you want to search for relevant documents.
-
-Once the index is active you can add documents to your index using the BatchPutDocument: https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html operation or using one of the supported data sources.
+        Adds an AWS::Kendra::Index resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
@@ -15,82 +13,60 @@ Once the index is active you can add documents to your index using the BatchPutD
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A description of the index.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ServerSideEncryptionConfiguration
-        The identifier of the AWS KMS customer managed key CMK to use to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs.
+    .PARAMETER UserContextPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER CapacityUnits
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
+        UpdateType: Mutable
+        Type: CapacityUnitsConfiguration
+
+    .PARAMETER ServerSideEncryptionConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
         UpdateType: Immutable
         Type: ServerSideEncryptionConfiguration
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+    .PARAMETER DocumentMetadataConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: DocumentMetadataConfiguration
+        DuplicatesAllowed: True
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
-
-    .PARAMETER Name
-        The name of the index.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
-        UpdateType: Mutable
-        PrimitiveType: String
+        DuplicatesAllowed: True
 
     .PARAMETER RoleArn
-        An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the BatchPutDocument: https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html operation to index documents from an Amazon S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Edition
-        Indicates whether the index is a enterprise edition index or a developer edition index. Valid values are DEVELOPER_EDITION and ENTERPRISE_EDITION.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER DocumentMetadataConfigurations
-        Specifies the properties of an index field. You can add either a custom or a built-in field. You can add and remove built-in fields at any time. When a built-in field is removed it's configuration reverts to the default for the field. Custom fields can't be removed from an index after they are added.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-        UpdateType: Mutable
-        Type: List
-        ItemType: DocumentMetadataConfiguration
-
-    .PARAMETER CapacityUnits
-        Specifies capacity units configured for your index. You can add and remove capacity units to tune an index to your requirements. You can set capacity units only for Enterprise edition indexes.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
-        UpdateType: Mutable
-        Type: CapacityUnitsConfiguration
-
-    .PARAMETER UserContextPolicy
-        The user context policy.
-ATTRIBUTE_FILTER
-+ All indexed content is searchable and displayable for all users. If there is an access control list, it is ignored. You can filter on user and group attributes.
-USER_TOKEN
-+ Enables SSO and token-based user access control. All documents with no access control and all documents accessible to the user will be searchable and displayable.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER UserTokenConfigurations
-        Defines the type of user token used for the index.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
         UpdateType: Mutable
         Type: List
         ItemType: UserTokenConfiguration
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -166,11 +142,6 @@ USER_TOKEN
             })]
         $Description,
         [parameter(Mandatory = $false)]
-        $ServerSideEncryptionConfiguration,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -180,7 +151,25 @@ USER_TOKEN
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $UserContextPolicy,
+        [parameter(Mandatory = $false)]
+        $CapacityUnits,
+        [parameter(Mandatory = $false)]
+        $ServerSideEncryptionConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Kendra.Index.DocumentMetadataConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DocumentMetadataConfigurations,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -203,20 +192,7 @@ USER_TOKEN
                 }
             })]
         $Edition,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Kendra.Index.DocumentMetadataConfiguration"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DocumentMetadataConfigurations,
-        [parameter(Mandatory = $false)]
-        $CapacityUnits,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -226,7 +202,7 @@ USER_TOKEN
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $UserContextPolicy,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Kendra.Index.UserTokenConfiguration"
@@ -312,17 +288,17 @@ USER_TOKEN
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Tags {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
-                }
                 DocumentMetadataConfigurations {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DocumentMetadataConfigurations -Value @($DocumentMetadataConfigurations)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 UserTokenConfigurations {
                     if (!($ResourceParams["Properties"])) {

@@ -1,18 +1,16 @@
 function Add-VSSageMakerModelBiasJobDefinitionMonitoringGroundTruthS3Input {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelBiasJobDefinition.MonitoringGroundTruthS3Input resource property to the template. The ground truth labels for the dataset used for the monitoring job.
+        Adds an AWS::SageMaker::ModelBiasJobDefinition.MonitoringGroundTruthS3Input resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelBiasJobDefinition.MonitoringGroundTruthS3Input resource property to the template.
-The ground truth labels for the dataset used for the monitoring job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html
 
     .PARAMETER S3Uri
-        The address of the Amazon S3 location of the ground truth labels.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input-s3uri
         UpdateType: Immutable
         PrimitiveType: String

@@ -1,42 +1,34 @@
 function Add-VSEventsConnectionAuthParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Connection.AuthParameters resource property to the template. <a name="aws-properties-events-connection-authparameters-description"></a>The AuthParameters property type specifies Not currently supported by AWS CloudFormation. for an AWS::Events::Connection: aws-resource-events-connection.md.
+        Adds an AWS::Events::Connection.AuthParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Connection.AuthParameters resource property to the template.
-<a name="aws-properties-events-connection-authparameters-description"></a>The AuthParameters property type specifies Not currently supported by AWS CloudFormation. for an AWS::Events::Connection: aws-resource-events-connection.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html
 
-    .PARAMETER ApiKeyAuthParameters
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-apikeyauthparameters
+    .PARAMETER InvocationHttpParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-invocationhttpparameters
         UpdateType: Mutable
-        Type: ApiKeyAuthParameters
+        Type: ConnectionHttpParameters
 
     .PARAMETER BasicAuthParameters
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-basicauthparameters
         UpdateType: Mutable
         Type: BasicAuthParameters
 
-    .PARAMETER OAuthParameters
-        Not currently supported by AWS CloudFormation.
+    .PARAMETER ApiKeyAuthParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-apikeyauthparameters
+        UpdateType: Mutable
+        Type: ApiKeyAuthParameters
 
+    .PARAMETER OAuthParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-oauthparameters
         UpdateType: Mutable
         Type: OAuthParameters
-
-    .PARAMETER InvocationHttpParameters
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-invocationhttpparameters
-        UpdateType: Mutable
-        Type: ConnectionHttpParameters
 
     .FUNCTIONALITY
         Vaporshell
@@ -46,13 +38,13 @@ function Add-VSEventsConnectionAuthParameters {
     Param
     (
         [parameter(Mandatory = $false)]
-        $ApiKeyAuthParameters,
+        $InvocationHttpParameters,
         [parameter(Mandatory = $false)]
         $BasicAuthParameters,
         [parameter(Mandatory = $false)]
-        $OAuthParameters,
+        $ApiKeyAuthParameters,
         [parameter(Mandatory = $false)]
-        $InvocationHttpParameters
+        $OAuthParameters
     )
     Begin {
         $obj = [PSCustomObject]@{}

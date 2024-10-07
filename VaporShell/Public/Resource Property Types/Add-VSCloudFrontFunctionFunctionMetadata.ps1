@@ -1,18 +1,16 @@
 function Add-VSCloudFrontFunctionFunctionMetadata {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Function.FunctionMetadata resource property to the template. Contains metadata about a CloudFront function.
+        Adds an AWS::CloudFront::Function.FunctionMetadata resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Function.FunctionMetadata resource property to the template.
-Contains metadata about a CloudFront function.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html
 
     .PARAMETER FunctionARN
-        The Amazon Resource Name ARN of the function. The ARN uniquely identifies the function.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html#cfn-cloudfront-function-functionmetadata-functionarn
         UpdateType: Mutable
         PrimitiveType: String

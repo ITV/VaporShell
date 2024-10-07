@@ -1,10 +1,10 @@
 function New-VSXRayGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::XRay::Group resource to the template. Use the AWS::XRay::Group resource to specify a group with a name and a filter expression.
+        Adds an AWS::XRay::Group resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::XRay::Group resource to the template. Use the AWS::XRay::Group resource to specify a group with a name and a filter expression.
+        Adds an AWS::XRay::Group resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html
@@ -12,37 +12,27 @@ function New-VSXRayGroup {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER FilterExpression
-        The filter expression defining the parameters to include traces.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER GroupName
-        The unique case-sensitive name of the group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER InsightsConfiguration
-        The structure containing configurations related to insights.
-+ The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
-+ The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
         UpdateType: Mutable
         Type: InsightsConfiguration
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+    .PARAMETER FilterExpression
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
         UpdateType: Mutable
         Type: List
-        PrimitiveItemType: Json
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -116,7 +106,9 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FilterExpression,
+        $GroupName,
+        [parameter(Mandatory = $false)]
+        $InsightsConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -127,9 +119,8 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $GroupName,
-        [parameter(Mandatory = $false)]
-        $InsightsConfiguration,
+        $FilterExpression,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
         [parameter(Mandatory = $false)]

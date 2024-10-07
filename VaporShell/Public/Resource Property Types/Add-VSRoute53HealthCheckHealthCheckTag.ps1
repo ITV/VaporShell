@@ -1,32 +1,22 @@
 function Add-VSRoute53HealthCheckHealthCheckTag {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53::HealthCheck.HealthCheckTag resource property to the template. The HealthCheckTag property describes one key-value pair that is associated with an AWS::Route53::HealthCheck resource.
+        Adds an AWS::Route53::HealthCheck.HealthCheckTag resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Route53::HealthCheck.HealthCheckTag resource property to the template.
-The HealthCheckTag property describes one key-value pair that is associated with an AWS::Route53::HealthCheck resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
 
-    .PARAMETER Key
-        The value of Key depends on the operation that you want to perform:
-+  **Add a tag to a health check or hosted zone**: Key is the name that you want to give the new tag.
-+  **Edit a tag**: Key is the name of the tag that you want to change the Value for.
-+  ** Delete a key**: Key is the name of the tag you want to remove.
-+  **Give a name to a health check**: Edit the default Name tag. In the Amazon Route 53 console, the list of your health checks includes a **Name** column that lets you see the name that you've given to each health check.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The value of Value depends on the operation that you want to perform:
-+  **Add a tag to a health check or hosted zone**: Value is the value that you want to give the new tag.
-+  **Edit a tag**: Value is the new value that you want to assign the tag.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -47,7 +37,7 @@ The HealthCheckTag property describes one key-value pair that is associated with
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -58,7 +48,7 @@ The HealthCheckTag property describes one key-value pair that is associated with
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

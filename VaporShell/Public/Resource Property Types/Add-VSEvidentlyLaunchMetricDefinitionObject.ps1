@@ -1,47 +1,36 @@
 function Add-VSEvidentlyLaunchMetricDefinitionObject {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Launch.MetricDefinitionObject resource property to the template. This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+        Adds an AWS::Evidently::Launch.MetricDefinitionObject resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Evidently::Launch.MetricDefinitionObject resource property to the template.
-This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html
 
-    .PARAMETER MetricName
-        A name for the metric. It can include up to 255 characters.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html#cfn-evidently-launch-metricdefinitionobject-metricname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER EntityIdKey
-        The entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is userDetails.userID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html#cfn-evidently-launch-metricdefinitionobject-entityidkey
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ValueKey
-        The value that is tracked to produce the metric.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html#cfn-evidently-launch-metricdefinitionobject-valuekey
+    .PARAMETER MetricName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html#cfn-evidently-launch-metricdefinitionobject-metricname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EventPattern
-        The EventBridge event pattern that defines how the metric is recorded.
-For more information about EventBridge event patterns, see Amazon EventBridge event patterns: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html#cfn-evidently-launch-metricdefinitionobject-eventpattern
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER UnitLabel
-        A label for the units that the metric is measuring.
+    .PARAMETER ValueKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html#cfn-evidently-launch-metricdefinitionobject-valuekey
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER UnitLabel
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html#cfn-evidently-launch-metricdefinitionobject-unitlabel
         UpdateType: Mutable
         PrimitiveType: String
@@ -63,17 +52,6 @@ For more information about EventBridge event patterns, see Amazon EventBridge ev
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MetricName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $EntityIdKey,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -85,8 +63,8 @@ For more information about EventBridge event patterns, see Amazon EventBridge ev
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ValueKey,
-        [parameter(Mandatory = $true)]
+        $MetricName,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -97,6 +75,17 @@ For more information about EventBridge event patterns, see Amazon EventBridge ev
                 }
             })]
         $EventPattern,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ValueKey,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

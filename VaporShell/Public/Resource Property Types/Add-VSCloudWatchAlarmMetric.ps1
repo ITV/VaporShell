@@ -1,18 +1,16 @@
 function Add-VSCloudWatchAlarmMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudWatch::Alarm.Metric resource property to the template. The Metric property type represents a specific metric. Metric is a property of the MetricStat: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html property type.
+        Adds an AWS::CloudWatch::Alarm.Metric resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudWatch::Alarm.Metric resource property to the template.
-The Metric property type represents a specific metric. Metric is a property of the MetricStat: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html property type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html
 
     .PARAMETER Dimensions
-        The metric dimensions that you want to be used for the metric that the alarm will watch..
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-dimensions
         DuplicatesAllowed: True
         ItemType: Dimension
@@ -20,15 +18,11 @@ The Metric property type represents a specific metric. Metric is a property of t
         UpdateType: Mutable
 
     .PARAMETER MetricName
-        The name of the metric that you want the alarm to watch. This is a required field.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-metricname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Namespace
-        The namespace of the metric that the alarm will watch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-namespace
         PrimitiveType: String
         UpdateType: Mutable

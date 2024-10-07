@@ -1,22 +1,21 @@
 function Add-VSSSOInstanceAccessControlAttributeConfigurationAccessControlAttributeValue {
     <#
     .SYNOPSIS
-        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttributeValue resource property to the template. The value used for mapping a specified attribute to an identity source.
+        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttributeValue resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttributeValue resource property to the template.
-The value used for mapping a specified attribute to an identity source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html
 
     .PARAMETER Source
-        The identity source to use when mapping a specified attribute to AWS SSO.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

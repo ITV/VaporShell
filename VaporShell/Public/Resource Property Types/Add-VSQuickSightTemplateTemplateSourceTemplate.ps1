@@ -1,18 +1,16 @@
 function Add-VSQuickSightTemplateTemplateSourceTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.TemplateSourceTemplate resource property to the template. The source template of the template.
+        Adds an AWS::QuickSight::Template.TemplateSourceTemplate resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.TemplateSourceTemplate resource property to the template.
-The source template of the template.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html#cfn-quicksight-template-templatesourcetemplate-arn
         UpdateType: Mutable
         PrimitiveType: String

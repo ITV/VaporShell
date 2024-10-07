@@ -1,20 +1,16 @@
 function Add-VSCodeDeployDeploymentGroupGreenFleetProvisioningOption {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.GreenFleetProvisioningOption resource property to the template. Information about the instances that belong to the replacement environment in a blue/green deployment.
+        Adds an AWS::CodeDeploy::DeploymentGroup.GreenFleetProvisioningOption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.GreenFleetProvisioningOption resource property to the template.
-Information about the instances that belong to the replacement environment in a blue/green deployment.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-greenfleetprovisioningoption.html
 
     .PARAMETER Action
-        The method used to add instances to a replacement environment.
-+  DISCOVER_EXISTING: Use instances that already exist or will be created manually.
-+  COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-greenfleetprovisioningoption.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-greenfleetprovisioningoption-action
         PrimitiveType: String
         UpdateType: Mutable

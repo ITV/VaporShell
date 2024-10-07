@@ -1,31 +1,21 @@
 function Add-VSS3BucketReplicationRuleAndOperator {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.ReplicationRuleAndOperator resource property to the template. A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter.
+        Adds an AWS::S3::Bucket.ReplicationRuleAndOperator resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.ReplicationRuleAndOperator resource property to the template.
-A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter.
 
-For example:
-
-+ If you specify both a Prefix and a TagFilter, wrap these filters in an And tag.
-
-+ If you specify a filter based on multiple tags, wrap the TagFilter elements in an And tag
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html
 
     .PARAMETER Prefix
-        An object key name prefix that identifies the subset of objects to which the rule applies.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-prefix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TagFilters
-        An array of tags containing key and value pairs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-tagfilters
         DuplicatesAllowed: False
         ItemType: TagFilter

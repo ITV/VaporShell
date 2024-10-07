@@ -1,18 +1,16 @@
 function Add-VSSyntheticsCanaryArtifactConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Synthetics::Canary.ArtifactConfig resource property to the template. A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.
+        Adds an AWS::Synthetics::Canary.ArtifactConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Synthetics::Canary.ArtifactConfig resource property to the template.
-A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-artifactconfig.html
 
     .PARAMETER S3Encryption
-        A structure that contains the configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. Artifact encryption functionality is available only for canaries that use Synthetics runtime version syn-nodejs-puppeteer-3.3 or later. For more information, see Encrypting canary artifacts: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_artifact_encryption.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-artifactconfig.html#cfn-synthetics-canary-artifactconfig-s3encryption
         UpdateType: Mutable
         Type: S3Encryption

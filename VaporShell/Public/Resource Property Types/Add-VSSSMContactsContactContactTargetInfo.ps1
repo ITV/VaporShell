@@ -1,25 +1,21 @@
 function Add-VSSSMContactsContactContactTargetInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMContacts::Contact.ContactTargetInfo resource property to the template. The contact that Incident Manager is engaging during an incident.
+        Adds an AWS::SSMContacts::Contact.ContactTargetInfo resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSMContacts::Contact.ContactTargetInfo resource property to the template.
-The contact that Incident Manager is engaging during an incident.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html
 
     .PARAMETER ContactId
-        The Amazon Resource Name ARN of the contact.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-contactid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER IsEssential
-        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-isessential
         UpdateType: Mutable
         PrimitiveType: Boolean

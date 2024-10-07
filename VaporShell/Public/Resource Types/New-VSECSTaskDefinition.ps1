@@ -1,10 +1,10 @@
 function New-VSECSTaskDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::TaskDefinition resource to the template. The AWS::ECS::TaskDefinition resource describes the container and volume definitions of an Amazon Elastic Container Service (Amazon ECS task. You can specify which Docker images to use, the required resources, and other configurations related to launching the task definition through an Amazon ECS service or task.
+        Adds an AWS::ECS::TaskDefinition resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ECS::TaskDefinition resource to the template. The AWS::ECS::TaskDefinition resource describes the container and volume definitions of an Amazon Elastic Container Service (Amazon ECS task. You can specify which Docker images to use, the required resources, and other configurations related to launching the task definition through an Amazon ECS service or task.
+        Adds an AWS::ECS::TaskDefinition resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
@@ -12,54 +12,17 @@ function New-VSECSTaskDefinition {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Family
-        The name of a family that this task definition is registered to. Up to 255 letters uppercase and lowercase, numbers, hyphens, and underscores are allowed.
-A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
-To use revision numbers when you update a task definition, specify this property. If you don't specify a value, AWS CloudFormation generates a new task definition each time that you update it.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
+    .PARAMETER TaskRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ContainerDefinitions
-        A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see Amazon ECS Task Definitions: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html in the *Amazon Elastic Container Service Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
-        UpdateType: Immutable
-        Type: List
-        ItemType: ContainerDefinition
-        DuplicatesAllowed: False
-
-    .PARAMETER Cpu
-        The number of cpu units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the memory parameter.
-The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.
-+ 256 .25 vCPU - Available memory values: 512 0.5 GB, 1024 1 GB, 2048 2 GB
-+ 512 .5 vCPU - Available memory values: 1024 1 GB, 2048 2 GB, 3072 3 GB, 4096 4 GB
-+ 1024 1 vCPU - Available memory values: 2048 2 GB, 3072 3 GB, 4096 4 GB, 5120 5 GB, 6144 6 GB, 7168 7 GB, 8192 8 GB
-+ 2048 2 vCPU - Available memory values: Between 4096 4 GB and 16384 16 GB in increments of 1024 1 GB
-+ 4096 4 vCPU - Available memory values: Between 8192 8 GB and 30720 30 GB in increments of 1024 1 GB
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
+    .PARAMETER IpcMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
         UpdateType: Immutable
         PrimitiveType: String
-
-    .PARAMETER ExecutionRoleArn
-        The Amazon Resource Name ARN of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. The task execution IAM role is required depending on the requirements of your task. For more information, see Amazon ECS task execution IAM role: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html in the *Amazon Elastic Container Service Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER EphemeralStorage
-        The ephemeral storage settings to use for tasks run with the task definition.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
-        UpdateType: Immutable
-        Type: EphemeralStorage
 
     .PARAMETER InferenceAccelerators
-        The Elastic Inference accelerators to use for the containers in the task.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
         UpdateType: Immutable
         Type: List
@@ -67,121 +30,84 @@ The CPU units cannot be less than 1 vCPU when you use Windows containers on Farg
         DuplicatesAllowed: False
 
     .PARAMETER Memory
-        The amount in MiB of memory used by the task.
-If your tasks runs on Amazon EC2 instances, you must specify either a task-level memory value or a container-level memory value. This field is optional and any value can be used. If a task-level memory value is specified, the container-level memory value is optional. For more information regarding container-level memory and memory reservation, see ContainerDefinition: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html.
-If your tasks runs on AWS Fargate, this field is required. You must use one of the following values. The value you choose determines your range of valid values for the cpu parameter.
-+ 512 0.5 GB, 1024 1 GB, 2048 2 GB - Available cpu values: 256 .25 vCPU
-+ 1024 1 GB, 2048 2 GB, 3072 3 GB, 4096 4 GB - Available cpu values: 512 .5 vCPU
-+ 2048 2 GB, 3072 3 GB, 4096 4 GB, 5120 5 GB, 6144 6 GB, 7168 7 GB, 8192 8 GB - Available cpu values: 1024 1 vCPU
-+ Between 4096 4 GB and 16384 16 GB in increments of 1024 1 GB - Available cpu values: 2048 2 vCPU
-+ Between 8192 8 GB and 30720 30 GB in increments of 1024 1 GB - Available cpu values: 4096 4 vCPU
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER NetworkMode
-        The Docker networking mode to use for the containers in the task. The valid values are none, bridge, awsvpc, and host. The default Docker network mode is bridge. If you are using the Fargate launch type, the awsvpc network mode is required. If you are using the EC2 launch type, any network mode can be used. If the network mode is set to none, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The host and awsvpc network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the bridge mode.
-With the host and awsvpc network modes, exposed container ports are mapped directly to the corresponding host port for the host network mode or the attached elastic network interface port for the awsvpc network mode, so you cannot take advantage of dynamic host port mappings.
-If the network mode is awsvpc, the task is allocated an elastic network interface, and you must specify a NetworkConfiguration: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html value when you create a service or run a task with the task definition. For more information, see Task Networking: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html in the *Amazon Elastic Container Service Developer Guide*.
-Currently, only Amazon ECS-optimized AMIs, other Amazon Linux variants with the ecs-init package, or AWS Fargate infrastructure support the awsvpc network mode.
-If the network mode is host, you cannot run multiple instantiations of the same task on a single container instance when port mappings are used.
-Docker for Windows uses different network modes than Docker for Linux. When you register a task definition with Windows containers, you must not specify a network mode. If you use the console to register a task definition with Windows containers, you must choose the <default> network mode object.
-For more information, see Network settings: https://docs.docker.com/engine/reference/run/#network-settings in the *Docker run reference*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER PlacementConstraints
-        An array of placement constraint objects to use for tasks.
-This parameter isn't supported for tasks run on AWS Fargate.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
         UpdateType: Immutable
         Type: List
         ItemType: TaskDefinitionPlacementConstraint
         DuplicatesAllowed: False
 
-    .PARAMETER ProxyConfiguration
-        The ProxyConfiguration property specifies the configuration details for the App Mesh proxy.
-Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ecs-init package to enable a proxy configuration. If your container instances are launched from the Amazon ECS-optimized AMI version 20190301 or later, then they contain the required versions of the container agent and ecs-init. For more information, see Amazon ECS-optimized Linux AMI: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html in the *Amazon Elastic Container Service Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
+    .PARAMETER Cpu
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
         UpdateType: Immutable
-        Type: ProxyConfiguration
+        PrimitiveType: String
 
     .PARAMETER RequiresCompatibilities
-        The task launch types the task definition was validated against. To determine which task launch types the task definition is validated for, see the TaskDefinition$compatibilities parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER TaskRoleArn
-        The short name or full Amazon Resource Name ARN of the AWS Identity and Access Management role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see Amazon ECS Task Role: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html in the *Amazon Elastic Container Service Developer Guide*.
-IAM roles for tasks on Windows require that the -EnableTaskIAMRole option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see Windows IAM roles for tasks: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html in the *Amazon Elastic Container Service Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
+    .PARAMETER NetworkMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Volumes
-        The list of data volume definitions for the task. For more information, see Using data volumes in tasks: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html in the *Amazon Elastic Container Service Developer Guide*.
-The host and sourcePath parameters aren't supported for tasks run on AWS Fargate.
+    .PARAMETER PidMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER ExecutionRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER RuntimePlatform
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-runtimeplatform
+        UpdateType: Immutable
+        Type: RuntimePlatform
+
+    .PARAMETER ProxyConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
+        UpdateType: Immutable
+        Type: ProxyConfiguration
+
+    .PARAMETER Volumes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
         UpdateType: Immutable
         Type: List
         ItemType: Volume
         DuplicatesAllowed: False
 
-    .PARAMETER PidMode
-        The process namespace to use for the containers in the task. The valid values are host or task. If host is specified, then all containers within the tasks that specified the host PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If task is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace. For more information, see PID settings: https://docs.docker.com/engine/reference/run/#pid-settings---pid in the *Docker run reference*.
-If the host PID mode is used, be aware that there is a heightened risk of undesired process namespace expose. For more information, see Docker security: https://docs.docker.com/engine/security/security/.
-This parameter is not supported for Windows containers or tasks run on AWS Fargate.
+    .PARAMETER ContainerDefinitions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
+        UpdateType: Immutable
+        Type: List
+        ItemType: ContainerDefinition
+        DuplicatesAllowed: False
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
+    .PARAMETER Family
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER RuntimePlatform
-        The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
-When you specify a task definition in a service, this value must match the runtimePlatform value of the service.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-runtimeplatform
+    .PARAMETER EphemeralStorage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
         UpdateType: Immutable
-        Type: RuntimePlatform
-
-    .PARAMETER IpcMode
-        The IPC resource namespace to use for the containers in the task. The valid values are host, task, or none. If host is specified, then all containers within the tasks that specified the host IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If task is specified, all containers within the specified task share the same IPC resources. If none is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see IPC settings: https://docs.docker.com/engine/reference/run/#ipc-settings---ipc in the *Docker run reference*.
-If the host IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see Docker security: https://docs.docker.com/engine/security/security/.
-If you are setting namespaced kernel parameters using systemControls for the containers in the task, the following will apply to your IPC resource namespace. For more information, see System Controls: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html in the *Amazon Elastic Container Service Developer Guide*.
-+ For tasks that use the host IPC mode, IPC namespace related systemControls are not supported.
-+ For tasks that use the task IPC mode, IPC namespace related systemControls will apply to all containers within a task.
-This parameter is not supported for Windows containers or tasks run on AWS Fargate.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
-        UpdateType: Immutable
-        PrimitiveType: String
+        Type: EphemeralStorage
 
     .PARAMETER Tags
-        The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
-The following basic restrictions apply to tags:
-+ Maximum number of tags per resource - 50
-+ For each resource, each tag key must be unique, and each tag key can have only one value.
-+ Maximum key length - 128 Unicode characters in UTF-8
-+ Maximum value length - 256 Unicode characters in UTF-8
-+ If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-+ Tag keys and values are case-sensitive.
-+ Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -255,18 +181,7 @@ The following basic restrictions apply to tags:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Family,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.ECS.TaskDefinition.ContainerDefinition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ContainerDefinitions,
+        $TaskRoleArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -277,20 +192,7 @@ The following basic restrictions apply to tags:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Cpu,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ExecutionRoleArn,
-        [parameter(Mandatory = $false)]
-        $EphemeralStorage,
+        $IpcMode,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ECS.TaskDefinition.InferenceAccelerator"
@@ -315,17 +217,6 @@ The following basic restrictions apply to tags:
         $Memory,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $NetworkMode,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ECS.TaskDefinition.TaskDefinitionPlacementConstraint"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -336,7 +227,16 @@ The following basic restrictions apply to tags:
             })]
         $PlacementConstraints,
         [parameter(Mandatory = $false)]
-        $ProxyConfiguration,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Cpu,
         [parameter(Mandatory = $false)]
         $RequiresCompatibilities,
         [parameter(Mandatory = $false)]
@@ -349,7 +249,33 @@ The following basic restrictions apply to tags:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TaskRoleArn,
+        $NetworkMode,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PidMode,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ExecutionRoleArn,
+        [parameter(Mandatory = $false)]
+        $RuntimePlatform,
+        [parameter(Mandatory = $false)]
+        $ProxyConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ECS.TaskDefinition.Volume"
@@ -363,7 +289,7 @@ The following basic restrictions apply to tags:
         $Volumes,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "Vaporshell.Resource.ECS.TaskDefinition.ContainerDefinition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -371,9 +297,7 @@ The following basic restrictions apply to tags:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PidMode,
-        [parameter(Mandatory = $false)]
-        $RuntimePlatform,
+        $ContainerDefinitions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -384,7 +308,9 @@ The following basic restrictions apply to tags:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IpcMode,
+        $Family,
+        [parameter(Mandatory = $false)]
+        $EphemeralStorage,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -462,12 +388,6 @@ The following basic restrictions apply to tags:
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                ContainerDefinitions {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ContainerDefinitions -Value @($ContainerDefinitions)
-                }
                 InferenceAccelerators {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -491,6 +411,12 @@ The following basic restrictions apply to tags:
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Volumes -Value @($Volumes)
+                }
+                ContainerDefinitions {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ContainerDefinitions -Value @($ContainerDefinitions)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

@@ -1,25 +1,21 @@
 function Add-VSLexBotSlotPriority {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SlotPriority resource property to the template. Sets the priority that Amazon Lex should use when eliciting slots values from a user.
+        Adds an AWS::Lex::Bot.SlotPriority resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SlotPriority resource property to the template.
-Sets the priority that Amazon Lex should use when eliciting slots values from a user.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html
 
     .PARAMETER Priority
-        The priority that Amazon Lex should apply to the slot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html#cfn-lex-bot-slotpriority-priority
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER SlotName
-        The name of the slot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html#cfn-lex-bot-slotpriority-slotname
         UpdateType: Mutable
         PrimitiveType: String

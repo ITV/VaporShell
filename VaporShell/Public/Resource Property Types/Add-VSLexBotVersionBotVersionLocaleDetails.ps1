@@ -1,18 +1,16 @@
 function Add-VSLexBotVersionBotVersionLocaleDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotVersion.BotVersionLocaleDetails resource property to the template. The version of a bot used for a bot locale.
+        Adds an AWS::Lex::BotVersion.BotVersionLocaleDetails resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotVersion.BotVersionLocaleDetails resource property to the template.
-The version of a bot used for a bot locale.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html
 
     .PARAMETER SourceBotVersion
-        The version of a bot used for a bot locale.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html#cfn-lex-botversion-botversionlocaledetails-sourcebotversion
         UpdateType: Mutable
         PrimitiveType: String

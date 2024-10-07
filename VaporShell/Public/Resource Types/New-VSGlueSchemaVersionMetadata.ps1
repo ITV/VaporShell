@@ -1,10 +1,10 @@
 function New-VSGlueSchemaVersionMetadata {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::SchemaVersionMetadata resource to the template. The AWS::Glue::SchemaVersionMetadata is an AWS Glue resource type that defines the metadata key-value pairs for a schema version in AWS Glue Schema Registry.
+        Adds an AWS::Glue::SchemaVersionMetadata resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Glue::SchemaVersionMetadata resource to the template. The AWS::Glue::SchemaVersionMetadata is an AWS Glue resource type that defines the metadata key-value pairs for a schema version in AWS Glue Schema Registry.
+        Adds an AWS::Glue::SchemaVersionMetadata resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
@@ -13,23 +13,17 @@ function New-VSGlueSchemaVersionMetadata {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER SchemaVersionId
-        The version number of the schema.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Key
-        A metadata key in a key-value pair for metadata.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        A metadata key's corresponding value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -116,7 +110,7 @@ function New-VSGlueSchemaVersionMetadata {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -127,7 +121,7 @@ function New-VSGlueSchemaVersionMetadata {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value,
+        $Key,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,25 +1,21 @@
 function Add-VSEvidentlyProjectS3Destination {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Project.S3Destination resource property to the template. If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
+        Adds an AWS::Evidently::Project.S3Destination resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Evidently::Project.S3Destination resource property to the template.
-If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html
 
     .PARAMETER BucketName
-        The name of the bucket in which Evidently stores evaluation events.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html#cfn-evidently-project-s3destination-bucketname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Prefix
-        The bucket prefix in which Evidently stores evaluation events.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html#cfn-evidently-project-s3destination-prefix
         UpdateType: Mutable
         PrimitiveType: String

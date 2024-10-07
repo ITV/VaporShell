@@ -1,18 +1,21 @@
 function Add-VSSageMakerModelExplainabilityJobDefinitionModelExplainabilityJobInput {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityJobInput resource property to the template. Inputs for the model explainability job.
+        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityJobInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityJobInput resource property to the template.
-Inputs for the model explainability job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
 
-    .PARAMETER EndpointInput
-        Not currently supported by AWS CloudFormation.
+    .PARAMETER BatchTransformInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-batchtransforminput
+        UpdateType: Immutable
+        Type: BatchTransformInput
 
+    .PARAMETER EndpointInput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
         UpdateType: Immutable
         Type: EndpointInput
@@ -24,7 +27,9 @@ Inputs for the model explainability job.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        $BatchTransformInput,
+        [parameter(Mandatory = $false)]
         $EndpointInput
     )
     Begin {

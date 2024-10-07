@@ -1,18 +1,16 @@
 function Add-VSImageBuilderImageRecipeSystemsManagerAgent {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ImageRecipe.SystemsManagerAgent resource property to the template. Contains settings for the Systems Manager agent on your build instance.
+        Adds an AWS::ImageBuilder::ImageRecipe.SystemsManagerAgent resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::ImageRecipe.SystemsManagerAgent resource property to the template.
-Contains settings for the Systems Manager agent on your build instance.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
 
     .PARAMETER UninstallAfterBuild
-        Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
         UpdateType: Mutable
         PrimitiveType: Boolean

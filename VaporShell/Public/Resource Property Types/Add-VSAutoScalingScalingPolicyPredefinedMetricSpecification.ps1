@@ -1,35 +1,22 @@
 function Add-VSAutoScalingScalingPolicyPredefinedMetricSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.PredefinedMetricSpecification resource property to the template. Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
+        Adds an AWS::AutoScaling::ScalingPolicy.PredefinedMetricSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.PredefinedMetricSpecification resource property to the template.
-Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
 
-PredefinedMetricSpecification is a property of the AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html
 
-    .PARAMETER ResourceLabel
-        Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Auto Scaling group.
-The format is app/load-balancer-name/load-balancer-id/targetgroup/target-group-name/target-group-id , where
-+ app/load-balancer-name/load-balancer-id  is the final portion of the load balancer ARN, and
-+ targetgroup/target-group-name/target-group-id  is the final portion of the target group ARN.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
+    .PARAMETER PredefinedMetricType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-predefinedmetrictype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER PredefinedMetricType
-        The metric type. The following predefined metrics are available.
-+  ASGAverageCPUUtilization - Average CPU utilization of the Auto Scaling group.
-+  ASGAverageNetworkIn - Average number of bytes received on all network interfaces by the Auto Scaling group.
-+  ASGAverageNetworkOut - Average number of bytes sent out on all network interfaces by the Auto Scaling group.
-+  ALBRequestCountPerTarget - Number of requests completed per target in an Application Load Balancer target group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-predefinedmetrictype
+    .PARAMETER ResourceLabel
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -40,17 +27,6 @@ The format is app/load-balancer-name/load-balancer-id/targetgroup/target-group-n
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ResourceLabel,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -61,7 +37,18 @@ The format is app/load-balancer-name/load-balancer-id/targetgroup/target-group-n
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PredefinedMetricType
+        $PredefinedMetricType,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ResourceLabel
     )
     Begin {
         $obj = [PSCustomObject]@{}

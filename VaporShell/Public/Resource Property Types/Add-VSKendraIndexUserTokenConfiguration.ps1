@@ -1,25 +1,21 @@
 function Add-VSKendraIndexUserTokenConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::Index.UserTokenConfiguration resource property to the template. Provides the configuration information for a token.
+        Adds an AWS::Kendra::Index.UserTokenConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::Index.UserTokenConfiguration resource property to the template.
-Provides the configuration information for a token.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html
 
     .PARAMETER JwtTokenTypeConfiguration
-        Information about the JWT token type configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jwttokentypeconfiguration
         UpdateType: Mutable
         Type: JwtTokenTypeConfiguration
 
     .PARAMETER JsonTokenTypeConfiguration
-        Information about the JSON token type configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jsontokentypeconfiguration
         UpdateType: Mutable
         Type: JsonTokenTypeConfiguration

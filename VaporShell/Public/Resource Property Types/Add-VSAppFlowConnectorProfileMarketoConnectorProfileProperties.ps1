@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileMarketoConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.MarketoConnectorProfileProperties resource property to the template. The MarketoConnectorProfileProperties property type specifies the connector-specific profile properties required when using Marketo.
+        Adds an AWS::AppFlow::ConnectorProfile.MarketoConnectorProfileProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.MarketoConnectorProfileProperties resource property to the template.
-The MarketoConnectorProfileProperties property type specifies the connector-specific profile properties required when using Marketo.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Marketo resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html#cfn-appflow-connectorprofile-marketoconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String

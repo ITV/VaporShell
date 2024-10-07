@@ -1,28 +1,29 @@
 function Add-VSGroundStationDataflowEndpointGroupEndpointDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::DataflowEndpointGroup.EndpointDetails resource property to the template. The security details and endpoint information.
+        Adds an AWS::GroundStation::DataflowEndpointGroup.EndpointDetails resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::DataflowEndpointGroup.EndpointDetails resource property to the template.
-The security details and endpoint information.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html
 
-    .PARAMETER SecurityDetails
-        The role ARN, and IDs for security groups and subnets.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
-        UpdateType: Mutable
-        Type: SecurityDetails
-
     .PARAMETER Endpoint
-        Information about the endpoint such as name and the endpoint address.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
         UpdateType: Mutable
         Type: DataflowEndpoint
+
+    .PARAMETER AwsGroundStationAgentEndpoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-awsgroundstationagentendpoint
+        UpdateType: Mutable
+        Type: AwsGroundStationAgentEndpoint
+
+    .PARAMETER SecurityDetails
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
+        UpdateType: Mutable
+        Type: SecurityDetails
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +33,11 @@ The security details and endpoint information.
     Param
     (
         [parameter(Mandatory = $false)]
-        $SecurityDetails,
+        $Endpoint,
         [parameter(Mandatory = $false)]
-        $Endpoint
+        $AwsGroundStationAgentEndpoint,
+        [parameter(Mandatory = $false)]
+        $SecurityDetails
     )
     Begin {
         $obj = [PSCustomObject]@{}

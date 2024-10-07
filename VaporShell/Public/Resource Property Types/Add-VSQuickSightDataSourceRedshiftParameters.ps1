@@ -1,39 +1,31 @@
 function Add-VSQuickSightDataSourceRedshiftParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.RedshiftParameters resource property to the template. The parameters for Amazon Redshift. The ClusterId field can be blank if Host and Port are both set. The Host and Port fields can be blank if the ClusterId field is set.
+        Adds an AWS::QuickSight::DataSource.RedshiftParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.RedshiftParameters resource property to the template.
-The parameters for Amazon Redshift. The ClusterId field can be blank if Host and Port are both set. The Host and Port fields can be blank if the ClusterId field is set.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html
 
     .PARAMETER ClusterId
-        Cluster ID. This field can be blank if the Host and Port are provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Port
-        Port. This field can be blank if the ClusterId is provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Database
-        Database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-database
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Host
-        Host. This field can be blank if ClusterId is provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
         UpdateType: Mutable
         PrimitiveType: String

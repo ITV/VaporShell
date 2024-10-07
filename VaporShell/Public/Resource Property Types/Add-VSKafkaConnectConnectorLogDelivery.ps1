@@ -1,18 +1,16 @@
 function Add-VSKafkaConnectConnectorLogDelivery {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.LogDelivery resource property to the template. Details about log delivery.
+        Adds an AWS::KafkaConnect::Connector.LogDelivery resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.LogDelivery resource property to the template.
-Details about log delivery.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html
 
     .PARAMETER WorkerLogDelivery
-        The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html#cfn-kafkaconnect-connector-logdelivery-workerlogdelivery
         UpdateType: Immutable
         Type: WorkerLogDelivery

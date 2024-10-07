@@ -1,14 +1,10 @@
 function New-VSIoTSiteWiseProject {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::Project resource to the template. Creates a project in the specified portal.
+        Adds an AWS::IoTSiteWise::Project resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTSiteWise::Project resource to the template. Creates a project in the specified portal.
-
-**Note**
-
-Make sure that the project name and description don't contain confidential information.
+        Adds an AWS::IoTSiteWise::Project resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
@@ -16,39 +12,29 @@ Make sure that the project name and description don't contain confidential infor
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER PortalId
-        The ID of the portal in which to create the project.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ProjectName
-        A friendly name for the project.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER ProjectDescription
-        A description for the project.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER AssetIds
-        A list that contains the IDs of each asset associated with the project.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-assetids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER Tags
-        A list of key-value pairs that contain metadata for the project. For more information, see Tagging your AWS IoT SiteWise resources: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html in the *AWS IoT SiteWise User Guide*.
+    .PARAMETER ProjectName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER PortalId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ProjectDescription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
         UpdateType: Mutable
         Type: List
@@ -117,17 +103,8 @@ Make sure that the project name and description don't contain confidential infor
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PortalId,
+        [parameter(Mandatory = $false)]
+        $AssetIds,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -139,6 +116,17 @@ Make sure that the project name and description don't contain confidential infor
                 }
             })]
         $ProjectName,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PortalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -150,8 +138,6 @@ Make sure that the project name and description don't contain confidential infor
                 }
             })]
         $ProjectDescription,
-        [parameter(Mandatory = $false)]
-        $AssetIds,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

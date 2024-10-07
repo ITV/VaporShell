@@ -1,42 +1,29 @@
 function Add-VSElasticBeanstalkEnvironmentTier {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticBeanstalk::Environment.Tier resource property to the template. Describes the environment tier for an AWS::ElasticBeanstalk::Environment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html resource. For more information, see Environment Tiers: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html in the *AWS Elastic Beanstalk Developer Guide*.
+        Adds an AWS::ElasticBeanstalk::Environment.Tier resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ElasticBeanstalk::Environment.Tier resource property to the template.
-Describes the environment tier for an AWS::ElasticBeanstalk::Environment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html resource. For more information, see Environment Tiers: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html in the *AWS Elastic Beanstalk Developer Guide*.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment-tier.html
-
-    .PARAMETER Name
-        The name of this environment tier.
-Valid values:
-+ For *Web server tier* – WebServer
-+ For *Worker tier* – Worker
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment-tier.html#cfn-beanstalk-env-tier-name
-        PrimitiveType: String
-        UpdateType: Immutable
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-tier.html
 
     .PARAMETER Type
-        The type of this environment tier.
-Valid values:
-+ For *Web server tier* – Standard
-+ For *Worker tier* – SQS/HTTP
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment-tier.html#cfn-beanstalk-env-tier-type
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-tier.html#cfn-elasticbeanstalk-environment-tier-type
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Version
-        The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
-This member is deprecated. Any specific version that you set may become out of date. We recommend leaving it unspecified.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment-tier.html#cfn-beanstalk-env-tier-version
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-tier.html#cfn-elasticbeanstalk-environment-tier-version
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-tier.html#cfn-elasticbeanstalk-environment-tier-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -45,17 +32,6 @@ This member is deprecated. Any specific version that you set may become out of d
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -77,7 +53,18 @@ This member is deprecated. Any specific version that you set may become out of d
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Version
+        $Version,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

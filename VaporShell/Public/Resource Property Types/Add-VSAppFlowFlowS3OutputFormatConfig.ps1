@@ -1,39 +1,31 @@
 function Add-VSAppFlowFlowS3OutputFormatConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.S3OutputFormatConfig resource property to the template. The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
+        Adds an AWS::AppFlow::Flow.S3OutputFormatConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.S3OutputFormatConfig resource property to the template.
-The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html
 
-    .PARAMETER FileType
-        Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER PrefixConfig
-        Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
         UpdateType: Mutable
         Type: PrefixConfig
 
-    .PARAMETER AggregationConfig
-        The aggregation settings that you can use to customize the output format of your flow data.
+    .PARAMETER FileType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER AggregationConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
         UpdateType: Mutable
         Type: AggregationConfig
 
     .PARAMETER PreserveSourceDataTyping
-        + S3OutputFormatConfig: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_S3OutputFormatConfig.html in the *Amazon AppFlow API Reference*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-preservesourcedatatyping
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -46,6 +38,8 @@ The configuration that determines how Amazon AppFlow should format the flow outp
     Param
     (
         [parameter(Mandatory = $false)]
+        $PrefixConfig,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,8 +50,6 @@ The configuration that determines how Amazon AppFlow should format the flow outp
                 }
             })]
         $FileType,
-        [parameter(Mandatory = $false)]
-        $PrefixConfig,
         [parameter(Mandatory = $false)]
         $AggregationConfig,
         [parameter(Mandatory = $false)]

@@ -1,25 +1,21 @@
 function Add-VSACMPCACertificateAuthorityAccessDescription {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::CertificateAuthority.AccessDescription resource property to the template. Provides access information used by the authorityInfoAccess and subjectInfoAccess extensions described in RFC 5280: https://tools.ietf.org/html/rfc5280.
+        Adds an AWS::ACMPCA::CertificateAuthority.AccessDescription resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::CertificateAuthority.AccessDescription resource property to the template.
-Provides access information used by the authorityInfoAccess and subjectInfoAccess extensions described in RFC 5280: https://tools.ietf.org/html/rfc5280.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
 
     .PARAMETER AccessMethod
-        The type and format of AccessDescription information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
         UpdateType: Immutable
         Type: AccessMethod
 
     .PARAMETER AccessLocation
-        The location of AccessDescription information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
         UpdateType: Immutable
         Type: GeneralName

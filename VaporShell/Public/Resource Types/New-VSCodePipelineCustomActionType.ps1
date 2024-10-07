@@ -1,10 +1,10 @@
 function New-VSCodePipelineCustomActionType {
     <#
     .SYNOPSIS
-        Adds an AWS::CodePipeline::CustomActionType resource to the template. The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline. For more information, see Create and Add a Custom Action in AWS CodePipeline: https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html in the *AWS CodePipeline User Guide*.
+        Adds an AWS::CodePipeline::CustomActionType resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CodePipeline::CustomActionType resource to the template. The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline. For more information, see Create and Add a Custom Action in AWS CodePipeline: https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html in the *AWS CodePipeline User Guide*.
+        Adds an AWS::CodePipeline::CustomActionType resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
@@ -13,65 +13,48 @@ function New-VSCodePipelineCustomActionType {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Category
-        The category of the custom action, such as a build action or a test action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-category
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Immutable
-
-    .PARAMETER ConfigurationProperties
-        The configuration properties for the custom action.
-You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see Create a Custom Action for a Pipeline: https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-configurationproperties
-        DuplicatesAllowed: False
-        ItemType: ConfigurationProperties
-        Type: List
-        UpdateType: Immutable
 
     .PARAMETER InputArtifactDetails
-        The details of the input artifact for the action, such as its commit ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-inputartifactdetails
+        UpdateType: Immutable
         Type: ArtifactDetails
-        UpdateType: Immutable
-
-    .PARAMETER OutputArtifactDetails
-        The details of the output artifact of the action, such as its commit ID.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-outputartifactdetails
-        Type: ArtifactDetails
-        UpdateType: Immutable
-
-    .PARAMETER Provider
-        The provider of the service used in the custom action, such as CodeDeploy.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-provider
-        PrimitiveType: String
-        UpdateType: Immutable
-
-    .PARAMETER Settings
-        URLs that provide users information about this custom action.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-settings
-        Type: Settings
-        UpdateType: Immutable
-
-    .PARAMETER Tags
-        The tags for the custom action.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-tags
-        DuplicatesAllowed: True
-        ItemType: Tag
-        Type: List
-        UpdateType: Mutable
 
     .PARAMETER Version
-        The version identifier of the custom action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-version
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER OutputArtifactDetails
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-outputartifactdetails
+        UpdateType: Immutable
+        Type: ArtifactDetails
+
+    .PARAMETER ConfigurationProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-configurationproperties
+        UpdateType: Immutable
+        Type: List
+        ItemType: ConfigurationProperties
+        DuplicatesAllowed: False
+
+    .PARAMETER Settings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-settings
+        UpdateType: Immutable
+        Type: Settings
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER Provider
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-provider
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -146,6 +129,21 @@ You can refer to a name in the configuration properties of the custom action wit
                 }
             })]
         $Category,
+        [parameter(Mandatory = $true)]
+        $InputArtifactDetails,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Version,
+        [parameter(Mandatory = $true)]
+        $OutputArtifactDetails,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodePipeline.CustomActionType.ConfigurationProperties"
@@ -157,21 +155,6 @@ You can refer to a name in the configuration properties of the custom action wit
                 }
             })]
         $ConfigurationProperties,
-        [parameter(Mandatory = $true)]
-        $InputArtifactDetails,
-        [parameter(Mandatory = $true)]
-        $OutputArtifactDetails,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Provider,
         [parameter(Mandatory = $false)]
         $Settings,
         [VaporShell.Core.TransformTag()]
@@ -187,7 +170,7 @@ You can refer to a name in the configuration properties of the custom action wit
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Version,
+        $Provider,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

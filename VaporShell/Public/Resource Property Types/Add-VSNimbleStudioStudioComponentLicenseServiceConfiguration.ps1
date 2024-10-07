@@ -1,18 +1,16 @@
 function Add-VSNimbleStudioStudioComponentLicenseServiceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::StudioComponent.LicenseServiceConfiguration resource property to the template. The configuration for a license service that is associated with a studio resource.
+        Adds an AWS::NimbleStudio::StudioComponent.LicenseServiceConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::StudioComponent.LicenseServiceConfiguration resource property to the template.
-The configuration for a license service that is associated with a studio resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html
 
     .PARAMETER Endpoint
-        The endpoint of the license service that is accessed by the studio component resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html#cfn-nimblestudio-studiocomponent-licenseserviceconfiguration-endpoint
         UpdateType: Mutable
         PrimitiveType: String

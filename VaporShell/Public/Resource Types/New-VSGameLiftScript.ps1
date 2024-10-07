@@ -1,10 +1,10 @@
 function New-VSGameLiftScript {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::Script resource to the template. The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
+        Adds an AWS::GameLift::Script resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::GameLift::Script resource to the template. The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
+        Adds an AWS::GameLift::Script resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html
@@ -13,30 +13,22 @@ function New-VSGameLiftScript {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Version
-        The version that is associated with a build or script. Version strings do not need to be unique.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html#cfn-gamelift-script-version
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER StorageLocation
-        The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name the "key", and a role ARN that allows Amazon Web Services to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon Web Services uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
-
         Type: S3Location
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html#cfn-gamelift-script-storagelocation
         UpdateType: Mutable
 
     .PARAMETER Tags
-        A list of labels to assign to the new script resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see  Tagging AWS Resources: https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html in the * AWS General Reference*. Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html#cfn-gamelift-script-tags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER Name
-        A descriptive label that is associated with a script. Script names do not need to be unique.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html#cfn-gamelift-script-name
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,33 +1,27 @@
 function Add-VSKinesisAnalyticsV2ApplicationMavenReference {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.MavenReference resource property to the template. The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
+        Adds an AWS::KinesisAnalyticsV2::Application.MavenReference resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.MavenReference resource property to the template.
-The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html
 
     .PARAMETER ArtifactId
-        The artifact ID of the Maven reference.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html#cfn-kinesisanalyticsv2-application-mavenreference-artifactid
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER GroupId
-        The group ID of the Maven reference.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html#cfn-kinesisanalyticsv2-application-mavenreference-groupid
+    .PARAMETER Version
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html#cfn-kinesisanalyticsv2-application-mavenreference-version
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Version
-        The version of the Maven reference.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html#cfn-kinesisanalyticsv2-application-mavenreference-version
+    .PARAMETER GroupId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html#cfn-kinesisanalyticsv2-application-mavenreference-groupid
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -59,7 +53,7 @@ The information required to specify a Maven reference. You can use Maven referen
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $GroupId,
+        $Version,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -70,7 +64,7 @@ The information required to specify a Maven reference. You can use Maven referen
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Version
+        $GroupId
     )
     Begin {
         $obj = [PSCustomObject]@{}

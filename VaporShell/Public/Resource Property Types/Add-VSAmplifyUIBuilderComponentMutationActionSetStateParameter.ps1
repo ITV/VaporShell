@@ -1,35 +1,29 @@
 function Add-VSAmplifyUIBuilderComponentMutationActionSetStateParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Component.MutationActionSetStateParameter resource property to the template. The MutationActionSetStateParameter property specifies the state configuration when an action modifies a property of another element within the same component.
+        Adds an AWS::AmplifyUIBuilder::Component.MutationActionSetStateParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Component.MutationActionSetStateParameter resource property to the template.
-The MutationActionSetStateParameter property specifies the state configuration when an action modifies a property of another element within the same component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html
 
-    .PARAMETER ComponentName
-        The name of the component that is being modified.
+    .PARAMETER Set
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html#cfn-amplifyuibuilder-component-mutationactionsetstateparameter-set
+        UpdateType: Mutable
+        Type: ComponentProperty
 
+    .PARAMETER ComponentName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html#cfn-amplifyuibuilder-component-mutationactionsetstateparameter-componentname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Property
-        The name of the component property to apply the state configuration to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html#cfn-amplifyuibuilder-component-mutationactionsetstateparameter-property
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER Set
-        The state configuration to assign to the property.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html#cfn-amplifyuibuilder-component-mutationactionsetstateparameter-set
-        UpdateType: Mutable
-        Type: ComponentProperty
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,6 +32,8 @@ The MutationActionSetStateParameter property specifies the state configuration w
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $Set,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,9 +55,7 @@ The MutationActionSetStateParameter property specifies the state configuration w
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Property,
-        [parameter(Mandatory = $true)]
-        $Set
+        $Property
     )
     Begin {
         $obj = [PSCustomObject]@{}

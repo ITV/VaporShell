@@ -1,16 +1,10 @@
 function New-VSWAFByteMatchSet {
     <#
     .SYNOPSIS
-        Adds an AWS::WAF::ByteMatchSet resource to the template. **Note**
+        Adds an AWS::WAF::ByteMatchSet resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::WAF::ByteMatchSet resource to the template. **Note**
-
-This is ** AWS WAF Classic** documentation. For more information, see AWS WAF Classic: https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html in the developer guide.
-
-**For the latest version of AWS WAF **, use the AWS WAFV2 API and see the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html. With the latest version, AWS WAF has a single set of endpoints for regional and global use.
-
-The AWS::WAF::ByteMatchSet resource creates an AWS WAF ByteMatchSet that identifies a part of a web request that you want to inspect.
+        Adds an AWS::WAF::ByteMatchSet resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html
@@ -19,8 +13,6 @@ The AWS::WAF::ByteMatchSet resource creates an AWS WAF ByteMatchSet that identif
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ByteMatchTuples
-        Specifies the bytes typically a string that corresponds with ASCII characters that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html#cfn-waf-bytematchset-bytematchtuples
         DuplicatesAllowed: False
         ItemType: ByteMatchTuple
@@ -28,8 +20,6 @@ The AWS::WAF::ByteMatchSet resource creates an AWS WAF ByteMatchSet that identif
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the ByteMatchSet. You can't change Name after you create a ByteMatchSet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html#cfn-waf-bytematchset-name
         PrimitiveType: String
         UpdateType: Immutable

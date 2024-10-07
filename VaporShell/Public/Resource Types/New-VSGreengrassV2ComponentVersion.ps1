@@ -1,38 +1,10 @@
 function New-VSGreengrassV2ComponentVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::GreengrassV2::ComponentVersion resource to the template. Creates a component. Components are software that run on Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to AWS IoT Greengrass. Then, you can deploy the component to other core devices.
+        Adds an AWS::GreengrassV2::ComponentVersion resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::GreengrassV2::ComponentVersion resource to the template. Creates a component. Components are software that run on Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to AWS IoT Greengrass. Then, you can deploy the component to other core devices.
-
-You can use this operation to do the following:
-
-+ **Create components from recipes**
-
-Create a component from a recipe, which is a file that defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform capability. For more information, see AWS IoT Greengrass component recipe reference: https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html in the *AWS IoT Greengrass V2 Developer Guide*.
-
-To create a component from a recipe, specify inlineRecipe when you call this operation.
-
-+ **Create components from Lambda functions**
-
-Create a component from an AWS Lambda function that runs on AWS IoT Greengrass. This creates a recipe and artifacts from the Lambda function's deployment package. You can use this operation to migrate Lambda functions from AWS IoT Greengrass V1 to AWS IoT Greengrass V2.
-
-This function only accepts Lambda functions that use the following runtimes:
-
-+ Python 2.7 – python2.7
-
-+ Python 3.7 – python3.7
-
-+ Python 3.8 – python3.8
-
-+ Java 8 – java8
-
-+ Node.js 10 – nodejs10.x
-
-+ Node.js 12 – nodejs12.x
-
-To create a component from a Lambda function, specify lambdaFunction when you call this operation.
+        Adds an AWS::GreengrassV2::ComponentVersion resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
@@ -40,33 +12,17 @@ To create a component from a Lambda function, specify lambdaFunction when you ca
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER InlineRecipe
-        The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
-You must specify either InlineRecipe or LambdaFunction.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER LambdaFunction
-        The parameters to create a component from a Lambda function.
-You must specify either InlineRecipe or LambdaFunction.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
         UpdateType: Immutable
         Type: LambdaFunctionRecipeSource
 
+    .PARAMETER InlineRecipe
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER Tags
-        Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see Tag your AWS IoT Greengrass Version 2 resources: https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html in the *AWS IoT Greengrass V2 Developer Guide*.
-This Json property type is processed as a map of key-value pairs. It uses the following format, which is different from most Tags implementations in AWS CloudFormation templates.
-
-"Tags": {
-"KeyName0": "value",
-"KeyName1": "value",
-"KeyName2": "value"
-}
-
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
         UpdateType: Mutable
         Type: Map
@@ -135,6 +91,8 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $LambdaFunction,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -145,8 +103,6 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
                 }
             })]
         $InlineRecipe,
-        [parameter(Mandatory = $false)]
-        $LambdaFunction,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,

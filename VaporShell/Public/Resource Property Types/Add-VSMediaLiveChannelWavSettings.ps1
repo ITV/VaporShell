@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelWavSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.WavSettings resource property to the template. The setup of WAV audio in the output.
+        Adds an AWS::MediaLive::Channel.WavSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.WavSettings resource property to the template.
-The setup of WAV audio in the output.
 
-The parent of this entity is AudioCodecSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html
 
     .PARAMETER CodingMode
-        The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html#cfn-medialive-channel-wavsettings-codingmode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SampleRate
-        Sample rate in Hz.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html#cfn-medialive-channel-wavsettings-samplerate
         PrimitiveType: Double
         UpdateType: Mutable
 
     .PARAMETER BitDepth
-        Bits per sample.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html#cfn-medialive-channel-wavsettings-bitdepth
         PrimitiveType: Double
         UpdateType: Mutable

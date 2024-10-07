@@ -1,25 +1,21 @@
 function Add-VSEC2EC2FleetMemoryGiBPerVCpuRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.MemoryGiBPerVCpuRequest resource property to the template. The minimum and maximum amount of memory per vCPU, in GiB.
+        Adds an AWS::EC2::EC2Fleet.MemoryGiBPerVCpuRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.MemoryGiBPerVCpuRequest resource property to the template.
-The minimum and maximum amount of memory per vCPU, in GiB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-memorygibpervcpurequest.html
 
     .PARAMETER Min
-        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-memorygibpervcpurequest.html#cfn-ec2-ec2fleet-memorygibpervcpurequest-min
         UpdateType: Immutable
         PrimitiveType: Double
 
     .PARAMETER Max
-        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-memorygibpervcpurequest.html#cfn-ec2-ec2fleet-memorygibpervcpurequest-max
         UpdateType: Immutable
         PrimitiveType: Double

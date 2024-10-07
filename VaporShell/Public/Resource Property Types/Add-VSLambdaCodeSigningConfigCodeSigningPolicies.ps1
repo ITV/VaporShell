@@ -1,19 +1,16 @@
 function Add-VSLambdaCodeSigningConfigCodeSigningPolicies {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::CodeSigningConfig.CodeSigningPolicies resource property to the template. Code signing configuration policies: https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies specify the validation failure action for signature mismatch or expiry.
+        Adds an AWS::Lambda::CodeSigningConfig.CodeSigningPolicies resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lambda::CodeSigningConfig.CodeSigningPolicies resource property to the template.
-Code signing configuration policies: https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies specify the validation failure action for signature mismatch or expiry.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html
 
     .PARAMETER UntrustedArtifactOnDeployment
-        Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log.
-Default value: Warn
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,18 +1,16 @@
 function Add-VSConnectQuickConnectPhoneNumberQuickConnectConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig resource property to the template. Contains information about a phone number for a quick connect.
+        Adds an AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig resource property to the template.
-Contains information about a phone number for a quick connect.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html
 
     .PARAMETER PhoneNumber
-        The phone number in E.164 format.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html#cfn-connect-quickconnect-phonenumberquickconnectconfig-phonenumber
         UpdateType: Mutable
         PrimitiveType: String

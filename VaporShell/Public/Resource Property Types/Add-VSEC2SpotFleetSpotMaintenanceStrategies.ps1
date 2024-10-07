@@ -1,18 +1,16 @@
 function Add-VSEC2SpotFleetSpotMaintenanceStrategies {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.SpotMaintenanceStrategies resource property to the template. The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+        Adds an AWS::EC2::SpotFleet.SpotMaintenanceStrategies resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.SpotMaintenanceStrategies resource property to the template.
-The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html
 
     .PARAMETER CapacityRebalance
-        The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see Capacity rebalancing: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html in the *Amazon EC2 User Guide for Linux Instances*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html#cfn-ec2-spotfleet-spotmaintenancestrategies-capacityrebalance
         UpdateType: Immutable
         Type: SpotCapacityRebalance

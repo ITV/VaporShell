@@ -1,18 +1,16 @@
 function Add-VSLexBotPlainTextMessage {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.PlainTextMessage resource property to the template. Defines an ASCII text message to send to the user.
+        Adds an AWS::Lex::Bot.PlainTextMessage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.PlainTextMessage resource property to the template.
-Defines an ASCII text message to send to the user.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-plaintextmessage.html
 
     .PARAMETER Value
-        The message to send to the user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-plaintextmessage.html#cfn-lex-bot-plaintextmessage-value
         UpdateType: Mutable
         PrimitiveType: String

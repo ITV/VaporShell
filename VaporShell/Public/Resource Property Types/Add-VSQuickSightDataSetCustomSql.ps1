@@ -1,40 +1,33 @@
 function Add-VSQuickSightDataSetCustomSql {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.CustomSql resource property to the template. A physical table type built from the results of the custom SQL query.
+        Adds an AWS::QuickSight::DataSet.CustomSql resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.CustomSql resource property to the template.
-A physical table type built from the results of the custom SQL query.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html
 
     .PARAMETER DataSourceArn
-        The Amazon Resource Name ARN of the data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-datasourcearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER SqlQuery
-        The SQL query.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-sqlquery
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Columns
-        The column schema from the SQL query result set.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-columns
         UpdateType: Mutable
         Type: List
         ItemType: InputColumn
+        DuplicatesAllowed: True
 
     .PARAMETER Name
-        A display name for the SQL query result.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-name
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,26 +1,22 @@
 function Add-VSBackupBackupPlanLifecycleResourceType {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupPlan.LifecycleResourceType resource property to the template. Specifies an object containing an array of Transition objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+        Adds an AWS::Backup::BackupPlan.LifecycleResourceType resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Backup::BackupPlan.LifecycleResourceType resource property to the template.
-Specifies an object containing an array of Transition objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html
 
-    .PARAMETER MoveToColdStorageAfterDays
-        Specifies the number of days after creation that a recovery point is moved to cold storage.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays
+    .PARAMETER DeleteAfterDays
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays
         UpdateType: Mutable
         PrimitiveType: Double
 
-    .PARAMETER DeleteAfterDays
-        Specifies the number of days after creation that a recovery point is deleted. Must be greater than MoveToColdStorageAfterDays.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays
+    .PARAMETER MoveToColdStorageAfterDays
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays
         UpdateType: Mutable
         PrimitiveType: Double
 
@@ -41,7 +37,7 @@ Specifies an object containing an array of Transition objects that determine how
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MoveToColdStorageAfterDays,
+        $DeleteAfterDays,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Specifies an object containing an array of Transition objects that determine how
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DeleteAfterDays
+        $MoveToColdStorageAfterDays
     )
     Begin {
         $obj = [PSCustomObject]@{}

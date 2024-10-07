@@ -1,39 +1,31 @@
 function Add-VSTransferServerIdentityProviderDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::Transfer::Server.IdentityProviderDetails resource property to the template. Required when IdentityProviderType is set to AWS_DIRECTORY_SERVICE or API_GATEWAY. Accepts an array containing all of the information required to use a directory in AWS_DIRECTORY_SERVICE or invoke a customer-supplied authentication API, including the API Gateway URL. Not required when IdentityProviderType is set to SERVICE_MANAGED.
+        Adds an AWS::Transfer::Server.IdentityProviderDetails resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Transfer::Server.IdentityProviderDetails resource property to the template.
-Required when IdentityProviderType is set to AWS_DIRECTORY_SERVICE or API_GATEWAY. Accepts an array containing all of the information required to use a directory in AWS_DIRECTORY_SERVICE or invoke a customer-supplied authentication API, including the API Gateway URL. Not required when IdentityProviderType is set to SERVICE_MANAGED.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html
 
     .PARAMETER Function
-        The ARN for a lambda function to use for the Identity provider.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-function
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DirectoryId
-        The identifier of the AWS Directory Service directory that you want to stop sharing.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-directoryid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER InvocationRole
-        Provides the type of InvocationRole used to authenticate the user account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-invocationrole
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Url
-        Provides the location of the service endpoint used to authenticate users.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-url
         PrimitiveType: String
         UpdateType: Mutable

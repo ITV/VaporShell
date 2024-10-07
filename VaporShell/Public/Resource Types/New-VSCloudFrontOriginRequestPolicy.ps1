@@ -1,20 +1,10 @@
 function New-VSCloudFrontOriginRequestPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::OriginRequestPolicy resource to the template. An origin request policy.
+        Adds an AWS::CloudFront::OriginRequestPolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFront::OriginRequestPolicy resource to the template. An origin request policy.
-
-When it’s attached to a cache behavior, the origin request policy determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-
-+ The request body and the URL path (without the domain name from the viewer request.
-
-+ The headers that CloudFront automatically includes in every origin request, including Host, User-Agent, and X-Amz-Cf-Id.
-
-+ All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-
-CloudFront sends a request when it can’t find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use CachePolicy.
+        Adds an AWS::CloudFront::OriginRequestPolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
@@ -23,8 +13,6 @@ CloudFront sends a request when it can’t find an object in its cache that matc
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER OriginRequestPolicyConfig
-        The origin request policy configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
         UpdateType: Mutable
         Type: OriginRequestPolicyConfig

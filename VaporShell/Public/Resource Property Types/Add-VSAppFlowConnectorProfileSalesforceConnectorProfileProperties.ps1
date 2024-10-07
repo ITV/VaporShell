@@ -1,26 +1,27 @@
 function Add-VSAppFlowConnectorProfileSalesforceConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileProperties resource property to the template. The SalesforceConnectorProfileProperties property type specifies the connector-specific profile properties required when using Salesforce.
+        Adds an AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileProperties resource property to the template.
-The SalesforceConnectorProfileProperties property type specifies the connector-specific profile properties required when using Salesforce.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Salesforce resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER isSandboxEnvironment
-        Indicates whether the connector profile applies to a sandbox or production environment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-issandboxenvironment
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER usePrivateLinkForMetadataAndAuthorization
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-useprivatelinkformetadataandauthorization
         UpdateType: Mutable
         PrimitiveType: Boolean
 
@@ -52,7 +53,18 @@ The SalesforceConnectorProfileProperties property type specifies the connector-s
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $isSandboxEnvironment
+        $isSandboxEnvironment,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $usePrivateLinkForMetadataAndAuthorization
     )
     Begin {
         $obj = [PSCustomObject]@{}

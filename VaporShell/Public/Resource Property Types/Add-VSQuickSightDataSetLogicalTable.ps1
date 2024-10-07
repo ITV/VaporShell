@@ -1,33 +1,28 @@
 function Add-VSQuickSightDataSetLogicalTable {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.LogicalTable resource property to the template. A *logical table* is a unit that joins and that data transformations operate on. A logical table has a source, which can be either a physical table or result of a join. When a logical table points to a physical table, the logical table acts as a mutable copy of that physical table through transform operations.
+        Adds an AWS::QuickSight::DataSet.LogicalTable resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.LogicalTable resource property to the template.
-A *logical table* is a unit that joins and that data transformations operate on. A logical table has a source, which can be either a physical table or result of a join. When a logical table points to a physical table, the logical table acts as a mutable copy of that physical table through transform operations.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html
 
     .PARAMETER Alias
-        A display name for the logical table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DataTransforms
-        Transform operations that act on this logical table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
         UpdateType: Mutable
         Type: List
         ItemType: TransformOperation
+        DuplicatesAllowed: True
 
     .PARAMETER Source
-        Source of this logical table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
         UpdateType: Mutable
         Type: LogicalTableSource

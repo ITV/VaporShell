@@ -1,18 +1,10 @@
 function New-VSCloudFrontCachePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::CachePolicy resource to the template. A cache policy.
+        Adds an AWS::CloudFront::CachePolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFront::CachePolicy resource to the template. A cache policy.
-
-When it’s attached to a cache behavior, the cache policy determines the following:
-
-+ The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
-
-+ The default, minimum, and maximum time to live (TTL values that you want objects to stay in the CloudFront cache.
-
-The headers, cookies, and query strings that are included in the cache key are automatically included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t find a valid object in its cache that matches the request’s cache key. If you want to send values to the origin but *not* include them in the cache key, use OriginRequestPolicy.
+        Adds an AWS::CloudFront::CachePolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
@@ -21,8 +13,6 @@ The headers, cookies, and query strings that are included in the cache key are a
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CachePolicyConfig
-        The cache policy configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
         UpdateType: Mutable
         Type: CachePolicyConfig

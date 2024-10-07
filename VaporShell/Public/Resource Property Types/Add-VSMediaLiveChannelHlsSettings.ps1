@@ -1,41 +1,31 @@
 function Add-VSMediaLiveChannelHlsSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.HlsSettings resource property to the template. The settings for an HLS output.
+        Adds an AWS::MediaLive::Channel.HlsSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.HlsSettings resource property to the template.
-The settings for an HLS output.
 
-The parent of this entity is HlsOutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html
 
     .PARAMETER StandardHlsSettings
-        The settings for a standard output an output that is not audio-only.
-
         Type: StandardHlsSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-standardhlssettings
         UpdateType: Mutable
 
     .PARAMETER AudioOnlyHlsSettings
-        The settings for an audio-only output.
-
         Type: AudioOnlyHlsSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-audioonlyhlssettings
         UpdateType: Mutable
 
     .PARAMETER Fmp4HlsSettings
-        The settings for an fMP4 container.
-
         Type: Fmp4HlsSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-fmp4hlssettings
         UpdateType: Mutable
 
     .PARAMETER FrameCaptureHlsSettings
-        Settings for a frame capture output in an HLS output group.
-
         Type: FrameCaptureHlsSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-framecapturehlssettings
         UpdateType: Mutable

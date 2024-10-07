@@ -1,10 +1,10 @@
 function New-VSEMRStudioSessionMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::StudioSessionMapping resource to the template. The AWS::EMR::StudioSessionMapping resource is an Amazon EMR resource type that maps a user or group to the Amazon EMR Studio specified by StudioId, and applies a session policy that defines Studio permissions for that user or group.
+        Adds an AWS::EMR::StudioSessionMapping resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EMR::StudioSessionMapping resource to the template. The AWS::EMR::StudioSessionMapping resource is an Amazon EMR resource type that maps a user or group to the Amazon EMR Studio specified by StudioId, and applies a session policy that defines Studio permissions for that user or group.
+        Adds an AWS::EMR::StudioSessionMapping resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html
@@ -12,31 +12,23 @@ function New-VSEMRStudioSessionMapping {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER IdentityName
-        The name of the user or group. For more information, see UserName: https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName and DisplayName: https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName in the *AWS SSO Identity Store API Reference*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identityname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER IdentityType
-        Specifies whether the identity to map to the Amazon EMR Studio is a user or a group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identitytype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SessionPolicyArn
-        The Amazon Resource Name ARN for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles. For more information, see Create an EMR Studio user role with session policies: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html in the *Amazon EMR Management Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-sessionpolicyarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER StudioId
-        The ID of the Amazon EMR Studio to which the user or group will be mapped.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-studioid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER IdentityName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identityname
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -112,17 +104,6 @@ function New-VSEMRStudioSessionMapping {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IdentityName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $IdentityType,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -146,6 +127,17 @@ function New-VSEMRStudioSessionMapping {
                 }
             })]
         $StudioId,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IdentityName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

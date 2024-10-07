@@ -1,28 +1,24 @@
 function Add-VSElasticBeanstalkConfigurationTemplateSourceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticBeanstalk::ConfigurationTemplate.SourceConfiguration resource property to the template. An AWS Elastic Beanstalk configuration template to base a new one on. You can use it to define a AWS::ElasticBeanstalk::ConfigurationTemplate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html resource.
+        Adds an AWS::ElasticBeanstalk::ConfigurationTemplate.SourceConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ElasticBeanstalk::ConfigurationTemplate.SourceConfiguration resource property to the template.
-An AWS Elastic Beanstalk configuration template to base a new one on. You can use it to define a AWS::ElasticBeanstalk::ConfigurationTemplate: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html
 
     .PARAMETER ApplicationName
-        The name of the application associated with the configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration-applicationname
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER TemplateName
-        The name of the configuration template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration-templatename
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell

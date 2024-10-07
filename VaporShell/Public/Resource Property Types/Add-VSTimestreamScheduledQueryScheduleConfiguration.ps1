@@ -1,18 +1,16 @@
 function Add-VSTimestreamScheduledQueryScheduleConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::ScheduledQuery.ScheduleConfiguration resource property to the template. Configuration of the schedule of the query.
+        Adds an AWS::Timestream::ScheduledQuery.ScheduleConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Timestream::ScheduledQuery.ScheduleConfiguration resource property to the template.
-Configuration of the schedule of the query.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-scheduleconfiguration.html
 
     .PARAMETER ScheduleExpression
-        An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-scheduleconfiguration.html#cfn-timestream-scheduledquery-scheduleconfiguration-scheduleexpression
         UpdateType: Immutable
         PrimitiveType: String

@@ -1,10 +1,10 @@
 function New-VSKinesisAnalyticsV2Application {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application resource to the template. Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see Creating an Application: https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html.
+        Adds an AWS::KinesisAnalyticsV2::Application resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::KinesisAnalyticsV2::Application resource to the template. Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see Creating an Application: https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html.
+        Adds an AWS::KinesisAnalyticsV2::Application resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html
@@ -12,70 +12,52 @@ function New-VSKinesisAnalyticsV2Application {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ApplicationConfiguration
-        Use this parameter to configure the application.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationconfiguration
-        UpdateType: Mutable
-        Type: ApplicationConfiguration
-
-    .PARAMETER ApplicationDescription
-        The description of the application.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationdescription
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER ApplicationMode
-        To create a Kinesis Data Analytics Studio notebook, you must set the mode to INTERACTIVE. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmode
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER ApplicationName
-        The name of the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER RuntimeEnvironment
-        The runtime environment for the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runtimeenvironment
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ServiceExecutionRole
-        Specifies the IAM role that the application uses to access external resources.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER RunConfiguration
-        +  CreateApplication: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_CreateApplication.html in the *Amazon Kinesis Data Analytics API Reference*
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runconfiguration
         UpdateType: Mutable
         Type: RunConfiguration
 
-    .PARAMETER ApplicationMaintenanceConfiguration
-        +  CreateApplication: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_CreateApplication.html in the *Amazon Kinesis Data Analytics API Reference*
+    .PARAMETER ApplicationMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmode
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER ApplicationMaintenanceConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmaintenanceconfiguration
         UpdateType: Mutable
         Type: ApplicationMaintenanceConfiguration
 
-    .PARAMETER Tags
-        A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+    .PARAMETER ApplicationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationconfiguration
+        UpdateType: Mutable
+        Type: ApplicationConfiguration
 
+    .PARAMETER ApplicationDescription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationdescription
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
+
+    .PARAMETER ServiceExecutionRole
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -140,30 +122,6 @@ function New-VSKinesisAnalyticsV2Application {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        $ApplicationConfiguration,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ApplicationDescription,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ApplicationMode,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -185,6 +143,37 @@ function New-VSKinesisAnalyticsV2Application {
                 }
             })]
         $RuntimeEnvironment,
+        [parameter(Mandatory = $false)]
+        $RunConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ApplicationMode,
+        [parameter(Mandatory = $false)]
+        $ApplicationMaintenanceConfiguration,
+        [parameter(Mandatory = $false)]
+        $ApplicationConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ApplicationDescription,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -196,13 +185,6 @@ function New-VSKinesisAnalyticsV2Application {
                 }
             })]
         $ServiceExecutionRole,
-        [parameter(Mandatory = $false)]
-        $RunConfiguration,
-        [parameter(Mandatory = $false)]
-        $ApplicationMaintenanceConfiguration,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

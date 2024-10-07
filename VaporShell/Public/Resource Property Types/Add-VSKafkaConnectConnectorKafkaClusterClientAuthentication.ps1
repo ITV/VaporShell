@@ -1,18 +1,16 @@
 function Add-VSKafkaConnectConnectorKafkaClusterClientAuthentication {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.KafkaClusterClientAuthentication resource property to the template. The client authentication information used in order to authenticate with the Apache Kafka cluster.
+        Adds an AWS::KafkaConnect::Connector.KafkaClusterClientAuthentication resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.KafkaClusterClientAuthentication resource property to the template.
-The client authentication information used in order to authenticate with the Apache Kafka cluster.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html
 
     .PARAMETER AuthenticationType
-        The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html#cfn-kafkaconnect-connector-kafkaclusterclientauthentication-authenticationtype
         UpdateType: Immutable
         PrimitiveType: String

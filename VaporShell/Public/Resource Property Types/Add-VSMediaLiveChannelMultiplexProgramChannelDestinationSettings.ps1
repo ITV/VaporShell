@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelMultiplexProgramChannelDestinationSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.MultiplexProgramChannelDestinationSettings resource property to the template. Destination settings for a Multiplex output.
+        Adds an AWS::MediaLive::Channel.MultiplexProgramChannelDestinationSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.MultiplexProgramChannelDestinationSettings resource property to the template.
-Destination settings for a Multiplex output.
 
-The parent of this entity is OutputDestination.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html
 
     .PARAMETER MultiplexId
-        The ID of the Multiplex that the encoder is providing output to. You do not need to specify the individual inputs to the Multiplex; MediaLive will handle the connection of the two MediaLive pipelines to the two Multiplex instances. The Multiplex must be in the same region as the Channel.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html#cfn-medialive-channel-multiplexprogramchanneldestinationsettings-multiplexid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ProgramName
-        The program name of the Multiplex program that the encoder is providing output to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html#cfn-medialive-channel-multiplexprogramchanneldestinationsettings-programname
         PrimitiveType: String
         UpdateType: Mutable

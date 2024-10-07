@@ -1,23 +1,21 @@
 function Add-VSKendraDataSourceWebCrawlerAuthenticationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.WebCrawlerAuthenticationConfiguration resource property to the template. Provides the configuration information to connect to websites that require user authentication.
+        Adds an AWS::Kendra::DataSource.WebCrawlerAuthenticationConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.WebCrawlerAuthenticationConfiguration resource property to the template.
-Provides the configuration information to connect to websites that require user authentication.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html
 
     .PARAMETER BasicAuthentication
-        The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
-The list includes the name and port number of the website host.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html#cfn-kendra-datasource-webcrawlerauthenticationconfiguration-basicauthentication
         UpdateType: Mutable
         Type: List
         ItemType: WebCrawlerBasicAuthentication
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

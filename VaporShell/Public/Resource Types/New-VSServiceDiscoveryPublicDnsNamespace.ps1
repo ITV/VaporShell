@@ -1,14 +1,10 @@
 function New-VSServiceDiscoveryPublicDnsNamespace {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceDiscovery::PublicDnsNamespace resource to the template. Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service is backend.example.com. You can discover instances that were registered with a public DNS namespace by using either a DiscoverInstances request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map quotas: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the * AWS Cloud Map Developer Guide*.
+        Adds an AWS::ServiceDiscovery::PublicDnsNamespace resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ServiceDiscovery::PublicDnsNamespace resource to the template. Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace example.com and name your service backend, the resulting DNS name for the service is backend.example.com. You can discover instances that were registered with a public DNS namespace by using either a DiscoverInstances request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see AWS Cloud Map quotas: https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html in the * AWS Cloud Map Developer Guide*.
-
-**Important**
-
-The CreatePublicDnsNamespace API operation is not supported in the AWS GovCloud (US Regions.
+        Adds an AWS::ServiceDiscovery::PublicDnsNamespace resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html
@@ -17,30 +13,22 @@ The CreatePublicDnsNamespace API operation is not supported in the AWS GovCloud 
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A description for the namespace.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Properties
-        Properties for the public DNS namespace.
-
         Type: Properties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-properties
         UpdateType: Mutable
 
     .PARAMETER Tags
-        The tags for the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-tags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name that you want to assign to this namespace.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-name
         PrimitiveType: String
         UpdateType: Immutable

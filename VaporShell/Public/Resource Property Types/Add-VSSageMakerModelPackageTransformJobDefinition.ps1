@@ -10,15 +10,10 @@ function Add-VSSageMakerModelPackageTransformJobDefinition {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html
 
-    .PARAMETER Environment
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-environment
+    .PARAMETER TransformResources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformresources
         UpdateType: Immutable
-        Type: Environment
-
-    .PARAMETER BatchStrategy
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-batchstrategy
-        UpdateType: Immutable
-        PrimitiveType: String
+        Type: TransformResources
 
     .PARAMETER MaxConcurrentTransforms
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-maxconcurrenttransforms
@@ -30,20 +25,26 @@ function Add-VSSageMakerModelPackageTransformJobDefinition {
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER TransformInput
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transforminput
-        UpdateType: Immutable
-        Type: TransformInput
-
     .PARAMETER TransformOutput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformoutput
         UpdateType: Immutable
         Type: TransformOutput
 
-    .PARAMETER TransformResources
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformresources
+    .PARAMETER Environment
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-environment
         UpdateType: Immutable
-        Type: TransformResources
+        Type: Map
+        PrimitiveItemType: String
+
+    .PARAMETER TransformInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transforminput
+        UpdateType: Immutable
+        Type: TransformInput
+
+    .PARAMETER BatchStrategy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-batchstrategy
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -52,19 +53,8 @@ function Add-VSSageMakerModelPackageTransformJobDefinition {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Environment,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $BatchStrategy,
+        [parameter(Mandatory = $true)]
+        $TransformResources,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -88,11 +78,23 @@ function Add-VSSageMakerModelPackageTransformJobDefinition {
             })]
         $MaxPayloadInMB,
         [parameter(Mandatory = $true)]
-        $TransformInput,
-        [parameter(Mandatory = $true)]
         $TransformOutput,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Environment,
         [parameter(Mandatory = $true)]
-        $TransformResources
+        $TransformInput,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BatchStrategy
     )
     Begin {
         $obj = [PSCustomObject]@{}

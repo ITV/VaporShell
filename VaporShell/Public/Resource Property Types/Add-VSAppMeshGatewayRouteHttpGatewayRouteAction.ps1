@@ -1,25 +1,21 @@
 function Add-VSAppMeshGatewayRouteHttpGatewayRouteAction {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteAction resource property to the template. An object that represents the action to take if a match is determined.
+        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteAction resource property to the template.
-An object that represents the action to take if a match is determined.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html
 
     .PARAMETER Target
-        An object that represents the target that traffic is routed to when a request matches the gateway route.
-
         Type: GatewayRouteTarget
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html#cfn-appmesh-gatewayroute-httpgatewayrouteaction-target
         UpdateType: Mutable
 
     .PARAMETER Rewrite
-        The gateway route action to rewrite.
-
         Type: HttpGatewayRouteRewrite
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html#cfn-appmesh-gatewayroute-httpgatewayrouteaction-rewrite
         UpdateType: Mutable

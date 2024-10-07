@@ -1,31 +1,24 @@
 function Add-VSWAFv2WebACLIPSetReferenceStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.IPSetReferenceStatement resource property to the template. A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an AWS::WAFv2::IPSet: aws-resource-wafv2-ipset.md that specifies the addresses you want to detect, then use the ARN of that set in this statement.
+        Adds an AWS::WAFv2::WebACL.IPSetReferenceStatement resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.IPSetReferenceStatement resource property to the template.
-A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an AWS::WAFv2::IPSet: aws-resource-wafv2-ipset.md that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 
-Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
 
-    .PARAMETER Arn
-        The Amazon Resource Name ARN of the IP set that this statement references.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER IPSetForwardedIPConfig
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For XFF header, but you can specify any header name.
-If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
         UpdateType: Mutable
         Type: IPSetForwardedIPConfiguration
+
+    .PARAMETER Arn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -34,6 +27,8 @@ If the specified header isn't present in the request, AWS WAF doesn't apply the 
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $IPSetForwardedIPConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -44,9 +39,7 @@ If the specified header isn't present in the request, AWS WAF doesn't apply the 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Arn,
-        [parameter(Mandatory = $false)]
-        $IPSetForwardedIPConfig
+        $Arn
     )
     Begin {
         $obj = [PSCustomObject]@{}

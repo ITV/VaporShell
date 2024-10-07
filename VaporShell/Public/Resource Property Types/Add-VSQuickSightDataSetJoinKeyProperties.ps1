@@ -1,18 +1,16 @@
 function Add-VSQuickSightDataSetJoinKeyProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.JoinKeyProperties resource property to the template. Properties associated with the columns participating in a join.
+        Adds an AWS::QuickSight::DataSet.JoinKeyProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.JoinKeyProperties resource property to the template.
-Properties associated with the columns participating in a join.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html
 
     .PARAMETER UniqueKey
-        A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html#cfn-quicksight-dataset-joinkeyproperties-uniquekey
         UpdateType: Mutable
         PrimitiveType: Boolean

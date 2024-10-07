@@ -1,10 +1,10 @@
 function New-VSECRPullThroughCacheRule {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::PullThroughCacheRule resource to the template. Creates a pull through cache rule. A pull through cache rule provides a way to cache images from an external public registry in your Amazon ECR private registry.
+        Adds an AWS::ECR::PullThroughCacheRule resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ECR::PullThroughCacheRule resource to the template. Creates a pull through cache rule. A pull through cache rule provides a way to cache images from an external public registry in your Amazon ECR private registry.
+        Adds an AWS::ECR::PullThroughCacheRule resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html
@@ -12,17 +12,13 @@ function New-VSECRPullThroughCacheRule {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER EcrRepositoryPrefix
-        The Amazon ECR repository prefix associated with the pull through cache rule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-ecrrepositoryprefix
+    .PARAMETER UpstreamRegistryUrl
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-upstreamregistryurl
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER UpstreamRegistryUrl
-        The upstream registry URL associated with the pull through cache rule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-upstreamregistryurl
+    .PARAMETER EcrRepositoryPrefix
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-ecrrepositoryprefix
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -98,7 +94,7 @@ function New-VSECRPullThroughCacheRule {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $EcrRepositoryPrefix,
+        $UpstreamRegistryUrl,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -109,7 +105,7 @@ function New-VSECRPullThroughCacheRule {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $UpstreamRegistryUrl,
+        $EcrRepositoryPrefix,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,18 +1,16 @@
 function Add-VSS3OutpostsBucketAbortIncompleteMultipartUpload {
     <#
     .SYNOPSIS
-        Adds an AWS::S3Outposts::Bucket.AbortIncompleteMultipartUpload resource property to the template. Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 on Outposts waits before permanently removing all parts of the upload. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy: https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config.
+        Adds an AWS::S3Outposts::Bucket.AbortIncompleteMultipartUpload resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3Outposts::Bucket.AbortIncompleteMultipartUpload resource property to the template.
-Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 on Outposts waits before permanently removing all parts of the upload. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy: https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html
 
     .PARAMETER DaysAfterInitiation
-        Specifies the number of days after initiation that Amazon S3 on Outposts aborts an incomplete multipart upload.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html#cfn-s3outposts-bucket-abortincompletemultipartupload-daysafterinitiation
         UpdateType: Mutable
         PrimitiveType: Integer

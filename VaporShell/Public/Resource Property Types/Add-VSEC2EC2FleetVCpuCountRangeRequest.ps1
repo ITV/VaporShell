@@ -1,25 +1,21 @@
 function Add-VSEC2EC2FleetVCpuCountRangeRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.VCpuCountRangeRequest resource property to the template. The minimum and maximum number of vCPUs.
+        Adds an AWS::EC2::EC2Fleet.VCpuCountRangeRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.VCpuCountRangeRequest resource property to the template.
-The minimum and maximum number of vCPUs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-vcpucountrangerequest.html
 
     .PARAMETER Min
-        The minimum number of vCPUs. To specify no minimum limit, specify 0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-vcpucountrangerequest.html#cfn-ec2-ec2fleet-vcpucountrangerequest-min
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Max
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-vcpucountrangerequest.html#cfn-ec2-ec2fleet-vcpucountrangerequest-max
         UpdateType: Immutable
         PrimitiveType: Integer

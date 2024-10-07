@@ -10,15 +10,15 @@ function Add-VSKinesisAnalyticsV2ApplicationRunConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html
 
-    .PARAMETER ApplicationRestoreConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html#cfn-kinesisanalyticsv2-application-runconfiguration-applicationrestoreconfiguration
-        UpdateType: Mutable
-        Type: ApplicationRestoreConfiguration
-
     .PARAMETER FlinkRunConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html#cfn-kinesisanalyticsv2-application-runconfiguration-flinkrunconfiguration
         UpdateType: Mutable
         Type: FlinkRunConfiguration
+
+    .PARAMETER ApplicationRestoreConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html#cfn-kinesisanalyticsv2-application-runconfiguration-applicationrestoreconfiguration
+        UpdateType: Mutable
+        Type: ApplicationRestoreConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -28,9 +28,9 @@ function Add-VSKinesisAnalyticsV2ApplicationRunConfiguration {
     Param
     (
         [parameter(Mandatory = $false)]
-        $ApplicationRestoreConfiguration,
+        $FlinkRunConfiguration,
         [parameter(Mandatory = $false)]
-        $FlinkRunConfiguration
+        $ApplicationRestoreConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

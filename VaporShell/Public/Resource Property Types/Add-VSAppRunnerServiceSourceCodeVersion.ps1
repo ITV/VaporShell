@@ -1,27 +1,21 @@
 function Add-VSAppRunnerServiceSourceCodeVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.SourceCodeVersion resource property to the template. Identifies a version of code that AWS App Runner refers to within a source code repository.
+        Adds an AWS::AppRunner::Service.SourceCodeVersion resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.SourceCodeVersion resource property to the template.
-Identifies a version of code that AWS App Runner refers to within a source code repository.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html
 
     .PARAMETER Type
-        The type of version identifier.
-For a git-based repository, branches represent versions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-type
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Value
-        A source code version.
-For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-value
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,10 +1,10 @@
 function New-VSNimbleStudioLaunchProfile {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::LaunchProfile resource to the template. The AWS::NimbleStudio::LaunchProfile resource represents access permissions for a set of studio components, including types of workstations, render farms, and shared file systems. Launch profiles are shared with studio users to give them access to the set of studio components.
+        Adds an AWS::NimbleStudio::LaunchProfile resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::NimbleStudio::LaunchProfile resource to the template. The AWS::NimbleStudio::LaunchProfile resource represents access permissions for a set of studio components, including types of workstations, render farms, and shared file systems. Launch profiles are shared with studio users to give them access to the set of studio components.
+        Adds an AWS::NimbleStudio::LaunchProfile resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html
@@ -13,65 +13,51 @@ function New-VSNimbleStudioLaunchProfile {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A human-readable description of the launch profile.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Ec2SubnetIds
-        Unique identifiers for a collection of EC2 subnets.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-ec2subnetids
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER LaunchProfileProtocolVersions
-        The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-launchprofileprotocolversions
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER Name
-        A friendly name for the launch profile.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-name
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER StreamConfiguration
-        A configuration for a streaming session.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
-        UpdateType: Mutable
-        Type: StreamConfiguration
+        DuplicatesAllowed: True
 
     .PARAMETER StudioComponentIds
-        Unique identifiers for a collection of studio components that can be used with this launch profile.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER StreamConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
+        UpdateType: Mutable
+        Type: StreamConfiguration
+
+    .PARAMETER LaunchProfileProtocolVersions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-launchprofileprotocolversions
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER StudioId
-        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studioid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-tags
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -149,22 +135,11 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
         [parameter(Mandatory = $true)]
         $Ec2SubnetIds,
         [parameter(Mandatory = $true)]
-        $LaunchProfileProtocolVersions,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
+        $StudioComponentIds,
         [parameter(Mandatory = $true)]
         $StreamConfiguration,
         [parameter(Mandatory = $true)]
-        $StudioComponentIds,
+        $LaunchProfileProtocolVersions,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -179,6 +154,17 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -259,17 +245,17 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Ec2SubnetIds -Value @($Ec2SubnetIds)
                 }
-                LaunchProfileProtocolVersions {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name LaunchProfileProtocolVersions -Value @($LaunchProfileProtocolVersions)
-                }
                 StudioComponentIds {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name StudioComponentIds -Value @($StudioComponentIds)
+                }
+                LaunchProfileProtocolVersions {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name LaunchProfileProtocolVersions -Value @($LaunchProfileProtocolVersions)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

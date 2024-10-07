@@ -1,29 +1,26 @@
 function Add-VSTimestreamScheduledQueryMultiMeasureMappings {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::ScheduledQuery.MultiMeasureMappings resource property to the template. Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+        Adds an AWS::Timestream::ScheduledQuery.MultiMeasureMappings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Timestream::ScheduledQuery.MultiMeasureMappings resource property to the template.
-Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasuremappings.html
 
     .PARAMETER TargetMultiMeasureName
-        The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasuremappings.html#cfn-timestream-scheduledquery-multimeasuremappings-targetmultimeasurename
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER MultiMeasureAttributeMappings
-        Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasuremappings.html#cfn-timestream-scheduledquery-multimeasuremappings-multimeasureattributemappings
         UpdateType: Immutable
         Type: List
         ItemType: MultiMeasureAttributeMapping
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

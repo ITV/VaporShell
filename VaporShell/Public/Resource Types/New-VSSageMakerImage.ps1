@@ -1,10 +1,10 @@
 function New-VSSageMakerImage {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Image resource to the template. Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image version represents a container image stored in Amazon Elastic Container Registry (ECR. For more information, see Bring your own SageMaker image: https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html.
+        Adds an AWS::SageMaker::Image resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::Image resource to the template. Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image version represents a container image stored in Amazon Elastic Container Registry (ECR. For more information, see Bring your own SageMaker image: https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html.
+        Adds an AWS::SageMaker::Image resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html
@@ -13,49 +13,31 @@ function New-VSSageMakerImage {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ImageName
-        The name of the Image. Must be unique by region in your account.
-*Length Constraints*: Minimum length of 1. Maximum length of 63.
-*Pattern*: ^a-zA-Z0-9: -.]?a-zA-Z0-9]{0,62}$
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagename
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ImageRoleArn
-        The Amazon Resource Name ARN of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
-*Length Constraints*: Minimum length of 20. Maximum length of 2048.
-*Pattern*: ^arn:awsa-z-]*:iam::d{12}:role/?a-zA-Z_0-9+=,.@-_/]+$
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagerolearn
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER ImageDisplayName
-        The display name of the image.
-*Length Constraints*: Minimum length of 1. Maximum length of 128.
-*Pattern*: ^S.*S?$
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedisplayname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ImageDescription
-        The description of the image.
-*Length Constraints*: Minimum length of 1. Maximum length of 512.
-*Pattern*: .*
+    .PARAMETER ImageRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagerolearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER ImageDescription
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedescription
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        A list of key-value pairs to apply to this resource.
-*Array Members*: Minimum number of 0 items. Maximum number of 50 items.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -130,17 +112,6 @@ function New-VSSageMakerImage {
                 }
             })]
         $ImageName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ImageRoleArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -152,6 +123,17 @@ function New-VSSageMakerImage {
                 }
             })]
         $ImageDisplayName,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ImageRoleArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

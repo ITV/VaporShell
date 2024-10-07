@@ -1,26 +1,22 @@
 function Add-VSKendraIndexJsonTokenTypeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::Index.JsonTokenTypeConfiguration resource property to the template. Provides the configuration information for the JSON token type.
+        Adds an AWS::Kendra::Index.JsonTokenTypeConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::Index.JsonTokenTypeConfiguration resource property to the template.
-Provides the configuration information for the JSON token type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html
 
-    .PARAMETER UserNameAttributeField
-        The user name attribute field.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-usernameattributefield
+    .PARAMETER GroupAttributeField
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-groupattributefield
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER GroupAttributeField
-        The group attribute field.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-groupattributefield
+    .PARAMETER UserNameAttributeField
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-usernameattributefield
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Provides the configuration information for the JSON token type.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $UserNameAttributeField,
+        $GroupAttributeField,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Provides the configuration information for the JSON token type.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $GroupAttributeField
+        $UserNameAttributeField
     )
     Begin {
         $obj = [PSCustomObject]@{}

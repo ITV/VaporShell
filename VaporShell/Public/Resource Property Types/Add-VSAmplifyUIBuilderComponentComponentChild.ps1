@@ -1,50 +1,43 @@
 function Add-VSAmplifyUIBuilderComponentComponentChild {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Component.ComponentChild resource property to the template. The ComponentChild property specifies a nested UI configuration within a parent Component.
+        Adds an AWS::AmplifyUIBuilder::Component.ComponentChild resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Component.ComponentChild resource property to the template.
-The ComponentChild property specifies a nested UI configuration within a parent Component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html
 
     .PARAMETER ComponentType
-        The type of the child component.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-componenttype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        The name of the child component.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-name
+    .PARAMETER Events
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-events
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Properties
-        Describes the properties of the child component. You can't specify tags as a valid property for properties.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-properties
-        UpdateType: Mutable
-        Type: ComponentProperties
+        Type: Map
+        ItemType: ComponentEvent
 
     .PARAMETER Children
-        The list of ComponentChild instances for this component.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-children
         UpdateType: Mutable
         Type: List
         ItemType: ComponentChild
+        DuplicatesAllowed: True
 
-    .PARAMETER Events
-        Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-events
+    .PARAMETER Properties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-properties
         UpdateType: Mutable
-        Type: ComponentEvents
+        Type: Map
+        ItemType: ComponentProperty
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -64,9 +57,9 @@ The ComponentChild property specifies a nested UI configuration within a parent 
                 }
             })]
         $ComponentType,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentEvent"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -74,9 +67,7 @@ The ComponentChild property specifies a nested UI configuration within a parent 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        $Properties,
+        $Events,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentChild"
@@ -88,8 +79,28 @@ The ComponentChild property specifies a nested UI configuration within a parent 
                 }
             })]
         $Children,
-        [parameter(Mandatory = $false)]
-        $Events
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentProperty"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Properties,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

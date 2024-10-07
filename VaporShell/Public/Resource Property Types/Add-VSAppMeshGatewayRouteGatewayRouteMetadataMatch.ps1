@@ -1,46 +1,36 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteMetadataMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteMetadataMatch resource property to the template. An object representing the method header to be matched.
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteMetadataMatch resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteMetadataMatch resource property to the template.
-An object representing the method header to be matched.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html
 
     .PARAMETER Suffix
-        The specified ending characters of the method header to match on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-suffix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Regex
-        The regex used to match the method header.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-regex
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Exact
-        The exact method header to be matched on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-exact
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Prefix
-        The specified beginning characters of the method header to be matched on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-prefix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Range
-        An object that represents the range of values to match on.
-
         Type: GatewayRouteRangeMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-range
         UpdateType: Mutable

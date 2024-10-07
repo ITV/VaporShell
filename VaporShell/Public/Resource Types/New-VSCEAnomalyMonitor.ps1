@@ -1,10 +1,10 @@
 function New-VSCEAnomalyMonitor {
     <#
     .SYNOPSIS
-        Adds an AWS::CE::AnomalyMonitor resource to the template. The AWS::CE::AnomalyMonitor resource is a Cost Explorer resource type that continuously inspects your account's cost data for anomalies, based on MonitorType and MonitorSpecification. The content consists of detailed metadata and the current status of the monitor object.
+        Adds an AWS::CE::AnomalyMonitor resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CE::AnomalyMonitor resource to the template. The AWS::CE::AnomalyMonitor resource is a Cost Explorer resource type that continuously inspects your account's cost data for anomalies, based on MonitorType and MonitorSpecification. The content consists of detailed metadata and the current status of the monitor object.
+        Adds an AWS::CE::AnomalyMonitor resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html
@@ -13,40 +13,31 @@ function New-VSCEAnomalyMonitor {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER MonitorType
-        The possible type values.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitortype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER MonitorName
-        The name of the monitor.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitorname
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER MonitorDimension
-        The dimensions to evaluate.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitordimension
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER MonitorSpecification
-        The array of MonitorSpecification in JSON array format. For instance, you can use MonitorSpecification to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the Examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples section of this page.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitorspecification
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER ResourceTags
-        +  UpdateAnomalyMonitor: https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateAnomalyMonitor.html in the *AWS Billing and Cost Management API Reference*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-resourcetags
         UpdateType: Immutable
         Type: List
         ItemType: ResourceTag
+        DuplicatesAllowed: True
+
+    .PARAMETER MonitorName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitorname
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER MonitorSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitorspecification
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER MonitorDimension
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitordimension
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -121,6 +112,17 @@ function New-VSCEAnomalyMonitor {
                 }
             })]
         $MonitorType,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CE.AnomalyMonitor.ResourceTag"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ResourceTags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -142,7 +144,7 @@ function New-VSCEAnomalyMonitor {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MonitorDimension,
+        $MonitorSpecification,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -153,18 +155,7 @@ function New-VSCEAnomalyMonitor {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MonitorSpecification,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CE.AnomalyMonitor.ResourceTag"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ResourceTags,
+        $MonitorDimension,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

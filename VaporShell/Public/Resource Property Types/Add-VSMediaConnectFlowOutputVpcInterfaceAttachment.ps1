@@ -1,18 +1,16 @@
 function Add-VSMediaConnectFlowOutputVpcInterfaceAttachment {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaConnect::FlowOutput.VpcInterfaceAttachment resource property to the template. The VPC interface that you want to send your output to.
+        Adds an AWS::MediaConnect::FlowOutput.VpcInterfaceAttachment resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaConnect::FlowOutput.VpcInterfaceAttachment resource property to the template.
-The VPC interface that you want to send your output to.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html
 
     .PARAMETER VpcInterfaceName
-        The name of the VPC interface that you want to send your output to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment-vpcinterfacename
         UpdateType: Mutable
         PrimitiveType: String

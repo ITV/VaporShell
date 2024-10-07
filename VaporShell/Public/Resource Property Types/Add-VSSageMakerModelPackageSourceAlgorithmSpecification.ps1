@@ -15,6 +15,7 @@ function Add-VSSageMakerModelPackageSourceAlgorithmSpecification {
         UpdateType: Immutable
         Type: List
         ItemType: SourceAlgorithm
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

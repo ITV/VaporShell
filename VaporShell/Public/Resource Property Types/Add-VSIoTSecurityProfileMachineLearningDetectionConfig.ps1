@@ -1,20 +1,16 @@
 function Add-VSIoTSecurityProfileMachineLearningDetectionConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::SecurityProfile.MachineLearningDetectionConfig resource property to the template. The MachineLearningDetectionConfig property type controls confidence of the machine learning model.
+        Adds an AWS::IoT::SecurityProfile.MachineLearningDetectionConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::SecurityProfile.MachineLearningDetectionConfig resource property to the template.
-The MachineLearningDetectionConfig property type controls confidence of the machine learning model.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html
 
     .PARAMETER ConfidenceLevel
-        The model confidence level.
-There are three levels of confidence, "high", "medium", and "low".
-The higher the confidence level, the lower the sensitivity, and the lower the alarm frequency will be.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html#cfn-iot-securityprofile-machinelearningdetectionconfig-confidencelevel
         UpdateType: Mutable
         PrimitiveType: String

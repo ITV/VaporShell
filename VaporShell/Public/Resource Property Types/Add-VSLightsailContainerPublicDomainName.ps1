@@ -1,25 +1,21 @@
 function Add-VSLightsailContainerPublicDomainName {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Container.PublicDomainName resource property to the template. PublicDomainName is a property of the AWS::Lightsail::Container: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html resource. It describes the public domain names to use with a container service, such as example.com and www.example.com. It also describes the certificates to use with a container service.
+        Adds an AWS::Lightsail::Container.PublicDomainName resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Container.PublicDomainName resource property to the template.
-PublicDomainName is a property of the AWS::Lightsail::Container: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html resource. It describes the public domain names to use with a container service, such as example.com and www.example.com. It also describes the certificates to use with a container service.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicdomainname.html
 
     .PARAMETER CertificateName
-        The name of the certificate for the public domains.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicdomainname.html#cfn-lightsail-container-publicdomainname-certificatename
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DomainNames
-        The public domain names to use with the container service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicdomainname.html#cfn-lightsail-container-publicdomainname-domainnames
         UpdateType: Mutable
         Type: List

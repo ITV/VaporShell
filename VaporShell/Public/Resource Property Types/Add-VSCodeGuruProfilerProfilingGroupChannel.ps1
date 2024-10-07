@@ -1,26 +1,22 @@
 function Add-VSCodeGuruProfilerProfilingGroupChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeGuruProfiler::ProfilingGroup.Channel resource property to the template. Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
+        Adds an AWS::CodeGuruProfiler::ProfilingGroup.Channel resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CodeGuruProfiler::ProfilingGroup.Channel resource property to the template.
-Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
 
-    .PARAMETER channelId
-        The channel ID.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
+    .PARAMETER channelUri
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER channelUri
-        The channel URI.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
+    .PARAMETER channelId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -31,17 +27,6 @@ Notification medium for users to get alerted for events that occur in applicatio
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $channelId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +37,18 @@ Notification medium for users to get alerted for events that occur in applicatio
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $channelUri
+        $channelUri,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $channelId
     )
     Begin {
         $obj = [PSCustomObject]@{}

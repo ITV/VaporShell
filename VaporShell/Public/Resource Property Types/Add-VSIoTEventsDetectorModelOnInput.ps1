@@ -1,18 +1,16 @@
 function Add-VSIoTEventsDetectorModelOnInput {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.OnInput resource property to the template. Specifies the actions performed when the condition evaluates to TRUE.
+        Adds an AWS::IoTEvents::DetectorModel.OnInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.OnInput resource property to the template.
-Specifies the actions performed when the condition evaluates to TRUE.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html
 
     .PARAMETER Events
-        Specifies the actions performed when the condition evaluates to TRUE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
         UpdateType: Mutable
         Type: List
@@ -20,8 +18,6 @@ Specifies the actions performed when the condition evaluates to TRUE.
         DuplicatesAllowed: True
 
     .PARAMETER TransitionEvents
-        Specifies the actions performed, and the next state entered, when a condition evaluates to TRUE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
         UpdateType: Mutable
         Type: List

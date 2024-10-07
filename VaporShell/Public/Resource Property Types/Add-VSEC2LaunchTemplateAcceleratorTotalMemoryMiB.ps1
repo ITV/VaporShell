@@ -1,25 +1,21 @@
 function Add-VSEC2LaunchTemplateAcceleratorTotalMemoryMiB {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.AcceleratorTotalMemoryMiB resource property to the template. The minimum and maximum amount of total accelerator memory, in MiB.
+        Adds an AWS::EC2::LaunchTemplate.AcceleratorTotalMemoryMiB resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.AcceleratorTotalMemoryMiB resource property to the template.
-The minimum and maximum amount of total accelerator memory, in MiB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html
 
     .PARAMETER Min
-        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html#cfn-ec2-launchtemplate-acceleratortotalmemorymib-min
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Max
-        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html#cfn-ec2-launchtemplate-acceleratortotalmemorymib-max
         PrimitiveType: Integer
         UpdateType: Mutable

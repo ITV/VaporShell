@@ -10,21 +10,22 @@ function Add-VSImageBuilderDistributionConfigurationContainerDistributionConfigu
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html
 
-    .PARAMETER Description
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-description
+    .PARAMETER TargetRepository
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-targetrepository
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: TargetContainerRepository
 
     .PARAMETER ContainerTags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-containertags
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
-    .PARAMETER TargetRepository
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-targetrepository
+    .PARAMETER Description
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-description
         UpdateType: Mutable
-        Type: TargetContainerRepository
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,6 +34,10 @@ function Add-VSImageBuilderDistributionConfigurationContainerDistributionConfigu
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $TargetRepository,
+        [parameter(Mandatory = $false)]
+        $ContainerTags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -43,11 +48,7 @@ function Add-VSImageBuilderDistributionConfigurationContainerDistributionConfigu
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Description,
-        [parameter(Mandatory = $false)]
-        $ContainerTags,
-        [parameter(Mandatory = $false)]
-        $TargetRepository
+        $Description
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,18 +1,16 @@
 function Add-VSAutoScalingScalingPolicyPredictiveScalingCustomizedScalingMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedScalingMetric resource property to the template. Contains scaling metric information for the CustomizedScalingMetricSpecification property of the AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html property type.
+        Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedScalingMetric resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedScalingMetric resource property to the template.
-Contains scaling metric information for the CustomizedScalingMetricSpecification property of the AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html property type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html
 
     .PARAMETER MetricDataQueries
-        One or more metric data queries to provide the data points for a scaling metric. Use multiple metric data queries only if you are performing a math expression on returned data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html#cfn-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric-metricdataqueries
         UpdateType: Mutable
         Type: List

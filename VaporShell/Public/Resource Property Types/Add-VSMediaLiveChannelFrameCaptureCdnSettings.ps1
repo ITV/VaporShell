@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelFrameCaptureCdnSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.FrameCaptureCdnSettings resource property to the template. Settings to configure the destination of a Frame Capture output.
+        Adds an AWS::MediaLive::Channel.FrameCaptureCdnSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.FrameCaptureCdnSettings resource property to the template.
-Settings to configure the destination of a Frame Capture output.
 
-The parent of this entity is FrameCaptureGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturecdnsettings.html
 
     .PARAMETER FrameCaptureS3Settings
-        Sets up Amazon S3 as the destination for this Frame Capture output.
-
         Type: FrameCaptureS3Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturecdnsettings.html#cfn-medialive-channel-framecapturecdnsettings-framecaptures3settings
         UpdateType: Mutable

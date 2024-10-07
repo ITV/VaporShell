@@ -1,42 +1,34 @@
 function Add-VSKendraIndexDocumentMetadataConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::Index.DocumentMetadataConfiguration resource property to the template. Specifies the properties of a custom index field.
+        Adds an AWS::Kendra::Index.DocumentMetadataConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::Index.DocumentMetadataConfiguration resource property to the template.
-Specifies the properties of a custom index field.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html
 
-    .PARAMETER Name
-        The name of the index field.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-name
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Type
-        The data type of the index field.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-type
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Relevance
-        Provides manual tuning parameters to determine how the field affects the search results.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-relevance
         UpdateType: Mutable
         Type: Relevance
 
-    .PARAMETER Search
-        Provides information about how the field is used during a search.
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-type
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Search
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-search
         UpdateType: Mutable
         Type: Search
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -45,17 +37,8 @@ Specifies the properties of a custom index field.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
+        [parameter(Mandatory = $false)]
+        $Relevance,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -68,9 +51,18 @@ Specifies the properties of a custom index field.
             })]
         $Type,
         [parameter(Mandatory = $false)]
-        $Relevance,
-        [parameter(Mandatory = $false)]
-        $Search
+        $Search,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

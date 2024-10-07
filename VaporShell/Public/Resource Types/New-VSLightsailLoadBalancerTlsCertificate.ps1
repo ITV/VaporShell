@@ -1,10 +1,10 @@
 function New-VSLightsailLoadBalancerTlsCertificate {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::LoadBalancerTlsCertificate resource to the template. The AWS::Lightsail::LoadBalancerTlsCertificate resource specifies a TLS certificate that can be used with a Lightsail load balancer.
+        Adds an AWS::Lightsail::LoadBalancerTlsCertificate resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lightsail::LoadBalancerTlsCertificate resource to the template. The AWS::Lightsail::LoadBalancerTlsCertificate resource specifies a TLS certificate that can be used with a Lightsail load balancer.
+        Adds an AWS::Lightsail::LoadBalancerTlsCertificate resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html
@@ -13,49 +13,36 @@ function New-VSLightsailLoadBalancerTlsCertificate {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER LoadBalancerName
-        The name of the load balancer that the SSL/TLS certificate is attached to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-loadbalancername
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER CertificateName
-        The name of the SSL/TLS certificate.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-certificatename
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER CertificateDomainName
-        The domain name for the SSL/TLS certificate. For example, example.com or www.example.com.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-certificatedomainname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER CertificateAlternativeNames
-        An array of alternative domain names and subdomain names for your SSL/TLS certificate.
-In addition to the primary domain name, you can have up to nine alternative domain names. Wildcards such as *.example.com are not supported.
+    .PARAMETER IsAttached
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-isattached
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
+    .PARAMETER CertificateAlternativeNames
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-certificatealternativenames
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER IsAttached
-        A Boolean value indicating whether the SSL/TLS certificate is attached to a Lightsail load balancer.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-isattached
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
     .PARAMETER HttpsRedirectionEnabled
-        Don't attach more than one certificate to a load balancer. If you attach multiple certificates to a load balancer, the behavior is unpredictable, and any one of the certificates might be in effect. This will cause the stack to drift because only one of the certificates is attached to the load balancer, but the template shows multiple.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-httpsredirectionenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
+
+    .PARAMETER CertificateName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-certificatename
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -140,20 +127,7 @@ In addition to the primary domain name, you can have up to nine alternative doma
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CertificateName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $CertificateDomainName,
-        [parameter(Mandatory = $false)]
-        $CertificateAlternativeNames,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -166,6 +140,8 @@ In addition to the primary domain name, you can have up to nine alternative doma
             })]
         $IsAttached,
         [parameter(Mandatory = $false)]
+        $CertificateAlternativeNames,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -176,6 +152,17 @@ In addition to the primary domain name, you can have up to nine alternative doma
                 }
             })]
         $HttpsRedirectionEnabled,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CertificateName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

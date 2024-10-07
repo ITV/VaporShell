@@ -1,27 +1,21 @@
 function Add-VSSESReceiptRuleAddHeaderAction {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::ReceiptRule.AddHeaderAction resource property to the template. When included in a receipt rule, this action adds a header to the received email.
+        Adds an AWS::SES::ReceiptRule.AddHeaderAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SES::ReceiptRule.AddHeaderAction resource property to the template.
-When included in a receipt rule, this action adds a header to the received email.
 
-For information about adding a header using a receipt rule, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/dg/receiving-email-action-add-header.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html
 
     .PARAMETER HeaderValue
-        The content to include in the header. This value can contain up to 2048 characters. It can't contain newline n or carriage return r characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headervalue
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER HeaderName
-        The name of the header to add to the incoming message. The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric a–z, A–Z, 0–9 characters and dashes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headername
         PrimitiveType: String
         UpdateType: Mutable

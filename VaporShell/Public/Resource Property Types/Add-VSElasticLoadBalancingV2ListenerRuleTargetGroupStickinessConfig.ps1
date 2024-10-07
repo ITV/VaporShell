@@ -1,25 +1,21 @@
 function Add-VSElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig resource property to the template. Information about the target group stickiness for a rule.
+        Adds an AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig resource property to the template.
-Information about the target group stickiness for a rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html
 
     .PARAMETER Enabled
-        Indicates whether target group stickiness is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER DurationSeconds
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds 7 days.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-durationseconds
         UpdateType: Mutable
         PrimitiveType: Integer

@@ -1,46 +1,36 @@
 function Add-VSQuickSightDataSetUploadSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.UploadSettings resource property to the template. Information about the format for a source file or files.
+        Adds an AWS::QuickSight::DataSet.UploadSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.UploadSettings resource property to the template.
-Information about the format for a source file or files.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html
 
     .PARAMETER ContainsHeader
-        Whether the file has a header row, or the files each have a header row.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-containsheader
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER TextQualifier
-        Text qualifier.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-textqualifier
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Format
-        File format.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-format
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER StartFromRow
-        A row number to start reading data from.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-startfromrow
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Delimiter
-        The delimiter between values in the file.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-delimiter
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,18 +1,16 @@
 function Add-VSGroundStationConfigAntennaDownlinkConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.AntennaDownlinkConfig resource property to the template. Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+        Adds an AWS::GroundStation::Config.AntennaDownlinkConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.AntennaDownlinkConfig resource property to the template.
-Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html
 
     .PARAMETER SpectrumConfig
-        Defines the spectrum configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html#cfn-groundstation-config-antennadownlinkconfig-spectrumconfig
         UpdateType: Mutable
         Type: SpectrumConfig

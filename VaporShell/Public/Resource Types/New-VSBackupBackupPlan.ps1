@@ -1,12 +1,10 @@
 function New-VSBackupBackupPlan {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupPlan resource to the template. Contains an optional backup plan display name and an array of BackupRule objects, each of which specifies a backup rule. Each rule in a backup plan is a separate scheduled task and can back up a different selection of AWS resources.
+        Adds an AWS::Backup::BackupPlan resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Backup::BackupPlan resource to the template. Contains an optional backup plan display name and an array of BackupRule objects, each of which specifies a backup rule. Each rule in a backup plan is a separate scheduled task and can back up a different selection of AWS resources.
-
-For a sample AWS CloudFormation template, see the AWS Backup Developer Guide: https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn.
+        Adds an AWS::Backup::BackupPlan resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
@@ -15,15 +13,11 @@ For a sample AWS CloudFormation template, see the AWS Backup Developer Guide: ht
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER BackupPlan
-        Uniquely identifies the backup plan to be associated with the selection of resources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
         UpdateType: Mutable
         Type: BackupPlanResourceType
 
     .PARAMETER BackupPlanTags
-        To help organize your resources, you can assign your own metadata to the resources that you create. Each tag is a key-value pair. The specified tags are assigned to all backups created with this plan.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         UpdateType: Mutable
         Type: Map

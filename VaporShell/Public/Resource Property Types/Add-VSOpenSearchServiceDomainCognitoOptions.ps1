@@ -1,42 +1,31 @@
 function Add-VSOpenSearchServiceDomainCognitoOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::OpenSearchService::Domain.CognitoOptions resource property to the template. Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
+        Adds an AWS::OpenSearchService::Domain.CognitoOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::OpenSearchService::Domain.CognitoOptions resource property to the template.
-Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-cognitooptions.html
 
-    .PARAMETER Enabled
-        Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See Amazon Cognito authentication for OpenSearch Dashboards: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html.
+    .PARAMETER UserPoolId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-cognitooptions.html#cfn-opensearchservice-domain-cognitooptions-userpoolid
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-cognitooptions.html#cfn-opensearchservice-domain-cognitooptions-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER IdentityPoolId
-        The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
-Required if you enabled Cognito Authentication for OpenSearch Dashboards.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-cognitooptions.html#cfn-opensearchservice-domain-cognitooptions-identitypoolid
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER UserPoolId
-        The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
-Required if you enabled Cognito Authentication for OpenSearch Dashboards.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-cognitooptions.html#cfn-opensearchservice-domain-cognitooptions-userpoolid
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER RoleArn
-        The AmazonOpenSearchServiceCognitoAccess role that allows OpenSearch Service to configure your user pool and identity pool.
-Required if you enabled Cognito Authentication for OpenSearch Dashboards.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-cognitooptions.html#cfn-opensearchservice-domain-cognitooptions-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -48,6 +37,17 @@ Required if you enabled Cognito Authentication for OpenSearch Dashboards.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UserPoolId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -70,17 +70,6 @@ Required if you enabled Cognito Authentication for OpenSearch Dashboards.
                 }
             })]
         $IdentityPoolId,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $UserPoolId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

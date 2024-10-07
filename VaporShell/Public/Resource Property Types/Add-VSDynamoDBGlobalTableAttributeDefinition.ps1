@@ -1,29 +1,22 @@
 function Add-VSDynamoDBGlobalTableAttributeDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.AttributeDefinition resource property to the template. Represents an attribute for describing the key schema for the table and indexes.
+        Adds an AWS::DynamoDB::GlobalTable.AttributeDefinition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.AttributeDefinition resource property to the template.
-Represents an attribute for describing the key schema for the table and indexes.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html
 
-    .PARAMETER AttributeName
-        A name for the attribute.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributename
+    .PARAMETER AttributeType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributetype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER AttributeType
-        The data type for the attribute, where:
-+  S - the attribute is of type String
-+  N - the attribute is of type Number
-+  B - the attribute is of type Binary
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributetype
+    .PARAMETER AttributeName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributename
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -44,7 +37,7 @@ Represents an attribute for describing the key schema for the table and indexes.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AttributeName,
+        $AttributeType,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -55,7 +48,7 @@ Represents an attribute for describing the key schema for the table and indexes.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AttributeType
+        $AttributeName
     )
     Begin {
         $obj = [PSCustomObject]@{}

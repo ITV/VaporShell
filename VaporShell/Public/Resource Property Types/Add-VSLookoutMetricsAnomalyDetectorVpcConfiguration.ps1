@@ -1,30 +1,28 @@
 function Add-VSLookoutMetricsAnomalyDetectorVpcConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.VpcConfiguration resource property to the template. Contains configuration information about the Amazon Virtual Private Cloud (VPC.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.VpcConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.VpcConfiguration resource property to the template.
-Contains configuration information about the Amazon Virtual Private Cloud (VPC.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html
 
     .PARAMETER SubnetIdList
-        An array of strings containing the Amazon VPC subnet IDs e.g., subnet-0bb1c79de3EXAMPLE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-subnetidlist
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER SecurityGroupIdList
-        An array of strings containing the list of security groups.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-securitygroupidlist
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

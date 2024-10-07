@@ -1,36 +1,30 @@
 function Add-VSECSServiceAwsVpcConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::Service.AwsVpcConfiguration resource property to the template. An object representing the networking details for a task or service.
+        Adds an AWS::ECS::Service.AwsVpcConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECS::Service.AwsVpcConfiguration resource property to the template.
-An object representing the networking details for a task or service.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html
 
     .PARAMETER SecurityGroups
-        The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per AwsVpcConfiguration.
-All specified security groups must be from the same VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Subnets
-        The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per AwsVpcConfiguration.
-All specified subnets must be from the same VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER AssignPublicIp
-        Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip
         UpdateType: Mutable
         PrimitiveType: String

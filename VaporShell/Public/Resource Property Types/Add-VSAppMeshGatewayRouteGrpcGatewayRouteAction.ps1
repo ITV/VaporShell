@@ -1,25 +1,21 @@
 function Add-VSAppMeshGatewayRouteGrpcGatewayRouteAction {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteAction resource property to the template. An object that represents the action to take if a match is determined.
+        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteAction resource property to the template.
-An object that represents the action to take if a match is determined.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html
 
     .PARAMETER Target
-        An object that represents the target that traffic is routed to when a request matches the gateway route.
-
         Type: GatewayRouteTarget
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-target
         UpdateType: Mutable
 
     .PARAMETER Rewrite
-        The gateway route action to rewrite.
-
         Type: GrpcGatewayRouteRewrite
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-rewrite
         UpdateType: Mutable

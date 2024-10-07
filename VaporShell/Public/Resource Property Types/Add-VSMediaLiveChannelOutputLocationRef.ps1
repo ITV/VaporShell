@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelOutputLocationRef {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.OutputLocationRef resource property to the template. A reference to an OutputDestination ID that is defined in the channel.
+        Adds an AWS::MediaLive::Channel.OutputLocationRef resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.OutputLocationRef resource property to the template.
-A reference to an OutputDestination ID that is defined in the channel.
 
-This entity is used by ArchiveGroupSettings, FrameCaptureGroupSettings, HlsGroupSettings, MediaPackageGroupSettings, MSSmoothGroupSettings, RtmpOutputSettings, and UdpOutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html
 
     .PARAMETER DestinationRefId
-        A reference ID for this destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html#cfn-medialive-channel-outputlocationref-destinationrefid
         PrimitiveType: String
         UpdateType: Mutable

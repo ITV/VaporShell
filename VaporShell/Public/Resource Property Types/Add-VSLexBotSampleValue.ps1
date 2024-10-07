@@ -1,18 +1,16 @@
 function Add-VSLexBotSampleValue {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SampleValue resource property to the template. Defines one of the values for a slot type.
+        Adds an AWS::Lex::Bot.SampleValue resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SampleValue resource property to the template.
-Defines one of the values for a slot type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-samplevalue.html
 
     .PARAMETER Value
-        The value that can be used for a slot type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-samplevalue.html#cfn-lex-bot-samplevalue-value
         UpdateType: Mutable
         PrimitiveType: String

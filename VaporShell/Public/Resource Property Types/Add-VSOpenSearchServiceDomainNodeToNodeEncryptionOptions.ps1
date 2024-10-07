@@ -1,18 +1,16 @@
 function Add-VSOpenSearchServiceDomainNodeToNodeEncryptionOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::OpenSearchService::Domain.NodeToNodeEncryptionOptions resource property to the template. Specifies options for node-to-node encryption.
+        Adds an AWS::OpenSearchService::Domain.NodeToNodeEncryptionOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::OpenSearchService::Domain.NodeToNodeEncryptionOptions resource property to the template.
-Specifies options for node-to-node encryption.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html
 
     .PARAMETER Enabled
-        Specifies to enable or disable node-to-node encryption on the domain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html#cfn-opensearchservice-domain-nodetonodeencryptionoptions-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

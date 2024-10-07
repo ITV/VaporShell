@@ -1,25 +1,21 @@
 function Add-VSTransferServerWorkflowDetail {
     <#
     .SYNOPSIS
-        Adds an AWS::Transfer::Server.WorkflowDetail resource property to the template. Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.
+        Adds an AWS::Transfer::Server.WorkflowDetail resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Transfer::Server.WorkflowDetail resource property to the template.
-Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html
 
     .PARAMETER WorkflowId
-        A unique identifier for the workflow.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html#cfn-transfer-server-workflowdetail-workflowid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ExecutionRole
-        Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html#cfn-transfer-server-workflowdetail-executionrole
         PrimitiveType: String
         UpdateType: Mutable

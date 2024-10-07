@@ -1,12 +1,10 @@
 function New-VSManagedBlockchainNode {
     <#
     .SYNOPSIS
-        Adds an AWS::ManagedBlockchain::Node resource to the template. Creates a node on the specified blockchain network.
+        Adds an AWS::ManagedBlockchain::Node resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ManagedBlockchain::Node resource to the template. Creates a node on the specified blockchain network.
-
-Applies to Hyperledger Fabric and Ethereum.
+        Adds an AWS::ManagedBlockchain::Node resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html
@@ -15,26 +13,16 @@ Applies to Hyperledger Fabric and Ethereum.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER MemberId
-        The unique identifier of the member to which the node belongs. Applies only to Hyperledger Fabric.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-memberid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NetworkId
-        The unique identifier of the network for the node.
-Ethereum public networks have the following NetworkIds:
-+  n-ethereum-mainnet
-+  n-ethereum-rinkeby
-+  n-ethereum-ropsten
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-networkid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NodeConfiguration
-        Configuration properties of a peer node.
-
         Type: NodeConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-nodeconfiguration
         UpdateType: Mutable

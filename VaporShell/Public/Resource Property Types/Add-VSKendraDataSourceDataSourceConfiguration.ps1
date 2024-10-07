@@ -1,84 +1,64 @@
 function Add-VSKendraDataSourceDataSourceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.DataSourceConfiguration resource property to the template. Provides the configuration information for an Amazon Kendra data source.
+        Adds an AWS::Kendra::DataSource.DataSourceConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.DataSourceConfiguration resource property to the template.
-Provides the configuration information for an Amazon Kendra data source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html
 
-    .PARAMETER S3Configuration
-        Provides the configuration information to connect to an Amazon S3 bucket as your data source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
-        UpdateType: Mutable
-        Type: S3DataSourceConfiguration
-
-    .PARAMETER SharePointConfiguration
-        Provides the configuration information to connect to Microsoft SharePoint as your data source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration
-        UpdateType: Mutable
-        Type: SharePointConfiguration
-
-    .PARAMETER SalesforceConfiguration
-        Provides the configuration information to connect to Salesforce as your data source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-salesforceconfiguration
-        UpdateType: Mutable
-        Type: SalesforceConfiguration
-
-    .PARAMETER OneDriveConfiguration
-        Provides the configuration information to connect to Microsoft OneDrive as your data source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
-        UpdateType: Mutable
-        Type: OneDriveConfiguration
-
-    .PARAMETER ServiceNowConfiguration
-        Provides the configuration information to connect to ServiceNow as your data source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-servicenowconfiguration
-        UpdateType: Mutable
-        Type: ServiceNowConfiguration
-
-    .PARAMETER DatabaseConfiguration
-        Provides the configuration information to connect to a database as your data source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
-        UpdateType: Mutable
-        Type: DatabaseConfiguration
-
-    .PARAMETER ConfluenceConfiguration
-        Provides the configuration information to connect to Confluence as your data source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-confluenceconfiguration
-        UpdateType: Mutable
-        Type: ConfluenceConfiguration
-
     .PARAMETER GoogleDriveConfiguration
-        Provides the configuration information to connect to Google Drive as your data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
         UpdateType: Mutable
         Type: GoogleDriveConfiguration
 
     .PARAMETER WebCrawlerConfiguration
-        Provides the configuration information required for Amazon Kendra Web Crawler.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-webcrawlerconfiguration
         UpdateType: Mutable
         Type: WebCrawlerConfiguration
 
-    .PARAMETER WorkDocsConfiguration
-        Provides the configuration information to connect to Amazon WorkDocs as your data source.
+    .PARAMETER S3Configuration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
+        UpdateType: Mutable
+        Type: S3DataSourceConfiguration
 
+    .PARAMETER SalesforceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-salesforceconfiguration
+        UpdateType: Mutable
+        Type: SalesforceConfiguration
+
+    .PARAMETER DatabaseConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
+        UpdateType: Mutable
+        Type: DatabaseConfiguration
+
+    .PARAMETER SharePointConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration
+        UpdateType: Mutable
+        Type: SharePointConfiguration
+
+    .PARAMETER ConfluenceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-confluenceconfiguration
+        UpdateType: Mutable
+        Type: ConfluenceConfiguration
+
+    .PARAMETER WorkDocsConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-workdocsconfiguration
         UpdateType: Mutable
         Type: WorkDocsConfiguration
+
+    .PARAMETER OneDriveConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
+        UpdateType: Mutable
+        Type: OneDriveConfiguration
+
+    .PARAMETER ServiceNowConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-servicenowconfiguration
+        UpdateType: Mutable
+        Type: ServiceNowConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -88,25 +68,25 @@ Provides the configuration information for an Amazon Kendra data source.
     Param
     (
         [parameter(Mandatory = $false)]
-        $S3Configuration,
-        [parameter(Mandatory = $false)]
-        $SharePointConfiguration,
-        [parameter(Mandatory = $false)]
-        $SalesforceConfiguration,
-        [parameter(Mandatory = $false)]
-        $OneDriveConfiguration,
-        [parameter(Mandatory = $false)]
-        $ServiceNowConfiguration,
-        [parameter(Mandatory = $false)]
-        $DatabaseConfiguration,
-        [parameter(Mandatory = $false)]
-        $ConfluenceConfiguration,
-        [parameter(Mandatory = $false)]
         $GoogleDriveConfiguration,
         [parameter(Mandatory = $false)]
         $WebCrawlerConfiguration,
         [parameter(Mandatory = $false)]
-        $WorkDocsConfiguration
+        $S3Configuration,
+        [parameter(Mandatory = $false)]
+        $SalesforceConfiguration,
+        [parameter(Mandatory = $false)]
+        $DatabaseConfiguration,
+        [parameter(Mandatory = $false)]
+        $SharePointConfiguration,
+        [parameter(Mandatory = $false)]
+        $ConfluenceConfiguration,
+        [parameter(Mandatory = $false)]
+        $WorkDocsConfiguration,
+        [parameter(Mandatory = $false)]
+        $OneDriveConfiguration,
+        [parameter(Mandatory = $false)]
+        $ServiceNowConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

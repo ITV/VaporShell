@@ -1,14 +1,10 @@
 function New-VSEC2EnclaveCertificateIamRoleAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EnclaveCertificateIamRoleAssociation resource to the template. Associates an AWS Identity and Access Management (IAM role with an AWS Certificate Manager (ACM certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see AWS Certificate Manager for Nitro Enclaves: https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html in the * AWS Nitro Enclaves User Guide*.
+        Adds an AWS::EC2::EnclaveCertificateIamRoleAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::EnclaveCertificateIamRoleAssociation resource to the template. Associates an AWS Identity and Access Management (IAM role with an AWS Certificate Manager (ACM certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see AWS Certificate Manager for Nitro Enclaves: https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html in the * AWS Nitro Enclaves User Guide*.
-
-When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted private key are placed in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate is encrypted with an AWS managed key that has an attached attestation-based key policy.
-
-To enable the IAM role to access the Amazon S3 object, you must grant it permission to call s3:GetObject on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key, you must grant it permission to call kms:Decrypt on the KMS key returned by the command. For more information, see  Grant the role permission to access the certificate and encryption key: https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy in the * AWS Nitro Enclaves User Guide*.
+        Adds an AWS::EC2::EnclaveCertificateIamRoleAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html
@@ -16,17 +12,13 @@ To enable the IAM role to access the Amazon S3 object, you must grant it permiss
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER CertificateArn
-        The ARN of the ACM certificate with which to associate the IAM role.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-certificatearn
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-rolearn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The ARN of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-rolearn
+    .PARAMETER CertificateArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-certificatearn
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -102,7 +94,7 @@ To enable the IAM role to access the Amazon S3 object, you must grant it permiss
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CertificateArn,
+        $RoleArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -113,7 +105,7 @@ To enable the IAM role to access the Amazon S3 object, you must grant it permiss
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleArn,
+        $CertificateArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

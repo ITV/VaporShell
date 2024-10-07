@@ -1,18 +1,16 @@
 function Add-VSIoTSiteWiseAccessPolicyUser {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AccessPolicy.User resource property to the template. The User property type specifies the AWS IoT SiteWise Monitor user for an AWS::IoTSiteWise::AccessPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html.
+        Adds an AWS::IoTSiteWise::AccessPolicy.User resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::AccessPolicy.User resource property to the template.
-The User property type specifies the AWS IoT SiteWise Monitor user for an AWS::IoTSiteWise::AccessPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html
 
     .PARAMETER id
-        The ID of the user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html#cfn-iotsitewise-accesspolicy-user-id
         UpdateType: Mutable
         PrimitiveType: String

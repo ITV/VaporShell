@@ -1,18 +1,16 @@
 function Add-VSSageMakerModelBiasJobDefinitionMonitoringResources {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelBiasJobDefinition.MonitoringResources resource property to the template. Identifies the resources to deploy for a monitoring job.
+        Adds an AWS::SageMaker::ModelBiasJobDefinition.MonitoringResources resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelBiasJobDefinition.MonitoringResources resource property to the template.
-Identifies the resources to deploy for a monitoring job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
 
     .PARAMETER ClusterConfig
-        The configuration for the cluster resources used to run the processing job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
         UpdateType: Immutable
         Type: ClusterConfig

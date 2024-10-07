@@ -1,10 +1,10 @@
 function New-VSCloudFormationHookDefaultVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::HookDefaultVersion resource to the template. The HookDefaultVersion resource specifies the default version of the hook. The default version of the hook is used in CloudFormation operations for this AWS account and AWS Region.
+        Adds an AWS::CloudFormation::HookDefaultVersion resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFormation::HookDefaultVersion resource to the template. The HookDefaultVersion resource specifies the default version of the hook. The default version of the hook is used in CloudFormation operations for this AWS account and AWS Region.
+        Adds an AWS::CloudFormation::HookDefaultVersion resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html
@@ -12,27 +12,18 @@ function New-VSCloudFormationHookDefaultVersion {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER TypeVersionArn
-        The version ID of the type configuration.
-You must specify either TypeVersionArn, or TypeName and VersionId.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-typeversionarn
+    .PARAMETER VersionId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-versionid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TypeName
-        The name of the hook.
-You must specify either TypeVersionArn, or TypeName and VersionId.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-typename
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER VersionId
-        The version ID of the type specified.
-You must specify either TypeVersionArn, or TypeName and VersionId.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-versionid
+    .PARAMETER TypeVersionArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-typeversionarn
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -108,7 +99,7 @@ You must specify either TypeVersionArn, or TypeName and VersionId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TypeVersionArn,
+        $VersionId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -130,7 +121,7 @@ You must specify either TypeVersionArn, or TypeName and VersionId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VersionId,
+        $TypeVersionArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

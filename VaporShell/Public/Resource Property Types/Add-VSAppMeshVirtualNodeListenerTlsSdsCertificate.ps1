@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualNodeListenerTlsSdsCertificate {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.ListenerTlsSdsCertificate resource property to the template. An object that represents the listener's Secret Discovery Service certificate. The proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh TLS documentation: https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html for more info.
+        Adds an AWS::AppMesh::VirtualNode.ListenerTlsSdsCertificate resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.ListenerTlsSdsCertificate resource property to the template.
-An object that represents the listener's Secret Discovery Service certificate. The proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh TLS documentation: https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html for more info.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlssdscertificate.html
 
     .PARAMETER SecretName
-        A reference to an object that represents the name of the secret requested from the Secret Discovery Service provider representing Transport Layer Security TLS materials like a certificate or certificate chain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlssdscertificate.html#cfn-appmesh-virtualnode-listenertlssdscertificate-secretname
         PrimitiveType: String
         UpdateType: Mutable

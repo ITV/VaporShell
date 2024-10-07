@@ -1,18 +1,16 @@
 function Add-VSHealthLakeFHIRDatastoreSseConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::HealthLake::FHIRDatastore.SseConfiguration resource property to the template. The server-side encryption key configuration for a customer provided encryption key.
+        Adds an AWS::HealthLake::FHIRDatastore.SseConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::HealthLake::FHIRDatastore.SseConfiguration resource property to the template.
-The server-side encryption key configuration for a customer provided encryption key.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-sseconfiguration.html
 
     .PARAMETER KmsEncryptionConfig
-        The server-side encryption key configuration for a customer provided encryption key CMK.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-sseconfiguration.html#cfn-healthlake-fhirdatastore-sseconfiguration-kmsencryptionconfig
         UpdateType: Immutable
         Type: KmsEncryptionConfig

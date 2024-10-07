@@ -1,30 +1,28 @@
 function Add-VSSageMakerDataQualityJobDefinitionVpcConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::DataQualityJobDefinition.VpcConfig resource property to the template. Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see Protect Endpoints by Using an Amazon Virtual Private Cloud: https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html and Protect Training Jobs by Using an Amazon Virtual Private Cloud: https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html.
+        Adds an AWS::SageMaker::DataQualityJobDefinition.VpcConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::DataQualityJobDefinition.VpcConfig resource property to the template.
-Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see Protect Endpoints by Using an Amazon Virtual Private Cloud: https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html and Protect Training Jobs by Using an Amazon Virtual Private Cloud: https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html
 
-    .PARAMETER SecurityGroupIds
-        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-securitygroupids
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER Subnets
-        The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see Supported Instance Types and Availability Zones: https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-subnets
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER SecurityGroupIds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-securitygroupids
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -34,9 +32,9 @@ Specifies a VPC that your training jobs and hosted models have access to. Contro
     Param
     (
         [parameter(Mandatory = $true)]
-        $SecurityGroupIds,
+        $Subnets,
         [parameter(Mandatory = $true)]
-        $Subnets
+        $SecurityGroupIds
     )
     Begin {
         $obj = [PSCustomObject]@{}

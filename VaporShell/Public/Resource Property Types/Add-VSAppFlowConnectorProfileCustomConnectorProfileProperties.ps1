@@ -10,15 +10,16 @@ function Add-VSAppFlowConnectorProfileCustomConnectorProfileProperties {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofileproperties.html
 
-    .PARAMETER ProfileProperties
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofileproperties.html#cfn-appflow-connectorprofile-customconnectorprofileproperties-profileproperties
-        UpdateType: Mutable
-        Type: ProfileProperties
-
     .PARAMETER OAuth2Properties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofileproperties.html#cfn-appflow-connectorprofile-customconnectorprofileproperties-oauth2properties
         UpdateType: Mutable
         Type: OAuth2Properties
+
+    .PARAMETER ProfileProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofileproperties.html#cfn-appflow-connectorprofile-customconnectorprofileproperties-profileproperties
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -28,9 +29,10 @@ function Add-VSAppFlowConnectorProfileCustomConnectorProfileProperties {
     Param
     (
         [parameter(Mandatory = $false)]
-        $ProfileProperties,
+        $OAuth2Properties,
         [parameter(Mandatory = $false)]
-        $OAuth2Properties
+        [System.Collections.Hashtable]
+        $ProfileProperties
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,33 +1,27 @@
 function Add-VSDLMLifecyclePolicyParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.Parameters resource property to the template. Specifies optional parameters to add to a policy. The set of valid parameters depends on the combination of policy type and resource type.
+        Adds an AWS::DLM::LifecyclePolicy.Parameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.Parameters resource property to the template.
-Specifies optional parameters to add to a policy. The set of valid parameters depends on the combination of policy type and resource type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html
 
     .PARAMETER ExcludeBootVolume
-        EBS Snapshot Management – Instance policies only] Indicates whether to exclude the root volume from snapshots created using CreateSnapshots: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html. The default is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ExcludeDataVolumeTags
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludedatavolumetags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER NoReboot
-        Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. true indicates that targeted instances are not rebooted when the policy runs. false indicates that target instances are rebooted when the policy runs. The default is true instances are not rebooted.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
         PrimitiveType: Boolean
         UpdateType: Mutable

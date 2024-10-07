@@ -1,14 +1,10 @@
 function New-VSServiceCatalogCloudFormationProvisionedProduct {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceCatalog::CloudFormationProvisionedProduct resource to the template. Provisions the specified product.
+        Adds an AWS::ServiceCatalog::CloudFormationProvisionedProduct resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ServiceCatalog::CloudFormationProvisionedProduct resource to the template. Provisions the specified product.
-
-A provisioned product is a resourced instance of a product. For example, provisioning a product based on a AWS CloudFormation template launches a AWS CloudFormation stack and its underlying resources. You can check the status of this request using DescribeRecord: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_DescribeRecord.html.
-
-If the request contains a tag key with an empty list of values, there is a tag conflict for that key. Do not include conflicted keys as tags, or this causes the error "Parameter validation failed: Missing required parameter in Tags*N*]:*Value*".
+        Adds an AWS::ServiceCatalog::CloudFormationProvisionedProduct resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html
@@ -16,104 +12,71 @@ If the request contains a tag key with an empty list of values, there is a tag c
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AcceptLanguage
-        The language code.
-+  en - English default
-+  jp - Japanese
-+  zh - Chinese
+    .PARAMETER PathId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
+        UpdateType: Mutable
+        PrimitiveType: String
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
+    .PARAMETER ProvisioningParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
+        UpdateType: Mutable
+        Type: List
+        ItemType: ProvisioningParameter
+        DuplicatesAllowed: True
+
+    .PARAMETER ProvisioningPreferences
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
+        UpdateType: Mutable
+        Type: ProvisioningPreferences
+
+    .PARAMETER ProductName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ProvisioningArtifactName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER NotificationArns
-        Passed to AWS CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER PathId
-        The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use ListLaunchPaths: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html.
-You must provide the name or ID, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER PathName
-        The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use ListLaunchPaths: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html.
-You must provide the name or ID, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
+    .PARAMETER AcceptLanguage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ProductId
-        The product identifier.
-You must specify either the ID or the name of the product, but not both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ProductName
-        A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
-Each time a stack is created or updated, if ProductName is provided it will successfully resolve to ProductId as long as only one product exists in the account or Region with that ProductName.
-You must specify either the name or the ID of the product, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
+    .PARAMETER PathName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ProvisionedProductName
-        A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
+    .PARAMETER ProvisionedProductName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ProvisioningArtifactId
-        The identifier of the provisioning artifact also known as a version.
-You must specify either the ID or the name of the provisioning artifact, but not both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER ProvisioningArtifactName
-        The name of the provisioning artifact also known as a version for the product. This name must be unique for the product.
-You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER ProvisioningParameters
-        Parameters specified by the administrator that are required for provisioning the product.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
-        UpdateType: Mutable
-        Type: List
-        ItemType: ProvisioningParameter
-
-    .PARAMETER ProvisioningPreferences
-        StackSet preferences that are required for provisioning the product or updating a provisioned product.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
-        UpdateType: Mutable
-        Type: ProvisioningPreferences
-
-    .PARAMETER Tags
-        One or more tags.
-Requires the provisioned product to have an ResourceUpdateConstraint: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html resource with TagUpdatesOnProvisionedProduct set to ALLOWED to allow tag updates. If RESOURCE_UPDATE constraint is not present, tags updates are ignored.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
-        UpdateType: Mutable
-        Type: List
-        ItemType: Tag
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -187,7 +150,42 @@ Requires the provisioned product to have an ResourceUpdateConstraint: https://do
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AcceptLanguage,
+        $PathId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ServiceCatalog.CloudFormationProvisionedProduct.ProvisioningParameter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ProvisioningParameters,
+        [parameter(Mandatory = $false)]
+        $ProvisioningPreferences,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ProductName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ProvisioningArtifactName,
         [parameter(Mandatory = $false)]
         $NotificationArns,
         [parameter(Mandatory = $false)]
@@ -200,18 +198,7 @@ Requires the provisioned product to have an ResourceUpdateConstraint: https://do
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PathId,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PathName,
+        $AcceptLanguage,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -233,7 +220,10 @@ Requires the provisioned product to have an ResourceUpdateConstraint: https://do
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ProductName,
+        $PathName,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -256,33 +246,6 @@ Requires the provisioned product to have an ResourceUpdateConstraint: https://do
                 }
             })]
         $ProvisioningArtifactId,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ProvisioningArtifactName,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.ServiceCatalog.CloudFormationProvisionedProduct.ProvisioningParameter"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ProvisioningParameters,
-        [parameter(Mandatory = $false)]
-        $ProvisioningPreferences,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -357,17 +320,17 @@ Requires the provisioned product to have an ResourceUpdateConstraint: https://do
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                NotificationArns {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name NotificationArns -Value @($NotificationArns)
-                }
                 ProvisioningParameters {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ProvisioningParameters -Value @($ProvisioningParameters)
+                }
+                NotificationArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name NotificationArns -Value @($NotificationArns)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

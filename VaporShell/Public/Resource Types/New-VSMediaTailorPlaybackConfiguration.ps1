@@ -12,8 +12,69 @@ function New-VSMediaTailorPlaybackConfiguration {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER Bumper
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-bumper
+        UpdateType: Mutable
+        Type: Bumper
+
+    .PARAMETER DashConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-dashconfiguration
+        UpdateType: Mutable
+        Type: DashConfiguration
+
+    .PARAMETER CdnConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-cdnconfiguration
+        UpdateType: Mutable
+        Type: CdnConfiguration
+
+    .PARAMETER ManifestProcessingRules
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-manifestprocessingrules
+        UpdateType: Mutable
+        Type: ManifestProcessingRules
+
+    .PARAMETER PersonalizationThresholdSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-personalizationthresholdseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER LivePreRollConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-liveprerollconfiguration
+        UpdateType: Mutable
+        Type: LivePreRollConfiguration
+
+    .PARAMETER HlsConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-hlsconfiguration
+        UpdateType: Mutable
+        Type: HlsConfiguration
+
+    .PARAMETER VideoContentSourceUrl
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-videocontentsourceurl
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-name
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER TranscodeProfileName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-transcodeprofilename
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ConfigurationAliases
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-configurationaliases
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: Json
+
     .PARAMETER AdDecisionServerUrl
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-addecisionserverurl
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER SlateAdUrl
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-slateadurl
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -22,68 +83,12 @@ function New-VSMediaTailorPlaybackConfiguration {
         UpdateType: Mutable
         Type: AvailSuppression
 
-    .PARAMETER Bumper
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-bumper
-        UpdateType: Mutable
-        Type: Bumper
-
-    .PARAMETER CdnConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-cdnconfiguration
-        UpdateType: Mutable
-        Type: CdnConfiguration
-
-    .PARAMETER ConfigurationAliases
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-configurationaliases
-        UpdateType: Mutable
-        Type: Map
-        PrimitiveItemType: Json
-
-    .PARAMETER DashConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-dashconfiguration
-        UpdateType: Mutable
-        Type: DashConfiguration
-
-    .PARAMETER LivePreRollConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-liveprerollconfiguration
-        UpdateType: Mutable
-        Type: LivePreRollConfiguration
-
-    .PARAMETER ManifestProcessingRules
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-manifestprocessingrules
-        UpdateType: Mutable
-        Type: ManifestProcessingRules
-
-    .PARAMETER Name
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER PersonalizationThresholdSeconds
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-personalizationthresholdseconds
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
-    .PARAMETER SlateAdUrl
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-slateadurl
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
-
-    .PARAMETER TranscodeProfileName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-transcodeprofilename
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER VideoContentSourceUrl
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-videocontentsourceurl
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -147,6 +152,29 @@ function New-VSMediaTailorPlaybackConfiguration {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $Bumper,
+        [parameter(Mandatory = $false)]
+        $DashConfiguration,
+        [parameter(Mandatory = $false)]
+        $CdnConfiguration,
+        [parameter(Mandatory = $false)]
+        $ManifestProcessingRules,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PersonalizationThresholdSeconds,
+        [parameter(Mandatory = $false)]
+        $LivePreRollConfiguration,
+        [parameter(Mandatory = $false)]
+        $HlsConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -157,22 +185,7 @@ function New-VSMediaTailorPlaybackConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AdDecisionServerUrl,
-        [parameter(Mandatory = $false)]
-        $AvailSuppression,
-        [parameter(Mandatory = $false)]
-        $Bumper,
-        [parameter(Mandatory = $false)]
-        $CdnConfiguration,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $ConfigurationAliases,
-        [parameter(Mandatory = $false)]
-        $DashConfiguration,
-        [parameter(Mandatory = $false)]
-        $LivePreRollConfiguration,
-        [parameter(Mandatory = $false)]
-        $ManifestProcessingRules,
+        $VideoContentSourceUrl,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -186,7 +199,7 @@ function New-VSMediaTailorPlaybackConfiguration {
         $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -194,7 +207,21 @@ function New-VSMediaTailorPlaybackConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PersonalizationThresholdSeconds,
+        $TranscodeProfileName,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $ConfigurationAliases,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AdDecisionServerUrl,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -206,31 +233,11 @@ function New-VSMediaTailorPlaybackConfiguration {
                 }
             })]
         $SlateAdUrl,
+        [parameter(Mandatory = $false)]
+        $AvailSuppression,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TranscodeProfileName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $VideoContentSourceUrl,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

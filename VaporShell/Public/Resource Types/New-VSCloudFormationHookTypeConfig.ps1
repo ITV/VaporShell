@@ -1,10 +1,10 @@
 function New-VSCloudFormationHookTypeConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::HookTypeConfig resource to the template. The HookTypeConfig resource specifies the configuration of a hook.
+        Adds an AWS::CloudFormation::HookTypeConfig resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFormation::HookTypeConfig resource to the template. The HookTypeConfig resource specifies the configuration of a hook.
+        Adds an AWS::CloudFormation::HookTypeConfig resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html
@@ -12,34 +12,22 @@ function New-VSCloudFormationHookTypeConfig {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER TypeArn
-        The Amazon Resource Number ARN for the hook to set Configuration for.
-You must specify either TypeName and Configuration or TypeARN and Configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-typearn
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER TypeName
-        The unique name for your hook. Specifies a three-part namespace for your hook, with a recommended pattern of Organization::Service::Hook.
-You must specify either TypeName and Configuration or TypeARN and Configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-typename
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Configuration
-        Specifies the activated hook type configuration, in this AWS account and AWS Region.
-You must specify either TypeName and Configuration or TypeARN and Configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-configuration
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ConfigurationAlias
-        Specifies the activated hook type configuration, in this AWS account and AWS Region.
-Defaults to default alias. Hook types currently support default configuration alias.
+    .PARAMETER TypeArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-typearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER ConfigurationAlias
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-configurationalias
         UpdateType: Immutable
         PrimitiveType: String
@@ -116,17 +104,6 @@ Defaults to default alias. Hook types currently support default configuration al
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TypeArn,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $TypeName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -139,6 +116,17 @@ Defaults to default alias. Hook types currently support default configuration al
                 }
             })]
         $Configuration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TypeArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

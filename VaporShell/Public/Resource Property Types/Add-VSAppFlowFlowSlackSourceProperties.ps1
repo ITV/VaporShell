@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowSlackSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.SlackSourceProperties resource property to the template. The properties that are applied when Slack is being used as a source.
+        Adds an AWS::AppFlow::Flow.SlackSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.SlackSourceProperties resource property to the template.
-The properties that are applied when Slack is being used as a source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html
 
     .PARAMETER Object
-        The object specified in the Slack flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html#cfn-appflow-flow-slacksourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

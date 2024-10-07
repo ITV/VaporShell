@@ -1,25 +1,26 @@
 function Add-VSIoTTopicRuleCloudwatchLogsAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.CloudwatchLogsAction resource property to the template. Describes an action that updates a CloudWatch log.
+        Adds an AWS::IoT::TopicRule.CloudwatchLogsAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.CloudwatchLogsAction resource property to the template.
-Describes an action that updates a CloudWatch log.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html
 
-    .PARAMETER LogGroupName
-        The CloudWatch log name.
+    .PARAMETER BatchMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-batchmode
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
+    .PARAMETER LogGroupName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-loggroupname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The IAM role that allows access to the CloudWatch log.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -31,6 +32,17 @@ Describes an action that updates a CloudWatch log.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BatchMode,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

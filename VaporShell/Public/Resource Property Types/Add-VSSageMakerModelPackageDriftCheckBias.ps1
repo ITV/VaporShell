@@ -10,11 +10,6 @@ function Add-VSSageMakerModelPackageDriftCheckBias {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html
 
-    .PARAMETER PostTrainingConstraints
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html#cfn-sagemaker-modelpackage-driftcheckbias-posttrainingconstraints
-        UpdateType: Immutable
-        Type: MetricsSource
-
     .PARAMETER PreTrainingConstraints
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html#cfn-sagemaker-modelpackage-driftcheckbias-pretrainingconstraints
         UpdateType: Immutable
@@ -25,6 +20,11 @@ function Add-VSSageMakerModelPackageDriftCheckBias {
         UpdateType: Immutable
         Type: FileSource
 
+    .PARAMETER PostTrainingConstraints
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html#cfn-sagemaker-modelpackage-driftcheckbias-posttrainingconstraints
+        UpdateType: Immutable
+        Type: MetricsSource
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -33,11 +33,11 @@ function Add-VSSageMakerModelPackageDriftCheckBias {
     Param
     (
         [parameter(Mandatory = $false)]
-        $PostTrainingConstraints,
-        [parameter(Mandatory = $false)]
         $PreTrainingConstraints,
         [parameter(Mandatory = $false)]
-        $ConfigFile
+        $ConfigFile,
+        [parameter(Mandatory = $false)]
+        $PostTrainingConstraints
     )
     Begin {
         $obj = [PSCustomObject]@{}

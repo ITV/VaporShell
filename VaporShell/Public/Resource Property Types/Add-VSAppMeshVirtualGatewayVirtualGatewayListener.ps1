@@ -1,39 +1,31 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayListener {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListener resource property to the template. An object that represents a listener for a virtual gateway.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListener resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListener resource property to the template.
-An object that represents a listener for a virtual gateway.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html
 
     .PARAMETER ConnectionPool
-        The connection pool information for the listener.
-
         Type: VirtualGatewayConnectionPool
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-connectionpool
         UpdateType: Mutable
 
     .PARAMETER HealthCheck
-        The health check information for the listener.
-
         Type: VirtualGatewayHealthCheckPolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-healthcheck
         UpdateType: Mutable
 
     .PARAMETER TLS
-        A reference to an object that represents the Transport Layer Security TLS properties for the listener.
-
         Type: VirtualGatewayListenerTls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-tls
         UpdateType: Mutable
 
     .PARAMETER PortMapping
-        The port mapping information for the listener.
-
         Type: VirtualGatewayPortMapping
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-portmapping
         UpdateType: Mutable

@@ -1,18 +1,21 @@
 function Add-VSAppFlowFlowAggregationConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.AggregationConfig resource property to the template. The aggregation settings that you can use to customize the output format of your flow data.
+        Adds an AWS::AppFlow::Flow.AggregationConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.AggregationConfig resource property to the template.
-The aggregation settings that you can use to customize the output format of your flow data.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html
 
-    .PARAMETER AggregationType
-        Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated.
+    .PARAMETER TargetFileSize
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-targetfilesize
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
+    .PARAMETER AggregationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
         UpdateType: Mutable
         PrimitiveType: String
@@ -24,6 +27,17 @@ The aggregation settings that you can use to customize the output format of your
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TargetFileSize,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

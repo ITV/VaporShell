@@ -1,18 +1,16 @@
 function Add-VSNetworkFirewallRuleGroupStatelessRulesAndCustomActions {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions resource property to the template. Stateless inspection criteria. Each stateless rule group uses exactly one of these data types to define its stateless rules.
+        Adds an AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions resource property to the template.
-Stateless inspection criteria. Each stateless rule group uses exactly one of these data types to define its stateless rules.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
 
     .PARAMETER StatelessRules
-        Defines the set of stateless rules for use in a stateless rule group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
         UpdateType: Mutable
         Type: List
@@ -20,8 +18,6 @@ Stateless inspection criteria. Each stateless rule group uses exactly one of the
         DuplicatesAllowed: True
 
     .PARAMETER CustomActions
-        Defines an array of individual custom action definitions that are available for use by the stateless rules in this StatelessRulesAndCustomActions specification. You name each custom action that you define, and then you can use it by name in your stateless rule AWS::NetworkFirewall::RuleGroup RuleDefinition: aws-properties-networkfirewall-rulegroup-ruledefinition.md Actions specification.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
         UpdateType: Mutable
         Type: List

@@ -1,18 +1,16 @@
 function Add-VSAppMeshGatewayRouteHttpGatewayRoutePathRewrite {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRoutePathRewrite resource property to the template. An object that represents the path to rewrite.
+        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRoutePathRewrite resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRoutePathRewrite resource property to the template.
-An object that represents the path to rewrite.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutepathrewrite.html
 
     .PARAMETER Exact
-        The exact path to rewrite.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutepathrewrite.html#cfn-appmesh-gatewayroute-httpgatewayroutepathrewrite-exact
         PrimitiveType: String
         UpdateType: Mutable

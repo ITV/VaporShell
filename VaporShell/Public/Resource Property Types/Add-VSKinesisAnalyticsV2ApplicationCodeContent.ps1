@@ -1,32 +1,26 @@
 function Add-VSKinesisAnalyticsV2ApplicationCodeContent {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.CodeContent resource property to the template. Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::Application.CodeContent resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.CodeContent resource property to the template.
-Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html
 
     .PARAMETER ZipFileContent
-        The zip-format code for a Flink-based Kinesis Data Analytics application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-zipfilecontent
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3ContentLocation
-        Information about the Amazon S3 bucket that contains the application code.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-s3contentlocation
         UpdateType: Mutable
         Type: S3ContentLocation
 
     .PARAMETER TextContent
-        The text-format code for a Flink-based Kinesis Data Analytics application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-textcontent
         UpdateType: Mutable
         PrimitiveType: String

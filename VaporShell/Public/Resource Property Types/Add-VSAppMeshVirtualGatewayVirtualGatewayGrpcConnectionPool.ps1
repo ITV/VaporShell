@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayGrpcConnectionPool {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayGrpcConnectionPool resource property to the template. An object that represents a type of connection pool.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayGrpcConnectionPool resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayGrpcConnectionPool resource property to the template.
-An object that represents a type of connection pool.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html
 
     .PARAMETER MaxRequests
-        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool-maxrequests
         PrimitiveType: Integer
         UpdateType: Mutable

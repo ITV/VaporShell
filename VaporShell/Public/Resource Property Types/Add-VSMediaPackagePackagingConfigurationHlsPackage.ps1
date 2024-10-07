@@ -1,41 +1,39 @@
 function Add-VSMediaPackagePackagingConfigurationHlsPackage {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingConfiguration.HlsPackage resource property to the template. Parameters for a packaging configuration that uses HTTP Live Streaming (HLS packaging.
+        Adds an AWS::MediaPackage::PackagingConfiguration.HlsPackage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::PackagingConfiguration.HlsPackage resource property to the template.
-Parameters for a packaging configuration that uses HTTP Live Streaming (HLS packaging.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
 
-    .PARAMETER Encryption
-        Parameters for encrypting content.
+    .PARAMETER UseAudioRenditionGroup
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
+    .PARAMETER SegmentDurationSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER Encryption
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
         UpdateType: Mutable
         Type: HlsEncryption
 
     .PARAMETER HlsManifests
-        A list of HLS manifest configurations that are available from this endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
         UpdateType: Mutable
         Type: List
         ItemType: HlsManifest
+        DuplicatesAllowed: True
 
-    .PARAMETER SegmentDurationSeconds
-        Duration in seconds of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
-    .PARAMETER UseAudioRenditionGroup
-        When true, AWS Elemental MediaPackage bundles all audio tracks in a rendition group. All other tracks in the stream can be used with any audio rendition from the group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+    .PARAMETER IncludeDvbSubtitles
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-includedvbsubtitles
         UpdateType: Mutable
         PrimitiveType: Boolean
 
@@ -46,6 +44,28 @@ Parameters for a packaging configuration that uses HTTP Live Streaming (HLS pack
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UseAudioRenditionGroup,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SegmentDurationSeconds,
         [parameter(Mandatory = $false)]
         $Encryption,
         [parameter(Mandatory = $true)]
@@ -61,17 +81,6 @@ Parameters for a packaging configuration that uses HTTP Live Streaming (HLS pack
         $HlsManifests,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SegmentDurationSeconds,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -80,7 +89,7 @@ Parameters for a packaging configuration that uses HTTP Live Streaming (HLS pack
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $UseAudioRenditionGroup
+        $IncludeDvbSubtitles
     )
     Begin {
         $obj = [PSCustomObject]@{}

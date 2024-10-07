@@ -1,39 +1,31 @@
 function Add-VSAppMeshGatewayRouteGrpcGatewayRouteMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMatch resource property to the template. An object that represents the criteria for determining a request match.
+        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMatch resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMatch resource property to the template.
-An object that represents the criteria for determining a request match.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html
 
     .PARAMETER ServiceName
-        The fully qualified domain name for the service to match from the request.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-servicename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Port
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-port
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Hostname
-        The gateway route host name to be matched on.
-
         Type: GatewayRouteHostnameMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-hostname
         UpdateType: Mutable
 
     .PARAMETER Metadata
-        The gateway route metadata to be matched on.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-metadata
         ItemType: GrpcGatewayRouteMetadata

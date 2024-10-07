@@ -1,32 +1,31 @@
 function Add-VSLexBotFulfillmentCodeHookSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.FulfillmentCodeHookSetting resource property to the template. Determines if a Lambda function should be invoked for a specific intent.
+        Adds an AWS::Lex::Bot.FulfillmentCodeHookSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.FulfillmentCodeHookSetting resource property to the template.
-Determines if a Lambda function should be invoked for a specific intent.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html
 
-    .PARAMETER FulfillmentUpdatesSpecification
-        Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html#cfn-lex-bot-fulfillmentcodehooksetting-fulfillmentupdatesspecification
-        UpdateType: Mutable
-        Type: FulfillmentUpdatesSpecification
-
     .PARAMETER PostFulfillmentStatusSpecification
-        Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html#cfn-lex-bot-fulfillmentcodehooksetting-postfulfillmentstatusspecification
         UpdateType: Mutable
         Type: PostFulfillmentStatusSpecification
 
-    .PARAMETER Enabled
-        Indicates whether a Lambda function should be invoked for fulfill a specific intent.
+    .PARAMETER FulfillmentUpdatesSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html#cfn-lex-bot-fulfillmentcodehooksetting-fulfillmentupdatesspecification
+        UpdateType: Mutable
+        Type: FulfillmentUpdatesSpecification
 
+    .PARAMETER IsActive
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html#cfn-lex-bot-fulfillmentcodehooksetting-isactive
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html#cfn-lex-bot-fulfillmentcodehooksetting-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -39,9 +38,20 @@ Determines if a Lambda function should be invoked for a specific intent.
     Param
     (
         [parameter(Mandatory = $false)]
+        $PostFulfillmentStatusSpecification,
+        [parameter(Mandatory = $false)]
         $FulfillmentUpdatesSpecification,
         [parameter(Mandatory = $false)]
-        $PostFulfillmentStatusSpecification,
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IsActive,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

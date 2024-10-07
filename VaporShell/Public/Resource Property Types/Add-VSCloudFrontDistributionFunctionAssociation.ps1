@@ -1,25 +1,21 @@
 function Add-VSCloudFrontDistributionFunctionAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.FunctionAssociation resource property to the template. A CloudFront function that is associated with a cache behavior in a CloudFront distribution.
+        Adds an AWS::CloudFront::Distribution.FunctionAssociation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.FunctionAssociation resource property to the template.
-A CloudFront function that is associated with a cache behavior in a CloudFront distribution.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html
 
     .PARAMETER FunctionARN
-        The Amazon Resource Name ARN of the function.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-functionarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EventType
-        The event type of the function, either viewer-request or viewer-response. You cannot use origin-facing event types origin-request and origin-response with a CloudFront function.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-eventtype
         UpdateType: Mutable
         PrimitiveType: String

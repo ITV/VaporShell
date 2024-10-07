@@ -1,33 +1,27 @@
 function Add-VSElastiCacheGlobalReplicationGroupGlobalReplicationGroupMember {
     <#
     .SYNOPSIS
-        Adds an AWS::ElastiCache::GlobalReplicationGroup.GlobalReplicationGroupMember resource property to the template. A member of a Global datastore. It contains the Replication Group Id, the Amazon region and the role of the replication group.
+        Adds an AWS::ElastiCache::GlobalReplicationGroup.GlobalReplicationGroupMember resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ElastiCache::GlobalReplicationGroup.GlobalReplicationGroupMember resource property to the template.
-A member of a Global datastore. It contains the Replication Group Id, the Amazon region and the role of the replication group.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
 
-    .PARAMETER ReplicationGroupId
-        The replication group id of the Global datastore member.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+    .PARAMETER Role
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ReplicationGroupRegion
-        The Amazon region of the Global datastore member.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Role
-        Indicates the role of the replication group, PRIMARY or SECONDARY.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+    .PARAMETER ReplicationGroupId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -48,7 +42,7 @@ A member of a Global datastore. It contains the Replication Group Id, the Amazon
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ReplicationGroupId,
+        $Role,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -70,7 +64,7 @@ A member of a Global datastore. It contains the Replication Group Id, the Amazon
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Role
+        $ReplicationGroupId
     )
     Begin {
         $obj = [PSCustomObject]@{}

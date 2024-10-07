@@ -1,21 +1,16 @@
 function Add-VSWAFv2WebACLBlockAction {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.BlockAction resource property to the template. Specifies that AWS WAF should block requests.
+        Adds an AWS::WAFv2::WebACL.BlockAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.BlockAction resource property to the template.
-Specifies that AWS WAF should block requests.
 
-This is used only in the context of other settings, for example to specify values for the web ACL and rule group RuleAction and for the web ACL DefaultAction.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
 
     .PARAMETER CustomResponse
-        Defines a custom response for the web request.
-For information about customizing web requests and responses, see Customizing web requests and responses in AWS WAF: https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html in the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
         UpdateType: Mutable
         Type: CustomResponse

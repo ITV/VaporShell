@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelH265FilterSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.H265FilterSettings resource property to the template. Settings to configure video filters that apply to the H265 codec.
+        Adds an AWS::MediaLive::Channel.H265FilterSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.H265FilterSettings resource property to the template.
-Settings to configure video filters that apply to the H265 codec.
 
-The parent of this entity is H265Settings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html
 
     .PARAMETER TemporalFilterSettings
-        Settings for applying the temporal filter to the video.
-
         Type: TemporalFilterSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html#cfn-medialive-channel-h265filtersettings-temporalfiltersettings
         UpdateType: Mutable

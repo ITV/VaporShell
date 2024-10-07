@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualNodeClientPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.ClientPolicy resource property to the template. An object that represents a client policy.
+        Adds an AWS::AppMesh::VirtualNode.ClientPolicy resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.ClientPolicy resource property to the template.
-An object that represents a client policy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html
 
     .PARAMETER TLS
-        A reference to an object that represents a Transport Layer Security TLS client policy.
-
         Type: ClientPolicyTls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html#cfn-appmesh-virtualnode-clientpolicy-tls
         UpdateType: Mutable

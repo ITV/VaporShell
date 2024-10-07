@@ -1,25 +1,21 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayClientTlsCertificate {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayClientTlsCertificate resource property to the template. An object that represents the virtual gateway's client's Transport Layer Security (TLS certificate.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayClientTlsCertificate resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayClientTlsCertificate resource property to the template.
-An object that represents the virtual gateway's client's Transport Layer Security (TLS certificate.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclienttlscertificate.html
 
     .PARAMETER SDS
-        A reference to an object that represents a virtual gateway's client's Secret Discovery Service certificate.
-
         Type: VirtualGatewayListenerTlsSdsCertificate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclienttlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewayclienttlscertificate-sds
         UpdateType: Mutable
 
     .PARAMETER File
-        An object that represents a local file certificate. The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see  Transport Layer Security TLS : https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html.
-
         Type: VirtualGatewayListenerTlsFileCertificate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclienttlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewayclienttlscertificate-file
         UpdateType: Mutable

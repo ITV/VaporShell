@@ -1,18 +1,16 @@
 function Add-VSCustomerProfilesIntegrationTriggerProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.TriggerProperties resource property to the template. <a name="aws-properties-customerprofiles-integration-triggerproperties-description"></a>The TriggerProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.TriggerProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.TriggerProperties resource property to the template.
-<a name="aws-properties-customerprofiles-integration-triggerproperties-description"></a>The TriggerProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html
 
     .PARAMETER Scheduled
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled
         UpdateType: Mutable
         Type: ScheduledTriggerProperties

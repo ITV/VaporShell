@@ -10,15 +10,15 @@ function Add-VSEventsEndpointFailoverConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html
 
-    .PARAMETER Primary
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html#cfn-events-endpoint-failoverconfig-primary
-        UpdateType: Mutable
-        Type: Primary
-
     .PARAMETER Secondary
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html#cfn-events-endpoint-failoverconfig-secondary
         UpdateType: Mutable
         Type: Secondary
+
+    .PARAMETER Primary
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html#cfn-events-endpoint-failoverconfig-primary
+        UpdateType: Mutable
+        Type: Primary
 
     .FUNCTIONALITY
         Vaporshell
@@ -28,9 +28,9 @@ function Add-VSEventsEndpointFailoverConfig {
     Param
     (
         [parameter(Mandatory = $true)]
-        $Primary,
+        $Secondary,
         [parameter(Mandatory = $true)]
-        $Secondary
+        $Primary
     )
     Begin {
         $obj = [PSCustomObject]@{}

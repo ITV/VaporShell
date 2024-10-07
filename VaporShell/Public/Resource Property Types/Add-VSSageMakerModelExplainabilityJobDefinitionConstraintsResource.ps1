@@ -1,18 +1,16 @@
 function Add-VSSageMakerModelExplainabilityJobDefinitionConstraintsResource {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ConstraintsResource resource property to the template. The constraints resource for a monitoring job.
+        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ConstraintsResource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ConstraintsResource resource property to the template.
-The constraints resource for a monitoring job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html
 
     .PARAMETER S3Uri
-        The Amazon S3 URI for the constraints resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html#cfn-sagemaker-modelexplainabilityjobdefinition-constraintsresource-s3uri
         UpdateType: Immutable
         PrimitiveType: String

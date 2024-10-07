@@ -1,49 +1,39 @@
 function Add-VSRoute53RecoveryReadinessResourceSetDNSTargetResource {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53RecoveryReadiness::ResourceSet.DNSTargetResource resource property to the template. A component for DNS/routing control readiness checks and architecture checks.
+        Adds an AWS::Route53RecoveryReadiness::ResourceSet.DNSTargetResource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Route53RecoveryReadiness::ResourceSet.DNSTargetResource resource property to the template.
-A component for DNS/routing control readiness checks and architecture checks.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html
 
-    .PARAMETER DomainName
-        The domain name that acts as an ingress point to a portion of the customer application.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
+    .PARAMETER TargetResource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER RecordSetId
-        The Route 53 record set ID that uniquely identifies a DNS record, given a name and a type.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER HostedZoneArn
-        The hosted zone Amazon Resource Name ARN that contains the DNS record with the provided name of the target resource.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
-        UpdateType: Mutable
-        PrimitiveType: String
+        Type: TargetResource
 
     .PARAMETER RecordType
-        The type of DNS record of the target resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER TargetResource
-        The target resource that the Route 53 record points to.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
+    .PARAMETER DomainName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
         UpdateType: Mutable
-        Type: TargetResource
+        PrimitiveType: String
+
+    .PARAMETER HostedZoneArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER RecordSetId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -52,6 +42,19 @@ A component for DNS/routing control readiness checks and architecture checks.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $TargetResource,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RecordType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -73,17 +76,6 @@ A component for DNS/routing control readiness checks and architecture checks.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RecordSetId,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $HostedZoneArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -95,9 +87,7 @@ A component for DNS/routing control readiness checks and architecture checks.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RecordType,
-        [parameter(Mandatory = $false)]
-        $TargetResource
+        $RecordSetId
     )
     Begin {
         $obj = [PSCustomObject]@{}

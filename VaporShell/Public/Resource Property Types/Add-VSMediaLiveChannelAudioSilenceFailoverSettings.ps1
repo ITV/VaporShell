@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelAudioSilenceFailoverSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioSilenceFailoverSettings resource property to the template. MediaLive will perform a failover if audio is not detected in this input for the specified period.
+        Adds an AWS::MediaLive::Channel.AudioSilenceFailoverSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioSilenceFailoverSettings resource property to the template.
-MediaLive will perform a failover if audio is not detected in this input for the specified period.
 
-The parent of this entity is FailoverConditionSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html
 
     .PARAMETER AudioSelectorName
-        The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html#cfn-medialive-channel-audiosilencefailoversettings-audioselectorname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AudioSilenceThresholdMsec
-        The amount of time in milliseconds that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html#cfn-medialive-channel-audiosilencefailoversettings-audiosilencethresholdmsec
         PrimitiveType: Integer
         UpdateType: Mutable

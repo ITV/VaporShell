@@ -1,25 +1,21 @@
 function Add-VSAppFlowFlowEventBridgeDestinationProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.EventBridgeDestinationProperties resource property to the template. The properties that are applied when Amazon EventBridge is being used as a destination.
+        Adds an AWS::AppFlow::Flow.EventBridgeDestinationProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.EventBridgeDestinationProperties resource property to the template.
-The properties that are applied when Amazon EventBridge is being used as a destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html
 
     .PARAMETER Object
-        The object specified in the Amazon EventBridge flow destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ErrorHandlingConfig
-        The object specified in the Amplitude flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
         UpdateType: Mutable
         Type: ErrorHandlingConfig

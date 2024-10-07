@@ -1,10 +1,10 @@
 function New-VSKinesisFirehoseDeliveryStream {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream resource to the template. The AWS::KinesisFirehose::DeliveryStream resource specifies an Amazon Kinesis Data Firehose (Kinesis Data Firehose delivery stream that delivers real-time streaming data to an Amazon Simple Storage Service (Amazon S3, Amazon Redshift, or Amazon Elasticsearch Service (Amazon ES destination. For more information, see Creating an Amazon Kinesis Data Firehose Delivery Stream: https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html in the *Amazon Kinesis Data Firehose Developer Guide*.
+        Adds an AWS::KinesisFirehose::DeliveryStream resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::KinesisFirehose::DeliveryStream resource to the template. The AWS::KinesisFirehose::DeliveryStream resource specifies an Amazon Kinesis Data Firehose (Kinesis Data Firehose delivery stream that delivers real-time streaming data to an Amazon Simple Storage Service (Amazon S3, Amazon Redshift, or Amazon Elasticsearch Service (Amazon ES destination. For more information, see Creating an Amazon Kinesis Data Firehose Delivery Stream: https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html in the *Amazon Kinesis Data Firehose Developer Guide*.
+        Adds an AWS::KinesisFirehose::DeliveryStream resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
@@ -13,100 +13,71 @@ function New-VSKinesisFirehoseDeliveryStream {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DeliveryStreamEncryptionConfigurationInput
-        Specifies the type and Amazon Resource Name ARN of the CMK to use for Server-Side Encryption SSE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
         UpdateType: Mutable
         Type: DeliveryStreamEncryptionConfigurationInput
 
-    .PARAMETER DeliveryStreamName
-        The name of the delivery stream.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DeliveryStreamType
-        The delivery stream type. This can be one of the following values:
-+  DirectPut: Provider applications access the delivery stream directly.
-+  KinesisStreamAsSource: The delivery stream uses a Kinesis data stream as a source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ElasticsearchDestinationConfiguration
-        An Amazon ES destination for the delivery stream.
-Conditional. You must specify only one destination configuration.
-If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires some interruptions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
-        UpdateType: Mutable
-        Type: ElasticsearchDestinationConfiguration
-
-    .PARAMETER AmazonopensearchserviceDestinationConfiguration
-        The destination in Amazon OpenSearch Service. You can specify only one destination.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration
-        UpdateType: Mutable
-        Type: AmazonopensearchserviceDestinationConfiguration
-
-    .PARAMETER ExtendedS3DestinationConfiguration
-        An Amazon S3 destination for the delivery stream.
-Conditional. You must specify only one destination configuration.
-If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires some interruptions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
-        UpdateType: Mutable
-        Type: ExtendedS3DestinationConfiguration
-
-    .PARAMETER KinesisStreamSourceConfiguration
-        When a Kinesis stream is used as the source for the delivery stream, a KinesisStreamSourceConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html containing the Kinesis stream ARN and the role ARN for the source stream.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
-        UpdateType: Immutable
-        Type: KinesisStreamSourceConfiguration
-
-    .PARAMETER RedshiftDestinationConfiguration
-        An Amazon Redshift destination for the delivery stream.
-Conditional. You must specify only one destination configuration.
-If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires some interruptions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-        UpdateType: Mutable
-        Type: RedshiftDestinationConfiguration
-
-    .PARAMETER S3DestinationConfiguration
-        The S3DestinationConfiguration property type specifies an Amazon Simple Storage Service Amazon S3 destination to which Amazon Kinesis Data Firehose Kinesis Data Firehose delivers data.
-Conditional. You must specify only one destination configuration.
-If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires some interruptions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-        UpdateType: Mutable
-        Type: S3DestinationConfiguration
-
-    .PARAMETER SplunkDestinationConfiguration
-        The configuration of a destination in Splunk for the delivery stream.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
-        UpdateType: Mutable
-        Type: SplunkDestinationConfiguration
-
     .PARAMETER HttpEndpointDestinationConfiguration
-        Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
         UpdateType: Mutable
         Type: HttpEndpointDestinationConfiguration
 
-    .PARAMETER Tags
-        A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see Using Cost Allocation Tags: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html in the AWS Billing and Cost Management User Guide.
-You can specify up to 50 tags when creating a delivery stream.
+    .PARAMETER KinesisStreamSourceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
+        UpdateType: Immutable
+        Type: KinesisStreamSourceConfiguration
 
+    .PARAMETER DeliveryStreamType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER RedshiftDestinationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
+        UpdateType: Mutable
+        Type: RedshiftDestinationConfiguration
+
+    .PARAMETER AmazonopensearchserviceDestinationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration
+        UpdateType: Mutable
+        Type: AmazonopensearchserviceDestinationConfiguration
+
+    .PARAMETER SplunkDestinationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
+        UpdateType: Mutable
+        Type: SplunkDestinationConfiguration
+
+    .PARAMETER ExtendedS3DestinationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
+        UpdateType: Mutable
+        Type: ExtendedS3DestinationConfiguration
+
+    .PARAMETER AmazonOpenSearchServerlessDestinationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration
+        UpdateType: Mutable
+        Type: AmazonOpenSearchServerlessDestinationConfiguration
+
+    .PARAMETER ElasticsearchDestinationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
+        UpdateType: Mutable
+        Type: ElasticsearchDestinationConfiguration
+
+    .PARAMETER S3DestinationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
+        UpdateType: Mutable
+        Type: S3DestinationConfiguration
+
+    .PARAMETER DeliveryStreamName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -173,16 +144,9 @@ You can specify up to 50 tags when creating a delivery stream.
         [parameter(Mandatory = $false)]
         $DeliveryStreamEncryptionConfigurationInput,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DeliveryStreamName,
+        $HttpEndpointDestinationConfiguration,
+        [parameter(Mandatory = $false)]
+        $KinesisStreamSourceConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -195,21 +159,30 @@ You can specify up to 50 tags when creating a delivery stream.
             })]
         $DeliveryStreamType,
         [parameter(Mandatory = $false)]
-        $ElasticsearchDestinationConfiguration,
+        $RedshiftDestinationConfiguration,
         [parameter(Mandatory = $false)]
         $AmazonopensearchserviceDestinationConfiguration,
         [parameter(Mandatory = $false)]
+        $SplunkDestinationConfiguration,
+        [parameter(Mandatory = $false)]
         $ExtendedS3DestinationConfiguration,
         [parameter(Mandatory = $false)]
-        $KinesisStreamSourceConfiguration,
+        $AmazonOpenSearchServerlessDestinationConfiguration,
         [parameter(Mandatory = $false)]
-        $RedshiftDestinationConfiguration,
+        $ElasticsearchDestinationConfiguration,
         [parameter(Mandatory = $false)]
         $S3DestinationConfiguration,
         [parameter(Mandatory = $false)]
-        $SplunkDestinationConfiguration,
-        [parameter(Mandatory = $false)]
-        $HttpEndpointDestinationConfiguration,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DeliveryStreamName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

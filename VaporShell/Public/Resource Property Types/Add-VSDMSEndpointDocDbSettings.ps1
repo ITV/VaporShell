@@ -1,46 +1,36 @@
 function Add-VSDMSEndpointDocDbSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::DMS::Endpoint.DocDbSettings resource property to the template. Not currently supported by AWS CloudFormation.
+        Adds an AWS::DMS::Endpoint.DocDbSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DMS::Endpoint.DocDbSettings resource property to the template.
-Not currently supported by AWS CloudFormation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html
 
     .PARAMETER DocsToInvestigate
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-docstoinvestigate
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ExtractDocId
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-extractdocid
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER SecretsManagerSecretId
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-secretsmanagersecretid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SecretsManagerAccessRoleArn
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-secretsmanageraccessrolearn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NestingLevel
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html#cfn-dms-endpoint-docdbsettings-nestinglevel
         PrimitiveType: String
         UpdateType: Mutable

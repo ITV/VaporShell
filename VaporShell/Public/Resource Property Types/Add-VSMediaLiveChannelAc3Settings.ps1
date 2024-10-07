@@ -1,62 +1,46 @@
 function Add-VSMediaLiveChannelAc3Settings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.Ac3Settings resource property to the template. The settings for an AC3 audio encode in the output.
+        Adds an AWS::MediaLive::Channel.Ac3Settings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.Ac3Settings resource property to the template.
-The settings for an AC3 audio encode in the output.
 
-The parent of this entity is AudioCodecSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html
 
     .PARAMETER CodingMode
-        The Dolby Digital coding mode. This determines the number of channels.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-codingmode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DrcProfile
-        If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-drcprofile
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER MetadataControl
-        When set to followInput, encoder metadata is sourced from the DD, DD+, or DolbyE decoder that supplies this audio data. If the audio is supplied from one of these streams, the static metadata settings are used.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-metadatacontrol
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Dialnorm
-        Sets the dialnorm for the output. If excluded and the input audio is Dolby Digital, dialnorm is passed through.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-dialnorm
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER LfeFilter
-        When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. This is valid only in codingMode32Lfe mode.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-lfefilter
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER BitstreamMode
-        Specifies the bitstream mode bsmod for the emitted AC-3 stream. For more information about these values, see ATSC A/52-2012.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-bitstreammode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Bitrate
-        The average bitrate in bits/second. Valid bitrates depend on the coding mode.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-bitrate
         PrimitiveType: Double
         UpdateType: Mutable

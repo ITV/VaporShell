@@ -1,18 +1,16 @@
 function Add-VSLightsailInstanceNetworking {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Instance.Networking resource property to the template. Networking is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+        Adds an AWS::Lightsail::Instance.Networking resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Instance.Networking resource property to the template.
-Networking is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html
 
     .PARAMETER Ports
-        An array of ports to open on the instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html#cfn-lightsail-instance-networking-ports
         UpdateType: Mutable
         Type: List
@@ -20,8 +18,6 @@ Networking is a property of the AWS::Lightsail::Instance: https://docs.aws.amazo
         DuplicatesAllowed: False
 
     .PARAMETER MonthlyTransfer
-        The monthly amount of data transfer, in GB, allocated for the instance
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html#cfn-lightsail-instance-networking-monthlytransfer
         UpdateType: Mutable
         Type: MonthlyTransfer

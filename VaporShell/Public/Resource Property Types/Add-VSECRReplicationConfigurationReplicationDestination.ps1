@@ -1,25 +1,21 @@
 function Add-VSECRReplicationConfigurationReplicationDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::ReplicationConfiguration.ReplicationDestination resource property to the template. An array of objects representing the destination for a replication rule.
+        Adds an AWS::ECR::ReplicationConfiguration.ReplicationDestination resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECR::ReplicationConfiguration.ReplicationDestination resource property to the template.
-An array of objects representing the destination for a replication rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html
 
     .PARAMETER Region
-        The Region to replicate to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RegistryId
-        The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
         UpdateType: Mutable
         PrimitiveType: String

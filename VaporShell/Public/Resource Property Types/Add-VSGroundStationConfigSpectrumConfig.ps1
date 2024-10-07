@@ -1,38 +1,29 @@
 function Add-VSGroundStationConfigSpectrumConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.SpectrumConfig resource property to the template. Defines a spectrum.
+        Adds an AWS::GroundStation::Config.SpectrumConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.SpectrumConfig resource property to the template.
-Defines a spectrum.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html
 
-    .PARAMETER CenterFrequency
-        The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency
+    .PARAMETER Polarization
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization
         UpdateType: Mutable
-        Type: Frequency
+        PrimitiveType: String
 
     .PARAMETER Bandwidth
-        The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations:
-+ For AntennaDownlinkDemodDecodeconfig, valid values are between 125 kHz to 650 MHz.
-+ For AntennaDownlinkconfig, valid values are between 10 kHz to 54 MHz.
-+ For AntennaUplinkConfig, valid values are between 10 kHz to 54 MHz.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth
         UpdateType: Mutable
         Type: FrequencyBandwidth
 
-    .PARAMETER Polarization
-        The polarization of the spectrum. Valid values are "RIGHT_HAND" and "LEFT_HAND". Capturing both "RIGHT_HAND" and "LEFT_HAND" polarization requires two separate configs.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization
+    .PARAMETER CenterFrequency
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: Frequency
 
     .FUNCTIONALITY
         Vaporshell
@@ -41,10 +32,6 @@ Defines a spectrum.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $CenterFrequency,
-        [parameter(Mandatory = $false)]
-        $Bandwidth,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -55,7 +42,11 @@ Defines a spectrum.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Polarization
+        $Polarization,
+        [parameter(Mandatory = $false)]
+        $Bandwidth,
+        [parameter(Mandatory = $false)]
+        $CenterFrequency
     )
     Begin {
         $obj = [PSCustomObject]@{}

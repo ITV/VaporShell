@@ -1,51 +1,43 @@
 function Add-VSCustomerProfilesIntegrationTask {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.Task resource property to the template. <a name="aws-properties-customerprofiles-integration-task-description"></a>The Task property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.Task resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.Task resource property to the template.
-<a name="aws-properties-customerprofiles-integration-task-description"></a>The Task property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html
 
-    .PARAMETER ConnectorOperator
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator
-        UpdateType: Mutable
-        Type: ConnectorOperator
-
     .PARAMETER SourceFields
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-sourcefields
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER DestinationField
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-destinationfield
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER TaskType
-        Not currently supported by AWS CloudFormation.
+    .PARAMETER ConnectorOperator
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator
+        UpdateType: Mutable
+        Type: ConnectorOperator
 
+    .PARAMETER TaskType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-tasktype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TaskProperties
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties
         UpdateType: Mutable
         Type: List
         ItemType: TaskPropertiesMap
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -54,8 +46,6 @@ function Add-VSCustomerProfilesIntegrationTask {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $ConnectorOperator,
         [parameter(Mandatory = $true)]
         $SourceFields,
         [parameter(Mandatory = $false)]
@@ -69,6 +59,8 @@ function Add-VSCustomerProfilesIntegrationTask {
                 }
             })]
         $DestinationField,
+        [parameter(Mandatory = $false)]
+        $ConnectorOperator,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

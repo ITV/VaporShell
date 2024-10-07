@@ -10,6 +10,11 @@ function Add-VSIoTFleetWiseSignalCatalogNode {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html
 
+    .PARAMETER Attribute
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-attribute
+        UpdateType: Mutable
+        Type: Attribute
+
     .PARAMETER Branch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-branch
         UpdateType: Mutable
@@ -25,11 +30,6 @@ function Add-VSIoTFleetWiseSignalCatalogNode {
         UpdateType: Mutable
         Type: Actuator
 
-    .PARAMETER Attribute
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-attribute
-        UpdateType: Mutable
-        Type: Attribute
-
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -38,13 +38,13 @@ function Add-VSIoTFleetWiseSignalCatalogNode {
     Param
     (
         [parameter(Mandatory = $false)]
+        $Attribute,
+        [parameter(Mandatory = $false)]
         $Branch,
         [parameter(Mandatory = $false)]
         $Sensor,
         [parameter(Mandatory = $false)]
-        $Actuator,
-        [parameter(Mandatory = $false)]
-        $Attribute
+        $Actuator
     )
     Begin {
         $obj = [PSCustomObject]@{}

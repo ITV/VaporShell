@@ -1,26 +1,21 @@
 function Add-VSRefactorSpacesApplicationApiGatewayProxyInput {
     <#
     .SYNOPSIS
-        Adds an AWS::RefactorSpaces::Application.ApiGatewayProxyInput resource property to the template. A wrapper object holding the Amazon API Gateway endpoint input.
+        Adds an AWS::RefactorSpaces::Application.ApiGatewayProxyInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::RefactorSpaces::Application.ApiGatewayProxyInput resource property to the template.
-A wrapper object holding the Amazon API Gateway endpoint input.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-application-apigatewayproxyinput.html
 
     .PARAMETER StageName
-        The name of the API Gateway stage. The name defaults to prod.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-application-apigatewayproxyinput.html#cfn-refactorspaces-application-apigatewayproxyinput-stagename
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER EndpointType
-        The type of endpoint to use for the API Gateway proxy. If no value is specified in the request, the value is set to REGIONAL by default.
-If the value is set to PRIVATE in the request, this creates a private API endpoint that is isolated from the public internet. The private endpoint can only be accessed by using Amazon Virtual Private Cloud Amazon VPC endpoints for Amazon API Gateway that have been granted access.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-application-apigatewayproxyinput.html#cfn-refactorspaces-application-apigatewayproxyinput-endpointtype
         UpdateType: Immutable
         PrimitiveType: String

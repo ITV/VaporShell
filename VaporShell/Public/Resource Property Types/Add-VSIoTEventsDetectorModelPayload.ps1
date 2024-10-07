@@ -1,27 +1,21 @@
 function Add-VSIoTEventsDetectorModelPayload {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.Payload resource property to the template. Information needed to configure the payload.
+        Adds an AWS::IoTEvents::DetectorModel.Payload resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.Payload resource property to the template.
-Information needed to configure the payload.
 
-By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use contentExpression.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html
 
     .PARAMETER ContentExpression
-        The content of the payload. You can use a string expression that includes quoted strings '<string>', variables $variable.<variable-name>, input values $input.<input-name>.<path-to-datum>, string concatenations, and quoted strings that contain ${} as the content. The recommended maximum size of a content expression is 1 KB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Type
-        The value of the payload type can be either STRING or JSON.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
         UpdateType: Mutable
         PrimitiveType: String

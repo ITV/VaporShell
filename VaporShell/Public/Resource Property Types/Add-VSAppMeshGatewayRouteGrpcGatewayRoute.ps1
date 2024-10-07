@@ -1,25 +1,21 @@
 function Add-VSAppMeshGatewayRouteGrpcGatewayRoute {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRoute resource property to the template. An object that represents a gRPC gateway route.
+        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRoute resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRoute resource property to the template.
-An object that represents a gRPC gateway route.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html
 
     .PARAMETER Action
-        An object that represents the action to take if a match is determined.
-
         Type: GrpcGatewayRouteAction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-action
         UpdateType: Mutable
 
     .PARAMETER Match
-        An object that represents the criteria for determining a request match.
-
         Type: GrpcGatewayRouteMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-match
         UpdateType: Mutable

@@ -1,28 +1,24 @@
 function Add-VSLookoutMetricsAnomalyDetectorFileFormatDescriptor {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.FileFormatDescriptor resource property to the template. Contains information about a source file's formatting.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.FileFormatDescriptor resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.FileFormatDescriptor resource property to the template.
-Contains information about a source file's formatting.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html
 
-    .PARAMETER CsvFormatDescriptor
-        Contains information about how a source CSV data file should be analyzed.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor
-        UpdateType: Mutable
-        Type: CsvFormatDescriptor
-
     .PARAMETER JsonFormatDescriptor
-        Contains information about how a source JSON data file should be analyzed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-jsonformatdescriptor
         UpdateType: Mutable
         Type: JsonFormatDescriptor
+
+    .PARAMETER CsvFormatDescriptor
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor
+        UpdateType: Mutable
+        Type: CsvFormatDescriptor
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ Contains information about a source file's formatting.
     Param
     (
         [parameter(Mandatory = $false)]
-        $CsvFormatDescriptor,
+        $JsonFormatDescriptor,
         [parameter(Mandatory = $false)]
-        $JsonFormatDescriptor
+        $CsvFormatDescriptor
     )
     Begin {
         $obj = [PSCustomObject]@{}

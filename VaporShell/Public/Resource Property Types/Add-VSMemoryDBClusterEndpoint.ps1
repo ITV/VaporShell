@@ -1,25 +1,21 @@
 function Add-VSMemoryDBClusterEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::MemoryDB::Cluster.Endpoint resource property to the template. Represents the information required for client programs to connect to the cluster and its nodes.
+        Adds an AWS::MemoryDB::Cluster.Endpoint resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MemoryDB::Cluster.Endpoint resource property to the template.
-Represents the information required for client programs to connect to the cluster and its nodes.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html
 
     .PARAMETER Address
-        The DNS hostname of the node.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html#cfn-memorydb-cluster-endpoint-address
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Port
-        The port number that the engine is listening on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html#cfn-memorydb-cluster-endpoint-port
         UpdateType: Mutable
         PrimitiveType: Integer

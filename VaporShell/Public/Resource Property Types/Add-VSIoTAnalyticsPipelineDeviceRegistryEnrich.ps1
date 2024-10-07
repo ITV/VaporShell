@@ -1,46 +1,36 @@
 function Add-VSIoTAnalyticsPipelineDeviceRegistryEnrich {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich resource property to the template. An activity that adds data from the AWS IoT device registry to your message.
+        Adds an AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich resource property to the template.
-An activity that adds data from the AWS IoT device registry to your message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html
 
     .PARAMETER Attribute
-        The name of the attribute that is added to the message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-attribute
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Next
-        The next activity in the pipeline.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-next
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ThingName
-        The name of the IoT device whose registry information is added to the message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-thingname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the role that allows access to the device's registry information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the 'deviceRegistryEnrich' activity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-name
         UpdateType: Mutable
         PrimitiveType: String

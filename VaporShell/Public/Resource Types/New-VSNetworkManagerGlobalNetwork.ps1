@@ -1,10 +1,10 @@
 function New-VSNetworkManagerGlobalNetwork {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkManager::GlobalNetwork resource to the template. Creates a new, empty global network.
+        Adds an AWS::NetworkManager::GlobalNetwork resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::NetworkManager::GlobalNetwork resource to the template. Creates a new, empty global network.
+        Adds an AWS::NetworkManager::GlobalNetwork resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html
@@ -13,20 +13,16 @@ function New-VSNetworkManagerGlobalNetwork {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A description of the global network.
-Constraints: Maximum length of 256 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags for the global network.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

@@ -1,32 +1,26 @@
 function Add-VSAppFlowConnectorProfileOAuthProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.OAuthProperties resource property to the template. <a name="aws-properties-appflow-connectorprofile-oauthproperties-description"></a>The OAuthProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppFlow::ConnectorProfile: aws-resource-appflow-connectorprofile.md.
+        Adds an AWS::AppFlow::ConnectorProfile.OAuthProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.OAuthProperties resource property to the template.
-<a name="aws-properties-appflow-connectorprofile-oauthproperties-description"></a>The OAuthProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppFlow::ConnectorProfile: aws-resource-appflow-connectorprofile.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html
 
     .PARAMETER AuthCodeUrl
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-authcodeurl
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TokenUrl
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-tokenurl
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER OAuthScopes
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-oauthscopes
         UpdateType: Mutable
         Type: List

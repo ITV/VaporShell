@@ -1,19 +1,16 @@
 function Add-VSS3BucketReplicaModifications {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.ReplicaModifications resource property to the template. A filter that you can specify for selection for modifications on replicas.
+        Adds an AWS::S3::Bucket.ReplicaModifications resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.ReplicaModifications resource property to the template.
-A filter that you can specify for selection for modifications on replicas.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html
 
     .PARAMETER Status
-        Specifies whether Amazon S3 replicates modifications on replicas.
-*Allowed values*: Enabled | Disabled
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
         PrimitiveType: String
         UpdateType: Mutable

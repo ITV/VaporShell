@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSetOutputColumn {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.OutputColumn resource property to the template. Output column.
+        Adds an AWS::QuickSight::DataSet.OutputColumn resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.OutputColumn resource property to the template.
-Output column.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html
 
     .PARAMETER Type
-        Type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-type
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Description
-        A description for a column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        A display name for the dataset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-name
         UpdateType: Mutable
         PrimitiveType: String

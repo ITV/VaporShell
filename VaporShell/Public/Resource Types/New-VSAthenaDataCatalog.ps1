@@ -1,10 +1,10 @@
 function New-VSAthenaDataCatalog {
     <#
     .SYNOPSIS
-        Adds an AWS::Athena::DataCatalog resource to the template. The AWS::Athena::DataCatalog resource specifies an Amazon Athena data catalog, which contains a name, description, type, parameters, and tags. For more information, see DataCatalog: https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html in the *Amazon Athena API Reference*.
+        Adds an AWS::Athena::DataCatalog resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Athena::DataCatalog resource to the template. The AWS::Athena::DataCatalog resource specifies an Amazon Athena data catalog, which contains a name, description, type, parameters, and tags. For more information, see DataCatalog: https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html in the *Amazon Athena API Reference*.
+        Adds an AWS::Athena::DataCatalog resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html
@@ -12,53 +12,32 @@ function New-VSAthenaDataCatalog {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
-        UpdateType: Immutable
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Description
-        A description of the data catalog.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Parameters
-        Specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-+ The HIVE data catalog type uses the following syntax. The metadata-function parameter is required. The sdk-version parameter is optional and defaults to the currently supported version.
-metadata-function=lambda_arn, sdk-version=version_number
-+ The LAMBDA data catalog type uses one of the following sets of required parameters, but not both.
-+ When one Lambda function processes metadata and another Lambda function reads data, the following syntax is used. Both parameters are required.
-metadata-function=lambda_arn, record-function=lambda_arn
-+ A composite Lambda function that processes both metadata and data uses the following syntax.
-function=lambda_arn
-+ The GLUE type takes a catalog ID parameter and is required. The catalog_id is the account ID of the AWS account to which the Glue catalog belongs.
-catalog-id=catalog_id
-+ The GLUE data catalog type also applies to the default AwsDataCatalog that already exists in your account, of which you can have only one and cannot modify.
-+ Queries that specify a GLUE data catalog other than the default AwsDataCatalog must be run on Athena engine version 2.
-+ In Regions where Athena engine version 2 is not available, creating new GLUE data catalogs results in an INVALID_INPUT error.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
         UpdateType: Mutable
         Type: Map
         PrimitiveItemType: String
 
     .PARAMETER Tags
-        The tags key-value pairs to associate with this resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
-    .PARAMETER Type
-        The type of data catalog: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
-        UpdateType: Mutable
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy
@@ -133,7 +112,7 @@ catalog-id=catalog_id
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $Type,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -161,7 +140,7 @@ catalog-id=catalog_id
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Type,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

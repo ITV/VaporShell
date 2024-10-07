@@ -1,26 +1,21 @@
 function Add-VSGreengrassV2ComponentVersionLambdaLinuxProcessParams {
     <#
     .SYNOPSIS
-        Adds an AWS::GreengrassV2::ComponentVersion.LambdaLinuxProcessParams resource property to the template. Contains parameters for a Linux process that contains an AWS Lambda function.
+        Adds an AWS::GreengrassV2::ComponentVersion.LambdaLinuxProcessParams resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GreengrassV2::ComponentVersion.LambdaLinuxProcessParams resource property to the template.
-Contains parameters for a Linux process that contains an AWS Lambda function.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html
 
     .PARAMETER IsolationMode
-        The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
-Default: GreengrassContainer
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ContainerParams
-        The parameters for the container in which the Lambda function runs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams
         UpdateType: Immutable
         Type: LambdaContainerParams

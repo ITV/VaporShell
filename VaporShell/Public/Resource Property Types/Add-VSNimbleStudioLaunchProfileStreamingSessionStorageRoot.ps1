@@ -1,25 +1,21 @@
 function Add-VSNimbleStudioLaunchProfileStreamingSessionStorageRoot {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::LaunchProfile.StreamingSessionStorageRoot resource property to the template. The upload storage root location (folder on streaming workstations where files are uploaded.
+        Adds an AWS::NimbleStudio::LaunchProfile.StreamingSessionStorageRoot resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::LaunchProfile.StreamingSessionStorageRoot resource property to the template.
-The upload storage root location (folder on streaming workstations where files are uploaded.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamingsessionstorageroot.html
 
     .PARAMETER Linux
-        The folder path in Linux workstations where files are uploaded.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamingsessionstorageroot.html#cfn-nimblestudio-launchprofile-streamingsessionstorageroot-linux
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Windows
-        The folder path in Windows workstations where files are uploaded.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamingsessionstorageroot.html#cfn-nimblestudio-launchprofile-streamingsessionstorageroot-windows
         UpdateType: Mutable
         PrimitiveType: String

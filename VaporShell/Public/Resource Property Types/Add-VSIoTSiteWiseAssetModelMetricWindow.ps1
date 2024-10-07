@@ -1,18 +1,16 @@
 function Add-VSIoTSiteWiseAssetModelMetricWindow {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AssetModel.MetricWindow resource property to the template. Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on.
+        Adds an AWS::IoTSiteWise::AssetModel.MetricWindow resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::AssetModel.MetricWindow resource property to the template.
-Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
 
     .PARAMETER Tumbling
-        The tumbling time interval window.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
         UpdateType: Mutable
         Type: TumblingWindow

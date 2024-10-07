@@ -1,18 +1,16 @@
 function Add-VSBillingConductorBillingGroupComputationPreference {
     <#
     .SYNOPSIS
-        Adds an AWS::BillingConductor::BillingGroup.ComputationPreference resource property to the template. The preferences and settings that will be used to compute the AWS charges for a billing group.
+        Adds an AWS::BillingConductor::BillingGroup.ComputationPreference resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::BillingConductor::BillingGroup.ComputationPreference resource property to the template.
-The preferences and settings that will be used to compute the AWS charges for a billing group.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-computationpreference.html
 
     .PARAMETER PricingPlanArn
-        The Amazon Resource Name ARN of the pricing plan used to compute the AWS charges for a billing group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-computationpreference.html#cfn-billingconductor-billinggroup-computationpreference-pricingplanarn
         UpdateType: Mutable
         PrimitiveType: String

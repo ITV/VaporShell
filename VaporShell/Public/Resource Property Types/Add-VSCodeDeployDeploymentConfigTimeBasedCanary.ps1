@@ -1,25 +1,21 @@
 function Add-VSCodeDeployDeploymentConfigTimeBasedCanary {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentConfig.TimeBasedCanary resource property to the template. A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        Adds an AWS::CodeDeploy::DeploymentConfig.TimeBasedCanary resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentConfig.TimeBasedCanary resource property to the template.
-A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedcanary.html
 
     .PARAMETER CanaryPercentage
-        The percentage of traffic to shift in the first increment of a TimeBasedCanary deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedcanary.html#cfn-codedeploy-deploymentconfig-timebasedcanary-canarypercentage
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER CanaryInterval
-        The number of minutes between the first and second traffic shifts of a TimeBasedCanary deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedcanary.html#cfn-codedeploy-deploymentconfig-timebasedcanary-canaryinterval
         UpdateType: Immutable
         PrimitiveType: Integer

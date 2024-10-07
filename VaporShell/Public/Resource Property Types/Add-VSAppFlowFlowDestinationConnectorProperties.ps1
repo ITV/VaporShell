@@ -1,91 +1,69 @@
 function Add-VSAppFlowFlowDestinationConnectorProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.DestinationConnectorProperties resource property to the template. This stores the information that is required to query a particular connector.
+        Adds an AWS::AppFlow::Flow.DestinationConnectorProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.DestinationConnectorProperties resource property to the template.
-This stores the information that is required to query a particular connector.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
 
-    .PARAMETER Redshift
-        The properties required to query Amazon Redshift.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
-        UpdateType: Mutable
-        Type: RedshiftDestinationProperties
-
     .PARAMETER S3
-        The properties required to query Amazon S3.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
         UpdateType: Mutable
         Type: S3DestinationProperties
 
-    .PARAMETER Salesforce
-        The properties required to query Salesforce.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
-        UpdateType: Mutable
-        Type: SalesforceDestinationProperties
-
-    .PARAMETER Snowflake
-        The properties required to query Snowflake.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
-        UpdateType: Mutable
-        Type: SnowflakeDestinationProperties
-
-    .PARAMETER EventBridge
-        The properties required to query Amazon EventBridge.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
-        UpdateType: Mutable
-        Type: EventBridgeDestinationProperties
-
-    .PARAMETER Upsolver
-        The properties required to query Upsolver.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
-        UpdateType: Mutable
-        Type: UpsolverDestinationProperties
-
-    .PARAMETER LookoutMetrics
-        The properties required to query Amazon Lookout for Metrics.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
-        UpdateType: Mutable
-        Type: LookoutMetricsDestinationProperties
-
-    .PARAMETER Marketo
-        The properties required to query Marketo.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-marketo
-        UpdateType: Mutable
-        Type: MarketoDestinationProperties
-
-    .PARAMETER Zendesk
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
-        UpdateType: Mutable
-        Type: ZendeskDestinationProperties
-
     .PARAMETER CustomConnector
-        + DestinationConnectorProperties: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DestinationConnectorProperties.html in the *Amazon AppFlow API Reference*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-customconnector
         UpdateType: Mutable
         Type: CustomConnectorDestinationProperties
 
-    .PARAMETER SAPOData
-        The properties required to query SAPOData.
+    .PARAMETER Upsolver
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
+        UpdateType: Mutable
+        Type: UpsolverDestinationProperties
 
+    .PARAMETER SAPOData
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-sapodata
         UpdateType: Mutable
         Type: SAPODataDestinationProperties
+
+    .PARAMETER Snowflake
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
+        UpdateType: Mutable
+        Type: SnowflakeDestinationProperties
+
+    .PARAMETER LookoutMetrics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+        UpdateType: Mutable
+        Type: LookoutMetricsDestinationProperties
+
+    .PARAMETER EventBridge
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
+        UpdateType: Mutable
+        Type: EventBridgeDestinationProperties
+
+    .PARAMETER Zendesk
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
+        UpdateType: Mutable
+        Type: ZendeskDestinationProperties
+
+    .PARAMETER Marketo
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-marketo
+        UpdateType: Mutable
+        Type: MarketoDestinationProperties
+
+    .PARAMETER Redshift
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
+        UpdateType: Mutable
+        Type: RedshiftDestinationProperties
+
+    .PARAMETER Salesforce
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
+        UpdateType: Mutable
+        Type: SalesforceDestinationProperties
 
     .FUNCTIONALITY
         Vaporshell
@@ -95,27 +73,27 @@ This stores the information that is required to query a particular connector.
     Param
     (
         [parameter(Mandatory = $false)]
-        $Redshift,
-        [parameter(Mandatory = $false)]
         $S3,
-        [parameter(Mandatory = $false)]
-        $Salesforce,
-        [parameter(Mandatory = $false)]
-        $Snowflake,
-        [parameter(Mandatory = $false)]
-        $EventBridge,
-        [parameter(Mandatory = $false)]
-        $Upsolver,
-        [parameter(Mandatory = $false)]
-        $LookoutMetrics,
-        [parameter(Mandatory = $false)]
-        $Marketo,
-        [parameter(Mandatory = $false)]
-        $Zendesk,
         [parameter(Mandatory = $false)]
         $CustomConnector,
         [parameter(Mandatory = $false)]
-        $SAPOData
+        $Upsolver,
+        [parameter(Mandatory = $false)]
+        $SAPOData,
+        [parameter(Mandatory = $false)]
+        $Snowflake,
+        [parameter(Mandatory = $false)]
+        $LookoutMetrics,
+        [parameter(Mandatory = $false)]
+        $EventBridge,
+        [parameter(Mandatory = $false)]
+        $Zendesk,
+        [parameter(Mandatory = $false)]
+        $Marketo,
+        [parameter(Mandatory = $false)]
+        $Redshift,
+        [parameter(Mandatory = $false)]
+        $Salesforce
     )
     Begin {
         $obj = [PSCustomObject]@{}

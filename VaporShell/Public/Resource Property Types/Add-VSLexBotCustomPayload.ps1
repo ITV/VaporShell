@@ -1,18 +1,16 @@
 function Add-VSLexBotCustomPayload {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.CustomPayload resource property to the template. A custom response string that Amazon Lex sends to your application. You define the content and structure of the string.
+        Adds an AWS::Lex::Bot.CustomPayload resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.CustomPayload resource property to the template.
-A custom response string that Amazon Lex sends to your application. You define the content and structure of the string.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-custompayload.html
 
     .PARAMETER Value
-        The string that is sent to your application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-custompayload.html#cfn-lex-bot-custompayload-value
         UpdateType: Mutable
         PrimitiveType: String

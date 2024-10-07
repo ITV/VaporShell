@@ -1,50 +1,38 @@
 function Add-VSMediaLiveChannelOutput {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.Output resource property to the template. The output settings.
+        Adds an AWS::MediaLive::Channel.Output resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.Output resource property to the template.
-The output settings.
 
-The parent of this entity is OutputGroup.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html
 
     .PARAMETER OutputSettings
-        The output type-specific settings.
-
         Type: OutputSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-outputsettings
         UpdateType: Mutable
 
     .PARAMETER CaptionDescriptionNames
-        The names of the caption descriptions that are used as captions sources for this output.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-captiondescriptionnames
         UpdateType: Mutable
 
     .PARAMETER AudioDescriptionNames
-        The names of the audio descriptions that are used as audio sources for this output.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-audiodescriptionnames
         UpdateType: Mutable
 
     .PARAMETER OutputName
-        The name that is used to identify an output.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-outputname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER VideoDescriptionName
-        The name of the VideoDescription that is used as the source for this output.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-videodescriptionname
         PrimitiveType: String
         UpdateType: Mutable

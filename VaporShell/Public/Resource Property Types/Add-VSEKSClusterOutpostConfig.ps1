@@ -15,6 +15,12 @@ function Add-VSEKSClusterOutpostConfig {
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER ControlPlanePlacement
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-controlplaneplacement
+        UpdateType: Immutable
+        Type: ControlPlanePlacement
 
     .PARAMETER ControlPlaneInstanceType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-controlplaneinstancetype
@@ -30,6 +36,8 @@ function Add-VSEKSClusterOutpostConfig {
     (
         [parameter(Mandatory = $true)]
         $OutpostArns,
+        [parameter(Mandatory = $false)]
+        $ControlPlanePlacement,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

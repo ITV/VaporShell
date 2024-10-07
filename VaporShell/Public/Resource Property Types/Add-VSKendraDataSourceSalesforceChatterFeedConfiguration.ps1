@@ -1,44 +1,38 @@
 function Add-VSKendraDataSourceSalesforceChatterFeedConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.SalesforceChatterFeedConfiguration resource property to the template. The configuration information for syncing a Salesforce chatter feed. The contents of the object comes from the Salesforce FeedItem table.
+        Adds an AWS::Kendra::DataSource.SalesforceChatterFeedConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.SalesforceChatterFeedConfiguration resource property to the template.
-The configuration information for syncing a Salesforce chatter feed. The contents of the object comes from the Salesforce FeedItem table.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html
 
-    .PARAMETER DocumentDataFieldName
-        The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the Body column.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documentdatafieldname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER DocumentTitleFieldName
-        The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the Title column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documenttitlefieldname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER FieldMappings
-        Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
-        UpdateType: Mutable
-        Type: List
-        ItemType: DataSourceToIndexFieldMapping
-
     .PARAMETER IncludeFilterTypes
-        Filters the documents in the feed based on status of the user. When you specify ACTIVE_USERS only documents from users who have an active account are indexed. When you specify STANDARD_USER only documents for Salesforce standard users are documented. You can specify both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER FieldMappings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
+        UpdateType: Mutable
+        Type: List
+        ItemType: DataSourceToIndexFieldMapping
+        DuplicatesAllowed: True
+
+    .PARAMETER DocumentDataFieldName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documentdatafieldname
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -47,17 +41,6 @@ The configuration information for syncing a Salesforce chatter feed. The content
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DocumentDataFieldName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -70,6 +53,8 @@ The configuration information for syncing a Salesforce chatter feed. The content
             })]
         $DocumentTitleFieldName,
         [parameter(Mandatory = $false)]
+        $IncludeFilterTypes,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Kendra.DataSource.DataSourceToIndexFieldMapping"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -80,8 +65,17 @@ The configuration information for syncing a Salesforce chatter feed. The content
                 }
             })]
         $FieldMappings,
-        [parameter(Mandatory = $false)]
-        $IncludeFilterTypes
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DocumentDataFieldName
     )
     Begin {
         $obj = [PSCustomObject]@{}

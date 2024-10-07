@@ -1,42 +1,36 @@
 function Add-VSServiceCatalogCloudFormationProductProvisioningArtifactProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactProperties resource property to the template. Information about a provisioning artifact (also known as a version for a product.
+        Adds an AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactProperties resource property to the template.
-Information about a provisioning artifact (also known as a version for a product.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html
 
-    .PARAMETER Description
-        The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-type
+        PrimitiveType: String
+        UpdateType: Mutable
 
+    .PARAMETER Description
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DisableTemplateValidation
-        If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-disabletemplatevalidation
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Info
-        Specify the template source with one of the following options, but not both. Keys accepted:  LoadTemplateFromURL, ImportFromPhysicalId ]
-The URL of the AWS CloudFormation template in Amazon S3, AWS CodeCommit, or GitHub in JSON format. Specify the URL in JSON format as follows:
-"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
-ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: “arn:aws:cloudformation:us-east-1]:accountId]:stack/StackName]/resourceId]
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-info
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the provisioning artifact for example, v1 v2beta. No spaces are allowed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-name
         PrimitiveType: String
         UpdateType: Mutable
@@ -48,6 +42,17 @@ ImportFromPhysicalId: The physical id of the resource that contains the template
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Type,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

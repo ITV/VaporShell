@@ -1,10 +1,10 @@
 function New-VSRoute53DNSSEC {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53::DNSSEC resource to the template. The AWS::Route53::DNSSEC resource is used to enable DNSSEC signing in a hosted zone.
+        Adds an AWS::Route53::DNSSEC resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Route53::DNSSEC resource to the template. The AWS::Route53::DNSSEC resource is used to enable DNSSEC signing in a hosted zone.
+        Adds an AWS::Route53::DNSSEC resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html
@@ -13,8 +13,6 @@ function New-VSRoute53DNSSEC {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER HostedZoneId
-        A unique string ID that is used to identify a hosted zone. For example: Z00001111A1ABCaaABC11.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
         UpdateType: Immutable
         PrimitiveType: String

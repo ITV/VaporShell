@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileTrendmicroConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.TrendmicroConnectorProfileCredentials resource property to the template. The TrendmicroConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Trend Micro.
+        Adds an AWS::AppFlow::ConnectorProfile.TrendmicroConnectorProfileCredentials resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.TrendmicroConnectorProfileCredentials resource property to the template.
-The TrendmicroConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Trend Micro.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html
 
     .PARAMETER ApiSecretKey
-        The Secret Access Key portion of the credentials.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
         UpdateType: Mutable
         PrimitiveType: String

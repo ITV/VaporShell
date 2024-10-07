@@ -1,18 +1,16 @@
 function Add-VSMediaPackagePackagingGroupLogConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingGroup.LogConfiguration resource property to the template. Sets a custom Amazon CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/EgressAccessLogs.
+        Adds an AWS::MediaPackage::PackagingGroup.LogConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::PackagingGroup.LogConfiguration resource property to the template.
-Sets a custom Amazon CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/EgressAccessLogs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
 
     .PARAMETER LogGroupName
-        Sets a custom Amazon CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/EgressAccessLogs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
         UpdateType: Mutable
         PrimitiveType: String

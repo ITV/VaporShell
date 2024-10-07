@@ -1,10 +1,10 @@
 function New-VSRoute53RecoveryControlRoutingControl {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53RecoveryControl::RoutingControl resource to the template. Defines a routing control. To get or update the routing control state, see the Recovery Cluster (data plane API actions for Amazon Route 53 Application Recovery Controller.
+        Adds an AWS::Route53RecoveryControl::RoutingControl resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Route53RecoveryControl::RoutingControl resource to the template. Defines a routing control. To get or update the routing control state, see the Recovery Cluster (data plane API actions for Amazon Route 53 Application Recovery Controller.
+        Adds an AWS::Route53RecoveryControl::RoutingControl resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html
@@ -12,25 +12,19 @@ function New-VSRoute53RecoveryControlRoutingControl {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ControlPanelArn
-        The Amazon Resource Name ARN of the control panel that includes the routing control.
+    .PARAMETER ClusterArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER ControlPanelArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the routing control. You can use any non-white space character in the name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER ClusterArn
-        The Amazon Resource Name ARN of the cluster that includes the routing control.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
-        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy
@@ -105,6 +99,17 @@ function New-VSRoute53RecoveryControlRoutingControl {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $ClusterArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $ControlPanelArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -117,17 +122,6 @@ function New-VSRoute53RecoveryControlRoutingControl {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ClusterArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

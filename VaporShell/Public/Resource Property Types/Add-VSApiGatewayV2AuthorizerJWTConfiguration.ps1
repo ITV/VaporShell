@@ -1,29 +1,26 @@
 function Add-VSApiGatewayV2AuthorizerJWTConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::Authorizer.JWTConfiguration resource property to the template. The JWTConfiguration property specifies the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.
+        Adds an AWS::ApiGatewayV2::Authorizer.JWTConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApiGatewayV2::Authorizer.JWTConfiguration resource property to the template.
-The JWTConfiguration property specifies the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-authorizer-jwtconfiguration.html
 
     .PARAMETER Issuer
-        The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: https://cognito-idp.{region}.amazonaws.com/{userPoolId} . Required for the JWT authorizer type. Supported only for HTTP APIs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-authorizer-jwtconfiguration.html#cfn-apigatewayv2-authorizer-jwtconfiguration-issuer
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Audience
-        A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list. See RFC 7519: https://tools.ietf.org/html/rfc7519#section-4.1.3. Required for the JWT authorizer type. Supported only for HTTP APIs.
-
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-authorizer-jwtconfiguration.html#cfn-apigatewayv2-authorizer-jwtconfiguration-audience
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

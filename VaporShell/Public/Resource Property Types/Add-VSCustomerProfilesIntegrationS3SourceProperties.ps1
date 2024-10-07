@@ -1,25 +1,21 @@
 function Add-VSCustomerProfilesIntegrationS3SourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.S3SourceProperties resource property to the template. <a name="aws-properties-customerprofiles-integration-s3sourceproperties-description"></a>The S3SourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.S3SourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.S3SourceProperties resource property to the template.
-<a name="aws-properties-customerprofiles-integration-s3sourceproperties-description"></a>The S3SourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html
 
     .PARAMETER BucketName
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BucketPrefix
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketprefix
         UpdateType: Mutable
         PrimitiveType: String

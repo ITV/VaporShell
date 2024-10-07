@@ -1,12 +1,10 @@
 function New-VSLocationRouteCalculator {
     <#
     .SYNOPSIS
-        Adds an AWS::Location::RouteCalculator resource to the template. The AWS::Location::RouteCalculator resource specifies a route calculator resource in your AWS account.
+        Adds an AWS::Location::RouteCalculator resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Location::RouteCalculator resource to the template. The AWS::Location::RouteCalculator resource specifies a route calculator resource in your AWS account.
-
-You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.
+        Adds an AWS::Location::RouteCalculator resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html
@@ -15,40 +13,22 @@ You can send requests to a route calculator resource to estimate travel time, di
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CalculatorName
-        The name of the route calculator resource.
-Requirements:
-+ Can use alphanumeric characters A–Z, a–z, 0–9 , hyphens -, periods ., and underscores _.
-+ Must be a unique route calculator resource name.
-+ No spaces allowed. For example, ExampleRouteCalculator.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER DataSource
-        Specifies the data provider of traffic and road network data.
-This field is case-sensitive. Enter the valid values as shown. For example, entering HERE returns an error.
-Valid values include:
-+ Esri
-+ Here
-For more information about data providers, see the Amazon Location Service data providers page: https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        The optional description for the route calculator resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PricingPlan
-        No longer used. If included, the only allowed value is RequestBasedUsage.
-*Allowed Values*: RequestBasedUsage
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER DataSource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -125,17 +105,6 @@ For more information about data providers, see the Amazon Location Service data 
                 }
             })]
         $CalculatorName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DataSource,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -158,6 +127,17 @@ For more information about data providers, see the Amazon Location Service data 
                 }
             })]
         $PricingPlan,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DataSource,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,46 +1,36 @@
 function Add-VSApiGatewayV2ApiGatewayManagedOverridesRouteSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.RouteSettings resource property to the template. The RouteSettings property overrides the route settings for an API Gateway-managed route.
+        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.RouteSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.RouteSettings resource property to the template.
-The RouteSettings property overrides the route settings for an API Gateway-managed route.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routesettings.html
 
     .PARAMETER LoggingLevel
-        Specifies the logging level for this route: INFO, ERROR, or OFF. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routesettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routesettings-logginglevel
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DataTraceEnabled
-        Specifies whether true or not false data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routesettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routesettings-datatraceenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ThrottlingBurstLimit
-        Specifies the throttling burst limit.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routesettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routesettings-throttlingburstlimit
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER DetailedMetricsEnabled
-        Specifies whether detailed metrics are enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routesettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routesettings-detailedmetricsenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ThrottlingRateLimit
-        Specifies the throttling rate limit.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routesettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routesettings-throttlingratelimit
         PrimitiveType: Double
         UpdateType: Mutable

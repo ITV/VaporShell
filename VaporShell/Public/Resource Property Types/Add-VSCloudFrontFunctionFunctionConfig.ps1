@@ -1,25 +1,21 @@
 function Add-VSCloudFrontFunctionFunctionConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Function.FunctionConfig resource property to the template. Contains configuration information about a CloudFront function.
+        Adds an AWS::CloudFront::Function.FunctionConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Function.FunctionConfig resource property to the template.
-Contains configuration information about a CloudFront function.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html
 
     .PARAMETER Comment
-        A comment to describe the function.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-comment
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Runtime
-        The function’s runtime environment. The only valid value is cloudfront-js-1.0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-runtime
         UpdateType: Mutable
         PrimitiveType: String

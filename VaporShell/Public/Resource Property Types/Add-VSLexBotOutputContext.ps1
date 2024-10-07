@@ -1,35 +1,29 @@
 function Add-VSLexBotOutputContext {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.OutputContext resource property to the template. Describes a session context that is activated when an intent is fulfilled.
+        Adds an AWS::Lex::Bot.OutputContext resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.OutputContext resource property to the template.
-Describes a session context that is activated when an intent is fulfilled.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html
 
-    .PARAMETER Name
-        The name of the output context.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html#cfn-lex-bot-outputcontext-name
+    .PARAMETER TurnsToLive
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html#cfn-lex-bot-outputcontext-turnstolive
         UpdateType: Mutable
-        PrimitiveType: String
+        PrimitiveType: Integer
 
     .PARAMETER TimeToLiveInSeconds
-        The amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html#cfn-lex-bot-outputcontext-timetoliveinseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER TurnsToLive
-        The number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html#cfn-lex-bot-outputcontext-turnstolive
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html#cfn-lex-bot-outputcontext-name
         UpdateType: Mutable
-        PrimitiveType: Integer
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -40,7 +34,7 @@ Describes a session context that is activated when an intent is fulfilled.
     (
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -48,7 +42,7 @@ Describes a session context that is activated when an intent is fulfilled.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $TurnsToLive,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -62,7 +56,7 @@ Describes a session context that is activated when an intent is fulfilled.
         $TimeToLiveInSeconds,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -70,7 +64,7 @@ Describes a session context that is activated when an intent is fulfilled.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TurnsToLive
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

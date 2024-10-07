@@ -1,12 +1,10 @@
 function New-VSIoTThing {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::Thing resource to the template. Use the AWS::IoT::Thing resource to declare an AWS IoT thing.
+        Adds an AWS::IoT::Thing resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::Thing resource to the template. Use the AWS::IoT::Thing resource to declare an AWS IoT thing.
-
-For information about working with things, see How AWS IoT Works: https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html and Device Registry for AWS IoT: https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html in the *AWS IoT Developer Guide*.
+        Adds an AWS::IoT::Thing resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
@@ -15,19 +13,14 @@ For information about working with things, see How AWS IoT Works: https://docs.a
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AttributePayload
-        A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-attributepayload
-        Type: AttributePayload
         UpdateType: Mutable
+        Type: AttributePayload
 
     .PARAMETER ThingName
-        The name of the thing to update.
-You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-thingname
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

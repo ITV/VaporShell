@@ -1,10 +1,10 @@
 function New-VSGuardDutyIPSet {
     <#
     .SYNOPSIS
-        Adds an AWS::GuardDuty::IPSet resource to the template. The AWS::GuardDuty::IPSet resource specifies a new IPSet. An IPSet is a list of trusted IP addresses from which secure communication is allowed with AWS infrastructure and applications.
+        Adds an AWS::GuardDuty::IPSet resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::GuardDuty::IPSet resource to the template. The AWS::GuardDuty::IPSet resource specifies a new IPSet. An IPSet is a list of trusted IP addresses from which secure communication is allowed with AWS infrastructure and applications.
+        Adds an AWS::GuardDuty::IPSet resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html
@@ -13,22 +13,16 @@ function New-VSGuardDutyIPSet {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Format
-        The format of the file that contains the IPSet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-format
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Activate
-        Indicates whether or not GuardDuty uses the IPSet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-activate
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER DetectorId
-        The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-detectorid
         PrimitiveType: String
         UpdateType: Immutable
@@ -40,16 +34,11 @@ function New-VSGuardDutyIPSet {
         UpdateType: Mutable
 
     .PARAMETER Name
-        The user-friendly name to identify the IPSet.
-Allowed characters are alphanumerics, spaces, hyphens -, and underscores _.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Location
-        The URI of the file that contains the IPSet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-location
         PrimitiveType: String
         UpdateType: Mutable

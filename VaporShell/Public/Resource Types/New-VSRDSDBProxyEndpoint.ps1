@@ -1,12 +1,10 @@
 function New-VSRDSDBProxyEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::DBProxyEndpoint resource to the template. The AWS::RDS::DBProxyEndpoint resource creates or updates a DB proxy endpoint. You can use custom proxy endpoints to access a proxy through a different VPC than the proxy's default VPC.
+        Adds an AWS::RDS::DBProxyEndpoint resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::RDS::DBProxyEndpoint resource to the template. The AWS::RDS::DBProxyEndpoint resource creates or updates a DB proxy endpoint. You can use custom proxy endpoints to access a proxy through a different VPC than the proxy's default VPC.
-
-For more information about RDS Proxy, see  AWS::RDS::DBProxy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html.
+        Adds an AWS::RDS::DBProxyEndpoint resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html
@@ -15,50 +13,40 @@ For more information about RDS Proxy, see  AWS::RDS::DBProxy: https://docs.aws.a
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DBProxyEndpointName
-        The name of the DB proxy endpoint to create.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyendpointname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DBProxyName
-        The name of the DB proxy associated with the DB proxy endpoint that you create.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER VpcSecurityGroupIds
-        The VPC security group IDs for the DB proxy endpoint that you create. You can specify a different set of security group IDs than for the original DB proxy. The default is the default security group for the VPC.
+    .PARAMETER TargetRole
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER VpcSecurityGroupIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER VpcSubnetIds
-        The VPC subnet IDs for the DB proxy endpoint that you create. You can specify a different set of subnet IDs than for the original DB proxy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER TargetRole
-        A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-Valid Values: READ_WRITE | READ_ONLY
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
-        UpdateType: Immutable
-        PrimitiveType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
-        An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
         UpdateType: Mutable
         Type: List
         ItemType: TagFormat
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -145,10 +133,6 @@ Valid Values: READ_WRITE | READ_ONLY
             })]
         $DBProxyName,
         [parameter(Mandatory = $false)]
-        $VpcSecurityGroupIds,
-        [parameter(Mandatory = $true)]
-        $VpcSubnetIds,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -159,6 +143,10 @@ Valid Values: READ_WRITE | READ_ONLY
                 }
             })]
         $TargetRole,
+        [parameter(Mandatory = $false)]
+        $VpcSecurityGroupIds,
+        [parameter(Mandatory = $true)]
+        $VpcSubnetIds,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.RDS.DBProxyEndpoint.TagFormat"

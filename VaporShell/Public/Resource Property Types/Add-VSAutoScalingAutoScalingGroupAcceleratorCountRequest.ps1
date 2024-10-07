@@ -1,25 +1,21 @@
 function Add-VSAutoScalingAutoScalingGroupAcceleratorCountRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.AcceleratorCountRequest resource property to the template. AcceleratorCountRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum number of accelerators for an instance type.
+        Adds an AWS::AutoScaling::AutoScalingGroup.AcceleratorCountRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.AcceleratorCountRequest resource property to the template.
-AcceleratorCountRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum number of accelerators for an instance type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratorcountrequest.html
 
     .PARAMETER Max
-        The maximum value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratorcountrequest.html#cfn-autoscaling-autoscalinggroup-acceleratorcountrequest-max
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Min
-        The minimum value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratorcountrequest.html#cfn-autoscaling-autoscalinggroup-acceleratorcountrequest-min
         PrimitiveType: Integer
         UpdateType: Mutable

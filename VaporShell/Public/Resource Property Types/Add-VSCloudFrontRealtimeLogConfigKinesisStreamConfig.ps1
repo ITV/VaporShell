@@ -1,27 +1,22 @@
 function Add-VSCloudFrontRealtimeLogConfigKinesisStreamConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig resource property to the template. Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+        Adds an AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig resource property to the template.
-Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
 
-    .PARAMETER RoleArn
-        The Amazon Resource Name ARN of an AWS Identity and Access Management IAM role that CloudFront can use to send real-time log data to your Kinesis data stream.
-For more information the IAM role, see Real-time log configuration IAM role: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role in the *Amazon CloudFront Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
+    .PARAMETER StreamArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER StreamArn
-        The Amazon Resource Name ARN of the Kinesis data stream where you are sending real-time log data.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -42,7 +37,7 @@ For more information the IAM role, see Real-time log configuration IAM role: htt
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleArn,
+        $StreamArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -53,7 +48,7 @@ For more information the IAM role, see Real-time log configuration IAM role: htt
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StreamArn
+        $RoleArn
     )
     Begin {
         $obj = [PSCustomObject]@{}

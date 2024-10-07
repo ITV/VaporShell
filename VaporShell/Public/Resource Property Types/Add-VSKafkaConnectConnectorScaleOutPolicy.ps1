@@ -1,18 +1,16 @@
 function Add-VSKafkaConnectConnectorScaleOutPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.ScaleOutPolicy resource property to the template. The scale-out policy for the connector.
+        Adds an AWS::KafkaConnect::Connector.ScaleOutPolicy resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.ScaleOutPolicy resource property to the template.
-The scale-out policy for the connector.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleoutpolicy.html
 
     .PARAMETER CpuUtilizationPercentage
-        The CPU utilization percentage threshold at which you want connector scale out to be triggered.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleoutpolicy.html#cfn-kafkaconnect-connector-scaleoutpolicy-cpuutilizationpercentage
         UpdateType: Mutable
         PrimitiveType: Integer

@@ -1,10 +1,10 @@
 function New-VSEC2CarrierGateway {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::CarrierGateway resource to the template. Creates a carrier gateway. For more information about carrier gateways, see Carrier gateways: https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway in the * AWS Wavelength Developer Guide*.
+        Adds an AWS::EC2::CarrierGateway resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::CarrierGateway resource to the template. Creates a carrier gateway. For more information about carrier gateways, see Carrier gateways: https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway in the * AWS Wavelength Developer Guide*.
+        Adds an AWS::EC2::CarrierGateway resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
@@ -13,15 +13,11 @@ function New-VSEC2CarrierGateway {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER VpcId
-        The ID of the VPC associated with the carrier gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags assigned to the carrier gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
         UpdateType: Mutable
         Type: List

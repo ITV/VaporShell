@@ -1,25 +1,26 @@
 function Add-VSAppFlowFlowTriggerConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.TriggerConfig resource property to the template. The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
+        Adds an AWS::AppFlow::Flow.TriggerConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.TriggerConfig resource property to the template.
-The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html
 
     .PARAMETER TriggerType
-        Specifies the type of flow trigger. This can be OnDemand, Scheduled, or Event.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER TriggerProperties
-        Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the Scheduled trigger type.
+    .PARAMETER ActivateFlowOnCreate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-activateflowoncreate
+        UpdateType: Immutable
+        PrimitiveType: Boolean
 
+    .PARAMETER TriggerProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
         UpdateType: Mutable
         Type: ScheduledTriggerProperties
@@ -42,6 +43,17 @@ The trigger settings that determine how and when Amazon AppFlow runs the specifi
                 }
             })]
         $TriggerType,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ActivateFlowOnCreate,
         [parameter(Mandatory = $false)]
         $TriggerProperties
     )

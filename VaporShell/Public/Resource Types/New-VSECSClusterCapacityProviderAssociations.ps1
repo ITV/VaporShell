@@ -1,10 +1,10 @@
 function New-VSECSClusterCapacityProviderAssociations {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::ClusterCapacityProviderAssociations resource to the template. The AWS::ECS::ClusterCapacityProviderAssociations resource associates one or more capacity providers and a default capacity provider strategy with a cluster.
+        Adds an AWS::ECS::ClusterCapacityProviderAssociations resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ECS::ClusterCapacityProviderAssociations resource to the template. The AWS::ECS::ClusterCapacityProviderAssociations resource associates one or more capacity providers and a default capacity provider strategy with a cluster.
+        Adds an AWS::ECS::ClusterCapacityProviderAssociations resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html
@@ -12,9 +12,14 @@ function New-VSECSClusterCapacityProviderAssociations {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER CapacityProviders
-        The capacity providers to associate with the cluster.
+    .PARAMETER DefaultCapacityProviderStrategy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
+        UpdateType: Mutable
+        Type: List
+        ItemType: CapacityProviderStrategy
+        DuplicatesAllowed: True
 
+    .PARAMETER CapacityProviders
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
         UpdateType: Mutable
         Type: List
@@ -22,19 +27,9 @@ function New-VSECSClusterCapacityProviderAssociations {
         DuplicatesAllowed: False
 
     .PARAMETER Cluster
-        The cluster the capacity provider association is the target of.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
         UpdateType: Immutable
         PrimitiveType: String
-
-    .PARAMETER DefaultCapacityProviderStrategy
-        The default capacity provider strategy to associate with the cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
-        UpdateType: Mutable
-        Type: List
-        ItemType: CapacityProviderStrategy
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -99,6 +94,17 @@ function New-VSECSClusterCapacityProviderAssociations {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ECS.ClusterCapacityProviderAssociations.CapacityProviderStrategy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DefaultCapacityProviderStrategy,
+        [parameter(Mandatory = $true)]
         $CapacityProviders,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -111,17 +117,6 @@ function New-VSECSClusterCapacityProviderAssociations {
                 }
             })]
         $Cluster,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.ECS.ClusterCapacityProviderAssociations.CapacityProviderStrategy"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DefaultCapacityProviderStrategy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -196,17 +191,17 @@ function New-VSECSClusterCapacityProviderAssociations {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                CapacityProviders {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CapacityProviders -Value @($CapacityProviders)
-                }
                 DefaultCapacityProviderStrategy {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DefaultCapacityProviderStrategy -Value @($DefaultCapacityProviderStrategy)
+                }
+                CapacityProviders {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CapacityProviders -Value @($CapacityProviders)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

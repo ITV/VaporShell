@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelNielsenCBET {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.NielsenCBET resource property to the template. Complete these fields only if you want to insert watermarks of type Nielsen CBET
+        Adds an AWS::MediaLive::Channel.NielsenCBET resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.NielsenCBET resource property to the template.
-Complete these fields only if you want to insert watermarks of type Nielsen CBET
 
-The parent of this entity is NielsenWatermarksSettings
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsencbet.html
 
     .PARAMETER CbetCheckDigitString
-        Enter the CBET check digits to use in the watermark.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsencbet.html#cfn-medialive-channel-nielsencbet-cbetcheckdigitstring
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CbetStepaside
-        Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsencbet.html#cfn-medialive-channel-nielsencbet-cbetstepaside
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Csid
-        Enter the CBET Source ID CSID to use in the watermark
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsencbet.html#cfn-medialive-channel-nielsencbet-csid
         PrimitiveType: String
         UpdateType: Mutable

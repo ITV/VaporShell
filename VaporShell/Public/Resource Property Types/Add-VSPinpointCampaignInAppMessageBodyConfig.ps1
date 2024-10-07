@@ -1,32 +1,26 @@
 function Add-VSPinpointCampaignInAppMessageBodyConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Campaign.InAppMessageBodyConfig resource property to the template. Specifies the configuration of main body text of the in-app message.
+        Adds an AWS::Pinpoint::Campaign.InAppMessageBodyConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Campaign.InAppMessageBodyConfig resource property to the template.
-Specifies the configuration of main body text of the in-app message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebodyconfig.html
 
     .PARAMETER Alignment
-        The text alignment of the main body text of the message. Acceptable values: LEFT, CENTER, RIGHT.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebodyconfig.html#cfn-pinpoint-campaign-inappmessagebodyconfig-alignment
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TextColor
-        The color of the body text, expressed as a string consisting of a hex color code such as "#000000" for black.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebodyconfig.html#cfn-pinpoint-campaign-inappmessagebodyconfig-textcolor
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Body
-        The main body text of the message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebodyconfig.html#cfn-pinpoint-campaign-inappmessagebodyconfig-body
         PrimitiveType: String
         UpdateType: Mutable

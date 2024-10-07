@@ -15,15 +15,15 @@ function Add-VSImageBuilderDistributionConfigurationFastLaunchConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Enabled
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-enabled
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
     .PARAMETER LaunchTemplate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-launchtemplate
         UpdateType: Mutable
         Type: FastLaunchLaunchTemplateSpecification
+
+    .PARAMETER Enabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-enabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER MaxParallelLaunches
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-maxparallellaunches
@@ -54,6 +54,8 @@ function Add-VSImageBuilderDistributionConfigurationFastLaunchConfiguration {
             })]
         $AccountId,
         [parameter(Mandatory = $false)]
+        $LaunchTemplate,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,8 +66,6 @@ function Add-VSImageBuilderDistributionConfigurationFastLaunchConfiguration {
                 }
             })]
         $Enabled,
-        [parameter(Mandatory = $false)]
-        $LaunchTemplate,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

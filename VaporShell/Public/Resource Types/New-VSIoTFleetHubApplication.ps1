@@ -1,10 +1,10 @@
 function New-VSIoTFleetHubApplication {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTFleetHub::Application resource to the template. Represents a Fleet Hub for AWS IoT Device Management web application.
+        Adds an AWS::IoTFleetHub::Application resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTFleetHub::Application resource to the template. Represents a Fleet Hub for AWS IoT Device Management web application.
+        Adds an AWS::IoTFleetHub::Application resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html
@@ -13,31 +13,21 @@ function New-VSIoTFleetHubApplication {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ApplicationName
-        The name of the web application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ApplicationDescription
-        An optional description of the web application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the role that the web application assumes when it interacts with AWS IoT Core.
-The name of the role must be in the form FleetHub_random_string.
-Pattern: ^arn:!-~]+$
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        A set of key/value pairs that you can use to manage the web application resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
         UpdateType: Mutable
         Type: List

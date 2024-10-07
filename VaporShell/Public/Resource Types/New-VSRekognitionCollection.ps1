@@ -1,10 +1,10 @@
 function New-VSRekognitionCollection {
     <#
     .SYNOPSIS
-        Adds an AWS::Rekognition::Collection resource to the template. The AWS::Rekognition::Collection type creates a server-side container called a collection. You can use a collection to store information about detected faces and search for known faces in images, stored videos, and streaming videos.
+        Adds an AWS::Rekognition::Collection resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Rekognition::Collection resource to the template. The AWS::Rekognition::Collection type creates a server-side container called a collection. You can use a collection to store information about detected faces and search for known faces in images, stored videos, and streaming videos.
+        Adds an AWS::Rekognition::Collection resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-collection.html
@@ -13,15 +13,11 @@ function New-VSRekognitionCollection {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CollectionId
-        ID for the collection that you are creating.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-collection.html#cfn-rekognition-collection-collectionid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        A set of tags key-value pairs that you want to attach to the collection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-collection.html#cfn-rekognition-collection-tags
         UpdateType: Mutable
         Type: List

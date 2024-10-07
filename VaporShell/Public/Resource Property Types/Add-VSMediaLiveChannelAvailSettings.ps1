@@ -1,29 +1,28 @@
 function Add-VSMediaLiveChannelAvailSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AvailSettings resource property to the template. The settings for the ad avail setup in the output.
+        Adds an AWS::MediaLive::Channel.AvailSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AvailSettings resource property to the template.
-The settings for the ad avail setup in the output.
 
-The parent of this entity is AvailConfiguration.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html
 
     .PARAMETER Scte35SpliceInsert
-        The setup for SCTE-35 splice insert handling.
-
         Type: Scte35SpliceInsert
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html#cfn-medialive-channel-availsettings-scte35spliceinsert
         UpdateType: Mutable
 
     .PARAMETER Scte35TimeSignalApos
-        The setup for SCTE-35 time signal APOS handling.
-
         Type: Scte35TimeSignalApos
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html#cfn-medialive-channel-availsettings-scte35timesignalapos
+        UpdateType: Mutable
+
+    .PARAMETER Esam
+        Type: Esam
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html#cfn-medialive-channel-availsettings-esam
         UpdateType: Mutable
 
     .FUNCTIONALITY
@@ -36,7 +35,9 @@ The parent of this entity is AvailConfiguration.
         [parameter(Mandatory = $false)]
         $Scte35SpliceInsert,
         [parameter(Mandatory = $false)]
-        $Scte35TimeSignalApos
+        $Scte35TimeSignalApos,
+        [parameter(Mandatory = $false)]
+        $Esam
     )
     Begin {
         $obj = [PSCustomObject]@{}

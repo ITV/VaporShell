@@ -1,26 +1,22 @@
 function Add-VSServiceCatalogServiceActionDefinitionParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceCatalog::ServiceAction.DefinitionParameter resource property to the template. The list of parameters in JSON format. For example: {"Name":"InstanceId","Type":"TARGET"}] or {"Name":"InstanceId","Type":"TEXT_VALUE"}].
+        Adds an AWS::ServiceCatalog::ServiceAction.DefinitionParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ServiceCatalog::ServiceAction.DefinitionParameter resource property to the template.
-The list of parameters in JSON format. For example: {"Name":"InstanceId","Type":"TARGET"}] or {"Name":"InstanceId","Type":"TEXT_VALUE"}].
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html
 
-    .PARAMETER Key
-        The parameter key.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-key
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-value
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The value of the parameter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-value
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ The list of parameters in JSON format. For example: {"Name":"InstanceId","Type":
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ The list of parameters in JSON format. For example: {"Name":"InstanceId","Type":
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

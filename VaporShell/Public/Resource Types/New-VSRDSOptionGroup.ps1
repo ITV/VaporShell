@@ -1,10 +1,10 @@
 function New-VSRDSOptionGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::OptionGroup resource to the template. The AWS::RDS::OptionGroup resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
+        Adds an AWS::RDS::OptionGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::RDS::OptionGroup resource to the template. The AWS::RDS::OptionGroup resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
+        Adds an AWS::RDS::OptionGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
@@ -13,53 +13,38 @@ function New-VSRDSOptionGroup {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER OptionGroupDescription
-        The description of the option group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optiongroupdescription
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER EngineName
-        Specifies the name of the engine that this option group should be associated with.
-Valid Values:
-+ mariadb
-+ mysql
-+ oracle-ee
-+ oracle-se2
-+ oracle-se1
-+ oracle-se
-+ postgres
-+ sqlserver-ee
-+ sqlserver-se
-+ sqlserver-ex
-+ sqlserver-web
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-enginename
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER MajorEngineVersion
-        Specifies the major version of the engine that this option group should be associated with.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-majorengineversion
+    .PARAMETER OptionGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optiongroupname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER OptionConfigurations
-        A list of options and the settings for each option.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optionconfigurations
         UpdateType: Mutable
         Type: List
         ItemType: OptionConfiguration
+        DuplicatesAllowed: True
+
+    .PARAMETER MajorEngineVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-majorengineversion
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER EngineName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-enginename
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Tags
-        Tags to assign to the option group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -134,7 +119,7 @@ Valid Values:
                 }
             })]
         $OptionGroupDescription,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -144,18 +129,7 @@ Valid Values:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $EngineName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MajorEngineVersion,
+        $OptionGroupName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.RDS.OptionGroup.OptionConfiguration"
@@ -167,6 +141,28 @@ Valid Values:
                 }
             })]
         $OptionConfigurations,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MajorEngineVersion,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EngineName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

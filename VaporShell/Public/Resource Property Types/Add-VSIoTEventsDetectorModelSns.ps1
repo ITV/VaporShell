@@ -1,28 +1,24 @@
 function Add-VSIoTEventsDetectorModelSns {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.Sns resource property to the template. Information required to publish the Amazon SNS message.
+        Adds an AWS::IoTEvents::DetectorModel.Sns resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.Sns resource property to the template.
-Information required to publish the Amazon SNS message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
 
-    .PARAMETER Payload
-        You can configure the action payload when you send a message as an Amazon SNS push notification.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
-        UpdateType: Mutable
-        Type: Payload
-
     .PARAMETER TargetArn
-        The ARN of the Amazon SNS target where the message is sent.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER Payload
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
+        UpdateType: Mutable
+        Type: Payload
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,8 +27,6 @@ Information required to publish the Amazon SNS message.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Payload,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -43,7 +37,9 @@ Information required to publish the Amazon SNS message.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TargetArn
+        $TargetArn,
+        [parameter(Mandatory = $false)]
+        $Payload
     )
     Begin {
         $obj = [PSCustomObject]@{}

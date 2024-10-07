@@ -12,15 +12,15 @@ function New-VSSESEmailIdentity {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER EmailIdentity
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-emailidentity
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER ConfigurationSetAttributes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-configurationsetattributes
         UpdateType: Mutable
         Type: ConfigurationSetAttributes
+
+    .PARAMETER EmailIdentity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-emailidentity
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DkimSigningAttributes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-dkimsigningattributes
@@ -32,15 +32,15 @@ function New-VSSESEmailIdentity {
         UpdateType: Mutable
         Type: DkimAttributes
 
-    .PARAMETER MailFromAttributes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-mailfromattributes
-        UpdateType: Mutable
-        Type: MailFromAttributes
-
     .PARAMETER FeedbackAttributes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-feedbackattributes
         UpdateType: Mutable
         Type: FeedbackAttributes
+
+    .PARAMETER MailFromAttributes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-mailfromattributes
+        UpdateType: Mutable
+        Type: MailFromAttributes
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -104,6 +104,8 @@ function New-VSSESEmailIdentity {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $ConfigurationSetAttributes,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -116,15 +118,13 @@ function New-VSSESEmailIdentity {
             })]
         $EmailIdentity,
         [parameter(Mandatory = $false)]
-        $ConfigurationSetAttributes,
-        [parameter(Mandatory = $false)]
         $DkimSigningAttributes,
         [parameter(Mandatory = $false)]
         $DkimAttributes,
         [parameter(Mandatory = $false)]
-        $MailFromAttributes,
-        [parameter(Mandatory = $false)]
         $FeedbackAttributes,
+        [parameter(Mandatory = $false)]
+        $MailFromAttributes,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

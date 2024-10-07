@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelAudioWatermarkSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioWatermarkSettings resource property to the template. Audio Watermark Settings
+        Adds an AWS::MediaLive::Channel.AudioWatermarkSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioWatermarkSettings resource property to the template.
-Audio Watermark Settings
 
-The parent of this entity is AudioDescription.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiowatermarksettings.html
 
     .PARAMETER NielsenWatermarksSettings
-        Settings to configure Nielsen Watermarks in the audio encode
-
         Type: NielsenWatermarksSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiowatermarksettings.html#cfn-medialive-channel-audiowatermarksettings-nielsenwatermarkssettings
         UpdateType: Mutable

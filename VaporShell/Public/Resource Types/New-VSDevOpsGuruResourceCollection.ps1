@@ -1,10 +1,10 @@
 function New-VSDevOpsGuruResourceCollection {
     <#
     .SYNOPSIS
-        Adds an AWS::DevOpsGuru::ResourceCollection resource to the template. A collection of AWS resources supported by DevOps Guru. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks.
+        Adds an AWS::DevOpsGuru::ResourceCollection resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DevOpsGuru::ResourceCollection resource to the template. A collection of AWS resources supported by DevOps Guru. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks.
+        Adds an AWS::DevOpsGuru::ResourceCollection resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
@@ -13,8 +13,6 @@ function New-VSDevOpsGuruResourceCollection {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ResourceCollectionFilter
-        Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         UpdateType: Mutable
         Type: ResourceCollectionFilter

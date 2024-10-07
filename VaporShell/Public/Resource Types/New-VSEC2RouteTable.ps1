@@ -1,12 +1,10 @@
 function New-VSEC2RouteTable {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::RouteTable resource to the template. Specifies a route table for a specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+        Adds an AWS::EC2::RouteTable resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::RouteTable resource to the template. Specifies a route table for a specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
-
-For more information, see Route Tables: https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html in the *Amazon Virtual Private Cloud User Guide*.
+        Adds an AWS::EC2::RouteTable resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html
@@ -14,21 +12,17 @@ For more information, see Route Tables: https://docs.aws.amazon.com/AmazonVPC/la
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Tags
-        Any tags assigned to the route table.
+    .PARAMETER VpcId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html#cfn-ec2-routetable-vpcid
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html#cfn-ec2-routetable-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
-
-    .PARAMETER VpcId
-        The ID of the VPC.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html#cfn-ec2-routetable-vpcid
-        UpdateType: Immutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -92,9 +86,6 @@ For more information, see Route Tables: https://docs.aws.amazon.com/AmazonVPC/la
             })]
         [System.String]
         $LogicalId,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -106,6 +97,9 @@ For more information, see Route Tables: https://docs.aws.amazon.com/AmazonVPC/la
                 }
             })]
         $VpcId,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

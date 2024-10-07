@@ -1,55 +1,41 @@
 function Add-VSCodeBuildReportGroupS3ReportExportConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::ReportGroup.S3ReportExportConfig resource property to the template. Information about the S3 bucket where the raw data of a report are exported.
+        Adds an AWS::CodeBuild::ReportGroup.S3ReportExportConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::ReportGroup.S3ReportExportConfig resource property to the template.
-Information about the S3 bucket where the raw data of a report are exported.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html
 
     .PARAMETER Path
-        The path to the exported report's raw data results.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-path
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Bucket
-        The name of the S3 bucket where the raw data of a report are exported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-bucket
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Packaging
-        The type of build output artifact to create. Valid values include:
-+  NONE: CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
-+  ZIP: CodeBuild creates a ZIP file with the raw data in the output bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-packaging
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER EncryptionKey
-        The encryption key for the report's encrypted raw data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-encryptionkey
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER BucketOwner
-        The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-bucketowner
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER EncryptionDisabled
-        A boolean value that specifies if the results of a report are encrypted.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-encryptiondisabled
         PrimitiveType: Boolean
         UpdateType: Mutable

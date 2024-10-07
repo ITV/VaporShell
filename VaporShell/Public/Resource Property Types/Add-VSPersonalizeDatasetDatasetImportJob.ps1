@@ -1,53 +1,39 @@
 function Add-VSPersonalizeDatasetDatasetImportJob {
     <#
     .SYNOPSIS
-        Adds an AWS::Personalize::Dataset.DatasetImportJob resource property to the template. Describes a job that imports training data from a data source (Amazon S3 bucket to an Amazon Personalize dataset. For more information, see CreateDatasetImportJob: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html.
+        Adds an AWS::Personalize::Dataset.DatasetImportJob resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Personalize::Dataset.DatasetImportJob resource property to the template.
-Describes a job that imports training data from a data source (Amazon S3 bucket to an Amazon Personalize dataset. For more information, see CreateDatasetImportJob: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html.
 
-A dataset import job can be in one of the following states:
-
-+ CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html
 
-    .PARAMETER JobName
-        The name of the import job.
+    .PARAMETER DatasetArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasetarn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER JobName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-jobname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DatasetImportJobArn
-        The ARN of the dataset import job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasetimportjobarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER DatasetArn
-        The Amazon Resource Name ARN of the dataset that receives the imported data.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasetarn
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DataSource
-        The Amazon S3 bucket that contains the training data to import.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasource
         UpdateType: Mutable
-        PrimitiveType: Json
-
-    .PARAMETER RoleArn
-        The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-rolearn
-        UpdateType: Mutable
-        PrimitiveType: String
+        Type: DataSource
 
     .FUNCTIONALITY
         Vaporshell
@@ -56,6 +42,17 @@ A dataset import job can be in one of the following states:
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DatasetArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -88,29 +85,9 @@ A dataset import job can be in one of the following states:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DatasetArn,
+        $RoleArn,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DataSource,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RoleArn
+        $DataSource
     )
     Begin {
         $obj = [PSCustomObject]@{}
@@ -119,20 +96,6 @@ A dataset import job can be in one of the following states:
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                DataSource {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

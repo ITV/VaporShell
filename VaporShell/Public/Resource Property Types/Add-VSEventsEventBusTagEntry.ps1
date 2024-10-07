@@ -1,25 +1,21 @@
 function Add-VSEventsEventBusTagEntry {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::EventBus.TagEntry resource property to the template. <a name="aws-properties-events-eventbus-tagentry-description"></a>The TagEntry property type specifies Not currently supported by AWS CloudFormation. for an AWS::Events::EventBus: aws-resource-events-eventbus.md.
+        Adds an AWS::Events::EventBus.TagEntry resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::EventBus.TagEntry resource property to the template.
-<a name="aws-properties-events-eventbus-tagentry-description"></a>The TagEntry property type specifies Not currently supported by AWS CloudFormation. for an AWS::Events::EventBus: aws-resource-events-eventbus.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbus-tagentry.html
 
     .PARAMETER Value
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbus-tagentry.html#cfn-events-eventbus-tagentry-value
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Key
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbus-tagentry.html#cfn-events-eventbus-tagentry-key
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,39 +1,31 @@
 function Add-VSCloudFrontPublicKeyPublicKeyConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::PublicKey.PublicKeyConfig resource property to the template. Configuration information about a public key that you can use with signed URLs and signed cookies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html, or with field-level encryption: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html.
+        Adds an AWS::CloudFront::PublicKey.PublicKeyConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::PublicKey.PublicKeyConfig resource property to the template.
-Configuration information about a public key that you can use with signed URLs and signed cookies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html, or with field-level encryption: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html
 
-    .PARAMETER CallerReference
-        A string included in the request to help make sure that the request can’t be replayed.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Comment
-        A comment to describe the public key. The comment cannot be longer than 128 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER EncodedKey
-        The public key that you can use with signed URLs and signed cookies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html, or with field-level encryption: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html.
+    .PARAMETER CallerReference
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER EncodedKey
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        A name to help identify the public key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
         UpdateType: Mutable
         PrimitiveType: String
@@ -45,17 +37,6 @@ Configuration information about a public key that you can use with signed URLs a
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $CallerReference,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -67,6 +48,17 @@ Configuration information about a public key that you can use with signed URLs a
                 }
             })]
         $Comment,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CallerReference,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

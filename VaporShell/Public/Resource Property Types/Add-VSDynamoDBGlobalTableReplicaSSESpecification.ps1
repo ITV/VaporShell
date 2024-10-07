@@ -1,18 +1,16 @@
 function Add-VSDynamoDBGlobalTableReplicaSSESpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.ReplicaSSESpecification resource property to the template. Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+        Adds an AWS::DynamoDB::GlobalTable.ReplicaSSESpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.ReplicaSSESpecification resource property to the template.
-Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html
 
     .PARAMETER KMSMasterKeyId
-        The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name ARN, alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key alias/aws/dynamodb.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html#cfn-dynamodb-globaltable-replicassespecification-kmsmasterkeyid
         UpdateType: Mutable
         PrimitiveType: String

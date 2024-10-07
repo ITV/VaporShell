@@ -1,32 +1,26 @@
 function Add-VSCognitoUserPoolClientTokenValidityUnits {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPoolClient.TokenValidityUnits resource property to the template. The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.
+        Adds an AWS::Cognito::UserPoolClient.TokenValidityUnits resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPoolClient.TokenValidityUnits resource property to the template.
-The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html
 
     .PARAMETER IdToken
-        A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-idtoken
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RefreshToken
-        A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-refreshtoken
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AccessToken
-        A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-accesstoken
         PrimitiveType: String
         UpdateType: Mutable

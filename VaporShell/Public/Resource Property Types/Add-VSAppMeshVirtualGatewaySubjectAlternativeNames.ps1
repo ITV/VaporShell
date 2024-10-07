@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualGatewaySubjectAlternativeNames {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.SubjectAlternativeNames resource property to the template. An object that represents the subject alternative names secured by the certificate.
+        Adds an AWS::AppMesh::VirtualGateway.SubjectAlternativeNames resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.SubjectAlternativeNames resource property to the template.
-An object that represents the subject alternative names secured by the certificate.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-subjectalternativenames.html
 
     .PARAMETER Match
-        An object that represents the criteria for determining a SANs match.
-
         Type: SubjectAlternativeNameMatchers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-subjectalternativenames.html#cfn-appmesh-virtualgateway-subjectalternativenames-match
         UpdateType: Mutable

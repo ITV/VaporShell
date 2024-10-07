@@ -1,30 +1,25 @@
 function Add-VSGreengrassV2ComponentVersionComponentPlatform {
     <#
     .SYNOPSIS
-        Adds an AWS::GreengrassV2::ComponentVersion.ComponentPlatform resource property to the template. Contains information about a platform that a component supports.
+        Adds an AWS::GreengrassV2::ComponentVersion.ComponentPlatform resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GreengrassV2::ComponentVersion.ComponentPlatform resource property to the template.
-Contains information about a platform that a component supports.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html
 
-    .PARAMETER Name
-        The friendly name of the platform. This name helps you identify the platform.
-If you omit this parameter, AWS IoT Greengrass creates a friendly name from the os and architecture of the platform.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Attributes
-        A dictionary of attributes for the platform. The software defines the os and platform by default. You can specify additional platform attributes for a core device when you deploy the Greengrass nucleus component. For more information, see the Greengrass nucleus component: https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html in the *AWS IoT Greengrass V2 Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-attributes
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,6 +28,9 @@ If you omit this parameter, AWS IoT Greengrass creates a friendly name from the 
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Attributes,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -43,10 +41,7 @@ If you omit this parameter, AWS IoT Greengrass creates a friendly name from the 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Attributes
+        $Name
     )
     Begin {
         $obj = [PSCustomObject]@{}

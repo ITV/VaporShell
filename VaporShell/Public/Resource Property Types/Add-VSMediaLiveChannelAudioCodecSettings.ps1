@@ -1,55 +1,46 @@
 function Add-VSMediaLiveChannelAudioCodecSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioCodecSettings resource property to the template. The configuration of the audio codec in the audio output.
+        Adds an AWS::MediaLive::Channel.AudioCodecSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioCodecSettings resource property to the template.
-The configuration of the audio codec in the audio output.
 
-The parent of this entity is AudioDescription.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html
 
     .PARAMETER Eac3Settings
-        The setup of an EAC3 audio codec in the output.
-
         Type: Eac3Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-eac3settings
         UpdateType: Mutable
 
     .PARAMETER Ac3Settings
-        The setup of an AC3 audio codec in the output.
-
         Type: Ac3Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-ac3settings
         UpdateType: Mutable
 
     .PARAMETER Mp2Settings
-        The setup of an MP2 audio codec in the output.
-
         Type: Mp2Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-mp2settings
         UpdateType: Mutable
 
-    .PARAMETER PassThroughSettings
-        The setup to pass through the Dolby audio codec to the output.
+    .PARAMETER Eac3AtmosSettings
+        Type: Eac3AtmosSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-eac3atmossettings
+        UpdateType: Mutable
 
+    .PARAMETER PassThroughSettings
         Type: PassThroughSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-passthroughsettings
         UpdateType: Mutable
 
     .PARAMETER WavSettings
-        Settings for audio encoded with the WAV codec.
-
         Type: WavSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-wavsettings
         UpdateType: Mutable
 
     .PARAMETER AacSettings
-        The setup of the AAC audio codec in the output.
-
         Type: AacSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-aacsettings
         UpdateType: Mutable
@@ -67,6 +58,8 @@ The parent of this entity is AudioDescription.
         $Ac3Settings,
         [parameter(Mandatory = $false)]
         $Mp2Settings,
+        [parameter(Mandatory = $false)]
+        $Eac3AtmosSettings,
         [parameter(Mandatory = $false)]
         $PassThroughSettings,
         [parameter(Mandatory = $false)]

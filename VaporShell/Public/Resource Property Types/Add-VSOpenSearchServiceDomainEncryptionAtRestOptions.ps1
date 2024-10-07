@@ -1,25 +1,21 @@
 function Add-VSOpenSearchServiceDomainEncryptionAtRestOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::OpenSearchService::Domain.EncryptionAtRestOptions resource property to the template. Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+        Adds an AWS::OpenSearchService::Domain.EncryptionAtRestOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::OpenSearchService::Domain.EncryptionAtRestOptions resource property to the template.
-Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html
 
     .PARAMETER KmsKeyId
-        The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a. Required if you enable encryption at rest.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html#cfn-opensearchservice-domain-encryptionatrestoptions-kmskeyid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Enabled
-        Specify true to enable encryption at rest.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html#cfn-opensearchservice-domain-encryptionatrestoptions-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

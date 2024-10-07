@@ -1,10 +1,10 @@
 function New-VSCloudFrontDistribution {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution resource to the template. A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
+        Adds an AWS::CloudFront::Distribution resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFront::Distribution resource to the template. A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
+        Adds an AWS::CloudFront::Distribution resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
@@ -13,15 +13,11 @@ function New-VSCloudFrontDistribution {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DistributionConfig
-        The current configuration information for the distribution. Send a GET request to the /CloudFront API version/distribution ID/config resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
         UpdateType: Mutable
         Type: DistributionConfig
 
     .PARAMETER Tags
-        A complex type that contains zero or more Tag elements.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
         UpdateType: Mutable
         Type: List

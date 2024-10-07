@@ -1,10 +1,10 @@
 function New-VSGameLiftGameSessionQueue {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::GameSessionQueue resource to the template. The AWS::GameLift::GameSessionQueue resource creates a placement queue that processes requests for new game sessions. A queue uses FleetIQ algorithms to determine the best placement locations and find an available game server, then prompts the game server to start a new game session. Queues can have destinations (GameLift fleets or aliases, which determine where the queue can place new game sessions. A queue can have destinations with varied fleet type (Spot and On-Demand, instance type, and AWS Region.
+        Adds an AWS::GameLift::GameSessionQueue resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::GameLift::GameSessionQueue resource to the template. The AWS::GameLift::GameSessionQueue resource creates a placement queue that processes requests for new game sessions. A queue uses FleetIQ algorithms to determine the best placement locations and find an available game server, then prompts the game server to start a new game session. Queues can have destinations (GameLift fleets or aliases, which determine where the queue can place new game sessions. A queue can have destinations with varied fleet type (Spot and On-Demand, instance type, and AWS Region.
+        Adds an AWS::GameLift::GameSessionQueue resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html
@@ -13,67 +13,49 @@ function New-VSGameLiftGameSessionQueue {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER TimeoutInSeconds
-        The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a TIMED_OUT status.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-timeoutinseconds
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER PlayerLatencyPolicies
-        A set of policies that act as a sliding cap on player latency. FleetIQ works to deliver low latency for most players in a game session. These policies ensure that no individual player can be placed into a game with unreasonably high latency. Use multiple policies to gradually relax latency requirements a step at a time. Multiple policies are applied based on their maximum allowed latency, starting with the lowest value.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-playerlatencypolicies
         ItemType: PlayerLatencyPolicy
         UpdateType: Mutable
 
     .PARAMETER Destinations
-        A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue. Destinations are identified by either a fleet ARN or a fleet alias ARN, and are listed in order of placement preference.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-destinations
         ItemType: Destination
         UpdateType: Mutable
 
     .PARAMETER NotificationTarget
-        An SNS topic ARN that is set up to receive game session placement notifications. See  Setting up notifications for game session placement: https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-notificationtarget
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER FilterConfiguration
-        A list of locations where a queue is allowed to place new game sessions. Locations are specified in the form of AWS Region codes, such as us-west-2. If this parameter is not set, game sessions can be placed in any queue location.
-
         Type: FilterConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-filterconfiguration
         UpdateType: Mutable
 
     .PARAMETER CustomEventData
-        Information to be added to all events that are related to this game session queue.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-customeventdata
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Tags
-        A list of labels to assign to the new game session queue resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see  Tagging AWS Resources: https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html in the * AWS General Reference*. Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-tags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER Name
-        A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-name
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER PriorityConfiguration
-        Custom settings to use when prioritizing destinations and locations for game session placements. This configuration replaces the FleetIQ default prioritization process. Priority types that are not explicitly named will be automatically applied at the end of the prioritization process.
-
         Type: PriorityConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-priorityconfiguration
         UpdateType: Mutable

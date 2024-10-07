@@ -1,77 +1,60 @@
 function Add-VSAmplifyUIBuilderComponentActionParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Component.ActionParameters resource property to the template. The ActionParameters property specifies the event action configuration for an element of a Component or ComponentChild. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. ActionParameters defines the action that is performed when an event occurs on the component.
+        Adds an AWS::AmplifyUIBuilder::Component.ActionParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Component.ActionParameters resource property to the template.
-The ActionParameters property specifies the event action configuration for an element of a Component or ComponentChild. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. ActionParameters defines the action that is performed when an event occurs on the component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html
 
     .PARAMETER Type
-        The type of navigation action. Valid values are url and anchor. This value is required for a navigation action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-type
         UpdateType: Mutable
         Type: ComponentProperty
 
-    .PARAMETER Url
-        The URL to the location to open. Specify this value for a navigation action.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-url
-        UpdateType: Mutable
-        Type: ComponentProperty
-
     .PARAMETER Anchor
-        The HTML anchor link to the location to open. Specify this value for a navigation action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-anchor
         UpdateType: Mutable
         Type: ComponentProperty
 
     .PARAMETER Target
-        The element within the same component to modify when the action occurs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-target
         UpdateType: Mutable
         Type: ComponentProperty
 
-    .PARAMETER Global
-        Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-global
+    .PARAMETER Fields
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-fields
         UpdateType: Mutable
-        Type: ComponentProperty
+        Type: Map
+        ItemType: ComponentProperty
+
+    .PARAMETER State
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-state
+        UpdateType: Mutable
+        Type: MutationActionSetStateParameter
 
     .PARAMETER Model
-        The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-model
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Id
-        The unique ID of the component that the ActionParameters apply to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-id
         UpdateType: Mutable
         Type: ComponentProperty
 
-    .PARAMETER Fields
-        A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-fields
+    .PARAMETER Url
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-url
         UpdateType: Mutable
-        Type: ComponentProperties
+        Type: ComponentProperty
 
-    .PARAMETER State
-        A key-value pair that specifies the state property name and its initial value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-state
+    .PARAMETER Global
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-global
         UpdateType: Mutable
-        Type: MutationActionSetStateParameter
+        Type: ComponentProperty
 
     .FUNCTIONALITY
         Vaporshell
@@ -83,13 +66,22 @@ The ActionParameters property specifies the event action configuration for an el
         [parameter(Mandatory = $false)]
         $Type,
         [parameter(Mandatory = $false)]
-        $Url,
-        [parameter(Mandatory = $false)]
         $Anchor,
         [parameter(Mandatory = $false)]
         $Target,
         [parameter(Mandatory = $false)]
-        $Global,
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentProperty"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Fields,
+        [parameter(Mandatory = $false)]
+        $State,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -104,9 +96,9 @@ The ActionParameters property specifies the event action configuration for an el
         [parameter(Mandatory = $false)]
         $Id,
         [parameter(Mandatory = $false)]
-        $Fields,
+        $Url,
         [parameter(Mandatory = $false)]
-        $State
+        $Global
     )
     Begin {
         $obj = [PSCustomObject]@{}

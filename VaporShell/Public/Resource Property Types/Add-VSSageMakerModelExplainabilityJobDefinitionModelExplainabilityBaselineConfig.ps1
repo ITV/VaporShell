@@ -1,28 +1,24 @@
 function Add-VSSageMakerModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig resource property to the template. The configuration for a baseline model explainability job.
+        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig resource property to the template.
-The configuration for a baseline model explainability job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
 
-    .PARAMETER BaseliningJobName
-        The name of the baseline model explainability job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER ConstraintsResource
-        The constraints resource for a model explainability job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
         UpdateType: Immutable
         Type: ConstraintsResource
+
+    .PARAMETER BaseliningJobName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,6 +27,8 @@ The configuration for a baseline model explainability job.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $ConstraintsResource,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -41,9 +39,7 @@ The configuration for a baseline model explainability job.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $BaseliningJobName,
-        [parameter(Mandatory = $false)]
-        $ConstraintsResource
+        $BaseliningJobName
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,29 +1,21 @@
 function Add-VSECSServiceDeploymentCircuitBreaker {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::Service.DeploymentCircuitBreaker resource property to the template. **Note**
+        Adds an AWS::ECS::Service.DeploymentCircuitBreaker resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECS::Service.DeploymentCircuitBreaker resource property to the template.
-**Note**
 
-The deployment circuit breaker can only be used for services using the rolling update (ECS deployment type.
-
-The DeploymentCircuitBreaker property determines whether a service deployment will fail if the service can't reach a steady state. If deployment circuit breaker is enabled, a service deployment will transition to a failed state and stop launching new tasks. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html
 
     .PARAMETER Enable
-        Determines whether to use the deployment circuit breaker logic for the service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER Rollback
-        Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
         UpdateType: Mutable
         PrimitiveType: Boolean

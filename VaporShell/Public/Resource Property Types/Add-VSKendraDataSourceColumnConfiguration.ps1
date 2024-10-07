@@ -1,51 +1,43 @@
 function Add-VSKendraDataSourceColumnConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.ColumnConfiguration resource property to the template. Provides information about how Amazon Kendra should use the columns of a database in an index.
+        Adds an AWS::Kendra::DataSource.ColumnConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.ColumnConfiguration resource property to the template.
-Provides information about how Amazon Kendra should use the columns of a database in an index.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html
 
-    .PARAMETER DocumentIdColumnName
-        The column that provides the document's unique identifier.
+    .PARAMETER ChangeDetectingColumns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER DocumentTitleColumnName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documenttitlecolumnname
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DocumentIdColumnName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentidcolumnname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DocumentDataColumnName
-        The column that contains the contents of the document.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER DocumentTitleColumnName
-        The column that contains the title of the document.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documenttitlecolumnname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER FieldMappings
-        An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the UpdateIndex: https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html operation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
         UpdateType: Mutable
         Type: List
         ItemType: DataSourceToIndexFieldMapping
-
-    .PARAMETER ChangeDetectingColumns
-        One to five columns that indicate when a document in the database has changed.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -54,6 +46,19 @@ Provides information about how Amazon Kendra should use the columns of a databas
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $ChangeDetectingColumns,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DocumentTitleColumnName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -78,17 +83,6 @@ Provides information about how Amazon Kendra should use the columns of a databas
         $DocumentDataColumnName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DocumentTitleColumnName,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Kendra.DataSource.DataSourceToIndexFieldMapping"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -97,9 +91,7 @@ Provides information about how Amazon Kendra should use the columns of a databas
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FieldMappings,
-        [parameter(Mandatory = $true)]
-        $ChangeDetectingColumns
+        $FieldMappings
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -17,17 +17,17 @@ function New-VSElastiCacheSubnetGroup {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER CacheSubnetGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-cachesubnetgroupname
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER SubnetIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-subnetids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
-
-    .PARAMETER CacheSubnetGroupName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-cachesubnetgroupname
-        UpdateType: Immutable
-        PrimitiveType: String
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-tags
@@ -109,8 +109,6 @@ function New-VSElastiCacheSubnetGroup {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $true)]
-        $SubnetIds,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -122,6 +120,8 @@ function New-VSElastiCacheSubnetGroup {
                 }
             })]
         $CacheSubnetGroupName,
+        [parameter(Mandatory = $true)]
+        $SubnetIds,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

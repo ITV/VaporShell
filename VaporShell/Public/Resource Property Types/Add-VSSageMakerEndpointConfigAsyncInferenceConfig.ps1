@@ -1,25 +1,21 @@
 function Add-VSSageMakerEndpointConfigAsyncInferenceConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceConfig resource property to the template. Specifies configuration for how an endpoint performs asynchronous inference.
+        Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceConfig resource property to the template.
-Specifies configuration for how an endpoint performs asynchronous inference.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html
 
     .PARAMETER OutputConfig
-        Specifies the configuration for asynchronous inference invocation outputs.
-
         Type: AsyncInferenceOutputConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig-outputconfig
         UpdateType: Immutable
 
     .PARAMETER ClientConfig
-        Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
-
         Type: AsyncInferenceClientConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig-clientconfig
         UpdateType: Immutable

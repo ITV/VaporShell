@@ -1,32 +1,26 @@
 function Add-VSAppMeshGatewayRouteGrpcGatewayRouteMetadata {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata resource property to the template. An object representing the metadata of the gateway route.
+        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata resource property to the template.
-An object representing the metadata of the gateway route.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html
 
     .PARAMETER Invert
-        Specify True to match anything except the match criteria. The default value is False.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html#cfn-appmesh-gatewayroute-grpcgatewayroutemetadata-invert
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Name
-        A name for the gateway route metadata.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html#cfn-appmesh-gatewayroute-grpcgatewayroutemetadata-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Match
-        The criteria for determining a metadata match.
-
         Type: GatewayRouteMetadataMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html#cfn-appmesh-gatewayroute-grpcgatewayroutemetadata-match
         UpdateType: Mutable

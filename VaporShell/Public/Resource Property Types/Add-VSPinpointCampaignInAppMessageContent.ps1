@@ -1,53 +1,41 @@
 function Add-VSPinpointCampaignInAppMessageContent {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Campaign.InAppMessageContent resource property to the template. Specifies the configuration and contents of an in-app message.
+        Adds an AWS::Pinpoint::Campaign.InAppMessageContent resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Campaign.InAppMessageContent resource property to the template.
-Specifies the configuration and contents of an in-app message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html
 
     .PARAMETER BodyConfig
-        Specifies the configuration of main body text in an in-app message template.
-
         Type: InAppMessageBodyConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-bodyconfig
         UpdateType: Mutable
 
     .PARAMETER SecondaryBtn
-        An object that contains configuration information about the secondary button in an in-app message.
-
         Type: InAppMessageButton
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-secondarybtn
         UpdateType: Mutable
 
     .PARAMETER ImageUrl
-        The URL of the image that appears on an in-app message banner.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-imageurl
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER PrimaryBtn
-        An object that contains configuration information about the primary button in an in-app message.
-
         Type: InAppMessageButton
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-primarybtn
         UpdateType: Mutable
 
     .PARAMETER HeaderConfig
-        Specifies the configuration and content of the header or title text of the in-app message.
-
         Type: InAppMessageHeaderConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-headerconfig
         UpdateType: Mutable
 
     .PARAMETER BackgroundColor
-        The background color for an in-app message banner, expressed as a hex color code such as #000000 for black.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-backgroundcolor
         PrimitiveType: String
         UpdateType: Mutable

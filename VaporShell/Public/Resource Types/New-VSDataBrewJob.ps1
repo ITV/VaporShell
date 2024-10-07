@@ -1,10 +1,10 @@
 function New-VSDataBrewJob {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Job resource to the template. Specifies a new DataBrew job.
+        Adds an AWS::DataBrew::Job resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DataBrew::Job resource to the template. Specifies a new DataBrew job.
+        Adds an AWS::DataBrew::Job resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html
@@ -12,155 +12,115 @@ function New-VSDataBrewJob {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DatasetName
-        A dataset that the job is to process.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER EncryptionKeyArn
-        The Amazon Resource Name ARN of an encryption key that is used to protect the job output. For more information, see Encrypting data written by DataBrew jobs: https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER EncryptionMode
-        The encryption mode for the job, which can be one of the following:
-+  SSE-KMS - Server-side encryption with keys managed by AWS KMS.
-+  SSE-S3 - Server-side encryption with keys managed by Amazon S3.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Name
-        The unique name of the job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Type
-        The job type of the job, which must be one of the following:
-+  PROFILE - A job to analyze a dataset, to determine its size, data types, data distribution, and more.
-+  RECIPE - A job to apply one or more transformations to a dataset.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER LogSubscription
-        The current status of Amazon CloudWatch logging for the job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER MaxCapacity
-        The maximum number of nodes that can be consumed when the job processes data.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER MaxRetries
-        The maximum number of times to retry the job after a job run fails.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER Outputs
-        One or more artifacts that represent output from running the job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
-        UpdateType: Mutable
-        Type: List
-        ItemType: Output
-
-    .PARAMETER DataCatalogOutputs
-        One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
-        UpdateType: Mutable
-        Type: List
-        ItemType: DataCatalogOutput
-
-    .PARAMETER DatabaseOutputs
-        Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
-        UpdateType: Mutable
-        Type: List
-        ItemType: DatabaseOutput
-
-    .PARAMETER OutputLocation
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
-        UpdateType: Mutable
-        Type: OutputLocation
-
     .PARAMETER ProjectName
-        The name of the project that the job is associated with.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Recipe
-        A series of data transformation steps that the job runs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
         UpdateType: Mutable
         Type: Recipe
 
-    .PARAMETER RoleArn
-        The Amazon Resource Name ARN of the role to be assumed for this job.
+    .PARAMETER EncryptionKeyArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER LogSubscription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Timeout
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER DatabaseOutputs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
+        UpdateType: Mutable
+        Type: List
+        ItemType: DatabaseOutput
+        DuplicatesAllowed: True
+
+    .PARAMETER OutputLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
+        UpdateType: Mutable
+        Type: OutputLocation
+
+    .PARAMETER RoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        Metadata tags that have been applied to the job.
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER DatasetName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ProfileConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+        UpdateType: Mutable
+        Type: ProfileConfiguration
+
+    .PARAMETER Outputs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
+        UpdateType: Mutable
+        Type: List
+        ItemType: Output
+        DuplicatesAllowed: True
+
+    .PARAMETER ValidationConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-validationconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: ValidationConfiguration
+        DuplicatesAllowed: True
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
 
-    .PARAMETER Timeout
-        The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of TIMEOUT.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER JobSample
-        A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run. If a JobSample value isn't provided, the default value is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
         UpdateType: Mutable
         Type: JobSample
 
-    .PARAMETER ProfileConfiguration
-        Configuration for profile jobs. Configuration can be used to select columns, do evaluations, and override default parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all supported columns.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+    .PARAMETER EncryptionMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
         UpdateType: Mutable
-        Type: ProfileConfiguration
+        PrimitiveType: String
 
-    .PARAMETER ValidationConfigurations
-        List of validation configurations that are applied to the profile job.
+    .PARAMETER MaxCapacity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-validationconfigurations
+    .PARAMETER DataCatalogOutputs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
         UpdateType: Mutable
         Type: List
-        ItemType: ValidationConfiguration
+        ItemType: DataCatalogOutput
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -226,6 +186,17 @@ function New-VSDataBrewJob {
         $LogicalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxRetries,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -234,7 +205,9 @@ function New-VSDataBrewJob {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DatasetName,
+        $ProjectName,
+        [parameter(Mandatory = $false)]
+        $Recipe,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -256,7 +229,42 @@ function New-VSDataBrewJob {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $EncryptionMode,
+        $LogSubscription,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Timeout,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DataBrew.Job.DatabaseOutput"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DatabaseOutputs,
+        [parameter(Mandatory = $false)]
+        $OutputLocation,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RoleArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -289,29 +297,9 @@ function New-VSDataBrewJob {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LogSubscription,
+        $DatasetName,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MaxCapacity,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MaxRetries,
+        $ProfileConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DataBrew.Job.Output"
@@ -325,7 +313,7 @@ function New-VSDataBrewJob {
         $Outputs,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DataBrew.Job.DataCatalogOutput"
+                $allowedTypes = "Vaporshell.Resource.DataBrew.Job.ValidationConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -333,47 +321,23 @@ function New-VSDataBrewJob {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DataCatalogOutputs,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DataBrew.Job.DatabaseOutput"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DatabaseOutputs,
-        [parameter(Mandatory = $false)]
-        $OutputLocation,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ProjectName,
-        [parameter(Mandatory = $false)]
-        $Recipe,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RoleArn,
+        $ValidationConfigurations,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        $JobSample,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EncryptionMode,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -384,14 +348,10 @@ function New-VSDataBrewJob {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Timeout,
-        [parameter(Mandatory = $false)]
-        $JobSample,
-        [parameter(Mandatory = $false)]
-        $ProfileConfiguration,
+        $MaxCapacity,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DataBrew.Job.ValidationConfiguration"
+                $allowedTypes = "Vaporshell.Resource.DataBrew.Job.DataCatalogOutput"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -399,7 +359,7 @@ function New-VSDataBrewJob {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ValidationConfigurations,
+        $DataCatalogOutputs,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -474,23 +434,23 @@ function New-VSDataBrewJob {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
+                DatabaseOutputs {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DatabaseOutputs -Value @($DatabaseOutputs)
+                }
                 Outputs {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Outputs -Value @($Outputs)
                 }
-                DataCatalogOutputs {
+                ValidationConfigurations {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DataCatalogOutputs -Value @($DataCatalogOutputs)
-                }
-                DatabaseOutputs {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DatabaseOutputs -Value @($DatabaseOutputs)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ValidationConfigurations -Value @($ValidationConfigurations)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {
@@ -498,11 +458,11 @@ function New-VSDataBrewJob {
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
-                ValidationConfigurations {
+                DataCatalogOutputs {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ValidationConfigurations -Value @($ValidationConfigurations)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DataCatalogOutputs -Value @($DataCatalogOutputs)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

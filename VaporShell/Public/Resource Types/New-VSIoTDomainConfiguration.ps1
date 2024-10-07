@@ -1,10 +1,10 @@
 function New-VSIoTDomainConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::DomainConfiguration resource to the template. Specifies a domain configuration.
+        Adds an AWS::IoT::DomainConfiguration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::DomainConfiguration resource to the template. Specifies a domain configuration.
+        Adds an AWS::IoT::DomainConfiguration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html
@@ -13,67 +13,53 @@ function New-VSIoTDomainConfiguration {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DomainConfigurationName
-        The name of the domain configuration. This value must be unique to a region.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER AuthorizerConfig
-        An object that specifies the authorization service for a domain.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
-        UpdateType: Mutable
-        Type: AuthorizerConfig
-
     .PARAMETER DomainName
-        The name of the domain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ServerCertificateArns
-        The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS-managed domains.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER ServiceType
-        The type of service delivered by the endpoint.
-AWS IoT Core currently supports only the DATA service type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ValidationCertificateArn
-        The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS-managed domains.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER DomainConfigurationStatus
-        The status to which the domain configuration should be updated.
-Valid values: ENABLED | DISABLED
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        Metadata which can be used to manage the domain configuration.
-For URI Request parameters use format: ...key1=value1&key2=value2...
-For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
-For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+    .PARAMETER ValidationCertificateArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER TlsConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tlsconfig
+        UpdateType: Mutable
+        Type: TlsConfig
+
+    .PARAMETER ServerCertificateArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER AuthorizerConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
+        UpdateType: Mutable
+        Type: AuthorizerConfig
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -149,8 +135,6 @@ For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
             })]
         $DomainConfigurationName,
         [parameter(Mandatory = $false)]
-        $AuthorizerConfig,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -161,8 +145,6 @@ For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
                 }
             })]
         $DomainName,
-        [parameter(Mandatory = $false)]
-        $ServerCertificateArns,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -184,7 +166,7 @@ For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ValidationCertificateArn,
+        $DomainConfigurationStatus,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -195,7 +177,13 @@ For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DomainConfigurationStatus,
+        $ValidationCertificateArn,
+        [parameter(Mandatory = $false)]
+        $TlsConfig,
+        [parameter(Mandatory = $false)]
+        $ServerCertificateArns,
+        [parameter(Mandatory = $false)]
+        $AuthorizerConfig,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

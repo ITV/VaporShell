@@ -1,18 +1,16 @@
 function Add-VSDynamoDBGlobalTablePointInTimeRecoverySpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.PointInTimeRecoverySpecification resource property to the template. Represents the settings used to enable point in time recovery.
+        Adds an AWS::DynamoDB::GlobalTable.PointInTimeRecoverySpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.PointInTimeRecoverySpecification resource property to the template.
-Represents the settings used to enable point in time recovery.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html
 
     .PARAMETER PointInTimeRecoveryEnabled
-        Indicates whether point in time recovery is enabled true or disabled false on the table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-pointintimerecoveryenabled
         UpdateType: Mutable
         PrimitiveType: Boolean

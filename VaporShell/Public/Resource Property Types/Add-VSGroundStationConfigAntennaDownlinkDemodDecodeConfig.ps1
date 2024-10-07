@@ -1,32 +1,26 @@
 function Add-VSGroundStationConfigAntennaDownlinkDemodDecodeConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.AntennaDownlinkDemodDecodeConfig resource property to the template. Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
+        Adds an AWS::GroundStation::Config.AntennaDownlinkDemodDecodeConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.AntennaDownlinkDemodDecodeConfig resource property to the template.
-Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html
 
-    .PARAMETER SpectrumConfig
-        Defines the spectrum configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-spectrumconfig
-        UpdateType: Mutable
-        Type: SpectrumConfig
-
     .PARAMETER DemodulationConfig
-        Defines how the RF signal will be demodulated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-demodulationconfig
         UpdateType: Mutable
         Type: DemodulationConfig
 
-    .PARAMETER DecodeConfig
-        Defines how the RF signal will be decoded.
+    .PARAMETER SpectrumConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-spectrumconfig
+        UpdateType: Mutable
+        Type: SpectrumConfig
 
+    .PARAMETER DecodeConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-decodeconfig
         UpdateType: Mutable
         Type: DecodeConfig
@@ -39,9 +33,9 @@ Provides information about how AWS Ground Station should configure an antenna fo
     Param
     (
         [parameter(Mandatory = $false)]
-        $SpectrumConfig,
-        [parameter(Mandatory = $false)]
         $DemodulationConfig,
+        [parameter(Mandatory = $false)]
+        $SpectrumConfig,
         [parameter(Mandatory = $false)]
         $DecodeConfig
     )

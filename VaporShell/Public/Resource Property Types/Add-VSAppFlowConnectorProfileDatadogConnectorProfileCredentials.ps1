@@ -1,26 +1,22 @@
 function Add-VSAppFlowConnectorProfileDatadogConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.DatadogConnectorProfileCredentials resource property to the template. The DatadogConnectorProfileCredentials property type specifies the connector-specific credentials required by Datadog.
+        Adds an AWS::AppFlow::ConnectorProfile.DatadogConnectorProfileCredentials resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.DatadogConnectorProfileCredentials resource property to the template.
-The DatadogConnectorProfileCredentials property type specifies the connector-specific credentials required by Datadog.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html
 
-    .PARAMETER ApiKey
-        A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey
+    .PARAMETER ApplicationKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-applicationkey
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ApplicationKey
-        Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-applicationkey
+    .PARAMETER ApiKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ The DatadogConnectorProfileCredentials property type specifies the connector-spe
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ApiKey,
+        $ApplicationKey,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ The DatadogConnectorProfileCredentials property type specifies the connector-spe
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ApplicationKey
+        $ApiKey
     )
     Begin {
         $obj = [PSCustomObject]@{}

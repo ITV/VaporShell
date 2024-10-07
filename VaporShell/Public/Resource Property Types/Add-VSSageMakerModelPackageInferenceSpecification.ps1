@@ -10,6 +10,20 @@ function Add-VSSageMakerModelPackageInferenceSpecification {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html
 
+    .PARAMETER SupportedContentTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedcontenttypes
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER SupportedRealtimeInferenceInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedrealtimeinferenceinstancetypes
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER Containers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-containers
         UpdateType: Immutable
@@ -17,29 +31,19 @@ function Add-VSSageMakerModelPackageInferenceSpecification {
         ItemType: ModelPackageContainerDefinition
         DuplicatesAllowed: False
 
-    .PARAMETER SupportedContentTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedcontenttypes
+    .PARAMETER SupportedTransformInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedtransforminstancetypes
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER SupportedRealtimeInferenceInstanceTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedrealtimeinferenceinstancetypes
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER SupportedResponseMIMETypes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedresponsemimetypes
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER SupportedTransformInstanceTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedtransforminstancetypes
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -48,6 +52,10 @@ function Add-VSSageMakerModelPackageInferenceSpecification {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $SupportedContentTypes,
+        [parameter(Mandatory = $false)]
+        $SupportedRealtimeInferenceInstanceTypes,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.ModelPackage.ModelPackageContainerDefinition"
@@ -59,14 +67,10 @@ function Add-VSSageMakerModelPackageInferenceSpecification {
                 }
             })]
         $Containers,
-        [parameter(Mandatory = $true)]
-        $SupportedContentTypes,
         [parameter(Mandatory = $false)]
-        $SupportedRealtimeInferenceInstanceTypes,
+        $SupportedTransformInstanceTypes,
         [parameter(Mandatory = $true)]
-        $SupportedResponseMIMETypes,
-        [parameter(Mandatory = $false)]
-        $SupportedTransformInstanceTypes
+        $SupportedResponseMIMETypes
     )
     Begin {
         $obj = [PSCustomObject]@{}

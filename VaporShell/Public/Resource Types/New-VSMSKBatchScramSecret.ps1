@@ -1,10 +1,10 @@
 function New-VSMSKBatchScramSecret {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::BatchScramSecret resource to the template. Represents a secret stored in the Amazon Secrets Manager that can be used to authenticate with a cluster using a user name and a password.
+        Adds an AWS::MSK::BatchScramSecret resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::MSK::BatchScramSecret resource to the template. Represents a secret stored in the Amazon Secrets Manager that can be used to authenticate with a cluster using a user name and a password.
+        Adds an AWS::MSK::BatchScramSecret resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html
@@ -13,19 +13,16 @@ function New-VSMSKBatchScramSecret {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ClusterArn
-        The Amazon Resource Name ARN of the MSK cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html#cfn-msk-batchscramsecret-clusterarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SecretArnList
-        A list of Amazon Secrets Manager secret ARNs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html#cfn-msk-batchscramsecret-secretarnlist
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

@@ -1,18 +1,16 @@
 function Add-VSSageMakerDataQualityJobDefinitionMonitoringResources {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::DataQualityJobDefinition.MonitoringResources resource property to the template. Identifies the resources to deploy for a monitoring job.
+        Adds an AWS::SageMaker::DataQualityJobDefinition.MonitoringResources resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::DataQualityJobDefinition.MonitoringResources resource property to the template.
-Identifies the resources to deploy for a monitoring job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
 
     .PARAMETER ClusterConfig
-        The configuration for the cluster resources used to run the processing job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
         UpdateType: Immutable
         Type: ClusterConfig

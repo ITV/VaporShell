@@ -1,25 +1,21 @@
 function Add-VSLexBotAliasTextLogSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.TextLogSetting resource property to the template. Defines settings to enable conversation logs.
+        Adds an AWS::Lex::BotAlias.TextLogSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.TextLogSetting resource property to the template.
-Defines settings to enable conversation logs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogsetting.html
 
     .PARAMETER Destination
-        Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogsetting.html#cfn-lex-botalias-textlogsetting-destination
         UpdateType: Mutable
         Type: TextLogDestination
 
     .PARAMETER Enabled
-        Determines whether conversation logs should be stored for an alias.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogsetting.html#cfn-lex-botalias-textlogsetting-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

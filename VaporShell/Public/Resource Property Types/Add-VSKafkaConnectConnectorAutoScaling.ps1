@@ -1,46 +1,36 @@
 function Add-VSKafkaConnectConnectorAutoScaling {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.AutoScaling resource property to the template. Specifies how the connector scales.
+        Adds an AWS::KafkaConnect::Connector.AutoScaling resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.AutoScaling resource property to the template.
-Specifies how the connector scales.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html
 
-    .PARAMETER MaxWorkerCount
-        The maximum number of workers allocated to the connector.
+    .PARAMETER ScaleOutPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-scaleoutpolicy
+        UpdateType: Mutable
+        Type: ScaleOutPolicy
 
+    .PARAMETER ScaleInPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-scaleinpolicy
+        UpdateType: Mutable
+        Type: ScaleInPolicy
+
+    .PARAMETER MaxWorkerCount
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-maxworkercount
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER MinWorkerCount
-        The minimum number of workers allocated to the connector.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-minworkercount
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER ScaleInPolicy
-        The sacle-in policy for the connector.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-scaleinpolicy
-        UpdateType: Mutable
-        Type: ScaleInPolicy
-
-    .PARAMETER ScaleOutPolicy
-        The sacle-out policy for the connector.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-scaleoutpolicy
-        UpdateType: Mutable
-        Type: ScaleOutPolicy
-
     .PARAMETER McuCount
-        The number of microcontroller units MCUs allocated to each connector worker. The valid values are 1,2,4,8.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-mcucount
         UpdateType: Mutable
         PrimitiveType: Integer
@@ -52,6 +42,10 @@ Specifies how the connector scales.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $ScaleOutPolicy,
+        [parameter(Mandatory = $true)]
+        $ScaleInPolicy,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -74,10 +68,6 @@ Specifies how the connector scales.
                 }
             })]
         $MinWorkerCount,
-        [parameter(Mandatory = $true)]
-        $ScaleInPolicy,
-        [parameter(Mandatory = $true)]
-        $ScaleOutPolicy,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

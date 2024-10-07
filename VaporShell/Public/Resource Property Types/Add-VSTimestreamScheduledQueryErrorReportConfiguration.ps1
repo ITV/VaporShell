@@ -1,18 +1,16 @@
 function Add-VSTimestreamScheduledQueryErrorReportConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::ScheduledQuery.ErrorReportConfiguration resource property to the template. Configuration required for error reporting.
+        Adds an AWS::Timestream::ScheduledQuery.ErrorReportConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Timestream::ScheduledQuery.ErrorReportConfiguration resource property to the template.
-Configuration required for error reporting.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html
 
     .PARAMETER S3Configuration
-        The S3 configuration for the error reports.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html#cfn-timestream-scheduledquery-errorreportconfiguration-s3configuration
         UpdateType: Immutable
         Type: S3Configuration

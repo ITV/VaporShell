@@ -1,39 +1,31 @@
 function Add-VSPinpointCampaignInAppMessageButton {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Campaign.InAppMessageButton resource property to the template. Specifies the configuration of a button that appears in an in-app message.
+        Adds an AWS::Pinpoint::Campaign.InAppMessageButton resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Campaign.InAppMessageButton resource property to the template.
-Specifies the configuration of a button that appears in an in-app message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html
 
     .PARAMETER Web
-        An object that defines the default behavior for a button in in-app messages for web applications.
-
         Type: OverrideButtonConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-web
         UpdateType: Mutable
 
     .PARAMETER DefaultConfig
-        An object that defines the default behavior for a button in an in-app message.
-
         Type: DefaultButtonConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-defaultconfig
         UpdateType: Mutable
 
     .PARAMETER IOS
-        An object that defines the default behavior for a button in in-app messages sent to iOS devices.
-
         Type: OverrideButtonConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-ios
         UpdateType: Mutable
 
     .PARAMETER Android
-        An object that defines the default behavior for a button in in-app messages sent to Android.
-
         Type: OverrideButtonConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-android
         UpdateType: Mutable

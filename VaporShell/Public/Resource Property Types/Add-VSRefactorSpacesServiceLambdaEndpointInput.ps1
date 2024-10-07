@@ -1,18 +1,16 @@
 function Add-VSRefactorSpacesServiceLambdaEndpointInput {
     <#
     .SYNOPSIS
-        Adds an AWS::RefactorSpaces::Service.LambdaEndpointInput resource property to the template. The input for the AWS Lambda endpoint type.
+        Adds an AWS::RefactorSpaces::Service.LambdaEndpointInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::RefactorSpaces::Service.LambdaEndpointInput resource property to the template.
-The input for the AWS Lambda endpoint type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-lambdaendpointinput.html
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the Lambda endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-lambdaendpointinput.html#cfn-refactorspaces-service-lambdaendpointinput-arn
         UpdateType: Immutable
         PrimitiveType: String

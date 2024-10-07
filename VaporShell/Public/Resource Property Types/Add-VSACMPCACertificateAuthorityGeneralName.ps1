@@ -1,70 +1,54 @@
 function Add-VSACMPCACertificateAuthorityGeneralName {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::CertificateAuthority.GeneralName resource property to the template. Describes an ASN.1 X.400 GeneralName as defined in RFC 5280: https://tools.ietf.org/html/rfc5280. Only one of the following naming options should be provided. Providing more than one option results in an InvalidArgsException error.
+        Adds an AWS::ACMPCA::CertificateAuthority.GeneralName resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::CertificateAuthority.GeneralName resource property to the template.
-Describes an ASN.1 X.400 GeneralName as defined in RFC 5280: https://tools.ietf.org/html/rfc5280. Only one of the following naming options should be provided. Providing more than one option results in an InvalidArgsException error.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html
 
-    .PARAMETER OtherName
-        Represents GeneralName using an OtherName object.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername
-        UpdateType: Immutable
-        Type: OtherName
-
-    .PARAMETER Rfc822Name
-        Represents GeneralName as an RFC 822: https://tools.ietf.org/html/rfc822 email address.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DnsName
-        Represents GeneralName as a DNS name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DirectoryName
-        Contains information about the certificate subject. The certificate can be one issued by your private certificate authority CA or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name DN. A DN is a sequence of relative distinguished names RDNs. The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname
-        UpdateType: Immutable
-        Type: Subject
-
-    .PARAMETER EdiPartyName
-        Represents GeneralName as an EdiPartyName object.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname
-        UpdateType: Immutable
-        Type: EdiPartyName
-
     .PARAMETER UniformResourceIdentifier
-        Represents GeneralName as a URI.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-uniformresourceidentifier
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER IpAddress
-        Represents GeneralName as an IPv4 or IPv6 address.
+    .PARAMETER DnsName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER EdiPartyName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname
+        UpdateType: Immutable
+        Type: EdiPartyName
+
+    .PARAMETER RegisteredId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Rfc822Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER OtherName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername
+        UpdateType: Immutable
+        Type: OtherName
+
+    .PARAMETER IpAddress
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-ipaddress
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER RegisteredId
-        Represents GeneralName as an object identifier OID.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid
+    .PARAMETER DirectoryName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname
         UpdateType: Immutable
-        PrimitiveType: String
+        Type: Subject
 
     .FUNCTIONALITY
         Vaporshell
@@ -73,34 +57,6 @@ Describes an ASN.1 X.400 GeneralName as defined in RFC 5280: https://tools.ietf.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $OtherName,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Rfc822Name,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DnsName,
-        [parameter(Mandatory = $false)]
-        $DirectoryName,
-        [parameter(Mandatory = $false)]
-        $EdiPartyName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -122,7 +78,9 @@ Describes an ASN.1 X.400 GeneralName as defined in RFC 5280: https://tools.ietf.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IpAddress,
+        $DnsName,
+        [parameter(Mandatory = $false)]
+        $EdiPartyName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -133,7 +91,33 @@ Describes an ASN.1 X.400 GeneralName as defined in RFC 5280: https://tools.ietf.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RegisteredId
+        $RegisteredId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Rfc822Name,
+        [parameter(Mandatory = $false)]
+        $OtherName,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IpAddress,
+        [parameter(Mandatory = $false)]
+        $DirectoryName
     )
     Begin {
         $obj = [PSCustomObject]@{}

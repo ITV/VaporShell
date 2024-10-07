@@ -1,18 +1,16 @@
 function Add-VSS3StorageLensActivityMetrics {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.ActivityMetrics resource property to the template. This resource contains the details of the activity metrics for Amazon S3 Storage Lens.
+        Adds an AWS::S3::StorageLens.ActivityMetrics resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.ActivityMetrics resource property to the template.
-This resource contains the details of the activity metrics for Amazon S3 Storage Lens.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
 
     .PARAMETER IsEnabled
-        A property that indicates whether the activity metrics is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
         UpdateType: Mutable
         PrimitiveType: Boolean

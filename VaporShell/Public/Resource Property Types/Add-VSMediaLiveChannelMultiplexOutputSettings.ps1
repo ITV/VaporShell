@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelMultiplexOutputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.MultiplexOutputSettings resource property to the template. Configuration of a Multiplex output.
+        Adds an AWS::MediaLive::Channel.MultiplexOutputSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.MultiplexOutputSettings resource property to the template.
-Configuration of a Multiplex output.
 
-The parent of this entity is OutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html
 
     .PARAMETER Destination
-        Destination is a Multiplex.
-
         Type: OutputLocationRef
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html#cfn-medialive-channel-multiplexoutputsettings-destination
         UpdateType: Mutable

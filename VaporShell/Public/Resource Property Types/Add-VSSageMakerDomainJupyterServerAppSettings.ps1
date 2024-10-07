@@ -1,18 +1,16 @@
 function Add-VSSageMakerDomainJupyterServerAppSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Domain.JupyterServerAppSettings resource property to the template. The JupyterServer app settings.
+        Adds an AWS::SageMaker::Domain.JupyterServerAppSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Domain.JupyterServerAppSettings resource property to the template.
-The JupyterServer app settings.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
 
     .PARAMETER DefaultResourceSpec
-        The default instance type and the Amazon Resource Name ARN of the default SageMaker image used by the JupyterServer app.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
         UpdateType: Mutable
         Type: ResourceSpec

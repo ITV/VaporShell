@@ -1,28 +1,24 @@
 function Add-VSSageMakerMonitoringScheduleBaselineConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.BaselineConfig resource property to the template. Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+        Adds an AWS::SageMaker::MonitoringSchedule.BaselineConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.BaselineConfig resource property to the template.
-Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
 
-    .PARAMETER ConstraintsResource
-        The Amazon S3 URI for the constraints resource.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
-        UpdateType: Mutable
-        Type: ConstraintsResource
-
     .PARAMETER StatisticsResource
-        The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
         UpdateType: Mutable
         Type: StatisticsResource
+
+    .PARAMETER ConstraintsResource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
+        UpdateType: Mutable
+        Type: ConstraintsResource
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ Baseline configuration used to validate that the data conforms to the specified 
     Param
     (
         [parameter(Mandatory = $false)]
-        $ConstraintsResource,
+        $StatisticsResource,
         [parameter(Mandatory = $false)]
-        $StatisticsResource
+        $ConstraintsResource
     )
     Begin {
         $obj = [PSCustomObject]@{}

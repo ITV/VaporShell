@@ -41,6 +41,13 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         Type: List
         UpdateType: Mutable
 
+    .PARAMETER AllowedInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-allowedinstancetypes
+        DuplicatesAllowed: False
+        PrimitiveItemType: String
+        Type: List
+        UpdateType: Mutable
+
     .PARAMETER BareMetal
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baremetal
         PrimitiveType: String
@@ -99,6 +106,11 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         Type: MemoryMiBRequest
         UpdateType: Mutable
 
+    .PARAMETER NetworkBandwidthGbps
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkbandwidthgbps
+        Type: NetworkBandwidthGbpsRequest
+        UpdateType: Mutable
+
     .PARAMETER NetworkInterfaceCount
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkinterfacecount
         Type: NetworkInterfaceCountRequest
@@ -147,6 +159,8 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         [parameter(Mandatory = $false)]
         $AcceleratorTypes,
         [parameter(Mandatory = $false)]
+        $AllowedInstanceTypes,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -193,6 +207,8 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         $MemoryGiBPerVCpu,
         [parameter(Mandatory = $false)]
         $MemoryMiB,
+        [parameter(Mandatory = $false)]
+        $NetworkBandwidthGbps,
         [parameter(Mandatory = $false)]
         $NetworkInterfaceCount,
         [parameter(Mandatory = $false)]

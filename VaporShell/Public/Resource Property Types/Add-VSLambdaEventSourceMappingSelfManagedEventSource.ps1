@@ -1,18 +1,16 @@
 function Add-VSLambdaEventSourceMappingSelfManagedEventSource {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::EventSourceMapping.SelfManagedEventSource resource property to the template. The self-managed Apache Kafka cluster for your event source.
+        Adds an AWS::Lambda::EventSourceMapping.SelfManagedEventSource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lambda::EventSourceMapping.SelfManagedEventSource resource property to the template.
-The self-managed Apache Kafka cluster for your event source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html
 
     .PARAMETER Endpoints
-        The list of bootstrap servers for your Kafka brokers in the following format: "KafkaBootstrapServers": "abc.xyz.com:xxxx","abc2.xyz.com:xxxx"].
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
         UpdateType: Immutable
         Type: Endpoints

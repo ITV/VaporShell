@@ -1,10 +1,10 @@
 function New-VSEC2EC2Fleet {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet resource to the template. Specifies the configuration information to launch a fleet--or group--of instances. An EC2 Fleet can launch multiple instance types across multiple Availability Zones, using the On-Demand Instance, Reserved Instance, and Spot Instance purchasing models together. Using EC2 Fleet, you can define separate On-Demand and Spot capacity targets, specify the instance types that work best for your applications, and specify how Amazon EC2 should distribute your fleet capacity within each purchasing model. For more information, see Launching an EC2 Fleet: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html in the *Amazon EC2 User Guide for Linux Instances*.
+        Adds an AWS::EC2::EC2Fleet resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::EC2Fleet resource to the template. Specifies the configuration information to launch a fleet--or group--of instances. An EC2 Fleet can launch multiple instance types across multiple Availability Zones, using the On-Demand Instance, Reserved Instance, and Spot Instance purchasing models together. Using EC2 Fleet, you can define separate On-Demand and Spot capacity targets, specify the instance types that work best for your applications, and specify how Amazon EC2 should distribute your fleet capacity within each purchasing model. For more information, see Launching an EC2 Fleet: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html in the *Amazon EC2 User Guide for Linux Instances*.
+        Adds an AWS::EC2::EC2Fleet resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
@@ -12,43 +12,32 @@ function New-VSEC2EC2Fleet {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER TargetCapacitySpecification
-        The number of units to request.
+    .PARAMETER Context
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER TargetCapacitySpecification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
         UpdateType: Mutable
         Type: TargetCapacitySpecificationRequest
 
     .PARAMETER OnDemandOptions
-        Describes the configuration of On-Demand Instances in an EC2 Fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
         UpdateType: Immutable
         Type: OnDemandOptionsRequest
 
     .PARAMETER Type
-        The fleet type. The default value is maintain.
-+  maintain - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
-+  request - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
-+  instant - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
-For more information, see EC2 Fleet request types: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html in the *Amazon EC2 User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ExcessCapacityTerminationPolicy
-        Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TagSpecifications
-        The key-value pair for tagging the EC2 Fleet request on creation. For more information, see Tagging your resources: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources.
-If the fleet type is instant, specify a resource type of fleet to tag the fleet or instance to tag the instances at launch.
-If the fleet type is maintain or request, specify a resource type of fleet to tag the fleet. You cannot specify a resource type of instance. To tag instances at launch, specify the tags in a launch template: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
         UpdateType: Immutable
         Type: List
@@ -56,29 +45,21 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
         DuplicatesAllowed: True
 
     .PARAMETER SpotOptions
-        Describes the configuration of Spot Instances in an EC2 Fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
         UpdateType: Immutable
         Type: SpotOptionsRequest
 
     .PARAMETER ValidFrom
-        The start date and time of the request, in UTC format for example, *YYYY*-*MM*-*DD*T*HH*:*MM*:*SS*Z. The default is to start fulfilling the request immediately.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ReplaceUnhealthyInstances
-        Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type maintain. For more information, see EC2 Fleet health checks: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks in the *Amazon EC2 User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER LaunchTemplateConfigs
-        The configuration for the EC2 Fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
         UpdateType: Immutable
         Type: List
@@ -86,24 +67,13 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
         DuplicatesAllowed: True
 
     .PARAMETER TerminateInstancesWithExpiration
-        Indicates whether running instances should be terminated when the EC2 Fleet expires.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER ValidUntil
-        The end date and time of the request, in UTC format for example, *YYYY*-*MM*-*DD*T*HH*:*MM*:*SS*Z. At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
         UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Context
-        Reserved.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy
@@ -168,6 +138,17 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Context,
         [parameter(Mandatory = $true)]
         $TargetCapacitySpecification,
         [parameter(Mandatory = $false)]
@@ -262,17 +243,6 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
                 }
             })]
         $ValidUntil,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Context,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

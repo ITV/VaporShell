@@ -1,10 +1,10 @@
 function New-VSMemoryDBACL {
     <#
     .SYNOPSIS
-        Adds an AWS::MemoryDB::ACL resource to the template. Specifies an Access Control List. For more information, see Authenticating users with Access Contol Lists (ACLs: https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html.
+        Adds an AWS::MemoryDB::ACL resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::MemoryDB::ACL resource to the template. Specifies an Access Control List. For more information, see Authenticating users with Access Contol Lists (ACLs: https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html.
+        Adds an AWS::MemoryDB::ACL resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html
@@ -13,15 +13,11 @@ function New-VSMemoryDBACL {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ACLName
-        The name of the Access Control List.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html#cfn-memorydb-acl-aclname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER UserNames
-        The list of users that belong to the Access Control List.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html#cfn-memorydb-acl-usernames
         UpdateType: Mutable
         Type: List
@@ -29,9 +25,6 @@ function New-VSMemoryDBACL {
         DuplicatesAllowed: False
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html#cfn-memorydb-acl-tags
         UpdateType: Mutable
         Type: List

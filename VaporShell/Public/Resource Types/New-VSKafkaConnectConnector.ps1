@@ -1,10 +1,10 @@
 function New-VSKafkaConnectConnector {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector resource to the template. Creates a connector using the specified properties.
+        Adds an AWS::KafkaConnect::Connector resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::KafkaConnect::Connector resource to the template. Creates a connector using the specified properties.
+        Adds an AWS::KafkaConnect::Connector resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html
@@ -12,92 +12,68 @@ function New-VSKafkaConnectConnector {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Capacity
-        The connector's compute capacity settings.
+    .PARAMETER KafkaCluster
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkacluster
+        UpdateType: Immutable
+        Type: KafkaCluster
 
+    .PARAMETER KafkaConnectVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaconnectversion
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER WorkerConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-workerconfiguration
+        UpdateType: Immutable
+        Type: WorkerConfiguration
+
+    .PARAMETER Capacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-capacity
         UpdateType: Mutable
         Type: Capacity
 
-    .PARAMETER ConnectorConfiguration
-        The configuration of the connector.
+    .PARAMETER KafkaClusterEncryptionInTransit
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit
+        UpdateType: Immutable
+        Type: KafkaClusterEncryptionInTransit
 
+    .PARAMETER ConnectorDescription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectordescription
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER KafkaClusterClientAuthentication
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterclientauthentication
+        UpdateType: Immutable
+        Type: KafkaClusterClientAuthentication
+
+    .PARAMETER ConnectorName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ServiceExecutionRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-serviceexecutionrolearn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ConnectorConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorconfiguration
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
 
-    .PARAMETER ConnectorDescription
-        The description of the connector.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectordescription
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ConnectorName
-        The name of the connector.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER KafkaCluster
-        The details of the Apache Kafka cluster to which the connector is connected.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkacluster
-        UpdateType: Immutable
-        Type: KafkaCluster
-
-    .PARAMETER KafkaClusterClientAuthentication
-        The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterclientauthentication
-        UpdateType: Immutable
-        Type: KafkaClusterClientAuthentication
-
-    .PARAMETER KafkaClusterEncryptionInTransit
-        Details of encryption in transit to the Apache Kafka cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit
-        UpdateType: Immutable
-        Type: KafkaClusterEncryptionInTransit
-
-    .PARAMETER KafkaConnectVersion
-        The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaconnectversion
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER LogDelivery
-        The settings for delivering connector logs to Amazon CloudWatch Logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-logdelivery
         UpdateType: Immutable
         Type: LogDelivery
 
     .PARAMETER Plugins
-        Specifies which plugins were used for this connector.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-plugins
         UpdateType: Immutable
         Type: List
         ItemType: Plugin
         DuplicatesAllowed: False
-
-    .PARAMETER ServiceExecutionRoleArn
-        The Amazon Resource Name ARN of the IAM role used by the connector to access Amazon Web Services resources.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-serviceexecutionrolearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER WorkerConfiguration
-        The worker configurations that are in use with the connector.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-workerconfiguration
-        UpdateType: Immutable
-        Type: WorkerConfiguration
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -162,10 +138,24 @@ function New-VSKafkaConnectConnector {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
+        $KafkaCluster,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $KafkaConnectVersion,
+        [parameter(Mandatory = $false)]
+        $WorkerConfiguration,
+        [parameter(Mandatory = $true)]
         $Capacity,
         [parameter(Mandatory = $true)]
-        [System.Collections.Hashtable]
-        $ConnectorConfiguration,
+        $KafkaClusterEncryptionInTransit,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -178,6 +168,8 @@ function New-VSKafkaConnectConnector {
             })]
         $ConnectorDescription,
         [parameter(Mandatory = $true)]
+        $KafkaClusterClientAuthentication,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -189,12 +181,6 @@ function New-VSKafkaConnectConnector {
             })]
         $ConnectorName,
         [parameter(Mandatory = $true)]
-        $KafkaCluster,
-        [parameter(Mandatory = $true)]
-        $KafkaClusterClientAuthentication,
-        [parameter(Mandatory = $true)]
-        $KafkaClusterEncryptionInTransit,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -204,7 +190,10 @@ function New-VSKafkaConnectConnector {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $KafkaConnectVersion,
+        $ServiceExecutionRoleArn,
+        [parameter(Mandatory = $true)]
+        [System.Collections.Hashtable]
+        $ConnectorConfiguration,
         [parameter(Mandatory = $false)]
         $LogDelivery,
         [parameter(Mandatory = $true)]
@@ -218,19 +207,6 @@ function New-VSKafkaConnectConnector {
                 }
             })]
         $Plugins,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ServiceExecutionRoleArn,
-        [parameter(Mandatory = $false)]
-        $WorkerConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

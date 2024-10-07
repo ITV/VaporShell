@@ -1,18 +1,16 @@
 function Add-VSQuickSightDataSourceAmazonOpenSearchParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.AmazonOpenSearchParameters resource property to the template. The parameters for OpenSearch.
+        Adds an AWS::QuickSight::DataSource.AmazonOpenSearchParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.AmazonOpenSearchParameters resource property to the template.
-The parameters for OpenSearch.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonopensearchparameters.html
 
     .PARAMETER Domain
-        The OpenSearch domain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonopensearchparameters.html#cfn-quicksight-datasource-amazonopensearchparameters-domain
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,14 +1,10 @@
 function New-VSEC2Route {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::Route resource to the template. Specifies a route in a route table within a VPC.
+        Adds an AWS::EC2::Route resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::Route resource to the template. Specifies a route in a route table within a VPC.
-
-You must specify either DestinationCidrBlock or DestinationIpv6CidrBlock, plus the ID of one of the target resources.
-
-If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a  DependsOn Attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html in the AWS::EC2::Route resource to explicitly declare a dependency on the AWS::EC2::TransitGatewayAttachment resource.
+        Adds an AWS::EC2::Route resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
@@ -17,92 +13,66 @@ If you create a route that references a transit gateway in the same template whe
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CarrierGatewayId
-        The ID of the carrier gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DestinationCidrBlock
-        The IPv4 CIDR block used for the destination match.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER DestinationIpv6CidrBlock
-        The IPv6 CIDR block used for the destination match.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER EgressOnlyInternetGatewayId
-        The ID of the egress-only internet gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER GatewayId
-        The ID of an internet gateway or virtual private gateway attached to your VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-gatewayid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER InstanceId
-        The ID of a NAT instance in your VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-instanceid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER LocalGatewayId
-        The ID of the local gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NatGatewayId
-        The ID of a NAT gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NetworkInterfaceId
-        The ID of the network interface.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-networkinterfaceid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RouteTableId
-        The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-routetableid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER TransitGatewayId
-        The ID of a transit gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-transitgatewayid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER VpcEndpointId
-        The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER VpcPeeringConnectionId
-        The ID of a VPC peering connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid
         PrimitiveType: String
         UpdateType: Mutable

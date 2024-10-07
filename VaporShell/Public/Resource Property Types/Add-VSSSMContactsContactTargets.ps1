@@ -1,28 +1,24 @@
 function Add-VSSSMContactsContactTargets {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMContacts::Contact.Targets resource property to the template. The contact or contact channel that's being engaged.
+        Adds an AWS::SSMContacts::Contact.Targets resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSMContacts::Contact.Targets resource property to the template.
-The contact or contact channel that's being engaged.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
 
-    .PARAMETER ContactTargetInfo
-        The contact that Incident Manager is engaging during an incident.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
-        UpdateType: Mutable
-        Type: ContactTargetInfo
-
     .PARAMETER ChannelTargetInfo
-        Information about the contact channel Incident Manager is engaging.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
         UpdateType: Mutable
         Type: ChannelTargetInfo
+
+    .PARAMETER ContactTargetInfo
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
+        UpdateType: Mutable
+        Type: ContactTargetInfo
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ The contact or contact channel that's being engaged.
     Param
     (
         [parameter(Mandatory = $false)]
-        $ContactTargetInfo,
+        $ChannelTargetInfo,
         [parameter(Mandatory = $false)]
-        $ChannelTargetInfo
+        $ContactTargetInfo
     )
     Begin {
         $obj = [PSCustomObject]@{}

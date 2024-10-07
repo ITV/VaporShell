@@ -1,14 +1,10 @@
 function New-VSS3OutpostsAccessPoint {
     <#
     .SYNOPSIS
-        Adds an AWS::S3Outposts::AccessPoint resource to the template. The AWS::S3Outposts::AccessPoint resource specifies an access point and associates it with the specified Amazon S3 on Outposts bucket. For more information, see Managing data access with Amazon S3 access points: https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html.
+        Adds an AWS::S3Outposts::AccessPoint resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::S3Outposts::AccessPoint resource to the template. The AWS::S3Outposts::AccessPoint resource specifies an access point and associates it with the specified Amazon S3 on Outposts bucket. For more information, see Managing data access with Amazon S3 access points: https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html.
-
-**Note**
-
-S3 on Outposts supports only VPC-style access points.
+        Adds an AWS::S3Outposts::AccessPoint resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html
@@ -16,33 +12,25 @@ S3 on Outposts supports only VPC-style access points.
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Bucket
-        The Amazon Resource Name ARN of the S3 on Outposts bucket that is associated with this access point.
+    .PARAMETER Policy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
+        UpdateType: Mutable
+        PrimitiveType: Json
 
+    .PARAMETER Bucket
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        The name of this access point.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER VpcConfiguration
-        The virtual private cloud VPC configuration for this access point, if one exists.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
         UpdateType: Immutable
         Type: VpcConfiguration
 
-    .PARAMETER Policy
-        The access point policy associated with this access point.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
-        UpdateType: Mutable
-        PrimitiveType: Json
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -106,6 +94,17 @@ S3 on Outposts supports only VPC-style access points.
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Policy,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -118,6 +117,8 @@ S3 on Outposts supports only VPC-style access points.
             })]
         $Bucket,
         [parameter(Mandatory = $true)]
+        $VpcConfiguration,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -128,19 +129,6 @@ S3 on Outposts supports only VPC-style access points.
                 }
             })]
         $Name,
-        [parameter(Mandatory = $true)]
-        $VpcConfiguration,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Policy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

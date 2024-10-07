@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowZendeskSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.ZendeskSourceProperties resource property to the template. The properties that are applied when using Zendesk as a flow source.
+        Adds an AWS::AppFlow::Flow.ZendeskSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.ZendeskSourceProperties resource property to the template.
-The properties that are applied when using Zendesk as a flow source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html
 
     .PARAMETER Object
-        The object specified in the Zendesk flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

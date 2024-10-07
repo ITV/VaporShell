@@ -1,18 +1,16 @@
 function Add-VSEventsRuleRunCommandParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.RunCommandParameters resource property to the template. This parameter contains the criteria (either InstanceIds or a tag used to specify which EC2 instances are to be sent the command.
+        Adds an AWS::Events::Rule.RunCommandParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.RunCommandParameters resource property to the template.
-This parameter contains the criteria (either InstanceIds or a tag used to specify which EC2 instances are to be sent the command.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html
 
     .PARAMETER RunCommandTargets
-        Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html#cfn-events-rule-runcommandparameters-runcommandtargets
         DuplicatesAllowed: False
         ItemType: RunCommandTarget

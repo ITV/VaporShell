@@ -10,15 +10,15 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html
 
-    .PARAMETER WorkerCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workercount
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER WorkerConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workerconfiguration
         UpdateType: Mutable
         Type: WorkerConfiguration
+
+    .PARAMETER WorkerCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workercount
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
@@ -27,6 +27,8 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfig {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $WorkerConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -37,9 +39,7 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfig {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $WorkerCount,
-        [parameter(Mandatory = $true)]
-        $WorkerConfiguration
+        $WorkerCount
     )
     Begin {
         $obj = [PSCustomObject]@{}

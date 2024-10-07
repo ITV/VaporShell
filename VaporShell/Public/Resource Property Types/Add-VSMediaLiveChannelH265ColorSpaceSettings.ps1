@@ -1,41 +1,36 @@
 function Add-VSMediaLiveChannelH265ColorSpaceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.H265ColorSpaceSettings resource property to the template. H265 Color Space Settings
+        Adds an AWS::MediaLive::Channel.H265ColorSpaceSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.H265ColorSpaceSettings resource property to the template.
-H265 Color Space Settings
 
-The parent of this entity is H265Settings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html
 
     .PARAMETER Rec601Settings
-        Settings to configure the handling of Rec601 color space.
-
         Type: Rec601Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-rec601settings
         UpdateType: Mutable
 
     .PARAMETER Rec709Settings
-        Settings to configure the handling of Rec709 color space.
-
         Type: Rec709Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-rec709settings
         UpdateType: Mutable
 
     .PARAMETER ColorSpacePassthroughSettings
-        Passthrough applies no color space conversion to the output.
-
         Type: ColorSpacePassthroughSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-colorspacepassthroughsettings
         UpdateType: Mutable
 
-    .PARAMETER Hdr10Settings
-        Settings to configure the handling of HDR10 color space.
+    .PARAMETER DolbyVision81Settings
+        Type: DolbyVision81Settings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-dolbyvision81settings
+        UpdateType: Mutable
 
+    .PARAMETER Hdr10Settings
         Type: Hdr10Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-hdr10settings
         UpdateType: Mutable
@@ -53,6 +48,8 @@ The parent of this entity is H265Settings.
         $Rec709Settings,
         [parameter(Mandatory = $false)]
         $ColorSpacePassthroughSettings,
+        [parameter(Mandatory = $false)]
+        $DolbyVision81Settings,
         [parameter(Mandatory = $false)]
         $Hdr10Settings
     )

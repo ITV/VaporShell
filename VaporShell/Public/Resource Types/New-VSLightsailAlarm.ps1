@@ -1,10 +1,10 @@
 function New-VSLightsailAlarm {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Alarm resource to the template. The AWS::Lightsail::Alarm resource specifies an alarm that can be used to monitor a single metric for one of your Lightsail resources.
+        Adds an AWS::Lightsail::Alarm resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lightsail::Alarm resource to the template. The AWS::Lightsail::Alarm resource specifies an alarm that can be used to monitor a single metric for one of your Lightsail resources.
+        Adds an AWS::Lightsail::Alarm resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html
@@ -12,70 +12,54 @@ function New-VSLightsailAlarm {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AlarmName
-        The name of the alarm.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-alarmname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER MonitoredResourceName
-        The name of the Lightsail resource that the alarm monitors.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-monitoredresourcename
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER MetricName
-        The name of the metric associated with the alarm.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-metricname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ComparisonOperator
-        The arithmetic operation to use when comparing the specified statistic and threshold.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-comparisonoperator
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ContactProtocols
-        The contact protocols for the alarm, such as Email, SMS text messaging, or both.
-*Allowed Values*: Email | SMS
+    .PARAMETER TreatMissingData
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-treatmissingdata
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER AlarmName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-alarmname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ContactProtocols
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-contactprotocols
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER DatapointsToAlarm
-        The number of data points within the evaluation periods that must be breaching to cause the alarm to go to the ALARM state.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-datapointstoalarm
-        UpdateType: Mutable
-        PrimitiveType: Integer
+    .PARAMETER MonitoredResourceName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-monitoredresourcename
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER EvaluationPeriods
-        The number of periods over which data is compared to the specified threshold.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-evaluationperiods
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER NotificationEnabled
-        A Boolean value indicating whether the alarm is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-notificationenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER NotificationTriggers
-        The alarm states that trigger a notification.
-To specify the OK and INSUFFICIENT_DATA values, you must also specify ContactProtocols values. Otherwise, the OK and INSUFFICIENT_DATA values will not take effect and the stack will drift.
-*Allowed Values*: OK | ALARM | INSUFFICIENT_DATA
+    .PARAMETER DatapointsToAlarm
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-datapointstoalarm
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
+    .PARAMETER NotificationTriggers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-notificationtriggers
         UpdateType: Mutable
         Type: List
@@ -83,23 +67,9 @@ To specify the OK and INSUFFICIENT_DATA values, you must also specify ContactPro
         DuplicatesAllowed: False
 
     .PARAMETER Threshold
-        The value against which the specified statistic is compared.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-threshold
         UpdateType: Mutable
         PrimitiveType: Double
-
-    .PARAMETER TreatMissingData
-        Specifies how the alarm handles missing data points.
-An alarm can treat missing data in the following ways:
-+  breaching - Assumes the missing data is not within the threshold. Missing data counts towards the number of times that the metric is not within the threshold.
-+  notBreaching - Assumes the missing data is within the threshold. Missing data does not count towards the number of times that the metric is not within the threshold.
-+  ignore - Ignores the missing data. Maintains the current alarm state.
-+  missing - Missing data is treated as missing.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-treatmissingdata
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -173,28 +143,6 @@ An alarm can treat missing data in the following ways:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AlarmName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MonitoredResourceName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $MetricName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -208,10 +156,8 @@ An alarm can treat missing data in the following ways:
             })]
         $ComparisonOperator,
         [parameter(Mandatory = $false)]
-        $ContactProtocols,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -219,7 +165,31 @@ An alarm can treat missing data in the following ways:
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DatapointsToAlarm,
+        $TreatMissingData,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AlarmName,
+        [parameter(Mandatory = $false)]
+        $ContactProtocols,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MonitoredResourceName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -243,6 +213,17 @@ An alarm can treat missing data in the following ways:
             })]
         $NotificationEnabled,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DatapointsToAlarm,
+        [parameter(Mandatory = $false)]
         $NotificationTriggers,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -255,17 +236,6 @@ An alarm can treat missing data in the following ways:
                 }
             })]
         $Threshold,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TreatMissingData,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

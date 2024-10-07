@@ -1,38 +1,29 @@
 function Add-VSLexBotSlotValueSelectionSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SlotValueSelectionSetting resource property to the template. Contains settings used by Amazon Lex to select a slot value.
+        Adds an AWS::Lex::Bot.SlotValueSelectionSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SlotValueSelectionSetting resource property to the template.
-Contains settings used by Amazon Lex to select a slot value.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html
 
-    .PARAMETER ResolutionStrategy
-        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
-+ OriginalValue - Returns the value entered by the user, if the user value is similar to a slot value.
-+ TopResolution - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
-If you don't specify the valueSelectionStrategy, the default is OriginalValue.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-resolutionstrategy
+    .PARAMETER AdvancedRecognitionSetting
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-advancedrecognitionsetting
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: AdvancedRecognitionSetting
 
     .PARAMETER RegexFilter
-        A regular expression used to validate the value of a slot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-regexfilter
         UpdateType: Mutable
         Type: SlotValueRegexFilter
 
-    .PARAMETER AdvancedRecognitionSetting
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-advancedrecognitionsetting
+    .PARAMETER ResolutionStrategy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-resolutionstrategy
         UpdateType: Mutable
-        Type: AdvancedRecognitionSetting
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -41,6 +32,10 @@ If you don't specify the valueSelectionStrategy, the default is OriginalValue.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $AdvancedRecognitionSetting,
+        [parameter(Mandatory = $false)]
+        $RegexFilter,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -51,11 +46,7 @@ If you don't specify the valueSelectionStrategy, the default is OriginalValue.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ResolutionStrategy,
-        [parameter(Mandatory = $false)]
-        $RegexFilter,
-        [parameter(Mandatory = $false)]
-        $AdvancedRecognitionSetting
+        $ResolutionStrategy
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,18 +1,16 @@
 function Add-VSEventsRuleSageMakerPipelineParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.SageMakerPipelineParameters resource property to the template. These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+        Adds an AWS::Events::Rule.SageMakerPipelineParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.SageMakerPipelineParameters resource property to the template.
-These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameters.html
 
     .PARAMETER PipelineParameterList
-        List of Parameter names and values for SageMaker Model Building Pipeline execution.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameters.html#cfn-events-rule-sagemakerpipelineparameters-pipelineparameterlist
         DuplicatesAllowed: False
         ItemType: SageMakerPipelineParameter

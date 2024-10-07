@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowSAPODataSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.SAPODataSourceProperties resource property to the template. <a name="aws-properties-appflow-flow-sapodatasourceproperties-description"></a>The SAPODataSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppFlow::Flow: aws-resource-appflow-flow.md.
+        Adds an AWS::AppFlow::Flow.SAPODataSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.SAPODataSourceProperties resource property to the template.
-<a name="aws-properties-appflow-flow-sapodatasourceproperties-description"></a>The SAPODataSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppFlow::Flow: aws-resource-appflow-flow.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html
 
     .PARAMETER ObjectPath
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-objectpath
         UpdateType: Mutable
         PrimitiveType: String

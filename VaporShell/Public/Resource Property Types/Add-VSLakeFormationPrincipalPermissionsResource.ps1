@@ -10,45 +10,45 @@ function Add-VSLakeFormationPrincipalPermissionsResource {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html
 
-    .PARAMETER Catalog
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-catalog
+    .PARAMETER LFTag
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-lftag
         UpdateType: Immutable
-        Type: CatalogResource
-
-    .PARAMETER Database
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-database
-        UpdateType: Immutable
-        Type: DatabaseResource
+        Type: LFTagKeyResource
 
     .PARAMETER Table
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-table
         UpdateType: Immutable
         Type: TableResource
 
+    .PARAMETER DataCellsFilter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-datacellsfilter
+        UpdateType: Immutable
+        Type: DataCellsFilterResource
+
     .PARAMETER TableWithColumns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-tablewithcolumns
         UpdateType: Immutable
         Type: TableWithColumnsResource
+
+    .PARAMETER LFTagPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-lftagpolicy
+        UpdateType: Immutable
+        Type: LFTagPolicyResource
+
+    .PARAMETER Database
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-database
+        UpdateType: Immutable
+        Type: DatabaseResource
 
     .PARAMETER DataLocation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-datalocation
         UpdateType: Immutable
         Type: DataLocationResource
 
-    .PARAMETER DataCellsFilter
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-datacellsfilter
+    .PARAMETER Catalog
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-catalog
         UpdateType: Immutable
-        Type: DataCellsFilterResource
-
-    .PARAMETER LFTag
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-lftag
-        UpdateType: Immutable
-        Type: LFTagKeyResource
-
-    .PARAMETER LFTagPolicy
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-lftagpolicy
-        UpdateType: Immutable
-        Type: LFTagPolicyResource
+        PrimitiveType: Json
 
     .FUNCTIONALITY
         Vaporshell
@@ -58,21 +58,30 @@ function Add-VSLakeFormationPrincipalPermissionsResource {
     Param
     (
         [parameter(Mandatory = $false)]
-        $Catalog,
-        [parameter(Mandatory = $false)]
-        $Database,
+        $LFTag,
         [parameter(Mandatory = $false)]
         $Table,
         [parameter(Mandatory = $false)]
+        $DataCellsFilter,
+        [parameter(Mandatory = $false)]
         $TableWithColumns,
+        [parameter(Mandatory = $false)]
+        $LFTagPolicy,
+        [parameter(Mandatory = $false)]
+        $Database,
         [parameter(Mandatory = $false)]
         $DataLocation,
         [parameter(Mandatory = $false)]
-        $DataCellsFilter,
-        [parameter(Mandatory = $false)]
-        $LFTag,
-        [parameter(Mandatory = $false)]
-        $LFTagPolicy
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Catalog
     )
     Begin {
         $obj = [PSCustomObject]@{}
@@ -81,6 +90,20 @@ function Add-VSLakeFormationPrincipalPermissionsResource {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
+                Catalog {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

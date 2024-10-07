@@ -1,33 +1,26 @@
 function Add-VSWAFv2WebACLJsonMatchPattern {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.JsonMatchPattern resource property to the template. The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the FieldToMatch option JsonBody.
+        Adds an AWS::WAFv2::WebACL.JsonMatchPattern resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.JsonMatchPattern resource property to the template.
-The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the FieldToMatch option JsonBody.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
 
     .PARAMETER All
-        Match all of the elements. See also MatchScope in JsonBody.
-You must specify either this setting or the IncludedPaths setting, but not both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
         UpdateType: Mutable
         PrimitiveType: Json
 
     .PARAMETER IncludedPaths
-        Match only the specified include paths. See also MatchScope in JsonBody.
-Provide the include paths using JSON Pointer syntax. For example, "IncludedPaths": "/dogs/0/name", "/dogs/1/name"]. For information about this syntax, see the Internet Engineering Task Force IETF documentation JavaScript Object Notation JSON Pointer: https://tools.ietf.org/html/rfc6901.
-You must specify either this setting or the All setting, but not both.
-Don't use this option to include all paths. Instead, use the All setting.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

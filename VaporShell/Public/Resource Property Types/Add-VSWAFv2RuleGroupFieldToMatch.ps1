@@ -1,72 +1,39 @@
 function Add-VSWAFv2RuleGroupFieldToMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.FieldToMatch resource property to the template. The part of a web request that you want AWS WAF to inspect. Include the single FieldToMatch type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in FieldToMatch for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
+        Adds an AWS::WAFv2::RuleGroup.FieldToMatch resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.FieldToMatch resource property to the template.
-The part of a web request that you want AWS WAF to inspect. Include the single FieldToMatch type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in FieldToMatch for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
 
-    .PARAMETER SingleHeader
-        Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
+    .PARAMETER JsonBody
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
         UpdateType: Mutable
-        PrimitiveType: Json
-
-    .PARAMETER SingleQueryArgument
-        Inspect a single query argument. Provide the name of the query argument to inspect, such as *UserName* or *SalesRegion*. The name can be up to 30 characters long and isn't case sensitive.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
-        UpdateType: Mutable
-        PrimitiveType: Json
+        Type: JsonBody
 
     .PARAMETER AllQueryArguments
-        Inspect all query arguments.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
         UpdateType: Mutable
         PrimitiveType: Json
 
-    .PARAMETER UriPath
-        Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
+    .PARAMETER SingleQueryArgument
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
+        UpdateType: Mutable
+        Type: SingleQueryArgument
 
+    .PARAMETER UriPath
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
         UpdateType: Mutable
         PrimitiveType: Json
 
     .PARAMETER QueryString
-        Inspect the query string. This is the part of a URL that appears after a ? character, if any.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
         UpdateType: Mutable
         PrimitiveType: Json
-
-    .PARAMETER Body
-        Inspect the request body, which immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-Note that only the first 8 KB 8192 bytes of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the ByteMatchStatement or RegexPatternSetReferenceStatement, with a SizeConstraintStatement that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
-        UpdateType: Mutable
-        Type: Body
-
-    .PARAMETER Method
-        Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
-        UpdateType: Mutable
-        PrimitiveType: Json
-
-    .PARAMETER JsonBody
-        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-Note that only the first 8 KB 8192 bytes of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the ByteMatchStatement or RegexPatternSetReferenceStatement, with a SizeConstraintStatement that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
-        UpdateType: Mutable
-        Type: JsonBody
 
     .PARAMETER Headers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-headers
@@ -78,6 +45,21 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
         UpdateType: Mutable
         Type: Cookies
 
+    .PARAMETER Method
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
+        UpdateType: Mutable
+        PrimitiveType: Json
+
+    .PARAMETER Body
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
+        UpdateType: Mutable
+        Type: Body
+
+    .PARAMETER SingleHeader
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
+        UpdateType: Mutable
+        Type: SingleHeader
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -86,27 +68,7 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
     Param
     (
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SingleHeader,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SingleQueryArgument,
+        $JsonBody,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
@@ -118,6 +80,8 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
                 }
             })]
         $AllQueryArguments,
+        [parameter(Mandatory = $false)]
+        $SingleQueryArgument,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
@@ -141,7 +105,9 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
             })]
         $QueryString,
         [parameter(Mandatory = $false)]
-        $Body,
+        $Headers,
+        [parameter(Mandatory = $false)]
+        $Cookies,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
@@ -154,11 +120,9 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
             })]
         $Method,
         [parameter(Mandatory = $false)]
-        $JsonBody,
+        $Body,
         [parameter(Mandatory = $false)]
-        $Headers,
-        [parameter(Mandatory = $false)]
-        $Cookies
+        $SingleHeader
     )
     Begin {
         $obj = [PSCustomObject]@{}
@@ -167,34 +131,6 @@ Note that only the first 8 KB 8192 bytes of the request body are forwarded to AW
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                SingleHeader {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
-                SingleQueryArgument {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
                 AllQueryArguments {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {

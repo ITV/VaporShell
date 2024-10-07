@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualNodeVirtualNodeTcpConnectionPool {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.VirtualNodeTcpConnectionPool resource property to the template. An object that represents a type of connection pool.
+        Adds an AWS::AppMesh::VirtualNode.VirtualNodeTcpConnectionPool resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.VirtualNodeTcpConnectionPool resource property to the template.
-An object that represents a type of connection pool.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html
 
     .PARAMETER MaxConnections
-        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodetcpconnectionpool-maxconnections
         PrimitiveType: Integer
         UpdateType: Mutable

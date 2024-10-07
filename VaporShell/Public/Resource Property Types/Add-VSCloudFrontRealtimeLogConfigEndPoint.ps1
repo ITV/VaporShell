@@ -1,25 +1,21 @@
 function Add-VSCloudFrontRealtimeLogConfigEndPoint {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::RealtimeLogConfig.EndPoint resource property to the template. Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        Adds an AWS::CloudFront::RealtimeLogConfig.EndPoint resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::RealtimeLogConfig.EndPoint resource property to the template.
-Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
 
     .PARAMETER KinesisStreamConfig
-        Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
         UpdateType: Mutable
         Type: KinesisStreamConfig
 
     .PARAMETER StreamType
-        The type of data stream where you are sending real-time log data. The only valid value is Kinesis.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
         UpdateType: Mutable
         PrimitiveType: String

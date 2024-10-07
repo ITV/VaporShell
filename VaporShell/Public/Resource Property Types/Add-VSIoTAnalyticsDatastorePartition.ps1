@@ -1,18 +1,16 @@
 function Add-VSIoTAnalyticsDatastorePartition {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.Partition resource property to the template. A single dimension to partition a data store. The dimension must be an AttributePartition or a TimestampPartition.
+        Adds an AWS::IoTAnalytics::Datastore.Partition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.Partition resource property to the template.
-A single dimension to partition a data store. The dimension must be an AttributePartition or a TimestampPartition.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-partition.html
 
     .PARAMETER AttributeName
-        The name of the attribute that defines a partition dimension.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-partition.html#cfn-iotanalytics-datastore-partition-attributename
         UpdateType: Mutable
         PrimitiveType: String

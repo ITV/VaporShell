@@ -1,31 +1,26 @@
 function Add-VSFISExperimentTemplateExperimentTemplateTargetFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::FIS::ExperimentTemplate.ExperimentTemplateTargetFilter resource property to the template. Specifies a filter used for the target resource input in an experiment template.
+        Adds an AWS::FIS::ExperimentTemplate.ExperimentTemplateTargetFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::FIS::ExperimentTemplate.ExperimentTemplateTargetFilter resource property to the template.
-Specifies a filter used for the target resource input in an experiment template.
 
-For more information, see Resource filters: https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters in the *AWS Fault Injection Simulator User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html
 
     .PARAMETER Path
-        The attribute path for the filter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-path
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Values
-        The attribute values for the filter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-values
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

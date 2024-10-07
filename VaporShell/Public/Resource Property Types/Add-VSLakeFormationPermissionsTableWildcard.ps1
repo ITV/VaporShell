@@ -1,11 +1,11 @@
 function Add-VSLakeFormationPermissionsTableWildcard {
     <#
     .SYNOPSIS
-        Adds an AWS::LakeFormation::Permissions.TableWildcard resource property to the template. A wildcard object representing every table under a database.
+        Adds an AWS::LakeFormation::Permissions.TableWildcard resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LakeFormation::Permissions.TableWildcard resource property to the template.
-A wildcard object representing every table under a database.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html

@@ -1,14 +1,10 @@
 function New-VSSSOInstanceAccessControlAttributeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration resource to the template. Enables the attribute-based access control (ABAC feature for the specified AWS SSO instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see Attribute-Based Access Control: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html in the *AWS SSO User Guide*.
+        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration resource to the template. Enables the attribute-based access control (ABAC feature for the specified AWS SSO instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see Attribute-Based Access Control: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html in the *AWS SSO User Guide*.
-
-**Note**
-
-The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recommend that you use the AccessControlAttributes property instead.
+        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
@@ -17,19 +13,16 @@ The InstanceAccessControlAttributeConfiguration property has been deprecated but
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER InstanceArn
-        The ARN of the AWS SSO instance under which the operation will be executed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AccessControlAttributes
-        Lists the attributes that are configured for ABAC in the specified AWS SSO instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
         UpdateType: Mutable
         Type: List
         ItemType: AccessControlAttribute
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

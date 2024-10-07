@@ -1,10 +1,10 @@
 function New-VSLightsailInstance {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Instance resource to the template. The AWS::Lightsail::Instance resource specifies an Amazon Lightsail instance.
+        Adds an AWS::Lightsail::Instance resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Lightsail::Instance resource to the template. The AWS::Lightsail::Instance resource specifies an Amazon Lightsail instance.
+        Adds an AWS::Lightsail::Instance resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html
@@ -12,85 +12,69 @@ function New-VSLightsailInstance {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Hardware
-        The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
-The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-hardware
-        UpdateType: Mutable
-        Type: Hardware
-
-    .PARAMETER Networking
-        The public ports and the monthly amount of data transfer allocated for the instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-networking
-        UpdateType: Mutable
-        Type: Networking
-
     .PARAMETER InstanceName
-        The name of the instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-instancename
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER AvailabilityZone
-        The Availability Zone for the instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-availabilityzone
-        UpdateType: Immutable
+    .PARAMETER KeyPairName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-keypairname
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BundleId
-        The bundle ID for the instance for example, micro_1_0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-bundleid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER BlueprintId
-        The blueprint ID for the instance for example, os_amlinux_2016_03.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-blueprintid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER AddOns
-        An array of add-ons for the instance.
-If the instance has an add-on enabled when performing a delete instance request, the add-on is automatically disabled before the instance is deleted.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-addons
+    .PARAMETER Networking
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-networking
         UpdateType: Mutable
-        Type: List
-        ItemType: AddOn
+        Type: Networking
 
     .PARAMETER UserData
-        The optional launch script for the instance.
-Specify a launch script to configure an instance with additional user data. For example, you might want to specify apt-get -y update as a launch script.
-Depending on the blueprint of your instance, the command to get software on your instance varies. Amazon Linux and CentOS use yum, Debian and Ubuntu use apt-get, and FreeBSD uses pkg.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-userdata
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER KeyPairName
-        The name of the key pair to use for the instance.
-If no key pair name is specified, the Regional Lightsail default key pair is used.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-keypairname
+    .PARAMETER State
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-state
         UpdateType: Mutable
+        Type: State
+
+    .PARAMETER AvailabilityZone
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-availabilityzone
+        UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html in the *AWS CloudFormation User Guide*.
-The Value of Tags is optional for Lightsail resources.
+    .PARAMETER AddOns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-addons
+        UpdateType: Mutable
+        Type: List
+        ItemType: AddOn
+        DuplicatesAllowed: True
 
+    .PARAMETER Hardware
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-hardware
+        UpdateType: Mutable
+        Type: Hardware
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER Location
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-location
+        UpdateType: Mutable
+        Type: Location
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -154,10 +138,6 @@ The Value of Tags is optional for Lightsail resources.
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
-        $Hardware,
-        [parameter(Mandatory = $false)]
-        $Networking,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -179,7 +159,7 @@ The Value of Tags is optional for Lightsail resources.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AvailabilityZone,
+        $KeyPairName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -203,16 +183,7 @@ The Value of Tags is optional for Lightsail resources.
             })]
         $BlueprintId,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Lightsail.Instance.AddOn"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AddOns,
+        $Networking,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Function.Base64","Vaporshell.Resource.UserData"
@@ -225,6 +196,8 @@ The Value of Tags is optional for Lightsail resources.
             })]
         $UserData,
         [parameter(Mandatory = $false)]
+        $State,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -234,10 +207,25 @@ The Value of Tags is optional for Lightsail resources.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $KeyPairName,
+        $AvailabilityZone,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Lightsail.Instance.AddOn"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AddOns,
+        [parameter(Mandatory = $false)]
+        $Hardware,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        $Location,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

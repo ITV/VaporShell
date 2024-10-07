@@ -1,18 +1,16 @@
 function Add-VSQuickSightDashboardDashboardSourceEntity {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.DashboardSourceEntity resource property to the template. Dashboard source entity.
+        Adds an AWS::QuickSight::Dashboard.DashboardSourceEntity resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.DashboardSourceEntity resource property to the template.
-Dashboard source entity.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html
 
     .PARAMETER SourceTemplate
-        Source template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html#cfn-quicksight-dashboard-dashboardsourceentity-sourcetemplate
         UpdateType: Mutable
         Type: DashboardSourceTemplate

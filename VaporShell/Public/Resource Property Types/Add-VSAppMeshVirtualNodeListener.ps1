@@ -1,53 +1,41 @@
 function Add-VSAppMeshVirtualNodeListener {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.Listener resource property to the template. An object that represents a listener for a virtual node.
+        Adds an AWS::AppMesh::VirtualNode.Listener resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.Listener resource property to the template.
-An object that represents a listener for a virtual node.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html
 
     .PARAMETER ConnectionPool
-        The connection pool information for the listener.
-
         Type: VirtualNodeConnectionPool
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool
         UpdateType: Mutable
 
     .PARAMETER Timeout
-        An object that represents timeouts for different protocols.
-
         Type: ListenerTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-timeout
         UpdateType: Mutable
 
     .PARAMETER HealthCheck
-        The health check information for the listener.
-
         Type: HealthCheck
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
         UpdateType: Mutable
 
     .PARAMETER TLS
-        A reference to an object that represents the Transport Layer Security TLS properties for a listener.
-
         Type: ListenerTls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-tls
         UpdateType: Mutable
 
     .PARAMETER PortMapping
-        The port mapping information for the listener.
-
         Type: PortMapping
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
         UpdateType: Mutable
 
     .PARAMETER OutlierDetection
-        The outlier detection information for the listener.
-
         Type: OutlierDetection
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection
         UpdateType: Mutable

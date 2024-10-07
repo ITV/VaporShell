@@ -1,10 +1,10 @@
 function New-VSRDSEventSubscription {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::EventSubscription resource to the template. The AWS::RDS::EventSubscription resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS. For more information, see Using Amazon RDS Event Notification: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html in the *Amazon RDS User Guide*.
+        Adds an AWS::RDS::EventSubscription resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::RDS::EventSubscription resource to the template. The AWS::RDS::EventSubscription resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS. For more information, see Using Amazon RDS Event Notification: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html in the *Amazon RDS User Guide*.
+        Adds an AWS::RDS::EventSubscription resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html
@@ -12,65 +12,46 @@ function New-VSRDSEventSubscription {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Tags
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-tags
+    .PARAMETER SourceType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourcetype
         UpdateType: Mutable
-        Type: List
-        ItemType: Tag
-        DuplicatesAllowed: True
-
-    .PARAMETER SubscriptionName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-subscriptionname
-        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Enabled
-        A Boolean value; set to **true** to activate the subscription, set to **false** to create the subscription but not active it.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER EventCategories
-        A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType in the Events: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html topic in the Amazon RDS User Guide or by using the **DescribeEventCategories** action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-eventcategories
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER SnsTopicArn
-        The Amazon Resource Name ARN of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
+    .PARAMETER SubscriptionName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-subscriptionname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER SnsTopicArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-snstopicarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SourceIds
-        The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens. It can't end with a hyphen or contain two consecutive hyphens.
-Constraints:
-+ If a SourceIds value is supplied, SourceType must also be provided.
-+ If the source type is a DB instance, a DBInstanceIdentifier value must be supplied.
-+ If the source type is a DB cluster, a DBClusterIdentifier value must be supplied.
-+ If the source type is a DB parameter group, a DBParameterGroupName value must be supplied.
-+ If the source type is a DB security group, a DBSecurityGroupName value must be supplied.
-+ If the source type is a DB snapshot, a DBSnapshotIdentifier value must be supplied.
-+ If the source type is a DB cluster snapshot, a DBClusterSnapshotIdentifier value must be supplied.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourceids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER SourceType
-        The type of source that is generating the events. For example, if you want to be notified of events generated by a DB instance, set this parameter to db-instance. If this value isn't specified, all events are returned.
-Valid values: db-instance | db-cluster | db-parameter-group | db-security-group | db-snapshot | db-cluster-snapshot
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourcetype
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-tags
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -134,9 +115,6 @@ Valid values: db-instance | db-cluster | db-parameter-group | db-security-group 
             })]
         [System.String]
         $LogicalId,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -147,7 +125,7 @@ Valid values: db-instance | db-cluster | db-parameter-group | db-security-group 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SubscriptionName,
+        $SourceType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -161,6 +139,17 @@ Valid values: db-instance | db-cluster | db-parameter-group | db-security-group 
         $Enabled,
         [parameter(Mandatory = $false)]
         $EventCategories,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SubscriptionName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -174,17 +163,9 @@ Valid values: db-instance | db-cluster | db-parameter-group | db-security-group 
         $SnsTopicArn,
         [parameter(Mandatory = $false)]
         $SourceIds,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SourceType,
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -259,12 +240,6 @@ Valid values: db-instance | db-cluster | db-parameter-group | db-security-group 
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Tags {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
-                }
                 EventCategories {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -276,6 +251,12 @@ Valid values: db-instance | db-cluster | db-parameter-group | db-security-group 
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SourceIds -Value @($SourceIds)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

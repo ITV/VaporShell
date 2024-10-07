@@ -1,25 +1,21 @@
 function Add-VSQuickSightDataSourceRdsParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.RdsParameters resource property to the template. The parameters for Amazon RDS.
+        Adds an AWS::QuickSight::DataSource.RdsParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.RdsParameters resource property to the template.
-The parameters for Amazon RDS.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html
 
     .PARAMETER InstanceId
-        Instance ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Database
-        Database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database
         UpdateType: Mutable
         PrimitiveType: String

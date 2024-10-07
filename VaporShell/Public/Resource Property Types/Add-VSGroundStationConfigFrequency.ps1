@@ -1,25 +1,21 @@
 function Add-VSGroundStationConfigFrequency {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.Frequency resource property to the template. Defines a frequency.
+        Adds an AWS::GroundStation::Config.Frequency resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.Frequency resource property to the template.
-Defines a frequency.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html
 
     .PARAMETER Value
-        The value of the frequency. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-value
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Units
-        The units of the frequency.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-units
         UpdateType: Mutable
         PrimitiveType: String

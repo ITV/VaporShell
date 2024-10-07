@@ -1,10 +1,10 @@
 function New-VSDataSyncLocationNFS {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationNFS resource to the template. The AWS::DataSync::LocationNFS resource specifies a file system on a Network File System (NFS server that can be read from or written to.
+        Adds an AWS::DataSync::LocationNFS resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DataSync::LocationNFS resource to the template. The AWS::DataSync::LocationNFS resource specifies a file system on a Network File System (NFS server that can be read from or written to.
+        Adds an AWS::DataSync::LocationNFS resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html
@@ -12,44 +12,27 @@ function New-VSDataSyncLocationNFS {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER MountOptions
-        The NFS mount options that DataSync can use to mount your NFS share.
+    .PARAMETER Subdirectory
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER ServerHostname
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER MountOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
         UpdateType: Mutable
         Type: MountOptions
 
     .PARAMETER OnPremConfig
-        Contains a list of Amazon Resource Names ARNs of agents that are used to connect to an NFS server.
-If you are copying data to or from your AWS Snowcone device, see NFS Server on AWS Snowcone: https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone for more information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
         UpdateType: Mutable
         Type: OnPremConfig
 
-    .PARAMETER ServerHostname
-        The name of the NFS server. This value is the IP address or Domain Name Service DNS name of the NFS server. An agent that is installed on-premises uses this host name to mount the NFS server in a network.
-If you are copying data to or from your AWS Snowcone device, see NFS Server on AWS Snowcone: https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone for more information.
-This name must either be DNS-compliant or must be an IP version 4 IPv4 address.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Subdirectory
-        The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination. The NFS path should be a path that's exported by the NFS server, or a subdirectory of that path. The path should be such that it can be mounted by other NFS clients in your network.
-To see all the paths exported by your NFS server, run "showmount -e nfs-server-name" from an NFS client that has access to your server. You can specify any directory that appears in the results, and any subdirectory of that directory. Ensure that the NFS export is accessible without Kerberos authentication.
-To transfer all the data in the folder you specified, DataSync needs to have permissions to read all the data. To ensure this, either configure the NFS export with no_root_squash, or ensure that the permissions for all of the files that you want DataSync allow read access for all users. Doing either enables the agent to read the files. For the agent to access directories, you must additionally enable all execute access.
-If you are copying data to or from your AWS Snowcone device, see NFS Server on AWS Snowcone: https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone for more information.
-For information about NFS export configuration, see 18.7. The /etc/exports Configuration File: http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html in the Red Hat Enterprise Linux documentation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Tags
-        The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
         UpdateType: Mutable
         Type: List
@@ -119,21 +102,6 @@ For information about NFS export configuration, see 18.7. The /etc/exports Confi
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        $MountOptions,
-        [parameter(Mandatory = $true)]
-        $OnPremConfig,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ServerHostname,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -144,6 +112,21 @@ For information about NFS export configuration, see 18.7. The /etc/exports Confi
                 }
             })]
         $Subdirectory,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ServerHostname,
+        [parameter(Mandatory = $false)]
+        $MountOptions,
+        [parameter(Mandatory = $true)]
+        $OnPremConfig,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

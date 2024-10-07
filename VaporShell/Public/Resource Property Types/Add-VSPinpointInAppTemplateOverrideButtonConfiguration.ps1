@@ -1,28 +1,21 @@
 function Add-VSPinpointInAppTemplateOverrideButtonConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::InAppTemplate.OverrideButtonConfiguration resource property to the template. Specifies the configuration of a button with settings that are specific to a certain device type.
+        Adds an AWS::Pinpoint::InAppTemplate.OverrideButtonConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::InAppTemplate.OverrideButtonConfiguration resource property to the template.
-Specifies the configuration of a button with settings that are specific to a certain device type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-overridebuttonconfiguration.html
 
     .PARAMETER ButtonAction
-        The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
-+ LINK – A link to a web destination.
-+ DEEP_LINK – A link to a specific page in an application.
-+ CLOSE – Dismisses the message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-overridebuttonconfiguration.html#cfn-pinpoint-inapptemplate-overridebuttonconfiguration-buttonaction
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Link
-        The destination such as a URL for a button.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-overridebuttonconfiguration.html#cfn-pinpoint-inapptemplate-overridebuttonconfiguration-link
         UpdateType: Mutable
         PrimitiveType: String

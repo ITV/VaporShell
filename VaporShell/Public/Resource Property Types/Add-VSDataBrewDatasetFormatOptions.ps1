@@ -1,35 +1,29 @@
 function Add-VSDataBrewDatasetFormatOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.FormatOptions resource property to the template. Represents a set of options that define the structure of either comma-separated value (CSV, Excel, or JSON input.
+        Adds an AWS::DataBrew::Dataset.FormatOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.FormatOptions resource property to the template.
-Represents a set of options that define the structure of either comma-separated value (CSV, Excel, or JSON input.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
 
-    .PARAMETER Json
-        Options that define how JSON input is to be interpreted by DataBrew.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
-        UpdateType: Mutable
-        Type: JsonOptions
-
     .PARAMETER Excel
-        Options that define how Excel input is to be interpreted by DataBrew.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
         UpdateType: Mutable
         Type: ExcelOptions
 
     .PARAMETER Csv
-        Options that define how CSV input is to be interpreted by DataBrew.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
         UpdateType: Mutable
         Type: CsvOptions
+
+    .PARAMETER Json
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
+        UpdateType: Mutable
+        Type: JsonOptions
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,11 +33,11 @@ Represents a set of options that define the structure of either comma-separated 
     Param
     (
         [parameter(Mandatory = $false)]
-        $Json,
-        [parameter(Mandatory = $false)]
         $Excel,
         [parameter(Mandatory = $false)]
-        $Csv
+        $Csv,
+        [parameter(Mandatory = $false)]
+        $Json
     )
     Begin {
         $obj = [PSCustomObject]@{}

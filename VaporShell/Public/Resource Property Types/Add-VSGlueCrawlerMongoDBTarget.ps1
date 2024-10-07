@@ -1,25 +1,21 @@
 function Add-VSGlueCrawlerMongoDBTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Crawler.MongoDBTarget resource property to the template. Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+        Adds an AWS::Glue::Crawler.MongoDBTarget resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Crawler.MongoDBTarget resource property to the template.
-Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html
 
     .PARAMETER ConnectionName
-        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html#cfn-glue-crawler-mongodbtarget-connectionname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Path
-        The path of the Amazon DocumentDB or MongoDB target database/collection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html#cfn-glue-crawler-mongodbtarget-path
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,26 +1,22 @@
 function Add-VSResilienceHubResiliencyPolicyFailurePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::ResilienceHub::ResiliencyPolicy.FailurePolicy resource property to the template. Defines a failure policy.
+        Adds an AWS::ResilienceHub::ResiliencyPolicy.FailurePolicy resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ResilienceHub::ResiliencyPolicy.FailurePolicy resource property to the template.
-Defines a failure policy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html
 
-    .PARAMETER RtoInSecs
-        The Recovery Time Objective RTO, in seconds.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html#cfn-resiliencehub-resiliencypolicy-failurepolicy-rtoinsecs
+    .PARAMETER RpoInSecs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html#cfn-resiliencehub-resiliencypolicy-failurepolicy-rpoinsecs
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER RpoInSecs
-        The Recovery Point Objective RPO, in seconds.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html#cfn-resiliencehub-resiliencypolicy-failurepolicy-rpoinsecs
+    .PARAMETER RtoInSecs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html#cfn-resiliencehub-resiliencypolicy-failurepolicy-rtoinsecs
         UpdateType: Mutable
         PrimitiveType: Integer
 
@@ -41,7 +37,7 @@ Defines a failure policy.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RtoInSecs,
+        $RpoInSecs,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -52,7 +48,7 @@ Defines a failure policy.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RpoInSecs
+        $RtoInSecs
     )
     Begin {
         $obj = [PSCustomObject]@{}

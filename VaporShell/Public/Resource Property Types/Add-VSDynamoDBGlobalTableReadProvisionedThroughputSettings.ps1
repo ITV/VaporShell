@@ -1,25 +1,21 @@
 function Add-VSDynamoDBGlobalTableReadProvisionedThroughputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.ReadProvisionedThroughputSettings resource property to the template. Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the BillingMode is set to PROVISIONED. You must specify a value for either ReadCapacityUnits or ReadCapacityAutoScalingSettings, but not both. You can switch between fixed capacity and auto scaling.
+        Adds an AWS::DynamoDB::GlobalTable.ReadProvisionedThroughputSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.ReadProvisionedThroughputSettings resource property to the template.
-Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the BillingMode is set to PROVISIONED. You must specify a value for either ReadCapacityUnits or ReadCapacityAutoScalingSettings, but not both. You can switch between fixed capacity and auto scaling.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html
 
     .PARAMETER ReadCapacityUnits
-        Specifies a fixed read capacity for the replica table or global secondary index.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER ReadCapacityAutoScalingSettings
-        Specifies auto scaling settings for the replica table or global secondary index.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityautoscalingsettings
         UpdateType: Mutable
         Type: CapacityAutoScalingSettings

@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelFecOutputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.FecOutputSettings resource property to the template. The settings for FEC.
+        Adds an AWS::MediaLive::Channel.FecOutputSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.FecOutputSettings resource property to the template.
-The settings for FEC.
 
-The parent of this entity is UdpOutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fecoutputsettings.html
 
     .PARAMETER RowLength
-        The parameter L from SMPTE 2022-1. The width of the FEC protection matrix. Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness. If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fecoutputsettings.html#cfn-medialive-channel-fecoutputsettings-rowlength
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ColumnDepth
-        The parameter D from SMPTE 2022-1. The height of the FEC protection matrix. The number of transport stream packets per column error correction packet. The number must be between 4 and 20, inclusive.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fecoutputsettings.html#cfn-medialive-channel-fecoutputsettings-columndepth
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER IncludeFec
-        Enables column only or column and row-based FEC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fecoutputsettings.html#cfn-medialive-channel-fecoutputsettings-includefec
         PrimitiveType: String
         UpdateType: Mutable

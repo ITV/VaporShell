@@ -1,14 +1,10 @@
 function New-VSNimbleStudioStudioComponent {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::StudioComponent resource to the template. The AWS::NimbleStudio::StudioComponent resource represents a network resource that is used by a studio's users and workflows. A typical studio contains studio components for the following: a render farm, an Active Directory, a licensing service, and a shared file system.
+        Adds an AWS::NimbleStudio::StudioComponent resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::NimbleStudio::StudioComponent resource to the template. The AWS::NimbleStudio::StudioComponent resource represents a network resource that is used by a studio's users and workflows. A typical studio contains studio components for the following: a render farm, an Active Directory, a licensing service, and a shared file system.
-
-Access to a studio component is managed by specifying security groups for the resource, as well as its endpoint.
-
-A studio component also has a set of initialization scripts, which are returned by GetLaunchProfileInitialization. These initialization scripts run on streaming sessions when they start. They provide users with flexibility in controlling how studio resources are configured on a streaming session.
+        Adds an AWS::NimbleStudio::StudioComponent resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html
@@ -17,76 +13,55 @@ A studio component also has a set of initialization scripts, which are returned 
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Configuration
-        The configuration of the studio component, based on component type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-configuration
         UpdateType: Mutable
         Type: StudioComponentConfiguration
 
     .PARAMETER Description
-        A human-readable description for the studio component resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Ec2SecurityGroupIds
-        The EC2 security groups that control access to the studio component.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-ec2securitygroupids
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
 
     .PARAMETER InitializationScripts
-        Initialization scripts for studio components.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-initializationscripts
         UpdateType: Mutable
         Type: List
         ItemType: StudioComponentInitializationScript
 
     .PARAMETER Name
-        A friendly name for the studio component resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-name
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ScriptParameters
-        Parameters for the studio component scripts.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-scriptparameters
         UpdateType: Mutable
         Type: List
         ItemType: ScriptParameterKeyValue
 
     .PARAMETER StudioId
-        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-studioid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Subtype
-        The specific subtype of a studio component.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-subtype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-tags
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
 
     .PARAMETER Type
-        The type of the studio component.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-type
         UpdateType: Mutable
         PrimitiveType: String

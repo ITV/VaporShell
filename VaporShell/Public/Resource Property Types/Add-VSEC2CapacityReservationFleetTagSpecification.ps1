@@ -1,26 +1,21 @@
 function Add-VSEC2CapacityReservationFleetTagSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::CapacityReservationFleet.TagSpecification resource property to the template. The tags to apply to a resource when the resource is being created.
+        Adds an AWS::EC2::CapacityReservationFleet.TagSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::CapacityReservationFleet.TagSpecification resource property to the template.
-The tags to apply to a resource when the resource is being created.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservationfleet-tagspecification.html
 
     .PARAMETER ResourceType
-        The type of resource to tag on creation. Specify capacity-reservation-fleet.
-To tag a resource after it has been created, see CreateTags: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservationfleet-tagspecification.html#cfn-ec2-capacityreservationfleet-tagspecification-resourcetype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags to apply to the resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservationfleet-tagspecification.html#cfn-ec2-capacityreservationfleet-tagspecification-tags
         UpdateType: Immutable
         Type: List

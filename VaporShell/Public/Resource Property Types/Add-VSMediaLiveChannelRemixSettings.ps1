@@ -1,35 +1,27 @@
 function Add-VSMediaLiveChannelRemixSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.RemixSettings resource property to the template. The settings for remixing audio in the output.
+        Adds an AWS::MediaLive::Channel.RemixSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.RemixSettings resource property to the template.
-The settings for remixing audio in the output.
 
-The parent of this entity is AudioDescription.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html
 
     .PARAMETER ChannelsOut
-        The number of output channels to be produced. Valid values: 1, 2, 4, 6, 8.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html#cfn-medialive-channel-remixsettings-channelsout
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ChannelMappings
-        A mapping of input channels to output channels, with appropriate gain adjustments.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html#cfn-medialive-channel-remixsettings-channelmappings
         ItemType: AudioChannelMapping
         UpdateType: Mutable
 
     .PARAMETER ChannelsIn
-        The number of input channels to be used.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html#cfn-medialive-channel-remixsettings-channelsin
         PrimitiveType: Integer
         UpdateType: Mutable

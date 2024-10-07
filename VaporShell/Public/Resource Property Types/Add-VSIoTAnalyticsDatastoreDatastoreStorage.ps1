@@ -1,32 +1,26 @@
 function Add-VSIoTAnalyticsDatastoreDatastoreStorage {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.DatastoreStorage resource property to the template. Where data store data is stored.
+        Adds an AWS::IoTAnalytics::Datastore.DatastoreStorage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.DatastoreStorage resource property to the template.
-Where data store data is stored.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html
 
-    .PARAMETER ServiceManagedS3
-        Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-servicemanageds3
-        UpdateType: Mutable
-        Type: ServiceManagedS3
-
     .PARAMETER CustomerManagedS3
-        Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-customermanageds3
         UpdateType: Mutable
         Type: CustomerManagedS3
 
-    .PARAMETER IotSiteWiseMultiLayerStorage
-        Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+    .PARAMETER ServiceManagedS3
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-servicemanageds3
+        UpdateType: Mutable
+        PrimitiveType: Json
 
+    .PARAMETER IotSiteWiseMultiLayerStorage
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-iotsitewisemultilayerstorage
         UpdateType: Mutable
         Type: IotSiteWiseMultiLayerStorage
@@ -39,9 +33,18 @@ Where data store data is stored.
     Param
     (
         [parameter(Mandatory = $false)]
-        $ServiceManagedS3,
-        [parameter(Mandatory = $false)]
         $CustomerManagedS3,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ServiceManagedS3,
         [parameter(Mandatory = $false)]
         $IotSiteWiseMultiLayerStorage
     )
@@ -52,6 +55,20 @@ Where data store data is stored.
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
+                ServiceManagedS3 {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

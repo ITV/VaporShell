@@ -1,25 +1,21 @@
 function Add-VSQuickSightDataSourceSparkParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.SparkParameters resource property to the template. The parameters for Spark.
+        Adds an AWS::QuickSight::DataSource.SparkParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.SparkParameters resource property to the template.
-The parameters for Spark.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html
 
     .PARAMETER Port
-        Port.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Host
-        Host.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-host
         UpdateType: Mutable
         PrimitiveType: String

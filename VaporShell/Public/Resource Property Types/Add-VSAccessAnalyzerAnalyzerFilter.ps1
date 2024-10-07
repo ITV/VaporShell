@@ -1,52 +1,45 @@
 function Add-VSAccessAnalyzerAnalyzerFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::AccessAnalyzer::Analyzer.Filter resource property to the template. The criteria that defines the rule.
+        Adds an AWS::AccessAnalyzer::Analyzer.Filter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AccessAnalyzer::Analyzer.Filter resource property to the template.
-The criteria that defines the rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
 
-    .PARAMETER Contains
-        A "contains" condition to match for the rule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
-    .PARAMETER Eq
-        An "equals" condition to match for the rule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER Exists
-        An "exists" condition to match for the rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER Property
-        The property used to define the criteria in the filter for the rule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
+    .PARAMETER Contains
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Neq
-        A "not equal" condition to match for the rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Eq
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Property
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -55,10 +48,6 @@ The criteria that defines the rule.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Contains,
-        [parameter(Mandatory = $false)]
-        $Eq,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -70,6 +59,12 @@ The criteria that defines the rule.
                 }
             })]
         $Exists,
+        [parameter(Mandatory = $false)]
+        $Contains,
+        [parameter(Mandatory = $false)]
+        $Neq,
+        [parameter(Mandatory = $false)]
+        $Eq,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -80,9 +75,7 @@ The criteria that defines the rule.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Property,
-        [parameter(Mandatory = $false)]
-        $Neq
+        $Property
     )
     Begin {
         $obj = [PSCustomObject]@{}

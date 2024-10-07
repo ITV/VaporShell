@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelColorSpacePassthroughSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.ColorSpacePassthroughSettings resource property to the template. Passthrough applies no color space conversion to the output.
+        Adds an AWS::MediaLive::Channel.ColorSpacePassthroughSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.ColorSpacePassthroughSettings resource property to the template.
-Passthrough applies no color space conversion to the output.
 
-The parents of this entity are H264ColorSpaceSettings and H265ColorSpaceSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorspacepassthroughsettings.html

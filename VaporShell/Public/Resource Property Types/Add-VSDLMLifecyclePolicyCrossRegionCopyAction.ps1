@@ -1,32 +1,26 @@
 function Add-VSDLMLifecyclePolicyCrossRegionCopyAction {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.CrossRegionCopyAction resource property to the template. Specifies a rule for copying shared snapshots across Regions.
+        Adds an AWS::DLM::LifecyclePolicy.CrossRegionCopyAction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.CrossRegionCopyAction resource property to the template.
-Specifies a rule for copying shared snapshots across Regions.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html
 
     .PARAMETER Target
-        The target Region.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-target
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER EncryptionConfiguration
-        The encryption settings for the copied snapshot.
-
         Type: EncryptionConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-encryptionconfiguration
         UpdateType: Mutable
 
     .PARAMETER RetainRule
-        Specifies the retention rule for cross-Region snapshot copies.
-
         Type: CrossRegionCopyRetainRule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-retainrule
         UpdateType: Mutable

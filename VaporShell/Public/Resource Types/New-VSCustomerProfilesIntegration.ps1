@@ -1,10 +1,10 @@
 function New-VSCustomerProfilesIntegration {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration resource to the template. The AWS::CustomerProfiles::Integration resource specifies an Amazon Connect Customer Profiles Integration.
+        Adds an AWS::CustomerProfiles::Integration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CustomerProfiles::Integration resource to the template. The AWS::CustomerProfiles::Integration resource specifies an Amazon Connect Customer Profiles Integration.
+        Adds an AWS::CustomerProfiles::Integration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html
@@ -12,49 +12,39 @@ function New-VSCustomerProfilesIntegration {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DomainName
-        The unique name of the domain.
+    .PARAMETER ObjectTypeNames
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypenames
+        UpdateType: Mutable
+        Type: List
+        ItemType: ObjectTypeMapping
+        DuplicatesAllowed: True
 
+    .PARAMETER DomainName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Uri
-        The URI of the S3 bucket or any other type of data source.
+    .PARAMETER ObjectTypeName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Uri
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-uri
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER FlowDefinition
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
         UpdateType: Mutable
         Type: FlowDefinition
 
-    .PARAMETER ObjectTypeName
-        The name of the profile object type mapping to use.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Tags
-        The tags used to organize, track, or control access for this resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
-
-    .PARAMETER ObjectTypeNames
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypenames
-        UpdateType: Mutable
-        Type: List
-        ItemType: ObjectTypeMapping
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -118,6 +108,17 @@ function New-VSCustomerProfilesIntegration {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CustomerProfiles.Integration.ObjectTypeMapping"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ObjectTypeNames,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -139,9 +140,7 @@ function New-VSCustomerProfilesIntegration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Uri,
-        [parameter(Mandatory = $false)]
-        $FlowDefinition,
+        $ObjectTypeName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -152,21 +151,12 @@ function New-VSCustomerProfilesIntegration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ObjectTypeName,
+        $Uri,
+        [parameter(Mandatory = $false)]
+        $FlowDefinition,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CustomerProfiles.Integration.ObjectTypeMapping"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ObjectTypeNames,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -241,17 +231,17 @@ function New-VSCustomerProfilesIntegration {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Tags {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
-                }
                 ObjectTypeNames {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ObjectTypeNames -Value @($ObjectTypeNames)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

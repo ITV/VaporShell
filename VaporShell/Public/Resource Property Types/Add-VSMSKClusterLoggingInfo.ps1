@@ -1,18 +1,16 @@
 function Add-VSMSKClusterLoggingInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.LoggingInfo resource property to the template. You can configure your Amazon MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        Adds an AWS::MSK::Cluster.LoggingInfo resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.LoggingInfo resource property to the template.
-You can configure your Amazon MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html
 
     .PARAMETER BrokerLogs
-        You can configure your Amazon MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-brokerlogs
         UpdateType: Mutable
         Type: BrokerLogs

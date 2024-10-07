@@ -1,10 +1,10 @@
 function New-VSLookoutVisionProject {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutVision::Project resource to the template. The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage an Amazon Lookout for Vision model.
+        Adds an AWS::LookoutVision::Project resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::LookoutVision::Project resource to the template. The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage an Amazon Lookout for Vision model.
+        Adds an AWS::LookoutVision::Project resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html
@@ -13,8 +13,6 @@ function New-VSLookoutVisionProject {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ProjectName
-        The name of the project.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html#cfn-lookoutvision-project-projectname
         UpdateType: Immutable
         PrimitiveType: String

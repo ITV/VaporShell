@@ -1,43 +1,36 @@
 function Add-VSKinesisAnalyticsV2ApplicationZeppelinApplicationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.ZeppelinApplicationConfiguration resource property to the template. The configuration of a Kinesis Data Analytics Studio notebook.
+        Adds an AWS::KinesisAnalyticsV2::Application.ZeppelinApplicationConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.ZeppelinApplicationConfiguration resource property to the template.
-The configuration of a Kinesis Data Analytics Studio notebook.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html
 
     .PARAMETER CatalogConfiguration
-        The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinapplicationconfiguration-catalogconfiguration
         UpdateType: Mutable
         Type: CatalogConfiguration
 
     .PARAMETER MonitoringConfiguration
-        The monitoring configuration of a Kinesis Data Analytics Studio notebook.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinapplicationconfiguration-monitoringconfiguration
         UpdateType: Mutable
         Type: ZeppelinMonitoringConfiguration
 
     .PARAMETER DeployAsApplicationConfiguration
-        The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinapplicationconfiguration-deployasapplicationconfiguration
         UpdateType: Mutable
         Type: DeployAsApplicationConfiguration
 
     .PARAMETER CustomArtifactsConfiguration
-        A list of CustomArtifactConfiguration objects.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinapplicationconfiguration-customartifactsconfiguration
         UpdateType: Mutable
         Type: List
         ItemType: CustomArtifactConfiguration
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

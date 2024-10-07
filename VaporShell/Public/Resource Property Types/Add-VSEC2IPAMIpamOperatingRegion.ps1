@@ -1,20 +1,16 @@
 function Add-VSEC2IPAMIpamOperatingRegion {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::IPAM.IpamOperatingRegion resource property to the template. The operating Regions for an IPAM. Operating Regions are AWS Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the AWS Regions you select as operating Regions.
+        Adds an AWS::EC2::IPAM.IpamOperatingRegion resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::IPAM.IpamOperatingRegion resource property to the template.
-The operating Regions for an IPAM. Operating Regions are AWS Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the AWS Regions you select as operating Regions.
 
-For more information about operating Regions, see Create an IPAM: /vpc/latest/ipam/create-ipam.html in the *Amazon VPC IPAM User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipam-ipamoperatingregion.html
 
     .PARAMETER RegionName
-        The name of the operating Region.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipam-ipamoperatingregion.html#cfn-ec2-ipam-ipamoperatingregion-regionname
         UpdateType: Mutable
         PrimitiveType: String

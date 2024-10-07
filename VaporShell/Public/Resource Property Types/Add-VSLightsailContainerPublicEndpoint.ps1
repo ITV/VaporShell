@@ -1,32 +1,26 @@
 function Add-VSLightsailContainerPublicEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Container.PublicEndpoint resource property to the template. PublicEndpoint is a property of the ContainerServiceDeployment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html property. It describes describes the settings of the public endpoint of a container on a container service.
+        Adds an AWS::Lightsail::Container.PublicEndpoint resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Container.PublicEndpoint resource property to the template.
-PublicEndpoint is a property of the ContainerServiceDeployment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html property. It describes describes the settings of the public endpoint of a container on a container service.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html
 
     .PARAMETER ContainerName
-        The name of the container entry of the deployment that the endpoint configuration applies to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-containername
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ContainerPort
-        The port of the specified container to which traffic is forwarded to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-containerport
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER HealthCheckConfig
-        An object that describes the health check configuration of the container.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-healthcheckconfig
         UpdateType: Mutable
         Type: HealthCheckConfig

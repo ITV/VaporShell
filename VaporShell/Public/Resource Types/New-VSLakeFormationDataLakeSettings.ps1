@@ -1,10 +1,10 @@
 function New-VSLakeFormationDataLakeSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::LakeFormation::DataLakeSettings resource to the template. The AWS::LakeFormation::DataLakeSettings resource is an AWS Lake Formation resource type that manages the data lake settings for your account. Note that the CloudFormation template only supports updating the Admins list. It does not support updating the CreateDatabaseDefaultPermissions: https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings or CreateTableDefaultPermissions: https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings. Those permissions can only be edited in the DataLakeSettings resource via the API.
+        Adds an AWS::LakeFormation::DataLakeSettings resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::LakeFormation::DataLakeSettings resource to the template. The AWS::LakeFormation::DataLakeSettings resource is an AWS Lake Formation resource type that manages the data lake settings for your account. Note that the CloudFormation template only supports updating the Admins list. It does not support updating the CreateDatabaseDefaultPermissions: https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings or CreateTableDefaultPermissions: https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings. Those permissions can only be edited in the DataLakeSettings resource via the API.
+        Adds an AWS::LakeFormation::DataLakeSettings resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html
@@ -12,16 +12,43 @@ function New-VSLakeFormationDataLakeSettings {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Admins
-        A list of AWS Lake Formation principals.
+    .PARAMETER AllowExternalDataFiltering
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-allowexternaldatafiltering
+        PrimitiveType: Boolean
+        UpdateType: Mutable
 
+    .PARAMETER ExternalDataFilteringAllowList
+        Type: ExternalDataFilteringAllowList
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-externaldatafilteringallowlist
+        UpdateType: Mutable
+
+    .PARAMETER CreateTableDefaultPermissions
+        Type: CreateTableDefaultPermissions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-createtabledefaultpermissions
+        UpdateType: Mutable
+
+    .PARAMETER Parameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-parameters
+        PrimitiveType: Json
+        UpdateType: Mutable
+
+    .PARAMETER Admins
         Type: Admins
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-admins
         UpdateType: Mutable
 
-    .PARAMETER TrustedResourceOwners
-        Not currently supported by AWS CloudFormation.
+    .PARAMETER CreateDatabaseDefaultPermissions
+        Type: CreateDatabaseDefaultPermissions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-createdatabasedefaultpermissions
+        UpdateType: Mutable
 
+    .PARAMETER AuthorizedSessionTagValueList
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-authorizedsessiontagvaluelist
+        UpdateType: Mutable
+
+    .PARAMETER TrustedResourceOwners
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-trustedresourceowners
@@ -90,7 +117,37 @@ function New-VSLakeFormationDataLakeSettings {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AllowExternalDataFiltering,
+        [parameter(Mandatory = $false)]
+        $ExternalDataFilteringAllowList,
+        [parameter(Mandatory = $false)]
+        $CreateTableDefaultPermissions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Parameters,
+        [parameter(Mandatory = $false)]
         $Admins,
+        [parameter(Mandatory = $false)]
+        $CreateDatabaseDefaultPermissions,
+        [parameter(Mandatory = $false)]
+        $AuthorizedSessionTagValueList,
         [parameter(Mandatory = $false)]
         $TrustedResourceOwners,
         [parameter(Mandatory = $false)]
@@ -167,11 +224,34 @@ function New-VSLakeFormationDataLakeSettings {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
+                AuthorizedSessionTagValueList {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AuthorizedSessionTagValueList -Value @($AuthorizedSessionTagValueList)
+                }
                 TrustedResourceOwners {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name TrustedResourceOwners -Value @($TrustedResourceOwners)
+                }
+                Parameters {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

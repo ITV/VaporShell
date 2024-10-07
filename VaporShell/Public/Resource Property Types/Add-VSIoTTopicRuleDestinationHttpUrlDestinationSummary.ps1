@@ -1,18 +1,16 @@
 function Add-VSIoTTopicRuleDestinationHttpUrlDestinationSummary {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRuleDestination.HttpUrlDestinationSummary resource property to the template. HTTP URL destination properties.
+        Adds an AWS::IoT::TopicRuleDestination.HttpUrlDestinationSummary resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRuleDestination.HttpUrlDestinationSummary resource property to the template.
-HTTP URL destination properties.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
 
     .PARAMETER ConfirmationUrl
-        The URL used to confirm the HTTP topic rule destination URL.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
         UpdateType: Immutable
         PrimitiveType: String

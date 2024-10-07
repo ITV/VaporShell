@@ -1,25 +1,21 @@
 function Add-VSEC2EC2FleetNetworkInterfaceCountRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.NetworkInterfaceCountRequest resource property to the template. The minimum and maximum number of network interfaces.
+        Adds an AWS::EC2::EC2Fleet.NetworkInterfaceCountRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.NetworkInterfaceCountRequest resource property to the template.
-The minimum and maximum number of network interfaces.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-networkinterfacecountrequest.html
 
     .PARAMETER Min
-        The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-networkinterfacecountrequest.html#cfn-ec2-ec2fleet-networkinterfacecountrequest-min
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Max
-        The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-networkinterfacecountrequest.html#cfn-ec2-ec2fleet-networkinterfacecountrequest-max
         UpdateType: Immutable
         PrimitiveType: Integer

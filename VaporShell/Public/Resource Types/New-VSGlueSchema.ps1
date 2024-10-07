@@ -1,10 +1,10 @@
 function New-VSGlueSchema {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Schema resource to the template. The AWS::Glue::Schema is an AWS Glue resource type that manages schemas in the AWS Glue Schema Registry.
+        Adds an AWS::Glue::Schema resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Glue::Schema resource to the template. The AWS::Glue::Schema is an AWS Glue resource type that manages schemas in the AWS Glue Schema Registry.
+        Adds an AWS::Glue::Schema resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
@@ -12,62 +12,47 @@ function New-VSGlueSchema {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Registry
-        The registry where a schema is stored.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
-        UpdateType: Immutable
-        Type: Registry
-
-    .PARAMETER Name
-        Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+    .PARAMETER SchemaDefinition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Description
-        A description of the schema if specified when created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DataFormat
-        The data format of the schema definition. Currently only AVRO is supported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Compatibility
-        The compatibility mode of the schema.
+    .PARAMETER Registry
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+        UpdateType: Immutable
+        Type: Registry
 
+    .PARAMETER Compatibility
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER SchemaDefinition
-        The schema definition using the DataFormat setting for SchemaName.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER CheckpointVersion
-        Specify the VersionNumber or the IsLatest for setting the checkpoint for the schema. This is only required for updating a checkpoint.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
-        UpdateType: Mutable
-        Type: SchemaVersion
-
     .PARAMETER Tags
-        AWS tags that contain a key value pair and may be searched by console, command line, or API.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER CheckpointVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+        UpdateType: Mutable
+        Type: SchemaVersion
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -131,8 +116,6 @@ function New-VSGlueSchema {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
-        $Registry,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -143,7 +126,7 @@ function New-VSGlueSchema {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $SchemaDefinition,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -166,6 +149,8 @@ function New-VSGlueSchema {
                 }
             })]
         $DataFormat,
+        [parameter(Mandatory = $false)]
+        $Registry,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -177,6 +162,9 @@ function New-VSGlueSchema {
                 }
             })]
         $Compatibility,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -187,12 +175,9 @@ function New-VSGlueSchema {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SchemaDefinition,
+        $Name,
         [parameter(Mandatory = $false)]
         $CheckpointVersion,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

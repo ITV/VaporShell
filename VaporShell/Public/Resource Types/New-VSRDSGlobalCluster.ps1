@@ -1,16 +1,10 @@
 function New-VSRDSGlobalCluster {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::GlobalCluster resource to the template. The AWS::RDS::GlobalCluster resource creates or updates an Amazon Aurora global database spread across multiple AWS Regions.
+        Adds an AWS::RDS::GlobalCluster resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::RDS::GlobalCluster resource to the template. The AWS::RDS::GlobalCluster resource creates or updates an Amazon Aurora global database spread across multiple AWS Regions.
-
-The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
-
-You can create a global database that is initially empty, and then add a primary cluster and a secondary cluster to it.
-
-For information about Aurora global databases, see  Working with Amazon Aurora Global Databases: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html in the *Amazon Aurora User Guide*.
+        Adds an AWS::RDS::GlobalCluster resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
@@ -18,50 +12,35 @@ For information about Aurora global databases, see  Working with Amazon Aurora G
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Engine
-        The name of the database engine to be used for this DB cluster.
-If this property isn't specified, the database engine is derived from the source DB cluster specified by the SourceDBClusterIdentifier property.
-If the SourceDBClusterIdentifier property isn't specified, this property is required. If the SourceDBClusterIdentifier property is specified, make sure this property isn't specified.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+    .PARAMETER StorageEncrypted
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
         UpdateType: Immutable
-        PrimitiveType: String
+        PrimitiveType: Boolean
 
     .PARAMETER EngineVersion
-        The engine version of the Aurora global database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER SourceDBClusterIdentifier
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DeletionProtection
-        The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER GlobalClusterIdentifier
-        The cluster identifier of the global database cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER SourceDBClusterIdentifier
-        The DB cluster identifier or Amazon Resource Name ARN to use as the primary cluster of the global database.
-If the Engine property isn't specified, this property is required. If the Engine property is specified, make sure this property isn't specified.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+    .PARAMETER Engine
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
         UpdateType: Immutable
         PrimitiveType: String
-
-    .PARAMETER StorageEncrypted
-        The storage encryption setting for the global database cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
-        UpdateType: Immutable
-        PrimitiveType: Boolean
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -127,7 +106,7 @@ If the Engine property isn't specified, this property is required. If the Engine
         $LogicalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -135,7 +114,7 @@ If the Engine property isn't specified, this property is required. If the Engine
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Engine,
+        $StorageEncrypted,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -147,6 +126,17 @@ If the Engine property isn't specified, this property is required. If the Engine
                 }
             })]
         $EngineVersion,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SourceDBClusterIdentifier,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -179,18 +169,7 @@ If the Engine property isn't specified, this property is required. If the Engine
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SourceDBClusterIdentifier,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $StorageEncrypted,
+        $Engine,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

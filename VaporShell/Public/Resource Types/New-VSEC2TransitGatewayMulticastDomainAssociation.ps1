@@ -1,12 +1,10 @@
 function New-VSEC2TransitGatewayMulticastDomainAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayMulticastDomainAssociation resource to the template. Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.
+        Adds an AWS::EC2::TransitGatewayMulticastDomainAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::TransitGatewayMulticastDomainAssociation resource to the template. Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.
-
-The transit gateway attachment must be in the available state before you can add a resource.
+        Adds an AWS::EC2::TransitGatewayMulticastDomainAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html
@@ -15,23 +13,17 @@ The transit gateway attachment must be in the available state before you can add
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER TransitGatewayMulticastDomainId
-        The ID of the transit gateway multicast domain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER TransitGatewayAttachmentId
-        The ID of the transit gateway attachment.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+    .PARAMETER SubnetId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER SubnetId
-        The IDs of the subnets to associate with the transit gateway multicast domain.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+    .PARAMETER TransitGatewayAttachmentId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -118,7 +110,7 @@ The transit gateway attachment must be in the available state before you can add
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TransitGatewayAttachmentId,
+        $SubnetId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -129,7 +121,7 @@ The transit gateway attachment must be in the available state before you can add
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SubnetId,
+        $TransitGatewayAttachmentId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

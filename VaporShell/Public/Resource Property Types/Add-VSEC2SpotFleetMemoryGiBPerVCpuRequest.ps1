@@ -1,25 +1,21 @@
 function Add-VSEC2SpotFleetMemoryGiBPerVCpuRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.MemoryGiBPerVCpuRequest resource property to the template. The minimum and maximum amount of memory per vCPU, in GiB.
+        Adds an AWS::EC2::SpotFleet.MemoryGiBPerVCpuRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.MemoryGiBPerVCpuRequest resource property to the template.
-The minimum and maximum amount of memory per vCPU, in GiB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorygibpervcpurequest.html
 
     .PARAMETER Min
-        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorygibpervcpurequest.html#cfn-ec2-spotfleet-memorygibpervcpurequest-min
         UpdateType: Immutable
         PrimitiveType: Double
 
     .PARAMETER Max
-        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorygibpervcpurequest.html#cfn-ec2-spotfleet-memorygibpervcpurequest-max
         UpdateType: Immutable
         PrimitiveType: Double

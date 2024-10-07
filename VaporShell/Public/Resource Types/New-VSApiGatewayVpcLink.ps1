@@ -1,10 +1,10 @@
 function New-VSApiGatewayVpcLink {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::VpcLink resource to the template. The AWS::ApiGateway::VpcLink resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC. For more information, see vpclink:create: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/vpclink-create/ in the Amazon API Gateway REST API Reference.
+        Adds an AWS::ApiGateway::VpcLink resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGateway::VpcLink resource to the template. The AWS::ApiGateway::VpcLink resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC. For more information, see vpclink:create: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/vpclink-create/ in the Amazon API Gateway REST API Reference.
+        Adds an AWS::ApiGateway::VpcLink resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html
@@ -13,34 +13,28 @@ function New-VSApiGatewayVpcLink {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A description of the VPC link.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html#cfn-apigateway-vpclink-description
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER TargetArns
-        The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
-
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html#cfn-apigateway-vpclink-targetarns
         UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
-        An array of arbitrary tags key-value pairs to associate with the VPC link.
-
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html#cfn-apigateway-vpclink-tags
-        ItemType: Tag
         UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: False
 
     .PARAMETER Name
-        A name for the VPC link.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html#cfn-apigateway-vpclink-name
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

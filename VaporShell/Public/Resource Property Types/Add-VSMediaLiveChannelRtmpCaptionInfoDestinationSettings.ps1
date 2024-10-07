@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelRtmpCaptionInfoDestinationSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.RtmpCaptionInfoDestinationSettings resource property to the template. The settings for RTMPCaptionInfo captions encode in the output.
+        Adds an AWS::MediaLive::Channel.RtmpCaptionInfoDestinationSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.RtmpCaptionInfoDestinationSettings resource property to the template.
-The settings for RTMPCaptionInfo captions encode in the output.
 
-The parent of this entity is CaptionDestinationSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpcaptioninfodestinationsettings.html

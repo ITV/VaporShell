@@ -1,40 +1,33 @@
 function Add-VSApplicationInsightsApplicationWindowsEvent {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationInsights::Application.WindowsEvent resource property to the template. The AWS::ApplicationInsights::Application WindowsEvent property type specifies a Windows Event to monitor for the component.
+        Adds an AWS::ApplicationInsights::Application.WindowsEvent resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApplicationInsights::Application.WindowsEvent resource property to the template.
-The AWS::ApplicationInsights::Application WindowsEvent property type specifies a Windows Event to monitor for the component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
 
-    .PARAMETER LogGroupName
-        The CloudWatch log group name to be associated with the monitored log.
+    .PARAMETER EventLevels
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER LogGroupName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EventName
-        The type of Windows Events to log, equivalent to the Windows Event log channel name. For example, System, Security, CustomEventName, and so on. This field is required for each type of Windows event to log.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER EventLevels
-        The levels of event to log. You must specify each level to log. Possible values include INFORMATION, WARNING, ERROR, CRITICAL, and VERBOSE. This field is required for each type of Windows Event to log.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER PatternSet
-        The log pattern set.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
         UpdateType: Mutable
         PrimitiveType: String
@@ -46,6 +39,8 @@ The AWS::ApplicationInsights::Application WindowsEvent property type specifies a
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $EventLevels,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -68,8 +63,6 @@ The AWS::ApplicationInsights::Application WindowsEvent property type specifies a
                 }
             })]
         $EventName,
-        [parameter(Mandatory = $true)]
-        $EventLevels,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

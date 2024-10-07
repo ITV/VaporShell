@@ -1,29 +1,26 @@
 function Add-VSDataBrewDatasetFilterExpression {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.FilterExpression resource property to the template. Represents a structure for defining parameter conditions.
+        Adds an AWS::DataBrew::Dataset.FilterExpression resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.FilterExpression resource property to the template.
-Represents a structure for defining parameter conditions.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
 
     .PARAMETER Expression
-        The expression which includes condition names followed by substitution variables, possibly grouped and combined with other conditions. For example, "starts_with :prefix1 or starts_with :prefix2 and ends_with :suffix1 or ends_with :suffix2". Substitution variables should start with ':' symbol.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ValuesMap
-        The map of substitution variable names to their values used in this filter expression.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
         UpdateType: Mutable
         Type: List
         ItemType: FilterValue
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

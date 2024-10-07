@@ -1,26 +1,21 @@
 function Add-VSDataSyncTaskFilterRule {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::Task.FilterRule resource property to the template. Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+        Adds an AWS::DataSync::Task.FilterRule resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataSync::Task.FilterRule resource property to the template.
-Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html
 
     .PARAMETER FilterType
-        The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-filtertype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Value
-        A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" that is, a pipe, for example: /folder1|/folder2
-
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-value
         UpdateType: Mutable
         PrimitiveType: String

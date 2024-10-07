@@ -1,20 +1,16 @@
 function Add-VSMediaLiveInputInputDeviceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.InputDeviceSettings resource property to the template. Settings that apply only if the input is an Elemental Link input.
+        Adds an AWS::MediaLive::Input.InputDeviceSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.InputDeviceSettings resource property to the template.
-Settings that apply only if the input is an Elemental Link input.
 
-The parent of this entity is Input.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicesettings.html
 
     .PARAMETER Id
-        The unique ID for the device.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicesettings.html#cfn-medialive-input-inputdevicesettings-id
         PrimitiveType: String
         UpdateType: Mutable

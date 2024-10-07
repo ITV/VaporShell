@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextAcmTrust resource property to the template. An object that represents a Transport Layer Security (TLS validation context trust for an AWS Certificate Manager certificate.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextAcmTrust resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextAcmTrust resource property to the template.
-An object that represents a Transport Layer Security (TLS validation context trust for an AWS Certificate Manager certificate.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html
 
     .PARAMETER CertificateAuthorityArns
-        One or more ACM Amazon Resource Name ARNs.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust-certificateauthorityarns

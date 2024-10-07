@@ -1,26 +1,22 @@
 function Add-VSCassandraTableProvisionedThroughput {
     <#
     .SYNOPSIS
-        Adds an AWS::Cassandra::Table.ProvisionedThroughput resource property to the template. The provisioned throughput for the table, which consists of ReadCapacityUnits and WriteCapacityUnits.
+        Adds an AWS::Cassandra::Table.ProvisionedThroughput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Cassandra::Table.ProvisionedThroughput resource property to the template.
-The provisioned throughput for the table, which consists of ReadCapacityUnits and WriteCapacityUnits.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html
 
-    .PARAMETER ReadCapacityUnits
-        The amount of read capacity that's provisioned for the table. For more information, see Read/write capacity mode: https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html in the *Amazon Keyspaces Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits
+    .PARAMETER WriteCapacityUnits
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER WriteCapacityUnits
-        The amount of write capacity that's provisioned for the table. For more information, see Read/write capacity mode: https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html in the *Amazon Keyspaces Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits
+    .PARAMETER ReadCapacityUnits
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits
         UpdateType: Mutable
         PrimitiveType: Integer
 
@@ -41,7 +37,7 @@ The provisioned throughput for the table, which consists of ReadCapacityUnits an
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ReadCapacityUnits,
+        $WriteCapacityUnits,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -52,7 +48,7 @@ The provisioned throughput for the table, which consists of ReadCapacityUnits an
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $WriteCapacityUnits
+        $ReadCapacityUnits
     )
     Begin {
         $obj = [PSCustomObject]@{}

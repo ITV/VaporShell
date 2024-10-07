@@ -1,12 +1,10 @@
 function New-VSECSCapacityProvider {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::CapacityProvider resource to the template. The AWS::ECS::CapacityProvider resource creates an Amazon Elastic Container Service (Amazon ECS capacity provider. Capacity providers are associated with an Amazon ECS cluster and are used in capacity provider strategies to facilitate cluster auto scaling.
+        Adds an AWS::ECS::CapacityProvider resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ECS::CapacityProvider resource to the template. The AWS::ECS::CapacityProvider resource creates an Amazon Elastic Container Service (Amazon ECS capacity provider. Capacity providers are associated with an Amazon ECS cluster and are used in capacity provider strategies to facilitate cluster auto scaling.
-
-Only capacity providers using an Auto Scaling group can be created. Amazon ECS tasks on AWS Fargate use the FARGATE and FARGATE_SPOT capacity providers which are already created and available to all accounts in Regions supported by AWS Fargate.
+        Adds an AWS::ECS::CapacityProvider resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html
@@ -15,34 +13,21 @@ Only capacity providers using an Auto Scaling group can be created. Amazon ECS t
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AutoScalingGroupProvider
-        The Auto Scaling group settings for the capacity provider.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider
         UpdateType: Mutable
         Type: AutoScalingGroupProvider
 
-    .PARAMETER Name
-        The name of the capacity provider. If a name is specified, it cannot start with aws, ecs, or fargate. If no name is specified, a default name in the CFNStackName-CFNResourceName-RandomString format is used.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Tags
-        The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
-The following basic restrictions apply to tags:
-+ Maximum number of tags per resource - 50
-+ For each resource, each tag key must be unique, and each tag key can have only one value.
-+ Maximum key length - 128 Unicode characters in UTF-8
-+ Maximum value length - 256 Unicode characters in UTF-8
-+ If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-+ Tag keys and values are case-sensitive.
-+ Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -108,6 +93,9 @@ The following basic restrictions apply to tags:
         $LogicalId,
         [parameter(Mandatory = $true)]
         $AutoScalingGroupProvider,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -119,9 +107,6 @@ The following basic restrictions apply to tags:
                 }
             })]
         $Name,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,10 +1,10 @@
 function New-VSAPSWorkspace {
     <#
     .SYNOPSIS
-        Adds an AWS::APS::Workspace resource to the template. The AWS::APS::Workspace type specifies an Amazon Managed Service for Prometheus (Amazon Managed Service for Prometheus workspace. A *workspace* is a logical and isolated Prometheus server dedicated to Prometheus resources such as metrics. You can have one or more workspaces in each Region in your account.
+        Adds an AWS::APS::Workspace resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::APS::Workspace resource to the template. The AWS::APS::Workspace type specifies an Amazon Managed Service for Prometheus (Amazon Managed Service for Prometheus workspace. A *workspace* is a logical and isolated Prometheus server dedicated to Prometheus resources such as metrics. You can have one or more workspaces in each Region in your account.
+        Adds an AWS::APS::Workspace resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html
@@ -13,17 +13,7 @@ function New-VSAPSWorkspace {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Alias
-        An alias that you assign to this workspace to help you identify it. It does not need to be unique.
-The alias can be as many as 100 characters and can include any type of characters. Amazon Managed Service for Prometheus automatically strips any blank spaces from the beginning and end of the alias that you specify.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alias
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER AlertManagerDefinition
-        The alert manager definition for the workspace, as a string. For more information, see  Alert manager and templating: https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alertmanagerdefinition
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -32,9 +22,12 @@ The alias can be as many as 100 characters and can include any type of character
         UpdateType: Mutable
         Type: LoggingConfiguration
 
-    .PARAMETER Tags
-        A list of tag keys and values to associate with the workspace.
+    .PARAMETER AlertManagerDefinition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alertmanagerdefinition
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-tags
         UpdateType: Mutable
         Type: List
@@ -115,6 +108,8 @@ The alias can be as many as 100 characters and can include any type of character
             })]
         $Alias,
         [parameter(Mandatory = $false)]
+        $LoggingConfiguration,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,8 +120,6 @@ The alias can be as many as 100 characters and can include any type of character
                 }
             })]
         $AlertManagerDefinition,
-        [parameter(Mandatory = $false)]
-        $LoggingConfiguration,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

@@ -10,13 +10,13 @@ function Add-VSDynamoDBTableProvisionedThroughput {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html
 
-    .PARAMETER ReadCapacityUnits
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html#cfn-dynamodb-table-provisionedthroughput-readcapacityunits
+    .PARAMETER WriteCapacityUnits
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html#cfn-dynamodb-table-provisionedthroughput-writecapacityunits
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER WriteCapacityUnits
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html#cfn-dynamodb-table-provisionedthroughput-writecapacityunits
+    .PARAMETER ReadCapacityUnits
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html#cfn-dynamodb-table-provisionedthroughput-readcapacityunits
         UpdateType: Mutable
         PrimitiveType: Integer
 
@@ -37,7 +37,7 @@ function Add-VSDynamoDBTableProvisionedThroughput {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ReadCapacityUnits,
+        $WriteCapacityUnits,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -48,7 +48,7 @@ function Add-VSDynamoDBTableProvisionedThroughput {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $WriteCapacityUnits
+        $ReadCapacityUnits
     )
     Begin {
         $obj = [PSCustomObject]@{}

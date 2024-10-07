@@ -1,10 +1,10 @@
 function New-VSDataBrewSchedule {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Schedule resource to the template. Specifies a new schedule for one or more AWS Glue DataBrew jobs. Jobs can be run at a specific date and time, or at regular intervals.
+        Adds an AWS::DataBrew::Schedule resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DataBrew::Schedule resource to the template. Specifies a new schedule for one or more AWS Glue DataBrew jobs. Jobs can be run at a specific date and time, or at regular intervals.
+        Adds an AWS::DataBrew::Schedule resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html
@@ -13,8 +13,6 @@ function New-VSDataBrewSchedule {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER JobNames
-        A list of jobs to be run, according to the schedule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
         UpdateType: Mutable
         Type: List
@@ -22,27 +20,21 @@ function New-VSDataBrewSchedule {
         DuplicatesAllowed: False
 
     .PARAMETER CronExpression
-        The dates and times when the job is to run. For more information, see Cron expressions: https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html in the * AWS Glue DataBrew Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        The name of the schedule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Tags
-        Metadata tags that have been applied to the schedule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -119,6 +111,9 @@ function New-VSDataBrewSchedule {
                 }
             })]
         $CronExpression,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -130,9 +125,6 @@ function New-VSDataBrewSchedule {
                 }
             })]
         $Name,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

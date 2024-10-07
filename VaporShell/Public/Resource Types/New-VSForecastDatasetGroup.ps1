@@ -1,18 +1,10 @@
 function New-VSForecastDatasetGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::Forecast::DatasetGroup resource to the template. Creates a dataset group, which holds a collection of related datasets. You can add datasets to the dataset group when you create the dataset group, or later by using the UpdateDatasetGroup: https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html operation.
+        Adds an AWS::Forecast::DatasetGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Forecast::DatasetGroup resource to the template. Creates a dataset group, which holds a collection of related datasets. You can add datasets to the dataset group when you create the dataset group, or later by using the UpdateDatasetGroup: https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html operation.
-
-After creating a dataset group and adding datasets, you use the dataset group when you create a predictor. For more information, see Dataset groups: https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html.
-
-To get a list of all your datasets groups, use the ListDatasetGroups: https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html operation.
-
-**Note**
-
-The Status of a dataset group must be ACTIVE before you can use the dataset group to create a predictor. To get the status, use the DescribeDatasetGroup: https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html operation.
+        Adds an AWS::Forecast::DatasetGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-datasetgroup.html
@@ -21,36 +13,28 @@ The Status of a dataset group must be ACTIVE before you can use the dataset grou
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER DatasetArns
-        An array of Amazon Resource Names ARNs of the datasets that you want to include in the dataset group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-datasetgroup.html#cfn-forecast-datasetgroup-datasetarns
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER DatasetGroupName
-        The name of the dataset group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-datasetgroup.html#cfn-forecast-datasetgroup-datasetgroupname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Domain
-        The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset: https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html operation must match.
-The Domain and DatasetType that you choose determine the fields that must be present in training data that you import to a dataset. For example, if you choose the RETAIL domain and TARGET_TIME_SERIES as the DatasetType, Amazon Forecast requires that item_id, timestamp, and demand fields are present in your data. For more information, see Dataset groups: https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-datasetgroup.html#cfn-forecast-datasetgroup-domain
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-datasetgroup.html#cfn-forecast-datasetgroup-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

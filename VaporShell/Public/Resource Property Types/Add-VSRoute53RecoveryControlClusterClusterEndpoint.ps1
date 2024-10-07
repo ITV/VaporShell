@@ -1,26 +1,21 @@
 function Add-VSRoute53RecoveryControlClusterClusterEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53RecoveryControl::Cluster.ClusterEndpoint resource property to the template. A cluster endpoint. Specify an endpoint when you want to set or retrieve a routing control state in the cluster.
+        Adds an AWS::Route53RecoveryControl::Cluster.ClusterEndpoint resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Route53RecoveryControl::Cluster.ClusterEndpoint resource property to the template.
-A cluster endpoint. Specify an endpoint when you want to set or retrieve a routing control state in the cluster.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html
 
     .PARAMETER Endpoint
-        A cluster endpoint. Specify an endpoint and AWS Region when you want to set or retrieve a routing control state in the cluster.
-To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-endpoint
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Region
-        The AWS Region for a cluster endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-region
         UpdateType: Mutable
         PrimitiveType: String

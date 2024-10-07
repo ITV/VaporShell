@@ -1,12 +1,10 @@
 function New-VSPersonalizeDatasetGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::Personalize::DatasetGroup resource to the template. A dataset group is a collection of related datasets (Interactions, User, and Item. You create a dataset group by calling CreateDatasetGroup: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html. You then create a dataset and add it to a dataset group by calling CreateDataset: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html. The dataset group is used to create and train a solution by calling CreateSolution: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html. A dataset group can contain only one of each type of dataset.
+        Adds an AWS::Personalize::DatasetGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Personalize::DatasetGroup resource to the template. A dataset group is a collection of related datasets (Interactions, User, and Item. You create a dataset group by calling CreateDatasetGroup: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html. You then create a dataset and add it to a dataset group by calling CreateDataset: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html. The dataset group is used to create and train a solution by calling CreateSolution: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html. A dataset group can contain only one of each type of dataset.
-
-You can specify an AWS Key Management Service (KMS key to encrypt the datasets in the group.
+        Adds an AWS::Personalize::DatasetGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html
@@ -14,31 +12,23 @@ You can specify an AWS Key Management Service (KMS key to encrypt the datasets i
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the dataset group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html#cfn-personalize-datasetgroup-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER KmsKeyArn
-        The Amazon Resource Name ARN of the AWS Key Management Service KMS key used to encrypt the datasets.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html#cfn-personalize-datasetgroup-kmskeyarn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The ARN of the IAM role that has permissions to create the dataset group.
+    .PARAMETER Domain
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html#cfn-personalize-datasetgroup-domain
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER RoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html#cfn-personalize-datasetgroup-rolearn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Domain
-        The domain of a Domain dataset group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html#cfn-personalize-datasetgroup-domain
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html#cfn-personalize-datasetgroup-name
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -104,17 +94,6 @@ You can specify an AWS Key Management Service (KMS key to encrypt the datasets i
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -136,7 +115,7 @@ You can specify an AWS Key Management Service (KMS key to encrypt the datasets i
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleArn,
+        $Domain,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -147,7 +126,18 @@ You can specify an AWS Key Management Service (KMS key to encrypt the datasets i
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Domain,
+        $RoleArn,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

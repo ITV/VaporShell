@@ -1,46 +1,36 @@
 function Add-VSDMSEndpointIbmDb2Settings {
     <#
     .SYNOPSIS
-        Adds an AWS::DMS::Endpoint.IbmDb2Settings resource property to the template. Not currently supported by AWS CloudFormation.
+        Adds an AWS::DMS::Endpoint.IbmDb2Settings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DMS::Endpoint.IbmDb2Settings resource property to the template.
-Not currently supported by AWS CloudFormation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html
 
     .PARAMETER SetDataCaptureChanges
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html#cfn-dms-endpoint-ibmdb2settings-setdatacapturechanges
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER CurrentLsn
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html#cfn-dms-endpoint-ibmdb2settings-currentlsn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER MaxKBytesPerRead
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html#cfn-dms-endpoint-ibmdb2settings-maxkbytesperread
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER SecretsManagerSecretId
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html#cfn-dms-endpoint-ibmdb2settings-secretsmanagersecretid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SecretsManagerAccessRoleArn
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html#cfn-dms-endpoint-ibmdb2settings-secretsmanageraccessrolearn
         PrimitiveType: String
         UpdateType: Mutable

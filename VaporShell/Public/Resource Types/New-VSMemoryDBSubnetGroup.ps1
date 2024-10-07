@@ -1,10 +1,10 @@
 function New-VSMemoryDBSubnetGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::MemoryDB::SubnetGroup resource to the template. Specifies a subnet group. A subnet group is a collection of subnets (typically private that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC environment. When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes. For more information, see Subnets and subnet groups: https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html.
+        Adds an AWS::MemoryDB::SubnetGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::MemoryDB::SubnetGroup resource to the template. Specifies a subnet group. A subnet group is a collection of subnets (typically private that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC environment. When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes. For more information, see Subnets and subnet groups: https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html.
+        Adds an AWS::MemoryDB::SubnetGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html
@@ -12,23 +12,17 @@ function New-VSMemoryDBSubnetGroup {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER SubnetGroupName
-        The name of the subnet group to be used for the cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html#cfn-memorydb-subnetgroup-subnetgroupname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        A description of the subnet group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html#cfn-memorydb-subnetgroup-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER SubnetIds
-        A list of Amazon VPC subnet IDs for the subnet group.
+    .PARAMETER SubnetGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html#cfn-memorydb-subnetgroup-subnetgroupname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER SubnetIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html#cfn-memorydb-subnetgroup-subnetids
         UpdateType: Mutable
         Type: List
@@ -36,9 +30,6 @@ function New-VSMemoryDBSubnetGroup {
         DuplicatesAllowed: False
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html#cfn-memorydb-subnetgroup-tags
         UpdateType: Mutable
         Type: List
@@ -107,17 +98,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SubnetGroupName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -129,6 +109,17 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $Description,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SubnetGroupName,
         [parameter(Mandatory = $true)]
         $SubnetIds,
         [VaporShell.Core.TransformTag()]

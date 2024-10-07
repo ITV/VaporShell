@@ -1,20 +1,16 @@
 function Add-VSEFSFileSystemBackupPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::EFS::FileSystem.BackupPolicy resource property to the template. The backup policy turns automatic backups for the file system on or off.
+        Adds an AWS::EFS::FileSystem.BackupPolicy resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EFS::FileSystem.BackupPolicy resource property to the template.
-The backup policy turns automatic backups for the file system on or off.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
 
     .PARAMETER Status
-        Set the backup policy status for the file system.
-+  ** ENABLED** - Turns automatic backups on for the file system.
-+  ** DISABLED** - Turns automatic backups off for the file system.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
         UpdateType: Mutable
         PrimitiveType: String

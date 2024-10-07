@@ -1,26 +1,22 @@
 function Add-VSECSTaskDefinitionHostEntry {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::TaskDefinition.HostEntry resource property to the template. The HostEntry property specifies a hostname and an IP address that are added to the /etc/hosts file of a container through the extraHosts parameter of its ContainerDefinition resource.
+        Adds an AWS::ECS::TaskDefinition.HostEntry resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECS::TaskDefinition.HostEntry resource property to the template.
-The HostEntry property specifies a hostname and an IP address that are added to the /etc/hosts file of a container through the extraHosts parameter of its ContainerDefinition resource.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html
 
     .PARAMETER Hostname
-        The hostname to use in the /etc/hosts entry.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-hostname
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html#cfn-ecs-taskdefinition-hostentry-hostname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER IpAddress
-        The IP address to use in the /etc/hosts entry.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-ipaddress
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html#cfn-ecs-taskdefinition-hostentry-ipaddress
         UpdateType: Immutable
         PrimitiveType: String
 

@@ -1,18 +1,16 @@
 function Add-VSSageMakerModelExplainabilityJobDefinitionMonitoringOutput {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.MonitoringOutput resource property to the template. The output object for a monitoring job.
+        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.MonitoringOutput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.MonitoringOutput resource property to the template.
-The output object for a monitoring job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
 
     .PARAMETER S3Output
-        The Amazon S3 storage location where the results of a monitoring job are saved.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
         UpdateType: Immutable
         Type: S3Output

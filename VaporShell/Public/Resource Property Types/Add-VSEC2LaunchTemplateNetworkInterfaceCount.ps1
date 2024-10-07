@@ -1,25 +1,21 @@
 function Add-VSEC2LaunchTemplateNetworkInterfaceCount {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.NetworkInterfaceCount resource property to the template. The minimum and maximum number of network interfaces.
+        Adds an AWS::EC2::LaunchTemplate.NetworkInterfaceCount resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.NetworkInterfaceCount resource property to the template.
-The minimum and maximum number of network interfaces.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterfacecount.html
 
     .PARAMETER Min
-        The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterfacecount.html#cfn-ec2-launchtemplate-networkinterfacecount-min
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Max
-        The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterfacecount.html#cfn-ec2-launchtemplate-networkinterfacecount-max
         PrimitiveType: Integer
         UpdateType: Mutable

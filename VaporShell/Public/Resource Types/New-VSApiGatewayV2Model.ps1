@@ -1,10 +1,10 @@
 function New-VSApiGatewayV2Model {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::Model resource to the template. The AWS::ApiGatewayV2::Model resource updates data model for a WebSocket API. For more information, see Model Selection Expressions: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGatewayV2::Model resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGatewayV2::Model resource to the template. The AWS::ApiGatewayV2::Model resource updates data model for a WebSocket API. For more information, see Model Selection Expressions: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGatewayV2::Model resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html
@@ -13,39 +13,29 @@ function New-VSApiGatewayV2Model {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        The description of the model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-description
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER ContentType
-        The content-type for the model, for example, "application/json".
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-contenttype
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Schema
-        The schema for the model. For application/json models, this should be JSON schema draft 4 model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-schema
-        PrimitiveType: Json
         UpdateType: Mutable
+        PrimitiveType: Json
 
     .PARAMETER ApiId
-        The API identifier.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-apiid
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Name
-        The name of the model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-name
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

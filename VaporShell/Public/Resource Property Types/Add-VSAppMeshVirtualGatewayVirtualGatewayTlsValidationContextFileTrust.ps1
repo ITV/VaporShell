@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextFileTrust resource property to the template. An object that represents a Transport Layer Security (TLS validation context trust for a local file.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextFileTrust resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextFileTrust resource property to the template.
-An object that represents a Transport Layer Security (TLS validation context trust for a local file.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html
 
     .PARAMETER CertificateChain
-        The certificate trust chain for a certificate stored on the file system of the virtual node that the proxy is running on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust-certificatechain
         PrimitiveType: String
         UpdateType: Mutable

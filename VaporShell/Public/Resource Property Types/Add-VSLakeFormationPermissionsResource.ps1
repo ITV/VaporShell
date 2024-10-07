@@ -1,39 +1,31 @@
 function Add-VSLakeFormationPermissionsResource {
     <#
     .SYNOPSIS
-        Adds an AWS::LakeFormation::Permissions.Resource resource property to the template. A structure for the resource.
+        Adds an AWS::LakeFormation::Permissions.Resource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LakeFormation::Permissions.Resource resource property to the template.
-A structure for the resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html
 
     .PARAMETER TableResource
-        A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
-
         Type: TableResource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html#cfn-lakeformation-permissions-resource-tableresource
         UpdateType: Mutable
 
     .PARAMETER DatabaseResource
-        A structure for the database object.
-
         Type: DatabaseResource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html#cfn-lakeformation-permissions-resource-databaseresource
         UpdateType: Mutable
 
     .PARAMETER DataLocationResource
-        A structure for a data location object where permissions are granted or revoked.
-
         Type: DataLocationResource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html#cfn-lakeformation-permissions-resource-datalocationresource
         UpdateType: Mutable
 
     .PARAMETER TableWithColumnsResource
-        Currently not supported by AWS CloudFormation.
-
         Type: TableWithColumnsResource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html#cfn-lakeformation-permissions-resource-tablewithcolumnsresource
         UpdateType: Mutable

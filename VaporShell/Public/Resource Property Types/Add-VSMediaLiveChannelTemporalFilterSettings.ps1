@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelTemporalFilterSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.TemporalFilterSettings resource property to the template. Settings for the temporal filter to apply to the video.
+        Adds an AWS::MediaLive::Channel.TemporalFilterSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.TemporalFilterSettings resource property to the template.
-Settings for the temporal filter to apply to the video.
 
-The parents of this entity are H264FilterSettings, H265FilterSettings, and Mpeg2FilterSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html
 
     .PARAMETER PostFilterSharpening
-        If you enable this filter, the results are the following: - If the source content is noisy it contains excessive digital artifacts, the filter cleans up the source. - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html#cfn-medialive-channel-temporalfiltersettings-postfiltersharpening
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Strength
-        Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html#cfn-medialive-channel-temporalfiltersettings-strength
         PrimitiveType: String
         UpdateType: Mutable

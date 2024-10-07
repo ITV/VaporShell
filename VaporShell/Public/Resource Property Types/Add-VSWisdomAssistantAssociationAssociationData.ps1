@@ -1,18 +1,16 @@
 function Add-VSWisdomAssistantAssociationAssociationData {
     <#
     .SYNOPSIS
-        Adds an AWS::Wisdom::AssistantAssociation.AssociationData resource property to the template. A union type that currently has a single argument, which is the knowledge base ID.
+        Adds an AWS::Wisdom::AssistantAssociation.AssociationData resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Wisdom::AssistantAssociation.AssociationData resource property to the template.
-A union type that currently has a single argument, which is the knowledge base ID.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html
 
     .PARAMETER KnowledgeBaseId
-        The identifier of the knowledge base.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html#cfn-wisdom-assistantassociation-associationdata-knowledgebaseid
         UpdateType: Immutable
         PrimitiveType: String

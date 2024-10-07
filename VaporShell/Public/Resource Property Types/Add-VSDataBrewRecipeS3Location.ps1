@@ -1,25 +1,21 @@
 function Add-VSDataBrewRecipeS3Location {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Recipe.S3Location resource property to the template. Represents an Amazon S3 location (bucket name, bucket owner, and object key where DataBrew can read input data, or write output from a job.
+        Adds an AWS::DataBrew::Recipe.S3Location resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Recipe.S3Location resource property to the template.
-Represents an Amazon S3 location (bucket name, bucket owner, and object key where DataBrew can read input data, or write output from a job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html
 
     .PARAMETER Bucket
-        The Amazon S3 bucket name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-bucket
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Key
-        The unique name of the object in the bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-key
         UpdateType: Mutable
         PrimitiveType: String

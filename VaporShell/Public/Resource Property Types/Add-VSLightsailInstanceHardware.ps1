@@ -1,35 +1,26 @@
 function Add-VSLightsailInstanceHardware {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Instance.Hardware resource property to the template. Hardware is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        Adds an AWS::Lightsail::Instance.Hardware resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Instance.Hardware resource property to the template.
-Hardware is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html
 
     .PARAMETER CpuCount
-        The number of vCPUs the instance has.
-The CpuCount property is read-only and should not be specified in a create instance or update instance request.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html#cfn-lightsail-instance-hardware-cpucount
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER RamSizeInGb
-        The amount of RAM in GB on the instance for example, 1.0.
-The RamSizeInGb property is read-only and should not be specified in a create instance or update instance request.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html#cfn-lightsail-instance-hardware-ramsizeingb
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Disks
-        The disks attached to the instance.
-The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html#cfn-lightsail-instance-hardware-disks
         UpdateType: Mutable
         Type: List

@@ -1,10 +1,10 @@
 function New-VSWisdomAssistant {
     <#
     .SYNOPSIS
-        Adds an AWS::Wisdom::Assistant resource to the template. Specifies an Amazon Connect Wisdom assistant.
+        Adds an AWS::Wisdom::Assistant resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Wisdom::Assistant resource to the template. Specifies an Amazon Connect Wisdom assistant.
+        Adds an AWS::Wisdom::Assistant resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html
@@ -13,29 +13,21 @@ function New-VSWisdomAssistant {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Type
-        The type of assistant.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html#cfn-wisdom-assistant-type
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Description
-        The description of the assistant.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html#cfn-wisdom-assistant-description
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ServerSideEncryptionConfiguration
-        The KMS key used for encryption.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html#cfn-wisdom-assistant-serversideencryptionconfiguration
         UpdateType: Immutable
         Type: ServerSideEncryptionConfiguration
 
     .PARAMETER Tags
-        The tags used to organize, track, or control access for this resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html#cfn-wisdom-assistant-tags
         UpdateType: Immutable
         Type: List
@@ -43,8 +35,6 @@ function New-VSWisdomAssistant {
         DuplicatesAllowed: False
 
     .PARAMETER Name
-        The name of the assistant.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html#cfn-wisdom-assistant-name
         UpdateType: Immutable
         PrimitiveType: String

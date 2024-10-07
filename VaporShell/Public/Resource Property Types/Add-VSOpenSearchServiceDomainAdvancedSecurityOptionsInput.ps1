@@ -1,35 +1,44 @@
 function Add-VSOpenSearchServiceDomainAdvancedSecurityOptionsInput {
     <#
     .SYNOPSIS
-        Adds an AWS::OpenSearchService::Domain.AdvancedSecurityOptionsInput resource property to the template. Specifies options for fine-grained access control.
+        Adds an AWS::OpenSearchService::Domain.AdvancedSecurityOptionsInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::OpenSearchService::Domain.AdvancedSecurityOptionsInput resource property to the template.
-Specifies options for fine-grained access control.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html
 
-    .PARAMETER Enabled
-        True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See Fine-grained access control in Amazon OpenSearch Service: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html.
+    .PARAMETER AnonymousAuthEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-anonymousauthenabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
+    .PARAMETER InternalUserDatabaseEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER SAMLOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-samloptions
+        UpdateType: Mutable
+        Type: SAMLOptions
+
+    .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER MasterUserOptions
-        Specifies information about the master user.
+    .PARAMETER AnonymousAuthDisableDate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-anonymousauthdisabledate
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER MasterUserOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-masteruseroptions
         UpdateType: Mutable
         Type: MasterUserOptions
-
-    .PARAMETER InternalUserDatabaseEnabled
-        True to enable the internal user database.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled
-        UpdateType: Mutable
-        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
@@ -48,9 +57,7 @@ Specifies options for fine-grained access control.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Enabled,
-        [parameter(Mandatory = $false)]
-        $MasterUserOptions,
+        $AnonymousAuthEnabled,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -61,7 +68,33 @@ Specifies options for fine-grained access control.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $InternalUserDatabaseEnabled
+        $InternalUserDatabaseEnabled,
+        [parameter(Mandatory = $false)]
+        $SAMLOptions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Enabled,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AnonymousAuthDisableDate,
+        [parameter(Mandatory = $false)]
+        $MasterUserOptions
     )
     Begin {
         $obj = [PSCustomObject]@{}

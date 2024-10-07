@@ -1,10 +1,10 @@
 function New-VSGlueSchemaVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::SchemaVersion resource to the template. The AWS::Glue::SchemaVersion is an AWS Glue resource type that manages schema versions of schemas in the AWS Glue Schema Registry.
+        Adds an AWS::Glue::SchemaVersion resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Glue::SchemaVersion resource to the template. The AWS::Glue::SchemaVersion is an AWS Glue resource type that manages schema versions of schemas in the AWS Glue Schema Registry.
+        Adds an AWS::Glue::SchemaVersion resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
@@ -12,19 +12,15 @@ function New-VSGlueSchemaVersion {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Schema
-        The schema that includes the schema version.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-        UpdateType: Immutable
-        Type: Schema
-
     .PARAMETER SchemaDefinition
-        The schema definition for the schema version.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER Schema
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
+        UpdateType: Immutable
+        Type: Schema
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -89,8 +85,6 @@ function New-VSGlueSchemaVersion {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
-        $Schema,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,6 +95,8 @@ function New-VSGlueSchemaVersion {
                 }
             })]
         $SchemaDefinition,
+        [parameter(Mandatory = $true)]
+        $Schema,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

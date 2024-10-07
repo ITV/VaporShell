@@ -1,42 +1,32 @@
 function Add-VSMediaLiveChannelAutomaticInputFailoverSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AutomaticInputFailoverSettings resource property to the template. Settings to configure the conditions that will define the input as unhealthy and that will make MediaLive fail over to the other input in the input failover pair.
+        Adds an AWS::MediaLive::Channel.AutomaticInputFailoverSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AutomaticInputFailoverSettings resource property to the template.
-Settings to configure the conditions that will define the input as unhealthy and that will make MediaLive fail over to the other input in the input failover pair.
 
-The parent of this entity is InputAttachment.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html
 
     .PARAMETER FailoverConditions
-        A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-failoverconditions
         ItemType: FailoverCondition
         UpdateType: Mutable
 
     .PARAMETER InputPreference
-        Input preference when deciding which input to make active when a previously failed input has recovered.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-inputpreference
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SecondaryInputId
-        The input ID of the secondary input in the automatic input failover pair.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-secondaryinputid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ErrorClearTimeMsec
-        This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input_preference for the failover pair is set to PRIMARY_INPUT_PREFERRED, because after this time, MediaLive will switch back to the primary input.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-errorcleartimemsec
         PrimitiveType: Integer
         UpdateType: Mutable

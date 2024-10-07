@@ -1,20 +1,16 @@
 function Add-VSLocationMapMapConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Location::Map.MapConfiguration resource property to the template. Specifies the map tile style selected from an available provider.
+        Adds an AWS::Location::Map.MapConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Location::Map.MapConfiguration resource property to the template.
-Specifies the map tile style selected from an available provider.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
 
     .PARAMETER Style
-        Specifies the map style selected from an available data provider.
-Valid styles: VectorEsriStreets, VectorEsriTopographic, VectorEsriNavigation, VectorEsriDarkGrayCanvas, VectorEsriLightGrayCanvas, VectorHereBerlin.
-When using HERE as your data provider, and selecting the Style VectorHereBerlin, you may not use HERE Technologies maps for Asset Management. See the AWS Service Terms: http://aws.amazon.com/service-terms/ for Amazon Location Service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
         UpdateType: Immutable
         PrimitiveType: String

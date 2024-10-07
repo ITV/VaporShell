@@ -10,15 +10,15 @@ function Add-VSConnectTaskTemplateDefaultFieldValue {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html
 
-    .PARAMETER Id
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html#cfn-connect-tasktemplate-defaultfieldvalue-id
-        UpdateType: Mutable
-        Type: FieldIdentifier
-
     .PARAMETER DefaultValue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html#cfn-connect-tasktemplate-defaultfieldvalue-defaultvalue
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER Id
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html#cfn-connect-tasktemplate-defaultfieldvalue-id
+        UpdateType: Mutable
+        Type: FieldIdentifier
 
     .FUNCTIONALITY
         Vaporshell
@@ -27,8 +27,6 @@ function Add-VSConnectTaskTemplateDefaultFieldValue {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $Id,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -39,7 +37,9 @@ function Add-VSConnectTaskTemplateDefaultFieldValue {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DefaultValue
+        $DefaultValue,
+        [parameter(Mandatory = $true)]
+        $Id
     )
     Begin {
         $obj = [PSCustomObject]@{}

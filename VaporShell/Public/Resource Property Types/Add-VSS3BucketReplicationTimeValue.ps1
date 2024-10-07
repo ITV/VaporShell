@@ -1,19 +1,16 @@
 function Add-VSS3BucketReplicationTimeValue {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.ReplicationTimeValue resource property to the template. A container specifying the time value for S3 Replication Time Control (S3 RTC and replication metrics EventThreshold.
+        Adds an AWS::S3::Bucket.ReplicationTimeValue resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.ReplicationTimeValue resource property to the template.
-A container specifying the time value for S3 Replication Time Control (S3 RTC and replication metrics EventThreshold.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html
 
     .PARAMETER Minutes
-        Contains an integer specifying time in minutes.
-Valid value: 15
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html#cfn-s3-bucket-replicationtimevalue-minutes
         PrimitiveType: Integer
         UpdateType: Mutable

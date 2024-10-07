@@ -1,55 +1,43 @@
 function Add-VSIoTTopicRuleTopicRulePayload {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.TopicRulePayload resource property to the template. Describes a rule.
+        Adds an AWS::IoT::TopicRule.TopicRulePayload resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.TopicRulePayload resource property to the template.
-Describes a rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
 
     .PARAMETER RuleDisabled
-        Specifies whether the rule is disabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER ErrorAction
-        The action to take when an error occurs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
         UpdateType: Mutable
         Type: Action
 
     .PARAMETER Description
-        The description of the rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER AwsIotSqlVersion
-        The version of the SQL rules engine to use when evaluating the rule.
-The default value is 2015-10-08.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Actions
-        The actions associated with the rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
         UpdateType: Mutable
         Type: List
         ItemType: Action
+        DuplicatesAllowed: True
 
     .PARAMETER Sql
-        The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference: https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html in the * AWS IoT Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,42 +1,34 @@
 function Add-VSDataBrewRecipeDataCatalogInputDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Recipe.DataCatalogInputDefinition resource property to the template. Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+        Adds an AWS::DataBrew::Recipe.DataCatalogInputDefinition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Recipe.DataCatalogInputDefinition resource property to the template.
-Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html
 
-    .PARAMETER CatalogId
-        The unique identifier of the AWS account that holds the Data Catalog that stores the data.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-catalogid
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER DatabaseName
-        The name of a database in the Data Catalog.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-databasename
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER TableName
-        The name of a database table in the Data Catalog. This table corresponds to a DataBrew dataset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tablename
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TempDirectory
-        Represents an Amazon location where DataBrew can store intermediate results.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tempdirectory
         UpdateType: Mutable
         Type: S3Location
+
+    .PARAMETER DatabaseName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-databasename
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER CatalogId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-catalogid
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -55,7 +47,9 @@ Represents how metadata stored in the AWS Glue Data Catalog is defined in a Data
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CatalogId,
+        $TableName,
+        [parameter(Mandatory = $false)]
+        $TempDirectory,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -77,9 +71,7 @@ Represents how metadata stored in the AWS Glue Data Catalog is defined in a Data
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TableName,
-        [parameter(Mandatory = $false)]
-        $TempDirectory
+        $CatalogId
     )
     Begin {
         $obj = [PSCustomObject]@{}

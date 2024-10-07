@@ -1,30 +1,28 @@
 function Add-VSAuditManagerAssessmentScope {
     <#
     .SYNOPSIS
-        Adds an AWS::AuditManager::Assessment.Scope resource property to the template. The Scope property type specifies the wrapper that contains the AWS accounts and services in scope for the assessment.
+        Adds an AWS::AuditManager::Assessment.Scope resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AuditManager::Assessment.Scope resource property to the template.
-The Scope property type specifies the wrapper that contains the AWS accounts and services in scope for the assessment.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
 
     .PARAMETER AwsAccounts
-        The AWS accounts that are included in the scope of the assessment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
         UpdateType: Mutable
         Type: List
         ItemType: AWSAccount
+        DuplicatesAllowed: True
 
     .PARAMETER AwsServices
-        The AWS services that are included in the scope of the assessment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
         UpdateType: Mutable
         Type: List
         ItemType: AWSService
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

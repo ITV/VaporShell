@@ -1,19 +1,16 @@
 function Add-VSIoTAnalyticsDatastoreSchemaDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.SchemaDefinition resource property to the template. Information needed to define a schema.
+        Adds an AWS::IoTAnalytics::Datastore.SchemaDefinition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.SchemaDefinition resource property to the template.
-Information needed to define a schema.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html
 
     .PARAMETER Columns
-        Specifies one or more columns that store your data.
-Each schema can have up to 100 columns. Each column can have up to 100 nested types.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html#cfn-iotanalytics-datastore-schemadefinition-columns
         UpdateType: Mutable
         Type: List

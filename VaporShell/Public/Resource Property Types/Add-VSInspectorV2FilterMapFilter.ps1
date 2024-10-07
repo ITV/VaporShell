@@ -1,33 +1,27 @@
 function Add-VSInspectorV2FilterMapFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::InspectorV2::Filter.MapFilter resource property to the template. An object that describes details of a map filter.
+        Adds an AWS::InspectorV2::Filter.MapFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::InspectorV2::Filter.MapFilter resource property to the template.
-An object that describes details of a map filter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-mapfilter.html
 
     .PARAMETER Comparison
-        The operator to use when comparing values in the filter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-mapfilter.html#cfn-inspectorv2-filter-mapfilter-comparison
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Key
-        The tag key used in the filter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-mapfilter.html#cfn-inspectorv2-filter-mapfilter-key
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-mapfilter.html#cfn-inspectorv2-filter-mapfilter-value
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The tag value used in the filter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-mapfilter.html#cfn-inspectorv2-filter-mapfilter-value
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-mapfilter.html#cfn-inspectorv2-filter-mapfilter-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -59,7 +53,7 @@ An object that describes details of a map filter.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $Value,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -70,7 +64,7 @@ An object that describes details of a map filter.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

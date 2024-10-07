@@ -1,18 +1,16 @@
 function Add-VSKafkaConnectConnectorKafkaClusterEncryptionInTransit {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit resource property to the template. Details of encryption in transit to the Apache Kafka cluster.
+        Adds an AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit resource property to the template.
-Details of encryption in transit to the Apache Kafka cluster.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html
 
     .PARAMETER EncryptionType
-        The type of encryption in transit to the Apache Kafka cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit-encryptiontype
         UpdateType: Immutable
         PrimitiveType: String

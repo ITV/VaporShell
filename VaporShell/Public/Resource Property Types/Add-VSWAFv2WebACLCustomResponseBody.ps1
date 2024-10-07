@@ -1,27 +1,21 @@
 function Add-VSWAFv2WebACLCustomResponseBody {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.CustomResponseBody resource property to the template. The response body to use in a custom response to a web request. This is referenced by key from the CustomResponse CustomResponseBodyKey.
+        Adds an AWS::WAFv2::WebACL.CustomResponseBody resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.CustomResponseBody resource property to the template.
-The response body to use in a custom response to a web request. This is referenced by key from the CustomResponse CustomResponseBodyKey.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
 
     .PARAMETER ContentType
-        The type of content in the payload that you are defining in the Content string.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Content
-        The payload of the custom response.
-You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the ContentType setting.
-For information about the limits on count and size for custom request and response settings, see AWS WAF quotas: https://docs.aws.amazon.com/waf/latest/developerguide/limits.html in the AWS WAF Developer Guide: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
         UpdateType: Mutable
         PrimitiveType: String

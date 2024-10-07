@@ -1,29 +1,26 @@
 function Add-VSEKSClusterEncryptionConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EKS::Cluster.EncryptionConfig resource property to the template. The encryption configuration for the cluster.
+        Adds an AWS::EKS::Cluster.EncryptionConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EKS::Cluster.EncryptionConfig resource property to the template.
-The encryption configuration for the cluster.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html
 
-    .PARAMETER Provider
-        The encryption provider for the cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-provider
-        UpdateType: Immutable
-        Type: Provider
-
     .PARAMETER Resources
-        Specifies the resources to be encrypted. The only supported value is "secrets".
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-resources
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Provider
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-provider
+        UpdateType: Immutable
+        Type: Provider
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,9 +30,9 @@ The encryption configuration for the cluster.
     Param
     (
         [parameter(Mandatory = $false)]
-        $Provider,
+        $Resources,
         [parameter(Mandatory = $false)]
-        $Resources
+        $Provider
     )
     Begin {
         $obj = [PSCustomObject]@{}

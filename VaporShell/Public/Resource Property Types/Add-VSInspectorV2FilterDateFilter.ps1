@@ -1,25 +1,21 @@
 function Add-VSInspectorV2FilterDateFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::InspectorV2::Filter.DateFilter resource property to the template. Contains details on the time range used to filter findings.
+        Adds an AWS::InspectorV2::Filter.DateFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::InspectorV2::Filter.DateFilter resource property to the template.
-Contains details on the time range used to filter findings.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html
 
     .PARAMETER EndInclusive
-        A timestamp representing the end of the time period filtered on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html#cfn-inspectorv2-filter-datefilter-endinclusive
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER StartInclusive
-        A timestamp representing the start of the time period filtered on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html#cfn-inspectorv2-filter-datefilter-startinclusive
         UpdateType: Mutable
         PrimitiveType: Integer

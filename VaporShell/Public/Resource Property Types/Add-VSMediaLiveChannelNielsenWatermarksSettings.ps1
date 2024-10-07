@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelNielsenWatermarksSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.NielsenWatermarksSettings resource property to the template. Settings to configure Nielsen Watermarks in the audio encode.
+        Adds an AWS::MediaLive::Channel.NielsenWatermarksSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.NielsenWatermarksSettings resource property to the template.
-Settings to configure Nielsen Watermarks in the audio encode.
 
-The parent of this entity is AudioWatermarkSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html
 
     .PARAMETER NielsenDistributionType
-        Choose the distribution types that you want to assign to the watermarks: - PROGRAM_CONTENT - FINAL_DISTRIBUTOR
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsendistributiontype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NielsenCbetSettings
-        Complete these fields only if you want to insert watermarks of type Nielsen CBET
-
         Type: NielsenCBET
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsencbetsettings
         UpdateType: Mutable
 
     .PARAMETER NielsenNaesIiNwSettings
-        Complete these fields only if you want to insert watermarks of type Nielsen NAES II N2 and Nielsen NAES VI NW.
-
         Type: NielsenNaesIiNw
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsennaesiinwsettings
         UpdateType: Mutable

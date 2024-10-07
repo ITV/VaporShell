@@ -1,33 +1,27 @@
 function Add-VSKinesisFirehoseDeliveryStreamCopyCommand {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.CopyCommand resource property to the template. The CopyCommand property type configures the Amazon Redshift COPY command that Amazon Kinesis Data Firehose (Kinesis Data Firehose uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+        Adds an AWS::KinesisFirehose::DeliveryStream.CopyCommand resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.CopyCommand resource property to the template.
-The CopyCommand property type configures the Amazon Redshift COPY command that Amazon Kinesis Data Firehose (Kinesis Data Firehose uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html
 
-    .PARAMETER CopyOptions
-        Parameters to use with the Amazon Redshift COPY command. For examples, see the CopyOptions content for the CopyCommand: https://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html data type in the *Amazon Kinesis Data Firehose API Reference*.
+    .PARAMETER DataTableName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-datatablename
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER CopyOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-copyoptions
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DataTableColumns
-        A comma-separated list of column names.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-datatablecolumns
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER DataTableName
-        The name of the target table. The table must already exist in the database.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-datatablename
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -38,6 +32,17 @@ The CopyCommand property type configures the Amazon Redshift COPY command that A
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DataTableName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,18 +64,7 @@ The CopyCommand property type configures the Amazon Redshift COPY command that A
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DataTableColumns,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DataTableName
+        $DataTableColumns
     )
     Begin {
         $obj = [PSCustomObject]@{}

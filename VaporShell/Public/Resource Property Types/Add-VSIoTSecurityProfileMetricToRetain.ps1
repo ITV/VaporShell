@@ -1,25 +1,21 @@
 function Add-VSIoTSecurityProfileMetricToRetain {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::SecurityProfile.MetricToRetain resource property to the template. The metric you want to retain. Dimensions are optional.
+        Adds an AWS::IoT::SecurityProfile.MetricToRetain resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::SecurityProfile.MetricToRetain resource property to the template.
-The metric you want to retain. Dimensions are optional.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html
 
     .PARAMETER Metric
-        A standard of measurement.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER MetricDimension
-        The dimension of the metric.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension
         UpdateType: Mutable
         Type: MetricDimension

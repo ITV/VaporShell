@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileDynatraceConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.DynatraceConnectorProfileProperties resource property to the template. The DynatraceConnectorProfileProperties property type specifies the connector-specific profile properties required by Dynatrace.
+        Adds an AWS::AppFlow::ConnectorProfile.DynatraceConnectorProfileProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.DynatraceConnectorProfileProperties resource property to the template.
-The DynatraceConnectorProfileProperties property type specifies the connector-specific profile properties required by Dynatrace.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Dynatrace resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String

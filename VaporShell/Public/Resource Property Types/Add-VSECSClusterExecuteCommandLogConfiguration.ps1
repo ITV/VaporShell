@@ -1,48 +1,36 @@
 function Add-VSECSClusterExecuteCommandLogConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::Cluster.ExecuteCommandLogConfiguration resource property to the template. The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
+        Adds an AWS::ECS::Cluster.ExecuteCommandLogConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECS::Cluster.ExecuteCommandLogConfiguration resource property to the template.
-The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
 
     .PARAMETER S3EncryptionEnabled
-        Determines whether to use encryption on the S3 logs. If not specified, encryption is not used.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER CloudWatchEncryptionEnabled
-        Determines whether to use encryption on the CloudWatch logs. If not specified, encryption will be disabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER CloudWatchLogGroupName
-        The name of the CloudWatch log group to send logs to.
-The CloudWatch log group must already be created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3KeyPrefix
-        An optional folder in the S3 bucket to place logs in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3BucketName
-        The name of the S3 bucket to send logs to.
-The S3 bucket must already be created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
         UpdateType: Mutable
         PrimitiveType: String

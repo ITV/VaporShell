@@ -1,12 +1,10 @@
 function New-VSXRaySamplingRule {
     <#
     .SYNOPSIS
-        Adds an AWS::XRay::SamplingRule resource to the template. Use the AWS::XRay::SamplingRule resource to specify a sampling rule, which controls sampling behavior for instrumented applications. A new sampling rule is created by specifying a SamplingRule. To change the configuration of an existing sampling rule, specify a SamplingRuleUpdate.
+        Adds an AWS::XRay::SamplingRule resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::XRay::SamplingRule resource to the template. Use the AWS::XRay::SamplingRule resource to specify a sampling rule, which controls sampling behavior for instrumented applications. A new sampling rule is created by specifying a SamplingRule. To change the configuration of an existing sampling rule, specify a SamplingRuleUpdate.
-
-Services retrieve rules with GetSamplingRules: https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html, and evaluate each rule in ascending order of *priority* for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with GetSamplingTargets: https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.
+        Adds an AWS::XRay::SamplingRule resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html
@@ -15,44 +13,21 @@ Services retrieve rules with GetSamplingRules: https://docs.aws.amazon.com/xray/
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER SamplingRule
-        The sampling rule to be created.
-Must be provided if creating a new sampling rule. Not valid when updating an existing sampling rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
         UpdateType: Mutable
         Type: SamplingRule
 
-    .PARAMETER SamplingRuleRecord
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
-        UpdateType: Mutable
-        Type: SamplingRuleRecord
-
-    .PARAMETER SamplingRuleUpdate
-        A document specifying changes to a sampling rule's configuration.
-Must be provided if updating an existing sampling rule. Not valid when creating a new sampling rule.
-The Version of a sampling rule cannot be updated, and is not part of SamplingRuleUpdate.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
-        UpdateType: Mutable
-        Type: SamplingRuleUpdate
-
     .PARAMETER RuleName
-        The name of the sampling rule. Specify a rule by either name or ARN, but not both. Used only when deleting a sampling rule. When creating or updating a sampling rule, use the RuleName or RuleARN properties within SamplingRule or SamplingRuleUpdate.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
         UpdateType: Mutable
         Type: List
-        PrimitiveItemType: Json
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -119,10 +94,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
         [parameter(Mandatory = $false)]
         $SamplingRule,
         [parameter(Mandatory = $false)]
-        $SamplingRuleRecord,
-        [parameter(Mandatory = $false)]
-        $SamplingRuleUpdate,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -133,6 +104,7 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $RuleName,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
         [parameter(Mandatory = $false)]

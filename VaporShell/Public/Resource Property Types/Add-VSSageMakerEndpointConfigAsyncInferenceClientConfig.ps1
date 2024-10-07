@@ -1,18 +1,16 @@
 function Add-VSSageMakerEndpointConfigAsyncInferenceClientConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceClientConfig resource property to the template. Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+        Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceClientConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceClientConfig resource property to the template.
-Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceclientconfig.html
 
     .PARAMETER MaxConcurrentInvocationsPerInstance
-        The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, SageMaker will choose an optimal value for you.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceclientconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceclientconfig-maxconcurrentinvocationsperinstance
         PrimitiveType: Integer
         UpdateType: Immutable

@@ -1,18 +1,10 @@
 function New-VSS3OutpostsBucket {
     <#
     .SYNOPSIS
-        Adds an AWS::S3Outposts::Bucket resource to the template. The AWS::S3Outposts::Bucket resource specifies a new Amazon S3 on Outposts bucket. To create an S3 on Outposts bucket, you must have S3 on Outposts capacity provisioned on your Outpost. For more information, see  Using Amazon S3 on Outposts: https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html.
+        Adds an AWS::S3Outposts::Bucket resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::S3Outposts::Bucket resource to the template. The AWS::S3Outposts::Bucket resource specifies a new Amazon S3 on Outposts bucket. To create an S3 on Outposts bucket, you must have S3 on Outposts capacity provisioned on your Outpost. For more information, see  Using Amazon S3 on Outposts: https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html.
-
-S3 on Outposts buckets support the following:
-
-+ Tags
-
-+ Lifecycle configuration rules for deleting expired objects
-
-For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts, see  Amazon S3 on Outposts Restrictions and Limitations: https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html.
+        Adds an AWS::S3Outposts::Bucket resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html
@@ -20,39 +12,27 @@ For a complete list of restrictions and Amazon S3 feature limitations on S3 on O
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER BucketName
-        A name for the S3 on Outposts bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods ., and dashes - and must follow  Amazon S3 bucket restrictions and limitations: https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html. For more information, see Bucket naming rules: https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules.
-If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER OutpostId
-        The ID of the Outpost of the specified bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        Sets the tags for an S3 on Outposts bucket. For more information, see Using Amazon S3 on Outposts: https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html.
-Use tags to organize your AWS bill to reflect your own cost structure. To do this, sign up to get your AWS account bill with tag key values included. Then, to see the cost of combined resources, organize your billing information according to resources with the same tag key values. For example, you can tag several resources with a specific application name, and then organize your billing information to see the total cost of that application across several services. For more information, see Cost allocation and tags: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html.
-Within a bucket, if you add a tag that has the same key as an existing tag, the new value overwrites the old value. For more information, see  Using cost allocation and bucket tags: https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html.
-To use this resource, you must have permissions to perform the s3-outposts:PutBucketTagging. The S3 on Outposts bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see Permissions Related to Bucket Subresource Operations: https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources and Managing access permissions to your Amazon S3 resources: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html.
+    .PARAMETER BucketName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER LifecycleConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+        UpdateType: Mutable
+        Type: LifecycleConfiguration
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
-
-    .PARAMETER LifecycleConfiguration
-        Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an existing lifecycle configuration. Outposts buckets only support lifecycle configurations that delete/expire objects after a certain period of time and abort incomplete multipart uploads.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
-        UpdateType: Mutable
-        Type: LifecycleConfiguration
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -126,7 +106,7 @@ To use this resource, you must have permissions to perform the s3-outposts:PutBu
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $BucketName,
+        $OutpostId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -137,12 +117,12 @@ To use this resource, you must have permissions to perform the s3-outposts:PutBu
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OutpostId,
+        $BucketName,
+        [parameter(Mandatory = $false)]
+        $LifecycleConfiguration,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        $LifecycleConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

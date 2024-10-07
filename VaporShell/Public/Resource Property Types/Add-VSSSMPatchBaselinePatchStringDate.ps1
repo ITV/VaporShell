@@ -1,11 +1,11 @@
 function Add-VSSSMPatchBaselinePatchStringDate {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::PatchBaseline.PatchStringDate resource property to the template. The date for ApproveUntilDate, as a String in the format YYYY-MM-DD. For example, 2020-12-31.
+        Adds an AWS::SSM::PatchBaseline.PatchStringDate resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSM::PatchBaseline.PatchStringDate resource property to the template.
-The date for ApproveUntilDate, as a String in the format YYYY-MM-DD. For example, 2020-12-31.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchstringdate.html

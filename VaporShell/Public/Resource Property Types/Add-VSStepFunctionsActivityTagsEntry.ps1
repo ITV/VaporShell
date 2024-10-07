@@ -1,26 +1,22 @@
 function Add-VSStepFunctionsActivityTagsEntry {
     <#
     .SYNOPSIS
-        Adds an AWS::StepFunctions::Activity.TagsEntry resource property to the template. The TagsEntry property specifies *tags* to identify an activity.
+        Adds an AWS::StepFunctions::Activity.TagsEntry resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::StepFunctions::Activity.TagsEntry resource property to the template.
-The TagsEntry property specifies *tags* to identify an activity.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html
 
-    .PARAMETER Key
-        The key for a key-value pair in a tag entry.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-key
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-value
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The value for a key-value pair in a tag entry.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-value
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ The TagsEntry property specifies *tags* to identify an activity.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ The TagsEntry property specifies *tags* to identify an activity.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

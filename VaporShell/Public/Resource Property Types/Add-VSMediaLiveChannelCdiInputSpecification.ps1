@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelCdiInputSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.CdiInputSpecification resource property to the template. The input specification for this channel. It specifies the key characteristics of CDI inputs for this channel, when those characteristics are different from other inputs.
+        Adds an AWS::MediaLive::Channel.CdiInputSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.CdiInputSpecification resource property to the template.
-The input specification for this channel. It specifies the key characteristics of CDI inputs for this channel, when those characteristics are different from other inputs.
 
-This entity is at the top level in the channel.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cdiinputspecification.html
 
     .PARAMETER Resolution
-        Maximum CDI input resolution
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cdiinputspecification.html#cfn-medialive-channel-cdiinputspecification-resolution
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,25 +1,21 @@
 function Add-VSConfigConfigurationAggregatorOrganizationAggregationSource {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::ConfigurationAggregator.OrganizationAggregationSource resource property to the template. This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        Adds an AWS::Config::ConfigurationAggregator.OrganizationAggregationSource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Config::ConfigurationAggregator.OrganizationAggregationSource resource property to the template.
-This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
 
     .PARAMETER AllAwsRegions
-        If true, aggregate existing AWS Config regions and future regions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER AwsRegions
-        The source regions being aggregated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
         UpdateType: Mutable
         Type: List
@@ -27,8 +23,6 @@ This object contains regions to set up the aggregator and an IAM role to retriev
         DuplicatesAllowed: True
 
     .PARAMETER RoleArn
-        ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
         UpdateType: Mutable
         PrimitiveType: String

@@ -10,15 +10,15 @@ function Add-VSWAFv2RuleGroupHeaders {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html
 
-    .PARAMETER MatchPattern
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-matchpattern
-        UpdateType: Mutable
-        Type: HeaderMatchPattern
-
     .PARAMETER MatchScope
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-matchscope
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER MatchPattern
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-matchpattern
+        UpdateType: Mutable
+        Type: HeaderMatchPattern
 
     .PARAMETER OversizeHandling
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-oversizehandling
@@ -33,8 +33,6 @@ function Add-VSWAFv2RuleGroupHeaders {
     Param
     (
         [parameter(Mandatory = $true)]
-        $MatchPattern,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,6 +43,8 @@ function Add-VSWAFv2RuleGroupHeaders {
                 }
             })]
         $MatchScope,
+        [parameter(Mandatory = $true)]
+        $MatchPattern,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

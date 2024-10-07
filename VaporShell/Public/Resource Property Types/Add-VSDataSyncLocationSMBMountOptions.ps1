@@ -1,18 +1,16 @@
 function Add-VSDataSyncLocationSMBMountOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationSMB.MountOptions resource property to the template. The mount options used by DataSync to access the SMB server.
+        Adds an AWS::DataSync::LocationSMB.MountOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataSync::LocationSMB.MountOptions resource property to the template.
-The mount options used by DataSync to access the SMB server.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html
 
     .PARAMETER Version
-        The specific SMB version that you want DataSync to use to mount your SMB share. If you don't specify a version, DataSync defaults to AUTOMATIC. That is, DataSync automatically selects a version based on negotiation with the SMB server.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
         UpdateType: Mutable
         PrimitiveType: String

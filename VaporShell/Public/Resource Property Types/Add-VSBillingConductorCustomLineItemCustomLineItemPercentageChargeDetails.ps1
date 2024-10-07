@@ -1,18 +1,16 @@
 function Add-VSBillingConductorCustomLineItemCustomLineItemPercentageChargeDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::BillingConductor::CustomLineItem.CustomLineItemPercentageChargeDetails resource property to the template. A representation of the charge details associated with a percentage custom line item.
+        Adds an AWS::BillingConductor::CustomLineItem.CustomLineItemPercentageChargeDetails resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::BillingConductor::CustomLineItem.CustomLineItemPercentageChargeDetails resource property to the template.
-A representation of the charge details associated with a percentage custom line item.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html
 
     .PARAMETER ChildAssociatedResources
-        A list of resource ARNs to associate to the percentage custom line item.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html#cfn-billingconductor-customlineitem-customlineitempercentagechargedetails-childassociatedresources
         UpdateType: Mutable
         Type: List
@@ -20,8 +18,6 @@ A representation of the charge details associated with a percentage custom line 
         DuplicatesAllowed: False
 
     .PARAMETER PercentageValue
-        The custom line item's percentage value. This will be multiplied against the combined value of its associated resources to determine its charge value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html#cfn-billingconductor-customlineitem-customlineitempercentagechargedetails-percentagevalue
         UpdateType: Mutable
         PrimitiveType: Double

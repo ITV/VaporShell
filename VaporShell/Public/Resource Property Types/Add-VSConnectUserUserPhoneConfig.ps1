@@ -1,42 +1,34 @@
 function Add-VSConnectUserUserPhoneConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::User.UserPhoneConfig resource property to the template. Contains information about the phone configuration settings for a user.
+        Adds an AWS::Connect::User.UserPhoneConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Connect::User.UserPhoneConfig resource property to the template.
-Contains information about the phone configuration settings for a user.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html
 
-    .PARAMETER AfterContactWorkTimeLimit
-        The After Call Work ACW timeout setting, in seconds.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-aftercontactworktimelimit
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER AutoAccept
-        The Auto accept setting.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-autoaccept
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER DeskPhoneNumber
-        The phone number for the user's desk phone.
+    .PARAMETER PhoneType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-phonetype
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER DeskPhoneNumber
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-deskphonenumber
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER PhoneType
-        The phone type.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-phonetype
+    .PARAMETER AfterContactWorkTimeLimit
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-aftercontactworktimelimit
         UpdateType: Mutable
-        PrimitiveType: String
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
@@ -45,17 +37,6 @@ Contains information about the phone configuration settings for a user.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AfterContactWorkTimeLimit,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -67,6 +48,17 @@ Contains information about the phone configuration settings for a user.
                 }
             })]
         $AutoAccept,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PhoneType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -78,9 +70,9 @@ Contains information about the phone configuration settings for a user.
                 }
             })]
         $DeskPhoneNumber,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -88,7 +80,7 @@ Contains information about the phone configuration settings for a user.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PhoneType
+        $AfterContactWorkTimeLimit
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelScte27DestinationSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.Scte27DestinationSettings resource property to the template. The configuration of SCTE-27 captions in the output.
+        Adds an AWS::MediaLive::Channel.Scte27DestinationSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.Scte27DestinationSettings resource property to the template.
-The configuration of SCTE-27 captions in the output.
 
-The parent of this entity is CaptionDestinationSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte27destinationsettings.html

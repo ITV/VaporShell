@@ -1,25 +1,21 @@
 function Add-VSEC2LaunchTemplateTotalLocalStorageGB {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.TotalLocalStorageGB resource property to the template. The minimum and maximum amount of total local storage, in GB.
+        Adds an AWS::EC2::LaunchTemplate.TotalLocalStorageGB resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.TotalLocalStorageGB resource property to the template.
-The minimum and maximum amount of total local storage, in GB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-totallocalstoragegb.html
 
     .PARAMETER Min
-        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-totallocalstoragegb.html#cfn-ec2-launchtemplate-totallocalstoragegb-min
         PrimitiveType: Double
         UpdateType: Mutable
 
     .PARAMETER Max
-        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-totallocalstoragegb.html#cfn-ec2-launchtemplate-totallocalstoragegb-max
         PrimitiveType: Double
         UpdateType: Mutable

@@ -1,10 +1,10 @@
 function New-VSAppStreamApplicationFleetAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::ApplicationFleetAssociation resource to the template. This resource associates the specified application with the specified fleet. This is only supported for Elastic fleets.
+        Adds an AWS::AppStream::ApplicationFleetAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppStream::ApplicationFleetAssociation resource to the template. This resource associates the specified application with the specified fleet. This is only supported for Elastic fleets.
+        Adds an AWS::AppStream::ApplicationFleetAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationfleetassociation.html
@@ -13,15 +13,11 @@ function New-VSAppStreamApplicationFleetAssociation {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER FleetName
-        The name of the fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationfleetassociation.html#cfn-appstream-applicationfleetassociation-fleetname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ApplicationArn
-        The ARN of the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationfleetassociation.html#cfn-appstream-applicationfleetassociation-applicationarn
         UpdateType: Immutable
         PrimitiveType: String

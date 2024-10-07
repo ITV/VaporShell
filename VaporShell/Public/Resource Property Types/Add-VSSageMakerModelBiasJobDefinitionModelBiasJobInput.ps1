@@ -1,28 +1,29 @@
 function Add-VSSageMakerModelBiasJobDefinitionModelBiasJobInput {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelBiasJobDefinition.ModelBiasJobInput resource property to the template. Inputs for the model bias job.
+        Adds an AWS::SageMaker::ModelBiasJobDefinition.ModelBiasJobInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelBiasJobDefinition.ModelBiasJobInput resource property to the template.
-Inputs for the model bias job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
 
-    .PARAMETER EndpointInput
-        Input object for the endpoint.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
-        UpdateType: Immutable
-        Type: EndpointInput
-
     .PARAMETER GroundTruthS3Input
-        Location of ground truth labels to use in model bias job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
         UpdateType: Immutable
         Type: MonitoringGroundTruthS3Input
+
+    .PARAMETER BatchTransformInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-batchtransforminput
+        UpdateType: Immutable
+        Type: BatchTransformInput
+
+    .PARAMETER EndpointInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
+        UpdateType: Immutable
+        Type: EndpointInput
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +33,11 @@ Inputs for the model bias job.
     Param
     (
         [parameter(Mandatory = $true)]
-        $EndpointInput,
-        [parameter(Mandatory = $true)]
-        $GroundTruthS3Input
+        $GroundTruthS3Input,
+        [parameter(Mandatory = $false)]
+        $BatchTransformInput,
+        [parameter(Mandatory = $false)]
+        $EndpointInput
     )
     Begin {
         $obj = [PSCustomObject]@{}

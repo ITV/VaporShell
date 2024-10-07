@@ -1,18 +1,16 @@
 function Add-VSEventsRuleDeadLetterConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.DeadLetterConfig resource property to the template. A DeadLetterConfig object that contains information about a dead-letter queue configuration.
+        Adds an AWS::Events::Rule.DeadLetterConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.DeadLetterConfig resource property to the template.
-A DeadLetterConfig object that contains information about a dead-letter queue configuration.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html
 
     .PARAMETER Arn
-        The ARN of the SQS queue specified as the target for the dead-letter queue.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html#cfn-events-rule-deadletterconfig-arn
         PrimitiveType: String
         UpdateType: Mutable

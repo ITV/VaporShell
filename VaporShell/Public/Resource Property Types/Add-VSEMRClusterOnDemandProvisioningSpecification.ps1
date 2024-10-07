@@ -1,22 +1,16 @@
 function Add-VSEMRClusterOnDemandProvisioningSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::Cluster.OnDemandProvisioningSpecification resource property to the template. The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+        Adds an AWS::EMR::Cluster.OnDemandProvisioningSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EMR::Cluster.OnDemandProvisioningSpecification resource property to the template.
-The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
 
-**Note**
-
-The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR version 5.12.1 and later.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html
 
     .PARAMETER AllocationStrategy
-        Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price the default, which launches the lowest price first.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html#cfn-elasticmapreduce-cluster-ondemandprovisioningspecification-allocationstrategy
         PrimitiveType: String
         UpdateType: Mutable

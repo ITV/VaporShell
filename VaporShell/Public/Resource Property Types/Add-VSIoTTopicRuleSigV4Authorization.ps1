@@ -1,32 +1,26 @@
 function Add-VSIoTTopicRuleSigV4Authorization {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.SigV4Authorization resource property to the template. For more information, see Signature Version 4 signing process: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html.
+        Adds an AWS::IoT::TopicRule.SigV4Authorization resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.SigV4Authorization resource property to the template.
-For more information, see Signature Version 4 signing process: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html
 
     .PARAMETER ServiceName
-        The service name to use while signing with Sig V4.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-servicename
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER SigningRegion
-        The signing region.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-signingregion
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the signing role.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn
         UpdateType: Mutable
         PrimitiveType: String

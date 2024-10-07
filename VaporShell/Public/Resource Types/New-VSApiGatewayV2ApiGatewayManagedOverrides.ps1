@@ -1,10 +1,10 @@
 function New-VSApiGatewayV2ApiGatewayManagedOverrides {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides resource to the template. The AWS::ApiGatewayV2::ApiGatewayManagedOverrides resource overrides the default properties of API Gateway-managed resources that are implicitly configured for you when you use quick create. When you create an API by using quick create, an AWS::ApiGatewayV2::Route, AWS::ApiGatewayV2::Integration, and AWS::ApiGatewayV2::Stage are created for you and associated with your AWS::ApiGatewayV2::Api. The AWS::ApiGatewayV2::ApiGatewayManagedOverrides resource enables you to set, or override the properties of these implicit resources. Supported only for HTTP APIs.
+        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides resource to the template. The AWS::ApiGatewayV2::ApiGatewayManagedOverrides resource overrides the default properties of API Gateway-managed resources that are implicitly configured for you when you use quick create. When you create an API by using quick create, an AWS::ApiGatewayV2::Route, AWS::ApiGatewayV2::Integration, and AWS::ApiGatewayV2::Stage are created for you and associated with your AWS::ApiGatewayV2::Api. The AWS::ApiGatewayV2::ApiGatewayManagedOverrides resource enables you to set, or override the properties of these implicit resources. Supported only for HTTP APIs.
+        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html
@@ -13,29 +13,21 @@ function New-VSApiGatewayV2ApiGatewayManagedOverrides {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Integration
-        Overrides the integration configuration for an API Gateway-managed integration.
-
         Type: IntegrationOverrides
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integration
         UpdateType: Mutable
 
     .PARAMETER Stage
-        Overrides the stage configuration for an API Gateway-managed stage.
-
         Type: StageOverrides
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stage
         UpdateType: Mutable
 
     .PARAMETER ApiId
-        The ID of the API for which to override the configuration of API Gateway-managed resources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-apiid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Route
-        Overrides the route configuration for an API Gateway-managed route.
-
         Type: RouteOverrides
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-route
         UpdateType: Mutable

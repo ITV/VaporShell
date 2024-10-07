@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowServiceNowSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.ServiceNowSourceProperties resource property to the template. The properties that are applied when ServiceNow is being used as a source.
+        Adds an AWS::AppFlow::Flow.ServiceNowSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.ServiceNowSourceProperties resource property to the template.
-The properties that are applied when ServiceNow is being used as a source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html
 
     .PARAMETER Object
-        The object specified in the ServiceNow flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html#cfn-appflow-flow-servicenowsourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

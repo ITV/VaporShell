@@ -1,25 +1,21 @@
 function Add-VSLexBotAliasAudioLogSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.AudioLogSetting resource property to the template. Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+        Adds an AWS::Lex::BotAlias.AudioLogSetting resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.AudioLogSetting resource property to the template.
-Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologsetting.html
 
     .PARAMETER Destination
-        The location of audio log files collected when conversation logging is enabled for a bot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologsetting.html#cfn-lex-botalias-audiologsetting-destination
         UpdateType: Mutable
         Type: AudioLogDestination
 
     .PARAMETER Enabled
-        Determines whether audio logging in enabled for the bot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologsetting.html#cfn-lex-botalias-audiologsetting-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

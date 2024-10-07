@@ -1,33 +1,27 @@
 function Add-VSDataBrewJobOutputLocation {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Job.OutputLocation resource property to the template. The location in Amazon S3 or AWS Glue Data Catalog where the job writes its output.
+        Adds an AWS::DataBrew::Job.OutputLocation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Job.OutputLocation resource property to the template.
-The location in Amazon S3 or AWS Glue Data Catalog where the job writes its output.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html
 
     .PARAMETER Bucket
-        The Amazon S3 bucket name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Key
-        The unique name of the object in the bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
+    .PARAMETER BucketOwner
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucketowner
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER BucketOwner
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucketowner
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -59,7 +53,7 @@ The location in Amazon S3 or AWS Glue Data Catalog where the job writes its outp
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $BucketOwner,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -70,7 +64,7 @@ The location in Amazon S3 or AWS Glue Data Catalog where the job writes its outp
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $BucketOwner
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

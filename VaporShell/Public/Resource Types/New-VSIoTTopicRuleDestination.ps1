@@ -1,10 +1,10 @@
 function New-VSIoTTopicRuleDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRuleDestination resource to the template. A topic rule destination.
+        Adds an AWS::IoT::TopicRuleDestination resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::TopicRuleDestination resource to the template. A topic rule destination.
+        Adds an AWS::IoT::TopicRuleDestination resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
@@ -13,29 +13,16 @@ function New-VSIoTTopicRuleDestination {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Status
-        IN_PROGRESS
-A topic rule destination was created but has not been confirmed. You can set status to IN_PROGRESS by calling UpdateTopicRuleDestination. Calling UpdateTopicRuleDestination causes a new confirmation challenge to be sent to your confirmation endpoint.
-ENABLED
-Confirmation was completed, and traffic to this destination is allowed. You can set status to DISABLED by calling UpdateTopicRuleDestination.
-DISABLED
-Confirmation was completed, and traffic to this destination is not allowed. You can set status to ENABLED by calling UpdateTopicRuleDestination.
-ERROR
-Confirmation could not be completed; for example, if the confirmation timed out. You can call GetTopicRuleDestination for details about the error. You can set status to IN_PROGRESS by calling UpdateTopicRuleDestination. Calling UpdateTopicRuleDestination causes a new confirmation challenge to be sent to your confirmation endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER HttpUrlProperties
-        Properties of the HTTP URL.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
         UpdateType: Immutable
         Type: HttpUrlDestinationSummary
 
     .PARAMETER VpcProperties
-        Properties of the virtual private cloud VPC connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
         UpdateType: Immutable
         Type: VpcDestinationProperties

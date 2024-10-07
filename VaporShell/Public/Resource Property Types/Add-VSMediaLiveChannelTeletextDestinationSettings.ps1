@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelTeletextDestinationSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.TeletextDestinationSettings resource property to the template. The settings for a Teletext captions output encode.
+        Adds an AWS::MediaLive::Channel.TeletextDestinationSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.TeletextDestinationSettings resource property to the template.
-The settings for a Teletext captions output encode.
 
-The parent of this entity is CaptionDestinationSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextdestinationsettings.html

@@ -1,28 +1,25 @@
 function Add-VSAmplifyUIBuilderComponentComponentVariant {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Component.ComponentVariant resource property to the template. The ComponentVariant property specifies the style configuration of a unique variation of a main component.
+        Adds an AWS::AmplifyUIBuilder::Component.ComponentVariant resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Component.ComponentVariant resource property to the template.
-The ComponentVariant property specifies the style configuration of a unique variation of a main component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentvariant.html
 
     .PARAMETER VariantValues
-        The combination of variants that comprise this variant.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentvariant.html#cfn-amplifyuibuilder-component-componentvariant-variantvalues
         UpdateType: Mutable
-        Type: ComponentVariantValues
+        Type: Map
+        PrimitiveItemType: String
 
     .PARAMETER Overrides
-        The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify tags as a valid property for overrides.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentvariant.html#cfn-amplifyuibuilder-component-componentvariant-overrides
         UpdateType: Mutable
-        Type: ComponentOverrides
+        PrimitiveType: Json
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,8 +29,18 @@ The ComponentVariant property specifies the style configuration of a unique vari
     Param
     (
         [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
         $VariantValues,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $Overrides
     )
     Begin {
@@ -43,6 +50,20 @@ The ComponentVariant property specifies the style configuration of a unique vari
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
+                Overrides {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

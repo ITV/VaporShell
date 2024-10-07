@@ -1,27 +1,21 @@
 function Add-VSSageMakerEndpointCapacitySize {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Endpoint.CapacitySize resource property to the template. Specifies the endpoint capacity to activate for production.
+        Adds an AWS::SageMaker::Endpoint.CapacitySize resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Endpoint.CapacitySize resource property to the template.
-Specifies the endpoint capacity to activate for production.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html
 
     .PARAMETER Type
-        Specifies the endpoint capacity type.
-+  INSTANCE_COUNT: The endpoint activates based on the number of instances.
-+  CAPACITY_PERCENT: The endpoint activates based on the specified percentage of capacity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html#cfn-sagemaker-endpoint-capacitysize-type
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Value
-        Defines the capacity size, either as a number of instances or a capacity percentage.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html#cfn-sagemaker-endpoint-capacitysize-value
         PrimitiveType: Integer
         UpdateType: Mutable

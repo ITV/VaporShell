@@ -1,10 +1,10 @@
 function New-VSGameLiftBuild {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::Build resource to the template. The AWS::GameLift::Build resource creates a game server build that is installed and run on instances in an Amazon GameLift fleet. This resource points to an Amazon S3 location that contains a zip file with all of the components of the game server build.
+        Adds an AWS::GameLift::Build resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::GameLift::Build resource to the template. The AWS::GameLift::Build resource creates a game server build that is installed and run on instances in an Amazon GameLift fleet. This resource points to an Amazon S3 location that contains a zip file with all of the components of the game server build.
+        Adds an AWS::GameLift::Build resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
@@ -12,34 +12,25 @@ function New-VSGameLiftBuild {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        A descriptive label that is associated with a build. Build names do not need to be unique.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-name
-        PrimitiveType: String
-        UpdateType: Mutable
-
     .PARAMETER OperatingSystem
-        The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value WINDOWS_2012. This value cannot be changed later.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-operatingsystem
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Immutable
-
-    .PARAMETER StorageLocation
-        Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon Web Services to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
-If a StorageLocation is specified, the size of your file can be found in your Amazon S3 bucket. Amazon Web Services will report a SizeOnDisk of 0.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-storagelocation
-        Type: S3Location
-        UpdateType: Immutable
 
     .PARAMETER Version
-        Version information that is associated with this build. Version strings do not need to be unique.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-version
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER StorageLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-storagelocation
+        UpdateType: Immutable
+        Type: StorageLocation
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -113,7 +104,7 @@ If a StorageLocation is specified, the size of your file can be found in your Am
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $OperatingSystem,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -124,7 +115,7 @@ If a StorageLocation is specified, the size of your file can be found in your Am
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OperatingSystem,
+        $Version,
         [parameter(Mandatory = $false)]
         $StorageLocation,
         [parameter(Mandatory = $false)]
@@ -137,7 +128,7 @@ If a StorageLocation is specified, the size of your file can be found in your Am
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Version,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

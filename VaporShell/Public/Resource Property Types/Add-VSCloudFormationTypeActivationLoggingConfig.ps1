@@ -1,25 +1,21 @@
 function Add-VSCloudFormationTypeActivationLoggingConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::TypeActivation.LoggingConfig resource property to the template. Contains logging configuration information for an extension.
+        Adds an AWS::CloudFormation::TypeActivation.LoggingConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFormation::TypeActivation.LoggingConfig resource property to the template.
-Contains logging configuration information for an extension.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
 
     .PARAMETER LogGroupName
-        The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER LogRoleArn
-        The Amazon Resource Name ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
         UpdateType: Immutable
         PrimitiveType: String

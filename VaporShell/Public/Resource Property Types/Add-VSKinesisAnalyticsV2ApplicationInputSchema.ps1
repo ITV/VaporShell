@@ -1,25 +1,21 @@
 function Add-VSKinesisAnalyticsV2ApplicationInputSchema {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.InputSchema resource property to the template. For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+        Adds an AWS::KinesisAnalyticsV2::Application.InputSchema resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.InputSchema resource property to the template.
-For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html
 
     .PARAMETER RecordEncoding
-        Specifies the encoding of the records in the streaming source. For example, UTF-8.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordencoding
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RecordColumns
-        A list of RecordColumn objects.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordcolumns
         UpdateType: Mutable
         Type: List
@@ -27,8 +23,6 @@ For a SQL-based Kinesis Data Analytics application, describes the format of the 
         DuplicatesAllowed: True
 
     .PARAMETER RecordFormat
-        Specifies the format of the records on the streaming source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordformat
         UpdateType: Mutable
         Type: RecordFormat

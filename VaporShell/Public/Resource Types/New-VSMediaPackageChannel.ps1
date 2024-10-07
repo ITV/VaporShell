@@ -1,12 +1,10 @@
 function New-VSMediaPackageChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::Channel resource to the template. Creates a channel to receive content.
+        Adds an AWS::MediaPackage::Channel resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::MediaPackage::Channel resource to the template. Creates a channel to receive content.
-
-After it's created, a channel provides static input URLs. These URLs remain the same throughout the lifetime of the channel, regardless of any failures or upgrades that might occur. Use these URLs to configure the outputs of your upstream encoder.
+        Adds an AWS::MediaPackage::Channel resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
@@ -14,42 +12,37 @@ After it's created, a channel provides static input URLs. These URLs remain the 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Id
-        Unique identifier that you assign to the channel.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        Any descriptive information that you want to add to the channel for future identification purposes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        The tags to assign to the channel.
+    .PARAMETER IngressAccessLogs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+        UpdateType: Mutable
+        Type: LogConfiguration
 
+    .PARAMETER HlsIngest
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-hlsingest
+        UpdateType: Mutable
+        Type: HlsIngest
+
+    .PARAMETER Id
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER EgressAccessLogs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+        UpdateType: Mutable
+        Type: LogConfiguration
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
-
-    .PARAMETER EgressAccessLogs
-        Configures egress access logs.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
-        UpdateType: Mutable
-        Type: LogConfiguration
-
-    .PARAMETER IngressAccessLogs
-        Configures ingress access logs.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
-        UpdateType: Mutable
-        Type: LogConfiguration
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -113,6 +106,21 @@ After it's created, a channel provides static input URLs. These URLs remain the 
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Description,
+        [parameter(Mandatory = $false)]
+        $IngressAccessLogs,
+        [parameter(Mandatory = $false)]
+        $HlsIngest,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -125,23 +133,10 @@ After it's created, a channel provides static input URLs. These URLs remain the 
             })]
         $Id,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Description,
+        $EgressAccessLogs,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        $EgressAccessLogs,
-        [parameter(Mandatory = $false)]
-        $IngressAccessLogs,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

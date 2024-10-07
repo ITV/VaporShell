@@ -1,18 +1,16 @@
 function Add-VSImageBuilderInfrastructureConfigurationInstanceMetadataOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::InfrastructureConfiguration.InstanceMetadataOptions resource property to the template. The instance metadata options that apply to the HTTP requests that pipeline builds use to launch EC2 build and test instances. For more information about instance metadata options, see Configure the instance metadata options: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html in the * *Amazon EC2 User Guide* * for Linux instances, or Configure the instance metadata options: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html in the * *Amazon EC2 Windows Guide* * for Windows instances.
+        Adds an AWS::ImageBuilder::InfrastructureConfiguration.InstanceMetadataOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::InfrastructureConfiguration.InstanceMetadataOptions resource property to the template.
-The instance metadata options that apply to the HTTP requests that pipeline builds use to launch EC2 build and test instances. For more information about instance metadata options, see Configure the instance metadata options: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html in the * *Amazon EC2 User Guide* * for Linux instances, or Configure the instance metadata options: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html in the * *Amazon EC2 Windows Guide* * for Windows instances.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-instancemetadataoptions.html
 
     .PARAMETER HttpPutResponseHopLimit
-        Limit the number of hops that an instance metadata request can traverse to reach its destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-instancemetadataoptions.html#cfn-imagebuilder-infrastructureconfiguration-instancemetadataoptions-httpputresponsehoplimit
         UpdateType: Mutable
         PrimitiveType: Integer

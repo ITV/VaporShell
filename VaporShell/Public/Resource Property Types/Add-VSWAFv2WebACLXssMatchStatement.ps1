@@ -1,29 +1,26 @@
 function Add-VSWAFv2WebACLXssMatchStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.XssMatchStatement resource property to the template. A rule statement that defines a cross-site scripting (XSS match search for AWS WAF to apply to web requests. XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
+        Adds an AWS::WAFv2::WebACL.XssMatchStatement resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.XssMatchStatement resource property to the template.
-A rule statement that defines a cross-site scripting (XSS match search for AWS WAF to apply to web requests. XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
 
-    .PARAMETER FieldToMatch
-        The part of a web request that you want AWS WAF to inspect.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
-        UpdateType: Mutable
-        Type: FieldToMatch
-
     .PARAMETER TextTransformations
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by FieldToMatch, starting from the lowest priority setting, before inspecting the content for a match.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
         UpdateType: Mutable
         Type: List
         ItemType: TextTransformation
+        DuplicatesAllowed: True
+
+    .PARAMETER FieldToMatch
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
+        UpdateType: Mutable
+        Type: FieldToMatch
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,8 +29,6 @@ A rule statement that defines a cross-site scripting (XSS match search for AWS W
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $FieldToMatch,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.WAFv2.WebACL.TextTransformation"
@@ -44,7 +39,9 @@ A rule statement that defines a cross-site scripting (XSS match search for AWS W
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TextTransformations
+        $TextTransformations,
+        [parameter(Mandatory = $true)]
+        $FieldToMatch
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,42 +1,34 @@
 function Add-VSMediaPackageOriginEndpointMssPackage {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::OriginEndpoint.MssPackage resource property to the template. Parameters for Microsoft Smooth Streaming packaging.
+        Adds an AWS::MediaPackage::OriginEndpoint.MssPackage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::OriginEndpoint.MssPackage resource property to the template.
-Parameters for Microsoft Smooth Streaming packaging.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
 
     .PARAMETER ManifestWindowSeconds
-        Time window in seconds contained in each manifest.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER SegmentDurationSeconds
-        Duration in seconds of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+    .PARAMETER StreamSelection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
+        UpdateType: Mutable
+        Type: StreamSelection
 
+    .PARAMETER SegmentDurationSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Encryption
-        Parameters for encrypting content.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
         UpdateType: Mutable
         Type: MssEncryption
-
-    .PARAMETER StreamSelection
-        Limitations for outputs from the endpoint, based on the video bitrate.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
-        UpdateType: Mutable
-        Type: StreamSelection
 
     .FUNCTIONALITY
         Vaporshell
@@ -57,6 +49,8 @@ Parameters for Microsoft Smooth Streaming packaging.
             })]
         $ManifestWindowSeconds,
         [parameter(Mandatory = $false)]
+        $StreamSelection,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,9 +62,7 @@ Parameters for Microsoft Smooth Streaming packaging.
             })]
         $SegmentDurationSeconds,
         [parameter(Mandatory = $false)]
-        $Encryption,
-        [parameter(Mandatory = $false)]
-        $StreamSelection
+        $Encryption
     )
     Begin {
         $obj = [PSCustomObject]@{}

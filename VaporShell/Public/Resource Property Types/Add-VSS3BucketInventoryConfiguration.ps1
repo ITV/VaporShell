@@ -1,47 +1,36 @@
 function Add-VSS3BucketInventoryConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.InventoryConfiguration resource property to the template. Specifies the inventory configuration for an Amazon S3 bucket. For more information, see GET Bucket inventory: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html in the *Amazon S3 API Reference*.
+        Adds an AWS::S3::Bucket.InventoryConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.InventoryConfiguration resource property to the template.
-Specifies the inventory configuration for an Amazon S3 bucket. For more information, see GET Bucket inventory: https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html in the *Amazon S3 API Reference*.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html
 
     .PARAMETER Destination
-        Contains information about where to publish the inventory results.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-destination
         Type: Destination
         UpdateType: Mutable
 
     .PARAMETER Enabled
-        Specifies whether the inventory is enabled or disabled. If set to True, an inventory list is generated. If set to False, no inventory list is generated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-enabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Id
-        The ID used to identify the inventory configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-id
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER IncludedObjectVersions
-        Object versions to include in the inventory list. If set to All, the list includes all the object versions, which adds the version-related fields VersionId, IsLatest, and DeleteMarker to the list. If set to Current, the list does not contain these version-related fields.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-includedobjectversions
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER OptionalFields
-        Contains the optional fields that are included in the inventory results.
-*Valid values*:  Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | ReplicationStatus | EncryptionStatus | ObjectLockRetainUntilDate | ObjectLockMode | ObjectLockLegalHoldStatus | IntelligentTieringAccessTier | BucketKeyStatus 
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-optionalfields
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -49,16 +38,11 @@ Specifies the inventory configuration for an Amazon S3 bucket. For more informat
         UpdateType: Mutable
 
     .PARAMETER Prefix
-        Specifies the inventory filter prefix.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-prefix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ScheduleFrequency
-        Specifies the schedule for generating inventory results.
-*Allowed values*: Daily | Weekly
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-schedulefrequency
         PrimitiveType: String
         UpdateType: Mutable

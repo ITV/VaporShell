@@ -1,18 +1,16 @@
 function Add-VSServiceDiscoveryPrivateDnsNamespaceSOA {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceDiscovery::PrivateDnsNamespace.SOA resource property to the template. Start of Authority (SOA properties for a public or private DNS namespace.
+        Adds an AWS::ServiceDiscovery::PrivateDnsNamespace.SOA resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ServiceDiscovery::PrivateDnsNamespace.SOA resource property to the template.
-Start of Authority (SOA properties for a public or private DNS namespace.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-soa.html
 
     .PARAMETER TTL
-        The time to live TTL for purposes of negative caching.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-soa.html#cfn-servicediscovery-privatednsnamespace-soa-ttl
         PrimitiveType: Double
         UpdateType: Mutable

@@ -1,10 +1,10 @@
 function New-VSCloudFormationResourceDefaultVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::ResourceDefaultVersion resource to the template. Specifies the default version of a resource. The default version of a resource will be used in CloudFormation operations.
+        Adds an AWS::CloudFormation::ResourceDefaultVersion resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFormation::ResourceDefaultVersion resource to the template. Specifies the default version of a resource. The default version of a resource will be used in CloudFormation operations.
+        Adds an AWS::CloudFormation::ResourceDefaultVersion resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html
@@ -12,27 +12,18 @@ function New-VSCloudFormationResourceDefaultVersion {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER TypeVersionArn
-        The Amazon Resource Name ARN of the resource version.
-Conditional: You must specify either TypeVersionArn, or TypeName and VersionId.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
+    .PARAMETER VersionId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TypeName
-        The name of the resource.
-Conditional: You must specify either TypeVersionArn, or TypeName and VersionId.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER VersionId
-        The ID of a specific version of the resource. The version ID is the value at the end of the Amazon Resource Name ARN assigned to the resource version when it's registered.
-Conditional: You must specify either TypeVersionArn, or TypeName and VersionId.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
+    .PARAMETER TypeVersionArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -108,7 +99,7 @@ Conditional: You must specify either TypeVersionArn, or TypeName and VersionId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TypeVersionArn,
+        $VersionId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -130,7 +121,7 @@ Conditional: You must specify either TypeVersionArn, or TypeName and VersionId.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VersionId,
+        $TypeVersionArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

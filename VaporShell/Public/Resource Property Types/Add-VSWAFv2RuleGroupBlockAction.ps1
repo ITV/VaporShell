@@ -10,6 +10,11 @@ function Add-VSWAFv2RuleGroupBlockAction {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-blockaction.html
 
+    .PARAMETER CustomResponse
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-blockaction.html#cfn-wafv2-rulegroup-blockaction-customresponse
+        UpdateType: Mutable
+        Type: CustomResponse
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -17,6 +22,8 @@ function Add-VSWAFv2RuleGroupBlockAction {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $CustomResponse
     )
     Begin {
         $obj = [PSCustomObject]@{}

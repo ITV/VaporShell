@@ -1,18 +1,16 @@
 function Add-VSLambdaEventSourceMappingDestinationConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::EventSourceMapping.DestinationConfig resource property to the template. A configuration object that specifies the destination of an event after Lambda processes it.
+        Adds an AWS::Lambda::EventSourceMapping.DestinationConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lambda::EventSourceMapping.DestinationConfig resource property to the template.
-A configuration object that specifies the destination of an event after Lambda processes it.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
 
     .PARAMETER OnFailure
-        The destination configuration for failed invocations.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
         UpdateType: Mutable
         Type: OnFailure

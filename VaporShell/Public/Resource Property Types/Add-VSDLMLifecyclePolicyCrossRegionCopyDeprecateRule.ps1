@@ -1,25 +1,21 @@
 function Add-VSDLMLifecyclePolicyCrossRegionCopyDeprecateRule {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.CrossRegionCopyDeprecateRule resource property to the template. Specifies an AMI deprecation rule for cross-Region AMI copies created by a cross-Region copy rule.
+        Adds an AWS::DLM::LifecyclePolicy.CrossRegionCopyDeprecateRule resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.CrossRegionCopyDeprecateRule resource property to the template.
-Specifies an AMI deprecation rule for cross-Region AMI copies created by a cross-Region copy rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html
 
     .PARAMETER IntervalUnit
-        The unit of time in which to measure the **Interval**.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html#cfn-dlm-lifecyclepolicy-crossregioncopydeprecaterule-intervalunit
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Interval
-        The period after which to deprecate the cross-Region AMI copies. The period must be less than or equal to the cross-Region AMI copy retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520 weeks, or 3650 days.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html#cfn-dlm-lifecyclepolicy-crossregioncopydeprecaterule-interval
         PrimitiveType: Integer
         UpdateType: Mutable

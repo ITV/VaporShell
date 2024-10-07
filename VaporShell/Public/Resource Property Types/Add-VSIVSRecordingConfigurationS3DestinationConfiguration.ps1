@@ -1,18 +1,16 @@
 function Add-VSIVSRecordingConfigurationS3DestinationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IVS::RecordingConfiguration.S3DestinationConfiguration resource property to the template. The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+        Adds an AWS::IVS::RecordingConfiguration.S3DestinationConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IVS::RecordingConfiguration.S3DestinationConfiguration resource property to the template.
-The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html
 
     .PARAMETER BucketName
-        Location S3 bucket name where recorded videos will be stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
         UpdateType: Immutable
         PrimitiveType: String

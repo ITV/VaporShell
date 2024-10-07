@@ -1,25 +1,21 @@
 function Add-VSApplicationAutoScalingScalingPolicyMetricDimension {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension resource property to the template. MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
+        Adds an AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension resource property to the template.
-MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html
 
     .PARAMETER Name
-        The name of the dimension.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html#cfn-applicationautoscaling-scalingpolicy-metricdimension-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Value
-        The value of the dimension.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html#cfn-applicationautoscaling-scalingpolicy-metricdimension-value
         PrimitiveType: String
         UpdateType: Mutable

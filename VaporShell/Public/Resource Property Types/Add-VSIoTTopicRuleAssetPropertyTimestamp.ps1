@@ -1,25 +1,21 @@
 function Add-VSIoTTopicRuleAssetPropertyTimestamp {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.AssetPropertyTimestamp resource property to the template. An asset property timestamp entry containing the following information.
+        Adds an AWS::IoT::TopicRule.AssetPropertyTimestamp resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.AssetPropertyTimestamp resource property to the template.
-An asset property timestamp entry containing the following information.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html
 
     .PARAMETER TimeInSeconds
-        A string that contains the time in seconds since epoch. Accepts substitution templates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER OffsetInNanos
-        Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelFmp4HlsSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.Fmp4HlsSettings resource property to the template. Settings for the fMP4 containers.
+        Adds an AWS::MediaLive::Channel.Fmp4HlsSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.Fmp4HlsSettings resource property to the template.
-Settings for the fMP4 containers.
 
-The parent of this entity is HlsSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fmp4hlssettings.html
 
     .PARAMETER AudioRenditionSets
-        List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fmp4hlssettings.html#cfn-medialive-channel-fmp4hlssettings-audiorenditionsets
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NielsenId3Behavior
-        If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fmp4hlssettings.html#cfn-medialive-channel-fmp4hlssettings-nielsenid3behavior
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TimedMetadataBehavior
-        When set to passthrough, timed metadata is passed through from input to output.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fmp4hlssettings.html#cfn-medialive-channel-fmp4hlssettings-timedmetadatabehavior
         PrimitiveType: String
         UpdateType: Mutable

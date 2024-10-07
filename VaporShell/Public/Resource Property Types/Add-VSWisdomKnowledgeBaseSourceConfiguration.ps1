@@ -1,18 +1,16 @@
 function Add-VSWisdomKnowledgeBaseSourceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Wisdom::KnowledgeBase.SourceConfiguration resource property to the template. Configuration information about the external data source.
+        Adds an AWS::Wisdom::KnowledgeBase.SourceConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Wisdom::KnowledgeBase.SourceConfiguration resource property to the template.
-Configuration information about the external data source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html
 
     .PARAMETER AppIntegrations
-        Configuration information for Amazon AppIntegrations to automatically ingest content.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html#cfn-wisdom-knowledgebase-sourceconfiguration-appintegrations
         UpdateType: Immutable
         Type: AppIntegrationsConfiguration
@@ -24,7 +22,7 @@ Configuration information about the external data source.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         $AppIntegrations
     )
     Begin {

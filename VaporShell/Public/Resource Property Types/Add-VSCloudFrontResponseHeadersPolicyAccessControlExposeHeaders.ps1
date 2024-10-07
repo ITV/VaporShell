@@ -1,24 +1,21 @@
 function Add-VSCloudFrontResponseHeadersPolicyAccessControlExposeHeaders {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy.AccessControlExposeHeaders resource property to the template. A list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+        Adds an AWS::CloudFront::ResponseHeadersPolicy.AccessControlExposeHeaders resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ResponseHeadersPolicy.AccessControlExposeHeaders resource property to the template.
-A list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
 
-For more information about the Access-Control-Expose-Headers HTTP response header, see Access-Control-Expose-Headers: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers in the MDN Web Docs.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolexposeheaders.html
 
     .PARAMETER Items
-        The list of HTTP headers. You can specify * to expose all headers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolexposeheaders.html#cfn-cloudfront-responseheaderspolicy-accesscontrolexposeheaders-items
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

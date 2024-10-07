@@ -1,10 +1,10 @@
 function New-VSServiceCatalogAppRegistryAttributeGroupAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation resource to the template. The AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation resource for ServiceCatalogAppRegistry.
+        Adds an AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation resource to the template. The AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation resource for ServiceCatalogAppRegistry.
+        Adds an AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html
@@ -12,18 +12,13 @@ function New-VSServiceCatalogAppRegistryAttributeGroupAssociation {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Application
-        The name or ID of the application.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+    .PARAMETER AttributeGroup
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER AttributeGroup
-        The name or ID of the attribute group that holds the attributes to describe the application.
-For more information about using the Ref function, see Ref: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+    .PARAMETER Application
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -99,7 +94,7 @@ For more information about using the Ref function, see Ref: https://docs.aws.ama
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Application,
+        $AttributeGroup,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -110,7 +105,7 @@ For more information about using the Ref function, see Ref: https://docs.aws.ama
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AttributeGroup,
+        $Application,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

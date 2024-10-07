@@ -10,8 +10,13 @@ function Add-VSAppFlowConnectorProfileOAuth2Credentials {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2credentials.html
 
-    .PARAMETER ClientId
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2credentials.html#cfn-appflow-connectorprofile-oauth2credentials-clientid
+    .PARAMETER OAuthRequest
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2credentials.html#cfn-appflow-connectorprofile-oauth2credentials-oauthrequest
+        UpdateType: Mutable
+        Type: ConnectorOAuthRequest
+
+    .PARAMETER RefreshToken
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2credentials.html#cfn-appflow-connectorprofile-oauth2credentials-refreshtoken
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -25,15 +30,10 @@ function Add-VSAppFlowConnectorProfileOAuth2Credentials {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RefreshToken
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2credentials.html#cfn-appflow-connectorprofile-oauth2credentials-refreshtoken
+    .PARAMETER ClientId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2credentials.html#cfn-appflow-connectorprofile-oauth2credentials-clientid
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER OAuthRequest
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2credentials.html#cfn-appflow-connectorprofile-oauth2credentials-oauthrequest
-        UpdateType: Mutable
-        Type: ConnectorOAuthRequest
 
     .FUNCTIONALITY
         Vaporshell
@@ -42,6 +42,8 @@ function Add-VSAppFlowConnectorProfileOAuth2Credentials {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $OAuthRequest,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +54,7 @@ function Add-VSAppFlowConnectorProfileOAuth2Credentials {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ClientId,
+        $RefreshToken,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -85,9 +87,7 @@ function Add-VSAppFlowConnectorProfileOAuth2Credentials {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RefreshToken,
-        [parameter(Mandatory = $false)]
-        $OAuthRequest
+        $ClientId
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,25 +1,21 @@
 function Add-VSInspectorV2FilterPortRangeFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::InspectorV2::Filter.PortRangeFilter resource property to the template. An object that describes the details of a port range filter.
+        Adds an AWS::InspectorV2::Filter.PortRangeFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::InspectorV2::Filter.PortRangeFilter resource property to the template.
-An object that describes the details of a port range filter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html
 
     .PARAMETER BeginInclusive
-        The port number the port range begins at.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html#cfn-inspectorv2-filter-portrangefilter-begininclusive
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER EndInclusive
-        The port number the port range ends at.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html#cfn-inspectorv2-filter-portrangefilter-endinclusive
         UpdateType: Mutable
         PrimitiveType: Integer

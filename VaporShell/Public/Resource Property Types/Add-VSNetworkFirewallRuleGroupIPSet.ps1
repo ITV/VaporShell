@@ -1,18 +1,16 @@
 function Add-VSNetworkFirewallRuleGroupIPSet {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.IPSet resource property to the template. A list of IP addresses and address ranges, in CIDR notation. This is part of a AWS::NetworkFirewall::RuleGroup RuleVariables: aws-properties-networkfirewall-rulegroup-rulevariables.md.
+        Adds an AWS::NetworkFirewall::RuleGroup.IPSet resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.IPSet resource property to the template.
-A list of IP addresses and address ranges, in CIDR notation. This is part of a AWS::NetworkFirewall::RuleGroup RuleVariables: aws-properties-networkfirewall-rulegroup-rulevariables.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html
 
     .PARAMETER Definition
-        The list of IP addresses and address ranges, in CIDR notation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
         UpdateType: Mutable
         Type: List

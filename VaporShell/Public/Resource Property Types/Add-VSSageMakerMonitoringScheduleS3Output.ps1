@@ -1,33 +1,27 @@
 function Add-VSSageMakerMonitoringScheduleS3Output {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.S3Output resource property to the template. Information about where and how you want to store the results of a monitoring job.
+        Adds an AWS::SageMaker::MonitoringSchedule.S3Output resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.S3Output resource property to the template.
-Information about where and how you want to store the results of a monitoring job.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
 
-    .PARAMETER LocalPath
-        The local path to the S3 storage location where SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
+    .PARAMETER S3Uri
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uri
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER LocalPath
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-localpath
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3UploadMode
-        Whether to upload the results of the monitoring job continuously or after the job completes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uploadmode
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER S3Uri
-        A URI that identifies the S3 storage location where SageMaker saves the results of a monitoring job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uri
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -38,6 +32,17 @@ Information about where and how you want to store the results of a monitoring jo
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $S3Uri,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,18 +64,7 @@ Information about where and how you want to store the results of a monitoring jo
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3UploadMode,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $S3Uri
+        $S3UploadMode
     )
     Begin {
         $obj = [PSCustomObject]@{}

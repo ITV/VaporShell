@@ -1,18 +1,16 @@
 function Add-VSSageMakerEndpointAlarm {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Endpoint.Alarm resource property to the template. An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
+        Adds an AWS::SageMaker::Endpoint.Alarm resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Endpoint.Alarm resource property to the template.
-An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html
 
     .PARAMETER AlarmName
-        The name of a CloudWatch alarm in your account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html#cfn-sagemaker-endpoint-alarm-alarmname
         PrimitiveType: String
         UpdateType: Mutable

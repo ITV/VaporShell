@@ -1,33 +1,27 @@
 function Add-VSPinpointInAppTemplateBodyConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::InAppTemplate.BodyConfig resource property to the template. Specifies the configuration of the main body text of the in-app message.
+        Adds an AWS::Pinpoint::InAppTemplate.BodyConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::InAppTemplate.BodyConfig resource property to the template.
-Specifies the configuration of the main body text of the in-app message.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html
 
     .PARAMETER Alignment
-        The text alignment of the main body text of the message. Acceptable values: LEFT, CENTER, RIGHT.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html#cfn-pinpoint-inapptemplate-bodyconfig-alignment
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Body
-        The main body text of the message.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html#cfn-pinpoint-inapptemplate-bodyconfig-body
+    .PARAMETER TextColor
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html#cfn-pinpoint-inapptemplate-bodyconfig-textcolor
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER TextColor
-        The color of the body text, expressed as a hex color code such as #000000 for black.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html#cfn-pinpoint-inapptemplate-bodyconfig-textcolor
+    .PARAMETER Body
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html#cfn-pinpoint-inapptemplate-bodyconfig-body
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -59,7 +53,7 @@ Specifies the configuration of the main body text of the in-app message.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Body,
+        $TextColor,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -70,7 +64,7 @@ Specifies the configuration of the main body text of the in-app message.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TextColor
+        $Body
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,18 +1,16 @@
 function Add-VSS3StorageLensPrefixLevel {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.PrefixLevel resource property to the template. This resource contains the details of the prefix-level of the Amazon S3 Storage Lens.
+        Adds an AWS::S3::StorageLens.PrefixLevel resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.PrefixLevel resource property to the template.
-This resource contains the details of the prefix-level of the Amazon S3 Storage Lens.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
 
     .PARAMETER StorageMetrics
-        A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
         UpdateType: Mutable
         Type: PrefixLevelStorageMetrics

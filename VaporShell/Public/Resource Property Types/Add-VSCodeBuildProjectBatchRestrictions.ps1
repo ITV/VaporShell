@@ -1,26 +1,22 @@
 function Add-VSCodeBuildProjectBatchRestrictions {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::Project.BatchRestrictions resource property to the template. Specifies restrictions for the batch build.
+        Adds an AWS::CodeBuild::Project.BatchRestrictions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::Project.BatchRestrictions resource property to the template.
-Specifies restrictions for the batch build.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html
 
     .PARAMETER ComputeTypesAllowed
-        An array of strings that specify the compute types that are allowed for the batch build. See Build environment compute types: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html in the * AWS CodeBuild User Guide* for these values.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-computetypesallowed
         UpdateType: Mutable
 
     .PARAMETER MaximumBuildsAllowed
-        Specifies the maximum number of builds allowed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-maximumbuildsallowed
         PrimitiveType: Integer
         UpdateType: Mutable

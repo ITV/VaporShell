@@ -1,10 +1,10 @@
 function New-VSTimestreamTable {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::Table resource to the template. The CreateTable operation adds a new table to an existing database in your account. In an AWS account, table names must be at least unique within each Region if they are in the same database. You may have identical table names in the same Region if the tables are in separate databases. While creating the table, you must specify the table name, database name, and the retention properties. Service quotas apply: https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html. See code sample: https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html for details.
+        Adds an AWS::Timestream::Table resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Timestream::Table resource to the template. The CreateTable operation adds a new table to an existing database in your account. In an AWS account, table names must be at least unique within each Region if they are in the same database. You may have identical table names in the same Region if the tables are in separate databases. While creating the table, you must specify the table name, database name, and the retention properties. Service quotas apply: https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html. See code sample: https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html for details.
+        Adds an AWS::Timestream::Table resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html
@@ -12,119 +12,32 @@ function New-VSTimestreamTable {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DatabaseName
-        The name of the Timestream database that contains this table.
-*Length Constraints*: Minimum length of 3 bytes. Maximum length of 256 bytes.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER TableName
-        The name of the Timestream table.
-*Length Constraints*: Minimum length of 3 bytes. Maximum length of 256 bytes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tablename
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER RetentionProperties
-        The retention duration for the memory store and magnetic store. This object has the following attributes:
-+ *MemoryStoreRetentionPeriodInHours*: Retention duration for memory store, in hours.
-+ *MagneticStoreRetentionPeriodInDays*: Retention duration for magnetic store, in days.
-Both attributes are of type string. Both attributes are **required** when RetentionProperties is specified.
-See the following examples:
-**JSON**
-
-{
-"Type" : AWS::Timestream::Table",
-"Properties" : {
-"DatabaseName" : "TestDatabase",
-"TableName" : "TestTable",
-"RetentionProperties" : {
-"MemoryStoreRetentionPeriodInHours": "24",
-"MagneticStoreRetentionPeriodInDays": "7"
-}
-}
-}
-
-**YAML**
-
-Type: AWS::Timestream::Table
-DependsOn: TestDatabase
-Properties:
-TableName: "TestTable"
-DatabaseName: "TestDatabase"
-RetentionProperties:
-MemoryStoreRetentionPeriodInHours: "24"
-MagneticStoreRetentionPeriodInDays: "7"
-
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: RetentionProperties
 
-    .PARAMETER MagneticStoreWriteProperties
-        Contains properties to set on the table when enabling magnetic store writes.
-This object has the following attributes:
-+ *EnableMagneticStoreWrites*: A boolean flag to enable magnetic store writes.
-+ *MagneticStoreRejectedDataLocation*: The location to write error reports for records rejected, asynchronously, during magnetic store writes. Only S3Configuration objects are allowed. The S3Configuration object has the following attributes:
-+ *BucketName*: The name of the S3 bucket.
-+ *EncryptionOption*: The encryption option for the S3 location. Valid values are S3 server-side encryption with an S3 managed key SSE_S3 or AWS managed key  SSE_KMS.
-+ *KmsKeyId*: The AWS KMS key ID to use when encrypting with an AWS managed key.
-+ *ObjectKeyPrefix*: The prefix to use option for the objects stored in S3.
-Both BucketName and EncryptionOption are **required** when S3Configuration is specified. If you specify  SSE_KMS as your EncryptionOption then KmsKeyId is **required**.
-EnableMagneticStoreWrites attribute is **required** when MagneticStoreWriteProperties is specified. MagneticStoreRejectedDataLocation attribute is **required** when EnableMagneticStoreWrites is set to true.
-See the following examples:
-**JSON**
-
-{
-"Type" : AWS::Timestream::Table",
-"Properties":{
-"DatabaseName":"TestDatabase",
-"TableName":"TestTable",
-"MagneticStoreWriteProperties":{
-"EnableMagneticStoreWrites":true,
-"MagneticStoreRejectedDataLocation":{
-"S3Configuration":{
-"BucketName":"testbucket",
-"EncryptionOption":"SSE_KMS",
-"KmsKeyId":"1234abcd-12ab-34cd-56ef-1234567890ab",
-"ObjectKeyPrefix":"prefix"
-}
-}
-}
-}
-}
-
-**YAML**
-
-Type: AWS::Timestream::Table
-DependsOn: TestDatabase
-Properties:
-TableName: "TestTable"
-DatabaseName: "TestDatabase"
-MagneticStoreWriteProperties:
-EnableMagneticStoreWrites: true
-MagneticStoreRejectedDataLocation:
-S3Configuration:
-BucketName: "testbucket"
-EncryptionOption: "SSE_KMS"
-BucketName: "1234abcd-12ab-34cd-56ef-1234567890ab"
-EncryptionOption: "prefix"
-
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-magneticstorewriteproperties
-        UpdateType: Mutable
-        PrimitiveType: Json
+    .PARAMETER DatabaseName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Tags
-        The tags to add to the table
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER MagneticStoreWriteProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-magneticstorewriteproperties
+        UpdateType: Mutable
+        Type: MagneticStoreWriteProperties
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -188,17 +101,6 @@ EncryptionOption: "prefix"
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DatabaseName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -211,19 +113,10 @@ EncryptionOption: "prefix"
             })]
         $TableName,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $RetentionProperties,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -231,10 +124,12 @@ EncryptionOption: "prefix"
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MagneticStoreWriteProperties,
+        $DatabaseName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
+        [parameter(Mandatory = $false)]
+        $MagneticStoreWriteProperties,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -314,40 +209,6 @@ EncryptionOption: "prefix"
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
-                }
-                RetentionProperties {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
-                MagneticStoreWriteProperties {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

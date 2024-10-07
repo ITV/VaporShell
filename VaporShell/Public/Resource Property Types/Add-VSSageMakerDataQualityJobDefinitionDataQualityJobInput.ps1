@@ -1,18 +1,21 @@
 function Add-VSSageMakerDataQualityJobDefinitionDataQualityJobInput {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::DataQualityJobDefinition.DataQualityJobInput resource property to the template. The input for the data quality monitoring job. Currently endpoints are supported for input.
+        Adds an AWS::SageMaker::DataQualityJobDefinition.DataQualityJobInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::DataQualityJobDefinition.DataQualityJobInput resource property to the template.
-The input for the data quality monitoring job. Currently endpoints are supported for input.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
 
-    .PARAMETER EndpointInput
-        Not currently supported by AWS CloudFormation.
+    .PARAMETER BatchTransformInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-batchtransforminput
+        UpdateType: Immutable
+        Type: BatchTransformInput
 
+    .PARAMETER EndpointInput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
         UpdateType: Immutable
         Type: EndpointInput
@@ -24,7 +27,9 @@ The input for the data quality monitoring job. Currently endpoints are supported
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        $BatchTransformInput,
+        [parameter(Mandatory = $false)]
         $EndpointInput
     )
     Begin {

@@ -1,18 +1,16 @@
 function Add-VSIoTMitigationActionUpdateDeviceCertificateParams {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction.UpdateDeviceCertificateParams resource property to the template. Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+        Adds an AWS::IoT::MitigationAction.UpdateDeviceCertificateParams resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::MitigationAction.UpdateDeviceCertificateParams resource property to the template.
-Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html
 
     .PARAMETER Action
-        The action that you want to apply to the device certificate. The only supported value is DEACTIVATE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
         UpdateType: Mutable
         PrimitiveType: String

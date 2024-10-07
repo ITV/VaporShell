@@ -1,18 +1,16 @@
 function Add-VSKinesisAnalyticsV2ApplicationZeppelinMonitoringConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration resource property to the template. Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring: https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html.
+        Adds an AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration resource property to the template.
-Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring: https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html
 
     .PARAMETER LogLevel
-        The verbosity of the CloudWatch Logs for an application. You can set it to INFO, WARN, ERROR, or DEBUG.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration-loglevel
         UpdateType: Mutable
         PrimitiveType: String

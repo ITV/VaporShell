@@ -1,10 +1,10 @@
 function New-VSRoboMakerRobot {
     <#
     .SYNOPSIS
-        Adds an AWS::RoboMaker::Robot resource to the template. The AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker robot.
+        Adds an AWS::RoboMaker::Robot resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::RoboMaker::Robot resource to the template. The AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker robot.
+        Adds an AWS::RoboMaker::Robot resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html
@@ -13,37 +13,27 @@ function New-VSRoboMakerRobot {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Fleet
-        The Amazon Resource Name ARN of the fleet to which the robot will be registered.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Architecture
-        The architecture of the robot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER GreengrassGroupId
-        The Greengrass group associated with the robot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        A map that contains tag keys and tag values that are attached to the robot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
         UpdateType: Mutable
         Type: Map
         PrimitiveItemType: String
 
     .PARAMETER Name
-        The name of the robot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
         UpdateType: Immutable
         PrimitiveType: String

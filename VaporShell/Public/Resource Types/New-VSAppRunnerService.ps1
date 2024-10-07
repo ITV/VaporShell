@@ -1,10 +1,10 @@
 function New-VSAppRunnerService {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service resource to the template. The AWS::AppRunner::Service resource is an AWS App Runner resource type that specifies an App Runner service.
+        Adds an AWS::AppRunner::Service resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppRunner::Service resource to the template. The AWS::AppRunner::Service resource is an AWS App Runner resource type that specifies an App Runner service.
+        Adds an AWS::AppRunner::Service resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html
@@ -12,70 +12,52 @@ function New-VSAppRunnerService {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ServiceName
-        A name for the App Runner service. It must be unique across all the running App Runner services in your AWS account in the AWS Region.
-If you don't specify a name, AWS CloudFormation generates a name for your Service.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER SourceConfiguration
-        The source to deploy to the App Runner service. It can be a code or an image repository.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
-        UpdateType: Mutable
-        Type: SourceConfiguration
-
-    .PARAMETER InstanceConfiguration
-        The runtime configuration of instances scaling units of the App Runner service.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
-        UpdateType: Mutable
-        Type: InstanceConfiguration
-
-    .PARAMETER Tags
-        An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
-        UpdateType: Immutable
-        Type: List
-        ItemType: Tag
-
-    .PARAMETER EncryptionConfiguration
-        An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
-        UpdateType: Immutable
-        Type: EncryptionConfiguration
-
     .PARAMETER HealthCheckConfiguration
-        The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration
         UpdateType: Mutable
         Type: HealthCheckConfiguration
 
-    .PARAMETER ObservabilityConfiguration
-        + Configuring an App Runner service: https://docs.aws.amazon.com/apprunner/latest/dg/manage-configure.html in the *AWS App Runner Developer Guide*
+    .PARAMETER InstanceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
+        UpdateType: Mutable
+        Type: InstanceConfiguration
 
+    .PARAMETER EncryptionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
+        UpdateType: Immutable
+        Type: EncryptionConfiguration
+
+    .PARAMETER ServiceName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ObservabilityConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-observabilityconfiguration
         UpdateType: Mutable
         Type: ServiceObservabilityConfiguration
 
-    .PARAMETER AutoScalingConfigurationArn
-        The Amazon Resource Name ARN of an App Runner automatic scaling configuration resource that you want to associate with the App Runner service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
+    .PARAMETER SourceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
+        UpdateType: Mutable
+        Type: SourceConfiguration
 
+    .PARAMETER AutoScalingConfigurationArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-autoscalingconfigurationarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER NetworkConfiguration
-        Configuration settings related to network traffic of the web application that the App Runner service runs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-networkconfiguration
         UpdateType: Mutable
         Type: NetworkConfiguration
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
+        UpdateType: Immutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -140,6 +122,12 @@ If you don't specify a name, AWS CloudFormation generates a name for your Servic
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $HealthCheckConfiguration,
+        [parameter(Mandatory = $false)]
+        $InstanceConfiguration,
+        [parameter(Mandatory = $false)]
+        $EncryptionConfiguration,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -150,19 +138,10 @@ If you don't specify a name, AWS CloudFormation generates a name for your Servic
                 }
             })]
         $ServiceName,
-        [parameter(Mandatory = $true)]
-        $SourceConfiguration,
-        [parameter(Mandatory = $false)]
-        $InstanceConfiguration,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
-        [parameter(Mandatory = $false)]
-        $EncryptionConfiguration,
-        [parameter(Mandatory = $false)]
-        $HealthCheckConfiguration,
         [parameter(Mandatory = $false)]
         $ObservabilityConfiguration,
+        [parameter(Mandatory = $true)]
+        $SourceConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -176,6 +155,9 @@ If you don't specify a name, AWS CloudFormation generates a name for your Servic
         $AutoScalingConfigurationArn,
         [parameter(Mandatory = $false)]
         $NetworkConfiguration,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

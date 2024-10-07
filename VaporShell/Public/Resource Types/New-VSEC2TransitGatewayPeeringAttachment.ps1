@@ -1,12 +1,10 @@
 function New-VSEC2TransitGatewayPeeringAttachment {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayPeeringAttachment resource to the template. Requests a transit gateway peering attachment between the specified transit gateway (requester and a peer transit gateway (accepter. The transit gateways must be in different Regions. The peer transit gateway can be in your account or a different AWS account.
+        Adds an AWS::EC2::TransitGatewayPeeringAttachment resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::TransitGatewayPeeringAttachment resource to the template. Requests a transit gateway peering attachment between the specified transit gateway (requester and a peer transit gateway (accepter. The transit gateways must be in different Regions. The peer transit gateway can be in your account or a different AWS account.
-
-After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.
+        Adds an AWS::EC2::TransitGatewayPeeringAttachment resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html
@@ -15,40 +13,31 @@ After you create the peering attachment, the owner of the accepter transit gatew
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER TransitGatewayId
-        The ID of the transit gateway peering attachment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PeerTransitGatewayId
-        The ID of the transit gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PeerAccountId
-        The ID of the AWS account that owns the transit gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PeerRegion
-        The Region of the transit gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags for the transit gateway peering attachment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

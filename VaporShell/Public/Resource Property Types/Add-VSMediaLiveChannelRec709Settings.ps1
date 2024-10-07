@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelRec709Settings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.Rec709Settings resource property to the template. Rec709 Settings
+        Adds an AWS::MediaLive::Channel.Rec709Settings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.Rec709Settings resource property to the template.
-Rec709 Settings
 
-The parents of this entity are H264ColorSpaceSettings and H265ColorSpaceSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rec709settings.html

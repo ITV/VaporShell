@@ -1,42 +1,32 @@
 function Add-VSECSTaskDefinitionLogConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::TaskDefinition.LogConfiguration resource property to the template. The LogConfiguration property specifies log configuration options to send to a custom log driver for the container.
+        Adds an AWS::ECS::TaskDefinition.LogConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECS::TaskDefinition.LogConfiguration resource property to the template.
-The LogConfiguration property specifies log configuration options to send to a custom log driver for the container.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-logconfiguration.html
 
-    .PARAMETER LogDriver
-        The log driver to use for the container.
-For tasks on AWS Fargate, the supported log drivers are awslogs, splunk, and awsfirelens.
-For tasks hosted on Amazon EC2 instances, the supported log drivers are awslogs, fluentd, gelf, json-file, journald, logentries,syslog, splunk, and awsfirelens.
-For more information about using the awslogs log driver, see Using the awslogs log driver: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html in the *Amazon Elastic Container Service Developer Guide*.
-For more information about using the awsfirelens log driver, see Custom log routing: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html in the *Amazon Elastic Container Service Developer Guide*.
-If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's available on GitHub: https://github.com/aws/amazon-ecs-agent and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
+    .PARAMETER SecretOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
         UpdateType: Immutable
-        PrimitiveType: String
+        Type: List
+        ItemType: Secret
+        DuplicatesAllowed: True
 
     .PARAMETER Options
-        The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version --format '{{.Server.APIVersion}}'
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-options
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
 
-    .PARAMETER SecretOptions
-        The secrets to pass to the log configuration. For more information, see Specifying Sensitive Data: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html in the *Amazon Elastic Container Service Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
+    .PARAMETER LogDriver
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-logdriver
         UpdateType: Immutable
-        Type: List
-        ItemType: Secret
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -45,20 +35,6 @@ If you have a custom driver that isn't listed, you can fork the Amazon ECS conta
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $LogDriver,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Options,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ECS.TaskDefinition.Secret"
@@ -69,7 +45,21 @@ If you have a custom driver that isn't listed, you can fork the Amazon ECS conta
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SecretOptions
+        $SecretOptions,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Options,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LogDriver
     )
     Begin {
         $obj = [PSCustomObject]@{}

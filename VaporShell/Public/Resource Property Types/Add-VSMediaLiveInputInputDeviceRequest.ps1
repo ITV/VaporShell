@@ -1,18 +1,16 @@
 function Add-VSMediaLiveInputInputDeviceRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.InputDeviceRequest resource property to the template. This entity is not used. Ignore it.
+        Adds an AWS::MediaLive::Input.InputDeviceRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.InputDeviceRequest resource property to the template.
-This entity is not used. Ignore it.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicerequest.html
 
     .PARAMETER Id
-        This property is not used. Ignore it.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicerequest.html#cfn-medialive-input-inputdevicerequest-id
         PrimitiveType: String
         UpdateType: Mutable

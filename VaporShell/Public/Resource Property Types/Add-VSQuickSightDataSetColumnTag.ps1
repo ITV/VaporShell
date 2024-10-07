@@ -1,25 +1,21 @@
 function Add-VSQuickSightDataSetColumnTag {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.ColumnTag resource property to the template. A tag for a column in a  TagColumnOperation: https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html  structure. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        Adds an AWS::QuickSight::DataSet.ColumnTag resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.ColumnTag resource property to the template.
-A tag for a column in a  TagColumnOperation: https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html  structure. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html
 
     .PARAMETER ColumnGeographicRole
-        A geospatial role for a column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columngeographicrole
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ColumnDescription
-        A description for a column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columndescription
         UpdateType: Mutable
         Type: ColumnDescription

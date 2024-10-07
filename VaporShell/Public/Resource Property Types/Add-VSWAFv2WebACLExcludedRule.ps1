@@ -1,18 +1,16 @@
 function Add-VSWAFv2WebACLExcludedRule {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.ExcludedRule resource property to the template. Specifies a single rule to exclude from the rule group. Excluding a rule overrides its action setting for the rule group in the web ACL, setting it to COUNT. This effectively excludes the rule from acting on web requests.
+        Adds an AWS::WAFv2::WebACL.ExcludedRule resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.ExcludedRule resource property to the template.
-Specifies a single rule to exclude from the rule group. Excluding a rule overrides its action setting for the rule group in the web ACL, setting it to COUNT. This effectively excludes the rule from acting on web requests.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
 
     .PARAMETER Name
-        The name of the rule to exclude.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
         UpdateType: Mutable
         PrimitiveType: String

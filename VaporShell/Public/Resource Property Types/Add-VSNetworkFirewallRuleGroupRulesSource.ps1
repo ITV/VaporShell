@@ -1,45 +1,36 @@
 function Add-VSNetworkFirewallRuleGroupRulesSource {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.RulesSource resource property to the template. The stateless or stateful rules definitions for use in a single rule group. Each rule group requires a single RulesSource. You can use an instance of this for either stateless rules or stateful rules.
+        Adds an AWS::NetworkFirewall::RuleGroup.RulesSource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.RulesSource resource property to the template.
-The stateless or stateful rules definitions for use in a single rule group. Each rule group requires a single RulesSource. You can use an instance of this for either stateless rules or stateful rules.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html
 
-    .PARAMETER RulesString
-        Stateful inspection criteria, provided in Suricata compatible intrusion prevention system IPS rules. Suricata is an open-source network IPS that includes a standard rule-based language for network traffic inspection.
-These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring
+    .PARAMETER StatelessRulesAndCustomActions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER RulesSourceList
-        Stateful inspection criteria for a domain list rule group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulessourcelist
-        UpdateType: Mutable
-        Type: RulesSourceList
+        Type: StatelessRulesAndCustomActions
 
     .PARAMETER StatefulRules
-        An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata Rules format, see Rules Format: https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
         UpdateType: Mutable
         Type: List
         ItemType: StatefulRule
         DuplicatesAllowed: True
 
-    .PARAMETER StatelessRulesAndCustomActions
-        Stateless inspection criteria to be used in a stateless rule group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
+    .PARAMETER RulesString
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring
         UpdateType: Mutable
-        Type: StatelessRulesAndCustomActions
+        PrimitiveType: String
+
+    .PARAMETER RulesSourceList
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulessourcelist
+        UpdateType: Mutable
+        Type: RulesSourceList
 
     .FUNCTIONALITY
         Vaporshell
@@ -49,18 +40,7 @@ These rules contain the inspection criteria and the action to take for traffic t
     Param
     (
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RulesString,
-        [parameter(Mandatory = $false)]
-        $RulesSourceList,
+        $StatelessRulesAndCustomActions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.StatefulRule"
@@ -73,7 +53,18 @@ These rules contain the inspection criteria and the action to take for traffic t
             })]
         $StatefulRules,
         [parameter(Mandatory = $false)]
-        $StatelessRulesAndCustomActions
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RulesString,
+        [parameter(Mandatory = $false)]
+        $RulesSourceList
     )
     Begin {
         $obj = [PSCustomObject]@{}

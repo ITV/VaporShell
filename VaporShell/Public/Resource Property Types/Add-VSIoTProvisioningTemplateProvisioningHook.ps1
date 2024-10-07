@@ -1,25 +1,21 @@
 function Add-VSIoTProvisioningTemplateProvisioningHook {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::ProvisioningTemplate.ProvisioningHook resource property to the template. Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+        Adds an AWS::IoT::ProvisioningTemplate.ProvisioningHook resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::ProvisioningTemplate.ProvisioningHook resource property to the template.
-Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html
 
     .PARAMETER TargetArn
-        The ARN of the target function.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-targetarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER PayloadVersion
-        The payload that was sent to the target function. The valid payload is "2020-04-01".
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-payloadversion
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,18 +1,16 @@
 function Add-VSQuickSightDataSourceSslProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.SslProperties resource property to the template. Secure Socket Layer (SSL properties that apply when Amazon QuickSight connects to your underlying data source.
+        Adds an AWS::QuickSight::DataSource.SslProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.SslProperties resource property to the template.
-Secure Socket Layer (SSL properties that apply when Amazon QuickSight connects to your underlying data source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html
 
     .PARAMETER DisableSsl
-        A Boolean option to control whether SSL should be disabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
         UpdateType: Mutable
         PrimitiveType: Boolean

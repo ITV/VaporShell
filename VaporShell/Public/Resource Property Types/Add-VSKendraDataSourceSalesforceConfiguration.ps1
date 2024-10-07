@@ -1,80 +1,65 @@
 function Add-VSKendraDataSourceSalesforceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.SalesforceConfiguration resource property to the template. Provides the configuration information to connect to Salesforce as your data source.
+        Adds an AWS::Kendra::DataSource.SalesforceConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.SalesforceConfiguration resource property to the template.
-Provides the configuration information to connect to Salesforce as your data source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html
-
-    .PARAMETER ServerUrl
-        The instance URL for the Salesforce site that you want to index.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-serverurl
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER SecretArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-secretarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER StandardObjectConfigurations
-        Configuration of the Salesforce standard objects that Amazon Kendra indexes.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
+    .PARAMETER ServerUrl
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-serverurl
         UpdateType: Mutable
-        Type: List
-        ItemType: SalesforceStandardObjectConfiguration
-
-    .PARAMETER KnowledgeArticleConfiguration
-        Configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
-        UpdateType: Mutable
-        Type: SalesforceKnowledgeArticleConfiguration
-
-    .PARAMETER ChatterFeedConfiguration
-        Configuration information for Salesforce chatter feeds.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-chatterfeedconfiguration
-        UpdateType: Mutable
-        Type: SalesforceChatterFeedConfiguration
-
-    .PARAMETER CrawlAttachments
-        Indicates whether Amazon Kendra should index attachments to Salesforce objects.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
-    .PARAMETER StandardObjectAttachmentConfiguration
-        Configuration information for processing attachments to Salesforce standard objects.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
-        UpdateType: Mutable
-        Type: SalesforceStandardObjectAttachmentConfiguration
+        PrimitiveType: String
 
     .PARAMETER IncludeAttachmentFilePatterns
-        A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
-The pattern is applied to the name of the attached file.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER StandardObjectConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: SalesforceStandardObjectConfiguration
+        DuplicatesAllowed: True
+
+    .PARAMETER StandardObjectAttachmentConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
+        UpdateType: Mutable
+        Type: SalesforceStandardObjectAttachmentConfiguration
 
     .PARAMETER ExcludeAttachmentFilePatterns
-        A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
-The pattern is applied to the name of the attached file.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER CrawlAttachments
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER ChatterFeedConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-chatterfeedconfiguration
+        UpdateType: Mutable
+        Type: SalesforceChatterFeedConfiguration
+
+    .PARAMETER KnowledgeArticleConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
+        UpdateType: Mutable
+        Type: SalesforceKnowledgeArticleConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -93,7 +78,7 @@ The pattern is applied to the name of the attached file.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ServerUrl,
+        $SecretArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -104,7 +89,9 @@ The pattern is applied to the name of the attached file.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SecretArn,
+        $ServerUrl,
+        [parameter(Mandatory = $false)]
+        $IncludeAttachmentFilePatterns,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Kendra.DataSource.SalesforceStandardObjectConfiguration"
@@ -117,9 +104,9 @@ The pattern is applied to the name of the attached file.
             })]
         $StandardObjectConfigurations,
         [parameter(Mandatory = $false)]
-        $KnowledgeArticleConfiguration,
+        $StandardObjectAttachmentConfiguration,
         [parameter(Mandatory = $false)]
-        $ChatterFeedConfiguration,
+        $ExcludeAttachmentFilePatterns,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -132,11 +119,9 @@ The pattern is applied to the name of the attached file.
             })]
         $CrawlAttachments,
         [parameter(Mandatory = $false)]
-        $StandardObjectAttachmentConfiguration,
+        $ChatterFeedConfiguration,
         [parameter(Mandatory = $false)]
-        $IncludeAttachmentFilePatterns,
-        [parameter(Mandatory = $false)]
-        $ExcludeAttachmentFilePatterns
+        $KnowledgeArticleConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelCaptionLanguageMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.CaptionLanguageMapping resource property to the template. Maps a captions channel to an ISO 693-2 language code (http://www.loc.gov/standards/iso639-2, with an optional description.
+        Adds an AWS::MediaLive::Channel.CaptionLanguageMapping resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.CaptionLanguageMapping resource property to the template.
-Maps a captions channel to an ISO 693-2 language code (http://www.loc.gov/standards/iso639-2, with an optional description.
 
-The parent of this entity is HlsGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html
 
     .PARAMETER LanguageCode
-        A three-character ISO 639-2 language code see http://www.loc.gov/standards/iso639-2.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-languagecode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER LanguageDescription
-        The textual description of language.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-languagedescription
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CaptionChannel
-        The closed caption channel being described by this CaptionLanguageMapping. Each channel mapping must have a unique channel number maximum of 4.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-captionchannel
         PrimitiveType: Integer
         UpdateType: Mutable

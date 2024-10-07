@@ -10,6 +10,11 @@ function Add-VSWAFv2RuleGroupAllowAction {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-allowaction.html
 
+    .PARAMETER CustomRequestHandling
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-allowaction.html#cfn-wafv2-rulegroup-allowaction-customrequesthandling
+        UpdateType: Mutable
+        Type: CustomRequestHandling
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -17,6 +22,8 @@ function Add-VSWAFv2RuleGroupAllowAction {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $CustomRequestHandling
     )
     Begin {
         $obj = [PSCustomObject]@{}

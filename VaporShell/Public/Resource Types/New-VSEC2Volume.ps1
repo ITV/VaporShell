@@ -1,148 +1,78 @@
 function New-VSEC2Volume {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::Volume resource to the template. Specifies an Amazon Elastic Block Store (Amazon EBS volume. You can attach the volume to an instance in the same Availability Zone using AWS::EC2::VolumeAttachment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html.
+        Adds an AWS::EC2::Volume resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::Volume resource to the template. Specifies an Amazon Elastic Block Store (Amazon EBS volume. You can attach the volume to an instance in the same Availability Zone using AWS::EC2::VolumeAttachment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html.
-
-When you use AWS CloudFormation to update an Amazon EBS volume that modifies Iops, Size, or VolumeType, there is a cooldown period before another operation can occur. This can cause your stack to report being in UPDATE_IN_PROGRESS or UPDATE_ROLLBACK_IN_PROGRESS for long periods of time.
-
-Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
-
-Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
-
-+ You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
-
-+ You successfully update an Amazon EBS volume and the update succeeds but another change in your update-stack call fails. The rollback will be subject to a cooldown period.
-
-For more information on the cooldown period, see Requirements when modifying volumes: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/modify-volume-requirements.html.
-
-**DeletionPolicy attribute**
-
-To control how AWS CloudFormation handles the volume when the stack is deleted, set a deletion policy for your volume. You can choose to retain the volume, to delete the volume, or to create a snapshot of the volume. For more information, see DeletionPolicy attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html.
-
-**Note**
-
-If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.
+        Adds an AWS::EC2::Volume resource to the template. 
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html
 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AutoEnableIO
-        Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-autoenableio
-        PrimitiveType: Boolean
-        UpdateType: Mutable
-
-    .PARAMETER AvailabilityZone
-        The Availability Zone in which to create the volume.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-availabilityzone
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER Encrypted
-        Indicates whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin new or from a snapshot, starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default in the *Amazon Elastic Compute Cloud User Guide*.
-Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-encrypted
-        PrimitiveType: Boolean
-        UpdateType: Mutable
-
-    .PARAMETER Iops
-        The number of I/O operations per second IOPS. For gp3, io1, and io2 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-The following are the supported values for each volume type:
-+  gp3: 3,000-16,000 IOPS
-+  io1: 100-64,000 IOPS
-+  io2: 100-64,000 IOPS
-io1 and io2 volumes support up to 64,000 IOPS only on Instances built on the Nitro System: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances. Other instance families support performance up to 32,000 IOPS.
-This parameter is required for io1 and io2 volumes. The default for gp3 volumes is 3,000 IOPS. This parameter is not supported for gp2, st1, sc1, or standard volumes.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-iops
-        PrimitiveType: Integer
-        UpdateType: Mutable
-
-    .PARAMETER KmsKeyId
-        The identifier of the AWS KMS key to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true.
-If you omit this property and your account is enabled for encryption by default, or **Encrypted** is set to true, then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the AWS managed key.
-Alternatively, if you want to specify a different key, you can specify one of the following:
-+ Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
-+ Key alias. Specify the alias for the key, prefixed with alias/. For example, for a key with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed key, use alias/aws/ebs.
-+ Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
-+ Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-kmskeyid
-        PrimitiveType: String
-        UpdateType: Mutable
-
     .PARAMETER MultiAttachEnabled
-        Indicates whether Amazon EBS Multi-Attach is enabled.
-AWS CloudFormation does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second IOPS of a multi-attach enabled volume.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-multiattachenabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-multiattachenabled
+        UpdateType: Mutable
         PrimitiveType: Boolean
-        UpdateType: Mutable
-
-    .PARAMETER OutpostArn
-        The Amazon Resource Name ARN of the Outpost.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-outpostarn
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER Size
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
-The following are the supported volumes sizes for each volume type:
-+  gp2 and gp3: 1-16,384
-+  io1 and io2: 4-16,384
-+  st1 and sc1: 125-16,384
-+  standard: 1-1,024
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-size
-        PrimitiveType: Integer
-        UpdateType: Mutable
 
     .PARAMETER SnapshotId
-        The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-snapshotid
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-snapshotid
+        UpdateType: Mutable
         PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER Tags
-        The tags to apply to the volume during creation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-tags
-        DuplicatesAllowed: True
-        ItemType: Tag
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER Throughput
-        The throughput that the volume supports, in MiB/s.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-throughput
-        PrimitiveType: Integer
-        UpdateType: Mutable
 
     .PARAMETER VolumeType
-        The volume type. This parameter can be one of the following values:
-+ General Purpose SSD: gp2 | gp3
-+ Provisioned IOPS SSD: io1 | io2
-+ Throughput Optimized HDD: st1
-+ Cold HDD: sc1
-+ Magnetic: standard
-For more information, see Amazon EBS volume types: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html in the *Amazon Elastic Compute Cloud User Guide*.
-Default: gp2
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-volumetype
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER KmsKeyId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-kmskeyid
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Encrypted
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-encrypted
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER Size
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-size
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER AutoEnableIO
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-autoenableio
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER OutpostArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-outpostarn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER AvailabilityZone
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-availabilityzone
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Throughput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-throughput
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER Iops
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-iops
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -216,8 +146,8 @@ Default: gp2
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AutoEnableIO,
-        [parameter(Mandatory = $true)]
+        $MultiAttachEnabled,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -227,10 +157,10 @@ Default: gp2
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AvailabilityZone,
+        $SnapshotId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -238,18 +168,7 @@ Default: gp2
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Encrypted,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Iops,
+        $VolumeType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -271,18 +190,7 @@ Default: gp2
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MultiAttachEnabled,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $OutpostArn,
+        $Encrypted,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -296,6 +204,17 @@ Default: gp2
         $Size,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AutoEnableIO,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -304,10 +223,18 @@ Default: gp2
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SnapshotId,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
+        $OutpostArn,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AvailabilityZone,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -321,7 +248,7 @@ Default: gp2
         $Throughput,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -329,7 +256,10 @@ Default: gp2
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VolumeType,
+        $Iops,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

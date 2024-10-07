@@ -1,46 +1,42 @@
 function Add-VSQuickSightAnalysisParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.Parameters resource property to the template. A list of Amazon QuickSight parameters and the list's override values.
+        Adds an AWS::QuickSight::Analysis.Parameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.Parameters resource property to the template.
-A list of Amazon QuickSight parameters and the list's override values.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html
 
     .PARAMETER StringParameters
-        The parameters that have a data type of string.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
         UpdateType: Mutable
         Type: List
         ItemType: StringParameter
+        DuplicatesAllowed: True
 
     .PARAMETER DecimalParameters
-        The parameters that have a data type of decimal.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
         UpdateType: Mutable
         Type: List
         ItemType: DecimalParameter
+        DuplicatesAllowed: True
 
     .PARAMETER IntegerParameters
-        The parameters that have a data type of integer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
         UpdateType: Mutable
         Type: List
         ItemType: IntegerParameter
+        DuplicatesAllowed: True
 
     .PARAMETER DateTimeParameters
-        The parameters that have a data type of date-time.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
         UpdateType: Mutable
         Type: List
         ItemType: DateTimeParameter
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

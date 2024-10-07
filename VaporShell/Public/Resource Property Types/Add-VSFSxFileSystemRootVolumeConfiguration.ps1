@@ -1,57 +1,42 @@
 function Add-VSFSxFileSystemRootVolumeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::FileSystem.RootVolumeConfiguration resource property to the template. The configuration of an Amazon FSx for OpenZFS root volume.
+        Adds an AWS::FSx::FileSystem.RootVolumeConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::FSx::FileSystem.RootVolumeConfiguration resource property to the template.
-The configuration of an Amazon FSx for OpenZFS root volume.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html
 
     .PARAMETER ReadOnly
-        A Boolean value indicating whether the volume is read-only. Setting this value to true can be useful after you have completed changes to a volume and no longer want changes to occur.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-readonly
         PrimitiveType: Boolean
         UpdateType: Immutable
 
     .PARAMETER DataCompressionType
-        Specifies the method used to compress the data on the volume. The compression type is NONE by default.
-+  NONE - Doesn't compress the data on the volume. NONE is the default.
-+  ZSTD - Compresses the data in the volume using the Zstandard ZSTD compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.
-+  LZ4 - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-datacompressiontype
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER NfsExports
-        The configuration object for mounting a file system.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports
         ItemType: NfsExports
         UpdateType: Immutable
 
     .PARAMETER CopyTagsToSnapshots
-        A Boolean value indicating whether tags for the volume should be copied to snapshots of the volume. This value defaults to false. If it's set to true, all tags for the volume are copied to snapshots where the user doesn't specify tags. If this value is true and you specify one or more tags, only the specified tags are copied to snapshots. If you specify one or more tags when creating the snapshot, no tags are copied from the volume, regardless of this value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-copytagstosnapshots
         PrimitiveType: Boolean
         UpdateType: Immutable
 
     .PARAMETER RecordSizeKiB
-        *Update requires*: Replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-recordsizekib
         PrimitiveType: Integer
         UpdateType: Immutable
 
     .PARAMETER UserAndGroupQuotas
-        An object specifying how much storage users or groups can use on the volume.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas
         ItemType: UserAndGroupQuotas

@@ -1,82 +1,66 @@
 function Add-VSSageMakerEndpointConfigProductionVariant {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::EndpointConfig.ProductionVariant resource property to the template. Specifies a model that you want to host and the resources to deploy for hosting it. If you are deploying multiple models, tell Amazon SageMaker how to distribute traffic among the models by specifying the InitialVariantWeight objects.
+        Adds an AWS::SageMaker::EndpointConfig.ProductionVariant resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::EndpointConfig.ProductionVariant resource property to the template.
-Specifies a model that you want to host and the resources to deploy for hosting it. If you are deploying multiple models, tell Amazon SageMaker how to distribute traffic among the models by specifying the InitialVariantWeight objects.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html
 
     .PARAMETER ModelDataDownloadTimeoutInSeconds
-        *Update requires*: Replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modeldatadownloadtimeoutinseconds
         PrimitiveType: Integer
         UpdateType: Immutable
 
     .PARAMETER ModelName
-        The name of the model that you want to host. This is the name that you specified when creating the model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER VolumeSizeInGB
-        *Update requires*: Replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-volumesizeingb
         PrimitiveType: Integer
         UpdateType: Immutable
 
-    .PARAMETER VariantName
-        The name of the production variant.
+    .PARAMETER EnableSSMAccess
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-enablessmaccess
+        PrimitiveType: Boolean
+        UpdateType: Immutable
 
+    .PARAMETER VariantName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ContainerStartupHealthCheckTimeoutInSeconds
-        *Update requires*: Replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-containerstartuphealthchecktimeoutinseconds
         PrimitiveType: Integer
         UpdateType: Immutable
 
     .PARAMETER InitialInstanceCount
-        Number of instances to launch initially.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount
         PrimitiveType: Integer
         UpdateType: Immutable
 
     .PARAMETER ServerlessConfig
-        The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
-Serverless Inference is in preview release for Amazon SageMaker and is subject to change. We do not recommend using this feature in production environments.
-
         Type: ServerlessConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-serverlessconfig
         UpdateType: Mutable
 
     .PARAMETER InstanceType
-        The ML compute instance type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER AcceleratorType
-        The size of the Elastic Inference EI instance to use for the production variant. EI instances provide on-demand GPU computing for inference. For more information, see Using Elastic Inference in Amazon SageMaker: https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html. For more information, see Using Elastic Inference in Amazon SageMaker: https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER InitialVariantWeight
-        Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. The traffic to a production variant is determined by the ratio of the VariantWeight to the sum of all VariantWeight values across all ProductionVariants. If unspecified, it defaults to 1.0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
         PrimitiveType: Double
         UpdateType: Immutable
@@ -121,6 +105,17 @@ Serverless Inference is in preview release for Amazon SageMaker and is subject t
                 }
             })]
         $VolumeSizeInGB,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableSSMAccess,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

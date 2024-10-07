@@ -1,18 +1,16 @@
 function Add-VSQuickSightDataSourceVpcConnectionProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.VpcConnectionProperties resource property to the template. VPC connection properties.
+        Adds an AWS::QuickSight::DataSource.VpcConnectionProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.VpcConnectionProperties resource property to the template.
-VPC connection properties.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html
 
     .PARAMETER VpcConnectionArn
-        The Amazon Resource Name ARN for the VPC connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn
         UpdateType: Mutable
         PrimitiveType: String

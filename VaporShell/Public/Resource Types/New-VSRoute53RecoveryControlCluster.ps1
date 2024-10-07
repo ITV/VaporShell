@@ -1,10 +1,10 @@
 function New-VSRoute53RecoveryControlCluster {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53RecoveryControl::Cluster resource to the template. Returns an array of all the clusters in an account.
+        Adds an AWS::Route53RecoveryControl::Cluster resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Route53RecoveryControl::Cluster resource to the template. Returns an array of all the clusters in an account.
+        Adds an AWS::Route53RecoveryControl::Cluster resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html
@@ -12,20 +12,17 @@ function New-VSRoute53RecoveryControlCluster {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        Name of the cluster. You can use any non-white space character in the name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Tags
-        The value for a tag.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -89,7 +86,10 @@ function New-VSRoute53RecoveryControlCluster {
             })]
         [System.String]
         $LogicalId,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
+        $Tags,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,9 +100,6 @@ function New-VSRoute53RecoveryControlCluster {
                 }
             })]
         $Name,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

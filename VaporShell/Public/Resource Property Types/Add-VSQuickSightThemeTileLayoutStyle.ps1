@@ -1,25 +1,21 @@
 function Add-VSQuickSightThemeTileLayoutStyle {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.TileLayoutStyle resource property to the template. The display options for the layout of tiles on a sheet.
+        Adds an AWS::QuickSight::Theme.TileLayoutStyle resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.TileLayoutStyle resource property to the template.
-The display options for the layout of tiles on a sheet.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html
 
     .PARAMETER Gutter
-        The gutter settings that apply between tiles.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter
         UpdateType: Mutable
         Type: GutterStyle
 
     .PARAMETER Margin
-        The margin settings that apply around the outside edge of sheets.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin
         UpdateType: Mutable
         Type: MarginStyle

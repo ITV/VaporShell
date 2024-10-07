@@ -1,12 +1,10 @@
 function New-VSCodeStarConnectionsConnection {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeStarConnections::Connection resource to the template. The AWS::CodeStarConnections::Connection resource can be used to connect external source providers with services like AWS CodePipeline.
+        Adds an AWS::CodeStarConnections::Connection resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CodeStarConnections::Connection resource to the template. The AWS::CodeStarConnections::Connection resource can be used to connect external source providers with services like AWS CodePipeline.
-
-**Note:** A connection created through AWS CloudFormation is in PENDING status by default. You can make its status AVAILABLE by updating the connection in the console.
+        Adds an AWS::CodeStarConnections::Connection resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html
@@ -15,33 +13,26 @@ function New-VSCodeStarConnectionsConnection {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ConnectionName
-        The name of the connection. Connection names must be unique in an AWS user account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ProviderType
-        The name of the external provider where your third-party code repository is configured.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER HostArn
-        The Amazon Resource Name ARN of the host associated with the connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        Specifies the tags applied to the resource.
+    .PARAMETER ProviderType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -126,7 +117,7 @@ function New-VSCodeStarConnectionsConnection {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ProviderType,
+        $HostArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -137,7 +128,7 @@ function New-VSCodeStarConnectionsConnection {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $HostArn,
+        $ProviderType,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

@@ -10,6 +10,11 @@ function Add-VSIoTTwinMakerComponentTypeDataType {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html
 
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-type
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER AllowedValues
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-allowedvalues
         UpdateType: Mutable
@@ -17,25 +22,20 @@ function Add-VSIoTTwinMakerComponentTypeDataType {
         ItemType: DataValue
         DuplicatesAllowed: True
 
-    .PARAMETER NestedType
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-nestedtype
+    .PARAMETER UnitOfMeasure
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-unitofmeasure
         UpdateType: Mutable
-        Type: DataType
+        PrimitiveType: String
 
     .PARAMETER Relationship
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-relationship
         UpdateType: Mutable
         Type: Relationship
 
-    .PARAMETER Type
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-type
+    .PARAMETER NestedType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-nestedtype
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER UnitOfMeasure
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-unitofmeasure
-        UpdateType: Mutable
-        PrimitiveType: String
+        Type: DataType
 
     .FUNCTIONALITY
         Vaporshell
@@ -44,21 +44,6 @@ function Add-VSIoTTwinMakerComponentTypeDataType {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.IoTTwinMaker.ComponentType.DataValue"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AllowedValues,
-        [parameter(Mandatory = $false)]
-        $NestedType,
-        [parameter(Mandatory = $false)]
-        $Relationship,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -72,6 +57,17 @@ function Add-VSIoTTwinMakerComponentTypeDataType {
         $Type,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.IoTTwinMaker.ComponentType.DataValue"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AllowedValues,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -80,7 +76,11 @@ function Add-VSIoTTwinMakerComponentTypeDataType {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $UnitOfMeasure
+        $UnitOfMeasure,
+        [parameter(Mandatory = $false)]
+        $Relationship,
+        [parameter(Mandatory = $false)]
+        $NestedType
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -10,6 +10,12 @@ function Add-VSAppFlowConnectorProfileOAuth2Properties {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html
 
+    .PARAMETER TokenUrlCustomProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-tokenurlcustomproperties
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
+
     .PARAMETER TokenUrl
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-tokenurl
         UpdateType: Mutable
@@ -20,11 +26,6 @@ function Add-VSAppFlowConnectorProfileOAuth2Properties {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER TokenUrlCustomProperties
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-tokenurlcustomproperties
-        UpdateType: Mutable
-        Type: TokenUrlCustomProperties
-
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -32,6 +33,9 @@ function Add-VSAppFlowConnectorProfileOAuth2Properties {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $TokenUrlCustomProperties,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -53,9 +57,7 @@ function Add-VSAppFlowConnectorProfileOAuth2Properties {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OAuth2GrantType,
-        [parameter(Mandatory = $false)]
-        $TokenUrlCustomProperties
+        $OAuth2GrantType
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -10,17 +10,17 @@ function Add-VSRoute53CidrCollectionLocation {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html
 
-    .PARAMETER LocationName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-locationname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER CidrList
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-cidrlist
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
+
+    .PARAMETER LocationName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-locationname
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -29,6 +29,8 @@ function Add-VSRoute53CidrCollectionLocation {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $CidrList,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -39,9 +41,7 @@ function Add-VSRoute53CidrCollectionLocation {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LocationName,
-        [parameter(Mandatory = $true)]
-        $CidrList
+        $LocationName
     )
     Begin {
         $obj = [PSCustomObject]@{}

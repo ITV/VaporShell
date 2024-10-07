@@ -1,39 +1,31 @@
 function Add-VSAppFlowFlowSnowflakeDestinationProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.SnowflakeDestinationProperties resource property to the template. The properties that are applied when Snowflake is being used as a destination.
+        Adds an AWS::AppFlow::Flow.SnowflakeDestinationProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.SnowflakeDestinationProperties resource property to the template.
-The properties that are applied when Snowflake is being used as a destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html
 
     .PARAMETER Object
-        The object specified in the Snowflake flow destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-object
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER IntermediateBucketName
-        The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER BucketPrefix
-        The object key for the destination bucket in which Amazon AppFlow places the files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-bucketprefix
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ErrorHandlingConfig
-        The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. ErrorHandlingConfig is a part of the destination connector details.
+    .PARAMETER IntermediateBucketName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER ErrorHandlingConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-errorhandlingconfig
         UpdateType: Mutable
         Type: ErrorHandlingConfig
@@ -56,17 +48,6 @@ The properties that are applied when Snowflake is being used as a destination.
                 }
             })]
         $Object,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $IntermediateBucketName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -78,6 +59,17 @@ The properties that are applied when Snowflake is being used as a destination.
                 }
             })]
         $BucketPrefix,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IntermediateBucketName,
         [parameter(Mandatory = $false)]
         $ErrorHandlingConfig
     )

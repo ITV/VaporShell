@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelAncillarySourceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AncillarySourceSettings resource property to the template. Information about the ancillary captions to extract from the input.
+        Adds an AWS::MediaLive::Channel.AncillarySourceSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AncillarySourceSettings resource property to the template.
-Information about the ancillary captions to extract from the input.
 
-The parent of this entity is CaptionSelectorSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ancillarysourcesettings.html
 
     .PARAMETER SourceAncillaryChannelNumber
-        Specifies the number 1 to 4 of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output to pass through all the channels in the ancillary captions, leave this field blank because MediaLive ignores the field.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ancillarysourcesettings.html#cfn-medialive-channel-ancillarysourcesettings-sourceancillarychannelnumber
         PrimitiveType: Integer
         UpdateType: Mutable

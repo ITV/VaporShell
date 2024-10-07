@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayAccessLog {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayAccessLog resource property to the template. The access log configuration for a virtual gateway.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayAccessLog resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayAccessLog resource property to the template.
-The access log configuration for a virtual gateway.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html
 
     .PARAMETER File
-        The file object to send virtual gateway access logs to.
-
         Type: VirtualGatewayFileAccessLog
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayaccesslog-file
         UpdateType: Mutable

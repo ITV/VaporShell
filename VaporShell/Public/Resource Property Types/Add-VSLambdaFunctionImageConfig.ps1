@@ -1,25 +1,21 @@
 function Add-VSLambdaFunctionImageConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::Function.ImageConfig resource property to the template. Configuration values that override the container image Dockerfile settings. See Container settings: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms.
+        Adds an AWS::Lambda::Function.ImageConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lambda::Function.ImageConfig resource property to the template.
-Configuration values that override the container image Dockerfile settings. See Container settings: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html
 
     .PARAMETER WorkingDirectory
-        Specifies the working directory.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Command
-        Specifies parameters that you want to pass in with ENTRYPOINT.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
         UpdateType: Mutable
         Type: List
@@ -27,8 +23,6 @@ Configuration values that override the container image Dockerfile settings. See 
         DuplicatesAllowed: False
 
     .PARAMETER EntryPoint
-        Specifies the entry point to their application, which is typically the location of the runtime executable.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
         UpdateType: Mutable
         Type: List

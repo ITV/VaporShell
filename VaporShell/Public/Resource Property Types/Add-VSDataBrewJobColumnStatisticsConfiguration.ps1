@@ -1,29 +1,26 @@
 function Add-VSDataBrewJobColumnStatisticsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Job.ColumnStatisticsConfiguration resource property to the template. Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+        Adds an AWS::DataBrew::Job.ColumnStatisticsConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Job.ColumnStatisticsConfiguration resource property to the template.
-Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
 
-    .PARAMETER Selectors
-        List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
+    .PARAMETER Statistics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
+        UpdateType: Mutable
+        Type: StatisticsConfiguration
 
+    .PARAMETER Selectors
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
         UpdateType: Mutable
         Type: List
         ItemType: ColumnSelector
-
-    .PARAMETER Statistics
-        Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
-        UpdateType: Mutable
-        Type: StatisticsConfiguration
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,6 +29,8 @@ Configuration for column evaluations for a profile job. ColumnStatisticsConfigur
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $Statistics,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DataBrew.Job.ColumnSelector"
@@ -42,9 +41,7 @@ Configuration for column evaluations for a profile job. ColumnStatisticsConfigur
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Selectors,
-        [parameter(Mandatory = $true)]
-        $Statistics
+        $Selectors
     )
     Begin {
         $obj = [PSCustomObject]@{}

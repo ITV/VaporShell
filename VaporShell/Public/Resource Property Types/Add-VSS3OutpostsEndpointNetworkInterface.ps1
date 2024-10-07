@@ -1,18 +1,16 @@
 function Add-VSS3OutpostsEndpointNetworkInterface {
     <#
     .SYNOPSIS
-        Adds an AWS::S3Outposts::Endpoint.NetworkInterface resource property to the template. The container for the network interface.
+        Adds an AWS::S3Outposts::Endpoint.NetworkInterface resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3Outposts::Endpoint.NetworkInterface resource property to the template.
-The container for the network interface.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html
 
     .PARAMETER NetworkInterfaceId
-        The ID for the network interface.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html#cfn-s3outposts-endpoint-networkinterface-networkinterfaceid
         UpdateType: Mutable
         PrimitiveType: String

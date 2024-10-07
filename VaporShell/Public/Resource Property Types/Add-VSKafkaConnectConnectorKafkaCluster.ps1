@@ -1,18 +1,16 @@
 function Add-VSKafkaConnectConnectorKafkaCluster {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.KafkaCluster resource property to the template. The details of the Apache Kafka cluster to which the connector is connected.
+        Adds an AWS::KafkaConnect::Connector.KafkaCluster resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.KafkaCluster resource property to the template.
-The details of the Apache Kafka cluster to which the connector is connected.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkacluster.html
 
     .PARAMETER ApacheKafkaCluster
-        The Apache Kafka cluster to which the connector is connected.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkacluster.html#cfn-kafkaconnect-connector-kafkacluster-apachekafkacluster
         UpdateType: Immutable
         Type: ApacheKafkaCluster

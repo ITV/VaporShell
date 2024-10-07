@@ -1,18 +1,16 @@
 function Add-VSACMPCACertificateQualifier {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::Certificate.Qualifier resource property to the template. Defines a PolicyInformation qualifier. ACM Private CA supports the certification practice statement (CPS qualifier: https://tools.ietf.org/html/rfc5280#section-4.2.1.4 defined in RFC 5280.
+        Adds an AWS::ACMPCA::Certificate.Qualifier resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::Certificate.Qualifier resource property to the template.
-Defines a PolicyInformation qualifier. ACM Private CA supports the certification practice statement (CPS qualifier: https://tools.ietf.org/html/rfc5280#section-4.2.1.4 defined in RFC 5280.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html
 
     .PARAMETER CpsUri
-        Contains a pointer to a certification practice statement CPS published by the CA.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
         UpdateType: Immutable
         PrimitiveType: String

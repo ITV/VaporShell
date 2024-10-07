@@ -1,18 +1,16 @@
 function Add-VSCustomerProfilesIntegrationZendeskSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.ZendeskSourceProperties resource property to the template. <a name="aws-properties-customerprofiles-integration-zendesksourceproperties-description"></a>The ZendeskSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.ZendeskSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.ZendeskSourceProperties resource property to the template.
-<a name="aws-properties-customerprofiles-integration-zendesksourceproperties-description"></a>The ZendeskSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html
 
     .PARAMETER Object
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html#cfn-customerprofiles-integration-zendesksourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

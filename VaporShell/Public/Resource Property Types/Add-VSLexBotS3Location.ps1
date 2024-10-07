@@ -1,33 +1,27 @@
 function Add-VSLexBotS3Location {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.S3Location resource property to the template. Defines an Amazon S3 bucket location.
+        Adds an AWS::Lex::Bot.S3Location resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.S3Location resource property to the template.
-Defines an Amazon S3 bucket location.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html
 
-    .PARAMETER S3Bucket
-        The S3 bucket name.
+    .PARAMETER S3ObjectVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html#cfn-lex-bot-s3location-s3objectversion
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER S3Bucket
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html#cfn-lex-bot-s3location-s3bucket
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3ObjectKey
-        The path and file name to the object in the S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html#cfn-lex-bot-s3location-s3objectkey
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER S3ObjectVersion
-        The version of the object in the S3 bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html#cfn-lex-bot-s3location-s3objectversion
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -38,6 +32,17 @@ Defines an Amazon S3 bucket location.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $S3ObjectVersion,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,18 +64,7 @@ Defines an Amazon S3 bucket location.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3ObjectKey,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $S3ObjectVersion
+        $S3ObjectKey
     )
     Begin {
         $obj = [PSCustomObject]@{}

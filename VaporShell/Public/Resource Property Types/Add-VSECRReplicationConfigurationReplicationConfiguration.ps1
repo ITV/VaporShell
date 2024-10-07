@@ -1,22 +1,21 @@
 function Add-VSECRReplicationConfigurationReplicationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::ReplicationConfiguration.ReplicationConfiguration resource property to the template. The replication configuration for a registry.
+        Adds an AWS::ECR::ReplicationConfiguration.ReplicationConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECR::ReplicationConfiguration.ReplicationConfiguration resource property to the template.
-The replication configuration for a registry.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
 
     .PARAMETER Rules
-        An array of objects representing the replication destinations and repository filters for a replication configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
         UpdateType: Mutable
         Type: List
         ItemType: ReplicationRule
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

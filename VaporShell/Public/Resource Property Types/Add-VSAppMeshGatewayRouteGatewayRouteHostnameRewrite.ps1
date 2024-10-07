@@ -1,18 +1,16 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteHostnameRewrite {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite resource property to the template. An object representing the gateway route host name to rewrite.
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite resource property to the template.
-An object representing the gateway route host name to rewrite.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamerewrite.html
 
     .PARAMETER DefaultTargetHostname
-        The default target host name to write to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamerewrite.html#cfn-appmesh-gatewayroute-gatewayroutehostnamerewrite-defaulttargethostname
         PrimitiveType: String
         UpdateType: Mutable

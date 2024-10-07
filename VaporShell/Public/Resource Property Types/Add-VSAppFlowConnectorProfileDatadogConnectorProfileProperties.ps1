@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileDatadogConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.DatadogConnectorProfileProperties resource property to the template. The DatadogConnectorProfileProperties property type specifies the connector-specific profile properties required by Datadog.
+        Adds an AWS::AppFlow::ConnectorProfile.DatadogConnectorProfileProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.DatadogConnectorProfileProperties resource property to the template.
-The DatadogConnectorProfileProperties property type specifies the connector-specific profile properties required by Datadog.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Datadog resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html#cfn-appflow-connectorprofile-datadogconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String

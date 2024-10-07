@@ -1,10 +1,10 @@
 function New-VSIoTMitigationAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction resource to the template. Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. For API reference, see CreateMitigationAction: https://docs.aws.amazon.com/iot/latest/apireference/API_CreateMitigationAction.html and for general information, see Mitigation actions: https://docs.aws.amazon.com/iot/latest/developerguide/dd-mitigation-actions.html.
+        Adds an AWS::IoT::MitigationAction resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::MitigationAction resource to the template. Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. For API reference, see CreateMitigationAction: https://docs.aws.amazon.com/iot/latest/apireference/API_CreateMitigationAction.html and for general information, see Mitigation actions: https://docs.aws.amazon.com/iot/latest/developerguide/dd-mitigation-actions.html.
+        Adds an AWS::IoT::MitigationAction resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html
@@ -13,34 +13,26 @@ function New-VSIoTMitigationAction {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ActionName
-        The friendly name of the mitigation action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The IAM role ARN used to apply this mitigation action.
+    .PARAMETER ActionParams
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
+        UpdateType: Mutable
+        Type: ActionParams
 
+    .PARAMETER RoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-rolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        Metadata that can be used to manage the mitigation action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
-
-    .PARAMETER ActionParams
-        The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
-        UpdateType: Mutable
-        Type: ActionParams
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -116,6 +108,8 @@ function New-VSIoTMitigationAction {
             })]
         $ActionName,
         [parameter(Mandatory = $true)]
+        $ActionParams,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,8 +123,6 @@ function New-VSIoTMitigationAction {
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $true)]
-        $ActionParams,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,18 +1,16 @@
 function Add-VSLexBotSSMLMessage {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SSMLMessage resource property to the template. Defines a Speech Synthesis Markup Language (SSML prompt.
+        Adds an AWS::Lex::Bot.SSMLMessage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SSMLMessage resource property to the template.
-Defines a Speech Synthesis Markup Language (SSML prompt.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html
 
     .PARAMETER Value
-        The SSML text that defines the prompt.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html#cfn-lex-bot-ssmlmessage-value
         UpdateType: Mutable
         PrimitiveType: String

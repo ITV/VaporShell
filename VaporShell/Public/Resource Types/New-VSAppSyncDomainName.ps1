@@ -1,10 +1,10 @@
 function New-VSAppSyncDomainName {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::DomainName resource to the template. The AWS::AppSync::DomainName resource creates a DomainNameConfig object to configure a custom domain.
+        Adds an AWS::AppSync::DomainName resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppSync::DomainName resource to the template. The AWS::AppSync::DomainName resource creates a DomainNameConfig object to configure a custom domain.
+        Adds an AWS::AppSync::DomainName resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html
@@ -12,23 +12,17 @@ function New-VSAppSyncDomainName {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DomainName
-        The domain name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-domainname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        The decription for your domain name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER CertificateArn
-        The Amazon Resource Name ARN of the certificate. This will be an AWS Certificate Manager certificate.
+    .PARAMETER DomainName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-domainname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER CertificateArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-certificatearn
         UpdateType: Immutable
         PrimitiveType: String
@@ -95,17 +89,6 @@ function New-VSAppSyncDomainName {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DomainName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -117,6 +100,17 @@ function New-VSAppSyncDomainName {
                 }
             })]
         $Description,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DomainName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

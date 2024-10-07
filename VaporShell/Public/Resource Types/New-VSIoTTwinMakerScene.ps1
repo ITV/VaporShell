@@ -22,20 +22,15 @@ function New-VSIoTTwinMakerScene {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ContentLocation
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-contentlocation
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Tags
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-tags
+    .PARAMETER SceneMetadata
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-scenemetadata
         UpdateType: Mutable
         Type: Map
         PrimitiveItemType: String
 
-    .PARAMETER WorkspaceId
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-workspaceid
-        UpdateType: Immutable
+    .PARAMETER ContentLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-contentlocation
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Capabilities
@@ -44,6 +39,17 @@ function New-VSIoTTwinMakerScene {
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
+
+    .PARAMETER WorkspaceId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-workspaceid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-tags
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -129,6 +135,9 @@ function New-VSIoTTwinMakerScene {
                 }
             })]
         $Description,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $SceneMetadata,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -141,8 +150,7 @@ function New-VSIoTTwinMakerScene {
             })]
         $ContentLocation,
         [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Tags,
+        $Capabilities,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -155,7 +163,8 @@ function New-VSIoTTwinMakerScene {
             })]
         $WorkspaceId,
         [parameter(Mandatory = $false)]
-        $Capabilities,
+        [System.Collections.Hashtable]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

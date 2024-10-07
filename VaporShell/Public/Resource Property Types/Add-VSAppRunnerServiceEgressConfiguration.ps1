@@ -1,28 +1,22 @@
 function Add-VSAppRunnerServiceEgressConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.EgressConfiguration resource property to the template. Describes configuration settings related to outbound network traffic of an AWS App Runner service.
+        Adds an AWS::AppRunner::Service.EgressConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.EgressConfiguration resource property to the template.
-Describes configuration settings related to outbound network traffic of an AWS App Runner service.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html
 
-    .PARAMETER EgressType
-        The type of egress configuration.
-Set to DEFAULT for access to resources hosted on public networks.
-Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-egresstype
+    .PARAMETER VpcConnectorArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-vpcconnectorarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER VpcConnectorArn
-        The Amazon Resource Name ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-vpcconnectorarn
+    .PARAMETER EgressType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-egresstype
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -33,17 +27,6 @@ Set to VPC to associate your service to a custom VPC specified by VpcConnectorAr
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $EgressType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -54,7 +37,18 @@ Set to VPC to associate your service to a custom VPC specified by VpcConnectorAr
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VpcConnectorArn
+        $VpcConnectorArn,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EgressType
     )
     Begin {
         $obj = [PSCustomObject]@{}

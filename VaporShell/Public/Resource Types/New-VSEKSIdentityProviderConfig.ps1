@@ -1,12 +1,10 @@
 function New-VSEKSIdentityProviderConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EKS::IdentityProviderConfig resource to the template. Associate an identity provider configuration to a cluster.
+        Adds an AWS::EKS::IdentityProviderConfig resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EKS::IdentityProviderConfig resource to the template. Associate an identity provider configuration to a cluster.
-
-If you want to authenticate identities using an identity provider, you can create an identity provider configuration and associate it to your cluster. After configuring authentication to your cluster you can create Kubernetes roles and clusterroles to assign permissions to the roles, and then bind the roles to the identities using Kubernetes rolebindings and clusterrolebindings. For more information see Using RBAC Authorization: https://kubernetes.io/docs/reference/access-authn-authz/rbac/ in the Kubernetes documentation.
+        Adds an AWS::EKS::IdentityProviderConfig resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html
@@ -14,37 +12,27 @@ If you want to authenticate identities using an identity provider, you can creat
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ClusterName
-        The cluster that the configuration is associated to.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-clustername
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Type
-        The type of the identity provider configuration. The only type available is oidc.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-type
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER IdentityProviderConfigName
-        The name of the configuration.
+    .PARAMETER ClusterName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-clustername
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER IdentityProviderConfigName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-identityproviderconfigname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Oidc
-        An object that represents an OpenID Connect OIDC identity provider configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-oidc
         UpdateType: Immutable
         Type: OidcIdentityProviderConfig
 
     .PARAMETER Tags
-        The metadata to apply to the provider configuration to assist with categorization and organization. Each tag consists of a key and an optional value. You define both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-tags
         UpdateType: Mutable
         Type: List
@@ -123,7 +111,7 @@ If you want to authenticate identities using an identity provider, you can creat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ClusterName,
+        $Type,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -134,7 +122,7 @@ If you want to authenticate identities using an identity provider, you can creat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Type,
+        $ClusterName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

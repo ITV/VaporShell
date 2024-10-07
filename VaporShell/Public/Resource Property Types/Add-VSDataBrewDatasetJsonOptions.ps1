@@ -1,18 +1,16 @@
 function Add-VSDataBrewDatasetJsonOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.JsonOptions resource property to the template. Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew.
+        Adds an AWS::DataBrew::Dataset.JsonOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.JsonOptions resource property to the template.
-Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
 
     .PARAMETER MultiLine
-        A value that specifies whether JSON input contains embedded new line characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
         UpdateType: Mutable
         PrimitiveType: Boolean

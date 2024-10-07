@@ -1,11 +1,11 @@
 function Add-VSNetworkFirewallRuleGroupRuleOption {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.RuleOption resource property to the template. Additional settings for a stateful rule.
+        Adds an AWS::NetworkFirewall::RuleGroup.RuleOption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.RuleOption resource property to the template.
-Additional settings for a stateful rule.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html

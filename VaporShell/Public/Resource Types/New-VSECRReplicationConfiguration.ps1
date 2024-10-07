@@ -1,14 +1,10 @@
 function New-VSECRReplicationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::ReplicationConfiguration resource to the template. The AWS::ECR::ReplicationConfiguration resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see Using Service-Linked Roles for Amazon ECR: https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html in the *Amazon Elastic Container Registry User Guide*.
+        Adds an AWS::ECR::ReplicationConfiguration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ECR::ReplicationConfiguration resource to the template. The AWS::ECR::ReplicationConfiguration resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see Using Service-Linked Roles for Amazon ECR: https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html in the *Amazon Elastic Container Registry User Guide*.
-
-**Note**
-
-When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see AWS::ECR::RegistryPolicy.
+        Adds an AWS::ECR::ReplicationConfiguration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html
@@ -17,8 +13,6 @@ When configuring cross-account replication, the destination account must grant t
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ReplicationConfiguration
-        The replication configuration for a registry.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
         UpdateType: Mutable
         Type: ReplicationConfiguration

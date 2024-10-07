@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelMotionGraphicsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.MotionGraphicsConfiguration resource property to the template. Settings to enable and configure the motion graphics overlay feature in the channel.
+        Adds an AWS::MediaLive::Channel.MotionGraphicsConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.MotionGraphicsConfiguration resource property to the template.
-Settings to enable and configure the motion graphics overlay feature in the channel.
 
-The parent of this entity is EncoderSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicsconfiguration.html
 
     .PARAMETER MotionGraphicsSettings
-        Settings to enable and configure the motion graphics overlay feature in the channel.
-
         Type: MotionGraphicsSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicsconfiguration.html#cfn-medialive-channel-motiongraphicsconfiguration-motiongraphicssettings
         UpdateType: Mutable
 
     .PARAMETER MotionGraphicsInsertion
-        Enables or disables the motion graphics overlay feature in the channel.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicsconfiguration.html#cfn-medialive-channel-motiongraphicsconfiguration-motiongraphicsinsertion
         PrimitiveType: String
         UpdateType: Mutable

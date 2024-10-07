@@ -1,33 +1,27 @@
 function Add-VSIoTWirelessTaskDefinitionLoRaWANGatewayVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANGatewayVersion resource property to the template. LoRaWANGatewayVersion object.
+        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANGatewayVersion resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::TaskDefinition.LoRaWANGatewayVersion resource property to the template.
-LoRaWANGatewayVersion object.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html
 
-    .PARAMETER PackageVersion
-        The version of the wireless gateway firmware.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-packageversion
+    .PARAMETER Station
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-station
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Model
-        The model number of the wireless gateway.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-model
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Station
-        The basic station version of the wireless gateway.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-station
+    .PARAMETER PackageVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-packageversion
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -48,7 +42,7 @@ LoRaWANGatewayVersion object.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PackageVersion,
+        $Station,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -70,7 +64,7 @@ LoRaWANGatewayVersion object.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Station
+        $PackageVersion
     )
     Begin {
         $obj = [PSCustomObject]@{}

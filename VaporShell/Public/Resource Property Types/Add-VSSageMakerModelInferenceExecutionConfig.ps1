@@ -1,20 +1,16 @@
 function Add-VSSageMakerModelInferenceExecutionConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Model.InferenceExecutionConfig resource property to the template. Specifies details about how containers in a multi-container endpoint are run.
+        Adds an AWS::SageMaker::Model.InferenceExecutionConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Model.InferenceExecutionConfig resource property to the template.
-Specifies details about how containers in a multi-container endpoint are run.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html
 
     .PARAMETER Mode
-        How containers in a multi-container are run. The following values are valid.
-+ Serial - Containers run as a serial pipeline.
-+ Direct - Only the individual container that you specify is run.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html#cfn-sagemaker-model-inferenceexecutionconfig-mode
         PrimitiveType: String
         UpdateType: Immutable

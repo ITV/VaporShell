@@ -1,38 +1,29 @@
 function Add-VSKendraDataSourceHookConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.HookConfiguration resource property to the template. Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Kendra. You can configure your Lambda function using PreExtractionHookConfiguration: https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html if you want to apply advanced alterations on the original or raw documents. If you want to apply advanced alterations on the Amazon Kendra structured documents, you must configure your Lambda function using PostExtractionHookConfiguration: https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html. You can only invoke one Lambda function. However, this function can invoke other functions it requires.
+        Adds an AWS::Kendra::DataSource.HookConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.HookConfiguration resource property to the template.
-Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Kendra. You can configure your Lambda function using PreExtractionHookConfiguration: https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html if you want to apply advanced alterations on the original or raw documents. If you want to apply advanced alterations on the Amazon Kendra structured documents, you must configure your Lambda function using PostExtractionHookConfiguration: https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html. You can only invoke one Lambda function. However, this function can invoke other functions it requires.
 
-For more information, see Customizing document metadata during the ingestion process: https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html
 
-    .PARAMETER InvocationCondition
-        The condition used for when a Lambda function should be invoked.
-For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-invocationcondition
+    .PARAMETER S3Bucket
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-s3bucket
         UpdateType: Mutable
-        Type: DocumentAttributeCondition
+        PrimitiveType: String
 
     .PARAMETER LambdaArn
-        The Amazon Resource Name ARN of a role with permission to run a Lambda function during ingestion. For more information, see IAM roles for Amazon Kendra: https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-lambdaarn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER S3Bucket
-        Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see Data contracts for Lambda functions: https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-s3bucket
+    .PARAMETER InvocationCondition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-invocationcondition
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: DocumentAttributeCondition
 
     .FUNCTIONALITY
         Vaporshell
@@ -41,8 +32,17 @@ For example, you can specify a condition that if there are empty date-time value
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $InvocationCondition,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $S3Bucket,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -54,17 +54,8 @@ For example, you can specify a condition that if there are empty date-time value
                 }
             })]
         $LambdaArn,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $S3Bucket
+        [parameter(Mandatory = $false)]
+        $InvocationCondition
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,25 +1,21 @@
 function Add-VSIoTAnalyticsDatastoreTimestampPartition {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.TimestampPartition resource property to the template. A partition dimension defined by a timestamp attribute.
+        Adds an AWS::IoTAnalytics::Datastore.TimestampPartition resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.TimestampPartition resource property to the template.
-A partition dimension defined by a timestamp attribute.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-timestamppartition.html
 
     .PARAMETER AttributeName
-        The attribute name of the partition defined by a timestamp.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-timestamppartition.html#cfn-iotanalytics-datastore-timestamppartition-attributename
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TimestampFormat
-        The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch January 1, 1970 at midnight UTC time.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-timestamppartition.html#cfn-iotanalytics-datastore-timestamppartition-timestampformat
         UpdateType: Mutable
         PrimitiveType: String

@@ -12,7 +12,7 @@ function Add-VSSageMakerDomainRStudioServerProDomainSettings {
 
     .PARAMETER DomainExecutionRoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html#cfn-sagemaker-domain-rstudioserverprodomainsettings-domainexecutionrolearn
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RStudioConnectUrl
@@ -20,15 +20,15 @@ function Add-VSSageMakerDomainRStudioServerProDomainSettings {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RStudioPackageManagerUrl
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html#cfn-sagemaker-domain-rstudioserverprodomainsettings-rstudiopackagemanagerurl
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER DefaultResourceSpec
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html#cfn-sagemaker-domain-rstudioserverprodomainsettings-defaultresourcespec
         UpdateType: Immutable
         Type: ResourceSpec
+
+    .PARAMETER RStudioPackageManagerUrl
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html#cfn-sagemaker-domain-rstudioserverprodomainsettings-rstudiopackagemanagerurl
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -60,6 +60,8 @@ function Add-VSSageMakerDomainRStudioServerProDomainSettings {
             })]
         $RStudioConnectUrl,
         [parameter(Mandatory = $false)]
+        $DefaultResourceSpec,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,9 +71,7 @@ function Add-VSSageMakerDomainRStudioServerProDomainSettings {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RStudioPackageManagerUrl,
-        [parameter(Mandatory = $false)]
-        $DefaultResourceSpec
+        $RStudioPackageManagerUrl
     )
     Begin {
         $obj = [PSCustomObject]@{}

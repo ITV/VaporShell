@@ -1,18 +1,16 @@
 function Add-VSSageMakerUserProfileKernelGatewayAppSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::UserProfile.KernelGatewayAppSettings resource property to the template. The KernelGateway app settings.
+        Adds an AWS::SageMaker::UserProfile.KernelGatewayAppSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::UserProfile.KernelGatewayAppSettings resource property to the template.
-The KernelGateway app settings.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
 
     .PARAMETER CustomImages
-        A list of custom SageMaker images that are configured to run as a KernelGateway app.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
         UpdateType: Mutable
         Type: List
@@ -20,9 +18,6 @@ The KernelGateway app settings.
         DuplicatesAllowed: True
 
     .PARAMETER DefaultResourceSpec
-        The default instance type and the Amazon Resource Name ARN of the default SageMaker image used by the KernelGateway app.
-The Amazon SageMaker Studio UI does not use the default instance type value set here. The default instance type set here is used when Apps are created using the AWS Command Line Interface or AWS CloudFormation and the instance type parameter value is not passed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
         UpdateType: Mutable
         Type: ResourceSpec

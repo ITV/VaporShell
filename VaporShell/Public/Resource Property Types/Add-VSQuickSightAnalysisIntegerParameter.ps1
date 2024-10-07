@@ -1,26 +1,23 @@
 function Add-VSQuickSightAnalysisIntegerParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.IntegerParameter resource property to the template. An integer parameter.
+        Adds an AWS::QuickSight::Analysis.IntegerParameter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.IntegerParameter resource property to the template.
-An integer parameter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html
 
     .PARAMETER Values
-        The values for the integer parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-values
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: Double
+        DuplicatesAllowed: True
 
     .PARAMETER Name
-        The name of the integer parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-name
         UpdateType: Mutable
         PrimitiveType: String

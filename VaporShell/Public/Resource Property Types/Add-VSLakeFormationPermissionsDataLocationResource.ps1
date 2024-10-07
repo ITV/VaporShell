@@ -1,25 +1,21 @@
 function Add-VSLakeFormationPermissionsDataLocationResource {
     <#
     .SYNOPSIS
-        Adds an AWS::LakeFormation::Permissions.DataLocationResource resource property to the template. A structure for a data location object where permissions are granted or revoked.
+        Adds an AWS::LakeFormation::Permissions.DataLocationResource resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LakeFormation::Permissions.DataLocationResource resource property to the template.
-A structure for a data location object where permissions are granted or revoked.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html
 
     .PARAMETER S3Resource
-        Currently not supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-s3resource
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CatalogId
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-catalogid
         PrimitiveType: String
         UpdateType: Mutable

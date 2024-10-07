@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualNodeTlsValidationContextAcmTrust {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.TlsValidationContextAcmTrust resource property to the template. An object that represents a Transport Layer Security (TLS validation context trust for an AWS Certificate Manager certificate.
+        Adds an AWS::AppMesh::VirtualNode.TlsValidationContextAcmTrust resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.TlsValidationContextAcmTrust resource property to the template.
-An object that represents a Transport Layer Security (TLS validation context trust for an AWS Certificate Manager certificate.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextacmtrust.html
 
     .PARAMETER CertificateAuthorityArns
-        One or more ACM Amazon Resource Name ARNs.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextacmtrust.html#cfn-appmesh-virtualnode-tlsvalidationcontextacmtrust-certificateauthorityarns

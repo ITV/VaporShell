@@ -1,35 +1,26 @@
 function Add-VSECSClusterExecuteCommandConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::Cluster.ExecuteCommandConfiguration resource property to the template. The details of the execute command configuration.
+        Adds an AWS::ECS::Cluster.ExecuteCommandConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECS::Cluster.ExecuteCommandConfiguration resource property to the template.
-The details of the execute command configuration.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
 
     .PARAMETER Logging
-        The log setting to use for redirecting logs for your execute command results. The following log settings are available.
-+  NONE: The execute command session is not logged.
-+  DEFAULT: The awslogs configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no awslogs log driver is configured in the task definition, the output won't be logged.
-+  OVERRIDE: Specify the logging details as a part of logConfiguration. If the OVERRIDE logging option is specified, the logConfiguration is required.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER KmsKeyId
-        Specify an AWS Key Management Service key ID to encrypt the data between the local client and the container.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER LogConfiguration
-        The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When logging=OVERRIDE is specified, a logConfiguration must be provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
         UpdateType: Mutable
         Type: ExecuteCommandLogConfiguration

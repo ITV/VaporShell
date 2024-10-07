@@ -1,25 +1,21 @@
 function Add-VSIoTSecurityProfileAlertTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::SecurityProfile.AlertTarget resource property to the template. A structure containing the alert target ARN and the role ARN.
+        Adds an AWS::IoT::SecurityProfile.AlertTarget resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::SecurityProfile.AlertTarget resource property to the template.
-A structure containing the alert target ARN and the role ARN.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html
 
     .PARAMETER AlertTargetArn
-        The Amazon Resource Name ARN of the notification target to which alerts are sent.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-alerttargetarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the role that grants permission to send alerts to the notification target.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-rolearn
         UpdateType: Mutable
         PrimitiveType: String

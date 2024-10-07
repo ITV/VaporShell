@@ -1,38 +1,35 @@
 function Add-VSEventsConnectionConnectionHttpParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Connection.ConnectionHttpParameters resource property to the template. Contains additional parameters for the connection.
+        Adds an AWS::Events::Connection.ConnectionHttpParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Connection.ConnectionHttpParameters resource property to the template.
-Contains additional parameters for the connection.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html
 
     .PARAMETER HeaderParameters
-        Contains additional header parameters for the connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html#cfn-events-connection-connectionhttpparameters-headerparameters
         UpdateType: Mutable
         Type: List
         ItemType: Parameter
+        DuplicatesAllowed: True
 
     .PARAMETER QueryStringParameters
-        Contains additional query string parameters for the connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html#cfn-events-connection-connectionhttpparameters-querystringparameters
         UpdateType: Mutable
         Type: List
         ItemType: Parameter
+        DuplicatesAllowed: True
 
     .PARAMETER BodyParameters
-        Contains additional body string parameters for the connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html#cfn-events-connection-connectionhttpparameters-bodyparameters
         UpdateType: Mutable
         Type: List
         ItemType: Parameter
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

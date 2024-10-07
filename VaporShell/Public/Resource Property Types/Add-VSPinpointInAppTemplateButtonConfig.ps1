@@ -1,40 +1,32 @@
 function Add-VSPinpointInAppTemplateButtonConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::InAppTemplate.ButtonConfig resource property to the template. Specifies the behavior of buttons that appear in an in-app message template.
+        Adds an AWS::Pinpoint::InAppTemplate.ButtonConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::InAppTemplate.ButtonConfig resource property to the template.
-Specifies the behavior of buttons that appear in an in-app message template.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html
 
-    .PARAMETER Android
-        Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-android
+    .PARAMETER Web
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-web
         UpdateType: Mutable
         Type: OverrideButtonConfiguration
 
     .PARAMETER DefaultConfig
-        Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-defaultconfig
         UpdateType: Mutable
         Type: DefaultButtonConfiguration
 
     .PARAMETER IOS
-        Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-ios
         UpdateType: Mutable
         Type: OverrideButtonConfiguration
 
-    .PARAMETER Web
-        Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-web
+    .PARAMETER Android
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-android
         UpdateType: Mutable
         Type: OverrideButtonConfiguration
 
@@ -46,13 +38,13 @@ Specifies the behavior of buttons that appear in an in-app message template.
     Param
     (
         [parameter(Mandatory = $false)]
-        $Android,
+        $Web,
         [parameter(Mandatory = $false)]
         $DefaultConfig,
         [parameter(Mandatory = $false)]
         $IOS,
         [parameter(Mandatory = $false)]
-        $Web
+        $Android
     )
     Begin {
         $obj = [PSCustomObject]@{}

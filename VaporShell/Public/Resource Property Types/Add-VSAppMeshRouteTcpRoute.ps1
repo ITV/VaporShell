@@ -1,32 +1,26 @@
 function Add-VSAppMeshRouteTcpRoute {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.TcpRoute resource property to the template. An object that represents a TCP route type.
+        Adds an AWS::AppMesh::Route.TcpRoute resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.TcpRoute resource property to the template.
-An object that represents a TCP route type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html
 
     .PARAMETER Action
-        The action to take if a match is determined.
-
         Type: TcpRouteAction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-action
         UpdateType: Mutable
 
     .PARAMETER Timeout
-        An object that represents types of timeouts.
-
         Type: TcpTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-timeout
         UpdateType: Mutable
 
     .PARAMETER Match
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Type: TcpRouteMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-match
         UpdateType: Mutable

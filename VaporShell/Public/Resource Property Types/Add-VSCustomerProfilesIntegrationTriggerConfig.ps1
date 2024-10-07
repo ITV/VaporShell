@@ -1,25 +1,21 @@
 function Add-VSCustomerProfilesIntegrationTriggerConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.TriggerConfig resource property to the template. <a name="aws-properties-customerprofiles-integration-triggerconfig-description"></a>The TriggerConfig property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.TriggerConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.TriggerConfig resource property to the template.
-<a name="aws-properties-customerprofiles-integration-triggerconfig-description"></a>The TriggerConfig property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html
 
     .PARAMETER TriggerType
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggertype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TriggerProperties
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggerproperties
         UpdateType: Mutable
         Type: TriggerProperties

@@ -1,18 +1,16 @@
 function Add-VSEC2EC2FleetMaintenanceStrategies {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.MaintenanceStrategies resource property to the template. The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+        Adds an AWS::EC2::EC2Fleet.MaintenanceStrategies resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.MaintenanceStrategies resource property to the template.
-The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-maintenancestrategies.html
 
     .PARAMETER CapacityRebalance
-        The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-maintenancestrategies.html#cfn-ec2-ec2fleet-maintenancestrategies-capacityrebalance
         UpdateType: Immutable
         Type: CapacityRebalance

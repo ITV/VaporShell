@@ -1,25 +1,21 @@
 function Add-VSEventsRulePlacementConstraint {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.PlacementConstraint resource property to the template. An object representing a constraint on task placement. To learn more, see Task Placement Constraints: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html in the Amazon Elastic Container Service Developer Guide.
+        Adds an AWS::Events::Rule.PlacementConstraint resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.PlacementConstraint resource property to the template.
-An object representing a constraint on task placement. To learn more, see Task Placement Constraints: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html in the Amazon Elastic Container Service Developer Guide.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-placementconstraint.html
 
     .PARAMETER Expression
-        A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. To learn more, see Cluster Query Language: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html in the Amazon Elastic Container Service Developer Guide.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-placementconstraint.html#cfn-events-rule-placementconstraint-expression
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Type
-        The type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-placementconstraint.html#cfn-events-rule-placementconstraint-type
         PrimitiveType: String
         UpdateType: Mutable

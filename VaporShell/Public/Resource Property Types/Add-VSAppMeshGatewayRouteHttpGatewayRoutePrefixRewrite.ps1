@@ -1,25 +1,21 @@
 function Add-VSAppMeshGatewayRouteHttpGatewayRoutePrefixRewrite {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite resource property to the template. An object representing the beginning characters of the route to rewrite.
+        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite resource property to the template.
-An object representing the beginning characters of the route to rewrite.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html
 
     .PARAMETER Value
-        The value used to replace the incoming route prefix when rewritten.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouteprefixrewrite-value
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DefaultPrefix
-        The default prefix used to replace the incoming route prefix when rewritten.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouteprefixrewrite-defaultprefix
         PrimitiveType: String
         UpdateType: Mutable

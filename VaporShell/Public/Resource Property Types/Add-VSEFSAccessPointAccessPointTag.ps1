@@ -1,26 +1,22 @@
 function Add-VSEFSAccessPointAccessPointTag {
     <#
     .SYNOPSIS
-        Adds an AWS::EFS::AccessPoint.AccessPointTag resource property to the template. A tag is a key-value pair attached to a file system. Allowed characters in the Key and Value properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters: + - = . _ : /
+        Adds an AWS::EFS::AccessPoint.AccessPointTag resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EFS::AccessPoint.AccessPointTag resource property to the template.
-A tag is a key-value pair attached to a file system. Allowed characters in the Key and Value properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters: + - = . _ : /
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html
 
-    .PARAMETER Key
-        The tag key String. The key can't start with aws:.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
+    .PARAMETER Value
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Value
-        The value of the tag key.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ A tag is a key-value pair attached to a file system. Allowed characters in the K
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $Value,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ A tag is a key-value pair attached to a file system. Allowed characters in the K
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

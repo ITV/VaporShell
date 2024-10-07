@@ -1,18 +1,16 @@
 function Add-VSAppSyncFunctionConfigurationLambdaConflictHandlerConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::FunctionConfiguration.LambdaConflictHandlerConfig resource property to the template. The LambdaConflictHandlerConfig object when configuring LAMBDA as the Conflict Handler.
+        Adds an AWS::AppSync::FunctionConfiguration.LambdaConflictHandlerConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppSync::FunctionConfiguration.LambdaConflictHandlerConfig resource property to the template.
-The LambdaConflictHandlerConfig object when configuring LAMBDA as the Conflict Handler.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-lambdaconflicthandlerconfig.html
 
     .PARAMETER LambdaConflictHandlerArn
-        The Amazon Resource Name ARN for the Lambda function to use as the Conflict Handler.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-lambdaconflicthandlerconfig.html#cfn-appsync-functionconfiguration-lambdaconflicthandlerconfig-lambdaconflicthandlerarn
         PrimitiveType: String
         UpdateType: Mutable

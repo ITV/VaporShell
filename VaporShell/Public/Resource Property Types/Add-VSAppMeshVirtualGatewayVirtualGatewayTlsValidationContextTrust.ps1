@@ -1,32 +1,26 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayTlsValidationContextTrust {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextTrust resource property to the template. An object that represents a Transport Layer Security (TLS validation context trust.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextTrust resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextTrust resource property to the template.
-An object that represents a Transport Layer Security (TLS validation context trust.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html
 
     .PARAMETER SDS
-        A reference to an object that represents a virtual gateway's Transport Layer Security TLS Secret Discovery Service validation context trust.
-
         Type: VirtualGatewayTlsValidationContextSdsTrust
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-sds
         UpdateType: Mutable
 
     .PARAMETER ACM
-        A reference to an object that represents a Transport Layer Security TLS validation context trust for an AWS Certificate Manager certificate.
-
         Type: VirtualGatewayTlsValidationContextAcmTrust
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-acm
         UpdateType: Mutable
 
     .PARAMETER File
-        An object that represents a Transport Layer Security TLS validation context trust for a local file.
-
         Type: VirtualGatewayTlsValidationContextFileTrust
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-file
         UpdateType: Mutable

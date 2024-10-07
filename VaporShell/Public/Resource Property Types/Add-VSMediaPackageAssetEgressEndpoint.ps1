@@ -1,25 +1,21 @@
 function Add-VSMediaPackageAssetEgressEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::Asset.EgressEndpoint resource property to the template. The playback endpoint for a packaging configuration on an asset.
+        Adds an AWS::MediaPackage::Asset.EgressEndpoint resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::Asset.EgressEndpoint resource property to the template.
-The playback endpoint for a packaging configuration on an asset.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html
 
     .PARAMETER PackagingConfigurationId
-        The ID of a packaging configuration that's applied to this asset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-packagingconfigurationid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Url
-        The URL that's used to request content from this endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
         UpdateType: Mutable
         PrimitiveType: String

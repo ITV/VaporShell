@@ -1,18 +1,16 @@
 function Add-VSQuickSightDataSourceAmazonElasticsearchParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.AmazonElasticsearchParameters resource property to the template. The parameters for OpenSearch.
+        Adds an AWS::QuickSight::DataSource.AmazonElasticsearchParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.AmazonElasticsearchParameters resource property to the template.
-The parameters for OpenSearch.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html
 
     .PARAMETER Domain
-        The OpenSearch domain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain
         UpdateType: Mutable
         PrimitiveType: String

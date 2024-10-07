@@ -1,25 +1,21 @@
 function Add-VSDataBrewRulesetColumnSelector {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Ruleset.ColumnSelector resource property to the template. Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+        Adds an AWS::DataBrew::Ruleset.ColumnSelector resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Ruleset.ColumnSelector resource property to the template.
-Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-columnselector.html
 
     .PARAMETER Regex
-        A regular expression for selecting a column from a dataset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-columnselector.html#cfn-databrew-ruleset-columnselector-regex
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of a column from a dataset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-columnselector.html#cfn-databrew-ruleset-columnselector-name
         UpdateType: Mutable
         PrimitiveType: String

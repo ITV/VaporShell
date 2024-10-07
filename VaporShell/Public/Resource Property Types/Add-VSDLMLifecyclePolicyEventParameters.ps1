@@ -1,34 +1,27 @@
 function Add-VSDLMLifecyclePolicyEventParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.EventParameters resource property to the template. Specifies an event that triggers an event-based policy.
+        Adds an AWS::DLM::LifecyclePolicy.EventParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.EventParameters resource property to the template.
-Specifies an event that triggers an event-based policy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html
 
     .PARAMETER EventType
-        The type of event. Currently, only snapshot sharing events are supported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-eventtype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SnapshotOwner
-        The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-snapshotowner
         UpdateType: Mutable
 
     .PARAMETER DescriptionRegex
-        The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
-For example, specifying ^.*Created for policy: policy-1234567890abcdef0.*$ configures the policy to run only if snapshots created by policy policy-1234567890abcdef0 are shared with your account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-descriptionregex
         PrimitiveType: String
         UpdateType: Mutable

@@ -1,30 +1,28 @@
 function Add-VSEC2NetworkInsightsAccessScopeResourceStatementRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAccessScope.ResourceStatementRequest resource property to the template. Describes a resource statement.
+        Adds an AWS::EC2::NetworkInsightsAccessScope.ResourceStatementRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAccessScope.ResourceStatementRequest resource property to the template.
-Describes a resource statement.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html
 
-    .PARAMETER Resources
-        The resources.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resources
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER ResourceTypes
-        The resource types.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resourcetypes
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Resources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resources
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -34,9 +32,9 @@ Describes a resource statement.
     Param
     (
         [parameter(Mandatory = $false)]
-        $Resources,
+        $ResourceTypes,
         [parameter(Mandatory = $false)]
-        $ResourceTypes
+        $Resources
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,26 +1,22 @@
 function Add-VSAppRunnerServiceAuthenticationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.AuthenticationConfiguration resource property to the template. Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
+        Adds an AWS::AppRunner::Service.AuthenticationConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.AuthenticationConfiguration resource property to the template.
-Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html
 
-    .PARAMETER ConnectionArn
-        The Amazon Resource Name ARN of the App Runner connection that enables the App Runner service to connect to a source repository. It's required for GitHub code repositories.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn
+    .PARAMETER AccessRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER AccessRoleArn
-        The Amazon Resource Name ARN of the IAM role that grants the App Runner service access to a source repository. It's required for ECR image repositories but not for ECR Public repositories.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
+    .PARAMETER ConnectionArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Describes resources needed to authenticate access to some source repositories. T
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ConnectionArn,
+        $AccessRoleArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Describes resources needed to authenticate access to some source repositories. T
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AccessRoleArn
+        $ConnectionArn
     )
     Begin {
         $obj = [PSCustomObject]@{}

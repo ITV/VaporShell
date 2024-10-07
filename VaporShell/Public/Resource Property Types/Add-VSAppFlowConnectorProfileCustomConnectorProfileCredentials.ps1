@@ -10,30 +10,30 @@ function Add-VSAppFlowConnectorProfileCustomConnectorProfileCredentials {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html
 
-    .PARAMETER AuthenticationType
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-authenticationtype
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Basic
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-basic
         UpdateType: Mutable
         Type: BasicAuthCredentials
-
-    .PARAMETER Oauth2
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-oauth2
-        UpdateType: Mutable
-        Type: OAuth2Credentials
 
     .PARAMETER ApiKey
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-apikey
         UpdateType: Mutable
         Type: ApiKeyCredentials
 
+    .PARAMETER Oauth2
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-oauth2
+        UpdateType: Mutable
+        Type: OAuth2Credentials
+
     .PARAMETER Custom
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-custom
         UpdateType: Mutable
         Type: CustomAuthCredentials
+
+    .PARAMETER AuthenticationType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-authenticationtype
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -42,6 +42,14 @@ function Add-VSAppFlowConnectorProfileCustomConnectorProfileCredentials {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $Basic,
+        [parameter(Mandatory = $false)]
+        $ApiKey,
+        [parameter(Mandatory = $false)]
+        $Oauth2,
+        [parameter(Mandatory = $false)]
+        $Custom,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,15 +60,7 @@ function Add-VSAppFlowConnectorProfileCustomConnectorProfileCredentials {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AuthenticationType,
-        [parameter(Mandatory = $false)]
-        $Basic,
-        [parameter(Mandatory = $false)]
-        $Oauth2,
-        [parameter(Mandatory = $false)]
-        $ApiKey,
-        [parameter(Mandatory = $false)]
-        $Custom
+        $AuthenticationType
     )
     Begin {
         $obj = [PSCustomObject]@{}

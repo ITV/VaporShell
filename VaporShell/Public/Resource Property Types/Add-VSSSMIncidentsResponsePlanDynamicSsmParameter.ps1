@@ -10,15 +10,15 @@ function Add-VSSSMIncidentsResponsePlanDynamicSsmParameter {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html
 
-    .PARAMETER Key
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html#cfn-ssmincidents-responseplan-dynamicssmparameter-key
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Value
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html#cfn-ssmincidents-responseplan-dynamicssmparameter-value
         UpdateType: Mutable
         Type: DynamicSsmParameterValue
+
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html#cfn-ssmincidents-responseplan-dynamicssmparameter-key
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -27,6 +27,8 @@ function Add-VSSSMIncidentsResponsePlanDynamicSsmParameter {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -37,9 +39,7 @@ function Add-VSSSMIncidentsResponsePlanDynamicSsmParameter {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
-        [parameter(Mandatory = $true)]
-        $Value
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

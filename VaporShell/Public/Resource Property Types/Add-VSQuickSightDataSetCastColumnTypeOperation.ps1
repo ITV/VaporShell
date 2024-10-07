@@ -1,32 +1,26 @@
 function Add-VSQuickSightDataSetCastColumnTypeOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.CastColumnTypeOperation resource property to the template. A transform operation that casts a column to a different type.
+        Adds an AWS::QuickSight::DataSet.CastColumnTypeOperation resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.CastColumnTypeOperation resource property to the template.
-A transform operation that casts a column to a different type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html
 
     .PARAMETER ColumnName
-        Column name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Format
-        When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER NewColumnType
-        New column data type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype
         UpdateType: Mutable
         PrimitiveType: String

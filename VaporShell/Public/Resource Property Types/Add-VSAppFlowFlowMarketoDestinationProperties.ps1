@@ -1,25 +1,21 @@
 function Add-VSAppFlowFlowMarketoDestinationProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.MarketoDestinationProperties resource property to the template. The properties that Amazon AppFlow applies when you use Marketo as a flow destination.
+        Adds an AWS::AppFlow::Flow.MarketoDestinationProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.MarketoDestinationProperties resource property to the template.
-The properties that Amazon AppFlow applies when you use Marketo as a flow destination.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html
 
     .PARAMETER Object
-        The object specified in the Marketo flow destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html#cfn-appflow-flow-marketodestinationproperties-object
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ErrorHandlingConfig
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html#cfn-appflow-flow-marketodestinationproperties-errorhandlingconfig
         UpdateType: Mutable
         Type: ErrorHandlingConfig

@@ -1,53 +1,47 @@
 function Add-VSEC2NetworkInsightsAnalysisAnalysisPacketHeader {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisPacketHeader resource property to the template. Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
+        Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisPacketHeader resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisPacketHeader resource property to the template.
-Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html
 
-    .PARAMETER DestinationAddresses
-        The destination addresses.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER DestinationPortRanges
-        The destination port ranges.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges
         UpdateType: Mutable
         Type: List
         ItemType: PortRange
+        DuplicatesAllowed: True
+
+    .PARAMETER SourcePortRanges
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
+        UpdateType: Mutable
+        Type: List
+        ItemType: PortRange
+        DuplicatesAllowed: True
+
+    .PARAMETER DestinationAddresses
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Protocol
-        The protocol.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-protocol
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER SourceAddresses
-        The source addresses.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceaddresses
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER SourcePortRanges
-        The source port ranges.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
-        UpdateType: Mutable
-        Type: List
-        ItemType: PortRange
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -56,8 +50,6 @@ Describes a header. Reflects any changes made by a component as traffic passes t
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $DestinationAddresses,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.PortRange"
@@ -71,6 +63,19 @@ Describes a header. Reflects any changes made by a component as traffic passes t
         $DestinationPortRanges,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.PortRange"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SourcePortRanges,
+        [parameter(Mandatory = $false)]
+        $DestinationAddresses,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -81,18 +86,7 @@ Describes a header. Reflects any changes made by a component as traffic passes t
             })]
         $Protocol,
         [parameter(Mandatory = $false)]
-        $SourceAddresses,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.PortRange"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SourcePortRanges
+        $SourceAddresses
     )
     Begin {
         $obj = [PSCustomObject]@{}

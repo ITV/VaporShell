@@ -1,42 +1,34 @@
 function Add-VSIoTEventsDetectorModelTransitionEvent {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.TransitionEvent resource property to the template. Specifies the actions performed and the next state entered when a condition evaluates to TRUE.
+        Adds an AWS::IoTEvents::DetectorModel.TransitionEvent resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.TransitionEvent resource property to the template.
-Specifies the actions performed and the next state entered when a condition evaluates to TRUE.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html
 
-    .PARAMETER Actions
-        The actions to be performed.
+    .PARAMETER Condition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Actions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
         UpdateType: Mutable
         Type: List
         ItemType: Action
         DuplicatesAllowed: True
 
-    .PARAMETER Condition
-        Required. A Boolean expression that when TRUE causes the actions to be performed and the nextState to be entered.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
+    .PARAMETER NextState
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EventName
-        The name of the transition event.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER NextState
-        The next state to enter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -47,6 +39,17 @@ Specifies the actions performed and the next state entered when a condition eval
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Condition,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTEvents.DetectorModel.Action"
@@ -68,7 +71,7 @@ Specifies the actions performed and the next state entered when a condition eval
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Condition,
+        $NextState,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -79,18 +82,7 @@ Specifies the actions performed and the next state entered when a condition eval
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $EventName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $NextState
+        $EventName
     )
     Begin {
         $obj = [PSCustomObject]@{}

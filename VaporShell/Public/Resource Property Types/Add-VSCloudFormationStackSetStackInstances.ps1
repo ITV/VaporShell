@@ -1,38 +1,32 @@
 function Add-VSCloudFormationStackSetStackInstances {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::StackSet.StackInstances resource property to the template. Stack instances in some specific accounts and Regions.
+        Adds an AWS::CloudFormation::StackSet.StackInstances resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFormation::StackSet.StackInstances resource property to the template.
-Stack instances in some specific accounts and Regions.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
 
-    .PARAMETER DeploymentTargets
-        The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+    .PARAMETER ParameterOverrides
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+        UpdateType: Mutable
+        Type: List
+        ItemType: Parameter
+        DuplicatesAllowed: False
 
+    .PARAMETER DeploymentTargets
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
         UpdateType: Mutable
         Type: DeploymentTargets
 
     .PARAMETER Regions
-        The names of one or more Regions where you want to create stack instances using the specified AWS accounts.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
-        DuplicatesAllowed: False
-
-    .PARAMETER ParameterOverrides
-        A list of stack set parameters whose values you want to override in the selected stack instances.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
-        UpdateType: Mutable
-        Type: List
-        ItemType: Parameter
         DuplicatesAllowed: False
 
     .FUNCTIONALITY
@@ -42,10 +36,6 @@ Stack instances in some specific accounts and Regions.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        $DeploymentTargets,
-        [parameter(Mandatory = $true)]
-        $Regions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudFormation.StackSet.Parameter"
@@ -56,7 +46,11 @@ Stack instances in some specific accounts and Regions.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ParameterOverrides
+        $ParameterOverrides,
+        [parameter(Mandatory = $true)]
+        $DeploymentTargets,
+        [parameter(Mandatory = $true)]
+        $Regions
     )
     Begin {
         $obj = [PSCustomObject]@{}

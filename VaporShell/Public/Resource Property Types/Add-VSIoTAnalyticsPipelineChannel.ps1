@@ -1,32 +1,26 @@
 function Add-VSIoTAnalyticsPipelineChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Pipeline.Channel resource property to the template. Determines the source of the messages to be processed.
+        Adds an AWS::IoTAnalytics::Pipeline.Channel resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Pipeline.Channel resource property to the template.
-Determines the source of the messages to be processed.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html
 
     .PARAMETER ChannelName
-        The name of the channel from which the messages are processed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-channelname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Next
-        The next activity in the pipeline.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-next
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the 'channel' activity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-name
         UpdateType: Mutable
         PrimitiveType: String

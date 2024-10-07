@@ -1,18 +1,16 @@
 function Add-VSAppFlowFlowGoogleAnalyticsSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.GoogleAnalyticsSourceProperties resource property to the template. The properties that are applied when Google Analytics is being used as a source.
+        Adds an AWS::AppFlow::Flow.GoogleAnalyticsSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.GoogleAnalyticsSourceProperties resource property to the template.
-The properties that are applied when Google Analytics is being used as a source.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html
 
     .PARAMETER Object
-        The object specified in the Google Analytics flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

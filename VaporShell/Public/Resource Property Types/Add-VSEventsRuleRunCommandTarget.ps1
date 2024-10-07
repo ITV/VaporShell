@@ -1,25 +1,21 @@
 function Add-VSEventsRuleRunCommandTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.RunCommandTarget resource property to the template. Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each RunCommandTarget block can include only one key, but this key may specify multiple values.
+        Adds an AWS::Events::Rule.RunCommandTarget resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.RunCommandTarget resource property to the template.
-Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each RunCommandTarget block can include only one key, but this key may specify multiple values.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandtarget.html
 
     .PARAMETER Key
-        Can be either tag: *tag-key* or InstanceIds.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-key
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Values
-        If Key is tag: *tag-key*, Values is a list of tag values. If Key is InstanceIds, Values is a list of Amazon EC2 instance IDs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-values
         DuplicatesAllowed: False
         PrimitiveItemType: String

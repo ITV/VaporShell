@@ -10,6 +10,11 @@ function Add-VSIoTEventsAlarmModelSqs {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sqs.html
 
+    .PARAMETER UseBase64
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sqs.html#cfn-iotevents-alarmmodel-sqs-usebase64
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER Payload
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sqs.html#cfn-iotevents-alarmmodel-sqs-payload
         UpdateType: Mutable
@@ -20,11 +25,6 @@ function Add-VSIoTEventsAlarmModelSqs {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER UseBase64
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sqs.html#cfn-iotevents-alarmmodel-sqs-usebase64
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -32,6 +32,17 @@ function Add-VSIoTEventsAlarmModelSqs {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UseBase64,
         [parameter(Mandatory = $false)]
         $Payload,
         [parameter(Mandatory = $true)]
@@ -44,18 +55,7 @@ function Add-VSIoTEventsAlarmModelSqs {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $QueueUrl,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $UseBase64
+        $QueueUrl
     )
     Begin {
         $obj = [PSCustomObject]@{}

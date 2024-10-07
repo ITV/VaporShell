@@ -1,28 +1,24 @@
 function Add-VSIoTSiteWiseGatewayGatewayPlatform {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::Gateway.GatewayPlatform resource property to the template. Contains a gateway's platform information.
+        Adds an AWS::IoTSiteWise::Gateway.GatewayPlatform resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::Gateway.GatewayPlatform resource property to the template.
-Contains a gateway's platform information.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
 
-    .PARAMETER Greengrass
-        A gateway that runs on AWS IoT Greengrass.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
-        UpdateType: Immutable
-        Type: Greengrass
-
     .PARAMETER GreengrassV2
-        A gateway that runs on AWS IoT Greengrass V2.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrassv2
         UpdateType: Immutable
         Type: GreengrassV2
+
+    .PARAMETER Greengrass
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
+        UpdateType: Immutable
+        Type: Greengrass
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +28,9 @@ Contains a gateway's platform information.
     Param
     (
         [parameter(Mandatory = $false)]
-        $Greengrass,
+        $GreengrassV2,
         [parameter(Mandatory = $false)]
-        $GreengrassV2
+        $Greengrass
     )
     Begin {
         $obj = [PSCustomObject]@{}

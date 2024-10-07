@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelAvailConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AvailConfiguration resource property to the template. The setup of ad avail handling in the output.
+        Adds an AWS::MediaLive::Channel.AvailConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AvailConfiguration resource property to the template.
-The setup of ad avail handling in the output.
 
-The parent of this entity is EncoderSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html
 
     .PARAMETER AvailSettings
-        The setup of ad avail handling in the output.
-
         Type: AvailSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html#cfn-medialive-channel-availconfiguration-availsettings
         UpdateType: Mutable

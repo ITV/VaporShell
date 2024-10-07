@@ -12,6 +12,21 @@ function New-VSConnectInstanceStorageConfig {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER KinesisStreamConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-kinesisstreamconfig
+        UpdateType: Mutable
+        Type: KinesisStreamConfig
+
+    .PARAMETER S3Config
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-s3config
+        UpdateType: Mutable
+        Type: S3Config
+
+    .PARAMETER StorageType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-storagetype
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER InstanceArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-instancearn
         UpdateType: Immutable
@@ -22,25 +37,10 @@ function New-VSConnectInstanceStorageConfig {
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER StorageType
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-storagetype
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER S3Config
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-s3config
-        UpdateType: Mutable
-        Type: S3Config
-
     .PARAMETER KinesisVideoStreamConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig
         UpdateType: Mutable
         Type: KinesisVideoStreamConfig
-
-    .PARAMETER KinesisStreamConfig
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-kinesisstreamconfig
-        UpdateType: Mutable
-        Type: KinesisStreamConfig
 
     .PARAMETER KinesisFirehoseConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-kinesisfirehoseconfig
@@ -109,6 +109,21 @@ function New-VSConnectInstanceStorageConfig {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $KinesisStreamConfig,
+        [parameter(Mandatory = $false)]
+        $S3Config,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StorageType,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -131,23 +146,8 @@ function New-VSConnectInstanceStorageConfig {
                 }
             })]
         $ResourceType,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $StorageType,
-        [parameter(Mandatory = $false)]
-        $S3Config,
         [parameter(Mandatory = $false)]
         $KinesisVideoStreamConfig,
-        [parameter(Mandatory = $false)]
-        $KinesisStreamConfig,
         [parameter(Mandatory = $false)]
         $KinesisFirehoseConfig,
         [parameter(Mandatory = $false)]

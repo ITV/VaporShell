@@ -1,18 +1,16 @@
 function Add-VSCustomerProfilesIntegrationServiceNowSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.ServiceNowSourceProperties resource property to the template. <a name="aws-properties-customerprofiles-integration-servicenowsourceproperties-description"></a>The ServiceNowSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.ServiceNowSourceProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.ServiceNowSourceProperties resource property to the template.
-<a name="aws-properties-customerprofiles-integration-servicenowsourceproperties-description"></a>The ServiceNowSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html
 
     .PARAMETER Object
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String

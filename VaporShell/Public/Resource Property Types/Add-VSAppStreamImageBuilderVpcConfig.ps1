@@ -1,18 +1,16 @@
 function Add-VSAppStreamImageBuilderVpcConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::ImageBuilder.VpcConfig resource property to the template. The VPC configuration for the image builder.
+        Adds an AWS::AppStream::ImageBuilder.VpcConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppStream::ImageBuilder.VpcConfig resource property to the template.
-The VPC configuration for the image builder.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html
 
     .PARAMETER SecurityGroupIds
-        The identifiers of the security groups for the image builder.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-securitygroupids
         UpdateType: Mutable
         Type: List
@@ -20,8 +18,6 @@ The VPC configuration for the image builder.
         DuplicatesAllowed: True
 
     .PARAMETER SubnetIds
-        The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-subnetids
         UpdateType: Mutable
         Type: List

@@ -1,43 +1,36 @@
 function Add-VSLexBotStillWaitingResponseSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.StillWaitingResponseSpecification resource property to the template. Defines the messages that Amazon Lex sends to a user to remind them that the bot is waiting for a response.
+        Adds an AWS::Lex::Bot.StillWaitingResponseSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.StillWaitingResponseSpecification resource property to the template.
-Defines the messages that Amazon Lex sends to a user to remind them that the bot is waiting for a response.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html
 
     .PARAMETER MessageGroupsList
-        A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-messagegroupslist
         UpdateType: Mutable
         Type: List
         ItemType: MessageGroup
-
-    .PARAMETER FrequencyInSeconds
-        How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-frequencyinseconds
-        UpdateType: Mutable
-        PrimitiveType: Integer
+        DuplicatesAllowed: True
 
     .PARAMETER TimeoutInSeconds
-        If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-timeoutinseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER AllowInterrupt
-        Indicates that the user can interrupt the response by speaking while the message is being played.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-allowinterrupt
         UpdateType: Mutable
         PrimitiveType: Boolean
+
+    .PARAMETER FrequencyInSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-frequencyinseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
@@ -67,17 +60,6 @@ Defines the messages that Amazon Lex sends to a user to remind them that the bot
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $FrequencyInSeconds,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $TimeoutInSeconds,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -89,7 +71,18 @@ Defines the messages that Amazon Lex sends to a user to remind them that the bot
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AllowInterrupt
+        $AllowInterrupt,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FrequencyInSeconds
     )
     Begin {
         $obj = [PSCustomObject]@{}

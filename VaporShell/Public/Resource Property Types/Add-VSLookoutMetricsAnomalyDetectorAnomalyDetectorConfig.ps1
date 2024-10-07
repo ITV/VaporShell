@@ -1,18 +1,16 @@
 function Add-VSLookoutMetricsAnomalyDetectorAnomalyDetectorConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorConfig resource property to the template. Contains information about a detector's configuration.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorConfig resource property to the template.
-Contains information about a detector's configuration.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html
 
     .PARAMETER AnomalyDetectorFrequency
-        The frequency at which the detector analyzes its source data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
         UpdateType: Mutable
         PrimitiveType: String

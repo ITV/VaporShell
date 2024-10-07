@@ -1,10 +1,10 @@
 function New-VSLogsResourcePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::Logs::ResourcePolicy resource to the template. Creates or updates a resource policy that allows other AWS services to put log events to this account. An account can have up to 10 resource policies per AWS Region.
+        Adds an AWS::Logs::ResourcePolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Logs::ResourcePolicy resource to the template. Creates or updates a resource policy that allows other AWS services to put log events to this account. An account can have up to 10 resource policies per AWS Region.
+        Adds an AWS::Logs::ResourcePolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html
@@ -13,15 +13,11 @@ function New-VSLogsResourcePolicy {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER PolicyName
-        The name of the resource policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PolicyDocument
-        The details of the policy. It must be formatted in JSON, and you must use backslashes to escape characters that need to be escaped in JSON strings, such as double quote marks.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,20 +1,10 @@
 function New-VSAppConfigHostedConfigurationVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::HostedConfigurationVersion resource to the template. Create a new configuration in the AWS AppConfig hosted configuration store. Configurations must be 1 MB or smaller. The AWS AppConfig hosted configuration store provides the following benefits over other configuration store options.
+        Adds an AWS::AppConfig::HostedConfigurationVersion resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppConfig::HostedConfigurationVersion resource to the template. Create a new configuration in the AWS AppConfig hosted configuration store. Configurations must be 1 MB or smaller. The AWS AppConfig hosted configuration store provides the following benefits over other configuration store options.
-
-+ You don't need to set up and configure other services such as Amazon Simple Storage Service (Amazon S3 or Parameter Store.
-
-+ You don't need to configure AWS Identity and Access Management (IAM permissions to use the configuration store.
-
-+ You can store configurations in any content type.
-
-+ There is no cost to use the store.
-
-+ You can create a configuration and add it to the store when you create a configuration profile.
+        Adds an AWS::AppConfig::HostedConfigurationVersion resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html
@@ -23,43 +13,36 @@ function New-VSAppConfigHostedConfigurationVersion {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ConfigurationProfileId
-        The configuration profile ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-configurationprofileid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Description
-        A description of the configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-description
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ContentType
-        A standard MIME type describing the format of the configuration content. For more information, see Content-Type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-contenttype
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER LatestVersionNumber
-        An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-latestversionnumber
         PrimitiveType: Double
         UpdateType: Immutable
 
     .PARAMETER Content
-        The content of the configuration or the configuration data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-content
         PrimitiveType: String
         UpdateType: Immutable
 
-    .PARAMETER ApplicationId
-        The application ID.
+    .PARAMETER VersionLabel
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-versionlabel
+        PrimitiveType: String
+        UpdateType: Immutable
 
+    .PARAMETER ApplicationId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-applicationid
         PrimitiveType: String
         UpdateType: Immutable
@@ -181,6 +164,17 @@ function New-VSAppConfigHostedConfigurationVersion {
                 }
             })]
         $Content,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $VersionLabel,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

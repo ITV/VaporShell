@@ -1,18 +1,16 @@
 function Add-VSMediaPackagePackagingConfigurationMssEncryption {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingConfiguration.MssEncryption resource property to the template. Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Adds an AWS::MediaPackage::PackagingConfiguration.MssEncryption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::PackagingConfiguration.MssEncryption resource property to the template.
-Holds encryption information so that access to the content can be controlled by a DRM solution.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
 
     .PARAMETER SpekeKeyProvider
-        Parameters for the SPEKE key provider.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
         UpdateType: Mutable
         Type: SpekeKeyProvider

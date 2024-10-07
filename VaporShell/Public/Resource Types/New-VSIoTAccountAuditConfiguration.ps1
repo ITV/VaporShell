@@ -1,10 +1,10 @@
 function New-VSIoTAccountAuditConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::AccountAuditConfiguration resource to the template. Use the AWS::IoT::AccountAuditConfiguration resource to configure or reconfigure the Device Defender audit settings for your account. Settings include how audit notifications are sent and which audit checks are enabled or disabled. For API reference, see UpdateAccountAuditConfiguration: https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateAccountAuditConfiguration.html and for detailed information on all available audit checks, see Audit checks: https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit-checks.html.
+        Adds an AWS::IoT::AccountAuditConfiguration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::AccountAuditConfiguration resource to the template. Use the AWS::IoT::AccountAuditConfiguration resource to configure or reconfigure the Device Defender audit settings for your account. Settings include how audit notifications are sent and which audit checks are enabled or disabled. For API reference, see UpdateAccountAuditConfiguration: https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateAccountAuditConfiguration.html and for detailed information on all available audit checks, see Audit checks: https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit-checks.html.
+        Adds an AWS::IoT::AccountAuditConfiguration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html
@@ -13,33 +13,21 @@ function New-VSIoTAccountAuditConfiguration {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AccountId
-        The ID of the account. You can use the expression !Sub "${AWS::AccountId}" to use your account ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AuditCheckConfigurations
-        Specifies which audit checks are enabled and disabled for this account.
-Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the Enabled: key to false.
-If an enabled check is removed from the template, it will also be disabled.
-You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
-For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
         UpdateType: Mutable
         Type: AuditCheckConfigurations
 
     .PARAMETER AuditNotificationTargetConfigurations
-        Information about the targets to which audit notifications are sent.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
         UpdateType: Mutable
         Type: AuditNotificationTargetConfigurations
 
     .PARAMETER RoleArn
-        The Amazon Resource Name ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
         UpdateType: Mutable
         PrimitiveType: String

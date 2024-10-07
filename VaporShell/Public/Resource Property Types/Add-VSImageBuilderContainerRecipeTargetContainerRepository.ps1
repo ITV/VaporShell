@@ -1,25 +1,21 @@
 function Add-VSImageBuilderContainerRecipeTargetContainerRepository {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ContainerRecipe.TargetContainerRepository resource property to the template. The container repository where the output container image is stored.
+        Adds an AWS::ImageBuilder::ContainerRecipe.TargetContainerRepository resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::ContainerRecipe.TargetContainerRepository resource property to the template.
-The container repository where the output container image is stored.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
 
     .PARAMETER Service
-        Specifies the service in which this image was registered.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER RepositoryName
-        The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
         UpdateType: Immutable
         PrimitiveType: String

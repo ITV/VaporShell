@@ -1,93 +1,70 @@
 function Add-VSDLMLifecyclePolicySchedule {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.Schedule resource property to the template. Specifies a backup schedule for a snapshot or AMI lifecycle policy.
+        Adds an AWS::DLM::LifecyclePolicy.Schedule resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.Schedule resource property to the template.
-Specifies a backup schedule for a snapshot or AMI lifecycle policy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html
 
     .PARAMETER ShareRules
-        The rule for sharing snapshots with other AWS accounts.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-sharerules
         ItemType: ShareRule
         UpdateType: Mutable
 
     .PARAMETER DeprecateRule
-        The AMI deprecation rule for the schedule.
-
         Type: DeprecateRule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-deprecaterule
         UpdateType: Mutable
 
     .PARAMETER TagsToAdd
-        The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER CreateRule
-        The creation rule.
-
         Type: CreateRule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-createrule
         UpdateType: Mutable
 
     .PARAMETER VariableTags
-        A collection of key/value pairs with values determined dynamically when the policy is executed. Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following formats: $instance-id or $timestamp. Variable tags are only valid for EBS Snapshot Management – Instance policies.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-variabletags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER FastRestoreRule
-        The rule for enabling fast snapshot restore.
-
         Type: FastRestoreRule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-fastrestorerule
         UpdateType: Mutable
 
     .PARAMETER ArchiveRule
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Type: ArchiveRule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-archiverule
         UpdateType: Mutable
 
     .PARAMETER RetainRule
-        The retention rule.
-
         Type: RetainRule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-retainrule
         UpdateType: Mutable
 
     .PARAMETER CrossRegionCopyRules
-        The rule for cross-Region snapshot copies.
-You can only specify cross-Region copy rules for policies that create snapshots in a Region. If the policy creates snapshots on an Outpost, then you cannot copy the snapshots to a Region or to an Outpost. If the policy creates snapshots in a Region, then snapshots can be copied to up to three Regions or Outposts.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-crossregioncopyrules
         ItemType: CrossRegionCopyRule
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the schedule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CopyTags
-        Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-copytags
         PrimitiveType: Boolean
         UpdateType: Mutable

@@ -1,32 +1,26 @@
 function Add-VSKafkaConnectConnectorS3LogDelivery {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.S3LogDelivery resource property to the template. Details about delivering logs to Amazon S3.
+        Adds an AWS::KafkaConnect::Connector.S3LogDelivery resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.S3LogDelivery resource property to the template.
-Details about delivering logs to Amazon S3.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-s3logdelivery.html
 
     .PARAMETER Bucket
-        The name of the S3 bucket that is the destination for log delivery.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-s3logdelivery.html#cfn-kafkaconnect-connector-s3logdelivery-bucket
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Enabled
-        Specifies whether connector logs get sent to the specified Amazon S3 destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-s3logdelivery.html#cfn-kafkaconnect-connector-s3logdelivery-enabled
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER Prefix
-        The S3 prefix that is the destination for log delivery.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-s3logdelivery.html#cfn-kafkaconnect-connector-s3logdelivery-prefix
         UpdateType: Immutable
         PrimitiveType: String

@@ -1,42 +1,34 @@
 function Add-VSAppStreamAppBlockScriptDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::AppBlock.ScriptDetails resource property to the template. The details of the script.
+        Adds an AWS::AppStream::AppBlock.ScriptDetails resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppStream::AppBlock.ScriptDetails resource property to the template.
-The details of the script.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html
 
-    .PARAMETER ScriptS3Location
-        The S3 object location of the script.
+    .PARAMETER TimeoutInSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-timeoutinseconds
+        UpdateType: Immutable
+        PrimitiveType: Integer
 
+    .PARAMETER ScriptS3Location
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-scripts3location
         UpdateType: Immutable
         Type: S3Location
 
     .PARAMETER ExecutablePath
-        The run path for the script.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executablepath
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ExecutableParameters
-        The parameters used in the run path for the script.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executableparameters
         UpdateType: Immutable
         PrimitiveType: String
-
-    .PARAMETER TimeoutInSeconds
-        The run timeout, in seconds, for the script.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-timeoutinseconds
-        UpdateType: Immutable
-        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
@@ -45,6 +37,17 @@ The details of the script.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TimeoutInSeconds,
         [parameter(Mandatory = $true)]
         $ScriptS3Location,
         [parameter(Mandatory = $true)]
@@ -68,18 +71,7 @@ The details of the script.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ExecutableParameters,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TimeoutInSeconds
+        $ExecutableParameters
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,30 +1,26 @@
 function Add-VSWAFv2WebACLGeoMatchStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.GeoMatchStatement resource property to the template. A rule statement used to identify web requests based on country of origin.
+        Adds an AWS::WAFv2::WebACL.GeoMatchStatement resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.GeoMatchStatement resource property to the template.
-A rule statement used to identify web requests based on country of origin.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
 
-    .PARAMETER CountryCodes
-        An array of two-character country codes, for example,  "US", "CN" ], from the alpha-2 country ISO codes of the ISO 3166 international standard.
+    .PARAMETER ForwardedIPConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+        UpdateType: Mutable
+        Type: ForwardedIPConfiguration
 
+    .PARAMETER CountryCodes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER ForwardedIPConfig
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For XFF header, but you can specify any header name.
-If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
-        UpdateType: Mutable
-        Type: ForwardedIPConfiguration
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -34,9 +30,9 @@ If the specified header isn't present in the request, AWS WAF doesn't apply the 
     Param
     (
         [parameter(Mandatory = $false)]
-        $CountryCodes,
+        $ForwardedIPConfig,
         [parameter(Mandatory = $false)]
-        $ForwardedIPConfig
+        $CountryCodes
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,26 +1,22 @@
 function Add-VSEventsConnectionApiKeyAuthParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Connection.ApiKeyAuthParameters resource property to the template. <a name="aws-properties-events-connection-apikeyauthparameters-description"></a>The ApiKeyAuthParameters property type specifies Not currently supported by AWS CloudFormation. for an AWS::Events::Connection: aws-resource-events-connection.md.
+        Adds an AWS::Events::Connection.ApiKeyAuthParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Connection.ApiKeyAuthParameters resource property to the template.
-<a name="aws-properties-events-connection-apikeyauthparameters-description"></a>The ApiKeyAuthParameters property type specifies Not currently supported by AWS CloudFormation. for an AWS::Events::Connection: aws-resource-events-connection.md.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html
 
-    .PARAMETER ApiKeyName
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html#cfn-events-connection-apikeyauthparameters-apikeyname
+    .PARAMETER ApiKeyValue
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html#cfn-events-connection-apikeyauthparameters-apikeyvalue
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ApiKeyValue
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html#cfn-events-connection-apikeyauthparameters-apikeyvalue
+    .PARAMETER ApiKeyName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html#cfn-events-connection-apikeyauthparameters-apikeyname
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ function Add-VSEventsConnectionApiKeyAuthParameters {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ApiKeyName,
+        $ApiKeyValue,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ function Add-VSEventsConnectionApiKeyAuthParameters {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ApiKeyValue
+        $ApiKeyName
     )
     Begin {
         $obj = [PSCustomObject]@{}

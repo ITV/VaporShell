@@ -1,18 +1,16 @@
 function Add-VSAppMeshVirtualNodeSubjectAlternativeNames {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.SubjectAlternativeNames resource property to the template. An object that represents the subject alternative names secured by the certificate.
+        Adds an AWS::AppMesh::VirtualNode.SubjectAlternativeNames resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.SubjectAlternativeNames resource property to the template.
-An object that represents the subject alternative names secured by the certificate.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenames.html
 
     .PARAMETER Match
-        An object that represents the criteria for determining a SANs match.
-
         Type: SubjectAlternativeNameMatchers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenames.html#cfn-appmesh-virtualnode-subjectalternativenames-match
         UpdateType: Mutable

@@ -1,32 +1,21 @@
 function Add-VSPinpointCampaignAttributeDimension {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Campaign.AttributeDimension resource property to the template. Specifies attribute-based criteria for including or excluding endpoints from a segment.
+        Adds an AWS::Pinpoint::Campaign.AttributeDimension resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Campaign.AttributeDimension resource property to the template.
-Specifies attribute-based criteria for including or excluding endpoints from a segment.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-attributedimension.html
 
     .PARAMETER AttributeType
-        The type of segment dimension to use. Valid values are:
-+  INCLUSIVE – endpoints that have attributes matching the values are included in the segment.
-+  EXCLUSIVE – endpoints that have attributes matching the values are excluded from the segment.
-+  CONTAINS – endpoints that have attributes' substrings match the values are included in the segment.
-+  BEFORE – endpoints with attributes read as ISO_INSTANT datetimes before the value are included in the segment.
-+  AFTER – endpoints with attributes read as ISO_INSTANT datetimes after the value are included in the segment.
-+  BETWEEN – endpoints with attributes read as ISO_INSTANT datetimes between the values are included in the segment.
-+  ON – endpoints with attributes read as ISO_INSTANT dates on the value are included in the segment. Time is ignored in this comparison.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-attributedimension.html#cfn-pinpoint-campaign-attributedimension-attributetype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Values
-        The criteria values to use for the segment dimension. Depending on the value of the AttributeType property, endpoints are included or excluded from the segment if their attribute values match the criteria values.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-attributedimension.html#cfn-pinpoint-campaign-attributedimension-values

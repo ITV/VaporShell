@@ -1,33 +1,28 @@
 function Add-VSQuickSightDataSetGeoSpatialColumnGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.GeoSpatialColumnGroup resource property to the template. Geospatial column group that denotes a hierarchy.
+        Adds an AWS::QuickSight::DataSet.GeoSpatialColumnGroup resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.GeoSpatialColumnGroup resource property to the template.
-Geospatial column group that denotes a hierarchy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html
 
     .PARAMETER Columns
-        Columns in this hierarchy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER CountryCode
-        Country code.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        A display name for the hierarchy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
         UpdateType: Mutable
         PrimitiveType: String

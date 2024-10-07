@@ -1,22 +1,21 @@
 function Add-VSWAFv2WebACLAndStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.AndStatement resource property to the template. A logical rule statement used to combine other rule statements with AND logic. You provide more than one Statement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement within the AndStatement.
+        Adds an AWS::WAFv2::WebACL.AndStatement resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.AndStatement resource property to the template.
-A logical rule statement used to combine other rule statements with AND logic. You provide more than one Statement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement within the AndStatement.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
 
     .PARAMETER Statements
-        The statements to combine with AND logic. You can use any statements that can be nested.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
         UpdateType: Mutable
         Type: List
         ItemType: Statement
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

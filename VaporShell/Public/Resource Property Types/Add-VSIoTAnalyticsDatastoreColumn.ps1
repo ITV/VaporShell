@@ -1,25 +1,21 @@
 function Add-VSIoTAnalyticsDatastoreColumn {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.Column resource property to the template. Contains information about a column that stores your data.
+        Adds an AWS::IoTAnalytics::Datastore.Column resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.Column resource property to the template.
-Contains information about a column that stores your data.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-column.html
 
     .PARAMETER Type
-        The type of data. For more information about the supported data types, see Common data types: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html in the * AWS Glue Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-column.html#cfn-iotanalytics-datastore-column-type
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-column.html#cfn-iotanalytics-datastore-column-name
         UpdateType: Mutable
         PrimitiveType: String

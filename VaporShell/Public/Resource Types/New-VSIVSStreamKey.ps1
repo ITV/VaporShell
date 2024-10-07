@@ -1,10 +1,10 @@
 function New-VSIVSStreamKey {
     <#
     .SYNOPSIS
-        Adds an AWS::IVS::StreamKey resource to the template. The AWS::IVS::StreamKey resource specifies an Amazon IVS stream key associated with the referenced channel. Use a stream key to initiate a live stream.
+        Adds an AWS::IVS::StreamKey resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IVS::StreamKey resource to the template. The AWS::IVS::StreamKey resource specifies an Amazon IVS stream key associated with the referenced channel. Use a stream key to initiate a live stream.
+        Adds an AWS::IVS::StreamKey resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
@@ -13,16 +13,11 @@ function New-VSIVSStreamKey {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ChannelArn
-        Channel ARN for the stream.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
         UpdateType: Mutable
         Type: List

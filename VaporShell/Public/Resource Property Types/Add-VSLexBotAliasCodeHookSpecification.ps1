@@ -1,18 +1,16 @@
 function Add-VSLexBotAliasCodeHookSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.CodeHookSpecification resource property to the template. Contains information about code hooks that Amazon Lex calls during a conversation.
+        Adds an AWS::Lex::BotAlias.CodeHookSpecification resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.CodeHookSpecification resource property to the template.
-Contains information about code hooks that Amazon Lex calls during a conversation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-codehookspecification.html
 
     .PARAMETER LambdaCodeHook
-        Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-codehookspecification.html#cfn-lex-botalias-codehookspecification-lambdacodehook
         UpdateType: Mutable
         Type: LambdaCodeHook

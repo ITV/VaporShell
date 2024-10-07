@@ -1,25 +1,21 @@
 function Add-VSIoTMitigationActionAddThingsToThingGroupParams {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction.AddThingsToThingGroupParams resource property to the template. Parameters used when defining a mitigation action that move a set of things to a thing group.
+        Adds an AWS::IoT::MitigationAction.AddThingsToThingGroupParams resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::MitigationAction.AddThingsToThingGroupParams resource property to the template.
-Parameters used when defining a mitigation action that move a set of things to a thing group.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html
 
     .PARAMETER OverrideDynamicGroups
-        Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER ThingGroupNames
-        The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
         UpdateType: Mutable
         Type: List

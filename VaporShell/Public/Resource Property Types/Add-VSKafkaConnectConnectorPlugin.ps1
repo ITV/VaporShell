@@ -1,18 +1,16 @@
 function Add-VSKafkaConnectConnectorPlugin {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.Plugin resource property to the template. A plugin is an AWS resource that contains the code that defines your connector logic.
+        Adds an AWS::KafkaConnect::Connector.Plugin resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.Plugin resource property to the template.
-A plugin is an AWS resource that contains the code that defines your connector logic.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-plugin.html
 
     .PARAMETER CustomPlugin
-        Details about a custom plugin.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-plugin.html#cfn-kafkaconnect-connector-plugin-customplugin
         UpdateType: Immutable
         Type: CustomPlugin

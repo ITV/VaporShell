@@ -1,26 +1,21 @@
 function Add-VSSSMMaintenanceWindowTaskCloudWatchOutputConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::MaintenanceWindowTask.CloudWatchOutputConfig resource property to the template. Configuration options for sending command output to Amazon CloudWatch Logs.
+        Adds an AWS::SSM::MaintenanceWindowTask.CloudWatchOutputConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSM::MaintenanceWindowTask.CloudWatchOutputConfig resource property to the template.
-Configuration options for sending command output to Amazon CloudWatch Logs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-cloudwatchoutputconfig.html
 
     .PARAMETER CloudWatchOutputEnabled
-        Enables Systems Manager to send command output to CloudWatch Logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-cloudwatchoutputconfig.html#cfn-ssm-maintenancewindowtask-cloudwatchoutputconfig-cloudwatchoutputenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER CloudWatchLogGroupName
-        The name of the CloudWatch Logs log group where you want to send command output. If you don't specify a group name, AWS Systems Manager automatically creates a log group for you. The log group uses the following naming format:
-aws/ssm/SystemsManagerDocumentName 
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-cloudwatchoutputconfig.html#cfn-ssm-maintenancewindowtask-cloudwatchoutputconfig-cloudwatchloggroupname
         PrimitiveType: String
         UpdateType: Mutable

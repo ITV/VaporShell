@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileInforNexusConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.InforNexusConnectorProfileProperties resource property to the template. The InforNexusConnectorProfileProperties property type specifies the connector-specific profile properties required by Infor Nexus.
+        Adds an AWS::AppFlow::ConnectorProfile.InforNexusConnectorProfileProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.InforNexusConnectorProfileProperties resource property to the template.
-The InforNexusConnectorProfileProperties property type specifies the connector-specific profile properties required by Infor Nexus.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Infor Nexus resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String

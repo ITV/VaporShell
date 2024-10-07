@@ -1,18 +1,16 @@
 function Add-VSIoTWirelessPartnerAccountSidewalkUpdateAccount {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::PartnerAccount.SidewalkUpdateAccount resource property to the template. Sidewalk update.
+        Adds an AWS::IoTWireless::PartnerAccount.SidewalkUpdateAccount resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::PartnerAccount.SidewalkUpdateAccount resource property to the template.
-Sidewalk update.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkupdateaccount.html
 
     .PARAMETER AppServerPrivateKey
-        The new Sidewalk application server private key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkupdateaccount.html#cfn-iotwireless-partneraccount-sidewalkupdateaccount-appserverprivatekey
         UpdateType: Mutable
         PrimitiveType: String

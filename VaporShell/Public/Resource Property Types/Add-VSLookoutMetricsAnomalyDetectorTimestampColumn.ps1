@@ -1,25 +1,21 @@
 function Add-VSLookoutMetricsAnomalyDetectorTimestampColumn {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.TimestampColumn resource property to the template. Contains information about the column used to track time in a source data file.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.TimestampColumn resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.TimestampColumn resource property to the template.
-Contains information about the column used to track time in a source data file.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html
 
     .PARAMETER ColumnName
-        The name of the timestamp column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ColumnFormat
-        The format of the timestamp column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat
         UpdateType: Mutable
         PrimitiveType: String

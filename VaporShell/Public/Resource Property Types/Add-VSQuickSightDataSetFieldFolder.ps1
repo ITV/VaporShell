@@ -1,29 +1,26 @@
 function Add-VSQuickSightDataSetFieldFolder {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.FieldFolder resource property to the template. A FieldFolder element is a folder that contains fields and nested subfolders.
+        Adds an AWS::QuickSight::DataSet.FieldFolder resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.FieldFolder resource property to the template.
-A FieldFolder element is a folder that contains fields and nested subfolders.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html
 
     .PARAMETER Description
-        The description for a field folder.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Columns
-        A folder has a list of columns. A column can only be in one folder.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-columns
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

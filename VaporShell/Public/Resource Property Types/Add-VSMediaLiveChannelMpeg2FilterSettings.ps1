@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelMpeg2FilterSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.Mpeg2FilterSettings resource property to the template. Settings to configure video filters that apply to the MPEG-2 codec.
+        Adds an AWS::MediaLive::Channel.Mpeg2FilterSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.Mpeg2FilterSettings resource property to the template.
-Settings to configure video filters that apply to the MPEG-2 codec.
 
-The parent of this entity is Mpeg2FilterSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mpeg2filtersettings.html
 
     .PARAMETER TemporalFilterSettings
-        Settings for applying the temporal filter to the video.
-
         Type: TemporalFilterSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mpeg2filtersettings.html#cfn-medialive-channel-mpeg2filtersettings-temporalfiltersettings
         UpdateType: Mutable

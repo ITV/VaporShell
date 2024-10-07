@@ -1,33 +1,32 @@
 function Add-VSSageMakerEndpointConfigAsyncInferenceOutputConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceOutputConfig resource property to the template. Specifies the configuration for asynchronous inference invocation outputs.
+        Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceOutputConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SageMaker::EndpointConfig.AsyncInferenceOutputConfig resource property to the template.
-Specifies the configuration for asynchronous inference invocation outputs.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html
 
     .PARAMETER KmsKeyId
-        The AWS Key Management Service AWS KMS key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-kmskeyid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER NotificationConfig
-        Specifies the configuration for notifications of inference results for asynchronous inference.
-
         Type: AsyncInferenceNotificationConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-notificationconfig
         UpdateType: Immutable
 
     .PARAMETER S3OutputPath
-        The Amazon S3 location to upload inference responses to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-s3outputpath
+        PrimitiveType: String
+        UpdateType: Immutable
+
+    .PARAMETER S3FailurePath
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-s3failurepath
         PrimitiveType: String
         UpdateType: Immutable
 
@@ -51,7 +50,7 @@ Specifies the configuration for asynchronous inference invocation outputs.
         $KmsKeyId,
         [parameter(Mandatory = $false)]
         $NotificationConfig,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +60,18 @@ Specifies the configuration for asynchronous inference invocation outputs.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $S3OutputPath
+        $S3OutputPath,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $S3FailurePath
     )
     Begin {
         $obj = [PSCustomObject]@{}

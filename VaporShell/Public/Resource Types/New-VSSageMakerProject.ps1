@@ -1,10 +1,10 @@
 function New-VSSageMakerProject {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Project resource to the template. Creates a machine learning (ML project that can contain one or more templates that set up an ML pipeline from training to deploying an approved model.
+        Adds an AWS::SageMaker::Project resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::Project resource to the template. Creates a machine learning (ML project that can contain one or more templates that set up an ML pipeline from training to deploying an approved model.
+        Adds an AWS::SageMaker::Project resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
@@ -12,35 +12,27 @@ function New-VSSageMakerProject {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Tags
-        A list of key-value pairs to apply to this resource.
-For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html and Using Cost Allocation Tags: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what in the * AWS Billing and Cost Management User Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
-        UpdateType: Immutable
-        Type: List
-        ItemType: Tag
-
     .PARAMETER ProjectName
-        The name of the project.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ProjectDescription
-        The description of the project.
+    .PARAMETER ServiceCatalogProvisioningDetails
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+        UpdateType: Immutable
+        Type: ServiceCatalogProvisioningDetails
 
+    .PARAMETER ProjectDescription
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ServiceCatalogProvisioningDetails
-        The product ID and provisioning artifact ID to provision a service catalog. For information, see What is AWS Service Catalog: https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
         UpdateType: Immutable
-        PrimitiveType: Json
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -104,9 +96,6 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
             })]
         [System.String]
         $LogicalId,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -118,6 +107,8 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $ProjectName,
+        [parameter(Mandatory = $true)]
+        $ServiceCatalogProvisioningDetails,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -129,17 +120,9 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $ProjectDescription,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ServiceCatalogProvisioningDetails,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -219,23 +202,6 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
-                }
-                ServiceCatalogProvisioningDetails {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

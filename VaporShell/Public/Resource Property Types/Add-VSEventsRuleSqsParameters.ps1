@@ -1,18 +1,16 @@
 function Add-VSEventsRuleSqsParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.SqsParameters resource property to the template. This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+        Adds an AWS::Events::Rule.SqsParameters resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.SqsParameters resource property to the template.
-This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sqsparameters.html
 
     .PARAMETER MessageGroupId
-        The FIFO message group ID to use as the target.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sqsparameters.html#cfn-events-rule-sqsparameters-messagegroupid
         PrimitiveType: String
         UpdateType: Mutable

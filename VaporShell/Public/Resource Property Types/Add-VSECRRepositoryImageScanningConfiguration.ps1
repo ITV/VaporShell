@@ -1,18 +1,16 @@
 function Add-VSECRRepositoryImageScanningConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::Repository.ImageScanningConfiguration resource property to the template. The image scanning configuration for a repository.
+        Adds an AWS::ECR::Repository.ImageScanningConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ECR::Repository.ImageScanningConfiguration resource property to the template.
-The image scanning configuration for a repository.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
 
     .PARAMETER ScanOnPush
-        The setting that determines whether images are scanned after being pushed to a repository. If set to true, images will be scanned after being pushed. If this parameter is not specified, it will default to false and images will not be scanned unless a scan is manually started.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
         UpdateType: Mutable
         PrimitiveType: Boolean

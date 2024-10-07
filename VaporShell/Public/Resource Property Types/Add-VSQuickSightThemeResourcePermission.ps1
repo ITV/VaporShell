@@ -1,29 +1,23 @@
 function Add-VSQuickSightThemeResourcePermission {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.ResourcePermission resource property to the template. Permission for the resource.
+        Adds an AWS::QuickSight::Theme.ResourcePermission resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.ResourcePermission resource property to the template.
-Permission for the resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html
 
     .PARAMETER Actions
-        The IAM action to grant or revoke permissions on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-actions
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Principal
-        The Amazon Resource Name ARN of the principal. This can be one of the following:
-+ The ARN of an Amazon QuickSight user or group associated with a data source or dataset. This is common.
-+ The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. This is common.
-+ The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources templates across AWS accounts. This is less common.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-principal
         UpdateType: Mutable
         PrimitiveType: String

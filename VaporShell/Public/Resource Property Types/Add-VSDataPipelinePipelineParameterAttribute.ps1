@@ -1,28 +1,24 @@
 function Add-VSDataPipelinePipelineParameterAttribute {
     <#
     .SYNOPSIS
-        Adds an AWS::DataPipeline::Pipeline.ParameterAttribute resource property to the template. Attribute is a property of ParameterObject that defines the attributes of a parameter object as key-value pairs.
+        Adds an AWS::DataPipeline::Pipeline.ParameterAttribute resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataPipeline::Pipeline.ParameterAttribute resource property to the template.
-Attribute is a property of ParameterObject that defines the attributes of a parameter object as key-value pairs.
+
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects-attributes.html
-
-    .PARAMETER Key
-        The field identifier.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects-attributes.html#cfn-datapipeline-pipeline-parameterobjects-attribtues-key
-        PrimitiveType: String
-        UpdateType: Mutable
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterattribute.html
 
     .PARAMETER StringValue
-        The field value, expressed as a String.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects-attributes.html#cfn-datapipeline-pipeline-parameterobjects-attribtues-stringvalue
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterattribute.html#cfn-datapipeline-pipeline-parameterattribute-stringvalue
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Key
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterattribute.html#cfn-datapipeline-pipeline-parameterattribute-key
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -41,7 +37,7 @@ Attribute is a property of ParameterObject that defines the attributes of a para
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Key,
+        $StringValue,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Attribute is a property of ParameterObject that defines the attributes of a para
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StringValue
+        $Key
     )
     Begin {
         $obj = [PSCustomObject]@{}

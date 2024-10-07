@@ -1,25 +1,21 @@
 function Add-VSCodeDeployDeploymentGroupECSService {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.ECSService resource property to the template. Contains the service and cluster names used to identify an Amazon ECS deployment's target.
+        Adds an AWS::CodeDeploy::DeploymentGroup.ECSService resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.ECSService resource property to the template.
-Contains the service and cluster names used to identify an Amazon ECS deployment's target.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ecsservice.html
 
     .PARAMETER ClusterName
-        The name of the cluster that the Amazon ECS service is associated with.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ecsservice.html#cfn-codedeploy-deploymentgroup-ecsservice-clustername
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ServiceName
-        The name of the target Amazon ECS service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ecsservice.html#cfn-codedeploy-deploymentgroup-ecsservice-servicename
         PrimitiveType: String
         UpdateType: Mutable

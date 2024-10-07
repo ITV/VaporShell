@@ -1,10 +1,10 @@
 function New-VSBatchSchedulingPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::Batch::SchedulingPolicy resource to the template. The AWS::Batch::SchedulingPolicy resource specifies the parameters for an AWS Batch scheduling policy. For more information, see Scheduling Policies: https://docs.aws.amazon.com/batch/latest/userguide/scheduling_policies.html in the *AWS Batch User Guide*.
+        Adds an AWS::Batch::SchedulingPolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Batch::SchedulingPolicy resource to the template. The AWS::Batch::SchedulingPolicy resource specifies the parameters for an AWS Batch scheduling policy. For more information, see Scheduling Policies: https://docs.aws.amazon.com/batch/latest/userguide/scheduling_policies.html in the *AWS Batch User Guide*.
+        Adds an AWS::Batch::SchedulingPolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html
@@ -12,28 +12,21 @@ function New-VSBatchSchedulingPolicy {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the scheduling policy. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens -, and underscores _.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#cfn-batch-schedulingpolicy-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER FairsharePolicy
-        The fair share policy of the scheduling policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy
         UpdateType: Mutable
         Type: FairsharePolicy
 
     .PARAMETER Tags
-        The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see Tagging AWS Resources: https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html in * AWS General Reference*.
-These tags can be updated or removed using the TagResource: https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html and UntagResource: https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html API operations.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#cfn-batch-schedulingpolicy-tags
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#cfn-batch-schedulingpolicy-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -98,6 +91,11 @@ These tags can be updated or removed using the TagResource: https://docs.aws.ama
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $FairsharePolicy,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Tags,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -108,11 +106,6 @@ These tags can be updated or removed using the TagResource: https://docs.aws.ama
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
-        $FairsharePolicy,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

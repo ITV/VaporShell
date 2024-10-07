@@ -10,17 +10,17 @@ function Add-VSSageMakerDomainDomainSettings {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html
 
-    .PARAMETER SecurityGroupIds
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-securitygroupids
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: True
-
     .PARAMETER RStudioServerProDomainSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-rstudioserverprodomainsettings
         UpdateType: Mutable
         Type: RStudioServerProDomainSettings
+
+    .PARAMETER SecurityGroupIds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-securitygroupids
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -30,9 +30,9 @@ function Add-VSSageMakerDomainDomainSettings {
     Param
     (
         [parameter(Mandatory = $false)]
-        $SecurityGroupIds,
+        $RStudioServerProDomainSettings,
         [parameter(Mandatory = $false)]
-        $RStudioServerProDomainSettings
+        $SecurityGroupIds
     )
     Begin {
         $obj = [PSCustomObject]@{}

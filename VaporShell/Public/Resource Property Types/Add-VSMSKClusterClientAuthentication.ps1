@@ -1,35 +1,29 @@
 function Add-VSMSKClusterClientAuthentication {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.ClientAuthentication resource property to the template. Includes information related to client authentication.
+        Adds an AWS::MSK::Cluster.ClientAuthentication resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.ClientAuthentication resource property to the template.
-Includes information related to client authentication.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html
 
-    .PARAMETER Tls
-        Details for client authentication using TLS.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls
-        UpdateType: Mutable
-        Type: Tls
-
     .PARAMETER Sasl
-        Details for ClientAuthentication using SASL.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-sasl
         UpdateType: Mutable
         Type: Sasl
 
     .PARAMETER Unauthenticated
-        Details for ClientAuthentication using no authentication.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-unauthenticated
         UpdateType: Mutable
         Type: Unauthenticated
+
+    .PARAMETER Tls
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls
+        UpdateType: Mutable
+        Type: Tls
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,11 +33,11 @@ Includes information related to client authentication.
     Param
     (
         [parameter(Mandatory = $false)]
-        $Tls,
-        [parameter(Mandatory = $false)]
         $Sasl,
         [parameter(Mandatory = $false)]
-        $Unauthenticated
+        $Unauthenticated,
+        [parameter(Mandatory = $false)]
+        $Tls
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -1,18 +1,16 @@
 function Add-VSEC2NetworkInsightsAccessScopeThroughResourcesStatementRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAccessScope.ThroughResourcesStatementRequest resource property to the template. Describes a through resource statement.
+        Adds an AWS::EC2::NetworkInsightsAccessScope.ThroughResourcesStatementRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAccessScope.ThroughResourcesStatementRequest resource property to the template.
-Describes a through resource statement.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html
 
     .PARAMETER ResourceStatement
-        The resource statement.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html#cfn-ec2-networkinsightsaccessscope-throughresourcesstatementrequest-resourcestatement
         UpdateType: Immutable
         Type: ResourceStatementRequest

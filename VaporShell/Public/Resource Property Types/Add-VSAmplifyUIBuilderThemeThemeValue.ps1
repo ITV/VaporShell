@@ -1,29 +1,26 @@
 function Add-VSAmplifyUIBuilderThemeThemeValue {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Theme.ThemeValue resource property to the template. The ThemeValue property specifies the configuration of a theme's properties.
+        Adds an AWS::AmplifyUIBuilder::Theme.ThemeValue resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Theme.ThemeValue resource property to the template.
-The ThemeValue property specifies the configuration of a theme's properties.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalue.html
 
     .PARAMETER Value
-        The value of a theme property.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalue.html#cfn-amplifyuibuilder-theme-themevalue-value
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Children
-        A list of key-value pairs that define the theme's properties.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalue.html#cfn-amplifyuibuilder-theme-themevalue-children
         UpdateType: Mutable
         Type: List
         ItemType: ThemeValues
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,27 +1,21 @@
 function Add-VSGlueMLTransformTransformEncryption {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::MLTransform.TransformEncryption resource property to the template. The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.
+        Adds an AWS::Glue::MLTransform.TransformEncryption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::MLTransform.TransformEncryption resource property to the template.
-The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.
 
-Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html
 
     .PARAMETER MLUserDataEncryption
-        The encryption-at-rest settings of the transform that apply to accessing user data.
-
         Type: MLUserDataEncryption
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
         UpdateType: Mutable
 
     .PARAMETER TaskRunSecurityConfigurationName
-        The name of the security configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
         PrimitiveType: String
         UpdateType: Mutable

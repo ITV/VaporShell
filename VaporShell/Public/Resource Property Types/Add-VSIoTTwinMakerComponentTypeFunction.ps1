@@ -10,10 +10,10 @@ function Add-VSIoTTwinMakerComponentTypeFunction {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html
 
-    .PARAMETER ImplementedBy
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-implementedby
+    .PARAMETER Scope
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-scope
         UpdateType: Mutable
-        Type: DataConnector
+        PrimitiveType: String
 
     .PARAMETER RequiredProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-requiredproperties
@@ -22,10 +22,10 @@ function Add-VSIoTTwinMakerComponentTypeFunction {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER Scope
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-scope
+    .PARAMETER ImplementedBy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-implementedby
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: DataConnector
 
     .FUNCTIONALITY
         Vaporshell
@@ -34,10 +34,6 @@ function Add-VSIoTTwinMakerComponentTypeFunction {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $ImplementedBy,
-        [parameter(Mandatory = $false)]
-        $RequiredProperties,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -48,7 +44,11 @@ function Add-VSIoTTwinMakerComponentTypeFunction {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Scope
+        $Scope,
+        [parameter(Mandatory = $false)]
+        $RequiredProperties,
+        [parameter(Mandatory = $false)]
+        $ImplementedBy
     )
     Begin {
         $obj = [PSCustomObject]@{}

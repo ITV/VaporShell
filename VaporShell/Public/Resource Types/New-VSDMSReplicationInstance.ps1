@@ -1,10 +1,10 @@
 function New-VSDMSReplicationInstance {
     <#
     .SYNOPSIS
-        Adds an AWS::DMS::ReplicationInstance resource to the template. The AWS::DMS::ReplicationInstance resource creates an AWS DMS replication instance.
+        Adds an AWS::DMS::ReplicationInstance resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DMS::ReplicationInstance resource to the template. The AWS::DMS::ReplicationInstance resource creates an AWS DMS replication instance.
+        Adds an AWS::DMS::ReplicationInstance resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html
@@ -13,127 +13,81 @@ function New-VSDMSReplicationInstance {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ReplicationInstanceIdentifier
-        The replication instance identifier. This parameter is stored as a lowercase string.
-Constraints:
-+ Must contain 1-63 alphanumeric characters or hyphens.
-+ First character must be a letter.
-+ Can't end with a hyphen or contain two consecutive hyphens.
-Example: myrepinstance
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationinstanceidentifier
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER EngineVersion
-        The engine version number of the replication instance.
-If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-engineversion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER KmsKeyId
-        An AWS KMS key identifier that is used to encrypt the data on the replication instance.
-If you don't specify a value for the KmsKeyId parameter, then AWS DMS uses your default encryption key.
-AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-kmskeyid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER AvailabilityZone
-        The Availability Zone that the replication instance will be created in.
-The default value is a random, system-chosen Availability Zone in the endpoint's , for example: us-east-1d
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-availabilityzone
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER PreferredMaintenanceWindow
-        The weekly time range during which system maintenance can occur, in Universal Coordinated Time UTC.
-Format: ddd:hh24:mi-ddd:hh24:mi
-Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region, occurring on a random day of the week.
-Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
-Constraints: Minimum 30-minute window.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-preferredmaintenancewindow
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AutoMinorVersionUpgrade
-        A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to true.
-Default: true
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-autominorversionupgrade
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ReplicationSubnetGroupIdentifier
-        A subnet group to associate with the replication instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationsubnetgroupidentifier
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER AllocatedStorage
-        The amount of storage in gigabytes to be initially allocated for the replication instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-allocatedstorage
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER ResourceIdentifier
-        A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen '-'. Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as Example-App-ARN1. For example, this value might result in the EndpointArn value arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1. If you don't specify a ResourceIdentifier value, AWS DMS generates a default identifier value for the end of EndpointArn.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-resourceidentifier
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER VpcSecurityGroupIds
-        Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-vpcsecuritygroupids
         UpdateType: Mutable
 
     .PARAMETER AllowMajorVersionUpgrade
-        Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage, and the change is asynchronously applied as soon as possible.
-This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the replication instance's current version.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-allowmajorversionupgrade
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ReplicationInstanceClass
-        The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to "dms.c4.large".
-For more information on the settings and capacities for the available replication instance classes, see  Selecting the right AWS DMS replication instance for your migration: https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationinstanceclass
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER PubliclyAccessible
-        Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address. The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-publiclyaccessible
         PrimitiveType: Boolean
         UpdateType: Immutable
 
     .PARAMETER MultiAZ
-        Specifies whether the replication instance is a Multi-AZ deployment. You can't set the AvailabilityZone parameter if the Multi-AZ parameter is set to true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-multiaz
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Tags
-        One or more tags to be assigned to the replication instance.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-tags
         ItemType: Tag
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.

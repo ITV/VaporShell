@@ -1,26 +1,22 @@
 function Add-VSDLMLifecyclePolicyAction {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.Action resource property to the template. Specifies an action for an event-based policy.
+        Adds an AWS::DLM::LifecyclePolicy.Action resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.Action resource property to the template.
-Specifies an action for an event-based policy.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html
 
     .PARAMETER CrossRegionCopy
-        The rule for copying shared snapshots across Regions.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-crossregioncopy
         ItemType: CrossRegionCopyAction
         UpdateType: Mutable
 
     .PARAMETER Name
-        A descriptive name for the action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-name
         PrimitiveType: String
         UpdateType: Mutable

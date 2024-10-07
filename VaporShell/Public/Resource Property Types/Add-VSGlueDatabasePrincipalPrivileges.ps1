@@ -1,26 +1,22 @@
 function Add-VSGlueDatabasePrincipalPrivileges {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Database.PrincipalPrivileges resource property to the template. the permissions granted to a principal
+        Adds an AWS::Glue::Database.PrincipalPrivileges resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Database.PrincipalPrivileges resource property to the template.
-the permissions granted to a principal
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html
 
     .PARAMETER Permissions
-        The permissions that are granted to the principal.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-permissions
         UpdateType: Mutable
 
     .PARAMETER Principal
-        The principal who is granted permissions.
-
         Type: DataLakePrincipal
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-principal
         UpdateType: Mutable

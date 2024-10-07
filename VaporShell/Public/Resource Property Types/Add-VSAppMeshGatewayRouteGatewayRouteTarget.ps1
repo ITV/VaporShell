@@ -1,25 +1,21 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteTarget resource property to the template. An object that represents a gateway route target.
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteTarget resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteTarget resource property to the template.
-An object that represents a gateway route target.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html
 
     .PARAMETER Port
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-port
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER VirtualService
-        An object that represents a virtual service gateway route target.
-
         Type: GatewayRouteVirtualService
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice
         UpdateType: Mutable

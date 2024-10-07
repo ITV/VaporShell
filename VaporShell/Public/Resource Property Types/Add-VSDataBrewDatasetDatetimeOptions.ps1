@@ -1,33 +1,27 @@
 function Add-VSDataBrewDatasetDatetimeOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.DatetimeOptions resource property to the template. Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
+        Adds an AWS::DataBrew::Dataset.DatetimeOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.DatetimeOptions resource property to the template.
-Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html
 
-    .PARAMETER Format
-        Required option, that defines the datetime format used for a date parameter in the Amazon S3 path. Should use only supported datetime specifiers and separation characters, all litera a-z or A-Z character should be escaped with single quotes. E.g. "MM.dd.yyyy-'at'-HH:mm".
+    .PARAMETER LocaleCode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Format
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TimezoneOffset
-        Optional value for a timezone offset of the datetime parameter value in the Amazon S3 path. Shouldn't be used if Format for this parameter includes timezone fields. If no offset specified, UTC is assumed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER LocaleCode
-        Optional value for a non-US locale code, needed for correct interpretation of some date formats.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -38,6 +32,17 @@ Represents additional options for correct interpretation of datetime parameters 
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LocaleCode,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -59,18 +64,7 @@ Represents additional options for correct interpretation of datetime parameters 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TimezoneOffset,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $LocaleCode
+        $TimezoneOffset
     )
     Begin {
         $obj = [PSCustomObject]@{}

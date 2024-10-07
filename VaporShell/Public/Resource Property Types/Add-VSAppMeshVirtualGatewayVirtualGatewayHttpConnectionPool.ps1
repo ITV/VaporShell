@@ -1,25 +1,21 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayHttpConnectionPool {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayHttpConnectionPool resource property to the template. An object that represents a type of connection pool.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayHttpConnectionPool resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayHttpConnectionPool resource property to the template.
-An object that represents a type of connection pool.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html
 
     .PARAMETER MaxConnections
-        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxconnections
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER MaxPendingRequests
-        Number of overflowing requests after max_connections Envoy will queue to upstream cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxpendingrequests
         PrimitiveType: Integer
         UpdateType: Mutable

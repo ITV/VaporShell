@@ -1,25 +1,21 @@
 function Add-VSDataBrewJobValidationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Job.ValidationConfiguration resource property to the template. Configuration for data quality validation. Used to select the Rulesets and Validation Mode to be used in the profile job. When ValidationConfiguration is null, the profile job will run without data quality validation.
+        Adds an AWS::DataBrew::Job.ValidationConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Job.ValidationConfiguration resource property to the template.
-Configuration for data quality validation. Used to select the Rulesets and Validation Mode to be used in the profile job. When ValidationConfiguration is null, the profile job will run without data quality validation.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html
 
     .PARAMETER RulesetArn
-        The Amazon Resource Name ARN for the ruleset to be validated in the profile job. The TargetArn of the selected ruleset should be the same as the Amazon Resource Name ARN of the dataset that is associated with the profile job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html#cfn-databrew-job-validationconfiguration-rulesetarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ValidationMode
-        Mode of data quality validation. Default mode is “CHECK_ALL” which verifies all rules defined in the selected ruleset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html#cfn-databrew-job-validationconfiguration-validationmode
         UpdateType: Mutable
         PrimitiveType: String

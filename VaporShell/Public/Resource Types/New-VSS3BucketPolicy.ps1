@@ -1,24 +1,10 @@
 function New-VSS3BucketPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::BucketPolicy resource to the template. Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity must have the PutBucketPolicy permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.
+        Adds an AWS::S3::BucketPolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::S3::BucketPolicy resource to the template. Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity must have the PutBucketPolicy permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.
-
-If you don't have PutBucketPolicy permissions, Amazon S3 returns a 403 Access Denied error. If you have the correct permissions, but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a 405 Method Not Allowed error.
-
-**Important**
-
-As a security precaution, the root user of the AWS account that owns a bucket can always use this operation, even if the policy explicitly denies the root user the ability to perform this action.
-
-For more information, see Bucket policy examples: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html.
-
-The following operations are related to PutBucketPolicy:
-
-+  CreateBucket: https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html
-
-+  DeleteBucket: https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html
+        Adds an AWS::S3::BucketPolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
@@ -27,15 +13,11 @@ The following operations are related to PutBucketPolicy:
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Bucket
-        The name of the Amazon S3 bucket to which the policy applies.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#aws-properties-s3-policy-bucket
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER PolicyDocument
-        A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM. For more information, see the AWS::IAM::Policy PolicyDocument: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument resource description in this guide and Access Policy Language Overview: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html in the *Amazon S3 User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#aws-properties-s3-policy-policydocument
         PrimitiveType: Json
         UpdateType: Mutable

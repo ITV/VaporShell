@@ -1,10 +1,10 @@
 function New-VSDeviceFarmVPCEConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::DeviceFarm::VPCEConfiguration resource to the template. Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud (VPC endpoint service.
+        Adds an AWS::DeviceFarm::VPCEConfiguration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::DeviceFarm::VPCEConfiguration resource to the template. Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud (VPC endpoint service.
+        Adds an AWS::DeviceFarm::VPCEConfiguration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html
@@ -12,39 +12,27 @@ function New-VSDeviceFarmVPCEConfiguration {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ServiceDnsName
-        The DNS name that Device Farm will use to map to the private service you want to access.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html#cfn-devicefarm-vpceconfiguration-servicednsname
+    .PARAMETER VpceServiceName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html#cfn-devicefarm-vpceconfiguration-vpceservicename
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER VpceConfigurationDescription
-        An optional description that provides details about your VPC endpoint configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html#cfn-devicefarm-vpceconfiguration-vpceconfigurationdescription
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER VpceConfigurationName
-        The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html#cfn-devicefarm-vpceconfiguration-vpceconfigurationname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER VpceServiceName
-        The name of the VPC endpoint service that you want to access from Device Farm.
-The name follows the format com.amazonaws.vpce.us-west-2.vpce-svc-id.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html#cfn-devicefarm-vpceconfiguration-vpceservicename
+    .PARAMETER ServiceDnsName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html#cfn-devicefarm-vpceconfiguration-servicednsname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html in the *AWS CloudFormation resource type reference guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html#cfn-devicefarm-vpceconfiguration-tags
         UpdateType: Mutable
         Type: List
@@ -123,7 +111,7 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ServiceDnsName,
+        $VpceServiceName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -156,7 +144,7 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VpceServiceName,
+        $ServiceDnsName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

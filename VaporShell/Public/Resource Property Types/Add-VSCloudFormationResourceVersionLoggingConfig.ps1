@@ -1,25 +1,21 @@
 function Add-VSCloudFormationResourceVersionLoggingConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::ResourceVersion.LoggingConfig resource property to the template. Logging configuration information for a resource.
+        Adds an AWS::CloudFormation::ResourceVersion.LoggingConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CloudFormation::ResourceVersion.LoggingConfig resource property to the template.
-Logging configuration information for a resource.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
 
     .PARAMETER LogGroupName
-        The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER LogRoleArn
-        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
         UpdateType: Immutable
         PrimitiveType: String

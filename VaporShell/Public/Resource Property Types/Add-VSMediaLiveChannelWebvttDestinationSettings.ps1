@@ -1,20 +1,16 @@
 function Add-VSMediaLiveChannelWebvttDestinationSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.WebvttDestinationSettings resource property to the template. The configuration of Web VTT captions in the output.
+        Adds an AWS::MediaLive::Channel.WebvttDestinationSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.WebvttDestinationSettings resource property to the template.
-The configuration of Web VTT captions in the output.
 
-The parent of this entity is CaptionDestinationSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-webvttdestinationsettings.html
 
     .PARAMETER StyleControl
-        Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO_STYLE_DATA - Don't pass through the style. The output captions will not contain any font styling information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-webvttdestinationsettings.html#cfn-medialive-channel-webvttdestinationsettings-stylecontrol
         PrimitiveType: String
         UpdateType: Mutable

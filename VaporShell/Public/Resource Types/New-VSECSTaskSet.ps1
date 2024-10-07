@@ -1,10 +1,10 @@
 function New-VSECSTaskSet {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::TaskSet resource to the template. Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see Amazon ECS Deployment Types: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html in the *Amazon Elastic Container Service Developer Guide*.
+        Adds an AWS::ECS::TaskSet resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ECS::TaskSet resource to the template. Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see Amazon ECS Deployment Types: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html in the *Amazon Elastic Container Service Developer Guide*.
+        Adds an AWS::ECS::TaskSet resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html
@@ -12,76 +12,57 @@ function New-VSECSTaskSet {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Cluster
-        The short name or full Amazon Resource Name ARN of the cluster that hosts the service to create the task set in.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ExternalId
-        An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER LaunchType
-        The launch type that new tasks in the task set uses. For more information, see Amazon ECS Launch Types: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the *Amazon Elastic Container Service Developer Guide*.
-If a launchType is specified, the capacityProviderStrategy parameter must be omitted.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER LoadBalancers
-        A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
-        UpdateType: Immutable
-        Type: List
-        ItemType: LoadBalancer
-
-    .PARAMETER NetworkConfiguration
-        The network configuration for the task set.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
-        UpdateType: Immutable
-        Type: NetworkConfiguration
-
     .PARAMETER PlatformVersion
-        The platform version that the tasks in the task set uses. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Scale
-        A floating-point percentage of your desired number of tasks to place and keep running in the task set.
+    .PARAMETER TaskDefinition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+        UpdateType: Immutable
+        PrimitiveType: String
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
-        UpdateType: Mutable
-        Type: Scale
+    .PARAMETER ExternalId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Cluster
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER LoadBalancers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
+        UpdateType: Immutable
+        Type: List
+        ItemType: LoadBalancer
+        DuplicatesAllowed: True
 
     .PARAMETER Service
-        The short name or full Amazon Resource Name ARN of the service to create the task set in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ServiceRegistries
-        The details of the service discovery registries to assign to this task set. For more information, see Service Discovery: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
+    .PARAMETER NetworkConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
+        UpdateType: Immutable
+        Type: NetworkConfiguration
 
+    .PARAMETER Scale
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+        UpdateType: Mutable
+        Type: Scale
+
+    .PARAMETER ServiceRegistries
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
         UpdateType: Immutable
         Type: List
         ItemType: ServiceRegistry
+        DuplicatesAllowed: True
 
-    .PARAMETER TaskDefinition
-        The task definition for the tasks in the task set to use.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+    .PARAMETER LaunchType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -147,6 +128,39 @@ If a launchType is specified, the capacityProviderStrategy parameter must be omi
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PlatformVersion,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TaskDefinition,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ExternalId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -160,28 +174,6 @@ If a launchType is specified, the capacityProviderStrategy parameter must be omi
         $Cluster,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ExternalId,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $LaunchType,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ECS.TaskSet.LoadBalancer"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -191,21 +183,6 @@ If a launchType is specified, the capacityProviderStrategy parameter must be omi
                 }
             })]
         $LoadBalancers,
-        [parameter(Mandatory = $false)]
-        $NetworkConfiguration,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PlatformVersion,
-        [parameter(Mandatory = $false)]
-        $Scale,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -218,6 +195,10 @@ If a launchType is specified, the capacityProviderStrategy parameter must be omi
             })]
         $Service,
         [parameter(Mandatory = $false)]
+        $NetworkConfiguration,
+        [parameter(Mandatory = $false)]
+        $Scale,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ECS.TaskSet.ServiceRegistry"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -228,7 +209,7 @@ If a launchType is specified, the capacityProviderStrategy parameter must be omi
                 }
             })]
         $ServiceRegistries,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -238,7 +219,7 @@ If a launchType is specified, the capacityProviderStrategy parameter must be omi
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TaskDefinition,
+        $LaunchType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

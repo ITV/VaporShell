@@ -1,29 +1,24 @@
 function Add-VSACMPCACertificateAuthorityOcspConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::CertificateAuthority.OcspConfiguration resource property to the template. Contains information to enable and configure Online Certificate Status Protocol (OCSP for validating certificate revocation status.
+        Adds an AWS::ACMPCA::CertificateAuthority.OcspConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::CertificateAuthority.OcspConfiguration resource property to the template.
-Contains information to enable and configure Online Certificate Status Protocol (OCSP for validating certificate revocation status.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html
 
-    .PARAMETER Enabled
-        Flag enabling use of the Online Certificate Status Protocol OCSP for validating certificate revocation status.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
     .PARAMETER OcspCustomCname
-        By default, ACM Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol OCSP. A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
-Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-ocspcustomcname
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER Enabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
@@ -34,17 +29,6 @@ Note: The value of the CNAME must not include a protocol prefix such as "http://
     (
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Enabled,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -53,7 +37,18 @@ Note: The value of the CNAME must not include a protocol prefix such as "http://
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OcspCustomCname
+        $OcspCustomCname,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Enabled
     )
     Begin {
         $obj = [PSCustomObject]@{}

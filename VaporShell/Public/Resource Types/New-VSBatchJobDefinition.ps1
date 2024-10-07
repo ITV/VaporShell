@@ -1,10 +1,10 @@
 function New-VSBatchJobDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::Batch::JobDefinition resource to the template. The AWS::Batch::JobDefinition resource specifies the parameters for an AWS Batch job definition. For more information, see Job Definitions: https://docs.aws.amazon.com/batch/latest/userguide/job_definitions.html in the *AWS Batch User Guide*.
+        Adds an AWS::Batch::JobDefinition resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Batch::JobDefinition resource to the template. The AWS::Batch::JobDefinition resource specifies the parameters for an AWS Batch job definition. For more information, see Job Definitions: https://docs.aws.amazon.com/batch/latest/userguide/job_definitions.html in the *AWS Batch User Guide*.
+        Adds an AWS::Batch::JobDefinition resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html
@@ -13,81 +13,62 @@ function New-VSBatchJobDefinition {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Type
-        The type of job definition. For more information about multi-node parallel jobs, see Creating a multi-node parallel job definition: https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html in the * AWS Batch User Guide*.
-If the job is run on Fargate resources, then multinode isn't supported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-type
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Parameters
-        Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a SubmitJob request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see Job Definition Parameters: https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html in the * AWS Batch User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER NodeProperties
-        An object with various properties specific to multi-node parallel jobs.
-If the job runs on Fargate resources, then you must not specify nodeProperties; use containerProperties instead.
-
         Type: NodeProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-nodeproperties
         UpdateType: Mutable
 
     .PARAMETER SchedulingPriority
-        The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-schedulingpriority
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Timeout
-        The timeout configuration for jobs that are submitted with this job definition. You can specify a timeout duration after which AWS Batch terminates your jobs if they haven't finished.
-
         Type: Timeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout
         UpdateType: Mutable
 
     .PARAMETER ContainerProperties
-        An object with various properties specific to container-based jobs.
-
         Type: ContainerProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-containerproperties
         UpdateType: Mutable
 
     .PARAMETER JobDefinitionName
-        The name of the job definition.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-jobdefinitionname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER PropagateTags
-        Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks during task creation. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the FAILED state.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER PlatformCapabilities
-        The platform capabilities required by the job definition. If no value is specified, it defaults to EC2. Jobs run on Fargate resources specify FARGATE.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities
         UpdateType: Mutable
 
-    .PARAMETER RetryStrategy
-        The retry strategy to use for failed jobs that are submitted with this job definition.
+    .PARAMETER EksProperties
+        Type: EksProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-eksproperties
+        UpdateType: Mutable
 
+    .PARAMETER RetryStrategy
         Type: RetryStrategy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
         UpdateType: Mutable
 
     .PARAMETER Tags
-        The tags applied to the job definition.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags
         PrimitiveType: Json
         UpdateType: Immutable
@@ -217,6 +198,8 @@ If the job runs on Fargate resources, then you must not specify nodeProperties; 
         $PropagateTags,
         [parameter(Mandatory = $false)]
         $PlatformCapabilities,
+        [parameter(Mandatory = $false)]
+        $EksProperties,
         [parameter(Mandatory = $false)]
         $RetryStrategy,
         [parameter(Mandatory = $false)]

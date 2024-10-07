@@ -1,10 +1,10 @@
 function New-VSSageMakerAppImageConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::AppImageConfig resource to the template. Creates a configuration for running a SageMaker image as a KernelGateway app. The configuration specifies the Amazon Elastic File System (EFS storage volume on the image, and a list of the kernels in the image.
+        Adds an AWS::SageMaker::AppImageConfig resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::AppImageConfig resource to the template. Creates a configuration for running a SageMaker image as a KernelGateway app. The configuration specifies the Amazon Elastic File System (EFS storage volume on the image, and a list of the kernels in the image.
+        Adds an AWS::SageMaker::AppImageConfig resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html
@@ -12,24 +12,17 @@ function New-VSSageMakerAppImageConfig {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AppImageConfigName
-        The name of the AppImageConfig. Must be unique to your account.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER KernelGatewayImageConfig
-        The configuration for the file system and kernels in the SageMaker image.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
         UpdateType: Mutable
         Type: KernelGatewayImageConfig
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+    .PARAMETER AppImageConfigName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
         UpdateType: Immutable
         Type: List
@@ -98,6 +91,8 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $KernelGatewayImageConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -109,8 +104,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $AppImageConfigName,
-        [parameter(Mandatory = $false)]
-        $KernelGatewayImageConfig,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

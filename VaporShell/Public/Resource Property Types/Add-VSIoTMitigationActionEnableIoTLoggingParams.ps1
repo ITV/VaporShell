@@ -1,26 +1,22 @@
 function Add-VSIoTMitigationActionEnableIoTLoggingParams {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction.EnableIoTLoggingParams resource property to the template. Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+        Adds an AWS::IoT::MitigationAction.EnableIoTLoggingParams resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::MitigationAction.EnableIoTLoggingParams resource property to the template.
-Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html
 
-    .PARAMETER LogLevel
-        Specifies the type of information to be logged.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+    .PARAMETER RoleArnForLogging
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RoleArnForLogging
-        The Amazon Resource Name ARN of the IAM role used for logging.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+    .PARAMETER LogLevel
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ Parameters used when defining a mitigation action that enable AWS IoT Core loggi
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LogLevel,
+        $RoleArnForLogging,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ Parameters used when defining a mitigation action that enable AWS IoT Core loggi
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleArnForLogging
+        $LogLevel
     )
     Begin {
         $obj = [PSCustomObject]@{}

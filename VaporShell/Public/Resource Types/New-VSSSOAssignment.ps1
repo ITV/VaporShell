@@ -1,14 +1,10 @@
 function New-VSSSOAssignment {
     <#
     .SYNOPSIS
-        Adds an AWS::SSO::Assignment resource to the template. Assigns access to a Principal for a specified AWS account using a specified permission set.
+        Adds an AWS::SSO::Assignment resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SSO::Assignment resource to the template. Assigns access to a Principal for a specified AWS account using a specified permission set.
-
-**Note**
-
-The term *principal* here refers to a user or group that is defined in AWS SSO.
+        Adds an AWS::SSO::Assignment resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
@@ -16,45 +12,33 @@ The term *principal* here refers to a user or group that is defined in AWS SSO.
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER InstanceArn
-        The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see Amazon Resource Names ARNs and AWS Service Namespaces: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html in the *AWS General Reference*.
+    .PARAMETER PrincipalId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER InstanceArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER TargetId
-        TargetID is an AWS account identifier, typically a 10-12 digit string For example, 123456789012.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER TargetType
-        The entity type for which the assignment will be created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PermissionSetArn
-        The ARN of the permission set.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PrincipalType
-        The entity type for which the assignment will be created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER PrincipalId
-        An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6. For more information about PrincipalIds in AWS SSO, see the AWS SSO Identity Store API Reference: /singlesignon/latest/IdentityStoreAPIReference/welcome.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+    .PARAMETER TargetId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -130,7 +114,7 @@ The term *principal* here refers to a user or group that is defined in AWS SSO.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $InstanceArn,
+        $PrincipalId,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -141,7 +125,7 @@ The term *principal* here refers to a user or group that is defined in AWS SSO.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TargetId,
+        $InstanceArn,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -185,7 +169,7 @@ The term *principal* here refers to a user or group that is defined in AWS SSO.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PrincipalId,
+        $TargetId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

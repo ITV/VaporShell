@@ -1,18 +1,10 @@
 function New-VSRDSDBClusterParameterGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::RDS::DBClusterParameterGroup resource to the template. The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group.
+        Adds an AWS::RDS::DBClusterParameterGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::RDS::DBClusterParameterGroup resource to the template. The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group.
-
-For information about configuring parameters for Amazon Aurora DB instances, see Working with DB parameter groups and DB cluster parameter groups: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html in the *Amazon Aurora User Guide*.
-
-**Note**
-
-If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
-
-If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
+        Adds an AWS::RDS::DBClusterParameterGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html
@@ -21,38 +13,31 @@ If you apply a change to parameter group associated with a stopped DB cluster, t
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A friendly description for this DB cluster parameter group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-description
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Family
-        The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
-The DB cluster parameter group family can't be changed when updating a DB cluster parameter group.
-To list all of the available parameter group families, use the following command:
-aws rds describe-db-engine-versions --query "DBEngineVersions].DBParameterGroupFamily"
-The output contains duplicates.
-For more information, see CreateDBClusterParameterGroup: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBClusterParameterGroup.html.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-family
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Parameters
-        Provides a list of parameters for the DB cluster parameter group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-parameters
         UpdateType: Mutable
         PrimitiveType: Json
 
-    .PARAMETER Tags
-        Tags to assign to the DB cluster parameter group.
+    .PARAMETER Family
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-family
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER DBClusterParameterGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-dbclusterparametergroupname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -129,17 +114,6 @@ For more information, see CreateDBClusterParameterGroup: https://docs.aws.amazon
         $Description,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Family,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -149,6 +123,28 @@ For more information, see CreateDBClusterParameterGroup: https://docs.aws.amazon
                 }
             })]
         $Parameters,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Family,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DBClusterParameterGroupName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

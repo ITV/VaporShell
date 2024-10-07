@@ -1,20 +1,16 @@
 function Add-VSLightsailContainerContainerServiceDeployment {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Container.ContainerServiceDeployment resource property to the template. ContainerServiceDeployment is a property of the AWS::Lightsail::Container: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html resource. It describes a container deployment configuration of a container service.
+        Adds an AWS::Lightsail::Container.ContainerServiceDeployment resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Container.ContainerServiceDeployment resource property to the template.
-ContainerServiceDeployment is a property of the AWS::Lightsail::Container: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html resource. It describes a container deployment configuration of a container service.
 
-A deployment specifies the settings, such as the ports and launch command, of containers that are deployed to your container service.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html
 
     .PARAMETER Containers
-        An object that describes the configuration for the containers of the deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html#cfn-lightsail-container-containerservicedeployment-containers
         UpdateType: Mutable
         Type: List
@@ -22,8 +18,6 @@ A deployment specifies the settings, such as the ports and launch command, of co
         DuplicatesAllowed: False
 
     .PARAMETER PublicEndpoint
-        An object that describes the endpoint of the deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html#cfn-lightsail-container-containerservicedeployment-publicendpoint
         UpdateType: Mutable
         Type: PublicEndpoint

@@ -1,26 +1,22 @@
 function Add-VSGroundStationMissionProfileDataflowEdge {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::MissionProfile.DataflowEdge resource property to the template. A dataflow edge defines from where and to where data will flow during a contact.
+        Adds an AWS::GroundStation::MissionProfile.DataflowEdge resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::MissionProfile.DataflowEdge resource property to the template.
-A dataflow edge defines from where and to where data will flow during a contact.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html
 
-    .PARAMETER Source
-        The ARN of the source for this dataflow edge. For example, specify the ARN of an antenna downlink config for a downlink edge or a dataflow endpoint config for an uplink edge.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-source
+    .PARAMETER Destination
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-destination
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Destination
-        The ARN of the destination for this dataflow edge. For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-destination
+    .PARAMETER Source
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-source
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,7 +37,7 @@ A dataflow edge defines from where and to where data will flow during a contact.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Source,
+        $Destination,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -52,7 +48,7 @@ A dataflow edge defines from where and to where data will flow during a contact.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Destination
+        $Source
     )
     Begin {
         $obj = [PSCustomObject]@{}

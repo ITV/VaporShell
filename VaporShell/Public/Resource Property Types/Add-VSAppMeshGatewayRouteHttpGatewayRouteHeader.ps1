@@ -1,32 +1,26 @@
 function Add-VSAppMeshGatewayRouteHttpGatewayRouteHeader {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader resource property to the template. An object that represents the HTTP header in the gateway route.
+        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader resource property to the template.
-An object that represents the HTTP header in the gateway route.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html
 
     .PARAMETER Invert
-        Specify True to match anything except the match criteria. The default value is False.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-invert
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Name
-        A name for the HTTP header in the gateway route that will be matched on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Match
-        An object that represents the method and value to match with the header value sent in a request. Specify one match method.
-
         Type: HttpGatewayRouteHeaderMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-match
         UpdateType: Mutable

@@ -1,25 +1,21 @@
 function Add-VSIAMUserLoginProfile {
     <#
     .SYNOPSIS
-        Adds an AWS::IAM::User.LoginProfile resource property to the template. Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see Managing Passwords: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html in the *IAM User Guide*.
+        Adds an AWS::IAM::User.LoginProfile resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IAM::User.LoginProfile resource property to the template.
-Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see Managing Passwords: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html in the *IAM User Guide*.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html
 
     .PARAMETER Password
-        The user's password.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html#cfn-iam-user-loginprofile-password
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER PasswordResetRequired
-        Specifies whether the user is required to set a new password on next sign-in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html#cfn-iam-user-loginprofile-passwordresetrequired
         PrimitiveType: Boolean
         UpdateType: Mutable

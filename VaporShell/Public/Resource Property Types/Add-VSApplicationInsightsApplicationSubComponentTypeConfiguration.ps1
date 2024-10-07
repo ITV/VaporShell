@@ -1,25 +1,21 @@
 function Add-VSApplicationInsightsApplicationSubComponentTypeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationInsights::Application.SubComponentTypeConfiguration resource property to the template. The AWS::ApplicationInsights::Application SubComponentTypeConfiguration property type specifies the sub-component configurations for a component.
+        Adds an AWS::ApplicationInsights::Application.SubComponentTypeConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::ApplicationInsights::Application.SubComponentTypeConfiguration resource property to the template.
-The AWS::ApplicationInsights::Application SubComponentTypeConfiguration property type specifies the sub-component configurations for a component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
 
     .PARAMETER SubComponentType
-        The sub-component type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER SubComponentConfigurationDetails
-        The configuration settings of the sub-components.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
         UpdateType: Mutable
         Type: SubComponentConfigurationDetails

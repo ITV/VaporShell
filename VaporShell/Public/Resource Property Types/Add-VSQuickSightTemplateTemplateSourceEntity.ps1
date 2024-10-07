@@ -1,25 +1,21 @@
 function Add-VSQuickSightTemplateTemplateSourceEntity {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.TemplateSourceEntity resource property to the template. The source entity of the template.
+        Adds an AWS::QuickSight::Template.TemplateSourceEntity resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.TemplateSourceEntity resource property to the template.
-The source entity of the template.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html
 
     .PARAMETER SourceAnalysis
-        The source analysis, if it is based on an analysis.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourceanalysis
         UpdateType: Mutable
         Type: TemplateSourceAnalysis
 
     .PARAMETER SourceTemplate
-        The source template, if it is based on an template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourcetemplate
         UpdateType: Mutable
         Type: TemplateSourceTemplate

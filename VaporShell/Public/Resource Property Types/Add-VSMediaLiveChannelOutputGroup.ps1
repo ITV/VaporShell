@@ -1,35 +1,27 @@
 function Add-VSMediaLiveChannelOutputGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.OutputGroup resource property to the template. The settings for one output group.
+        Adds an AWS::MediaLive::Channel.OutputGroup resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.OutputGroup resource property to the template.
-The settings for one output group.
 
-The parent of this entity is EncoderSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html
 
     .PARAMETER Outputs
-        The settings for the outputs in the output group.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html#cfn-medialive-channel-outputgroup-outputs
         ItemType: Output
         UpdateType: Mutable
 
     .PARAMETER OutputGroupSettings
-        The settings associated with the output group.
-
         Type: OutputGroupSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html#cfn-medialive-channel-outputgroup-outputgroupsettings
         UpdateType: Mutable
 
     .PARAMETER Name
-        A custom output group name that you can optionally define. Only letters, numbers, and the underscore character are allowed. The maximum length is 32 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html#cfn-medialive-channel-outputgroup-name
         PrimitiveType: String
         UpdateType: Mutable

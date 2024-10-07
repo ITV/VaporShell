@@ -1,18 +1,16 @@
 function Add-VSIoTSiteWiseAccessPolicyProject {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AccessPolicy.Project resource property to the template. The Project property type specifies the AWS IoT SiteWise Monitor project for an AWS::IoTSiteWise::AccessPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html.
+        Adds an AWS::IoTSiteWise::AccessPolicy.Project resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::AccessPolicy.Project resource property to the template.
-The Project property type specifies the AWS IoT SiteWise Monitor project for an AWS::IoTSiteWise::AccessPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html
 
     .PARAMETER id
-        The ID of the project.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id
         UpdateType: Mutable
         PrimitiveType: String

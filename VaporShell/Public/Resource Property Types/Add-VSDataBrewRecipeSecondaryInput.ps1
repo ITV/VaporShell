@@ -1,25 +1,21 @@
 function Add-VSDataBrewRecipeSecondaryInput {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Recipe.SecondaryInput resource property to the template. Represents secondary inputs in a UNION transform.
+        Adds an AWS::DataBrew::Recipe.SecondaryInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Recipe.SecondaryInput resource property to the template.
-Represents secondary inputs in a UNION transform.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html
 
     .PARAMETER S3InputDefinition
-        The Amazon S3 location where the data is stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-s3inputdefinition
         UpdateType: Mutable
         Type: S3Location
 
     .PARAMETER DataCatalogInputDefinition
-        The AWS Glue Data Catalog parameters for the data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-datacataloginputdefinition
         UpdateType: Mutable
         Type: DataCatalogInputDefinition

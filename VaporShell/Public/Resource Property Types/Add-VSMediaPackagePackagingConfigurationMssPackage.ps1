@@ -1,36 +1,31 @@
 function Add-VSMediaPackagePackagingConfigurationMssPackage {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingConfiguration.MssPackage resource property to the template. Parameters for a packaging configuration that uses Microsoft Smooth Streaming (MSS packaging.
+        Adds an AWS::MediaPackage::PackagingConfiguration.MssPackage resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::PackagingConfiguration.MssPackage resource property to the template.
-Parameters for a packaging configuration that uses Microsoft Smooth Streaming (MSS packaging.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
 
-    .PARAMETER Encryption
-        Parameters for encrypting content.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
-        UpdateType: Mutable
-        Type: MssEncryption
-
     .PARAMETER MssManifests
-        A list of Microsoft Smooth manifest configurations that are available from this endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
         UpdateType: Mutable
         Type: List
         ItemType: MssManifest
+        DuplicatesAllowed: True
 
     .PARAMETER SegmentDurationSeconds
-        Duration in seconds of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
         UpdateType: Mutable
         PrimitiveType: Integer
+
+    .PARAMETER Encryption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
+        UpdateType: Mutable
+        Type: MssEncryption
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,8 +34,6 @@ Parameters for a packaging configuration that uses Microsoft Smooth Streaming (M
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Encryption,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaPackage.PackagingConfiguration.MssManifest"
@@ -62,7 +55,9 @@ Parameters for a packaging configuration that uses Microsoft Smooth Streaming (M
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SegmentDurationSeconds
+        $SegmentDurationSeconds,
+        [parameter(Mandatory = $false)]
+        $Encryption
     )
     Begin {
         $obj = [PSCustomObject]@{}

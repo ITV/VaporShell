@@ -1,28 +1,39 @@
 function Add-VSS3StorageLensBucketLevel {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.BucketLevel resource property to the template. A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
+        Adds an AWS::S3::StorageLens.BucketLevel resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.BucketLevel resource property to the template.
-A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
 
-    .PARAMETER ActivityMetrics
-        A property for the bucket-level activity metrics for Amazon S3 Storage Lens.
+    .PARAMETER AdvancedDataProtectionMetrics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advanceddataprotectionmetrics
+        UpdateType: Mutable
+        Type: AdvancedDataProtectionMetrics
 
+    .PARAMETER PrefixLevel
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
+        UpdateType: Mutable
+        Type: PrefixLevel
+
+    .PARAMETER ActivityMetrics
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
         UpdateType: Mutable
         Type: ActivityMetrics
 
-    .PARAMETER PrefixLevel
-        A property for the bucket-level prefix-level storage metrics for S3 Storage Lens.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
+    .PARAMETER AdvancedCostOptimizationMetrics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advancedcostoptimizationmetrics
         UpdateType: Mutable
-        Type: PrefixLevel
+        Type: AdvancedCostOptimizationMetrics
+
+    .PARAMETER DetailedStatusCodesMetrics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-detailedstatuscodesmetrics
+        UpdateType: Mutable
+        Type: DetailedStatusCodesMetrics
 
     .FUNCTIONALITY
         Vaporshell
@@ -32,9 +43,15 @@ A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
     Param
     (
         [parameter(Mandatory = $false)]
+        $AdvancedDataProtectionMetrics,
+        [parameter(Mandatory = $false)]
+        $PrefixLevel,
+        [parameter(Mandatory = $false)]
         $ActivityMetrics,
         [parameter(Mandatory = $false)]
-        $PrefixLevel
+        $AdvancedCostOptimizationMetrics,
+        [parameter(Mandatory = $false)]
+        $DetailedStatusCodesMetrics
     )
     Begin {
         $obj = [PSCustomObject]@{}

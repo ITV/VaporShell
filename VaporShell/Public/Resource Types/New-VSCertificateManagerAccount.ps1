@@ -1,10 +1,10 @@
 function New-VSCertificateManagerAccount {
     <#
     .SYNOPSIS
-        Adds an AWS::CertificateManager::Account resource to the template. The AWS::CertificateManager::Account resource defines the expiry event configuration that determines the number of days prior to expiry when ACM starts generating EventBridge events.
+        Adds an AWS::CertificateManager::Account resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CertificateManager::Account resource to the template. The AWS::CertificateManager::Account resource defines the expiry event configuration that determines the number of days prior to expiry when ACM starts generating EventBridge events.
+        Adds an AWS::CertificateManager::Account resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html
@@ -13,8 +13,6 @@ function New-VSCertificateManagerAccount {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ExpiryEventsConfiguration
-        Object containing expiration events options associated with an AWS account. For more information, see ExpiryEventsConfiguration: https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html in the API reference.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
         UpdateType: Mutable
         Type: ExpiryEventsConfiguration

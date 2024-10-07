@@ -1,10 +1,10 @@
 function New-VSSESReceiptRule {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::ReceiptRule resource to the template. Specifies a receipt rule.
+        Adds an AWS::SES::ReceiptRule resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SES::ReceiptRule resource to the template. Specifies a receipt rule.
+        Adds an AWS::SES::ReceiptRule resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html
@@ -13,22 +13,16 @@ function New-VSSESReceiptRule {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER After
-        The name of an existing rule after which the new rule is placed. If this parameter is null, the new rule is inserted at the beginning of the rule list.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html#cfn-ses-receiptrule-after
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Rule
-        A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
-
         Type: Rule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html#cfn-ses-receiptrule-rule
         UpdateType: Mutable
 
     .PARAMETER RuleSetName
-        The name of the rule set where the receipt rule is added.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html#cfn-ses-receiptrule-rulesetname
         PrimitiveType: String
         UpdateType: Immutable

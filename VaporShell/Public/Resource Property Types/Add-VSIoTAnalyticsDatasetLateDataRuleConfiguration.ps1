@@ -1,18 +1,16 @@
 function Add-VSIoTAnalyticsDatasetLateDataRuleConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Dataset.LateDataRuleConfiguration resource property to the template. The information needed to configure a delta time session window.
+        Adds an AWS::IoTAnalytics::Dataset.LateDataRuleConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Dataset.LateDataRuleConfiguration resource property to the template.
-The information needed to configure a delta time session window.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedataruleconfiguration.html
 
     .PARAMETER DeltaTimeSessionWindowConfiguration
-        The information needed to configure a delta time session window.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedataruleconfiguration.html#cfn-iotanalytics-dataset-latedataruleconfiguration-deltatimesessionwindowconfiguration
         UpdateType: Mutable
         Type: DeltaTimeSessionWindowConfiguration

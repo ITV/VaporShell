@@ -1,29 +1,26 @@
 function Add-VSKendraDataSourceSalesforceStandardObjectAttachmentConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.SalesforceStandardObjectAttachmentConfiguration resource property to the template. Provides the configuration information for processing attachments to Salesforce standard objects.
+        Adds an AWS::Kendra::DataSource.SalesforceStandardObjectAttachmentConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.SalesforceStandardObjectAttachmentConfiguration resource property to the template.
-Provides the configuration information for processing attachments to Salesforce standard objects.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html
 
     .PARAMETER DocumentTitleFieldName
-        The name of the field used for the document title.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-documenttitlefieldname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER FieldMappings
-        One or more objects that map fields in attachments to Amazon Kendra index fields.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
         UpdateType: Mutable
         Type: List
         ItemType: DataSourceToIndexFieldMapping
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

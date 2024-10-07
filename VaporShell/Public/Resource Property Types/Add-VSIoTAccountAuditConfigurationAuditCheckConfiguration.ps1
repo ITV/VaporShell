@@ -1,18 +1,16 @@
 function Add-VSIoTAccountAuditConfigurationAuditCheckConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::AccountAuditConfiguration.AuditCheckConfiguration resource property to the template. Which audit checks are enabled and disabled for this account.
+        Adds an AWS::IoT::AccountAuditConfiguration.AuditCheckConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::AccountAuditConfiguration.AuditCheckConfiguration resource property to the template.
-Which audit checks are enabled and disabled for this account.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html
 
     .PARAMETER Enabled
-        True if this audit check is enabled for this account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfiguration-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

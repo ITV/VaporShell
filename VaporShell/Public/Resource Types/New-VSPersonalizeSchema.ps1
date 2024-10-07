@@ -1,22 +1,10 @@
 function New-VSPersonalizeSchema {
     <#
     .SYNOPSIS
-        Adds an AWS::Personalize::Schema resource to the template. Creates an Amazon Personalize schema from the specified schema string. The schema you create must be in Avro JSON format.
+        Adds an AWS::Personalize::Schema resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Personalize::Schema resource to the template. Creates an Amazon Personalize schema from the specified schema string. The schema you create must be in Avro JSON format.
-
-Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group. You specify a schema when you call CreateDataset: https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html.
-
-For more information on schemas, see Datasets and schemas: https://docs.aws.amazon.com/personalize/latest/dg/how-it-works-dataset-schema.html.
-
-**Related APIs**
-
-+  ListSchemas: https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html
-
-+  DescribeSchema: https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html
-
-+  DeleteSchema: https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html
+        Adds an AWS::Personalize::Schema resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html
@@ -24,24 +12,18 @@ For more information on schemas, see Datasets and schemas: https://docs.aws.amaz
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the schema.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html#cfn-personalize-schema-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Schema
-        The schema.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html#cfn-personalize-schema-schema
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Domain
-        The domain of a schema that you created for a dataset in a Domain dataset group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html#cfn-personalize-schema-domain
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html#cfn-personalize-schema-name
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -117,17 +99,6 @@ For more information on schemas, see Datasets and schemas: https://docs.aws.amaz
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Schema,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -140,6 +111,17 @@ For more information on schemas, see Datasets and schemas: https://docs.aws.amaz
                 }
             })]
         $Domain,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

@@ -1,26 +1,23 @@
 function Add-VSKendraDataSourceOneDriveUsers {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.OneDriveUsers resource property to the template. User accounts whose documents should be indexed.
+        Adds an AWS::Kendra::DataSource.OneDriveUsers resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.OneDriveUsers resource property to the template.
-User accounts whose documents should be indexed.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html
 
     .PARAMETER OneDriveUserList
-        A list of users whose documents should be indexed. Specify the user names in email format, for example, username@tenantdomain. If you need to index the documents of more than 100 users, use the OneDriveUserS3Path field to specify the location of a file containing a list of users.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER OneDriveUserS3Path
-        The S3 bucket location of a file containing a list of users whose documents should be indexed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
         UpdateType: Mutable
         Type: S3Path

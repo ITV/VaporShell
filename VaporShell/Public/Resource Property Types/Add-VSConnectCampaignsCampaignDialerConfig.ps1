@@ -10,15 +10,15 @@ function Add-VSConnectCampaignsCampaignDialerConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html
 
-    .PARAMETER ProgressiveDialerConfig
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-progressivedialerconfig
-        UpdateType: Mutable
-        Type: ProgressiveDialerConfig
-
     .PARAMETER PredictiveDialerConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-predictivedialerconfig
         UpdateType: Mutable
         Type: PredictiveDialerConfig
+
+    .PARAMETER ProgressiveDialerConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-progressivedialerconfig
+        UpdateType: Mutable
+        Type: ProgressiveDialerConfig
 
     .FUNCTIONALITY
         Vaporshell
@@ -28,9 +28,9 @@ function Add-VSConnectCampaignsCampaignDialerConfig {
     Param
     (
         [parameter(Mandatory = $false)]
-        $ProgressiveDialerConfig,
+        $PredictiveDialerConfig,
         [parameter(Mandatory = $false)]
-        $PredictiveDialerConfig
+        $ProgressiveDialerConfig
     )
     Begin {
         $obj = [PSCustomObject]@{}

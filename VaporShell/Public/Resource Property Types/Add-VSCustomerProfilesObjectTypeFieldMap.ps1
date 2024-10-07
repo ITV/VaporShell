@@ -1,25 +1,21 @@
 function Add-VSCustomerProfilesObjectTypeFieldMap {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::ObjectType.FieldMap resource property to the template. A map of the name and ObjectType field.
+        Adds an AWS::CustomerProfiles::ObjectType.FieldMap resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::ObjectType.FieldMap resource property to the template.
-A map of the name and ObjectType field.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html
 
     .PARAMETER Name
-        Name of the field.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ObjectTypeField
-        Represents a field in a ProfileObjectType.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield
         UpdateType: Mutable
         Type: ObjectTypeField

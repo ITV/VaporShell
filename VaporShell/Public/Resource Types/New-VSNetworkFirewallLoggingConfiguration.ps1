@@ -1,22 +1,10 @@
 function New-VSNetworkFirewallLoggingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::LoggingConfiguration resource to the template. Use the AWS::NetworkFirewall::LoggingConfiguration: #aws-resource-networkfirewall-loggingconfiguration to define the destinations and logging options for an AWS::NetworkFirewall::Firewall: aws-resource-networkfirewall-firewall.md.
+        Adds an AWS::NetworkFirewall::LoggingConfiguration resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::NetworkFirewall::LoggingConfiguration resource to the template. Use the AWS::NetworkFirewall::LoggingConfiguration: #aws-resource-networkfirewall-loggingconfiguration to define the destinations and logging options for an AWS::NetworkFirewall::Firewall: aws-resource-networkfirewall-firewall.md.
-
-You must change the logging configuration by changing one LogDestinationConfig setting at a time in your LogDestinationConfigs.
-
-You can make only one of the following changes to your AWS::NetworkFirewall::LoggingConfiguration: #aws-resource-networkfirewall-loggingconfiguration resource:
-
-+ Create a new log destination object by adding a single LogDestinationConfig array element to LogDestinationConfigs.
-
-+ Delete a log destination object by removing a single LogDestinationConfig array element from LogDestinationConfigs.
-
-+ Change the LogDestination setting in a single LogDestinationConfig array element.
-
-You can't change the LogDestinationType or LogType in a LogDestinationConfig. To change these settings, delete the existing LogDestinationConfig object and create a new one, in two separate modifications.
+        Adds an AWS::NetworkFirewall::LoggingConfiguration resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html
@@ -25,22 +13,16 @@ You can't change the LogDestinationType or LogType in a LogDestinationConfig. To
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER FirewallName
-        The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER FirewallArn
-        The Amazon Resource Name ARN of the AWS::NetworkFirewall::Firewall: aws-resource-networkfirewall-firewall.md that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER LoggingConfiguration
-        Defines how AWS Network Firewall performs logging for a AWS::NetworkFirewall::Firewall: aws-resource-networkfirewall-firewall.md.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
         UpdateType: Mutable
         Type: LoggingConfiguration

@@ -1,40 +1,33 @@
 function Add-VSRefactorSpacesRouteUriPathRouteInput {
     <#
     .SYNOPSIS
-        Adds an AWS::RefactorSpaces::Route.UriPathRouteInput resource property to the template. The configuration for the URI path route type.
+        Adds an AWS::RefactorSpaces::Route.UriPathRouteInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::RefactorSpaces::Route.UriPathRouteInput resource property to the template.
-The configuration for the URI path route type.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html
 
     .PARAMETER SourcePath
-        The path to use to match traffic. Paths must start with / and are relative to the base of the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html#cfn-refactorspaces-route-uripathrouteinput-sourcepath
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ActivationState
-        Indicates whether traffic is forwarded to this route’s service after the route is created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html#cfn-refactorspaces-route-uripathrouteinput-activationstate
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Methods
-        A list of HTTP methods to match. An empty list matches all values. If a method is present, only HTTP requests using that method are forwarded to this route’s service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html#cfn-refactorspaces-route-uripathrouteinput-methods
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER IncludeChildPaths
-        Indicates whether to match all subpaths of the given source path. If this value is false, requests must match the source path exactly before they are forwarded to this route's service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html#cfn-refactorspaces-route-uripathrouteinput-includechildpaths
         UpdateType: Immutable
         PrimitiveType: Boolean

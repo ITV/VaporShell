@@ -1,25 +1,21 @@
 function Add-VSInspectorV2FilterStringFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::InspectorV2::Filter.StringFilter resource property to the template. An object that describes the details of a string filter.
+        Adds an AWS::InspectorV2::Filter.StringFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::InspectorV2::Filter.StringFilter resource property to the template.
-An object that describes the details of a string filter.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-stringfilter.html
 
     .PARAMETER Comparison
-        The operator to use when comparing values in the filter
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-stringfilter.html#cfn-inspectorv2-filter-stringfilter-comparison
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Value
-        The value to filter on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-stringfilter.html#cfn-inspectorv2-filter-stringfilter-value
         UpdateType: Mutable
         PrimitiveType: String

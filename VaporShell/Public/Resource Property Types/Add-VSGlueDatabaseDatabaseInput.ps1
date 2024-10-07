@@ -1,54 +1,47 @@
 function Add-VSGlueDatabaseDatabaseInput {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Database.DatabaseInput resource property to the template. The structure used to create or update a database.
+        Adds an AWS::Glue::Database.DatabaseInput resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::Database.DatabaseInput resource property to the template.
-The structure used to create or update a database.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
 
     .PARAMETER LocationUri
-        The location of the database for example, an HDFS path.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CreateTableDefaultPermissions
-        Creates a set of default permissions on the table for principals.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
         ItemType: PrincipalPrivileges
         UpdateType: Mutable
 
     .PARAMETER Description
-        A description of the database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Parameters
-        These key-value pairs define parameters and properties of the database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER TargetDatabase
-        A DatabaseIdentifier structure that describes a target database for resource linking.
-
         Type: DatabaseIdentifier
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
         UpdateType: Mutable
 
-    .PARAMETER Name
-        The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
+    .PARAMETER FederatedDatabase
+        Type: FederatedDatabase
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-federateddatabase
+        UpdateType: Mutable
 
+    .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
         PrimitiveType: String
         UpdateType: Immutable
@@ -106,6 +99,8 @@ The structure used to create or update a database.
         $Parameters,
         [parameter(Mandatory = $false)]
         $TargetDatabase,
+        [parameter(Mandatory = $false)]
+        $FederatedDatabase,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

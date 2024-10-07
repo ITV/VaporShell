@@ -1,35 +1,26 @@
 function Add-VSEMRContainersVirtualClusterContainerProvider {
     <#
     .SYNOPSIS
-        Adds an AWS::EMRContainers::VirtualCluster.ContainerProvider resource property to the template. The information about the container provider.
+        Adds an AWS::EMRContainers::VirtualCluster.ContainerProvider resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EMRContainers::VirtualCluster.ContainerProvider resource property to the template.
-The information about the container provider.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html
 
     .PARAMETER Type
-        The type of the container provider. EKS is the only supported type as of now.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html#cfn-emrcontainers-virtualcluster-containerprovider-type
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Id
-        The ID of the container cluster.
-*Minimum*: 1
-*Maximum*: 100
-*Pattern*: ^0-9A-Za-z]A-Za-z0-9-_]*
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html#cfn-emrcontainers-virtualcluster-containerprovider-id
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Info
-        The information about the container cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html#cfn-emrcontainers-virtualcluster-containerprovider-info
         UpdateType: Immutable
         Type: ContainerInfo

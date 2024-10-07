@@ -1,22 +1,21 @@
 function Add-VSSSMIncidentsResponsePlanChatChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMIncidents::ResponsePlan.ChatChannel resource property to the template. The AWS Chatbot chat channel used for collaboration during an incident.
+        Adds an AWS::SSMIncidents::ResponsePlan.ChatChannel resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::SSMIncidents::ResponsePlan.ChatChannel resource property to the template.
-The AWS Chatbot chat channel used for collaboration during an incident.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html
 
     .PARAMETER ChatbotSns
-        The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the SNS topics
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

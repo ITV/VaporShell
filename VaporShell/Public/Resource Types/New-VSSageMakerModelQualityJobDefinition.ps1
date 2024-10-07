@@ -1,10 +1,10 @@
 function New-VSSageMakerModelQualityJobDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelQualityJobDefinition resource to the template. Creates a definition for a job that monitors model quality and drift. For information about model monitor, see Amazon SageMaker Model Monitor: https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html.
+        Adds an AWS::SageMaker::ModelQualityJobDefinition resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::ModelQualityJobDefinition resource to the template. Creates a definition for a job that monitors model quality and drift. For information about model monitor, see Amazon SageMaker Model Monitor: https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html.
+        Adds an AWS::SageMaker::ModelQualityJobDefinition resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html
@@ -12,82 +12,62 @@ function New-VSSageMakerModelQualityJobDefinition {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER JobDefinitionName
-        The name of the monitoring job definition.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ModelQualityBaselineConfig
-        Specifies the constraints and baselines for the monitoring job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
-        UpdateType: Immutable
-        Type: ModelQualityBaselineConfig
-
     .PARAMETER ModelQualityAppSpecification
-        Container image configuration object for the monitoring job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
         UpdateType: Immutable
         Type: ModelQualityAppSpecification
-
-    .PARAMETER ModelQualityJobInput
-        A list of the inputs that are monitored. Currently endpoints are supported.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
-        UpdateType: Immutable
-        Type: ModelQualityJobInput
-
-    .PARAMETER ModelQualityJobOutputConfig
-        The output configuration for monitoring jobs.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
-        UpdateType: Immutable
-        Type: MonitoringOutputConfig
-
-    .PARAMETER JobResources
-        Identifies the resources to deploy for a monitoring job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
-        UpdateType: Immutable
-        Type: MonitoringResources
-
-    .PARAMETER NetworkConfig
-        Specifies the network configuration for the monitoring job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
-        UpdateType: Immutable
-        Type: NetworkConfig
 
     .PARAMETER EndpointName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-endpointname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The Amazon Resource Name ARN of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER StoppingCondition
-        A time limit for how long the monitoring job is allowed to run before stopping.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
         UpdateType: Immutable
         Type: StoppingCondition
 
-    .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
+    .PARAMETER ModelQualityBaselineConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
+        UpdateType: Immutable
+        Type: ModelQualityBaselineConfig
 
+    .PARAMETER JobDefinitionName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ModelQualityJobInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
+        UpdateType: Immutable
+        Type: ModelQualityJobInput
+
+    .PARAMETER JobResources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
+        UpdateType: Immutable
+        Type: MonitoringResources
+
+    .PARAMETER NetworkConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
+        UpdateType: Immutable
+        Type: NetworkConfig
+
+    .PARAMETER ModelQualityJobOutputConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
+        UpdateType: Immutable
+        Type: MonitoringOutputConfig
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
         UpdateType: Immutable
         Type: List
         ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -151,29 +131,8 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $JobDefinitionName,
-        [parameter(Mandatory = $false)]
-        $ModelQualityBaselineConfig,
         [parameter(Mandatory = $true)]
         $ModelQualityAppSpecification,
-        [parameter(Mandatory = $true)]
-        $ModelQualityJobInput,
-        [parameter(Mandatory = $true)]
-        $ModelQualityJobOutputConfig,
-        [parameter(Mandatory = $true)]
-        $JobResources,
-        [parameter(Mandatory = $false)]
-        $NetworkConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -185,6 +144,29 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $EndpointName,
+        [parameter(Mandatory = $false)]
+        $StoppingCondition,
+        [parameter(Mandatory = $false)]
+        $ModelQualityBaselineConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $JobDefinitionName,
+        [parameter(Mandatory = $true)]
+        $ModelQualityJobInput,
+        [parameter(Mandatory = $true)]
+        $JobResources,
+        [parameter(Mandatory = $false)]
+        $NetworkConfig,
+        [parameter(Mandatory = $true)]
+        $ModelQualityJobOutputConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -196,8 +178,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $RoleArn,
-        [parameter(Mandatory = $false)]
-        $StoppingCondition,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

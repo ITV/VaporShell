@@ -1,53 +1,41 @@
 function Add-VSQuickSightDataSetJoinInstruction {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.JoinInstruction resource property to the template. The instructions associated with a join.
+        Adds an AWS::QuickSight::DataSet.JoinInstruction resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.JoinInstruction resource property to the template.
-The instructions associated with a join.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html
 
     .PARAMETER OnClause
-        The join instructions provided in the ON clause of a join.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-onclause
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Type
-        The type of join that it is.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-type
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER LeftJoinKeyProperties
-        Join key properties of the left operand.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftjoinkeyproperties
         UpdateType: Mutable
         Type: JoinKeyProperties
 
     .PARAMETER LeftOperand
-        The operand on the left side of a join.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftoperand
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RightOperand
-        The operand on the right side of a join.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightoperand
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RightJoinKeyProperties
-        Join key properties of the right operand.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightjoinkeyproperties
         UpdateType: Mutable
         Type: JoinKeyProperties

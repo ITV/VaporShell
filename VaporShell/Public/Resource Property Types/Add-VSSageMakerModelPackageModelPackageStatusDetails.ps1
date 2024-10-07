@@ -10,17 +10,19 @@ function Add-VSSageMakerModelPackageModelPackageStatusDetails {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html
 
-    .PARAMETER ImageScanStatuses
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html#cfn-sagemaker-modelpackage-modelpackagestatusdetails-imagescanstatuses
-        UpdateType: Mutable
-        Type: List
-        ItemType: ModelPackageStatusItem
-
     .PARAMETER ValidationStatuses
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html#cfn-sagemaker-modelpackage-modelpackagestatusdetails-validationstatuses
         UpdateType: Mutable
         Type: List
         ItemType: ModelPackageStatusItem
+        DuplicatesAllowed: True
+
+    .PARAMETER ImageScanStatuses
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html#cfn-sagemaker-modelpackage-modelpackagestatusdetails-imagescanstatuses
+        UpdateType: Mutable
+        Type: List
+        ItemType: ModelPackageStatusItem
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -29,17 +31,6 @@ function Add-VSSageMakerModelPackageModelPackageStatusDetails {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.SageMaker.ModelPackage.ModelPackageStatusItem"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ImageScanStatuses,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.ModelPackage.ModelPackageStatusItem"
@@ -50,7 +41,18 @@ function Add-VSSageMakerModelPackageModelPackageStatusDetails {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ValidationStatuses
+        $ValidationStatuses,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.SageMaker.ModelPackage.ModelPackageStatusItem"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ImageScanStatuses
     )
     Begin {
         $obj = [PSCustomObject]@{}

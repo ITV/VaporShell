@@ -1,10 +1,10 @@
 function New-VSApiGatewayV2VpcLink {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::VpcLink resource to the template. The AWS::ApiGatewayV2::VpcLink resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from PENDING to AVAILABLE to successfully create a VPC link, which can take up to 10 minutes. To learn more, see Working with VPC Links for HTTP APIs: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGatewayV2::VpcLink resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGatewayV2::VpcLink resource to the template. The AWS::ApiGatewayV2::VpcLink resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from PENDING to AVAILABLE to successfully create a VPC link, which can take up to 10 minutes. To learn more, see Working with VPC Links for HTTP APIs: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGatewayV2::VpcLink resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-vpclink.html
@@ -13,8 +13,6 @@ function New-VSApiGatewayV2VpcLink {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER SubnetIds
-        A list of subnet IDs to include in the VPC link.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-vpclink.html#cfn-apigatewayv2-vpclink-subnetids
         UpdateType: Immutable
         Type: List
@@ -22,8 +20,6 @@ function New-VSApiGatewayV2VpcLink {
         DuplicatesAllowed: True
 
     .PARAMETER SecurityGroupIds
-        A list of security group IDs for the VPC link.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-vpclink.html#cfn-apigatewayv2-vpclink-securitygroupids
         UpdateType: Immutable
         Type: List
@@ -31,16 +27,12 @@ function New-VSApiGatewayV2VpcLink {
         DuplicatesAllowed: True
 
     .PARAMETER Tags
-        The collection of tags. Each tag element is associated with a given resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-vpclink.html#cfn-apigatewayv2-vpclink-tags
         UpdateType: Mutable
         Type: Map
         PrimitiveItemType: String
 
     .PARAMETER Name
-        The name of the VPC link.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-vpclink.html#cfn-apigatewayv2-vpclink-name
         UpdateType: Mutable
         PrimitiveType: String

@@ -1,27 +1,21 @@
 function Add-VSGlueMLTransformMLUserDataEncryption {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::MLTransform.MLUserDataEncryption resource property to the template. The encryption-at-rest settings of the transform that apply to accessing user data.
+        Adds an AWS::Glue::MLTransform.MLUserDataEncryption resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Glue::MLTransform.MLUserDataEncryption resource property to the template.
-The encryption-at-rest settings of the transform that apply to accessing user data.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html
 
     .PARAMETER MLUserDataEncryptionMode
-        The encryption mode applied to user data. Valid values are:
-+ DISABLED: encryption is disabled.
-+ SSEKMS: use of server-side encryption with AWS Key Management Service SSE-KMS for user data stored in Amazon S3.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER KmsKeyId
-        The ID for the customer-provided KMS key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
         PrimitiveType: String
         UpdateType: Mutable

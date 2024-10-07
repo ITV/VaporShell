@@ -1,25 +1,21 @@
 function Add-VSEC2EC2FleetMemoryMiBRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.MemoryMiBRequest resource property to the template. The minimum and maximum amount of memory, in MiB.
+        Adds an AWS::EC2::EC2Fleet.MemoryMiBRequest resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.MemoryMiBRequest resource property to the template.
-The minimum and maximum amount of memory, in MiB.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-memorymibrequest.html
 
     .PARAMETER Min
-        The minimum amount of memory, in MiB. To specify no minimum limit, specify 0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-memorymibrequest.html#cfn-ec2-ec2fleet-memorymibrequest-min
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Max
-        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-memorymibrequest.html#cfn-ec2-ec2fleet-memorymibrequest-max
         UpdateType: Immutable
         PrimitiveType: Integer

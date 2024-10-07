@@ -1,12 +1,10 @@
 function New-VSEC2NetworkInsightsAccessScope {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAccessScope resource to the template. Describes a Network Access Scope. A Network Access Scope defines outbound (egress and inbound (ingress traffic patterns, including sources, destinations, paths, and traffic types.
+        Adds an AWS::EC2::NetworkInsightsAccessScope resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::EC2::NetworkInsightsAccessScope resource to the template. Describes a Network Access Scope. A Network Access Scope defines outbound (egress and inbound (ingress traffic patterns, including sources, destinations, paths, and traffic types.
-
-Network Access Analyzer identifies unintended network access to your resources on AWS. When you start an analysis on a Network Access Scope, Network Access Analyzer produces findings. For more information, see the Network Access Analyzer User Guide: https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/.
+        Adds an AWS::EC2::NetworkInsightsAccessScope resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html
@@ -14,29 +12,26 @@ Network Access Analyzer identifies unintended network access to your resources o
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Tags
-        The tags.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html#cfn-ec2-networkinsightsaccessscope-tags
-        UpdateType: Mutable
-        Type: List
-        ItemType: Tag
-
-    .PARAMETER MatchPaths
-        The paths to match.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html#cfn-ec2-networkinsightsaccessscope-matchpaths
-        UpdateType: Immutable
-        Type: List
-        ItemType: AccessScopePathRequest
-
     .PARAMETER ExcludePaths
-        The paths to exclude.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html#cfn-ec2-networkinsightsaccessscope-excludepaths
         UpdateType: Immutable
         Type: List
         ItemType: AccessScopePathRequest
+        DuplicatesAllowed: True
+
+    .PARAMETER MatchPaths
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html#cfn-ec2-networkinsightsaccessscope-matchpaths
+        UpdateType: Immutable
+        Type: List
+        ItemType: AccessScopePathRequest
+        DuplicatesAllowed: True
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html#cfn-ec2-networkinsightsaccessscope-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -100,20 +95,6 @@ Network Access Analyzer identifies unintended network access to your resources o
             })]
         [System.String]
         $LogicalId,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAccessScope.AccessScopePathRequest"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MatchPaths,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAccessScope.AccessScopePathRequest"
@@ -125,6 +106,20 @@ Network Access Analyzer identifies unintended network access to your resources o
                 }
             })]
         $ExcludePaths,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAccessScope.AccessScopePathRequest"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MatchPaths,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -199,11 +194,11 @@ Network Access Analyzer identifies unintended network access to your resources o
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Tags {
+                ExcludePaths {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ExcludePaths -Value @($ExcludePaths)
                 }
                 MatchPaths {
                     if (!($ResourceParams["Properties"])) {
@@ -211,11 +206,11 @@ Network Access Analyzer identifies unintended network access to your resources o
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name MatchPaths -Value @($MatchPaths)
                 }
-                ExcludePaths {
+                Tags {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ExcludePaths -Value @($ExcludePaths)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

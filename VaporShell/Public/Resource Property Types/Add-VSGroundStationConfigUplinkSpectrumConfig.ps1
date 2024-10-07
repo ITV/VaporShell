@@ -1,28 +1,24 @@
 function Add-VSGroundStationConfigUplinkSpectrumConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.UplinkSpectrumConfig resource property to the template. Defines a uplink spectrum.
+        Adds an AWS::GroundStation::Config.UplinkSpectrumConfig resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.UplinkSpectrumConfig resource property to the template.
-Defines a uplink spectrum.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html
 
-    .PARAMETER CenterFrequency
-        The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-centerfrequency
-        UpdateType: Mutable
-        Type: Frequency
-
     .PARAMETER Polarization
-        The polarization of the spectrum. Valid values are "RIGHT_HAND" and "LEFT_HAND".
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-polarization
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER CenterFrequency
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-centerfrequency
+        UpdateType: Mutable
+        Type: Frequency
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,8 +27,6 @@ Defines a uplink spectrum.
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $CenterFrequency,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -43,7 +37,9 @@ Defines a uplink spectrum.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Polarization
+        $Polarization,
+        [parameter(Mandatory = $false)]
+        $CenterFrequency
     )
     Begin {
         $obj = [PSCustomObject]@{}

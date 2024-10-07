@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelAudioHlsRenditionSelection {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioHlsRenditionSelection resource property to the template. Selector for HLS audio rendition.
+        Adds an AWS::MediaLive::Channel.AudioHlsRenditionSelection resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioHlsRenditionSelection resource property to the template.
-Selector for HLS audio rendition.
 
-The parent of this entity is AudioSelectorSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiohlsrenditionselection.html
 
     .PARAMETER GroupId
-        Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiohlsrenditionselection.html#cfn-medialive-channel-audiohlsrenditionselection-groupid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Name
-        Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiohlsrenditionselection.html#cfn-medialive-channel-audiohlsrenditionselection-name
         PrimitiveType: String
         UpdateType: Mutable

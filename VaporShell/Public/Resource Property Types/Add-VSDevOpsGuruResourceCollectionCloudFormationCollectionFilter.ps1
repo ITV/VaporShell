@@ -1,22 +1,21 @@
 function Add-VSDevOpsGuruResourceCollectionCloudFormationCollectionFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::DevOpsGuru::ResourceCollection.CloudFormationCollectionFilter resource property to the template. Information about AWS CloudFormation stacks. You can use up to 500 stacks to specify which AWS resources in your account to analyze. For more information, see Stacks: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html in the * AWS CloudFormation User Guide*.
+        Adds an AWS::DevOpsGuru::ResourceCollection.CloudFormationCollectionFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DevOpsGuru::ResourceCollection.CloudFormationCollectionFilter resource property to the template.
-Information about AWS CloudFormation stacks. You can use up to 500 stacks to specify which AWS resources in your account to analyze. For more information, see Stacks: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html in the * AWS CloudFormation User Guide*.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
 
     .PARAMETER StackNames
-        An array of CloudFormation stack names.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

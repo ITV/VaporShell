@@ -1,12 +1,10 @@
 function New-VSCognitoUserPoolRiskConfigurationAttachment {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment resource to the template. The AWS::Cognito::UserPoolRiskConfigurationAttachment resource sets the risk configuration that is used for Amazon Cognito advanced security features.
+        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment resource to the template. The AWS::Cognito::UserPoolRiskConfigurationAttachment resource sets the risk configuration that is used for Amazon Cognito advanced security features.
-
-You can specify risk configuration for a single client (with a specific clientId or for all clients (by setting the clientId to ALL. If you specify ALL, the default configuration is used for every client that has had no risk configuration set previously. If you specify risk configuration for a particular client, it no longer falls back to the ALL configuration.
+        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html
@@ -15,36 +13,26 @@ You can specify risk configuration for a single client (with a specific clientId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER CompromisedCredentialsRiskConfiguration
-        The compromised credentials risk configuration object, including the EventFilter and the EventAction.
-
         Type: CompromisedCredentialsRiskConfigurationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfiguration
         UpdateType: Mutable
 
     .PARAMETER UserPoolId
-        The user pool ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-userpoolid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ClientId
-        The app client ID. You can specify the risk configuration for a single client with a specific ClientId or for all clients by setting the ClientId to ALL.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-clientid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER AccountTakeoverRiskConfiguration
-        The account takeover risk configuration object, including the NotifyConfiguration object and Actions to take if there is an account takeover.
-
         Type: AccountTakeoverRiskConfigurationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfiguration
         UpdateType: Mutable
 
     .PARAMETER RiskExceptionConfiguration
-        The configuration to override the risk decision.
-
         Type: RiskExceptionConfigurationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfiguration
         UpdateType: Mutable

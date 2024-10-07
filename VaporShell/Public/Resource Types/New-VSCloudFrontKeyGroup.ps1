@@ -1,12 +1,10 @@
 function New-VSCloudFrontKeyGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::KeyGroup resource to the template. A key group.
+        Adds an AWS::CloudFront::KeyGroup resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFront::KeyGroup resource to the template. A key group.
-
-A key group contains a list of public keys that you can use with CloudFront signed URLs and signed cookies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html.
+        Adds an AWS::CloudFront::KeyGroup resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
@@ -15,8 +13,6 @@ A key group contains a list of public keys that you can use with CloudFront sign
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER KeyGroupConfig
-        The key group configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
         UpdateType: Mutable
         Type: KeyGroupConfig

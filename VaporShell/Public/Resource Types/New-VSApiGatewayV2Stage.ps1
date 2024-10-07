@@ -1,10 +1,10 @@
 function New-VSApiGatewayV2Stage {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::Stage resource to the template. The AWS::ApiGatewayV2::Stage resource specifies a stage for an API. Each stage is a named reference to a deployment of the API and is made available for client applications to call. To learn more, see Working with stages for HTTP APIs : https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html and Deploy a WebSocket API in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-set-up-websocket-deployment.html.
+        Adds an AWS::ApiGatewayV2::Stage resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ApiGatewayV2::Stage resource to the template. The AWS::ApiGatewayV2::Stage resource specifies a stage for an API. Each stage is a named reference to a deployment of the API and is made available for client applications to call. To learn more, see Working with stages for HTTP APIs : https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html and Deploy a WebSocket API in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-set-up-websocket-deployment.html.
+        Adds an AWS::ApiGatewayV2::Stage resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html
@@ -13,85 +13,61 @@ function New-VSApiGatewayV2Stage {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ClientCertificateId
-        The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-clientcertificateid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DeploymentId
-        The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-deploymentid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Description
-        The description for the API stage.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AccessLogSettings
-        Settings for logging access in this stage.
-
         Type: AccessLogSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-accesslogsettings
         UpdateType: Mutable
 
     .PARAMETER AutoDeploy
-        Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-autodeploy
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER RouteSettings
-        Route settings for the stage.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-routesettings
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER StageName
-        The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagename
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER StageVariables
-        A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match A-Za-z0-9-._~:/?#&=,]+.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagevariables
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER AccessPolicyId
-        This parameter is not currently supported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-accesspolicyid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ApiId
-        The API identifier.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-apiid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER DefaultRouteSettings
-        The default route settings for the stage.
-
         Type: RouteSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-defaultroutesettings
         UpdateType: Mutable
 
     .PARAMETER Tags
-        The collection of tags. Each tag element is associated with a given resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-tags
         PrimitiveType: Json
         UpdateType: Mutable

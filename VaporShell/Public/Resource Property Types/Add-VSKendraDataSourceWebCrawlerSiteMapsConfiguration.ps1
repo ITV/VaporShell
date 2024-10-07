@@ -1,25 +1,21 @@
 function Add-VSKendraDataSourceWebCrawlerSiteMapsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.WebCrawlerSiteMapsConfiguration resource property to the template. Provides the configuration information of the sitemap URLs to crawl.
+        Adds an AWS::Kendra::DataSource.WebCrawlerSiteMapsConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.WebCrawlerSiteMapsConfiguration resource property to the template.
-Provides the configuration information of the sitemap URLs to crawl.
 
-*When selecting websites to index, you must adhere to the Amazon Acceptable Use Policy: http://aws.amazon.com/aup/ and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html
 
     .PARAMETER SiteMaps
-        The list of sitemap URLs of the websites you want to crawl.
-The list can include a maximum of three sitemap URLs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html#cfn-kendra-datasource-webcrawlersitemapsconfiguration-sitemaps
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

@@ -1,25 +1,21 @@
 function Add-VSAppFlowConnectorProfileServiceNowConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.ServiceNowConnectorProfileCredentials resource property to the template. The ServiceNowConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using ServiceNow.
+        Adds an AWS::AppFlow::ConnectorProfile.ServiceNowConnectorProfileCredentials resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.ServiceNowConnectorProfileCredentials resource property to the template.
-The ServiceNowConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using ServiceNow.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html
 
     .PARAMETER Username
-        The name of the user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-username
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Password
-        The password that corresponds to the user name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-password
         UpdateType: Mutable
         PrimitiveType: String

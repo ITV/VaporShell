@@ -1,10 +1,10 @@
 function New-VSIoTAnalyticsChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Channel resource to the template. The AWS::IoTAnalytics::Channel resource collects data from an MQTT topic and archives the raw, unprocessed messages before publishing the data to a pipeline. For more information, see  How to Use AWS IoT Analytics: https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how in the *AWS IoT Analytics User Guide*.
+        Adds an AWS::IoTAnalytics::Channel resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTAnalytics::Channel resource to the template. The AWS::IoTAnalytics::Channel resource collects data from an MQTT topic and archives the raw, unprocessed messages before publishing the data to a pipeline. For more information, see  How to Use AWS IoT Analytics: https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how in the *AWS IoT Analytics User Guide*.
+        Adds an AWS::IoTAnalytics::Channel resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html
@@ -12,31 +12,22 @@ function New-VSIoTAnalyticsChannel {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ChannelStorage
-        Where channel data is stored.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-channelstorage
-        UpdateType: Mutable
-        Type: ChannelStorage
-
     .PARAMETER ChannelName
-        The name of the channel.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-channelname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER RetentionPeriod
-        How long, in days, message data is kept for the channel.
+    .PARAMETER ChannelStorage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-channelstorage
+        UpdateType: Mutable
+        Type: ChannelStorage
 
+    .PARAMETER RetentionPeriod
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-retentionperiod
         UpdateType: Mutable
         Type: RetentionPeriod
 
     .PARAMETER Tags
-        Metadata which can be used to manage the channel.
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-tags
         UpdateType: Mutable
         Type: List
@@ -106,8 +97,6 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        $ChannelStorage,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -118,6 +107,8 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $ChannelName,
+        [parameter(Mandatory = $false)]
+        $ChannelStorage,
         [parameter(Mandatory = $false)]
         $RetentionPeriod,
         [VaporShell.Core.TransformTag()]

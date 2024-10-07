@@ -1,13 +1,11 @@
 function Add-VSMediaLiveChannelMediaPackageOutputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.MediaPackageOutputSettings resource property to the template. The settings for a MediaPackage output.
+        Adds an AWS::MediaLive::Channel.MediaPackageOutputSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.MediaPackageOutputSettings resource property to the template.
-The settings for a MediaPackage output.
 
-The parent of this entity is OutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputsettings.html

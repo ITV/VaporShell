@@ -1,18 +1,16 @@
 function Add-VSIoTSiteWiseAccessPolicyPortal {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AccessPolicy.Portal resource property to the template. The Portal property type specifies the AWS IoT SiteWise Monitor portal for an AWS::IoTSiteWise::AccessPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html.
+        Adds an AWS::IoTSiteWise::AccessPolicy.Portal resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::AccessPolicy.Portal resource property to the template.
-The Portal property type specifies the AWS IoT SiteWise Monitor portal for an AWS::IoTSiteWise::AccessPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
 
     .PARAMETER id
-        The ID of the portal.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html#cfn-iotsitewise-accesspolicy-portal-id
         UpdateType: Mutable
         PrimitiveType: String

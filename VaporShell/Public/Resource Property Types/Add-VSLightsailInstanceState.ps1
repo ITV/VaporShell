@@ -1,25 +1,21 @@
 function Add-VSLightsailInstanceState {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Instance.State resource property to the template. State is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the status code and the state (for example, running of an instance.
+        Adds an AWS::Lightsail::Instance.State resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Instance.State resource property to the template.
-State is a property of the AWS::Lightsail::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html resource. It describes the status code and the state (for example, running of an instance.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-state.html
 
     .PARAMETER Code
-        The status code of the instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-state.html#cfn-lightsail-instance-state-code
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Name
-        The state of the instance for example, running or pending.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-state.html#cfn-lightsail-instance-state-name
         UpdateType: Mutable
         PrimitiveType: String

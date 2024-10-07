@@ -1,18 +1,16 @@
 function Add-VSBillingConductorBillingGroupAccountGrouping {
     <#
     .SYNOPSIS
-        Adds an AWS::BillingConductor::BillingGroup.AccountGrouping resource property to the template. The set of accounts that will be under the billing group. The set of accounts resemble the linked accounts in a consolidated family.
+        Adds an AWS::BillingConductor::BillingGroup.AccountGrouping resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::BillingConductor::BillingGroup.AccountGrouping resource property to the template.
-The set of accounts that will be under the billing group. The set of accounts resemble the linked accounts in a consolidated family.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html
 
     .PARAMETER LinkedAccountIds
-        The account IDs that make up the billing group. Account IDs must be a part of the consolidated billing family, and not associated with another billing group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-linkedaccountids
         UpdateType: Mutable
         Type: List

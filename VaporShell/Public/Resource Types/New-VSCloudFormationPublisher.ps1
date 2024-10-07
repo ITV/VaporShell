@@ -1,12 +1,10 @@
 function New-VSCloudFormationPublisher {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::Publisher resource to the template. Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are available for use by all CloudFormation users.
+        Adds an AWS::CloudFormation::Publisher resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::CloudFormation::Publisher resource to the template. Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are available for use by all CloudFormation users.
-
-For information on requirements for registering as a public extension publisher, see Registering your account to publish CloudFormation extensions: https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs in the *CloudFormation CLI User Guide*.
+        Adds an AWS::CloudFormation::Publisher resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html
@@ -15,17 +13,11 @@ For information on requirements for registering as a public extension publisher,
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AcceptTermsAndConditions
-        Whether you accept the Terms and Conditions: https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to register to publish public extensions to the CloudFormation registry.
-The default is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-accepttermsandconditions
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER ConnectionArn
-        If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name ARN for your connection to that account.
-For more information, see Registering your account to publish CloudFormation extensions: https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs in the *CloudFormation CLI User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-connectionarn
         UpdateType: Immutable
         PrimitiveType: String

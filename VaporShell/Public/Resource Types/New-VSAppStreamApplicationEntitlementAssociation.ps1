@@ -1,10 +1,10 @@
 function New-VSAppStreamApplicationEntitlementAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::ApplicationEntitlementAssociation resource to the template. Associates an application to an entitlement.
+        Adds an AWS::AppStream::ApplicationEntitlementAssociation resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::AppStream::ApplicationEntitlementAssociation resource to the template. Associates an application to an entitlement.
+        Adds an AWS::AppStream::ApplicationEntitlementAssociation resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationentitlementassociation.html
@@ -12,24 +12,18 @@ function New-VSAppStreamApplicationEntitlementAssociation {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER StackName
-        The name of the stack.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationentitlementassociation.html#cfn-appstream-applicationentitlementassociation-stackname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER EntitlementName
-        The name of the entitlement.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationentitlementassociation.html#cfn-appstream-applicationentitlementassociation-entitlementname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ApplicationIdentifier
-        The identifier of the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationentitlementassociation.html#cfn-appstream-applicationentitlementassociation-applicationidentifier
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER StackName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationentitlementassociation.html#cfn-appstream-applicationentitlementassociation-stackname
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -105,17 +99,6 @@ function New-VSAppStreamApplicationEntitlementAssociation {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StackName,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $EntitlementName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -128,6 +111,17 @@ function New-VSAppStreamApplicationEntitlementAssociation {
                 }
             })]
         $ApplicationIdentifier,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StackName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

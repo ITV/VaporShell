@@ -1,25 +1,21 @@
 function Add-VSRoute53RecoveryReadinessResourceSetR53ResourceRecord {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53RecoveryReadiness::ResourceSet.R53ResourceRecord resource property to the template. The Route 53 resource that a DNS target resource record points to.
+        Adds an AWS::Route53RecoveryReadiness::ResourceSet.R53ResourceRecord resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Route53RecoveryReadiness::ResourceSet.R53ResourceRecord resource property to the template.
-The Route 53 resource that a DNS target resource record points to.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html
 
     .PARAMETER DomainName
-        The DNS target domain name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RecordSetId
-        The Route 53 Resource Record Set ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid
         UpdateType: Mutable
         PrimitiveType: String

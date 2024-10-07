@@ -1,18 +1,16 @@
 function Add-VSMSKClusterIam {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.Iam resource property to the template. Details for IAM access control.
+        Adds an AWS::MSK::Cluster.Iam resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.Iam resource property to the template.
-Details for IAM access control.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-iam.html
 
     .PARAMETER Enabled
-        Whether IAM access control is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-iam.html#cfn-msk-cluster-iam-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean

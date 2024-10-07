@@ -1,18 +1,16 @@
 function Add-VSMSKClusterPublicAccess {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.PublicAccess resource property to the template. Specifies whether the cluster's brokers are accessible from the internet. Public access is off by default.
+        Adds an AWS::MSK::Cluster.PublicAccess resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.PublicAccess resource property to the template.
-Specifies whether the cluster's brokers are accessible from the internet. Public access is off by default.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-publicaccess.html
 
     .PARAMETER Type
-        Set to DISABLED to turn off public access or to SERVICE_PROVIDED_EIPS to turn it on. Public access if off by default.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-publicaccess.html#cfn-msk-cluster-publicaccess-type
         UpdateType: Mutable
         PrimitiveType: String

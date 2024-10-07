@@ -1,28 +1,24 @@
 function Add-VSKafkaConnectConnectorApacheKafkaCluster {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.ApacheKafkaCluster resource property to the template. The details of the Apache Kafka cluster to which the connector is connected.
+        Adds an AWS::KafkaConnect::Connector.ApacheKafkaCluster resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.ApacheKafkaCluster resource property to the template.
-The details of the Apache Kafka cluster to which the connector is connected.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html
 
-    .PARAMETER BootstrapServers
-        The bootstrap servers of the cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html#cfn-kafkaconnect-connector-apachekafkacluster-bootstrapservers
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Vpc
-        Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html#cfn-kafkaconnect-connector-apachekafkacluster-vpc
         UpdateType: Immutable
         Type: Vpc
+
+    .PARAMETER BootstrapServers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html#cfn-kafkaconnect-connector-apachekafkacluster-bootstrapservers
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -31,6 +27,8 @@ The details of the Apache Kafka cluster to which the connector is connected.
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $true)]
+        $Vpc,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -41,9 +39,7 @@ The details of the Apache Kafka cluster to which the connector is connected.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $BootstrapServers,
-        [parameter(Mandatory = $true)]
-        $Vpc
+        $BootstrapServers
     )
     Begin {
         $obj = [PSCustomObject]@{}

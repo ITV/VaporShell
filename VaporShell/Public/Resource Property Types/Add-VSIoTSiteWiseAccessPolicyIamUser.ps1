@@ -1,19 +1,16 @@
 function Add-VSIoTSiteWiseAccessPolicyIamUser {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AccessPolicy.IamUser resource property to the template. Contains information about an AWS Identity and Access Management user.
+        Adds an AWS::IoTSiteWise::AccessPolicy.IamUser resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::AccessPolicy.IamUser resource property to the template.
-Contains information about an AWS Identity and Access Management user.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
 
     .PARAMETER arn
-        The ARN of the IAM user. For more information, see IAM ARNs: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html in the *IAM User Guide*.
-If you delete the IAM user, access policies that contain this identity include an empty arn. You can delete the access policy for the IAM user that no longer exists.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
         UpdateType: Mutable
         PrimitiveType: String

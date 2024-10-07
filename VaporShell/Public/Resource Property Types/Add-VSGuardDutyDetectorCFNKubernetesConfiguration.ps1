@@ -1,18 +1,16 @@
 function Add-VSGuardDutyDetectorCFNKubernetesConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GuardDuty::Detector.CFNKubernetesConfiguration resource property to the template. Describes which Kubernetes protection data sources are enabled for the detector.
+        Adds an AWS::GuardDuty::Detector.CFNKubernetesConfiguration resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GuardDuty::Detector.CFNKubernetesConfiguration resource property to the template.
-Describes which Kubernetes protection data sources are enabled for the detector.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html
 
     .PARAMETER AuditLogs
-        Describes whether Kubernetes audit logs are enabled as a data source for the detector.
-
         Type: CFNKubernetesAuditLogsConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html#cfn-guardduty-detector-cfnkubernetesconfiguration-auditlogs
         UpdateType: Mutable

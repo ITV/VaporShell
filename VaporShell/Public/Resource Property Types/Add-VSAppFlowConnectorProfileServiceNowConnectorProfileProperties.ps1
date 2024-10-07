@@ -1,18 +1,16 @@
 function Add-VSAppFlowConnectorProfileServiceNowConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.ServiceNowConnectorProfileProperties resource property to the template. The ServiceNowConnectorProfileProperties property type specifies the connector-specific profile properties required when using ServiceNow.
+        Adds an AWS::AppFlow::ConnectorProfile.ServiceNowConnectorProfileProperties resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.ServiceNowConnectorProfileProperties resource property to the template.
-The ServiceNowConnectorProfileProperties property type specifies the connector-specific profile properties required when using ServiceNow.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the ServiceNow resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html#cfn-appflow-connectorprofile-servicenowconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String

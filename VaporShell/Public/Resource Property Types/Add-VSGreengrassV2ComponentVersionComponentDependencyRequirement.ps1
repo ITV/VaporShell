@@ -1,31 +1,23 @@
 function Add-VSGreengrassV2ComponentVersionComponentDependencyRequirement {
     <#
     .SYNOPSIS
-        Adds an AWS::GreengrassV2::ComponentVersion.ComponentDependencyRequirement resource property to the template. Contains information about a component dependency for a Lambda function component.
+        Adds an AWS::GreengrassV2::ComponentVersion.ComponentDependencyRequirement resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::GreengrassV2::ComponentVersion.ComponentDependencyRequirement resource property to the template.
-Contains information about a component dependency for a Lambda function component.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html
 
     .PARAMETER VersionRequirement
-        The component version requirement for the component dependency.
-AWS IoT Greengrass uses semantic version constraints. For more information, see Semantic Versioning: https://semver.org/.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-versionrequirement
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DependencyType
-        The type of this dependency. Choose from the following options:
-+ SOFT – The component doesn't restart if the dependency changes state.
-+ HARD – The component restarts if the dependency changes state.
-Default: HARD
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-dependencytype
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY

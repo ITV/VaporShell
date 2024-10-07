@@ -1,25 +1,21 @@
 function Add-VSAppStreamApplicationS3Location {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::Application.S3Location resource property to the template. The S3 location of the application icon.
+        Adds an AWS::AppStream::Application.S3Location resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppStream::Application.S3Location resource property to the template.
-The S3 location of the application icon.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-application-s3location.html
 
     .PARAMETER S3Bucket
-        The S3 bucket of the S3 object.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-application-s3location.html#cfn-appstream-application-s3location-s3bucket
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER S3Key
-        The S3 key of the S3 object.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-application-s3location.html#cfn-appstream-application-s3location-s3key
         UpdateType: Mutable
         PrimitiveType: String

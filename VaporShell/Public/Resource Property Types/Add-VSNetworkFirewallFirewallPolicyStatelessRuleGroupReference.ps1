@@ -1,25 +1,21 @@
 function Add-VSNetworkFirewallFirewallPolicyStatelessRuleGroupReference {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::FirewallPolicy.StatelessRuleGroupReference resource property to the template. Identifier for a single stateless rule group, used in a firewall policy to refer to the rule group.
+        Adds an AWS::NetworkFirewall::FirewallPolicy.StatelessRuleGroupReference resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::FirewallPolicy.StatelessRuleGroupReference resource property to the template.
-Identifier for a single stateless rule group, used in a firewall policy to refer to the rule group.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html
 
     .PARAMETER ResourceArn
-        The Amazon Resource Name ARN of the stateless rule group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-resourcearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Priority
-        An integer setting that indicates the order in which to run the stateless rule groups in a single AWS::NetworkFirewall::FirewallPolicy: aws-resource-networkfirewall-firewallpolicy.md. Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-priority
         UpdateType: Mutable
         PrimitiveType: Integer

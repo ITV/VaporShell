@@ -10,15 +10,15 @@ function Add-VSIoTEventsAlarmModelSns {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html
 
-    .PARAMETER Payload
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html#cfn-iotevents-alarmmodel-sns-payload
-        UpdateType: Mutable
-        Type: Payload
-
     .PARAMETER TargetArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html#cfn-iotevents-alarmmodel-sns-targetarn
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER Payload
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html#cfn-iotevents-alarmmodel-sns-payload
+        UpdateType: Mutable
+        Type: Payload
 
     .FUNCTIONALITY
         Vaporshell
@@ -27,8 +27,6 @@ function Add-VSIoTEventsAlarmModelSns {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Payload,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -39,7 +37,9 @@ function Add-VSIoTEventsAlarmModelSns {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TargetArn
+        $TargetArn,
+        [parameter(Mandatory = $false)]
+        $Payload
     )
     Begin {
         $obj = [PSCustomObject]@{}

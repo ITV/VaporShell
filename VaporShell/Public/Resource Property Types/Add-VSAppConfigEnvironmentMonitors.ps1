@@ -1,25 +1,21 @@
 function Add-VSAppConfigEnvironmentMonitors {
     <#
     .SYNOPSIS
-        Adds an AWS::AppConfig::Environment.Monitors resource property to the template. Amazon CloudWatch alarms to monitor during the deployment process.
+        Adds an AWS::AppConfig::Environment.Monitors resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::AppConfig::Environment.Monitors resource property to the template.
-Amazon CloudWatch alarms to monitor during the deployment process.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html
 
     .PARAMETER AlarmArn
-        Amazon Resource Name ARN of the Amazon CloudWatch alarm.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html#cfn-appconfig-environment-monitors-alarmarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AlarmRoleArn
-        ARN of an AWS Identity and Access Management IAM role for AWS AppConfig to monitor AlarmArn.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html#cfn-appconfig-environment-monitors-alarmrolearn
         PrimitiveType: String
         UpdateType: Mutable

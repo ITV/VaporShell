@@ -1,10 +1,10 @@
 function New-VSECRPublicRepository {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::PublicRepository resource to the template. The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Registry Public (Amazon ECR Public repository, where users can push and pull Docker images, Open Container Initiative (OCI images, and OCI compatible artifacts. For more information, see Amazon ECR public repositories: https://docs.aws.amazon.com/AmazonECR/latest/public/public-repositories.html in the *Amazon ECR Public User Guide*.
+        Adds an AWS::ECR::PublicRepository resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ECR::PublicRepository resource to the template. The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Registry Public (Amazon ECR Public repository, where users can push and pull Docker images, Open Container Initiative (OCI images, and OCI compatible artifacts. For more information, see Amazon ECR public repositories: https://docs.aws.amazon.com/AmazonECR/latest/public/public-repositories.html in the *Amazon ECR Public User Guide*.
+        Adds an AWS::ECR::PublicRepository resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html
@@ -12,31 +12,22 @@ function New-VSECRPublicRepository {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER RepositoryName
-        The name to use for the public repository. The repository name may be specified on its own such as nginx-web-app or it can be prepended with a namespace to group the repository into a category such as project-a/nginx-web-app. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see Name Type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositoryname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER RepositoryPolicyText
-        The JSON repository policy text to apply to the public repository. For more information, see Amazon ECR Public repository policies: https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-policies.html in the *Amazon ECR Public User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositorypolicytext
         UpdateType: Mutable
         PrimitiveType: Json
 
-    .PARAMETER RepositoryCatalogData
-        The details about the repository that are publicly visible in the Amazon ECR Public Gallery. For more information, see Amazon ECR Public repository catalog data: https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-catalog-data.html in the *Amazon ECR Public User Guide*.
+    .PARAMETER RepositoryName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositoryname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER RepositoryCatalogData
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositorycatalogdata
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: RepositoryCatalogData
 
     .PARAMETER Tags
-        An array of key-value pairs to apply to this resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-tags
         UpdateType: Mutable
         Type: List
@@ -107,17 +98,6 @@ If you specify a name, you cannot perform updates that require replacement of th
         $LogicalId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RepositoryName,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -129,7 +109,7 @@ If you specify a name, you cannot perform updates that require replacement of th
         $RepositoryPolicyText,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -137,6 +117,8 @@ If you specify a name, you cannot perform updates that require replacement of th
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $RepositoryName,
+        [parameter(Mandatory = $false)]
         $RepositoryCatalogData,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
@@ -222,23 +204,6 @@ If you specify a name, you cannot perform updates that require replacement of th
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 RepositoryPolicyText {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
-                RepositoryCatalogData {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

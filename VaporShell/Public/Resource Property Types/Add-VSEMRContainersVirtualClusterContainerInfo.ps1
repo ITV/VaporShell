@@ -1,18 +1,16 @@
 function Add-VSEMRContainersVirtualClusterContainerInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::EMRContainers::VirtualCluster.ContainerInfo resource property to the template. The information about the container used for a job run or a managed endpoint.
+        Adds an AWS::EMRContainers::VirtualCluster.ContainerInfo resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::EMRContainers::VirtualCluster.ContainerInfo resource property to the template.
-The information about the container used for a job run or a managed endpoint.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerinfo.html
 
     .PARAMETER EksInfo
-        The information about the EKS cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerinfo.html#cfn-emrcontainers-virtualcluster-containerinfo-eksinfo
         UpdateType: Immutable
         Type: EksInfo

@@ -1,12 +1,10 @@
 function New-VSECRRegistryPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::RegistryPolicy resource to the template. The AWS::ECR::RegistryPolicy resource creates or updates the permissions policy for a private registry.
+        Adds an AWS::ECR::RegistryPolicy resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::ECR::RegistryPolicy resource to the template. The AWS::ECR::RegistryPolicy resource creates or updates the permissions policy for a private registry.
-
-A private registry policy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html in the *Amazon Elastic Container Registry User Guide*.
+        Adds an AWS::ECR::RegistryPolicy resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html
@@ -15,8 +13,6 @@ A private registry policy is used to specify permissions for another AWS account
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER PolicyText
-        The JSON policy text for your registry.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext
         UpdateType: Mutable
         PrimitiveType: Json

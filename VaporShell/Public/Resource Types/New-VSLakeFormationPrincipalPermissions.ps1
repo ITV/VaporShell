@@ -12,16 +12,6 @@ function New-VSLakeFormationPrincipalPermissions {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Catalog
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-catalog
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Principal
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-principal
-        UpdateType: Immutable
-        Type: DataLakePrincipal
-
     .PARAMETER Resource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-resource
         UpdateType: Immutable
@@ -32,12 +22,24 @@ function New-VSLakeFormationPrincipalPermissions {
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Catalog
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-catalog
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Principal
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-principal
+        UpdateType: Immutable
+        Type: DataLakePrincipal
 
     .PARAMETER PermissionsWithGrantOption
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-permissionswithgrantoption
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -101,6 +103,10 @@ function New-VSLakeFormationPrincipalPermissions {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $true)]
+        $Resource,
+        [parameter(Mandatory = $true)]
+        $Permissions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -114,10 +120,6 @@ function New-VSLakeFormationPrincipalPermissions {
         $Catalog,
         [parameter(Mandatory = $true)]
         $Principal,
-        [parameter(Mandatory = $true)]
-        $Resource,
-        [parameter(Mandatory = $true)]
-        $Permissions,
         [parameter(Mandatory = $true)]
         $PermissionsWithGrantOption,
         [parameter(Mandatory = $false)]

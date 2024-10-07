@@ -1,18 +1,16 @@
 function Add-VSIoTAnalyticsDatasetSchedule {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Dataset.Schedule resource property to the template. The schedule for when to trigger an update.
+        Adds an AWS::IoTAnalytics::Dataset.Schedule resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Dataset.Schedule resource property to the template.
-The schedule for when to trigger an update.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-schedule.html
 
     .PARAMETER ScheduleExpression
-        The expression that defines when to trigger an update. For more information, see  Schedule Expressions for Rules: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html in the Amazon CloudWatch documentation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-schedule.html#cfn-iotanalytics-dataset-schedule-scheduleexpression
         UpdateType: Mutable
         PrimitiveType: String

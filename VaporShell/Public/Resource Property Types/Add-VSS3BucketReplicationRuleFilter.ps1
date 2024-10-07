@@ -1,11 +1,11 @@
 function Add-VSS3BucketReplicationRuleFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.ReplicationRuleFilter resource property to the template. A filter that identifies the subset of objects to which the replication rule applies. A Filter must specify exactly one Prefix, TagFilter, or an And child element.
+        Adds an AWS::S3::Bucket.ReplicationRuleFilter resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.ReplicationRuleFilter resource property to the template.
-A filter that identifies the subset of objects to which the replication rule applies. A Filter must specify exactly one Prefix, TagFilter, or an And child element.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html
@@ -16,17 +16,11 @@ A filter that identifies the subset of objects to which the replication rule app
         UpdateType: Mutable
 
     .PARAMETER Prefix
-        An object key name prefix that identifies the subset of objects to which the rule applies.
-Replacement must be made for object keys containing special characters such as carriage returns when using XML requests. For more information, see  XML related object key constraints: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-prefix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TagFilter
-        A container for specifying a tag key and value.
-The rule applies only to objects that have the tag in their tag set.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-tagfilter
         Type: TagFilter
         UpdateType: Mutable

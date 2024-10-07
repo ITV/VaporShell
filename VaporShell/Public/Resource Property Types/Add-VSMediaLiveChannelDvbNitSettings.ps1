@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelDvbNitSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.DvbNitSettings resource property to the template. The configuration of DVB NIT.
+        Adds an AWS::MediaLive::Channel.DvbNitSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.DvbNitSettings resource property to the template.
-The configuration of DVB NIT.
 
-The parent of this entity is M2tsSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html
 
     .PARAMETER NetworkName
-        The network name text placed in the networkNameDescriptor inside the Network Information Table NIT. The maximum length is 256 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html#cfn-medialive-channel-dvbnitsettings-networkname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RepInterval
-        The number of milliseconds between instances of this table in the output transport stream.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html#cfn-medialive-channel-dvbnitsettings-repinterval
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER NetworkId
-        The numeric value placed in the Network Information Table NIT.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html#cfn-medialive-channel-dvbnitsettings-networkid
         PrimitiveType: Integer
         UpdateType: Mutable

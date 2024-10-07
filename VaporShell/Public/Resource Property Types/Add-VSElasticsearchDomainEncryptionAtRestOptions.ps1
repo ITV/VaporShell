@@ -1,29 +1,21 @@
 function Add-VSElasticsearchDomainEncryptionAtRestOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::Elasticsearch::Domain.EncryptionAtRestOptions resource property to the template. Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+        Adds an AWS::Elasticsearch::Domain.EncryptionAtRestOptions resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Elasticsearch::Domain.EncryptionAtRestOptions resource property to the template.
-Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
 
-**Important**
-
-The AWS::Elasticsearch::Domain resource is being replaced by the AWS::OpenSearchService::Domain: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see New resource types: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource in the *Amazon OpenSearch Service Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-encryptionatrestoptions.html
 
     .PARAMETER Enabled
-        Specify true to enable encryption at rest.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-encryptionatrestoptions.html#cfn-elasticsearch-domain-encryptionatrestoptions-enabled
         PrimitiveType: Boolean
         UpdateType: Conditional
 
     .PARAMETER KmsKeyId
-        The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-encryptionatrestoptions.html#cfn-elasticsearch-domain-encryptionatrestoptions-kmskeyid
         PrimitiveType: String
         UpdateType: Immutable

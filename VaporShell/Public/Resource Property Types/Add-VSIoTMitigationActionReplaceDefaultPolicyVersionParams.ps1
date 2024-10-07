@@ -1,18 +1,16 @@
 function Add-VSIoTMitigationActionReplaceDefaultPolicyVersionParams {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction.ReplaceDefaultPolicyVersionParams resource property to the template. Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+        Adds an AWS::IoT::MitigationAction.ReplaceDefaultPolicyVersionParams resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::IoT::MitigationAction.ReplaceDefaultPolicyVersionParams resource property to the template.
-Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html
 
     .PARAMETER TemplateName
-        The name of the template to be applied. The only supported value is BLANK_POLICY.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename
         UpdateType: Mutable
         PrimitiveType: String

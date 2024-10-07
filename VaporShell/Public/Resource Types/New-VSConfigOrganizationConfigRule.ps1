@@ -1,14 +1,10 @@
 function New-VSConfigOrganizationConfigRule {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::OrganizationConfigRule resource to the template. An organization config rule that has information about config rules that AWS Config creates in member accounts. Only a master account and a delegated administrator can create or update an organization config rule.
+        Adds an AWS::Config::OrganizationConfigRule resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::Config::OrganizationConfigRule resource to the template. An organization config rule that has information about config rules that AWS Config creates in member accounts. Only a master account and a delegated administrator can create or update an organization config rule.
-
-OrganizationConfigRule resource enables organization service access through EnableAWSServiceAccess action and creates a service linked role in the master account of your organization. The service linked role is created only when the role does not exist in the master account. AWS Config verifies the existence of role with GetRole action.
-
-When creating custom organization config rules using a centralized Lambda function, you will need to allow Lambda permissions to sub-accounts and you will need to create an IAM role will to pass to the Lambda function. For more information, see How to Centrally Manage AWS Config Rules across Multiple AWS Accounts: http://aws.amazon.com/blogs/devops/how-to-centrally-manage-aws-config-rules-across-multiple-aws-accounts/.
+        Adds an AWS::Config::OrganizationConfigRule resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html
@@ -17,39 +13,29 @@ When creating custom organization config rules using a centralized Lambda functi
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER OrganizationManagedRuleMetadata
-        An OrganizationManagedRuleMetadata object.
-
         Type: OrganizationManagedRuleMetadata
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata
         UpdateType: Mutable
 
     .PARAMETER OrganizationConfigRuleName
-        The name that you assign to organization config rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationconfigrulename
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER OrganizationCustomRuleMetadata
-        An OrganizationCustomRuleMetadata object.
-
         Type: OrganizationCustomRuleMetadata
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata
         UpdateType: Mutable
 
     .PARAMETER ExcludedAccounts
-        A comma-separated list of accounts excluded from organization config rule.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-excludedaccounts
         UpdateType: Mutable
 
-    .PARAMETER OrganizationCustomCodeRuleMetadata
-        Not currently supported by AWS CloudFormation.
-
-        Type: OrganizationCustomCodeRuleMetadata
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationcustomcoderulemetadata
+    .PARAMETER OrganizationCustomPolicyRuleMetadata
+        Type: OrganizationCustomPolicyRuleMetadata
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -132,7 +118,7 @@ When creating custom organization config rules using a centralized Lambda functi
         [parameter(Mandatory = $false)]
         $ExcludedAccounts,
         [parameter(Mandatory = $false)]
-        $OrganizationCustomCodeRuleMetadata,
+        $OrganizationCustomPolicyRuleMetadata,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

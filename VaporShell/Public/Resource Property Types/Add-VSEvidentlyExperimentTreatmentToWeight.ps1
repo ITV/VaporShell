@@ -1,25 +1,21 @@
 function Add-VSEvidentlyExperimentTreatmentToWeight {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Experiment.TreatmentToWeight resource property to the template. This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
+        Adds an AWS::Evidently::Experiment.TreatmentToWeight resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::Evidently::Experiment.TreatmentToWeight resource property to the template.
-This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmenttoweight.html
 
     .PARAMETER Treatment
-        The name of the treatment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmenttoweight.html#cfn-evidently-experiment-treatmenttoweight-treatment
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER SplitWeight
-        The portion of experiment traffic to allocate to this treatment. Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmenttoweight.html#cfn-evidently-experiment-treatmenttoweight-splitweight
         UpdateType: Mutable
         PrimitiveType: Integer

@@ -1,35 +1,29 @@
 function Add-VSDataBrewDatasetFilesLimit {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.FilesLimit resource property to the template. Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+        Adds an AWS::DataBrew::Dataset.FilesLimit resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.FilesLimit resource property to the template.
-Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html
 
-    .PARAMETER MaxFiles
-        The number of Amazon S3 files to select.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+    .PARAMETER Order
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
         UpdateType: Mutable
-        PrimitiveType: Integer
+        PrimitiveType: String
 
     .PARAMETER OrderedBy
-        A criteria to use for Amazon S3 files sorting before their selection. By default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it's the only allowed value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Order
-        A criteria to use for Amazon S3 files sorting before their selection. By default uses DESCENDING order, i.e. most recent files are selected first. Anotherpossible value is ASCENDING.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+    .PARAMETER MaxFiles
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
         UpdateType: Mutable
-        PrimitiveType: String
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
@@ -38,9 +32,9 @@ Represents a limit imposed on number of Amazon S3 files that should be selected 
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -48,7 +42,7 @@ Represents a limit imposed on number of Amazon S3 files that should be selected 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MaxFiles,
+        $Order,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -60,9 +54,9 @@ Represents a limit imposed on number of Amazon S3 files that should be selected 
                 }
             })]
         $OrderedBy,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -70,7 +64,7 @@ Represents a limit imposed on number of Amazon S3 files that should be selected 
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Order
+        $MaxFiles
     )
     Begin {
         $obj = [PSCustomObject]@{}

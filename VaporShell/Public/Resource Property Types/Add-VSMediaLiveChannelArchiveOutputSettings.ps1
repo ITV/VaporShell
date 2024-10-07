@@ -1,34 +1,26 @@
 function Add-VSMediaLiveChannelArchiveOutputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.ArchiveOutputSettings resource property to the template. The archive output settings.
+        Adds an AWS::MediaLive::Channel.ArchiveOutputSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.ArchiveOutputSettings resource property to the template.
-The archive output settings.
 
-The parent of this entity is OutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html
 
     .PARAMETER Extension
-        The output file extension. If excluded, this is auto-selected from the container type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html#cfn-medialive-channel-archiveoutputsettings-extension
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NameModifier
-        A string that is concatenated to the end of the destination file name. The string is required for multiple outputs of the same type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html#cfn-medialive-channel-archiveoutputsettings-namemodifier
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ContainerSettings
-        The settings that are specific to the container type of the file.
-
         Type: ArchiveContainerSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html#cfn-medialive-channel-archiveoutputsettings-containersettings
         UpdateType: Mutable

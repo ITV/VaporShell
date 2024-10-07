@@ -1,10 +1,10 @@
 function New-VSIoTWirelessWirelessGateway {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::WirelessGateway resource to the template. Provisions a wireless gateway.
+        Adds an AWS::IoTWireless::WirelessGateway resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTWireless::WirelessGateway resource to the template. Provisions a wireless gateway.
+        Adds an AWS::IoTWireless::WirelessGateway resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html
@@ -12,54 +12,40 @@ function New-VSIoTWirelessWirelessGateway {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the new resource.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-name
+    .PARAMETER LastUplinkReceivedAt
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lastuplinkreceivedat
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Description
-        The description of the new resource. The maximum length is 2048 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        The tags are an array of key-value pairs to attach to the specified resource. Tags can have a minimum of 0 and a maximum of 50 items.
+    .PARAMETER LoRaWAN
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lorawan
+        UpdateType: Mutable
+        Type: LoRaWANGateway
 
+    .PARAMETER ThingArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-thingarn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ThingName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-thingname
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
 
-    .PARAMETER LoRaWAN
-        The gateway configuration information to use to create the wireless gateway.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lorawan
-        UpdateType: Mutable
-        Type: LoRaWANGateway
-
-    .PARAMETER ThingArn
-        The ARN of the thing to associate with the wireless gateway.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-thingarn
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER ThingName
-        The name of the thing associated with the wireless gateway. The value is empty if a thing isn't associated with the gateway.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-thingname
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER LastUplinkReceivedAt
-        The date and time when the most recent uplink was received.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lastuplinkreceivedat
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-name
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -135,7 +121,7 @@ function New-VSIoTWirelessWirelessGateway {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $LastUplinkReceivedAt,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -147,9 +133,6 @@ function New-VSIoTWirelessWirelessGateway {
                 }
             })]
         $Description,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $true)]
         $LoRaWAN,
         [parameter(Mandatory = $false)]
@@ -174,6 +157,9 @@ function New-VSIoTWirelessWirelessGateway {
                 }
             })]
         $ThingName,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -184,7 +170,7 @@ function New-VSIoTWirelessWirelessGateway {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LastUplinkReceivedAt,
+        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

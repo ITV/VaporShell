@@ -1,12 +1,10 @@
 function New-VSIoTCoreDeviceAdvisorSuiteDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTCoreDeviceAdvisor::SuiteDefinition resource to the template. Creates a Device Advisor test suite.
+        Adds an AWS::IoTCoreDeviceAdvisor::SuiteDefinition resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoTCoreDeviceAdvisor::SuiteDefinition resource to the template. Creates a Device Advisor test suite.
-
-Requires permission to access the CreateSuiteDefinition: https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions action.
+        Adds an AWS::IoTCoreDeviceAdvisor::SuiteDefinition resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
@@ -15,35 +13,11 @@ Requires permission to access the CreateSuiteDefinition: https://docs.aws.amazon
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER SuiteDefinitionConfiguration
-        The configuration of the Suite Definition. Listed below are the required elements of the SuiteDefinitionConfiguration.
-**devicePermissionRoleArn**
-The device permission arn.
-This is a required element.
-**Type:** String
-**devices**
-The list of configured devices under test. For more information on devices under test, see DeviceUnderTest: http://amazonaws.com/iot/latest/apireference/API_iotdeviceadvisor_DeviceUnderTest.html
-Not a required element.
-**Type:** List of devices under test
-**intendedForQualification**
-The tests intended for qualification in a suite.
-Not a required element.
-**Type:** Boolean
-**rootGroup**
-The test suite root group. For more information on creating and using root groups see the Device Advisor workflow: https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-workflow.html.
-This is a required element.
-**Type:** String
-**suiteDefinitionName**
-The Suite Definition Configuration name.
-This is a required element.
-**Type:** String
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: SuiteDefinitionConfiguration
 
     .PARAMETER Tags
-        Metadata that can be used to manage the the Suite Definition.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
         UpdateType: Mutable
         Type: List
@@ -113,15 +87,6 @@ This is a required element.
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $SuiteDefinitionConfiguration,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
@@ -205,23 +170,6 @@ This is a required element.
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
-                }
-                SuiteDefinitionConfiguration {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

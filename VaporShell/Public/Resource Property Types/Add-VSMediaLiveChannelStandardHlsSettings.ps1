@@ -1,27 +1,21 @@
 function Add-VSMediaLiveChannelStandardHlsSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.StandardHlsSettings resource property to the template. The configuration of an HLS output that is a standard output (not an audio-only output.
+        Adds an AWS::MediaLive::Channel.StandardHlsSettings resource property to the template. 
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.StandardHlsSettings resource property to the template.
-The configuration of an HLS output that is a standard output (not an audio-only output.
 
-The parent of this entity is HlsSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html
 
     .PARAMETER AudioRenditionSets
-        Lists all the audio groups that are used with the video output stream. This inputs all the audio GROUP-IDs that are associated with the video, separated by a comma ,.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html#cfn-medialive-channel-standardhlssettings-audiorenditionsets
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER M3u8Settings
-        Settings for the M3U8 container.
-
         Type: M3u8Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html#cfn-medialive-channel-standardhlssettings-m3u8settings
         UpdateType: Mutable

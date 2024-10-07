@@ -1,10 +1,10 @@
 function New-VSIoTCustomMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::CustomMetric resource to the template. Use the AWS::IoT::CustomMetric resource to define a custom metric published by your devices to Device Defender. For API reference, see CreateCustomMetric: https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCustomMetric.html and for general information, see Custom metrics: https://docs.aws.amazon.com/iot/latest/developerguide/dd-detect-custom-metrics.html.
+        Adds an AWS::IoT::CustomMetric resource to the template. 
 
     .DESCRIPTION
-        Adds an AWS::IoT::CustomMetric resource to the template. Use the AWS::IoT::CustomMetric resource to define a custom metric published by your devices to Device Defender. For API reference, see CreateCustomMetric: https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCustomMetric.html and for general information, see Custom metrics: https://docs.aws.amazon.com/iot/latest/developerguide/dd-detect-custom-metrics.html.
+        Adds an AWS::IoT::CustomMetric resource to the template. 
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html
@@ -13,30 +13,21 @@ function New-VSIoTCustomMetric {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER MetricName
-        The name of the custom metric. This will be used in the metric report submitted from the device/thing. The name can't begin with aws:. You can’t change the name after you define it.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html#cfn-iot-custommetric-metricname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER DisplayName
-        The friendly name in the console for the custom metric. This name doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. You can update the friendly name after you define it.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html#cfn-iot-custommetric-displayname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER MetricType
-        The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
-The type number only takes a single metric value as an input, but when you submit the metrics value in the DeviceMetrics report, you must pass it as an array with a single value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html#cfn-iot-custommetric-metrictype
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Tags
-        Metadata that can be used to manage the custom metric.
+    .PARAMETER DisplayName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html#cfn-iot-custommetric-displayname
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html#cfn-iot-custommetric-tags
         UpdateType: Mutable
         Type: List
@@ -116,17 +107,6 @@ The type number only takes a single metric value as an input, but when you submi
                 }
             })]
         $MetricName,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DisplayName,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -138,6 +118,17 @@ The type number only takes a single metric value as an input, but when you submi
                 }
             })]
         $MetricType,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DisplayName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
