@@ -13,7 +13,8 @@ function Convert-SpecToFunction {
     $folder = "$($ModPath)\Public"
     $Name = $Resource.Name
     $Link = $Resource.Value.Documentation
-    $HelpDoc = New-CFNHelpDoc @PSBoundParameters
+    # this used AWS documentation in Github which has been discontinued, just generates lots of warnings now
+    # $HelpDoc = New-CFNHelpDoc @PSBoundParameters
     $Properties = $Resource.Value.Properties.PSObject.Properties
     $ShortName = $Name.Replace("AWS::","")
     $BaseTypeName = "Vaporshell.Resource." + ($ShortName -replace "\..*").Replace("::",".")
