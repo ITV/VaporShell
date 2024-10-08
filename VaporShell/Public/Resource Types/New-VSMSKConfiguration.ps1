@@ -17,6 +17,11 @@ function New-VSMSKConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER LatestRevision
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-latestrevision
+        UpdateType: Mutable
+        Type: LatestRevision
+
     .PARAMETER ServerProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-serverproperties
         UpdateType: Mutable
@@ -107,6 +112,8 @@ function New-VSMSKConfiguration {
                 }
             })]
         $Description,
+        [parameter(Mandatory = $false)]
+        $LatestRevision,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

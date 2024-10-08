@@ -35,15 +35,15 @@ function Add-VSIoTTopicRuleAction {
         UpdateType: Mutable
         Type: RepublishAction
 
-    .PARAMETER StepFunctions
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
-        UpdateType: Mutable
-        Type: StepFunctionsAction
-
     .PARAMETER Kafka
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka
         UpdateType: Mutable
         Type: KafkaAction
+
+    .PARAMETER StepFunctions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
+        UpdateType: Mutable
+        Type: StepFunctionsAction
 
     .PARAMETER DynamoDB
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
@@ -138,9 +138,9 @@ function Add-VSIoTTopicRuleAction {
         [parameter(Mandatory = $false)]
         $Republish,
         [parameter(Mandatory = $false)]
-        $StepFunctions,
-        [parameter(Mandatory = $false)]
         $Kafka,
+        [parameter(Mandatory = $false)]
+        $StepFunctions,
         [parameter(Mandatory = $false)]
         $DynamoDB,
         [parameter(Mandatory = $false)]

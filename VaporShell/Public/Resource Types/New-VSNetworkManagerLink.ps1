@@ -42,7 +42,7 @@ function New-VSNetworkManagerLink {
         UpdateType: Mutable
         Type: List
         ItemType: Tag
-        DuplicatesAllowed: True
+        DuplicatesAllowed: False
 
     .PARAMETER Provider
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider

@@ -15,6 +15,11 @@ function Add-VSEMRInstanceFleetConfigOnDemandProvisioningSpecification {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER CapacityReservationOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification-capacityreservationoptions
+        Type: OnDemandCapacityReservationOptions
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -32,7 +37,9 @@ function Add-VSEMRInstanceFleetConfigOnDemandProvisioningSpecification {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AllocationStrategy
+        $AllocationStrategy,
+        [parameter(Mandatory = $false)]
+        $CapacityReservationOptions
     )
     Begin {
         $obj = [PSCustomObject]@{}

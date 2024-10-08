@@ -25,6 +25,11 @@ function Add-VSDynamoDBGlobalTableReplicaGlobalSecondaryIndexSpecification {
         UpdateType: Mutable
         Type: ReadProvisionedThroughputSettings
 
+    .PARAMETER ReadOnDemandThroughputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readondemandthroughputsettings
+        UpdateType: Mutable
+        Type: ReadOnDemandThroughputSettings
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -46,7 +51,9 @@ function Add-VSDynamoDBGlobalTableReplicaGlobalSecondaryIndexSpecification {
         [parameter(Mandatory = $false)]
         $ContributorInsightsSpecification,
         [parameter(Mandatory = $false)]
-        $ReadProvisionedThroughputSettings
+        $ReadProvisionedThroughputSettings,
+        [parameter(Mandatory = $false)]
+        $ReadOnDemandThroughputSettings
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -27,11 +27,23 @@ function New-VSResilienceHubApp {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER PermissionModel
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-permissionmodel
+        UpdateType: Mutable
+        Type: PermissionModel
+
     .PARAMETER ResourceMappings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resourcemappings
         UpdateType: Mutable
         Type: List
         ItemType: ResourceMapping
+        DuplicatesAllowed: True
+
+    .PARAMETER EventSubscriptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-eventsubscriptions
+        UpdateType: Mutable
+        Type: List
+        ItemType: EventSubscription
         DuplicatesAllowed: True
 
     .PARAMETER Tags
@@ -145,6 +157,8 @@ function New-VSResilienceHubApp {
                 }
             })]
         $AppAssessmentSchedule,
+        [parameter(Mandatory = $false)]
+        $PermissionModel,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ResilienceHub.App.ResourceMapping"
@@ -156,6 +170,17 @@ function New-VSResilienceHubApp {
                 }
             })]
         $ResourceMappings,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ResilienceHub.App.EventSubscription"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EventSubscriptions,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,
@@ -260,6 +285,12 @@ function New-VSResilienceHubApp {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ResourceMappings -Value @($ResourceMappings)
+                }
+                EventSubscriptions {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name EventSubscriptions -Value @($EventSubscriptions)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

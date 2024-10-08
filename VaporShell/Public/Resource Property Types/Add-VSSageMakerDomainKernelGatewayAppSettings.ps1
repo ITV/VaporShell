@@ -22,6 +22,13 @@ function Add-VSSageMakerDomainKernelGatewayAppSettings {
         UpdateType: Mutable
         Type: ResourceSpec
 
+    .PARAMETER LifecycleConfigArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-lifecycleconfigarns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -41,7 +48,9 @@ function Add-VSSageMakerDomainKernelGatewayAppSettings {
             })]
         $CustomImages,
         [parameter(Mandatory = $false)]
-        $DefaultResourceSpec
+        $DefaultResourceSpec,
+        [parameter(Mandatory = $false)]
+        $LifecycleConfigArns
     )
     Begin {
         $obj = [PSCustomObject]@{}

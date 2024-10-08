@@ -37,6 +37,11 @@ function Add-VSSageMakerModelCardContent {
         ItemType: EvaluationDetail
         DuplicatesAllowed: True
 
+    .PARAMETER ModelPackageDetails
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-modelpackagedetails
+        UpdateType: Mutable
+        Type: ModelPackageDetails
+
     .PARAMETER BusinessDetails
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-businessdetails
         UpdateType: Mutable
@@ -68,6 +73,8 @@ function Add-VSSageMakerModelCardContent {
                 }
             })]
         $EvaluationDetails,
+        [parameter(Mandatory = $false)]
+        $ModelPackageDetails,
         [parameter(Mandatory = $false)]
         $BusinessDetails
     )

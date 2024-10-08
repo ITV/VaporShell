@@ -20,6 +20,11 @@ function Add-VSQuickSightAnalysisCategoryFilter {
         UpdateType: Mutable
         Type: ColumnIdentifier
 
+    .PARAMETER DefaultFilterControlConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-categoryfilter.html#cfn-quicksight-analysis-categoryfilter-defaultfiltercontrolconfiguration
+        UpdateType: Mutable
+        Type: DefaultFilterControlConfiguration
+
     .PARAMETER FilterId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-categoryfilter.html#cfn-quicksight-analysis-categoryfilter-filterid
         UpdateType: Mutable
@@ -36,6 +41,8 @@ function Add-VSQuickSightAnalysisCategoryFilter {
         $Configuration,
         [parameter(Mandatory = $true)]
         $Column,
+        [parameter(Mandatory = $false)]
+        $DefaultFilterControlConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

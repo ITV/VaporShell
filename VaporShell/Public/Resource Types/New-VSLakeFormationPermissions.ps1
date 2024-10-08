@@ -15,12 +15,12 @@ function New-VSLakeFormationPermissions {
     .PARAMETER DataLakePrincipal
         Type: DataLakePrincipal
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-datalakeprincipal
-        UpdateType: Mutable
+        UpdateType: Immutable
 
     .PARAMETER Resource
         Type: Resource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-resource
-        UpdateType: Mutable
+        UpdateType: Immutable
 
     .PARAMETER Permissions
         PrimitiveItemType: String

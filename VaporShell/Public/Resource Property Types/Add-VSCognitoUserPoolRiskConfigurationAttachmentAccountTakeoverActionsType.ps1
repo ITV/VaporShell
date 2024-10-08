@@ -11,19 +11,19 @@ function Add-VSCognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsT
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html
 
     .PARAMETER HighAction
-        Type: AccountTakeoverActionType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-highaction
         UpdateType: Mutable
+        Type: AccountTakeoverActionType
 
     .PARAMETER LowAction
-        Type: AccountTakeoverActionType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-lowaction
         UpdateType: Mutable
+        Type: AccountTakeoverActionType
 
     .PARAMETER MediumAction
-        Type: AccountTakeoverActionType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-mediumaction
         UpdateType: Mutable
+        Type: AccountTakeoverActionType
 
     .FUNCTIONALITY
         Vaporshell

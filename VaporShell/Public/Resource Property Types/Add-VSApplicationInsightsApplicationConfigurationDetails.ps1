@@ -10,6 +10,11 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
 
+    .PARAMETER NetWeaverPrometheusExporter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-netweaverprometheusexporter
+        UpdateType: Mutable
+        Type: NetWeaverPrometheusExporter
+
     .PARAMETER WindowsEvents
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
         UpdateType: Mutable
@@ -31,6 +36,11 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
         ItemType: Alarm
         DuplicatesAllowed: True
 
+    .PARAMETER SQLServerPrometheusExporter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-sqlserverprometheusexporter
+        UpdateType: Mutable
+        Type: SQLServerPrometheusExporter
+
     .PARAMETER HAClusterPrometheusExporter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-haclusterprometheusexporter
         UpdateType: Mutable
@@ -48,6 +58,13 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
         ItemType: Log
         DuplicatesAllowed: True
 
+    .PARAMETER Processes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-processes
+        UpdateType: Mutable
+        Type: List
+        ItemType: Process
+        DuplicatesAllowed: True
+
     .PARAMETER JMXPrometheusExporter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
         UpdateType: Mutable
@@ -60,6 +77,8 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $NetWeaverPrometheusExporter,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationInsights.Application.WindowsEvent"
@@ -94,6 +113,8 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
             })]
         $Alarms,
         [parameter(Mandatory = $false)]
+        $SQLServerPrometheusExporter,
+        [parameter(Mandatory = $false)]
         $HAClusterPrometheusExporter,
         [parameter(Mandatory = $false)]
         $HANAPrometheusExporter,
@@ -108,6 +129,17 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
                 }
             })]
         $Logs,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ApplicationInsights.Application.Process"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Processes,
         [parameter(Mandatory = $false)]
         $JMXPrometheusExporter
     )

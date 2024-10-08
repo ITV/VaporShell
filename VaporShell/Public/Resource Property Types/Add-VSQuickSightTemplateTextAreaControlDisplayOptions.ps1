@@ -20,6 +20,11 @@ function Add-VSQuickSightTemplateTextAreaControlDisplayOptions {
         UpdateType: Mutable
         Type: TextControlPlaceholderOptions
 
+    .PARAMETER InfoIconLabelOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textareacontroldisplayoptions.html#cfn-quicksight-template-textareacontroldisplayoptions-infoiconlabeloptions
+        UpdateType: Mutable
+        Type: SheetControlInfoIconLabelOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -30,7 +35,9 @@ function Add-VSQuickSightTemplateTextAreaControlDisplayOptions {
         [parameter(Mandatory = $false)]
         $TitleOptions,
         [parameter(Mandatory = $false)]
-        $PlaceholderOptions
+        $PlaceholderOptions,
+        [parameter(Mandatory = $false)]
+        $InfoIconLabelOptions
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -10,6 +10,11 @@ function Add-VSQuickSightDashboardAggregationFunction {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationfunction.html
 
+    .PARAMETER AttributeAggregationFunction
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationfunction.html#cfn-quicksight-dashboard-aggregationfunction-attributeaggregationfunction
+        UpdateType: Mutable
+        Type: AttributeAggregationFunction
+
     .PARAMETER DateAggregationFunction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationfunction.html#cfn-quicksight-dashboard-aggregationfunction-dateaggregationfunction
         UpdateType: Mutable
@@ -32,6 +37,8 @@ function Add-VSQuickSightDashboardAggregationFunction {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $AttributeAggregationFunction,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

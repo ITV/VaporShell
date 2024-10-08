@@ -11,9 +11,9 @@ function Add-VSCognitoUserPoolPolicies {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html
 
     .PARAMETER PasswordPolicy
-        Type: PasswordPolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html#cfn-cognito-userpool-policies-passwordpolicy
         UpdateType: Mutable
+        Type: PasswordPolicy
 
     .FUNCTIONALITY
         Vaporshell

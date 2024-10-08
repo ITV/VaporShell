@@ -22,14 +22,24 @@ function Add-VSMediaLiveChannelEncoderSettings {
         ItemType: VideoDescription
         UpdateType: Mutable
 
-    .PARAMETER FeatureActivations
-        Type: FeatureActivations
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-featureactivations
-        UpdateType: Mutable
-
     .PARAMETER GlobalConfiguration
         Type: GlobalConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-globalconfiguration
+        UpdateType: Mutable
+
+    .PARAMETER MotionGraphicsConfiguration
+        Type: MotionGraphicsConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-motiongraphicsconfiguration
+        UpdateType: Mutable
+
+    .PARAMETER ThumbnailConfiguration
+        Type: ThumbnailConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-thumbnailconfiguration
+        UpdateType: Mutable
+
+    .PARAMETER FeatureActivations
+        Type: FeatureActivations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-featureactivations
         UpdateType: Mutable
 
     .PARAMETER CaptionDescriptions
@@ -43,9 +53,9 @@ function Add-VSMediaLiveChannelEncoderSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-availconfiguration
         UpdateType: Mutable
 
-    .PARAMETER MotionGraphicsConfiguration
-        Type: MotionGraphicsConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-motiongraphicsconfiguration
+    .PARAMETER ColorCorrectionSettings
+        Type: ColorCorrectionSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-colorcorrectionsettings
         UpdateType: Mutable
 
     .PARAMETER OutputGroups
@@ -104,9 +114,13 @@ function Add-VSMediaLiveChannelEncoderSettings {
             })]
         $VideoDescriptions,
         [parameter(Mandatory = $false)]
-        $FeatureActivations,
-        [parameter(Mandatory = $false)]
         $GlobalConfiguration,
+        [parameter(Mandatory = $false)]
+        $MotionGraphicsConfiguration,
+        [parameter(Mandatory = $false)]
+        $ThumbnailConfiguration,
+        [parameter(Mandatory = $false)]
+        $FeatureActivations,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.CaptionDescription"
@@ -121,7 +135,7 @@ function Add-VSMediaLiveChannelEncoderSettings {
         [parameter(Mandatory = $false)]
         $AvailConfiguration,
         [parameter(Mandatory = $false)]
-        $MotionGraphicsConfiguration,
+        $ColorCorrectionSettings,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.OutputGroup"

@@ -15,6 +15,11 @@ function Add-VSS3StorageLensAccountLevel {
         UpdateType: Mutable
         Type: AdvancedDataProtectionMetrics
 
+    .PARAMETER StorageLensGroupLevel
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-storagelensgrouplevel
+        UpdateType: Mutable
+        Type: StorageLensGroupLevel
+
     .PARAMETER ActivityMetrics
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
         UpdateType: Mutable
@@ -44,6 +49,8 @@ function Add-VSS3StorageLensAccountLevel {
     (
         [parameter(Mandatory = $false)]
         $AdvancedDataProtectionMetrics,
+        [parameter(Mandatory = $false)]
+        $StorageLensGroupLevel,
         [parameter(Mandatory = $false)]
         $ActivityMetrics,
         [parameter(Mandatory = $true)]

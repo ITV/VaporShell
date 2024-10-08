@@ -15,6 +15,11 @@ function Add-VSQuickSightTemplateColumnTooltipItem {
         UpdateType: Mutable
         Type: AggregationFunction
 
+    .PARAMETER TooltipTarget
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columntooltipitem.html#cfn-quicksight-template-columntooltipitem-tooltiptarget
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Column
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columntooltipitem.html#cfn-quicksight-template-columntooltipitem-column
         UpdateType: Mutable
@@ -39,6 +44,17 @@ function Add-VSQuickSightTemplateColumnTooltipItem {
     (
         [parameter(Mandatory = $false)]
         $Aggregation,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TooltipTarget,
         [parameter(Mandatory = $true)]
         $Column,
         [parameter(Mandatory = $false)]

@@ -37,6 +37,11 @@ function New-VSRoute53RecordSet {
         Type: GeoLocation
         UpdateType: Mutable
 
+    .PARAMETER GeoProximityLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-geoproximitylocation
+        Type: GeoProximityLocation
+        UpdateType: Mutable
+
     .PARAMETER HealthCheckId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-healthcheckid
         PrimitiveType: String
@@ -184,6 +189,8 @@ function New-VSRoute53RecordSet {
         $Failover,
         [parameter(Mandatory = $false)]
         $GeoLocation,
+        [parameter(Mandatory = $false)]
+        $GeoProximityLocation,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

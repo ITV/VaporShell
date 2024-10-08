@@ -12,6 +12,11 @@ function New-VSCloudWatchAnomalyDetector {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER MetricCharacteristics
+        Type: MetricCharacteristics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metriccharacteristics
+        UpdateType: Immutable
+
     .PARAMETER MetricName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricname
         PrimitiveType: String
@@ -110,6 +115,8 @@ function New-VSCloudWatchAnomalyDetector {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $MetricCharacteristics,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

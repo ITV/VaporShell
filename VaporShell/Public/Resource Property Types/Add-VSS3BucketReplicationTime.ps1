@@ -12,13 +12,13 @@ function Add-VSS3BucketReplicationTime {
 
     .PARAMETER Status
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-status
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Time
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-time
-        Type: ReplicationTimeValue
         UpdateType: Mutable
+        Type: ReplicationTimeValue
 
     .FUNCTIONALITY
         Vaporshell

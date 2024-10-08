@@ -12,7 +12,7 @@ function Add-VSKinesisFirehoseDeliveryStreamRetryOptions {
 
     .PARAMETER DurationInSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html#cfn-kinesisfirehose-deliverystream-retryoptions-durationinseconds
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: Integer
 
     .FUNCTIONALITY

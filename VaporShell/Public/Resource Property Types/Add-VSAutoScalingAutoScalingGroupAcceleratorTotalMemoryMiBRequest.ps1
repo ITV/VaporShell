@@ -10,15 +10,15 @@ function Add-VSAutoScalingAutoScalingGroupAcceleratorTotalMemoryMiBRequest {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html
 
-    .PARAMETER Max
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html#cfn-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest-max
-        PrimitiveType: Integer
-        UpdateType: Mutable
-
     .PARAMETER Min
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html#cfn-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest-min
+        UpdateType: Conditional
         PrimitiveType: Integer
-        UpdateType: Mutable
+
+    .PARAMETER Max
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html#cfn-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest-max
+        UpdateType: Conditional
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
@@ -37,7 +37,7 @@ function Add-VSAutoScalingAutoScalingGroupAcceleratorTotalMemoryMiBRequest {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Max,
+        $Min,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -48,7 +48,7 @@ function Add-VSAutoScalingAutoScalingGroupAcceleratorTotalMemoryMiBRequest {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Min
+        $Max
     )
     Begin {
         $obj = [PSCustomObject]@{}

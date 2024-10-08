@@ -18,6 +18,12 @@ function New-VSBudgetsBudget {
         ItemType: NotificationWithSubscribers
         UpdateType: Immutable
 
+    .PARAMETER ResourceTags
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-resourcetags
+        ItemType: ResourceTag
+        UpdateType: Mutable
+
     .PARAMETER Budget
         Type: BudgetData
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-budget
@@ -96,6 +102,17 @@ function New-VSBudgetsBudget {
                 }
             })]
         $NotificationsWithSubscribers,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Budgets.Budget.ResourceTag"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ResourceTags,
         [parameter(Mandatory = $true)]
         $Budget,
         [parameter(Mandatory = $false)]
@@ -177,6 +194,12 @@ function New-VSBudgetsBudget {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name NotificationsWithSubscribers -Value @($NotificationsWithSubscribers)
+                }
+                ResourceTags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ResourceTags -Value @($ResourceTags)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

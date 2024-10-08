@@ -30,6 +30,11 @@ function Add-VSFSxFileSystemWindowsConfiguration {
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER DiskIopsConfiguration
+        Type: DiskIopsConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-diskiopsconfiguration
+        UpdateType: Mutable
+
     .PARAMETER DeploymentType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-deploymenttype
         PrimitiveType: String
@@ -99,6 +104,8 @@ function Add-VSFSxFileSystemWindowsConfiguration {
                 }
             })]
         $ActiveDirectoryId,
+        [parameter(Mandatory = $false)]
+        $DiskIopsConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

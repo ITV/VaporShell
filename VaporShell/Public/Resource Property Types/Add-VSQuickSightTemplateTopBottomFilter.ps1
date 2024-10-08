@@ -37,6 +37,11 @@ function Add-VSQuickSightTemplateTopBottomFilter {
         UpdateType: Mutable
         PrimitiveType: Double
 
+    .PARAMETER DefaultFilterControlConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html#cfn-quicksight-template-topbottomfilter-defaultfiltercontrolconfiguration
+        UpdateType: Mutable
+        Type: DefaultFilterControlConfiguration
+
     .PARAMETER FilterId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html#cfn-quicksight-template-topbottomfilter-filterid
         UpdateType: Mutable
@@ -95,6 +100,8 @@ function Add-VSQuickSightTemplateTopBottomFilter {
                 }
             })]
         $Limit,
+        [parameter(Mandatory = $false)]
+        $DefaultFilterControlConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

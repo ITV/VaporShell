@@ -15,6 +15,11 @@ function Add-VSFMSPolicyPolicyOption {
         UpdateType: Mutable
         Type: NetworkFirewallPolicy
 
+    .PARAMETER NetworkAclCommonPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-networkaclcommonpolicy
+        UpdateType: Mutable
+        Type: NetworkAclCommonPolicy
+
     .PARAMETER ThirdPartyFirewallPolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-thirdpartyfirewallpolicy
         UpdateType: Mutable
@@ -29,6 +34,8 @@ function Add-VSFMSPolicyPolicyOption {
     (
         [parameter(Mandatory = $false)]
         $NetworkFirewallPolicy,
+        [parameter(Mandatory = $false)]
+        $NetworkAclCommonPolicy,
         [parameter(Mandatory = $false)]
         $ThirdPartyFirewallPolicy
     )

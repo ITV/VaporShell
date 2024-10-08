@@ -42,10 +42,22 @@ function New-VSMediaConnectFlowOutput {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER MediaStreamOutputConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: MediaStreamOutputConfiguration
+        DuplicatesAllowed: True
+
     .PARAMETER Encryption
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
         UpdateType: Mutable
         Type: Encryption
+
+    .PARAMETER OutputStatus
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-outputstatus
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
@@ -213,7 +225,29 @@ function New-VSMediaConnectFlowOutput {
             })]
         $RemoteId,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.MediaConnect.FlowOutput.MediaStreamOutputConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MediaStreamOutputConfigurations,
+        [parameter(Mandatory = $false)]
         $Encryption,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OutputStatus,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -346,6 +380,12 @@ function New-VSMediaConnectFlowOutput {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                MediaStreamOutputConfigurations {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name MediaStreamOutputConfigurations -Value @($MediaStreamOutputConfigurations)
                 }
                 CidrAllowList {
                     if (!($ResourceParams["Properties"])) {

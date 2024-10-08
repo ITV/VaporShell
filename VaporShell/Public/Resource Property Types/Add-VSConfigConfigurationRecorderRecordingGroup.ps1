@@ -15,9 +15,19 @@ function Add-VSConfigConfigurationRecorderRecordingGroup {
         PrimitiveType: Boolean
         UpdateType: Mutable
 
+    .PARAMETER ExclusionByResourceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-exclusionbyresourcetypes
+        Type: ExclusionByResourceTypes
+        UpdateType: Mutable
+
     .PARAMETER IncludeGlobalResourceTypes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-includeglobalresourcetypes
         PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER RecordingStrategy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-recordingstrategy
+        Type: RecordingStrategy
         UpdateType: Mutable
 
     .PARAMETER ResourceTypes
@@ -46,6 +56,8 @@ function Add-VSConfigConfigurationRecorderRecordingGroup {
             })]
         $AllSupported,
         [parameter(Mandatory = $false)]
+        $ExclusionByResourceTypes,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,6 +68,8 @@ function Add-VSConfigConfigurationRecorderRecordingGroup {
                 }
             })]
         $IncludeGlobalResourceTypes,
+        [parameter(Mandatory = $false)]
+        $RecordingStrategy,
         [parameter(Mandatory = $false)]
         $ResourceTypes
     )

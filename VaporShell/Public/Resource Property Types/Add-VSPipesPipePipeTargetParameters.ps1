@@ -20,6 +20,36 @@ function Add-VSPipesPipePipeTargetParameters {
         UpdateType: Mutable
         Type: PipeTargetHttpParameters
 
+    .PARAMETER TimestreamParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-timestreamparameters
+        UpdateType: Mutable
+        Type: PipeTargetTimestreamParameters
+
+    .PARAMETER InputTemplate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-inputtemplate
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER EventBridgeEventBusParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-eventbridgeeventbusparameters
+        UpdateType: Mutable
+        Type: PipeTargetEventBridgeEventBusParameters
+
+    .PARAMETER LambdaFunctionParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-lambdafunctionparameters
+        UpdateType: Mutable
+        Type: PipeTargetLambdaFunctionParameters
+
+    .PARAMETER BatchJobParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-batchjobparameters
+        UpdateType: Mutable
+        Type: PipeTargetBatchJobParameters
+
+    .PARAMETER RedshiftDataParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-redshiftdataparameters
+        UpdateType: Mutable
+        Type: PipeTargetRedshiftDataParameters
+
     .PARAMETER SqsQueueParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-sqsqueueparameters
         UpdateType: Mutable
@@ -35,40 +65,15 @@ function Add-VSPipesPipePipeTargetParameters {
         UpdateType: Mutable
         Type: PipeTargetKinesisStreamParameters
 
-    .PARAMETER InputTemplate
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-inputtemplate
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER SageMakerPipelineParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-sagemakerpipelineparameters
         UpdateType: Mutable
         Type: PipeTargetSageMakerPipelineParameters
 
-    .PARAMETER EventBridgeEventBusParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-eventbridgeeventbusparameters
-        UpdateType: Mutable
-        Type: PipeTargetEventBridgeEventBusParameters
-
-    .PARAMETER LambdaFunctionParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-lambdafunctionparameters
-        UpdateType: Mutable
-        Type: PipeTargetLambdaFunctionParameters
-
     .PARAMETER EcsTaskParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-ecstaskparameters
         UpdateType: Mutable
         Type: PipeTargetEcsTaskParameters
-
-    .PARAMETER BatchJobParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-batchjobparameters
-        UpdateType: Mutable
-        Type: PipeTargetBatchJobParameters
-
-    .PARAMETER RedshiftDataParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-redshiftdataparameters
-        UpdateType: Mutable
-        Type: PipeTargetRedshiftDataParameters
 
     .FUNCTIONALITY
         Vaporshell
@@ -82,11 +87,7 @@ function Add-VSPipesPipePipeTargetParameters {
         [parameter(Mandatory = $false)]
         $HttpParameters,
         [parameter(Mandatory = $false)]
-        $SqsQueueParameters,
-        [parameter(Mandatory = $false)]
-        $CloudWatchLogsParameters,
-        [parameter(Mandatory = $false)]
-        $KinesisStreamParameters,
+        $TimestreamParameters,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -99,17 +100,23 @@ function Add-VSPipesPipePipeTargetParameters {
             })]
         $InputTemplate,
         [parameter(Mandatory = $false)]
-        $SageMakerPipelineParameters,
-        [parameter(Mandatory = $false)]
         $EventBridgeEventBusParameters,
         [parameter(Mandatory = $false)]
         $LambdaFunctionParameters,
         [parameter(Mandatory = $false)]
-        $EcsTaskParameters,
-        [parameter(Mandatory = $false)]
         $BatchJobParameters,
         [parameter(Mandatory = $false)]
-        $RedshiftDataParameters
+        $RedshiftDataParameters,
+        [parameter(Mandatory = $false)]
+        $SqsQueueParameters,
+        [parameter(Mandatory = $false)]
+        $CloudWatchLogsParameters,
+        [parameter(Mandatory = $false)]
+        $KinesisStreamParameters,
+        [parameter(Mandatory = $false)]
+        $SageMakerPipelineParameters,
+        [parameter(Mandatory = $false)]
+        $EcsTaskParameters
     )
     Begin {
         $obj = [PSCustomObject]@{}

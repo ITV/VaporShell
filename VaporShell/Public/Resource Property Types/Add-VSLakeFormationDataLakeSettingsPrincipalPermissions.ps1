@@ -11,7 +11,8 @@ function Add-VSLakeFormationDataLakeSettingsPrincipalPermissions {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html
 
     .PARAMETER Permissions
-        Type: Permissions
+        PrimitiveItemType: String
+        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html#cfn-lakeformation-datalakesettings-principalpermissions-permissions
         UpdateType: Mutable
 
@@ -27,9 +28,9 @@ function Add-VSLakeFormationDataLakeSettingsPrincipalPermissions {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         $Permissions,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         $Principal
     )
     Begin {

@@ -34,6 +34,13 @@ function New-VSBatchJobQueue {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER JobStateTimeLimitActions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobstatetimelimitactions
+        UpdateType: Mutable
+        Type: List
+        ItemType: JobStateTimeLimitAction
+        DuplicatesAllowed: True
+
     .PARAMETER JobQueueName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobqueuename
         UpdateType: Immutable
@@ -153,6 +160,17 @@ function New-VSBatchJobQueue {
         $SchedulingPolicyArn,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Batch.JobQueue.JobStateTimeLimitAction"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $JobStateTimeLimitActions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -244,6 +262,12 @@ function New-VSBatchJobQueue {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ComputeEnvironmentOrder -Value @($ComputeEnvironmentOrder)
+                }
+                JobStateTimeLimitActions {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name JobStateTimeLimitActions -Value @($JobStateTimeLimitActions)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

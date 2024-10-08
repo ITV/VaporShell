@@ -20,10 +20,20 @@ function Add-VSECSTaskDefinitionVolume {
         UpdateType: Immutable
         Type: HostVolumeProperties
 
+    .PARAMETER ConfiguredAtLaunch
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-configuredatlaunch
+        UpdateType: Immutable
+        PrimitiveType: Boolean
+
     .PARAMETER DockerVolumeConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
         UpdateType: Immutable
         Type: DockerVolumeConfiguration
+
+    .PARAMETER FSxWindowsFileServerVolumeConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-fsxwindowsfileservervolumeconfiguration
+        UpdateType: Immutable
+        Type: FSxWindowsFileServerVolumeConfiguration
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-name
@@ -42,7 +52,20 @@ function Add-VSECSTaskDefinitionVolume {
         [parameter(Mandatory = $false)]
         $Host,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ConfiguredAtLaunch,
+        [parameter(Mandatory = $false)]
         $DockerVolumeConfiguration,
+        [parameter(Mandatory = $false)]
+        $FSxWindowsFileServerVolumeConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

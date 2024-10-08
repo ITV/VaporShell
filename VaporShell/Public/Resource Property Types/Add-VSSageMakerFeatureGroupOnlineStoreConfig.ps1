@@ -15,10 +15,20 @@ function Add-VSSageMakerFeatureGroupOnlineStoreConfig {
         UpdateType: Immutable
         PrimitiveType: Boolean
 
+    .PARAMETER StorageType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-storagetype
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER SecurityConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-securityconfig
         UpdateType: Immutable
         Type: OnlineStoreSecurityConfig
+
+    .PARAMETER TtlDuration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-ttlduration
+        UpdateType: Mutable
+        Type: TtlDuration
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,7 +49,20 @@ function Add-VSSageMakerFeatureGroupOnlineStoreConfig {
             })]
         $EnableOnlineStore,
         [parameter(Mandatory = $false)]
-        $SecurityConfig
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StorageType,
+        [parameter(Mandatory = $false)]
+        $SecurityConfig,
+        [parameter(Mandatory = $false)]
+        $TtlDuration
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -15,6 +15,11 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER MultiAZWithStandbyEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-multiazwithstandbyenabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER WarmEnabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-warmenabled
         UpdateType: Mutable
@@ -39,6 +44,11 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-dedicatedmastercount
         UpdateType: Mutable
         PrimitiveType: Integer
+
+    .PARAMETER ColdStorageOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-coldstorageoptions
+        UpdateType: Mutable
+        Type: ColdStorageOptions
 
     .PARAMETER InstanceType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-instancetype
@@ -88,6 +98,17 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $MultiAZWithStandbyEnabled,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $WarmEnabled,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -124,6 +145,8 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
                 }
             })]
         $DedicatedMasterCount,
+        [parameter(Mandatory = $false)]
+        $ColdStorageOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

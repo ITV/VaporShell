@@ -19,7 +19,7 @@ function New-VSSageMakerApp {
 
     .PARAMETER ResourceSpec
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: ResourceSpec
 
     .PARAMETER AppType

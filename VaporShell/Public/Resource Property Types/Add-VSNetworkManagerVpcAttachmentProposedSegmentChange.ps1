@@ -20,7 +20,7 @@ function Add-VSNetworkManagerVpcAttachmentProposedSegmentChange {
         UpdateType: Mutable
         Type: List
         ItemType: Tag
-        DuplicatesAllowed: True
+        DuplicatesAllowed: False
 
     .PARAMETER AttachmentPolicyRuleNumber
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html#cfn-networkmanager-vpcattachment-proposedsegmentchange-attachmentpolicyrulenumber

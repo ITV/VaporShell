@@ -22,15 +22,15 @@ function New-VSQuickSightTemplate {
         UpdateType: Mutable
         Type: TemplateSourceEntity
 
-    .PARAMETER AwsAccountId
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Definition
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-definition
         UpdateType: Mutable
         Type: TemplateVersionDefinition
+
+    .PARAMETER AwsAccountId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Permissions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
@@ -38,6 +38,11 @@ function New-VSQuickSightTemplate {
         Type: List
         ItemType: ResourcePermission
         DuplicatesAllowed: True
+
+    .PARAMETER ValidationStrategy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-validationstrategy
+        UpdateType: Mutable
+        Type: ValidationStrategy
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
@@ -131,6 +136,8 @@ function New-VSQuickSightTemplate {
         $VersionDescription,
         [parameter(Mandatory = $false)]
         $SourceEntity,
+        [parameter(Mandatory = $false)]
+        $Definition,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -143,8 +150,6 @@ function New-VSQuickSightTemplate {
             })]
         $AwsAccountId,
         [parameter(Mandatory = $false)]
-        $Definition,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.ResourcePermission"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -155,6 +160,8 @@ function New-VSQuickSightTemplate {
                 }
             })]
         $Permissions,
+        [parameter(Mandatory = $false)]
+        $ValidationStrategy,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

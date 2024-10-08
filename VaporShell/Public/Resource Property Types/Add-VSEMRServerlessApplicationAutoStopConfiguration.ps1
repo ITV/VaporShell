@@ -12,12 +12,12 @@ function Add-VSEMRServerlessApplicationAutoStopConfiguration {
 
     .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostopconfiguration.html#cfn-emrserverless-application-autostopconfiguration-enabled
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: Boolean
 
     .PARAMETER IdleTimeoutMinutes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostopconfiguration.html#cfn-emrserverless-application-autostopconfiguration-idletimeoutminutes
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: Integer
 
     .FUNCTIONALITY

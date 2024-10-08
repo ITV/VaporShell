@@ -19,7 +19,7 @@ function New-VSSageMakerModelQualityJobDefinition {
 
     .PARAMETER EndpointName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-endpointname
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER StoppingCondition

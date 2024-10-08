@@ -45,6 +45,11 @@ function Add-VSQuickSightAnalysisNumericEqualityFilter {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER DefaultFilterControlConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericequalityfilter.html#cfn-quicksight-analysis-numericequalityfilter-defaultfiltercontrolconfiguration
+        UpdateType: Mutable
+        Type: DefaultFilterControlConfiguration
+
     .PARAMETER FilterId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericequalityfilter.html#cfn-quicksight-analysis-numericequalityfilter-filterid
         UpdateType: Mutable
@@ -116,6 +121,8 @@ function Add-VSQuickSightAnalysisNumericEqualityFilter {
                 }
             })]
         $SelectAllOptions,
+        [parameter(Mandatory = $false)]
+        $DefaultFilterControlConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

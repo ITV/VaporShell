@@ -11,10 +11,11 @@ function Add-VSCognitoUserPoolAccountRecoverySetting {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-accountrecoverysetting.html
 
     .PARAMETER RecoveryMechanisms
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-accountrecoverysetting.html#cfn-cognito-userpool-accountrecoverysetting-recoverymechanisms
-        ItemType: RecoveryOption
         UpdateType: Mutable
+        Type: List
+        ItemType: RecoveryOption
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

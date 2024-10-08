@@ -11,9 +11,9 @@ function Add-VSGuardDutyDetectorCFNKubernetesConfiguration {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html
 
     .PARAMETER AuditLogs
-        Type: CFNKubernetesAuditLogsConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html#cfn-guardduty-detector-cfnkubernetesconfiguration-auditlogs
         UpdateType: Mutable
+        Type: CFNKubernetesAuditLogsConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -22,7 +22,7 @@ function Add-VSGuardDutyDetectorCFNKubernetesConfiguration {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         $AuditLogs
     )
     Begin {

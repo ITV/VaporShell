@@ -102,7 +102,7 @@ function New-VSIAMOIDCProvider {
         $LogicalId,
         [parameter(Mandatory = $false)]
         $ClientIdList,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $ThumbprintList,
         [parameter(Mandatory = $false)]
         [ValidateScript( {

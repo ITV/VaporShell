@@ -10,6 +10,13 @@ function Add-VSQuickSightTemplateFilterOperationSelectedFieldsConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filteroperationselectedfieldsconfiguration.html
 
+    .PARAMETER SelectedColumns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filteroperationselectedfieldsconfiguration.html#cfn-quicksight-template-filteroperationselectedfieldsconfiguration-selectedcolumns
+        UpdateType: Mutable
+        Type: List
+        ItemType: ColumnIdentifier
+        DuplicatesAllowed: True
+
     .PARAMETER SelectedFields
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filteroperationselectedfieldsconfiguration.html#cfn-quicksight-template-filteroperationselectedfieldsconfiguration-selectedfields
         UpdateType: Mutable
@@ -29,6 +36,17 @@ function Add-VSQuickSightTemplateFilterOperationSelectedFieldsConfiguration {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Template.ColumnIdentifier"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SelectedColumns,
         [parameter(Mandatory = $false)]
         $SelectedFields,
         [parameter(Mandatory = $false)]

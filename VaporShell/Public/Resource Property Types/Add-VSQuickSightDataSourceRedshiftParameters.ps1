@@ -10,6 +10,11 @@ function Add-VSQuickSightDataSourceRedshiftParameters {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html
 
+    .PARAMETER IAMParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-iamparameters
+        UpdateType: Mutable
+        Type: RedshiftIAMParameters
+
     .PARAMETER ClusterId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
         UpdateType: Mutable
@@ -30,6 +35,11 @@ function Add-VSQuickSightDataSourceRedshiftParameters {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER IdentityCenterConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-identitycenterconfiguration
+        UpdateType: Mutable
+        Type: IdentityCenterConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -37,6 +47,8 @@ function Add-VSQuickSightDataSourceRedshiftParameters {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $IAMParameters,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -80,7 +92,9 @@ function Add-VSQuickSightDataSourceRedshiftParameters {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Host
+        $Host,
+        [parameter(Mandatory = $false)]
+        $IdentityCenterConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

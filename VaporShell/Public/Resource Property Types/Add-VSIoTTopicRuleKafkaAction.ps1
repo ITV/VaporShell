@@ -21,6 +21,13 @@ function Add-VSIoTTopicRuleKafkaAction {
         Type: Map
         PrimitiveItemType: String
 
+    .PARAMETER Headers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-headers
+        UpdateType: Mutable
+        Type: List
+        ItemType: KafkaActionHeader
+        DuplicatesAllowed: False
+
     .PARAMETER Topic
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
         UpdateType: Mutable
@@ -57,6 +64,17 @@ function Add-VSIoTTopicRuleKafkaAction {
         [parameter(Mandatory = $true)]
         [System.Collections.Hashtable]
         $ClientProperties,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.IoT.TopicRule.KafkaActionHeader"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Headers,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

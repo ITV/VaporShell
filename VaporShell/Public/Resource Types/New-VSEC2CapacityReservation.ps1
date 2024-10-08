@@ -76,7 +76,7 @@ function New-VSEC2CapacityReservation {
 
     .PARAMETER InstanceMatchCriteria
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-instancematchcriteria
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy

@@ -20,6 +20,11 @@ function Add-VSQuickSightDashboardGeospatialPointStyleOptions {
         UpdateType: Mutable
         Type: ClusterMarkerConfiguration
 
+    .PARAMETER HeatmapConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpointstyleoptions.html#cfn-quicksight-dashboard-geospatialpointstyleoptions-heatmapconfiguration
+        UpdateType: Mutable
+        Type: GeospatialHeatmapConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -39,7 +44,9 @@ function Add-VSQuickSightDashboardGeospatialPointStyleOptions {
             })]
         $SelectedPointStyle,
         [parameter(Mandatory = $false)]
-        $ClusterMarkerConfiguration
+        $ClusterMarkerConfiguration,
+        [parameter(Mandatory = $false)]
+        $HeatmapConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

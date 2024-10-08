@@ -15,6 +15,11 @@ function Add-VSMediaConnectFlowSource {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER MaxSyncBuffer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-maxsyncbuffer
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
     .PARAMETER StreamId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-streamid
         UpdateType: Mutable
@@ -30,6 +35,13 @@ function Add-VSMediaConnectFlowSource {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER MediaStreamSourceConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-mediastreamsourceconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: MediaStreamSourceConfiguration
+        DuplicatesAllowed: True
+
     .PARAMETER IngestPort
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-ingestport
         UpdateType: Mutable
@@ -44,6 +56,11 @@ function Add-VSMediaConnectFlowSource {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-decryption
         UpdateType: Mutable
         Type: Encryption
+
+    .PARAMETER GatewayBridgeSource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-gatewaybridgesource
+        UpdateType: Mutable
+        Type: GatewayBridgeSource
 
     .PARAMETER SourceListenerAddress
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-sourcelisteneraddress
@@ -125,6 +142,17 @@ function Add-VSMediaConnectFlowSource {
         $IngestIp,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxSyncBuffer,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -158,6 +186,17 @@ function Add-VSMediaConnectFlowSource {
         $SenderIpAddress,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.MediaConnect.Flow.MediaStreamSourceConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MediaStreamSourceConfigurations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -180,6 +219,8 @@ function Add-VSMediaConnectFlowSource {
         $SenderControlPort,
         [parameter(Mandatory = $false)]
         $Decryption,
+        [parameter(Mandatory = $false)]
+        $GatewayBridgeSource,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

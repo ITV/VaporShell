@@ -17,6 +17,11 @@ function New-VSCodeDeployDeploymentConfig {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ZonalConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-zonalconfig
+        UpdateType: Immutable
+        Type: ZonalConfig
+
     .PARAMETER DeploymentConfigName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-deploymentconfigname
         UpdateType: Immutable
@@ -105,6 +110,8 @@ function New-VSCodeDeployDeploymentConfig {
                 }
             })]
         $ComputePlatform,
+        [parameter(Mandatory = $false)]
+        $ZonalConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

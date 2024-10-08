@@ -39,6 +39,13 @@ function New-VSCloudTrailTrail {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER AdvancedEventSelectors
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-advancedeventselectors
+        UpdateType: Mutable
+        Type: List
+        ItemType: AdvancedEventSelector
+        DuplicatesAllowed: False
+
     .PARAMETER TrailName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-trailname
         UpdateType: Immutable
@@ -210,6 +217,17 @@ function New-VSCloudTrailTrail {
                 }
             })]
         $S3KeyPrefix,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CloudTrail.Trail.AdvancedEventSelector"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AdvancedEventSelectors,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -391,6 +409,12 @@ function New-VSCloudTrailTrail {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name EventSelectors -Value @($EventSelectors)
+                }
+                AdvancedEventSelectors {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AdvancedEventSelectors -Value @($AdvancedEventSelectors)
                 }
                 InsightSelectors {
                     if (!($ResourceParams["Properties"])) {

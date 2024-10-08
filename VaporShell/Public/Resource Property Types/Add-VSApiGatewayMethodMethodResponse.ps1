@@ -8,26 +8,24 @@ function Add-VSApiGatewayMethodMethodResponse {
 
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html
-
-    .PARAMETER ResponseModels
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: Map
-        UpdateType: Mutable
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-methodresponse.html
 
     .PARAMETER ResponseParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters
-        DuplicatesAllowed: False
-        PrimitiveItemType: Boolean
-        Type: Map
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters
         UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .PARAMETER StatusCode
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ResponseModels
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -36,9 +34,6 @@ function Add-VSApiGatewayMethodMethodResponse {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $ResponseModels,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $ResponseParameters,
@@ -52,7 +47,10 @@ function Add-VSApiGatewayMethodMethodResponse {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StatusCode
+        $StatusCode,
+        [parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $ResponseModels
     )
     Begin {
         $obj = [PSCustomObject]@{}

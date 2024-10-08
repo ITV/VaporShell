@@ -10,6 +10,11 @@ function Add-VSQuickSightTemplateFilter {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filter.html
 
+    .PARAMETER NestedFilter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filter.html#cfn-quicksight-template-filter-nestedfilter
+        UpdateType: Mutable
+        Type: NestedFilter
+
     .PARAMETER NumericEqualityFilter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filter.html#cfn-quicksight-template-filter-numericequalityfilter
         UpdateType: Mutable
@@ -52,6 +57,8 @@ function Add-VSQuickSightTemplateFilter {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $NestedFilter,
         [parameter(Mandatory = $false)]
         $NumericEqualityFilter,
         [parameter(Mandatory = $false)]

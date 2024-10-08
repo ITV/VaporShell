@@ -22,6 +22,11 @@ function New-VSS3OutpostsEndpoint {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER FailedReason
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-failedreason
+        UpdateType: Mutable
+        Type: FailedReason
+
     .PARAMETER SubnetId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid
         UpdateType: Immutable
@@ -121,6 +126,8 @@ function New-VSS3OutpostsEndpoint {
                 }
             })]
         $SecurityGroupId,
+        [parameter(Mandatory = $false)]
+        $FailedReason,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

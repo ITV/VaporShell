@@ -57,6 +57,12 @@ function New-VSIoTTwinMakerComponentType {
         Type: Map
         ItemType: Function
 
+    .PARAMETER CompositeComponentTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-compositecomponenttypes
+        UpdateType: Mutable
+        Type: Map
+        ItemType: CompositeComponentType
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-tags
         UpdateType: Mutable
@@ -204,6 +210,17 @@ function New-VSIoTTwinMakerComponentType {
                 }
             })]
         $Functions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.IoTTwinMaker.ComponentType.CompositeComponentType"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CompositeComponentTypes,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,

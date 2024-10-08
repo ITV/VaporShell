@@ -50,12 +50,22 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER PolicyVariables
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-policyvariables
+        UpdateType: Mutable
+        Type: PolicyVariables
+
     .PARAMETER StatefulDefaultActions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefuldefaultactions
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
+
+    .PARAMETER TLSInspectionConfigurationArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-tlsinspectionconfigurationarn
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -104,7 +114,20 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
         [parameter(Mandatory = $true)]
         $StatelessFragmentDefaultActions,
         [parameter(Mandatory = $false)]
-        $StatefulDefaultActions
+        $PolicyVariables,
+        [parameter(Mandatory = $false)]
+        $StatefulDefaultActions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TLSInspectionConfigurationArn
     )
     Begin {
         $obj = [PSCustomObject]@{}

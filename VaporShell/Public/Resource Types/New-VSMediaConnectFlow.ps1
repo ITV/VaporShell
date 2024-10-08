@@ -12,15 +12,39 @@ function New-VSMediaConnectFlow {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER SourceMonitoringConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcemonitoringconfig
+        UpdateType: Mutable
+        Type: SourceMonitoringConfig
+
     .PARAMETER SourceFailoverConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
         UpdateType: Mutable
         Type: FailoverConfig
 
+    .PARAMETER VpcInterfaces
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-vpcinterfaces
+        UpdateType: Mutable
+        Type: List
+        ItemType: VpcInterface
+        DuplicatesAllowed: True
+
+    .PARAMETER MediaStreams
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-mediastreams
+        UpdateType: Mutable
+        Type: List
+        ItemType: MediaStream
+        DuplicatesAllowed: True
+
     .PARAMETER AvailabilityZone
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER Maintenance
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-maintenance
+        UpdateType: Mutable
+        Type: Maintenance
 
     .PARAMETER Source
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
@@ -95,7 +119,31 @@ function New-VSMediaConnectFlow {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $SourceMonitoringConfig,
+        [parameter(Mandatory = $false)]
         $SourceFailoverConfig,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.MediaConnect.Flow.VpcInterface"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $VpcInterfaces,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.MediaConnect.Flow.MediaStream"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MediaStreams,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -107,6 +155,8 @@ function New-VSMediaConnectFlow {
                 }
             })]
         $AvailabilityZone,
+        [parameter(Mandatory = $false)]
+        $Maintenance,
         [parameter(Mandatory = $true)]
         $Source,
         [parameter(Mandatory = $true)]
@@ -193,6 +243,18 @@ function New-VSMediaConnectFlow {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                VpcInterfaces {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name VpcInterfaces -Value @($VpcInterfaces)
+                }
+                MediaStreams {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name MediaStreams -Value @($MediaStreams)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

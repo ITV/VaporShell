@@ -15,6 +15,13 @@ function Add-VSSageMakerDomainJupyterServerAppSettings {
         UpdateType: Mutable
         Type: ResourceSpec
 
+    .PARAMETER LifecycleConfigArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-lifecycleconfigarns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -23,7 +30,9 @@ function Add-VSSageMakerDomainJupyterServerAppSettings {
     Param
     (
         [parameter(Mandatory = $false)]
-        $DefaultResourceSpec
+        $DefaultResourceSpec,
+        [parameter(Mandatory = $false)]
+        $LifecycleConfigArns
     )
     Begin {
         $obj = [PSCustomObject]@{}

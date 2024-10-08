@@ -10,10 +10,15 @@ function Add-VSCognitoUserPoolUserPoolAddOns {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html
 
+    .PARAMETER AdvancedSecurityAdditionalFlows
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecurityadditionalflows
+        UpdateType: Mutable
+        Type: AdvancedSecurityAdditionalFlows
+
     .PARAMETER AdvancedSecurityMode
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecuritymode
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -22,6 +27,8 @@ function Add-VSCognitoUserPoolUserPoolAddOns {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $AdvancedSecurityAdditionalFlows,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

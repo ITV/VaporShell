@@ -14,7 +14,7 @@ function New-VSIdentityStoreGroupMembership {
 
     .PARAMETER MemberId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-memberid
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: MemberId
 
     .PARAMETER IdentityStoreId
@@ -24,7 +24,7 @@ function New-VSIdentityStoreGroupMembership {
 
     .PARAMETER GroupId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-groupid
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy

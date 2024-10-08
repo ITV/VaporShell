@@ -15,6 +15,11 @@ function Add-VSQuickSightTemplateRelativeDateTimeControlDisplayOptions {
         UpdateType: Mutable
         Type: LabelOptions
 
+    .PARAMETER InfoIconLabelOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html#cfn-quicksight-template-relativedatetimecontroldisplayoptions-infoiconlabeloptions
+        UpdateType: Mutable
+        Type: SheetControlInfoIconLabelOptions
+
     .PARAMETER DateTimeFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html#cfn-quicksight-template-relativedatetimecontroldisplayoptions-datetimeformat
         UpdateType: Mutable
@@ -29,6 +34,8 @@ function Add-VSQuickSightTemplateRelativeDateTimeControlDisplayOptions {
     (
         [parameter(Mandatory = $false)]
         $TitleOptions,
+        [parameter(Mandatory = $false)]
+        $InfoIconLabelOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

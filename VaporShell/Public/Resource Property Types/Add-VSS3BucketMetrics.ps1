@@ -10,15 +10,15 @@ function Add-VSS3BucketMetrics {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html
 
-    .PARAMETER EventThreshold
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
-        Type: ReplicationTimeValue
-        UpdateType: Mutable
-
     .PARAMETER Status
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER EventThreshold
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
+        UpdateType: Mutable
+        Type: ReplicationTimeValue
 
     .FUNCTIONALITY
         Vaporshell
@@ -27,8 +27,6 @@ function Add-VSS3BucketMetrics {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $EventThreshold,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -39,7 +37,9 @@ function Add-VSS3BucketMetrics {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Status
+        $Status,
+        [parameter(Mandatory = $false)]
+        $EventThreshold
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -20,6 +20,11 @@ function Add-VSAmplifyUIBuilderComponentComponentEvent {
         UpdateType: Mutable
         Type: ActionParameters
 
+    .PARAMETER BindingEvent
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-bindingevent
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -39,7 +44,18 @@ function Add-VSAmplifyUIBuilderComponentComponentEvent {
             })]
         $Action,
         [parameter(Mandatory = $false)]
-        $Parameters
+        $Parameters,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BindingEvent
     )
     Begin {
         $obj = [PSCustomObject]@{}

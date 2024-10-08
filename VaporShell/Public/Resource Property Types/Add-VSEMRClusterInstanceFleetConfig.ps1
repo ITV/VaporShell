@@ -15,7 +15,7 @@ function Add-VSEMRClusterInstanceFleetConfig {
         DuplicatesAllowed: False
         ItemType: InstanceTypeConfig
         Type: List
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER LaunchSpecifications
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-launchspecifications
@@ -26,6 +26,11 @@ function Add-VSEMRClusterInstanceFleetConfig {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-name
         PrimitiveType: String
         UpdateType: Immutable
+
+    .PARAMETER ResizeSpecifications
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-resizespecifications
+        Type: InstanceFleetResizingSpecifications
+        UpdateType: Mutable
 
     .PARAMETER TargetOnDemandCapacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-targetondemandcapacity
@@ -68,6 +73,8 @@ function Add-VSEMRClusterInstanceFleetConfig {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        $ResizeSpecifications,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

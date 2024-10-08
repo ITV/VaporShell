@@ -10,6 +10,11 @@ function Add-VSQuickSightDashboardDashboardVersionDefinition {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html
 
+    .PARAMETER Options
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html#cfn-quicksight-dashboard-dashboardversiondefinition-options
+        UpdateType: Mutable
+        Type: AssetOptions
+
     .PARAMETER FilterGroups
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html#cfn-quicksight-dashboard-dashboardversiondefinition-filtergroups
         UpdateType: Mutable
@@ -64,6 +69,8 @@ function Add-VSQuickSightDashboardDashboardVersionDefinition {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $Options,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.FilterGroup"

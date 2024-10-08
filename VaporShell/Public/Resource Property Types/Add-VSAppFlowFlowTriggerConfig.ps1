@@ -15,11 +15,6 @@ function Add-VSAppFlowFlowTriggerConfig {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ActivateFlowOnCreate
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-activateflowoncreate
-        UpdateType: Immutable
-        PrimitiveType: Boolean
-
     .PARAMETER TriggerProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
         UpdateType: Mutable
@@ -43,17 +38,6 @@ function Add-VSAppFlowFlowTriggerConfig {
                 }
             })]
         $TriggerType,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ActivateFlowOnCreate,
         [parameter(Mandatory = $false)]
         $TriggerProperties
     )

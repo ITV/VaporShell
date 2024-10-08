@@ -15,6 +15,11 @@ function Add-VSDynamoDBTableGlobalSecondaryIndex {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER OnDemandThroughput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-ondemandthroughput
+        UpdateType: Mutable
+        Type: OnDemandThroughput
+
     .PARAMETER ContributorInsightsSpecification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-contributorinsightsspecification
         UpdateType: Mutable
@@ -55,6 +60,8 @@ function Add-VSDynamoDBTableGlobalSecondaryIndex {
                 }
             })]
         $IndexName,
+        [parameter(Mandatory = $false)]
+        $OnDemandThroughput,
         [parameter(Mandatory = $false)]
         $ContributorInsightsSpecification,
         [parameter(Mandatory = $true)]

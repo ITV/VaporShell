@@ -23,6 +23,11 @@ function New-VSFISExperimentTemplate {
         Type: Map
         ItemType: ExperimentTemplateAction
 
+    .PARAMETER ExperimentOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-experimentoptions
+        UpdateType: Mutable
+        Type: ExperimentTemplateExperimentOptions
+
     .PARAMETER StopConditions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
         UpdateType: Mutable
@@ -136,6 +141,8 @@ function New-VSFISExperimentTemplate {
                 }
             })]
         $Actions,
+        [parameter(Mandatory = $false)]
+        $ExperimentOptions,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateStopCondition"

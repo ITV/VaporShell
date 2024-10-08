@@ -10,15 +10,15 @@ function Add-VSAutoScalingAutoScalingGroupNetworkInterfaceCountRequest {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkinterfacecountrequest.html
 
-    .PARAMETER Max
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkinterfacecountrequest.html#cfn-autoscaling-autoscalinggroup-networkinterfacecountrequest-max
-        PrimitiveType: Integer
-        UpdateType: Mutable
-
     .PARAMETER Min
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkinterfacecountrequest.html#cfn-autoscaling-autoscalinggroup-networkinterfacecountrequest-min
+        UpdateType: Conditional
         PrimitiveType: Integer
-        UpdateType: Mutable
+
+    .PARAMETER Max
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkinterfacecountrequest.html#cfn-autoscaling-autoscalinggroup-networkinterfacecountrequest-max
+        UpdateType: Conditional
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
@@ -37,7 +37,7 @@ function Add-VSAutoScalingAutoScalingGroupNetworkInterfaceCountRequest {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Max,
+        $Min,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -48,7 +48,7 @@ function Add-VSAutoScalingAutoScalingGroupNetworkInterfaceCountRequest {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Min
+        $Max
     )
     Begin {
         $obj = [PSCustomObject]@{}

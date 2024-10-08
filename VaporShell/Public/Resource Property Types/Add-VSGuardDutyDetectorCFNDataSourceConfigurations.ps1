@@ -11,19 +11,19 @@ function Add-VSGuardDutyDetectorCFNDataSourceConfigurations {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html
 
     .PARAMETER MalwareProtection
-        Type: CFNMalwareProtectionConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-malwareprotection
         UpdateType: Mutable
+        Type: CFNMalwareProtectionConfiguration
 
     .PARAMETER S3Logs
-        Type: CFNS3LogsConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-s3logs
         UpdateType: Mutable
+        Type: CFNS3LogsConfiguration
 
     .PARAMETER Kubernetes
-        Type: CFNKubernetesConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-kubernetes
         UpdateType: Mutable
+        Type: CFNKubernetesConfiguration
 
     .FUNCTIONALITY
         Vaporshell

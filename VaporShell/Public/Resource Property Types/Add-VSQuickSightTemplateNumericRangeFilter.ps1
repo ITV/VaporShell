@@ -40,6 +40,11 @@ function Add-VSQuickSightTemplateNumericRangeFilter {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER DefaultFilterControlConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefilter.html#cfn-quicksight-template-numericrangefilter-defaultfiltercontrolconfiguration
+        UpdateType: Mutable
+        Type: DefaultFilterControlConfiguration
+
     .PARAMETER FilterId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefilter.html#cfn-quicksight-template-numericrangefilter-filterid
         UpdateType: Mutable
@@ -101,6 +106,8 @@ function Add-VSQuickSightTemplateNumericRangeFilter {
                 }
             })]
         $SelectAllOptions,
+        [parameter(Mandatory = $false)]
+        $DefaultFilterControlConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

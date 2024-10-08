@@ -47,6 +47,13 @@ function Add-VSQuickSightAnalysisSubtotalOptions {
         UpdateType: Mutable
         Type: TableCellStyle
 
+    .PARAMETER StyleTargets
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-subtotaloptions.html#cfn-quicksight-analysis-subtotaloptions-styletargets
+        UpdateType: Mutable
+        Type: List
+        ItemType: TableStyleTarget
+        DuplicatesAllowed: True
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -103,7 +110,18 @@ function Add-VSQuickSightAnalysisSubtotalOptions {
             })]
         $FieldLevel,
         [parameter(Mandatory = $false)]
-        $MetricHeaderCellStyle
+        $MetricHeaderCellStyle,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.TableStyleTarget"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StyleTargets
     )
     Begin {
         $obj = [PSCustomObject]@{}

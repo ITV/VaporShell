@@ -22,6 +22,11 @@ function New-VSTimestreamTable {
         UpdateType: Mutable
         Type: RetentionProperties
 
+    .PARAMETER Schema
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-schema
+        UpdateType: Mutable
+        Type: Schema
+
     .PARAMETER DatabaseName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
         UpdateType: Immutable
@@ -114,6 +119,8 @@ function New-VSTimestreamTable {
         $TableName,
         [parameter(Mandatory = $false)]
         $RetentionProperties,
+        [parameter(Mandatory = $false)]
+        $Schema,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

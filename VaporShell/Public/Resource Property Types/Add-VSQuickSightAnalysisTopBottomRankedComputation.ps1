@@ -58,7 +58,7 @@ function Add-VSQuickSightAnalysisTopBottomRankedComputation {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Category,
         [parameter(Mandatory = $false)]
         [ValidateScript( {

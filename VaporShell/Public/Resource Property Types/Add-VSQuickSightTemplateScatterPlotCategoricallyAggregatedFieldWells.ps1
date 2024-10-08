@@ -24,6 +24,13 @@ function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
         ItemType: MeasureField
         DuplicatesAllowed: True
 
+    .PARAMETER Label
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotcategoricallyaggregatedfieldwells.html#cfn-quicksight-template-scatterplotcategoricallyaggregatedfieldwells-label
+        UpdateType: Mutable
+        Type: List
+        ItemType: DimensionField
+        DuplicatesAllowed: True
+
     .PARAMETER XAxis
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotcategoricallyaggregatedfieldwells.html#cfn-quicksight-template-scatterplotcategoricallyaggregatedfieldwells-xaxis
         UpdateType: Mutable
@@ -67,6 +74,17 @@ function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
                 }
             })]
         $Size,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Template.DimensionField"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Label,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.MeasureField"

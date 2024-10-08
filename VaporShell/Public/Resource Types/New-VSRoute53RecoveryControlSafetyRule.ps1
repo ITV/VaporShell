@@ -14,7 +14,7 @@ function New-VSRoute53RecoveryControlSafetyRule {
 
     .PARAMETER ControlPanelArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER AssertionRule
@@ -24,7 +24,7 @@ function New-VSRoute53RecoveryControlSafetyRule {
 
     .PARAMETER RuleConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-        UpdateType: Immutable
+        UpdateType: Conditional
         Type: RuleConfig
 
     .PARAMETER GatingRule
@@ -34,7 +34,7 @@ function New-VSRoute53RecoveryControlSafetyRule {
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-tags
-        UpdateType: Immutable
+        UpdateType: Conditional
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True

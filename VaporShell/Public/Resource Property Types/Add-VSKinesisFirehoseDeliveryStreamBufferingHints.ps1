@@ -10,14 +10,14 @@ function Add-VSKinesisFirehoseDeliveryStreamBufferingHints {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html
 
-    .PARAMETER IntervalInSeconds
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-intervalinseconds
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER SizeInMBs
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-sizeinmbs
-        UpdateType: Mutable
+        UpdateType: Conditional
+        PrimitiveType: Integer
+
+    .PARAMETER IntervalInSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-intervalinseconds
+        UpdateType: Conditional
         PrimitiveType: Integer
 
     .FUNCTIONALITY
@@ -37,7 +37,7 @@ function Add-VSKinesisFirehoseDeliveryStreamBufferingHints {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IntervalInSeconds,
+        $SizeInMBs,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -48,7 +48,7 @@ function Add-VSKinesisFirehoseDeliveryStreamBufferingHints {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SizeInMBs
+        $IntervalInSeconds
     )
     Begin {
         $obj = [PSCustomObject]@{}

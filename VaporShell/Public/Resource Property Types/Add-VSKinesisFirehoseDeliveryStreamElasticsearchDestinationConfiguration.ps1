@@ -50,6 +50,11 @@ function Add-VSKinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguratio
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER DocumentIdOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-documentidoptions
+        UpdateType: Mutable
+        Type: DocumentIdOptions
+
     .PARAMETER S3Configuration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-s3configuration
         UpdateType: Mutable
@@ -161,6 +166,8 @@ function Add-VSKinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguratio
                 }
             })]
         $IndexName,
+        [parameter(Mandatory = $false)]
+        $DocumentIdOptions,
         [parameter(Mandatory = $true)]
         $S3Configuration,
         [parameter(Mandatory = $false)]

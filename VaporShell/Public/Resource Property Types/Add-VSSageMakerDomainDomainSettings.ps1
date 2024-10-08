@@ -10,6 +10,11 @@ function Add-VSSageMakerDomainDomainSettings {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html
 
+    .PARAMETER DockerSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-dockersettings
+        UpdateType: Mutable
+        Type: DockerSettings
+
     .PARAMETER RStudioServerProDomainSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-rstudioserverprodomainsettings
         UpdateType: Mutable
@@ -29,6 +34,8 @@ function Add-VSSageMakerDomainDomainSettings {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $DockerSettings,
         [parameter(Mandatory = $false)]
         $RStudioServerProDomainSettings,
         [parameter(Mandatory = $false)]

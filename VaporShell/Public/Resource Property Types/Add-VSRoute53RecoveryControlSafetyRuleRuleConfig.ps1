@@ -12,17 +12,17 @@ function Add-VSRoute53RecoveryControlSafetyRuleRuleConfig {
 
     .PARAMETER Type
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-type
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER Inverted
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-inverted
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: Boolean
 
     .PARAMETER Threshold
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-threshold
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: Integer
 
     .FUNCTIONALITY

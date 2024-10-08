@@ -12,6 +12,11 @@ function New-VSCustomerProfilesDomain {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER Matching
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-matching
+        UpdateType: Mutable
+        Type: Matching
+
     .PARAMETER DefaultExpirationDays
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
         UpdateType: Mutable
@@ -31,6 +36,11 @@ function New-VSCustomerProfilesDomain {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER RuleBasedMatching
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-rulebasedmatching
+        UpdateType: Mutable
+        Type: RuleBasedMatching
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
@@ -102,6 +112,8 @@ function New-VSCustomerProfilesDomain {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $Matching,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -145,6 +157,8 @@ function New-VSCustomerProfilesDomain {
                 }
             })]
         $DefaultEncryptionKey,
+        [parameter(Mandatory = $false)]
+        $RuleBasedMatching,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

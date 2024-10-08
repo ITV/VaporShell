@@ -17,6 +17,11 @@ function New-VSOmicsSequenceStore {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER FallbackLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html#cfn-omics-sequencestore-fallbacklocation
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER SseConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html#cfn-omics-sequencestore-sseconfig
         UpdateType: Immutable
@@ -106,6 +111,17 @@ function New-VSOmicsSequenceStore {
                 }
             })]
         $Description,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FallbackLocation,
         [parameter(Mandatory = $false)]
         $SseConfig,
         [parameter(Mandatory = $false)]

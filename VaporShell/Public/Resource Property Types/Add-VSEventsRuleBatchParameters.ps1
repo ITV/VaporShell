@@ -12,23 +12,23 @@ function Add-VSEventsRuleBatchParameters {
 
     .PARAMETER ArrayProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html#cfn-events-rule-batchparameters-arrayproperties
+        UpdateType: Mutable
         Type: BatchArrayProperties
-        UpdateType: Mutable
-
-    .PARAMETER JobDefinition
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html#cfn-events-rule-batchparameters-jobdefinition
-        PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER JobName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html#cfn-events-rule-batchparameters-jobname
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER RetryStrategy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html#cfn-events-rule-batchparameters-retrystrategy
-        Type: BatchRetryStrategy
         UpdateType: Mutable
+        Type: BatchRetryStrategy
+
+    .PARAMETER JobDefinition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html#cfn-events-rule-batchparameters-jobdefinition
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -49,7 +49,9 @@ function Add-VSEventsRuleBatchParameters {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $JobDefinition,
+        $JobName,
+        [parameter(Mandatory = $false)]
+        $RetryStrategy,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -60,9 +62,7 @@ function Add-VSEventsRuleBatchParameters {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $JobName,
-        [parameter(Mandatory = $false)]
-        $RetryStrategy
+        $JobDefinition
     )
     Begin {
         $obj = [PSCustomObject]@{}

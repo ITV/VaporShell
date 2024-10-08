@@ -17,6 +17,11 @@ function Add-VSSageMakerDomainDefaultSpaceSettings {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER JupyterLabAppSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-jupyterlabappsettings
+        UpdateType: Mutable
+        Type: JupyterLabAppSettings
+
     .PARAMETER KernelGatewayAppSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-kernelgatewayappsettings
         UpdateType: Mutable
@@ -27,10 +32,27 @@ function Add-VSSageMakerDomainDefaultSpaceSettings {
         UpdateType: Mutable
         Type: JupyterServerAppSettings
 
+    .PARAMETER CustomFileSystemConfigs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-customfilesystemconfigs
+        UpdateType: Mutable
+        Type: List
+        ItemType: CustomFileSystemConfig
+        DuplicatesAllowed: False
+
     .PARAMETER ExecutionRole
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-executionrole
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER SpaceStorageSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-spacestoragesettings
+        UpdateType: Mutable
+        Type: DefaultSpaceStorageSettings
+
+    .PARAMETER CustomPosixUserConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-customposixuserconfig
+        UpdateType: Mutable
+        Type: CustomPosixUserConfig
 
     .FUNCTIONALITY
         Vaporshell
@@ -42,10 +64,23 @@ function Add-VSSageMakerDomainDefaultSpaceSettings {
         [parameter(Mandatory = $false)]
         $SecurityGroups,
         [parameter(Mandatory = $false)]
+        $JupyterLabAppSettings,
+        [parameter(Mandatory = $false)]
         $KernelGatewayAppSettings,
         [parameter(Mandatory = $false)]
         $JupyterServerAppSettings,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.SageMaker.Domain.CustomFileSystemConfig"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomFileSystemConfigs,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,7 +90,11 @@ function Add-VSSageMakerDomainDefaultSpaceSettings {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ExecutionRole
+        $ExecutionRole,
+        [parameter(Mandatory = $false)]
+        $SpaceStorageSettings,
+        [parameter(Mandatory = $false)]
+        $CustomPosixUserConfig
     )
     Begin {
         $obj = [PSCustomObject]@{}

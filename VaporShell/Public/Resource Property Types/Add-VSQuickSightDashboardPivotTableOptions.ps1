@@ -15,6 +15,41 @@ function Add-VSQuickSightDashboardPivotTableOptions {
         UpdateType: Mutable
         Type: TableCellStyle
 
+    .PARAMETER RowHeaderStyle
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowheaderstyle
+        UpdateType: Mutable
+        Type: TableCellStyle
+
+    .PARAMETER CollapsedRowDimensionsVisibility
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-collapsedrowdimensionsvisibility
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER RowsLayout
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowslayout
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER MetricPlacement
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-metricplacement
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DefaultCellWidth
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-defaultcellwidth
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ColumnNamesVisibility
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-columnnamesvisibility
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER RowsLabelOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowslabeloptions
+        UpdateType: Mutable
+        Type: PivotTableRowsLabelOptions
+
     .PARAMETER SingleMetricVisibility
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-singlemetricvisibility
         UpdateType: Mutable
@@ -25,16 +60,6 @@ function Add-VSQuickSightDashboardPivotTableOptions {
         UpdateType: Mutable
         Type: TableCellStyle
 
-    .PARAMETER RowHeaderStyle
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowheaderstyle
-        UpdateType: Mutable
-        Type: TableCellStyle
-
-    .PARAMETER MetricPlacement
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-metricplacement
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER ToggleButtonsVisibility
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-togglebuttonsvisibility
         UpdateType: Mutable
@@ -44,11 +69,6 @@ function Add-VSQuickSightDashboardPivotTableOptions {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-cellstyle
         UpdateType: Mutable
         Type: TableCellStyle
-
-    .PARAMETER ColumnNamesVisibility
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-columnnamesvisibility
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER RowAlternateColorOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowalternatecoloroptions
@@ -65,6 +85,8 @@ function Add-VSQuickSightDashboardPivotTableOptions {
         [parameter(Mandatory = $false)]
         $RowFieldNamesStyle,
         [parameter(Mandatory = $false)]
+        $RowHeaderStyle,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -74,11 +96,18 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SingleMetricVisibility,
+        $CollapsedRowDimensionsVisibility,
         [parameter(Mandatory = $false)]
-        $ColumnHeaderStyle,
-        [parameter(Mandatory = $false)]
-        $RowHeaderStyle,
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RowsLayout,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -100,9 +129,7 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ToggleButtonsVisibility,
-        [parameter(Mandatory = $false)]
-        $CellStyle,
+        $DefaultCellWidth,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -114,6 +141,34 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                 }
             })]
         $ColumnNamesVisibility,
+        [parameter(Mandatory = $false)]
+        $RowsLabelOptions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SingleMetricVisibility,
+        [parameter(Mandatory = $false)]
+        $ColumnHeaderStyle,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ToggleButtonsVisibility,
+        [parameter(Mandatory = $false)]
+        $CellStyle,
         [parameter(Mandatory = $false)]
         $RowAlternateColorOptions
     )

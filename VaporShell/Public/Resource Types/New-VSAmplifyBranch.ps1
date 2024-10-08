@@ -22,6 +22,11 @@ function New-VSAmplifyBranch {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER Backend
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-backend
+        UpdateType: Mutable
+        Type: Backend
+
     .PARAMETER EnvironmentVariables
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
         UpdateType: Mutable
@@ -165,6 +170,8 @@ function New-VSAmplifyBranch {
                 }
             })]
         $EnablePerformanceMode,
+        [parameter(Mandatory = $false)]
+        $Backend,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Amplify.Branch.EnvironmentVariable"

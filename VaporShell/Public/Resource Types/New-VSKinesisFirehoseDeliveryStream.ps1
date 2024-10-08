@@ -32,6 +32,11 @@ function New-VSKinesisFirehoseDeliveryStream {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER IcebergDestinationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration
+        UpdateType: Immutable
+        Type: IcebergDestinationConfiguration
+
     .PARAMETER RedshiftDestinationConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
         UpdateType: Mutable
@@ -41,6 +46,11 @@ function New-VSKinesisFirehoseDeliveryStream {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration
         UpdateType: Mutable
         Type: AmazonopensearchserviceDestinationConfiguration
+
+    .PARAMETER MSKSourceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-msksourceconfiguration
+        UpdateType: Immutable
+        Type: MSKSourceConfiguration
 
     .PARAMETER SplunkDestinationConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
@@ -61,6 +71,11 @@ function New-VSKinesisFirehoseDeliveryStream {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
         UpdateType: Mutable
         Type: ElasticsearchDestinationConfiguration
+
+    .PARAMETER SnowflakeDestinationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration
+        UpdateType: Mutable
+        Type: SnowflakeDestinationConfiguration
 
     .PARAMETER S3DestinationConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
@@ -159,9 +174,13 @@ function New-VSKinesisFirehoseDeliveryStream {
             })]
         $DeliveryStreamType,
         [parameter(Mandatory = $false)]
+        $IcebergDestinationConfiguration,
+        [parameter(Mandatory = $false)]
         $RedshiftDestinationConfiguration,
         [parameter(Mandatory = $false)]
         $AmazonopensearchserviceDestinationConfiguration,
+        [parameter(Mandatory = $false)]
+        $MSKSourceConfiguration,
         [parameter(Mandatory = $false)]
         $SplunkDestinationConfiguration,
         [parameter(Mandatory = $false)]
@@ -170,6 +189,8 @@ function New-VSKinesisFirehoseDeliveryStream {
         $AmazonOpenSearchServerlessDestinationConfiguration,
         [parameter(Mandatory = $false)]
         $ElasticsearchDestinationConfiguration,
+        [parameter(Mandatory = $false)]
+        $SnowflakeDestinationConfiguration,
         [parameter(Mandatory = $false)]
         $S3DestinationConfiguration,
         [parameter(Mandatory = $false)]

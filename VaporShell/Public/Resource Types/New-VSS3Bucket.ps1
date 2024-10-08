@@ -7,120 +7,120 @@ function New-VSS3Bucket {
         Adds an AWS::S3::Bucket resource to the template. 
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html
 
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AccelerateConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accelerateconfiguration
-        Type: AccelerateConfiguration
+    .PARAMETER InventoryConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
         UpdateType: Mutable
-
-    .PARAMETER AccessControl
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER AnalyticsConfigurations
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-analyticsconfigurations
-        DuplicatesAllowed: False
-        ItemType: AnalyticsConfiguration
         Type: List
-        UpdateType: Mutable
+        ItemType: InventoryConfiguration
+        DuplicatesAllowed: False
 
     .PARAMETER BucketEncryption
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-bucketencryption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-bucketencryption
+        UpdateType: Mutable
         Type: BucketEncryption
-        UpdateType: Mutable
-
-    .PARAMETER BucketName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-name
-        PrimitiveType: String
-        UpdateType: Immutable
-
-    .PARAMETER CorsConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig
-        Type: CorsConfiguration
-        UpdateType: Mutable
-
-    .PARAMETER IntelligentTieringConfigurations
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations
-        DuplicatesAllowed: False
-        ItemType: IntelligentTieringConfiguration
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER InventoryConfigurations
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
-        DuplicatesAllowed: False
-        ItemType: InventoryConfiguration
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER LifecycleConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig
-        Type: LifecycleConfiguration
-        UpdateType: Mutable
-
-    .PARAMETER LoggingConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig
-        Type: LoggingConfiguration
-        UpdateType: Mutable
-
-    .PARAMETER MetricsConfigurations
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-metricsconfigurations
-        DuplicatesAllowed: False
-        ItemType: MetricsConfiguration
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER NotificationConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-notification
-        Type: NotificationConfiguration
-        UpdateType: Mutable
-
-    .PARAMETER ObjectLockConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockconfiguration
-        Type: ObjectLockConfiguration
-        UpdateType: Mutable
-
-    .PARAMETER ObjectLockEnabled
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockenabled
-        PrimitiveType: Boolean
-        UpdateType: Immutable
-
-    .PARAMETER OwnershipControls
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols
-        Type: OwnershipControls
-        UpdateType: Mutable
-
-    .PARAMETER PublicAccessBlockConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration
-        Type: PublicAccessBlockConfiguration
-        UpdateType: Mutable
-
-    .PARAMETER ReplicationConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration
-        Type: ReplicationConfiguration
-        UpdateType: Mutable
-
-    .PARAMETER Tags
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-tags
-        DuplicatesAllowed: True
-        ItemType: Tag
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER VersioningConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-versioning
-        Type: VersioningConfiguration
-        UpdateType: Mutable
 
     .PARAMETER WebsiteConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-websiteconfiguration
-        Type: WebsiteConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-websiteconfiguration
         UpdateType: Mutable
+        Type: WebsiteConfiguration
+
+    .PARAMETER NotificationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-notificationconfiguration
+        UpdateType: Mutable
+        Type: NotificationConfiguration
+
+    .PARAMETER LifecycleConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-lifecycleconfiguration
+        UpdateType: Mutable
+        Type: LifecycleConfiguration
+
+    .PARAMETER VersioningConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-versioningconfiguration
+        UpdateType: Mutable
+        Type: VersioningConfiguration
+
+    .PARAMETER MetricsConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-metricsconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: MetricsConfiguration
+        DuplicatesAllowed: False
+
+    .PARAMETER AccessControl
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-accesscontrol
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER IntelligentTieringConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: IntelligentTieringConfiguration
+        DuplicatesAllowed: False
+
+    .PARAMETER AnalyticsConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-analyticsconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: AnalyticsConfiguration
+        DuplicatesAllowed: False
+
+    .PARAMETER AccelerateConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-accelerateconfiguration
+        UpdateType: Mutable
+        Type: AccelerateConfiguration
+
+    .PARAMETER PublicAccessBlockConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration
+        UpdateType: Mutable
+        Type: PublicAccessBlockConfiguration
+
+    .PARAMETER BucketName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-bucketname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER CorsConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-corsconfiguration
+        UpdateType: Mutable
+        Type: CorsConfiguration
+
+    .PARAMETER OwnershipControls
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-ownershipcontrols
+        UpdateType: Mutable
+        Type: OwnershipControls
+
+    .PARAMETER ObjectLockConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-objectlockconfiguration
+        UpdateType: Mutable
+        Type: ObjectLockConfiguration
+
+    .PARAMETER ObjectLockEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-objectlockenabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER LoggingConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-loggingconfiguration
+        UpdateType: Mutable
+        Type: LoggingConfiguration
+
+    .PARAMETER ReplicationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-replicationconfiguration
+        UpdateType: Mutable
+        Type: ReplicationConfiguration
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -185,7 +185,37 @@ function New-VSS3Bucket {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
-        $AccelerateConfiguration,
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.S3.Bucket.InventoryConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InventoryConfigurations,
+        [parameter(Mandatory = $false)]
+        $BucketEncryption,
+        [parameter(Mandatory = $false)]
+        $WebsiteConfiguration,
+        [parameter(Mandatory = $false)]
+        $NotificationConfiguration,
+        [parameter(Mandatory = $false)]
+        $LifecycleConfiguration,
+        [parameter(Mandatory = $false)]
+        $VersioningConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.S3.Bucket.MetricsConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MetricsConfigurations,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -199,6 +229,17 @@ function New-VSS3Bucket {
         $AccessControl,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.S3.Bucket.IntelligentTieringConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IntelligentTieringConfigurations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3.Bucket.AnalyticsConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -209,7 +250,9 @@ function New-VSS3Bucket {
             })]
         $AnalyticsConfigurations,
         [parameter(Mandatory = $false)]
-        $BucketEncryption,
+        $AccelerateConfiguration,
+        [parameter(Mandatory = $false)]
+        $PublicAccessBlockConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -224,44 +267,7 @@ function New-VSS3Bucket {
         [parameter(Mandatory = $false)]
         $CorsConfiguration,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.S3.Bucket.IntelligentTieringConfiguration"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $IntelligentTieringConfigurations,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.S3.Bucket.InventoryConfiguration"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $InventoryConfigurations,
-        [parameter(Mandatory = $false)]
-        $LifecycleConfiguration,
-        [parameter(Mandatory = $false)]
-        $LoggingConfiguration,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.S3.Bucket.MetricsConfiguration"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MetricsConfigurations,
-        [parameter(Mandatory = $false)]
-        $NotificationConfiguration,
+        $OwnershipControls,
         [parameter(Mandatory = $false)]
         $ObjectLockConfiguration,
         [parameter(Mandatory = $false)]
@@ -276,18 +282,12 @@ function New-VSS3Bucket {
             })]
         $ObjectLockEnabled,
         [parameter(Mandatory = $false)]
-        $OwnershipControls,
-        [parameter(Mandatory = $false)]
-        $PublicAccessBlockConfiguration,
+        $LoggingConfiguration,
         [parameter(Mandatory = $false)]
         $ReplicationConfiguration,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        $VersioningConfiguration,
-        [parameter(Mandatory = $false)]
-        $WebsiteConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -362,18 +362,6 @@ function New-VSS3Bucket {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                AnalyticsConfigurations {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AnalyticsConfigurations -Value @($AnalyticsConfigurations)
-                }
-                IntelligentTieringConfigurations {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name IntelligentTieringConfigurations -Value @($IntelligentTieringConfigurations)
-                }
                 InventoryConfigurations {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -385,6 +373,18 @@ function New-VSS3Bucket {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name MetricsConfigurations -Value @($MetricsConfigurations)
+                }
+                IntelligentTieringConfigurations {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name IntelligentTieringConfigurations -Value @($IntelligentTieringConfigurations)
+                }
+                AnalyticsConfigurations {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AnalyticsConfigurations -Value @($AnalyticsConfigurations)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

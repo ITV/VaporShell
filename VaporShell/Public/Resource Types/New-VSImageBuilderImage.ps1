@@ -37,6 +37,13 @@ function New-VSImageBuilderImage {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER Workflows
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-workflows
+        UpdateType: Immutable
+        Type: List
+        ItemType: WorkflowConfiguration
+        DuplicatesAllowed: True
+
     .PARAMETER ImageTestsConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
         UpdateType: Immutable
@@ -46,6 +53,11 @@ function New-VSImageBuilderImage {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
         UpdateType: Immutable
         PrimitiveType: Boolean
+
+    .PARAMETER ExecutionRole
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-executionrole
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
@@ -162,6 +174,17 @@ function New-VSImageBuilderImage {
             })]
         $ContainerRecipeArn,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ImageBuilder.Image.WorkflowConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Workflows,
+        [parameter(Mandatory = $false)]
         $ImageTestsConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -174,6 +197,17 @@ function New-VSImageBuilderImage {
                 }
             })]
         $EnhancedImageMetadataEnabled,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ExecutionRole,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,
@@ -250,6 +284,12 @@ function New-VSImageBuilderImage {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Workflows {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Workflows -Value @($Workflows)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

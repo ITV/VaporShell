@@ -17,6 +17,11 @@ function New-VSNetworkManagerDevice {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER AWSLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-awslocation
+        UpdateType: Mutable
+        Type: AWSLocation
+
     .PARAMETER Type
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
         UpdateType: Mutable
@@ -52,7 +57,7 @@ function New-VSNetworkManagerDevice {
         UpdateType: Mutable
         Type: List
         ItemType: Tag
-        DuplicatesAllowed: True
+        DuplicatesAllowed: False
 
     .PARAMETER Location
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
@@ -132,6 +137,8 @@ function New-VSNetworkManagerDevice {
                 }
             })]
         $SiteId,
+        [parameter(Mandatory = $false)]
+        $AWSLocation,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

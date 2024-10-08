@@ -17,10 +17,20 @@ function New-VSSageMakerAppImageConfig {
         UpdateType: Mutable
         Type: KernelGatewayImageConfig
 
+    .PARAMETER CodeEditorAppImageConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-codeeditorappimageconfig
+        UpdateType: Mutable
+        Type: CodeEditorAppImageConfig
+
     .PARAMETER AppImageConfigName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER JupyterLabAppImageConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-jupyterlabappimageconfig
+        UpdateType: Mutable
+        Type: JupyterLabAppImageConfig
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
@@ -93,6 +103,8 @@ function New-VSSageMakerAppImageConfig {
         $LogicalId,
         [parameter(Mandatory = $false)]
         $KernelGatewayImageConfig,
+        [parameter(Mandatory = $false)]
+        $CodeEditorAppImageConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -104,6 +116,8 @@ function New-VSSageMakerAppImageConfig {
                 }
             })]
         $AppImageConfigName,
+        [parameter(Mandatory = $false)]
+        $JupyterLabAppImageConfig,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

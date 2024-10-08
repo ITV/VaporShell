@@ -15,6 +15,11 @@ function Add-VSQuickSightDashboardDateTimePickerControlDisplayOptions {
         UpdateType: Mutable
         Type: LabelOptions
 
+    .PARAMETER InfoIconLabelOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimepickercontroldisplayoptions.html#cfn-quicksight-dashboard-datetimepickercontroldisplayoptions-infoiconlabeloptions
+        UpdateType: Mutable
+        Type: SheetControlInfoIconLabelOptions
+
     .PARAMETER DateTimeFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimepickercontroldisplayoptions.html#cfn-quicksight-dashboard-datetimepickercontroldisplayoptions-datetimeformat
         UpdateType: Mutable
@@ -29,6 +34,8 @@ function Add-VSQuickSightDashboardDateTimePickerControlDisplayOptions {
     (
         [parameter(Mandatory = $false)]
         $TitleOptions,
+        [parameter(Mandatory = $false)]
+        $InfoIconLabelOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

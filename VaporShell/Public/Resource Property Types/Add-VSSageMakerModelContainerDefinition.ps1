@@ -50,6 +50,11 @@ function Add-VSSageMakerModelContainerDefinition {
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER ModelDataSource
+        Type: ModelDataSource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldatasource
+        UpdateType: Immutable
+
     .PARAMETER MultiModelConfig
         Type: MultiModelConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-multimodelconfig
@@ -141,6 +146,8 @@ function Add-VSSageMakerModelContainerDefinition {
                 }
             })]
         $Image,
+        [parameter(Mandatory = $false)]
+        $ModelDataSource,
         [parameter(Mandatory = $false)]
         $MultiModelConfig
     )

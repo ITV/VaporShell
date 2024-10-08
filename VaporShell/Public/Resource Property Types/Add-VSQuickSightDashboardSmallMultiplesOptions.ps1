@@ -25,6 +25,16 @@ function Add-VSQuickSightDashboardSmallMultiplesOptions {
         UpdateType: Mutable
         PrimitiveType: Double
 
+    .PARAMETER XAxis
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-smallmultiplesoptions.html#cfn-quicksight-dashboard-smallmultiplesoptions-xaxis
+        UpdateType: Mutable
+        Type: SmallMultiplesAxisProperties
+
+    .PARAMETER YAxis
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-smallmultiplesoptions.html#cfn-quicksight-dashboard-smallmultiplesoptions-yaxis
+        UpdateType: Mutable
+        Type: SmallMultiplesAxisProperties
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -55,7 +65,11 @@ function Add-VSQuickSightDashboardSmallMultiplesOptions {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MaxVisibleColumns
+        $MaxVisibleColumns,
+        [parameter(Mandatory = $false)]
+        $XAxis,
+        [parameter(Mandatory = $false)]
+        $YAxis
     )
     Begin {
         $obj = [PSCustomObject]@{}

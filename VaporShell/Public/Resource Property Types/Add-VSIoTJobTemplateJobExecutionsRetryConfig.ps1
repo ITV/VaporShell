@@ -12,7 +12,7 @@ function Add-VSIoTJobTemplateJobExecutionsRetryConfig {
 
     .PARAMETER RetryCriteriaList
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html#cfn-iot-jobtemplate-jobexecutionsretryconfig-retrycriterialist
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: List
         ItemType: RetryCriteria
         DuplicatesAllowed: True

@@ -35,6 +35,12 @@ function New-VSRAMResourceShare {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns
         UpdateType: Mutable
 
+    .PARAMETER Sources
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-sources
+        UpdateType: Mutable
+
     .PARAMETER Tags
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-tags
@@ -125,6 +131,8 @@ function New-VSRAMResourceShare {
         $AllowExternalPrincipals,
         [parameter(Mandatory = $false)]
         $ResourceArns,
+        [parameter(Mandatory = $false)]
+        $Sources,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -230,6 +238,12 @@ function New-VSRAMResourceShare {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ResourceArns -Value @($ResourceArns)
+                }
+                Sources {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Sources -Value @($Sources)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

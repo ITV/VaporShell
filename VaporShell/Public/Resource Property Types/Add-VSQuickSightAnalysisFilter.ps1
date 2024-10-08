@@ -10,6 +10,11 @@ function Add-VSQuickSightAnalysisFilter {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filter.html
 
+    .PARAMETER NestedFilter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filter.html#cfn-quicksight-analysis-filter-nestedfilter
+        UpdateType: Mutable
+        Type: NestedFilter
+
     .PARAMETER NumericEqualityFilter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filter.html#cfn-quicksight-analysis-filter-numericequalityfilter
         UpdateType: Mutable
@@ -52,6 +57,8 @@ function Add-VSQuickSightAnalysisFilter {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $NestedFilter,
         [parameter(Mandatory = $false)]
         $NumericEqualityFilter,
         [parameter(Mandatory = $false)]

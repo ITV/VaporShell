@@ -47,6 +47,11 @@ function Add-VSKinesisAnalyticsV2ApplicationApplicationConfiguration {
         UpdateType: Mutable
         Type: ApplicationSnapshotConfiguration
 
+    .PARAMETER ApplicationSystemRollbackConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsystemrollbackconfiguration
+        UpdateType: Mutable
+        Type: ApplicationSystemRollbackConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -76,7 +81,9 @@ function Add-VSKinesisAnalyticsV2ApplicationApplicationConfiguration {
             })]
         $VpcConfigurations,
         [parameter(Mandatory = $false)]
-        $ApplicationSnapshotConfiguration
+        $ApplicationSnapshotConfiguration,
+        [parameter(Mandatory = $false)]
+        $ApplicationSystemRollbackConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

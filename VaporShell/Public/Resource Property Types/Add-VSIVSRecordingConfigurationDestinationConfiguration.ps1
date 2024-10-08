@@ -22,7 +22,7 @@ function Add-VSIVSRecordingConfigurationDestinationConfiguration {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $S3
     )
     Begin {

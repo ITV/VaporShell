@@ -20,6 +20,11 @@ function Add-VSWAFv2WebACLFieldToMatch {
         UpdateType: Mutable
         PrimitiveType: Json
 
+    .PARAMETER JA3Fingerprint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-ja3fingerprint
+        UpdateType: Mutable
+        Type: JA3Fingerprint
+
     .PARAMETER SingleQueryArgument
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
         UpdateType: Mutable
@@ -80,6 +85,8 @@ function Add-VSWAFv2WebACLFieldToMatch {
                 }
             })]
         $AllQueryArguments,
+        [parameter(Mandatory = $false)]
+        $JA3Fingerprint,
         [parameter(Mandatory = $false)]
         $SingleQueryArgument,
         [parameter(Mandatory = $false)]

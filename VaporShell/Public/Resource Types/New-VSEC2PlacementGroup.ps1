@@ -29,7 +29,7 @@ function New-VSEC2PlacementGroup {
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-tags
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False

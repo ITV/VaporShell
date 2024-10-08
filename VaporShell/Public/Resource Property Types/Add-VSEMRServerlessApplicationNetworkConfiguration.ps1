@@ -12,14 +12,14 @@ function Add-VSEMRServerlessApplicationNetworkConfiguration {
 
     .PARAMETER SubnetIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-networkconfiguration.html#cfn-emrserverless-application-networkconfiguration-subnetids
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
     .PARAMETER SecurityGroupIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-networkconfiguration.html#cfn-emrserverless-application-networkconfiguration-securitygroupids
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False

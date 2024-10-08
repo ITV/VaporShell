@@ -10,6 +10,11 @@ function Add-VSQuickSightTemplateAggregationFunction {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-aggregationfunction.html
 
+    .PARAMETER AttributeAggregationFunction
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-aggregationfunction.html#cfn-quicksight-template-aggregationfunction-attributeaggregationfunction
+        UpdateType: Mutable
+        Type: AttributeAggregationFunction
+
     .PARAMETER DateAggregationFunction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-aggregationfunction.html#cfn-quicksight-template-aggregationfunction-dateaggregationfunction
         UpdateType: Mutable
@@ -32,6 +37,8 @@ function Add-VSQuickSightTemplateAggregationFunction {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $AttributeAggregationFunction,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

@@ -22,6 +22,11 @@ function New-VSHealthLakeFHIRDatastore {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER IdentityProviderConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration
+        UpdateType: Immutable
+        Type: IdentityProviderConfiguration
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-tags
         UpdateType: Mutable
@@ -123,6 +128,8 @@ function New-VSHealthLakeFHIRDatastore {
                 }
             })]
         $DatastoreName,
+        [parameter(Mandatory = $false)]
+        $IdentityProviderConfiguration,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

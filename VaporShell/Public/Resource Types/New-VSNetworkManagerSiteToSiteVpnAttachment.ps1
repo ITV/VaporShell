@@ -12,14 +12,29 @@ function New-VSNetworkManagerSiteToSiteVpnAttachment {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER ProposedSegmentChange
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-proposedsegmentchange
+        UpdateType: Mutable
+        Type: ProposedSegmentChange
+
     .PARAMETER CoreNetworkId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-corenetworkid
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ProposedNetworkFunctionGroupChange
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-proposednetworkfunctiongroupchange
+        UpdateType: Mutable
+        Type: ProposedNetworkFunctionGroupChange
+
     .PARAMETER VpnConnectionArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-vpnconnectionarn
         UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER NetworkFunctionGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-networkfunctiongroupname
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
@@ -27,7 +42,7 @@ function New-VSNetworkManagerSiteToSiteVpnAttachment {
         UpdateType: Mutable
         Type: List
         ItemType: Tag
-        DuplicatesAllowed: True
+        DuplicatesAllowed: False
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -91,6 +106,8 @@ function New-VSNetworkManagerSiteToSiteVpnAttachment {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $ProposedSegmentChange,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -102,6 +119,8 @@ function New-VSNetworkManagerSiteToSiteVpnAttachment {
                 }
             })]
         $CoreNetworkId,
+        [parameter(Mandatory = $false)]
+        $ProposedNetworkFunctionGroupChange,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -113,6 +132,17 @@ function New-VSNetworkManagerSiteToSiteVpnAttachment {
                 }
             })]
         $VpnConnectionArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $NetworkFunctionGroupName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

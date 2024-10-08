@@ -10,35 +10,35 @@ function Add-VSApplicationAutoScalingScalableTargetScheduledAction {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html
 
-    .PARAMETER EndTime
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-endtime
-        PrimitiveType: Timestamp
+    .PARAMETER Timezone
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-timezone
         UpdateType: Mutable
-
-    .PARAMETER ScalableTargetAction
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scalabletargetaction
-        Type: ScalableTargetAction
-        UpdateType: Mutable
-
-    .PARAMETER Schedule
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-schedule
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER ScheduledActionName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scheduledactionname
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER EndTime
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-endtime
+        UpdateType: Mutable
+        PrimitiveType: Timestamp
+
+    .PARAMETER Schedule
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-schedule
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER StartTime
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-starttime
+        UpdateType: Mutable
         PrimitiveType: Timestamp
-        UpdateType: Mutable
 
-    .PARAMETER Timezone
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-timezone
-        PrimitiveType: String
+    .PARAMETER ScalableTargetAction
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scalabletargetaction
         UpdateType: Mutable
+        Type: ScalableTargetAction
 
     .FUNCTIONALITY
         Vaporshell
@@ -48,10 +48,6 @@ function Add-VSApplicationAutoScalingScalableTargetScheduledAction {
     Param
     (
         [parameter(Mandatory = $false)]
-        $EndTime,
-        [parameter(Mandatory = $false)]
-        $ScalableTargetAction,
-        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +57,7 @@ function Add-VSApplicationAutoScalingScalableTargetScheduledAction {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Schedule,
+        $Timezone,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -74,8 +70,8 @@ function Add-VSApplicationAutoScalingScalableTargetScheduledAction {
             })]
         $ScheduledActionName,
         [parameter(Mandatory = $false)]
-        $StartTime,
-        [parameter(Mandatory = $false)]
+        $EndTime,
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,7 +81,11 @@ function Add-VSApplicationAutoScalingScalableTargetScheduledAction {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Timezone
+        $Schedule,
+        [parameter(Mandatory = $false)]
+        $StartTime,
+        [parameter(Mandatory = $false)]
+        $ScalableTargetAction
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -24,7 +24,7 @@ function New-VSSageMakerModelBiasJobDefinition {
 
     .PARAMETER EndpointName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-endpointname
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER StoppingCondition

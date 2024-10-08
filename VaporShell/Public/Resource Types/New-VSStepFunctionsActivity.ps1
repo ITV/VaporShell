@@ -12,6 +12,11 @@ function New-VSStepFunctionsActivity {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER EncryptionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-encryptionconfiguration
+        UpdateType: Immutable
+        Type: EncryptionConfiguration
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-tags
         UpdateType: Mutable
@@ -86,6 +91,8 @@ function New-VSStepFunctionsActivity {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $EncryptionConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.StepFunctions.Activity.TagsEntry"

@@ -31,7 +31,7 @@ function New-VSDataBrewRuleset {
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html#cfn-databrew-ruleset-tags
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True

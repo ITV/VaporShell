@@ -10,6 +10,11 @@ function Add-VSACMPCACertificateAuthorityCrlConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
 
+    .PARAMETER CrlDistributionPointExtensionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-crldistributionpointextensionconfiguration
+        UpdateType: Mutable
+        Type: CrlDistributionPointExtensionConfiguration
+
     .PARAMETER CustomCname
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
         UpdateType: Mutable
@@ -43,6 +48,8 @@ function Add-VSACMPCACertificateAuthorityCrlConfiguration {
     Param
     (
         [parameter(Mandatory = $false)]
+        $CrlDistributionPointExtensionConfiguration,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,7 +82,7 @@ function Add-VSACMPCACertificateAuthorityCrlConfiguration {
                 }
             })]
         $ExpirationInDays,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

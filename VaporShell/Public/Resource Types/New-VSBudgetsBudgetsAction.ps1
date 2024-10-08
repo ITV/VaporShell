@@ -22,6 +22,13 @@ function New-VSBudgetsBudgetsAction {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ResourceTags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-resourcetags
+        UpdateType: Mutable
+        Type: List
+        ItemType: ResourceTag
+        DuplicatesAllowed: True
+
     .PARAMETER NotificationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
         UpdateType: Mutable
@@ -138,6 +145,17 @@ function New-VSBudgetsBudgetsAction {
                 }
             })]
         $ActionType,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Budgets.BudgetsAction.ResourceTag"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ResourceTags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -259,6 +277,12 @@ function New-VSBudgetsBudgetsAction {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                ResourceTags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ResourceTags -Value @($ResourceTags)
                 }
                 Subscribers {
                     if (!($ResourceParams["Properties"])) {

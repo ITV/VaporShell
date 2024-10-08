@@ -35,6 +35,11 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
         UpdateType: Mutable
         Type: RedshiftRetryOptions
 
+    .PARAMETER SecretsManagerConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-secretsmanagerconfiguration
+        UpdateType: Mutable
+        Type: SecretsManagerConfiguration
+
     .PARAMETER ProcessingConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration
         UpdateType: Mutable
@@ -78,7 +83,7 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
         $S3BackupConfiguration,
         [parameter(Mandatory = $true)]
         $S3Configuration,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -93,6 +98,8 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
         $CopyCommand,
         [parameter(Mandatory = $false)]
         $RetryOptions,
+        [parameter(Mandatory = $false)]
+        $SecretsManagerConfiguration,
         [parameter(Mandatory = $false)]
         $ProcessingConfiguration,
         [parameter(Mandatory = $false)]
@@ -119,7 +126,7 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
                 }
             })]
         $RoleARN,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

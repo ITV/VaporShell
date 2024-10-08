@@ -15,6 +15,11 @@ function Add-VSQuickSightTemplateSliderControlDisplayOptions {
         UpdateType: Mutable
         Type: LabelOptions
 
+    .PARAMETER InfoIconLabelOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-slidercontroldisplayoptions.html#cfn-quicksight-template-slidercontroldisplayoptions-infoiconlabeloptions
+        UpdateType: Mutable
+        Type: SheetControlInfoIconLabelOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -23,7 +28,9 @@ function Add-VSQuickSightTemplateSliderControlDisplayOptions {
     Param
     (
         [parameter(Mandatory = $false)]
-        $TitleOptions
+        $TitleOptions,
+        [parameter(Mandatory = $false)]
+        $InfoIconLabelOptions
     )
     Begin {
         $obj = [PSCustomObject]@{}

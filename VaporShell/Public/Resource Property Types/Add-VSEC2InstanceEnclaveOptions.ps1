@@ -12,8 +12,8 @@ function Add-VSEC2InstanceEnclaveOptions {
 
     .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+        UpdateType: Immutable
         PrimitiveType: Boolean
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell

@@ -15,6 +15,13 @@ function Add-VSQuickSightDashboardPivotTableCellConditionalFormatting {
         UpdateType: Mutable
         Type: PivotTableConditionalFormattingScope
 
+    .PARAMETER Scopes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablecellconditionalformatting.html#cfn-quicksight-dashboard-pivottablecellconditionalformatting-scopes
+        UpdateType: Mutable
+        Type: List
+        ItemType: PivotTableConditionalFormattingScope
+        DuplicatesAllowed: True
+
     .PARAMETER FieldId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottablecellconditionalformatting.html#cfn-quicksight-dashboard-pivottablecellconditionalformatting-fieldid
         UpdateType: Mutable
@@ -34,6 +41,17 @@ function Add-VSQuickSightDashboardPivotTableCellConditionalFormatting {
     (
         [parameter(Mandatory = $false)]
         $Scope,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.PivotTableConditionalFormattingScope"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Scopes,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

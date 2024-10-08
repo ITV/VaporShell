@@ -17,6 +17,11 @@ function Add-VSBillingConductorBillingGroupAccountGrouping {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
+    .PARAMETER AutoAssociate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-autoassociate
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -25,7 +30,18 @@ function Add-VSBillingConductorBillingGroupAccountGrouping {
     Param
     (
         [parameter(Mandatory = $true)]
-        $LinkedAccountIds
+        $LinkedAccountIds,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AutoAssociate
     )
     Begin {
         $obj = [PSCustomObject]@{}

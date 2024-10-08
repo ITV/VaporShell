@@ -40,6 +40,11 @@ function Add-VSKinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration {
         UpdateType: Mutable
         Type: EncryptionConfiguration
 
+    .PARAMETER CustomTimeZone
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-customtimezone
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER DynamicPartitioningConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
         UpdateType: Mutable
@@ -69,6 +74,11 @@ function Add-VSKinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bufferinghints
         UpdateType: Mutable
         Type: BufferingHints
+
+    .PARAMETER FileExtension
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-fileextension
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER CloudWatchLoggingOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-cloudwatchloggingoptions
@@ -122,6 +132,17 @@ function Add-VSKinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration {
         [parameter(Mandatory = $false)]
         $EncryptionConfiguration,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomTimeZone,
+        [parameter(Mandatory = $false)]
         $DynamicPartitioningConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -160,6 +181,17 @@ function Add-VSKinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration {
         $S3BackupMode,
         [parameter(Mandatory = $false)]
         $BufferingHints,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FileExtension,
         [parameter(Mandatory = $false)]
         $CloudWatchLoggingOptions
     )

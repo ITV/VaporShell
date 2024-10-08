@@ -50,6 +50,11 @@ function Add-VSQuickSightDataSourceDataSourceParameters {
         UpdateType: Mutable
         Type: PrestoParameters
 
+    .PARAMETER StarburstParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-starburstparameters
+        UpdateType: Mutable
+        Type: StarburstParameters
+
     .PARAMETER RedshiftParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters
         UpdateType: Mutable
@@ -95,6 +100,11 @@ function Add-VSQuickSightDataSourceDataSourceParameters {
         UpdateType: Mutable
         Type: S3Parameters
 
+    .PARAMETER TrinoParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-trinoparameters
+        UpdateType: Mutable
+        Type: TrinoParameters
+
     .PARAMETER DatabricksParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-databricksparameters
         UpdateType: Mutable
@@ -124,6 +134,8 @@ function Add-VSQuickSightDataSourceDataSourceParameters {
         [parameter(Mandatory = $false)]
         $PrestoParameters,
         [parameter(Mandatory = $false)]
+        $StarburstParameters,
+        [parameter(Mandatory = $false)]
         $RedshiftParameters,
         [parameter(Mandatory = $false)]
         $MySqlParameters,
@@ -141,6 +153,8 @@ function Add-VSQuickSightDataSourceDataSourceParameters {
         $AuroraParameters,
         [parameter(Mandatory = $false)]
         $S3Parameters,
+        [parameter(Mandatory = $false)]
+        $TrinoParameters,
         [parameter(Mandatory = $false)]
         $DatabricksParameters
     )

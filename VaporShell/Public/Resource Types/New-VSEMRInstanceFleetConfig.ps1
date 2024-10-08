@@ -27,7 +27,7 @@ function New-VSEMRInstanceFleetConfig {
         DuplicatesAllowed: False
         ItemType: InstanceTypeConfig
         Type: List
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER LaunchSpecifications
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-launchspecifications
@@ -38,6 +38,11 @@ function New-VSEMRInstanceFleetConfig {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-name
         PrimitiveType: String
         UpdateType: Immutable
+
+    .PARAMETER ResizeSpecifications
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-resizespecifications
+        Type: InstanceFleetResizingSpecifications
+        UpdateType: Mutable
 
     .PARAMETER TargetOnDemandCapacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-targetondemandcapacity
@@ -157,6 +162,8 @@ function New-VSEMRInstanceFleetConfig {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        $ResizeSpecifications,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

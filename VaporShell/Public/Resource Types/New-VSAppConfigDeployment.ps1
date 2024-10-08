@@ -47,6 +47,12 @@ function New-VSAppConfigDeployment {
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER DynamicExtensionParameters
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-dynamicextensionparameters
+        ItemType: DynamicExtensionParameters
+        UpdateType: Immutable
+
     .PARAMETER Tags
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-tags
@@ -194,6 +200,17 @@ function New-VSAppConfigDeployment {
         $ApplicationId,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.AppConfig.Deployment.DynamicExtensionParameters"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DynamicExtensionParameters,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppConfig.Deployment.Tags"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -276,6 +293,12 @@ function New-VSAppConfigDeployment {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                DynamicExtensionParameters {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DynamicExtensionParameters -Value @($DynamicExtensionParameters)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

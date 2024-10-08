@@ -32,6 +32,23 @@ function New-VSEFSFileSystem {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER FileSystemProtection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemprotection
+        UpdateType: Mutable
+        Type: FileSystemProtection
+
+    .PARAMETER LifecyclePolicies
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
+        UpdateType: Mutable
+        Type: List
+        ItemType: LifecyclePolicy
+        DuplicatesAllowed: False
+
+    .PARAMETER ThroughputMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER FileSystemTags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
         UpdateType: Mutable
@@ -54,17 +71,10 @@ function New-VSEFSFileSystem {
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER LifecyclePolicies
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
+    .PARAMETER ReplicationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-replicationconfiguration
         UpdateType: Mutable
-        Type: List
-        ItemType: LifecyclePolicy
-        DuplicatesAllowed: False
-
-    .PARAMETER ThroughputMode
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-        UpdateType: Mutable
-        PrimitiveType: String
+        Type: ReplicationConfiguration
 
     .PARAMETER BackupPolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
@@ -178,6 +188,30 @@ function New-VSEFSFileSystem {
             })]
         $BypassPolicyLockoutSafetyCheck,
         [parameter(Mandatory = $false)]
+        $FileSystemProtection,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EFS.FileSystem.LifecyclePolicy"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LifecyclePolicies,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ThroughputMode,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EFS.FileSystem.ElasticFileSystemTag"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -222,27 +256,7 @@ function New-VSEFSFileSystem {
             })]
         $AvailabilityZoneName,
         [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.EFS.FileSystem.LifecyclePolicy"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $LifecyclePolicies,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ThroughputMode,
+        $ReplicationConfiguration,
         [parameter(Mandatory = $false)]
         $BackupPolicy,
         [parameter(Mandatory = $false)]
@@ -319,17 +333,17 @@ function New-VSEFSFileSystem {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                FileSystemTags {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name FileSystemTags -Value @($FileSystemTags)
-                }
                 LifecyclePolicies {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name LifecyclePolicies -Value @($LifecyclePolicies)
+                }
+                FileSystemTags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name FileSystemTags -Value @($FileSystemTags)
                 }
                 FileSystemPolicy {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){

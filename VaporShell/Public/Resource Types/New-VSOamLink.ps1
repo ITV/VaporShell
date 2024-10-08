@@ -29,6 +29,11 @@ function New-VSOamLink {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
+    .PARAMETER LinkConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html#cfn-oam-link-linkconfiguration
+        UpdateType: Mutable
+        Type: LinkConfiguration
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html#cfn-oam-link-tags
         UpdateType: Mutable
@@ -121,6 +126,8 @@ function New-VSOamLink {
         $LabelTemplate,
         [parameter(Mandatory = $true)]
         $ResourceTypes,
+        [parameter(Mandatory = $false)]
+        $LinkConfiguration,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,

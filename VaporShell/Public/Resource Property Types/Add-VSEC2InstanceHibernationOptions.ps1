@@ -12,8 +12,8 @@ function Add-VSEC2InstanceHibernationOptions {
 
     .PARAMETER Configured
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
+        UpdateType: Immutable
         PrimitiveType: Boolean
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell

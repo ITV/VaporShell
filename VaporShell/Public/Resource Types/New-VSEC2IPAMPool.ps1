@@ -32,6 +32,11 @@ function New-VSEC2IPAMPool {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER SourceResource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-sourceresource
+        UpdateType: Immutable
+        Type: SourceResource
+
     .PARAMETER SourceIpamPoolId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-sourceipampoolid
         UpdateType: Immutable
@@ -199,6 +204,8 @@ function New-VSEC2IPAMPool {
                 }
             })]
         $Description,
+        [parameter(Mandatory = $false)]
+        $SourceResource,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

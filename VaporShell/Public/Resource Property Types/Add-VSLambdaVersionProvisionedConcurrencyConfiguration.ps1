@@ -12,8 +12,8 @@ function Add-VSLambdaVersionProvisionedConcurrencyConfiguration {
 
     .PARAMETER ProvisionedConcurrentExecutions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-version-provisionedconcurrencyconfiguration.html#cfn-lambda-version-provisionedconcurrencyconfiguration-provisionedconcurrentexecutions
+        UpdateType: Immutable
         PrimitiveType: Integer
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell

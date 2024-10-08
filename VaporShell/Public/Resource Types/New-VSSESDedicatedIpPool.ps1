@@ -19,7 +19,7 @@ function New-VSSESDedicatedIpPool {
 
     .PARAMETER ScalingMode
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html#cfn-ses-dedicatedippool-scalingmode
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy

@@ -15,6 +15,11 @@ function Add-VSQuickSightAnalysisRowAlternateColorOptions {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER UsePrimaryBackgroundColor
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-rowalternatecoloroptions.html#cfn-quicksight-analysis-rowalternatecoloroptions-useprimarybackgroundcolor
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER RowAlternateColors
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-rowalternatecoloroptions.html#cfn-quicksight-analysis-rowalternatecoloroptions-rowalternatecolors
         UpdateType: Mutable
@@ -40,6 +45,17 @@ function Add-VSQuickSightAnalysisRowAlternateColorOptions {
                 }
             })]
         $Status,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UsePrimaryBackgroundColor,
         [parameter(Mandatory = $false)]
         $RowAlternateColors
     )

@@ -10,6 +10,11 @@ function Add-VSBatchJobDefinitionContainerProperties {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html
 
+    .PARAMETER RepositoryCredentials
+        Type: RepositoryCredentials
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-repositorycredentials
+        UpdateType: Mutable
+
     .PARAMETER User
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-user
         PrimitiveType: String
@@ -83,6 +88,11 @@ function Add-VSBatchJobDefinitionContainerProperties {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER RuntimePlatform
+        Type: RuntimePlatform
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-runtimeplatform
+        UpdateType: Mutable
+
     .PARAMETER Volumes
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-volumes
@@ -127,8 +137,12 @@ function Add-VSBatchJobDefinitionContainerProperties {
     #>
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.ContainerProperties')]
     [cmdletbinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RepositoryCredentials")]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","RepositoryCredentials")]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $RepositoryCredentials,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -256,6 +270,8 @@ function Add-VSBatchJobDefinitionContainerProperties {
                 }
             })]
         $ExecutionRoleArn,
+        [parameter(Mandatory = $false)]
+        $RuntimePlatform,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Batch.JobDefinition.Volumes"

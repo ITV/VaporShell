@@ -17,15 +17,20 @@ function New-VSEKSCluster {
         UpdateType: Mutable
         Type: Logging
 
-    .PARAMETER Version
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER OutpostConfig
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-outpostconfig
+    .PARAMETER BootstrapSelfManagedAddons
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-bootstrapselfmanagedaddons
         UpdateType: Immutable
-        Type: OutpostConfig
+        PrimitiveType: Boolean
+
+    .PARAMETER ZonalShiftConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-zonalshiftconfig
+        UpdateType: Mutable
+        Type: ZonalShiftConfig
+
+    .PARAMETER AccessConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-accessconfig
+        UpdateType: Mutable
+        Type: AccessConfig
 
     .PARAMETER EncryptionConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
@@ -44,6 +49,26 @@ function New-VSEKSCluster {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER UpgradePolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-upgradepolicy
+        UpdateType: Mutable
+        Type: UpgradePolicy
+
+    .PARAMETER Version
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER OutpostConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-outpostconfig
+        UpdateType: Immutable
+        Type: OutpostConfig
+
     .PARAMETER ResourcesVpcConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
         UpdateType: Mutable
@@ -55,11 +80,6 @@ function New-VSEKSCluster {
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
-
-    .PARAMETER Name
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
-        UpdateType: Immutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -127,7 +147,7 @@ function New-VSEKSCluster {
         $Logging,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -135,9 +155,11 @@ function New-VSEKSCluster {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Version,
+        $BootstrapSelfManagedAddons,
         [parameter(Mandatory = $false)]
-        $OutpostConfig,
+        $ZonalShiftConfig,
+        [parameter(Mandatory = $false)]
+        $AccessConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EKS.Cluster.EncryptionConfig"
@@ -162,11 +184,6 @@ function New-VSEKSCluster {
                 }
             })]
         $RoleArn,
-        [parameter(Mandatory = $true)]
-        $ResourcesVpcConfig,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -178,6 +195,26 @@ function New-VSEKSCluster {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        $UpgradePolicy,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Version,
+        [parameter(Mandatory = $false)]
+        $OutpostConfig,
+        [parameter(Mandatory = $true)]
+        $ResourcesVpcConfig,
+        [VaporShell.Core.TransformTag()]
+        [parameter(Mandatory = $false)]
+        $Tags,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

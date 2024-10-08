@@ -10,26 +10,24 @@ function Add-VSEventsRuleHttpParameters {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html
 
-    .PARAMETER HeaderParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-headerparameters
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: Map
-        UpdateType: Mutable
-
     .PARAMETER PathParameterValues
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-pathparametervalues
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER HeaderParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-headerparameters
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .PARAMETER QueryStringParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-querystringparameters
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: Map
         UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,10 +37,10 @@ function Add-VSEventsRuleHttpParameters {
     Param
     (
         [parameter(Mandatory = $false)]
+        $PathParameterValues,
+        [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $HeaderParameters,
-        [parameter(Mandatory = $false)]
-        $PathParameterValues,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $QueryStringParameters

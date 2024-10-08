@@ -10,6 +10,16 @@ function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyCon
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html
 
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig-type
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER SingleHeaderPolicyConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig-singleheaderpolicyconfig
+        UpdateType: Mutable
+        Type: SingleHeaderPolicyConfig
+
     .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig-enabled
         UpdateType: Mutable
@@ -27,6 +37,11 @@ function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyCon
         UpdateType: Mutable
         Type: TrafficConfig
 
+    .PARAMETER SingleWeightPolicyConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig-singleweightpolicyconfig
+        UpdateType: Mutable
+        Type: SingleWeightPolicyConfig
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -34,6 +49,19 @@ function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyCon
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Type,
+        [parameter(Mandatory = $false)]
+        $SingleHeaderPolicyConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -48,7 +76,9 @@ function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyCon
         [parameter(Mandatory = $true)]
         $StagingDistributionDnsNames,
         [parameter(Mandatory = $false)]
-        $TrafficConfig
+        $TrafficConfig,
+        [parameter(Mandatory = $false)]
+        $SingleWeightPolicyConfig
     )
     Begin {
         $obj = [PSCustomObject]@{}

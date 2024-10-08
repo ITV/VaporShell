@@ -12,13 +12,13 @@ function Add-VSS3BucketSourceSelectionCriteria {
 
     .PARAMETER ReplicaModifications
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
-        Type: ReplicaModifications
         UpdateType: Mutable
+        Type: ReplicaModifications
 
     .PARAMETER SseKmsEncryptedObjects
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
-        Type: SseKmsEncryptedObjects
         UpdateType: Mutable
+        Type: SseKmsEncryptedObjects
 
     .FUNCTIONALITY
         Vaporshell

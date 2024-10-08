@@ -12,12 +12,12 @@ function Add-VSIoTJobTemplateMaintenanceWindow {
 
     .PARAMETER DurationInMinutes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html#cfn-iot-jobtemplate-maintenancewindow-durationinminutes
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER StartTime
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html#cfn-iot-jobtemplate-maintenancewindow-starttime
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY

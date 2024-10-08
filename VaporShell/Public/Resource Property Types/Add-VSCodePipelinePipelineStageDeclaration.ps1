@@ -8,26 +8,41 @@ function Add-VSCodePipelinePipelineStageDeclaration {
 
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html
-
-    .PARAMETER Actions
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-actions
-        DuplicatesAllowed: False
-        ItemType: ActionDeclaration
-        Type: List
-        UpdateType: Mutable
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html
 
     .PARAMETER Blockers
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-blockers
-        DuplicatesAllowed: False
-        ItemType: BlockerDeclaration
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-blockers
         UpdateType: Mutable
+        Type: List
+        ItemType: BlockerDeclaration
+        DuplicatesAllowed: False
+
+    .PARAMETER Actions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-actions
+        UpdateType: Mutable
+        Type: List
+        ItemType: ActionDeclaration
+        DuplicatesAllowed: False
+
+    .PARAMETER BeforeEntry
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-beforeentry
+        UpdateType: Mutable
+        Type: BeforeEntryConditions
+
+    .PARAMETER OnSuccess
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onsuccess
+        UpdateType: Mutable
+        Type: SuccessConditions
 
     .PARAMETER Name
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-name
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-name
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER OnFailure
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onfailure
+        UpdateType: Mutable
+        Type: FailureConditions
 
     .FUNCTIONALITY
         Vaporshell
@@ -36,17 +51,6 @@ function Add-VSCodePipelinePipelineStageDeclaration {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CodePipeline.Pipeline.ActionDeclaration"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Actions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodePipeline.Pipeline.BlockerDeclaration"
@@ -60,6 +64,21 @@ function Add-VSCodePipelinePipelineStageDeclaration {
         $Blockers,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CodePipeline.Pipeline.ActionDeclaration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Actions,
+        [parameter(Mandatory = $false)]
+        $BeforeEntry,
+        [parameter(Mandatory = $false)]
+        $OnSuccess,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -68,7 +87,9 @@ function Add-VSCodePipelinePipelineStageDeclaration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name
+        $Name,
+        [parameter(Mandatory = $false)]
+        $OnFailure
     )
     Begin {
         $obj = [PSCustomObject]@{}

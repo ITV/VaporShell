@@ -20,6 +20,22 @@ function Add-VSBatchJobDefinitionNodeRangeProperty {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER EcsProperties
+        Type: EcsProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-ecsproperties
+        UpdateType: Mutable
+
+    .PARAMETER InstanceTypes
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-instancetypes
+        UpdateType: Mutable
+
+    .PARAMETER EksProperties
+        Type: EksProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-eksproperties
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -39,7 +55,13 @@ function Add-VSBatchJobDefinitionNodeRangeProperty {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TargetNodes
+        $TargetNodes,
+        [parameter(Mandatory = $false)]
+        $EcsProperties,
+        [parameter(Mandatory = $false)]
+        $InstanceTypes,
+        [parameter(Mandatory = $false)]
+        $EksProperties
     )
     Begin {
         $obj = [PSCustomObject]@{}

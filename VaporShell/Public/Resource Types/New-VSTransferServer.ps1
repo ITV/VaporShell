@@ -33,6 +33,12 @@ function New-VSTransferServer {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-endpointdetails
         UpdateType: Mutable
 
+    .PARAMETER StructuredLogDestinations
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-structuredlogdestinations
+        ItemType: StructuredLogDestination
+        UpdateType: Mutable
+
     .PARAMETER PreAuthenticationLoginBanner
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-preauthenticationloginbanner
         PrimitiveType: String
@@ -56,6 +62,11 @@ function New-VSTransferServer {
     .PARAMETER ProtocolDetails
         Type: ProtocolDetails
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-protocoldetails
+        UpdateType: Mutable
+
+    .PARAMETER S3StorageOptions
+        Type: S3StorageOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-s3storageoptions
         UpdateType: Mutable
 
     .PARAMETER WorkflowDetails
@@ -174,6 +185,17 @@ function New-VSTransferServer {
         $EndpointDetails,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Transfer.Server.StructuredLogDestination"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StructuredLogDestinations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -218,6 +240,8 @@ function New-VSTransferServer {
         $SecurityPolicyName,
         [parameter(Mandatory = $false)]
         $ProtocolDetails,
+        [parameter(Mandatory = $false)]
+        $S3StorageOptions,
         [parameter(Mandatory = $false)]
         $WorkflowDetails,
         [parameter(Mandatory = $false)]
@@ -335,6 +359,12 @@ function New-VSTransferServer {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Protocols -Value @($Protocols)
+                }
+                StructuredLogDestinations {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name StructuredLogDestinations -Value @($StructuredLogDestinations)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

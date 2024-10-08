@@ -12,8 +12,8 @@ function Add-VSGlueJobExecutionProperty {
 
     .PARAMETER MaxConcurrentRuns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns
-        PrimitiveType: Double
         UpdateType: Mutable
+        PrimitiveType: Double
 
     .FUNCTIONALITY
         Vaporshell

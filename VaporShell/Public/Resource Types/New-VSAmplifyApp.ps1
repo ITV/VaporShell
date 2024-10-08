@@ -76,6 +76,11 @@ function New-VSAmplifyApp {
         UpdateType: Mutable
         Type: BasicAuthConfig
 
+    .PARAMETER CacheConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-cacheconfig
+        UpdateType: Mutable
+        Type: CacheConfig
+
     .PARAMETER CustomHeaders
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
         UpdateType: Mutable
@@ -269,6 +274,8 @@ function New-VSAmplifyApp {
         $CustomRules,
         [parameter(Mandatory = $false)]
         $BasicAuthConfig,
+        [parameter(Mandatory = $false)]
+        $CacheConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

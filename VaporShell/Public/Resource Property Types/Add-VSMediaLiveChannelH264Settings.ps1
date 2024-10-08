@@ -110,6 +110,11 @@ function Add-VSMediaLiveChannelH264Settings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-filtersettings
         UpdateType: Mutable
 
+    .PARAMETER MinQp
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-minqp
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
     .PARAMETER ColorSpaceSettings
         Type: H264ColorSpaceSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-colorspacesettings
@@ -429,6 +434,17 @@ function Add-VSMediaLiveChannelH264Settings {
         $AdaptiveQuantization,
         [parameter(Mandatory = $false)]
         $FilterSettings,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MinQp,
         [parameter(Mandatory = $false)]
         $ColorSpaceSettings,
         [parameter(Mandatory = $false)]

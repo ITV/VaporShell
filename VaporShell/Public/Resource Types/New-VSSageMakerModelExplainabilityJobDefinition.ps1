@@ -19,7 +19,7 @@ function New-VSSageMakerModelExplainabilityJobDefinition {
 
     .PARAMETER EndpointName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointname
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER StoppingCondition

@@ -25,6 +25,16 @@ function Add-VSDynamoDBGlobalTableReplicaSpecification {
         UpdateType: Mutable
         Type: ContributorInsightsSpecification
 
+    .PARAMETER PointInTimeRecoverySpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
+        UpdateType: Mutable
+        Type: PointInTimeRecoverySpecification
+
+    .PARAMETER ReplicaStreamSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-replicastreamspecification
+        UpdateType: Mutable
+        Type: ReplicaStreamSpecification
+
     .PARAMETER GlobalSecondaryIndexes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
         UpdateType: Mutable
@@ -37,10 +47,10 @@ function Add-VSDynamoDBGlobalTableReplicaSpecification {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER PointInTimeRecoverySpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
+    .PARAMETER ResourcePolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-resourcepolicy
         UpdateType: Mutable
-        Type: PointInTimeRecoverySpecification
+        Type: ResourcePolicy
 
     .PARAMETER ReadProvisionedThroughputSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
@@ -64,6 +74,11 @@ function Add-VSDynamoDBGlobalTableReplicaSpecification {
         ItemType: Tag
         DuplicatesAllowed: False
 
+    .PARAMETER ReadOnDemandThroughputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readondemandthroughputsettings
+        UpdateType: Mutable
+        Type: ReadOnDemandThroughputSettings
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -77,6 +92,10 @@ function Add-VSDynamoDBGlobalTableReplicaSpecification {
         $KinesisStreamSpecification,
         [parameter(Mandatory = $false)]
         $ContributorInsightsSpecification,
+        [parameter(Mandatory = $false)]
+        $PointInTimeRecoverySpecification,
+        [parameter(Mandatory = $false)]
+        $ReplicaStreamSpecification,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecification"
@@ -100,7 +119,7 @@ function Add-VSDynamoDBGlobalTableReplicaSpecification {
             })]
         $Region,
         [parameter(Mandatory = $false)]
-        $PointInTimeRecoverySpecification,
+        $ResourcePolicy,
         [parameter(Mandatory = $false)]
         $ReadProvisionedThroughputSettings,
         [parameter(Mandatory = $false)]
@@ -127,7 +146,9 @@ function Add-VSDynamoDBGlobalTableReplicaSpecification {
         $DeletionProtectionEnabled,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
-        $Tags
+        $Tags,
+        [parameter(Mandatory = $false)]
+        $ReadOnDemandThroughputSettings
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -10,6 +10,11 @@ function Add-VSECSServiceServiceConnectService {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html
 
+    .PARAMETER Timeout
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-timeout
+        UpdateType: Mutable
+        Type: TimeoutConfiguration
+
     .PARAMETER IngressPortOverride
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-ingressportoverride
         UpdateType: Mutable
@@ -21,6 +26,11 @@ function Add-VSECSServiceServiceConnectService {
         Type: List
         ItemType: ServiceConnectClientAlias
         DuplicatesAllowed: True
+
+    .PARAMETER Tls
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-tls
+        UpdateType: Mutable
+        Type: ServiceConnectTlsConfiguration
 
     .PARAMETER DiscoveryName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-discoveryname
@@ -39,6 +49,8 @@ function Add-VSECSServiceServiceConnectService {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $Timeout,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -61,6 +73,8 @@ function Add-VSECSServiceServiceConnectService {
                 }
             })]
         $ClientAliases,
+        [parameter(Mandatory = $false)]
+        $Tls,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

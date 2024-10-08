@@ -17,6 +17,11 @@ function New-VSIVSRecordingConfiguration {
         UpdateType: Immutable
         Type: DestinationConfiguration
 
+    .PARAMETER RenditionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-renditionconfiguration
+        UpdateType: Immutable
+        Type: RenditionConfiguration
+
     .PARAMETER RecordingReconnectWindowSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-recordingreconnectwindowseconds
         UpdateType: Immutable
@@ -103,6 +108,8 @@ function New-VSIVSRecordingConfiguration {
         $LogicalId,
         [parameter(Mandatory = $true)]
         $DestinationConfiguration,
+        [parameter(Mandatory = $false)]
+        $RenditionConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

@@ -20,6 +20,11 @@ function Add-VSKinesisFirehoseDeliveryStreamSplunkDestinationConfiguration {
         UpdateType: Mutable
         Type: S3DestinationConfiguration
 
+    .PARAMETER BufferingHints
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-bufferinghints
+        UpdateType: Mutable
+        Type: SplunkBufferingHints
+
     .PARAMETER HECToken
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken
         UpdateType: Mutable
@@ -34,6 +39,11 @@ function Add-VSKinesisFirehoseDeliveryStreamSplunkDestinationConfiguration {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpointtype
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER SecretsManagerConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-secretsmanagerconfiguration
+        UpdateType: Mutable
+        Type: SecretsManagerConfiguration
 
     .PARAMETER HECAcknowledgmentTimeoutInSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecacknowledgmenttimeoutinseconds
@@ -75,7 +85,9 @@ function Add-VSKinesisFirehoseDeliveryStreamSplunkDestinationConfiguration {
         $HECEndpoint,
         [parameter(Mandatory = $true)]
         $S3Configuration,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        $BufferingHints,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -99,6 +111,8 @@ function Add-VSKinesisFirehoseDeliveryStreamSplunkDestinationConfiguration {
                 }
             })]
         $HECEndpointType,
+        [parameter(Mandatory = $false)]
+        $SecretsManagerConfiguration,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

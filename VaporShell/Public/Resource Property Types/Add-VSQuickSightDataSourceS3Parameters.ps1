@@ -15,6 +15,11 @@ function Add-VSQuickSightDataSourceS3Parameters {
         UpdateType: Mutable
         Type: ManifestFileLocation
 
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-rolearn
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -23,7 +28,18 @@ function Add-VSQuickSightDataSourceS3Parameters {
     Param
     (
         [parameter(Mandatory = $true)]
-        $ManifestFileLocation
+        $ManifestFileLocation,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RoleArn
     )
     Begin {
         $obj = [PSCustomObject]@{}

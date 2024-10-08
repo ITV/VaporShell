@@ -40,6 +40,11 @@ function Add-VSQuickSightTemplateParameterDropDownControl {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER CommitMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterdropdowncontrol.html#cfn-quicksight-template-parameterdropdowncontrol-commitmode
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER SelectableValues
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterdropdowncontrol.html#cfn-quicksight-template-parameterdropdowncontrol-selectablevalues
         UpdateType: Mutable
@@ -100,6 +105,17 @@ function Add-VSQuickSightTemplateParameterDropDownControl {
                 }
             })]
         $Title,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CommitMode,
         [parameter(Mandatory = $false)]
         $SelectableValues
     )

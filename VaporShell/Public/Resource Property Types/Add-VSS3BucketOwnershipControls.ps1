@@ -12,10 +12,10 @@ function Add-VSS3BucketOwnershipControls {
 
     .PARAMETER Rules
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
-        DuplicatesAllowed: False
-        ItemType: OwnershipControlsRule
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: OwnershipControlsRule
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

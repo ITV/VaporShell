@@ -17,6 +17,11 @@ function New-VSCassandraKeyspace {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ReplicationSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-replicationspecification
+        UpdateType: Immutable
+        Type: ReplicationSpecification
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
         UpdateType: Mutable
@@ -97,6 +102,8 @@ function New-VSCassandraKeyspace {
                 }
             })]
         $KeyspaceName,
+        [parameter(Mandatory = $false)]
+        $ReplicationSpecification,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

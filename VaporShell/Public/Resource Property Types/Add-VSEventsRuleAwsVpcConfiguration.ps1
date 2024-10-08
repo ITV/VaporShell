@@ -10,24 +10,24 @@ function Add-VSEventsRuleAwsVpcConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html
 
-    .PARAMETER AssignPublicIp
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html#cfn-events-rule-awsvpcconfiguration-assignpublicip
-        PrimitiveType: String
-        UpdateType: Mutable
-
     .PARAMETER SecurityGroups
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html#cfn-events-rule-awsvpcconfiguration-securitygroups
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
     .PARAMETER Subnets
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html#cfn-events-rule-awsvpcconfiguration-subnets
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER AssignPublicIp
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html#cfn-events-rule-awsvpcconfiguration-assignpublicip
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -36,6 +36,10 @@ function Add-VSEventsRuleAwsVpcConfiguration {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $SecurityGroups,
+        [parameter(Mandatory = $true)]
+        $Subnets,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -46,11 +50,7 @@ function Add-VSEventsRuleAwsVpcConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AssignPublicIp,
-        [parameter(Mandatory = $false)]
-        $SecurityGroups,
-        [parameter(Mandatory = $true)]
-        $Subnets
+        $AssignPublicIp
     )
     Begin {
         $obj = [PSCustomObject]@{}

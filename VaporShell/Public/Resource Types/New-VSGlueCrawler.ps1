@@ -63,6 +63,11 @@ function New-VSGlueCrawler {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER LakeFormationConfiguration
+        Type: LakeFormationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-lakeformationconfiguration
+        UpdateType: Mutable
+
     .PARAMETER Schedule
         Type: Schedule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-schedule
@@ -214,6 +219,8 @@ function New-VSGlueCrawler {
                 }
             })]
         $Role,
+        [parameter(Mandatory = $false)]
+        $LakeFormationConfiguration,
         [parameter(Mandatory = $false)]
         $Schedule,
         [parameter(Mandatory = $false)]

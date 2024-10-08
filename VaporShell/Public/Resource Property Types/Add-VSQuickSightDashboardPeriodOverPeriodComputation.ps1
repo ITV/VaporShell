@@ -39,7 +39,7 @@ function Add-VSQuickSightDashboardPeriodOverPeriodComputation {
     (
         [parameter(Mandatory = $false)]
         $Value,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Time,
         [parameter(Mandatory = $true)]
         [ValidateScript( {

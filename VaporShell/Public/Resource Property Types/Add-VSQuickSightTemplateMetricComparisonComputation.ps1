@@ -42,9 +42,9 @@ function Add-VSQuickSightTemplateMetricComparisonComputation {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $TargetValue,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Time,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -57,7 +57,7 @@ function Add-VSQuickSightTemplateMetricComparisonComputation {
                 }
             })]
         $ComputationId,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $FromValue,
         [parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -25,6 +25,11 @@ function Add-VSQuickSightAnalysisListControlDisplayOptions {
         UpdateType: Mutable
         Type: ListControlSelectAllOptions
 
+    .PARAMETER InfoIconLabelOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-listcontroldisplayoptions.html#cfn-quicksight-analysis-listcontroldisplayoptions-infoiconlabeloptions
+        UpdateType: Mutable
+        Type: SheetControlInfoIconLabelOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -37,7 +42,9 @@ function Add-VSQuickSightAnalysisListControlDisplayOptions {
         [parameter(Mandatory = $false)]
         $SearchOptions,
         [parameter(Mandatory = $false)]
-        $SelectAllOptions
+        $SelectAllOptions,
+        [parameter(Mandatory = $false)]
+        $InfoIconLabelOptions
     )
     Begin {
         $obj = [PSCustomObject]@{}

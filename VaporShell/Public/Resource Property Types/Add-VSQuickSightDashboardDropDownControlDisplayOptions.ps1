@@ -20,6 +20,11 @@ function Add-VSQuickSightDashboardDropDownControlDisplayOptions {
         UpdateType: Mutable
         Type: ListControlSelectAllOptions
 
+    .PARAMETER InfoIconLabelOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dropdowncontroldisplayoptions.html#cfn-quicksight-dashboard-dropdowncontroldisplayoptions-infoiconlabeloptions
+        UpdateType: Mutable
+        Type: SheetControlInfoIconLabelOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -30,7 +35,9 @@ function Add-VSQuickSightDashboardDropDownControlDisplayOptions {
         [parameter(Mandatory = $false)]
         $TitleOptions,
         [parameter(Mandatory = $false)]
-        $SelectAllOptions
+        $SelectAllOptions,
+        [parameter(Mandatory = $false)]
+        $InfoIconLabelOptions
     )
     Begin {
         $obj = [PSCustomObject]@{}

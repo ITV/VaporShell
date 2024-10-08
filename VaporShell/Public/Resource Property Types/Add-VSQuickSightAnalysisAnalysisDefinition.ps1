@@ -10,12 +10,22 @@ function Add-VSQuickSightAnalysisAnalysisDefinition {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html
 
+    .PARAMETER Options
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-options
+        UpdateType: Mutable
+        Type: AssetOptions
+
     .PARAMETER FilterGroups
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-filtergroups
         UpdateType: Mutable
         Type: List
         ItemType: FilterGroup
         DuplicatesAllowed: True
+
+    .PARAMETER QueryExecutionOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-queryexecutionoptions
+        UpdateType: Mutable
+        Type: QueryExecutionOptions
 
     .PARAMETER CalculatedFields
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-calculatedfields
@@ -65,6 +75,8 @@ function Add-VSQuickSightAnalysisAnalysisDefinition {
     Param
     (
         [parameter(Mandatory = $false)]
+        $Options,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.FilterGroup"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,6 +87,8 @@ function Add-VSQuickSightAnalysisAnalysisDefinition {
                 }
             })]
         $FilterGroups,
+        [parameter(Mandatory = $false)]
+        $QueryExecutionOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.CalculatedField"

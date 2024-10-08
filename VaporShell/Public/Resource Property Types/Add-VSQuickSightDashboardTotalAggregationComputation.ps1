@@ -32,7 +32,7 @@ function Add-VSQuickSightDashboardTotalAggregationComputation {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Value,
         [parameter(Mandatory = $true)]
         [ValidateScript( {

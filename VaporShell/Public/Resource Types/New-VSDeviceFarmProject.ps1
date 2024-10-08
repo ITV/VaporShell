@@ -17,6 +17,11 @@ function New-VSDeviceFarmProject {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER VpcConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-project.html#cfn-devicefarm-project-vpcconfig
+        UpdateType: Mutable
+        Type: VpcConfig
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-project.html#cfn-devicefarm-project-tags
         UpdateType: Mutable
@@ -102,6 +107,8 @@ function New-VSDeviceFarmProject {
                 }
             })]
         $DefaultJobTimeoutMinutes,
+        [parameter(Mandatory = $false)]
+        $VpcConfig,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

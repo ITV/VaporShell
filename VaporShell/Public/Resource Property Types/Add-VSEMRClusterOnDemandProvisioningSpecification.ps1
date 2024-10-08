@@ -15,6 +15,11 @@ function Add-VSEMRClusterOnDemandProvisioningSpecification {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER CapacityReservationOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html#cfn-elasticmapreduce-cluster-ondemandprovisioningspecification-capacityreservationoptions
+        Type: OnDemandCapacityReservationOptions
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -32,7 +37,9 @@ function Add-VSEMRClusterOnDemandProvisioningSpecification {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AllocationStrategy
+        $AllocationStrategy,
+        [parameter(Mandatory = $false)]
+        $CapacityReservationOptions
     )
     Begin {
         $obj = [PSCustomObject]@{}

@@ -12,14 +12,14 @@ function Add-VSRoute53RecoveryControlSafetyRuleGatingRule {
 
     .PARAMETER TargetControls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-targetcontrols
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
     .PARAMETER GatingControls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-gatingcontrols
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True

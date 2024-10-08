@@ -45,6 +45,11 @@ function Add-VSQuickSightDashboardFilterControl {
         UpdateType: Mutable
         Type: FilterRelativeDateTimeControl
 
+    .PARAMETER CrossSheet
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filtercontrol.html#cfn-quicksight-dashboard-filtercontrol-crosssheet
+        UpdateType: Mutable
+        Type: FilterCrossSheetControl
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -65,7 +70,9 @@ function Add-VSQuickSightDashboardFilterControl {
         [parameter(Mandatory = $false)]
         $DateTimePicker,
         [parameter(Mandatory = $false)]
-        $RelativeDateTime
+        $RelativeDateTime,
+        [parameter(Mandatory = $false)]
+        $CrossSheet
     )
     Begin {
         $obj = [PSCustomObject]@{}

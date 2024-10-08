@@ -8,33 +8,33 @@ function Add-VSS3BucketNotificationConfiguration {
 
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html
-
-    .PARAMETER EventBridgeConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-eventbridgeconfig
-        Type: EventBridgeConfiguration
-        UpdateType: Mutable
-
-    .PARAMETER LambdaConfigurations
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig
-        DuplicatesAllowed: False
-        ItemType: LambdaConfiguration
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER QueueConfigurations
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig
-        DuplicatesAllowed: False
-        ItemType: QueueConfiguration
-        Type: List
-        UpdateType: Mutable
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html
 
     .PARAMETER TopicConfigurations
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig
-        DuplicatesAllowed: False
-        ItemType: TopicConfiguration
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html#cfn-s3-bucket-notificationconfiguration-topicconfigurations
         UpdateType: Mutable
+        Type: List
+        ItemType: TopicConfiguration
+        DuplicatesAllowed: False
+
+    .PARAMETER QueueConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html#cfn-s3-bucket-notificationconfiguration-queueconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: QueueConfiguration
+        DuplicatesAllowed: False
+
+    .PARAMETER LambdaConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html#cfn-s3-bucket-notificationconfiguration-lambdaconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: LambdaConfiguration
+        DuplicatesAllowed: False
+
+    .PARAMETER EventBridgeConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html#cfn-s3-bucket-notificationconfiguration-eventbridgeconfiguration
+        UpdateType: Mutable
+        Type: EventBridgeConfiguration
 
     .FUNCTIONALITY
         Vaporshell
@@ -44,10 +44,8 @@ function Add-VSS3BucketNotificationConfiguration {
     Param
     (
         [parameter(Mandatory = $false)]
-        $EventBridgeConfiguration,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.S3.Bucket.LambdaConfiguration"
+                $allowedTypes = "Vaporshell.Resource.S3.Bucket.TopicConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -55,7 +53,7 @@ function Add-VSS3BucketNotificationConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LambdaConfigurations,
+        $TopicConfigurations,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3.Bucket.QueueConfiguration"
@@ -69,7 +67,7 @@ function Add-VSS3BucketNotificationConfiguration {
         $QueueConfigurations,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.S3.Bucket.TopicConfiguration"
+                $allowedTypes = "Vaporshell.Resource.S3.Bucket.LambdaConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -77,7 +75,9 @@ function Add-VSS3BucketNotificationConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TopicConfigurations
+        $LambdaConfigurations,
+        [parameter(Mandatory = $false)]
+        $EventBridgeConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

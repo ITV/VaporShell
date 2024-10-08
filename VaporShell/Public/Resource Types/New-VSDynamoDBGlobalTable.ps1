@@ -77,6 +77,11 @@ function New-VSDynamoDBGlobalTable {
         UpdateType: Mutable
         Type: TimeToLiveSpecification
 
+    .PARAMETER WriteOnDemandThroughputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings
+        UpdateType: Mutable
+        Type: WriteOnDemandThroughputSettings
+
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
 
@@ -224,6 +229,8 @@ function New-VSDynamoDBGlobalTable {
         $WriteProvisionedThroughputSettings,
         [parameter(Mandatory = $false)]
         $TimeToLiveSpecification,
+        [parameter(Mandatory = $false)]
+        $WriteOnDemandThroughputSettings,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

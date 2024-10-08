@@ -10,11 +10,6 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
 
-    .PARAMETER JsonBody
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
-        UpdateType: Mutable
-        Type: JsonBody
-
     .PARAMETER QueryString
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
         UpdateType: Mutable
@@ -42,8 +37,6 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $false)]
-        $JsonBody,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"

@@ -35,6 +35,11 @@ function Add-VSWAFv2WebACLManagedRuleGroupConfig {
         UpdateType: Mutable
         Type: FieldIdentifier
 
+    .PARAMETER AWSManagedRulesACFPRuleSet
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-awsmanagedrulesacfpruleset
+        UpdateType: Mutable
+        Type: AWSManagedRulesACFPRuleSet
+
     .PARAMETER PayloadType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-payloadtype
         UpdateType: Mutable
@@ -68,6 +73,8 @@ function Add-VSWAFv2WebACLManagedRuleGroupConfig {
         $AWSManagedRulesBotControlRuleSet,
         [parameter(Mandatory = $false)]
         $PasswordField,
+        [parameter(Mandatory = $false)]
+        $AWSManagedRulesACFPRuleSet,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

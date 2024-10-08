@@ -15,6 +15,13 @@ function Add-VSWAFv2RuleGroupRateBasedStatement {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER CustomKeys
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-customkeys
+        UpdateType: Mutable
+        Type: List
+        ItemType: RateBasedStatementCustomKey
+        DuplicatesAllowed: True
+
     .PARAMETER ForwardedIPConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
         UpdateType: Mutable
@@ -22,6 +29,11 @@ function Add-VSWAFv2RuleGroupRateBasedStatement {
 
     .PARAMETER Limit
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER EvaluationWindowSec
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-evaluationwindowsec
         UpdateType: Mutable
         PrimitiveType: Integer
 
@@ -49,6 +61,17 @@ function Add-VSWAFv2RuleGroupRateBasedStatement {
             })]
         $AggregateKeyType,
         [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.WAFv2.RuleGroup.RateBasedStatementCustomKey"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomKeys,
+        [parameter(Mandatory = $false)]
         $ForwardedIPConfig,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -61,6 +84,17 @@ function Add-VSWAFv2RuleGroupRateBasedStatement {
                 }
             })]
         $Limit,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EvaluationWindowSec,
         [parameter(Mandatory = $false)]
         $ScopeDownStatement
     )

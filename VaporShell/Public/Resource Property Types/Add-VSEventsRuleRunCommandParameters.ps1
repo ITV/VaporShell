@@ -12,10 +12,10 @@ function Add-VSEventsRuleRunCommandParameters {
 
     .PARAMETER RunCommandTargets
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html#cfn-events-rule-runcommandparameters-runcommandtargets
-        DuplicatesAllowed: False
-        ItemType: RunCommandTarget
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: RunCommandTarget
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

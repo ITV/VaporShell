@@ -22,6 +22,11 @@ function New-VSGameLiftBuild {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER ServerSdkVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-serversdkversion
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER StorageLocation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-storagelocation
         UpdateType: Immutable
@@ -116,6 +121,17 @@ function New-VSGameLiftBuild {
                 }
             })]
         $Version,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ServerSdkVersion,
         [parameter(Mandatory = $false)]
         $StorageLocation,
         [parameter(Mandatory = $false)]

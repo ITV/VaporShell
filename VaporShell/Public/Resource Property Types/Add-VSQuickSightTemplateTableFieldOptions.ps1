@@ -17,6 +17,11 @@ function Add-VSQuickSightTemplateTableFieldOptions {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER PinnedFieldOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldoptions.html#cfn-quicksight-template-tablefieldoptions-pinnedfieldoptions
+        UpdateType: Mutable
+        Type: TablePinnedFieldOptions
+
     .PARAMETER SelectedFieldOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldoptions.html#cfn-quicksight-template-tablefieldoptions-selectedfieldoptions
         UpdateType: Mutable
@@ -33,6 +38,8 @@ function Add-VSQuickSightTemplateTableFieldOptions {
     (
         [parameter(Mandatory = $false)]
         $Order,
+        [parameter(Mandatory = $false)]
+        $PinnedFieldOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.TableFieldOption"

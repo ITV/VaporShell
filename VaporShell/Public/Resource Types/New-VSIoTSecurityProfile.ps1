@@ -19,6 +19,11 @@ function New-VSIoTSecurityProfile {
         ItemType: MetricToRetain
         DuplicatesAllowed: False
 
+    .PARAMETER MetricsExportConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-metricsexportconfig
+        UpdateType: Mutable
+        Type: MetricsExportConfig
+
     .PARAMETER SecurityProfileDescription
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
         UpdateType: Mutable
@@ -129,6 +134,8 @@ function New-VSIoTSecurityProfile {
                 }
             })]
         $AdditionalMetricsToRetainV2,
+        [parameter(Mandatory = $false)]
+        $MetricsExportConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

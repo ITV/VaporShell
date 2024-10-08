@@ -20,6 +20,11 @@ function Add-VSAmplifyUIBuilderFormFieldInputConfig {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER FileUploaderConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-fileuploaderconfig
+        UpdateType: Mutable
+        Type: FileUploaderFieldConfig
+
     .PARAMETER IsArray
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldinputconfig.html#cfn-amplifyuibuilder-form-fieldinputconfig-isarray
         UpdateType: Mutable
@@ -114,6 +119,8 @@ function Add-VSAmplifyUIBuilderFormFieldInputConfig {
                 }
             })]
         $Placeholder,
+        [parameter(Mandatory = $false)]
+        $FileUploaderConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

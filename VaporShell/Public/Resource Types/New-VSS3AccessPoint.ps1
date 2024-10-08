@@ -19,18 +19,13 @@ function New-VSS3AccessPoint {
 
     .PARAMETER PublicAccessBlockConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: PublicAccessBlockConfiguration
 
     .PARAMETER Bucket
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
         UpdateType: Immutable
         PrimitiveType: String
-
-    .PARAMETER PolicyStatus
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
-        UpdateType: Mutable
-        Type: PolicyStatus
 
     .PARAMETER BucketAccountId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucketaccountid
@@ -133,8 +128,6 @@ function New-VSS3AccessPoint {
                 }
             })]
         $Bucket,
-        [parameter(Mandatory = $false)]
-        $PolicyStatus,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

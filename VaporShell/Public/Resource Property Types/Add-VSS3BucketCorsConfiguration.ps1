@@ -8,14 +8,14 @@ function Add-VSS3BucketCorsConfiguration {
 
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsconfiguration.html
 
     .PARAMETER CorsRules
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html#cfn-s3-bucket-cors-corsrule
-        DuplicatesAllowed: False
-        ItemType: CorsRule
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsconfiguration.html#cfn-s3-bucket-corsconfiguration-corsrules
         UpdateType: Mutable
+        Type: List
+        ItemType: CorsRule
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

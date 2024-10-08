@@ -15,6 +15,11 @@ function Add-VSAppFlowFlowCustomConnectorSourceProperties {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER DataTransferApi
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-datatransferapi
+        UpdateType: Mutable
+        Type: DataTransferApi
+
     .PARAMETER CustomProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-customproperties
         UpdateType: Mutable
@@ -39,6 +44,8 @@ function Add-VSAppFlowFlowCustomConnectorSourceProperties {
                 }
             })]
         $EntityName,
+        [parameter(Mandatory = $false)]
+        $DataTransferApi,
         [parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $CustomProperties

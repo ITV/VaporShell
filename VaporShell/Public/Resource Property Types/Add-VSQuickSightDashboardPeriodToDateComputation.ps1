@@ -55,7 +55,7 @@ function Add-VSQuickSightDashboardPeriodToDateComputation {
         $PeriodTimeGranularity,
         [parameter(Mandatory = $false)]
         $Value,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Time,
         [parameter(Mandatory = $true)]
         [ValidateScript( {

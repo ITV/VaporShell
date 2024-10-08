@@ -14,58 +14,63 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
 
     .PARAMETER IpAddressType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype
-        PrimitiveType: String
         UpdateType: Mutable
-
-    .PARAMETER LoadBalancerAttributes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes
-        DuplicatesAllowed: False
-        ItemType: LoadBalancerAttribute
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER Name
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-name
         PrimitiveType: String
-        UpdateType: Immutable
-
-    .PARAMETER Scheme
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme
-        PrimitiveType: String
-        UpdateType: Immutable
 
     .PARAMETER SecurityGroups
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
-        DuplicatesAllowed: False
+        UpdateType: Mutable
+        Type: List
         PrimitiveItemType: String
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER SubnetMappings
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmappings
         DuplicatesAllowed: False
-        ItemType: SubnetMapping
-        Type: List
+
+    .PARAMETER LoadBalancerAttributes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes
         UpdateType: Mutable
+        Type: List
+        ItemType: LoadBalancerAttribute
+        DuplicatesAllowed: False
 
     .PARAMETER Subnets
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
-        DuplicatesAllowed: False
+        UpdateType: Mutable
+        Type: List
         PrimitiveItemType: String
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER Tags
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags
-        DuplicatesAllowed: True
-        ItemType: Tag
-        Type: List
-        UpdateType: Mutable
+        DuplicatesAllowed: False
 
     .PARAMETER Type
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-type
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER Scheme
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enforcesecuritygroupinboundrulesonprivatelinktraffic
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-name
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER SubnetMappings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmappings
+        UpdateType: Mutable
+        Type: List
+        ItemType: SubnetMapping
+        DuplicatesAllowed: False
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -141,6 +146,8 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
             })]
         $IpAddressType,
         [parameter(Mandatory = $false)]
+        $SecurityGroups,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ElasticLoadBalancingV2.LoadBalancer.LoadBalancerAttribute"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -152,6 +159,8 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
             })]
         $LoadBalancerAttributes,
         [parameter(Mandatory = $false)]
+        $Subnets,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -161,7 +170,7 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $Type,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -174,10 +183,8 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
             })]
         $Scheme,
         [parameter(Mandatory = $false)]
-        $SecurityGroups,
-        [parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.ElasticLoadBalancingV2.LoadBalancer.SubnetMapping"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -185,9 +192,7 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SubnetMappings,
-        [parameter(Mandatory = $false)]
-        $Subnets,
+        $EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
@@ -201,7 +206,18 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Type,
+        $Name,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ElasticLoadBalancingV2.LoadBalancer.SubnetMapping"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SubnetMappings,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -276,23 +292,17 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                LoadBalancerAttributes {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name LoadBalancerAttributes -Value @($LoadBalancerAttributes)
-                }
                 SecurityGroups {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SecurityGroups -Value @($SecurityGroups)
                 }
-                SubnetMappings {
+                LoadBalancerAttributes {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SubnetMappings -Value @($SubnetMappings)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name LoadBalancerAttributes -Value @($LoadBalancerAttributes)
                 }
                 Subnets {
                     if (!($ResourceParams["Properties"])) {
@@ -305,6 +315,12 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                SubnetMappings {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SubnetMappings -Value @($SubnetMappings)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

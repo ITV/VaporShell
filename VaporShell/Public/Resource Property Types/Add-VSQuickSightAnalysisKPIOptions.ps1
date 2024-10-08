@@ -15,6 +15,11 @@ function Add-VSQuickSightAnalysisKPIOptions {
         UpdateType: Mutable
         Type: FontConfiguration
 
+    .PARAMETER VisualLayoutOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpioptions.html#cfn-quicksight-analysis-kpioptions-visuallayoutoptions
+        UpdateType: Mutable
+        Type: KPIVisualLayoutOptions
+
     .PARAMETER TrendArrows
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpioptions.html#cfn-quicksight-analysis-kpioptions-trendarrows
         UpdateType: Mutable
@@ -45,6 +50,11 @@ function Add-VSQuickSightAnalysisKPIOptions {
         UpdateType: Mutable
         Type: FontConfiguration
 
+    .PARAMETER Sparkline
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpioptions.html#cfn-quicksight-analysis-kpioptions-sparkline
+        UpdateType: Mutable
+        Type: KPISparklineOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -54,6 +64,8 @@ function Add-VSQuickSightAnalysisKPIOptions {
     (
         [parameter(Mandatory = $false)]
         $SecondaryValueFontConfiguration,
+        [parameter(Mandatory = $false)]
+        $VisualLayoutOptions,
         [parameter(Mandatory = $false)]
         $TrendArrows,
         [parameter(Mandatory = $false)]
@@ -74,7 +86,9 @@ function Add-VSQuickSightAnalysisKPIOptions {
         [parameter(Mandatory = $false)]
         $ProgressBar,
         [parameter(Mandatory = $false)]
-        $PrimaryValueFontConfiguration
+        $PrimaryValueFontConfiguration,
+        [parameter(Mandatory = $false)]
+        $Sparkline
     )
     Begin {
         $obj = [PSCustomObject]@{}

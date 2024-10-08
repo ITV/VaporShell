@@ -81,6 +81,11 @@ function Add-VSRedshiftServerlessWorkgroupWorkgroup {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER MaxCapacity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-maxcapacity
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -203,7 +208,18 @@ function Add-VSRedshiftServerlessWorkgroupWorkgroup {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PubliclyAccessible
+        $PubliclyAccessible,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxCapacity
     )
     Begin {
         $obj = [PSCustomObject]@{}

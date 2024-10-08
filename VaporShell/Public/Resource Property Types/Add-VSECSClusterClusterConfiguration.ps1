@@ -10,6 +10,11 @@ function Add-VSECSClusterClusterConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
 
+    .PARAMETER ManagedStorageConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-managedstorageconfiguration
+        UpdateType: Mutable
+        Type: ManagedStorageConfiguration
+
     .PARAMETER ExecuteCommandConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
         UpdateType: Mutable
@@ -22,6 +27,8 @@ function Add-VSECSClusterClusterConfiguration {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $ManagedStorageConfiguration,
         [parameter(Mandatory = $false)]
         $ExecuteCommandConfiguration
     )

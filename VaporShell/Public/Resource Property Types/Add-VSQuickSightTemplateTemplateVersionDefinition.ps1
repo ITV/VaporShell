@@ -10,12 +10,22 @@ function Add-VSQuickSightTemplateTemplateVersionDefinition {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html
 
+    .PARAMETER Options
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-options
+        UpdateType: Mutable
+        Type: AssetOptions
+
     .PARAMETER FilterGroups
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-filtergroups
         UpdateType: Mutable
         Type: List
         ItemType: FilterGroup
         DuplicatesAllowed: True
+
+    .PARAMETER QueryExecutionOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-queryexecutionoptions
+        UpdateType: Mutable
+        Type: QueryExecutionOptions
 
     .PARAMETER CalculatedFields
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-calculatedfields
@@ -65,6 +75,8 @@ function Add-VSQuickSightTemplateTemplateVersionDefinition {
     Param
     (
         [parameter(Mandatory = $false)]
+        $Options,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.FilterGroup"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,6 +87,8 @@ function Add-VSQuickSightTemplateTemplateVersionDefinition {
                 }
             })]
         $FilterGroups,
+        [parameter(Mandatory = $false)]
+        $QueryExecutionOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.CalculatedField"

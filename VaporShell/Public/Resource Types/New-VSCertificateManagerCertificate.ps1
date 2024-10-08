@@ -34,6 +34,11 @@ function New-VSCertificateManagerCertificate {
         Type: List
         UpdateType: Immutable
 
+    .PARAMETER KeyAlgorithm
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-keyalgorithm
+        PrimitiveType: String
+        UpdateType: Immutable
+
     .PARAMETER SubjectAlternativeNames
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames
         DuplicatesAllowed: False
@@ -159,6 +164,17 @@ function New-VSCertificateManagerCertificate {
                 }
             })]
         $DomainValidationOptions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $KeyAlgorithm,
         [parameter(Mandatory = $false)]
         $SubjectAlternativeNames,
         [VaporShell.Core.TransformTag()]

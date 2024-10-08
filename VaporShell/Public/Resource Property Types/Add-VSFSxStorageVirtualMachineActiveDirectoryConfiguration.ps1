@@ -18,7 +18,7 @@ function Add-VSFSxStorageVirtualMachineActiveDirectoryConfiguration {
     .PARAMETER NetBiosName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration.html#cfn-fsx-storagevirtualmachine-activedirectoryconfiguration-netbiosname
         PrimitiveType: String
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell

@@ -52,6 +52,13 @@ function New-VSSyntheticsCanary {
         UpdateType: Mutable
         Type: Code
 
+    .PARAMETER ResourcesToReplicateTags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-resourcestoreplicatetags
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
         UpdateType: Immutable
@@ -61,11 +68,6 @@ function New-VSSyntheticsCanary {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER DeleteLambdaResourcesOnCanaryDeletion
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-deletelambdaresourcesoncanarydeletion
-        UpdateType: Mutable
-        PrimitiveType: Boolean
 
     .PARAMETER Schedule
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
@@ -194,6 +196,8 @@ function New-VSSyntheticsCanary {
         $FailureRetentionPeriod,
         [parameter(Mandatory = $true)]
         $Code,
+        [parameter(Mandatory = $false)]
+        $ResourcesToReplicateTags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -216,17 +220,6 @@ function New-VSSyntheticsCanary {
                 }
             })]
         $ExecutionRoleArn,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DeleteLambdaResourcesOnCanaryDeletion,
         [parameter(Mandatory = $true)]
         $Schedule,
         [parameter(Mandatory = $true)]
@@ -243,7 +236,7 @@ function New-VSSyntheticsCanary {
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -327,6 +320,12 @@ function New-VSSyntheticsCanary {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                ResourcesToReplicateTags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ResourcesToReplicateTags -Value @($ResourcesToReplicateTags)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

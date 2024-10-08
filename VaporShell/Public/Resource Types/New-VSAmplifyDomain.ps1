@@ -34,6 +34,11 @@ function New-VSAmplifyDomain {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER CertificateSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-certificatesettings
+        UpdateType: Mutable
+        Type: CertificateSettings
+
     .PARAMETER EnableAutoSubDomain
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
         UpdateType: Mutable
@@ -152,6 +157,8 @@ function New-VSAmplifyDomain {
                 }
             })]
         $DomainName,
+        [parameter(Mandatory = $false)]
+        $CertificateSettings,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

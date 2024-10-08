@@ -68,7 +68,7 @@ function Add-VSQuickSightTemplateTopBottomMoversComputation {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Category,
         [parameter(Mandatory = $false)]
         $Value,
@@ -83,7 +83,7 @@ function Add-VSQuickSightTemplateTopBottomMoversComputation {
                 }
             })]
         $SortOrder,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Time,
         [parameter(Mandatory = $false)]
         [ValidateScript( {

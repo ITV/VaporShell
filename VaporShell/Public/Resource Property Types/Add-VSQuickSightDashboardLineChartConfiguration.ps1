@@ -37,6 +37,11 @@ function Add-VSQuickSightDashboardLineChartConfiguration {
         UpdateType: Mutable
         Type: TooltipOptions
 
+    .PARAMETER SingleAxisOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartconfiguration.html#cfn-quicksight-dashboard-linechartconfiguration-singleaxisoptions
+        UpdateType: Mutable
+        Type: SingleAxisOptions
+
     .PARAMETER SmallMultiplesOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartconfiguration.html#cfn-quicksight-dashboard-linechartconfiguration-smallmultiplesoptions
         UpdateType: Mutable
@@ -139,6 +144,8 @@ function Add-VSQuickSightDashboardLineChartConfiguration {
         $DataLabels,
         [parameter(Mandatory = $false)]
         $Tooltip,
+        [parameter(Mandatory = $false)]
+        $SingleAxisOptions,
         [parameter(Mandatory = $false)]
         $SmallMultiplesOptions,
         [parameter(Mandatory = $false)]

@@ -37,6 +37,13 @@ function New-VSEKSAddon {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER PodIdentityAssociations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-podidentityassociations
+        UpdateType: Mutable
+        Type: List
+        ItemType: PodIdentityAssociation
+        DuplicatesAllowed: False
+
     .PARAMETER ResolveConflicts
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
         UpdateType: Mutable
@@ -173,6 +180,17 @@ function New-VSEKSAddon {
         $AddonName,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EKS.Addon.PodIdentityAssociation"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PodIdentityAssociations,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -269,6 +287,12 @@ function New-VSEKSAddon {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                PodIdentityAssociations {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name PodIdentityAssociations -Value @($PodIdentityAssociations)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

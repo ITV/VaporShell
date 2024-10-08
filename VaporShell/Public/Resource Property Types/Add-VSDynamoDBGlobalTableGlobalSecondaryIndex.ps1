@@ -32,6 +32,11 @@ function Add-VSDynamoDBGlobalTableGlobalSecondaryIndex {
         UpdateType: Mutable
         Type: WriteProvisionedThroughputSettings
 
+    .PARAMETER WriteOnDemandThroughputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeondemandthroughputsettings
+        UpdateType: Mutable
+        Type: WriteOnDemandThroughputSettings
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -64,7 +69,9 @@ function Add-VSDynamoDBGlobalTableGlobalSecondaryIndex {
             })]
         $KeySchema,
         [parameter(Mandatory = $false)]
-        $WriteProvisionedThroughputSettings
+        $WriteProvisionedThroughputSettings,
+        [parameter(Mandatory = $false)]
+        $WriteOnDemandThroughputSettings
     )
     Begin {
         $obj = [PSCustomObject]@{}

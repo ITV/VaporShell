@@ -12,7 +12,7 @@ function Add-VSRoute53RecoveryControlSafetyRuleAssertionRule {
 
     .PARAMETER AssertedControls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-assertedcontrols
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True

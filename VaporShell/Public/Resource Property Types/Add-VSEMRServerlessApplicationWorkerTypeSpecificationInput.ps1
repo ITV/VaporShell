@@ -12,7 +12,7 @@ function Add-VSEMRServerlessApplicationWorkerTypeSpecificationInput {
 
     .PARAMETER ImageConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workertypespecificationinput.html#cfn-emrserverless-application-workertypespecificationinput-imageconfiguration
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: ImageConfigurationInput
 
     .FUNCTIONALITY

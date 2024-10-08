@@ -10,6 +10,11 @@ function Add-VSQuickSightDashboardFilter {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html
 
+    .PARAMETER NestedFilter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html#cfn-quicksight-dashboard-filter-nestedfilter
+        UpdateType: Mutable
+        Type: NestedFilter
+
     .PARAMETER NumericEqualityFilter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filter.html#cfn-quicksight-dashboard-filter-numericequalityfilter
         UpdateType: Mutable
@@ -52,6 +57,8 @@ function Add-VSQuickSightDashboardFilter {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $NestedFilter,
         [parameter(Mandatory = $false)]
         $NumericEqualityFilter,
         [parameter(Mandatory = $false)]

@@ -10,6 +10,12 @@ function Add-VSGlueClassifierCsvClassifier {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html
 
+    .PARAMETER ContainsCustomDatatype
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containscustomdatatype
+        UpdateType: Mutable
+
     .PARAMETER QuoteSymbol
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol
         PrimitiveType: String
@@ -36,6 +42,11 @@ function Add-VSGlueClassifierCsvClassifier {
         PrimitiveType: Boolean
         UpdateType: Mutable
 
+    .PARAMETER CustomDatatypeConfigured
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-customdatatypeconfigured
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER DisableValueTrimming
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming
         PrimitiveType: Boolean
@@ -53,6 +64,8 @@ function Add-VSGlueClassifierCsvClassifier {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $ContainsCustomDatatype,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -99,6 +112,17 @@ function Add-VSGlueClassifierCsvClassifier {
                 }
             })]
         $AllowSingleColumn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomDatatypeConfigured,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

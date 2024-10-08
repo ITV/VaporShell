@@ -24,6 +24,11 @@ function New-VSLightsailContainer {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER PrivateRegistryAccess
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-privateregistryaccess
+        UpdateType: Mutable
+        Type: PrivateRegistryAccess
+
     .PARAMETER ContainerServiceDeployment
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-containerservicedeployment
         UpdateType: Mutable
@@ -135,6 +140,8 @@ function New-VSLightsailContainer {
                 }
             })]
         $ServiceName,
+        [parameter(Mandatory = $false)]
+        $PrivateRegistryAccess,
         [parameter(Mandatory = $false)]
         $ContainerServiceDeployment,
         [parameter(Mandatory = $false)]

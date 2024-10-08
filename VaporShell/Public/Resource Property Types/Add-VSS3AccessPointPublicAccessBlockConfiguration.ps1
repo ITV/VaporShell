@@ -12,22 +12,22 @@ function Add-VSS3AccessPointPublicAccessBlockConfiguration {
 
     .PARAMETER RestrictPublicBuckets
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER BlockPublicPolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicpolicy
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER BlockPublicAcls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicacls
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER IgnorePublicAcls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-ignorepublicacls
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Boolean
 
     .FUNCTIONALITY

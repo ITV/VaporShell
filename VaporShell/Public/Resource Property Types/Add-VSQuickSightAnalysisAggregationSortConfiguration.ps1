@@ -32,7 +32,7 @@ function Add-VSQuickSightAnalysisAggregationSortConfiguration {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $AggregationFunction,
         [parameter(Mandatory = $true)]
         [ValidateScript( {

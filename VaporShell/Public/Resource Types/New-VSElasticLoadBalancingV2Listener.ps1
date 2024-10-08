@@ -12,6 +12,18 @@ function New-VSElasticLoadBalancingV2Listener {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER MutualAuthentication
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-mutualauthentication
+        UpdateType: Mutable
+        Type: MutualAuthentication
+
+    .PARAMETER ListenerAttributes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-listenerattributes
+        UpdateType: Mutable
+        Type: List
+        ItemType: ListenerAttribute
+        DuplicatesAllowed: False
+
     .PARAMETER AlpnPolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
         UpdateType: Mutable
@@ -115,6 +127,19 @@ function New-VSElasticLoadBalancingV2Listener {
             })]
         [System.String]
         $LogicalId,
+        [parameter(Mandatory = $false)]
+        $MutualAuthentication,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ElasticLoadBalancingV2.Listener.ListenerAttribute"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ListenerAttributes,
         [parameter(Mandatory = $false)]
         $AlpnPolicy,
         [parameter(Mandatory = $false)]
@@ -256,6 +281,12 @@ function New-VSElasticLoadBalancingV2Listener {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                ListenerAttributes {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ListenerAttributes -Value @($ListenerAttributes)
                 }
                 AlpnPolicy {
                     if (!($ResourceParams["Properties"])) {

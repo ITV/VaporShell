@@ -15,6 +15,12 @@ function Add-VSDLMLifecyclePolicyCreateRule {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER Scripts
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-scripts
+        ItemType: Script
+        UpdateType: Mutable
+
     .PARAMETER Times
         PrimitiveItemType: String
         Type: List
@@ -54,6 +60,17 @@ function Add-VSDLMLifecyclePolicyCreateRule {
                 }
             })]
         $IntervalUnit,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DLM.LifecyclePolicy.Script"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Scripts,
         [parameter(Mandatory = $false)]
         $Times,
         [parameter(Mandatory = $false)]

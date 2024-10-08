@@ -12,6 +12,11 @@ function New-VSDynamoDBTable {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER OnDemandThroughput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ondemandthroughput
+        UpdateType: Mutable
+        Type: OnDemandThroughput
+
     .PARAMETER SSESpecification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification
         UpdateType: Mutable
@@ -70,6 +75,11 @@ function New-VSDynamoDBTable {
         Type: List
         ItemType: GlobalSecondaryIndex
         DuplicatesAllowed: True
+
+    .PARAMETER ResourcePolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-resourcepolicy
+        UpdateType: Mutable
+        Type: ResourcePolicy
 
     .PARAMETER KeySchema
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema
@@ -170,6 +180,8 @@ function New-VSDynamoDBTable {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $false)]
+        $OnDemandThroughput,
+        [parameter(Mandatory = $false)]
         $SSESpecification,
         [parameter(Mandatory = $false)]
         $KinesisStreamSpecification,
@@ -227,6 +239,8 @@ function New-VSDynamoDBTable {
                 }
             })]
         $GlobalSecondaryIndexes,
+        [parameter(Mandatory = $false)]
+        $ResourcePolicy,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DynamoDB.Table.KeySchema"

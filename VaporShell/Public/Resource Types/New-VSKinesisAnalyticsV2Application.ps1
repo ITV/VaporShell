@@ -19,7 +19,7 @@ function New-VSKinesisAnalyticsV2Application {
 
     .PARAMETER RuntimeEnvironment
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runtimeenvironment
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RunConfiguration

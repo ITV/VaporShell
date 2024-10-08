@@ -10,6 +10,11 @@ function Add-VSConnectCampaignsCampaignDialerConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html
 
+    .PARAMETER AgentlessDialerConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-agentlessdialerconfig
+        UpdateType: Mutable
+        Type: AgentlessDialerConfig
+
     .PARAMETER PredictiveDialerConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-predictivedialerconfig
         UpdateType: Mutable
@@ -27,6 +32,8 @@ function Add-VSConnectCampaignsCampaignDialerConfig {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $AgentlessDialerConfig,
         [parameter(Mandatory = $false)]
         $PredictiveDialerConfig,
         [parameter(Mandatory = $false)]

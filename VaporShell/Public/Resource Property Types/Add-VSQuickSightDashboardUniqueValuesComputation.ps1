@@ -32,7 +32,7 @@ function Add-VSQuickSightDashboardUniqueValuesComputation {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Category,
         [parameter(Mandatory = $true)]
         [ValidateScript( {

@@ -12,10 +12,10 @@ function Add-VSEventsRuleSageMakerPipelineParameters {
 
     .PARAMETER PipelineParameterList
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameters.html#cfn-events-rule-sagemakerpipelineparameters-pipelineparameterlist
-        DuplicatesAllowed: False
-        ItemType: SageMakerPipelineParameter
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: SageMakerPipelineParameter
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

@@ -15,8 +15,7 @@ function New-VSResilienceHubResiliencyPolicy {
     .PARAMETER Policy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html#cfn-resiliencehub-resiliencypolicy-policy
         UpdateType: Mutable
-        Type: Map
-        ItemType: FailurePolicy
+        Type: PolicyMap
 
     .PARAMETER PolicyDescription
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html#cfn-resiliencehub-resiliencypolicy-policydescription
@@ -107,15 +106,6 @@ function New-VSResilienceHubResiliencyPolicy {
         [System.String]
         $LogicalId,
         [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.ResilienceHub.ResiliencyPolicy.FailurePolicy"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Policy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {

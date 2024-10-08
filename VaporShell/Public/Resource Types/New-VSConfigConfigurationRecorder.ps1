@@ -22,6 +22,11 @@ function New-VSConfigConfigurationRecorder {
         Type: RecordingGroup
         UpdateType: Mutable
 
+    .PARAMETER RecordingMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-recordingmode
+        Type: RecordingMode
+        UpdateType: Mutable
+
     .PARAMETER RoleARN
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn
         PrimitiveType: String
@@ -102,6 +107,8 @@ function New-VSConfigConfigurationRecorder {
         $Name,
         [parameter(Mandatory = $false)]
         $RecordingGroup,
+        [parameter(Mandatory = $false)]
+        $RecordingMode,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

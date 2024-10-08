@@ -15,6 +15,11 @@ function Add-VSQuickSightTemplateTimeEqualityFilter {
         UpdateType: Mutable
         Type: ColumnIdentifier
 
+    .PARAMETER RollingDate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-rollingdate
+        UpdateType: Mutable
+        Type: RollingDateConfiguration
+
     .PARAMETER Value
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-value
         UpdateType: Mutable
@@ -30,6 +35,11 @@ function Add-VSQuickSightTemplateTimeEqualityFilter {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER DefaultFilterControlConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-defaultfiltercontrolconfiguration
+        UpdateType: Mutable
+        Type: DefaultFilterControlConfiguration
+
     .PARAMETER FilterId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-filterid
         UpdateType: Mutable
@@ -44,6 +54,8 @@ function Add-VSQuickSightTemplateTimeEqualityFilter {
     (
         [parameter(Mandatory = $true)]
         $Column,
+        [parameter(Mandatory = $false)]
+        $RollingDate,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -77,6 +89,8 @@ function Add-VSQuickSightTemplateTimeEqualityFilter {
                 }
             })]
         $ParameterName,
+        [parameter(Mandatory = $false)]
+        $DefaultFilterControlConfiguration,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

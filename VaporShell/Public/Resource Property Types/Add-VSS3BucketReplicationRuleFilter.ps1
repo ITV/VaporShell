@@ -12,18 +12,18 @@ function Add-VSS3BucketReplicationRuleFilter {
 
     .PARAMETER And
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-and
+        UpdateType: Mutable
         Type: ReplicationRuleAndOperator
-        UpdateType: Mutable
-
-    .PARAMETER Prefix
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-prefix
-        PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER TagFilter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-tagfilter
-        Type: TagFilter
         UpdateType: Mutable
+        Type: TagFilter
+
+    .PARAMETER Prefix
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-prefix
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
@@ -35,6 +35,8 @@ function Add-VSS3BucketReplicationRuleFilter {
         [parameter(Mandatory = $false)]
         $And,
         [parameter(Mandatory = $false)]
+        $TagFilter,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,9 +46,7 @@ function Add-VSS3BucketReplicationRuleFilter {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Prefix,
-        [parameter(Mandatory = $false)]
-        $TagFilter
+        $Prefix
     )
     Begin {
         $obj = [PSCustomObject]@{}

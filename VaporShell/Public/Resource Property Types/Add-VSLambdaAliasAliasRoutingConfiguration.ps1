@@ -12,10 +12,10 @@ function Add-VSLambdaAliasAliasRoutingConfiguration {
 
     .PARAMETER AdditionalVersionWeights
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-aliasroutingconfiguration.html#cfn-lambda-alias-aliasroutingconfiguration-additionalversionweights
-        DuplicatesAllowed: False
-        ItemType: VersionWeight
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: VersionWeight
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
@@ -24,7 +24,7 @@ function Add-VSLambdaAliasAliasRoutingConfiguration {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Lambda.Alias.VersionWeight"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

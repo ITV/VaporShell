@@ -10,85 +10,90 @@ function Add-VSEventsRuleTarget {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html
 
-    .PARAMETER Arn
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-arn
+    .PARAMETER InputPath
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputpath
+        UpdateType: Mutable
         PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER BatchParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-batchparameters
-        Type: BatchParameters
-        UpdateType: Mutable
-
-    .PARAMETER DeadLetterConfig
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig
-        Type: DeadLetterConfig
-        UpdateType: Mutable
-
-    .PARAMETER EcsParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
-        Type: EcsParameters
-        UpdateType: Mutable
 
     .PARAMETER HttpParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-httpparameters
+        UpdateType: Mutable
         Type: HttpParameters
-        UpdateType: Mutable
 
-    .PARAMETER Id
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-id
-        PrimitiveType: String
+    .PARAMETER DeadLetterConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig
         UpdateType: Mutable
-
-    .PARAMETER Input
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER InputPath
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputpath
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER InputTransformer
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputtransformer
-        Type: InputTransformer
-        UpdateType: Mutable
-
-    .PARAMETER KinesisParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-kinesisparameters
-        Type: KinesisParameters
-        UpdateType: Mutable
-
-    .PARAMETER RedshiftDataParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
-        Type: RedshiftDataParameters
-        UpdateType: Mutable
-
-    .PARAMETER RetryPolicy
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
-        Type: RetryPolicy
-        UpdateType: Mutable
-
-    .PARAMETER RoleArn
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn
-        PrimitiveType: String
-        UpdateType: Mutable
+        Type: DeadLetterConfig
 
     .PARAMETER RunCommandParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-runcommandparameters
+        UpdateType: Mutable
         Type: RunCommandParameters
-        UpdateType: Mutable
 
-    .PARAMETER SageMakerPipelineParameters
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sagemakerpipelineparameters
-        Type: SageMakerPipelineParameters
+    .PARAMETER InputTransformer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputtransformer
         UpdateType: Mutable
+        Type: InputTransformer
+
+    .PARAMETER KinesisParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-kinesisparameters
+        UpdateType: Mutable
+        Type: KinesisParameters
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER RedshiftDataParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
+        UpdateType: Mutable
+        Type: RedshiftDataParameters
+
+    .PARAMETER AppSyncParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-appsyncparameters
+        UpdateType: Mutable
+        Type: AppSyncParameters
+
+    .PARAMETER Input
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER SqsParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sqsparameters
-        Type: SqsParameters
         UpdateType: Mutable
+        Type: SqsParameters
+
+    .PARAMETER EcsParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
+        UpdateType: Mutable
+        Type: EcsParameters
+
+    .PARAMETER BatchParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-batchparameters
+        UpdateType: Mutable
+        Type: BatchParameters
+
+    .PARAMETER Id
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-id
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Arn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-arn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER SageMakerPipelineParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sagemakerpipelineparameters
+        UpdateType: Mutable
+        Type: SageMakerPipelineParameters
+
+    .PARAMETER RetryPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
+        UpdateType: Mutable
+        Type: RetryPolicy
 
     .FUNCTIONALITY
         Vaporshell
@@ -97,47 +102,6 @@ function Add-VSEventsRuleTarget {
     [cmdletbinding()]
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Arn,
-        [parameter(Mandatory = $false)]
-        $BatchParameters,
-        [parameter(Mandatory = $false)]
-        $DeadLetterConfig,
-        [parameter(Mandatory = $false)]
-        $EcsParameters,
-        [parameter(Mandatory = $false)]
-        $HttpParameters,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Id,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Input,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -150,13 +114,15 @@ function Add-VSEventsRuleTarget {
             })]
         $InputPath,
         [parameter(Mandatory = $false)]
+        $HttpParameters,
+        [parameter(Mandatory = $false)]
+        $DeadLetterConfig,
+        [parameter(Mandatory = $false)]
+        $RunCommandParameters,
+        [parameter(Mandatory = $false)]
         $InputTransformer,
         [parameter(Mandatory = $false)]
         $KinesisParameters,
-        [parameter(Mandatory = $false)]
-        $RedshiftDataParameters,
-        [parameter(Mandatory = $false)]
-        $RetryPolicy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -169,11 +135,52 @@ function Add-VSEventsRuleTarget {
             })]
         $RoleArn,
         [parameter(Mandatory = $false)]
-        $RunCommandParameters,
+        $RedshiftDataParameters,
+        [parameter(Mandatory = $false)]
+        $AppSyncParameters,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Input,
+        [parameter(Mandatory = $false)]
+        $SqsParameters,
+        [parameter(Mandatory = $false)]
+        $EcsParameters,
+        [parameter(Mandatory = $false)]
+        $BatchParameters,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Id,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Arn,
         [parameter(Mandatory = $false)]
         $SageMakerPipelineParameters,
         [parameter(Mandatory = $false)]
-        $SqsParameters
+        $RetryPolicy
     )
     Begin {
         $obj = [PSCustomObject]@{}

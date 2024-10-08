@@ -14,24 +14,24 @@ function New-VSSSMDocument {
 
     .PARAMETER DocumentFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER Requires
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: List
         ItemType: DocumentRequires
         DuplicatesAllowed: True
 
     .PARAMETER Content
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: Json
 
     .PARAMETER TargetType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER DocumentType
@@ -41,7 +41,7 @@ function New-VSSSMDocument {
 
     .PARAMETER VersionName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER UpdateMethod
@@ -51,7 +51,7 @@ function New-VSSSMDocument {
 
     .PARAMETER Attachments
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: List
         ItemType: AttachmentsSource
         DuplicatesAllowed: True

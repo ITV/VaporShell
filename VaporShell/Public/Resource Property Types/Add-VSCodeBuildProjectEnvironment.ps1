@@ -21,6 +21,11 @@ function Add-VSCodeBuildProjectEnvironment {
         ItemType: EnvironmentVariable
         UpdateType: Mutable
 
+    .PARAMETER Fleet
+        Type: ProjectFleet
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-fleet
+        UpdateType: Mutable
+
     .PARAMETER PrivilegedMode
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-privilegedmode
         PrimitiveType: Boolean
@@ -84,6 +89,8 @@ function Add-VSCodeBuildProjectEnvironment {
                 }
             })]
         $EnvironmentVariables,
+        [parameter(Mandatory = $false)]
+        $Fleet,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

@@ -15,6 +15,16 @@ function Add-VSAppFlowFlowSAPODataSourceProperties {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER paginationConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-paginationconfig
+        UpdateType: Mutable
+        Type: SAPODataPaginationConfig
+
+    .PARAMETER parallelismConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-parallelismconfig
+        UpdateType: Mutable
+        Type: SAPODataParallelismConfig
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -32,7 +42,11 @@ function Add-VSAppFlowFlowSAPODataSourceProperties {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ObjectPath
+        $ObjectPath,
+        [parameter(Mandatory = $false)]
+        $paginationConfig,
+        [parameter(Mandatory = $false)]
+        $parallelismConfig
     )
     Begin {
         $obj = [PSCustomObject]@{}

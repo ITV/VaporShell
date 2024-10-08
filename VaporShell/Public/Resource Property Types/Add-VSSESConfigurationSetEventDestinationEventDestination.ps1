@@ -32,6 +32,11 @@ function Add-VSSESConfigurationSetEventDestinationEventDestination {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER EventBridgeDestination
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-eventbridgedestination
+        UpdateType: Mutable
+        Type: EventBridgeDestination
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-name
         UpdateType: Mutable
@@ -66,6 +71,8 @@ function Add-VSSESConfigurationSetEventDestinationEventDestination {
         $Enabled,
         [parameter(Mandatory = $true)]
         $MatchingEventTypes,
+        [parameter(Mandatory = $false)]
+        $EventBridgeDestination,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

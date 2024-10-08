@@ -40,6 +40,11 @@ function Add-VSQuickSightTemplateRadarChartConfiguration {
         UpdateType: Mutable
         Type: ChartAxisLabelOptions
 
+    .PARAMETER AxesRangeScale
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartconfiguration.html#cfn-quicksight-template-radarchartconfiguration-axesrangescale
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER VisualPalette
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartconfiguration.html#cfn-quicksight-template-radarchartconfiguration-visualpalette
         UpdateType: Mutable
@@ -108,6 +113,17 @@ function Add-VSQuickSightTemplateRadarChartConfiguration {
         $ColorLabelOptions,
         [parameter(Mandatory = $false)]
         $CategoryLabelOptions,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AxesRangeScale,
         [parameter(Mandatory = $false)]
         $VisualPalette,
         [parameter(Mandatory = $false)]

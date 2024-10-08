@@ -12,8 +12,8 @@ function Add-VSEventsRuleNetworkConfiguration {
 
     .PARAMETER AwsVpcConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-networkconfiguration.html#cfn-events-rule-networkconfiguration-awsvpcconfiguration
-        Type: AwsVpcConfiguration
         UpdateType: Mutable
+        Type: AwsVpcConfiguration
 
     .FUNCTIONALITY
         Vaporshell

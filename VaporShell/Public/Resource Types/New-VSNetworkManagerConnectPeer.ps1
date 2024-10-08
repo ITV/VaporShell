@@ -22,6 +22,11 @@ function New-VSNetworkManagerConnectPeer {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER SubnetArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-subnetarn
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER CoreNetworkAddress
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-corenetworkaddress
         UpdateType: Immutable
@@ -44,7 +49,7 @@ function New-VSNetworkManagerConnectPeer {
         UpdateType: Mutable
         Type: List
         ItemType: Tag
-        DuplicatesAllowed: True
+        DuplicatesAllowed: False
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -140,10 +145,21 @@ function New-VSNetworkManagerConnectPeer {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $SubnetArn,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $CoreNetworkAddress,
         [parameter(Mandatory = $false)]
         $BgpOptions,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $InsideCidrBlocks,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]

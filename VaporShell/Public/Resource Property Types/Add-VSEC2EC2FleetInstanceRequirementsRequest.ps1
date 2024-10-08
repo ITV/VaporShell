@@ -99,6 +99,11 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
         UpdateType: Immutable
         PrimitiveType: Boolean
 
+    .PARAMETER MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-maxspotpriceaspercentageofoptimalondemandprice
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
     .PARAMETER SpotMaxPricePercentageOverLowestPrice
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-spotmaxpricepercentageoverlowestprice
         UpdateType: Immutable
@@ -205,6 +210,17 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
                 }
             })]
         $RequireHibernateSupport,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxSpotPriceAsPercentageOfOptimalOnDemandPrice,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

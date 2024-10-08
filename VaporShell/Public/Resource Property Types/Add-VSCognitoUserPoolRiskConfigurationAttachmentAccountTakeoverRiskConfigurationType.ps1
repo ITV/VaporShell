@@ -11,14 +11,14 @@ function Add-VSCognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConf
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html
 
     .PARAMETER Actions
-        Type: AccountTakeoverActionsType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-actions
         UpdateType: Mutable
+        Type: AccountTakeoverActionsType
 
     .PARAMETER NotifyConfiguration
-        Type: NotifyConfigurationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-notifyconfiguration
         UpdateType: Mutable
+        Type: NotifyConfigurationType
 
     .FUNCTIONALITY
         Vaporshell

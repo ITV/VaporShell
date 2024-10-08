@@ -50,6 +50,11 @@ function Add-VSMediaLiveChannelOutputGroupSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-rtmpgroupsettings
         UpdateType: Mutable
 
+    .PARAMETER CmafIngestGroupSettings
+        Type: CmafIngestGroupSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-cmafingestgroupsettings
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -72,7 +77,9 @@ function Add-VSMediaLiveChannelOutputGroupSettings {
         [parameter(Mandatory = $false)]
         $MsSmoothGroupSettings,
         [parameter(Mandatory = $false)]
-        $RtmpGroupSettings
+        $RtmpGroupSettings,
+        [parameter(Mandatory = $false)]
+        $CmafIngestGroupSettings
     )
     Begin {
         $obj = [PSCustomObject]@{}

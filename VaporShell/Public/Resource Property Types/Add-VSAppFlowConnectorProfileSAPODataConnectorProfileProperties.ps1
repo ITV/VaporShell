@@ -25,6 +25,11 @@ function Add-VSAppFlowConnectorProfileSAPODataConnectorProfileProperties {
         UpdateType: Mutable
         Type: OAuthProperties
 
+    .PARAMETER DisableSSO
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties.html#cfn-appflow-connectorprofile-sapodataconnectorprofileproperties-disablesso
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER LogonLanguage
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties.html#cfn-appflow-connectorprofile-sapodataconnectorprofileproperties-logonlanguage
         UpdateType: Mutable
@@ -76,6 +81,17 @@ function Add-VSAppFlowConnectorProfileSAPODataConnectorProfileProperties {
         $ApplicationHostUrl,
         [parameter(Mandatory = $false)]
         $OAuthProperties,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DisableSSO,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

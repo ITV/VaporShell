@@ -12,7 +12,7 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
 
     .PARAMETER StartingPosition
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-startingposition
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER BatchSize
@@ -22,12 +22,12 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
 
     .PARAMETER ConsumerGroupID
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-consumergroupid
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AdditionalBootstrapServers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-additionalbootstrapservers
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
@@ -49,7 +49,7 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
 
     .PARAMETER TopicName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-topicname
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER MaximumBatchingWindowInSeconds

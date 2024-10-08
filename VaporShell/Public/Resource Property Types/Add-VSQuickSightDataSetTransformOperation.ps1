@@ -15,6 +15,16 @@ function Add-VSQuickSightDataSetTransformOperation {
         UpdateType: Mutable
         Type: TagColumnOperation
 
+    .PARAMETER UntagColumnOperation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-untagcolumnoperation
+        UpdateType: Mutable
+        Type: UntagColumnOperation
+
+    .PARAMETER OverrideDatasetParameterOperation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-overridedatasetparameteroperation
+        UpdateType: Mutable
+        Type: OverrideDatasetParameterOperation
+
     .PARAMETER FilterOperation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
         UpdateType: Mutable
@@ -25,15 +35,15 @@ function Add-VSQuickSightDataSetTransformOperation {
         UpdateType: Mutable
         Type: CastColumnTypeOperation
 
-    .PARAMETER CreateColumnsOperation
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-createcolumnsoperation
-        UpdateType: Mutable
-        Type: CreateColumnsOperation
-
     .PARAMETER RenameColumnOperation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-renamecolumnoperation
         UpdateType: Mutable
         Type: RenameColumnOperation
+
+    .PARAMETER CreateColumnsOperation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-createcolumnsoperation
+        UpdateType: Mutable
+        Type: CreateColumnsOperation
 
     .PARAMETER ProjectOperation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-projectoperation
@@ -50,13 +60,17 @@ function Add-VSQuickSightDataSetTransformOperation {
         [parameter(Mandatory = $false)]
         $TagColumnOperation,
         [parameter(Mandatory = $false)]
+        $UntagColumnOperation,
+        [parameter(Mandatory = $false)]
+        $OverrideDatasetParameterOperation,
+        [parameter(Mandatory = $false)]
         $FilterOperation,
         [parameter(Mandatory = $false)]
         $CastColumnTypeOperation,
         [parameter(Mandatory = $false)]
-        $CreateColumnsOperation,
-        [parameter(Mandatory = $false)]
         $RenameColumnOperation,
+        [parameter(Mandatory = $false)]
+        $CreateColumnsOperation,
         [parameter(Mandatory = $false)]
         $ProjectOperation
     )

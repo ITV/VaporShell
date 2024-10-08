@@ -30,6 +30,11 @@ function Add-VSQuickSightTemplateDestinationParameterValueConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER SourceColumn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-destinationparametervalueconfiguration.html#cfn-quicksight-template-destinationparametervalueconfiguration-sourcecolumn
+        UpdateType: Mutable
+        Type: ColumnIdentifier
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -71,7 +76,9 @@ function Add-VSQuickSightTemplateDestinationParameterValueConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SourceField
+        $SourceField,
+        [parameter(Mandatory = $false)]
+        $SourceColumn
     )
     Begin {
         $obj = [PSCustomObject]@{}

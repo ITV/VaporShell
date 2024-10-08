@@ -15,6 +15,11 @@ function Add-VSDynamoDBTableStreamSpecification {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER ResourcePolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html#cfn-dynamodb-table-streamspecification-resourcepolicy
+        UpdateType: Mutable
+        Type: ResourcePolicy
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -32,7 +37,9 @@ function Add-VSDynamoDBTableStreamSpecification {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StreamViewType
+        $StreamViewType,
+        [parameter(Mandatory = $false)]
+        $ResourcePolicy
     )
     Begin {
         $obj = [PSCustomObject]@{}

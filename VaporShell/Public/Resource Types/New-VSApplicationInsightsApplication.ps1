@@ -34,6 +34,11 @@ function New-VSApplicationInsightsApplication {
         ItemType: CustomComponent
         DuplicatesAllowed: True
 
+    .PARAMETER AttachMissingPermission
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-attachmissingpermission
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER LogPatternSets
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
         UpdateType: Mutable
@@ -43,7 +48,7 @@ function New-VSApplicationInsightsApplication {
 
     .PARAMETER GroupingType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-groupingtype
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ComponentMonitoringSettings
@@ -176,6 +181,17 @@ function New-VSApplicationInsightsApplication {
                 }
             })]
         $CustomComponents,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AttachMissingPermission,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationInsights.Application.LogPatternSet"

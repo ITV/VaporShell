@@ -26,6 +26,12 @@ function Add-VSGlueCrawlerJdbcTarget {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-exclusions
         UpdateType: Mutable
 
+    .PARAMETER EnableAdditionalMetadata
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-enableadditionalmetadata
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -56,7 +62,9 @@ function Add-VSGlueCrawlerJdbcTarget {
             })]
         $Path,
         [parameter(Mandatory = $false)]
-        $Exclusions
+        $Exclusions,
+        [parameter(Mandatory = $false)]
+        $EnableAdditionalMetadata
     )
     Begin {
         $obj = [PSCustomObject]@{}

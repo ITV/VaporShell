@@ -12,10 +12,10 @@ function Add-VSS3BucketBucketEncryption {
 
     .PARAMETER ServerSideEncryptionConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html#cfn-s3-bucket-bucketencryption-serversideencryptionconfiguration
-        DuplicatesAllowed: False
-        ItemType: ServerSideEncryptionRule
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: ServerSideEncryptionRule
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell

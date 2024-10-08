@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardReferenceLineDynamicDataConfiguration {
     (
         [parameter(Mandatory = $true)]
         $Column,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $MeasureAggregationFunction,
         [parameter(Mandatory = $true)]
         $Calculation

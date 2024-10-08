@@ -26,6 +26,11 @@ function Add-VSCodeBuildProjectProjectTriggers {
         PrimitiveType: Boolean
         UpdateType: Mutable
 
+    .PARAMETER ScopeConfiguration
+        Type: ScopeConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-scopeconfiguration
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -65,7 +70,9 @@ function Add-VSCodeBuildProjectProjectTriggers {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Webhook
+        $Webhook,
+        [parameter(Mandatory = $false)]
+        $ScopeConfiguration
     )
     Begin {
         $obj = [PSCustomObject]@{}

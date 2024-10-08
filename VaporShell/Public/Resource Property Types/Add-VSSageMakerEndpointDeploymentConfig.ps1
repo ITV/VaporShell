@@ -15,6 +15,11 @@ function Add-VSSageMakerEndpointDeploymentConfig {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-autorollbackconfiguration
         UpdateType: Mutable
 
+    .PARAMETER RollingUpdatePolicy
+        Type: RollingUpdatePolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-rollingupdatepolicy
+        UpdateType: Mutable
+
     .PARAMETER BlueGreenUpdatePolicy
         Type: BlueGreenUpdatePolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-bluegreenupdatepolicy
@@ -29,7 +34,9 @@ function Add-VSSageMakerEndpointDeploymentConfig {
     (
         [parameter(Mandatory = $false)]
         $AutoRollbackConfiguration,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
+        $RollingUpdatePolicy,
+        [parameter(Mandatory = $false)]
         $BlueGreenUpdatePolicy
     )
     Begin {

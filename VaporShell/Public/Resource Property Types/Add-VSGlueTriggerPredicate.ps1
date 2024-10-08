@@ -12,14 +12,15 @@ function Add-VSGlueTriggerPredicate {
 
     .PARAMETER Logical
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Conditions
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-conditions
-        ItemType: Condition
         UpdateType: Mutable
+        Type: List
+        ItemType: Condition
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

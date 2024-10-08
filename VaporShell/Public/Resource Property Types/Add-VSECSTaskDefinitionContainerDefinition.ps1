@@ -138,6 +138,13 @@ function Add-VSECSTaskDefinitionContainerDefinition {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER CredentialSpecs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-credentialspecs
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER Ulimits
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
         UpdateType: Immutable
@@ -181,6 +188,11 @@ function Add-VSECSTaskDefinitionContainerDefinition {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
         UpdateType: Immutable
         Type: LinuxParameters
+
+    .PARAMETER RestartPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-restartpolicy
+        UpdateType: Immutable
+        Type: RestartPolicy
 
     .PARAMETER DisableNetworking
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
@@ -245,6 +257,8 @@ function Add-VSECSTaskDefinitionContainerDefinition {
     #>
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.ContainerDefinition')]
     [cmdletbinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CredentialSpecs")]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CredentialSpecs")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RepositoryCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","RepositoryCredentials")]
     Param
@@ -429,6 +443,8 @@ function Add-VSECSTaskDefinitionContainerDefinition {
         [parameter(Mandatory = $false)]
         $DnsSearchDomains,
         [parameter(Mandatory = $false)]
+        $CredentialSpecs,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ECS.TaskDefinition.Ulimit"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -498,6 +514,8 @@ function Add-VSECSTaskDefinitionContainerDefinition {
         $Hostname,
         [parameter(Mandatory = $false)]
         $LinuxParameters,
+        [parameter(Mandatory = $false)]
+        $RestartPolicy,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

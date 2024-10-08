@@ -17,6 +17,11 @@ function New-VSSageMakerProject {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ServiceCatalogProvisionedProductDetails
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisionedproductdetails
+        UpdateType: Mutable
+        Type: ServiceCatalogProvisionedProductDetails
+
     .PARAMETER ServiceCatalogProvisioningDetails
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
         UpdateType: Immutable
@@ -107,6 +112,8 @@ function New-VSSageMakerProject {
                 }
             })]
         $ProjectName,
+        [parameter(Mandatory = $false)]
+        $ServiceCatalogProvisionedProductDetails,
         [parameter(Mandatory = $true)]
         $ServiceCatalogProvisioningDetails,
         [parameter(Mandatory = $false)]

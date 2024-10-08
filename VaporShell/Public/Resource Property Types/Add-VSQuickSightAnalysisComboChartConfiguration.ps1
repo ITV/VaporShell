@@ -47,6 +47,11 @@ function Add-VSQuickSightAnalysisComboChartConfiguration {
         UpdateType: Mutable
         Type: TooltipOptions
 
+    .PARAMETER SingleAxisOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-combochartconfiguration.html#cfn-quicksight-analysis-combochartconfiguration-singleaxisoptions
+        UpdateType: Mutable
+        Type: SingleAxisOptions
+
     .PARAMETER PrimaryYAxisDisplayOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-combochartconfiguration.html#cfn-quicksight-analysis-combochartconfiguration-primaryyaxisdisplayoptions
         UpdateType: Mutable
@@ -122,6 +127,8 @@ function Add-VSQuickSightAnalysisComboChartConfiguration {
         $CategoryLabelOptions,
         [parameter(Mandatory = $false)]
         $Tooltip,
+        [parameter(Mandatory = $false)]
+        $SingleAxisOptions,
         [parameter(Mandatory = $false)]
         $PrimaryYAxisDisplayOptions,
         [parameter(Mandatory = $false)]

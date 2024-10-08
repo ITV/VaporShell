@@ -24,6 +24,11 @@ function New-VSWAFv2WebACL {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER AssociationConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-associationconfig
+        UpdateType: Mutable
+        Type: AssociationConfig
+
     .PARAMETER DefaultAction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
         UpdateType: Mutable
@@ -149,6 +154,8 @@ function New-VSWAFv2WebACL {
                 }
             })]
         $Description,
+        [parameter(Mandatory = $false)]
+        $AssociationConfig,
         [parameter(Mandatory = $true)]
         $DefaultAction,
         [parameter(Mandatory = $true)]

@@ -27,6 +27,16 @@ function New-VSEC2NetworkInsightsPath {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER FilterAtDestination
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-filteratdestination
+        UpdateType: Immutable
+        Type: PathFilter
+
+    .PARAMETER FilterAtSource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-filteratsource
+        UpdateType: Immutable
+        Type: PathFilter
+
     .PARAMETER Protocol
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
         UpdateType: Immutable
@@ -144,6 +154,10 @@ function New-VSEC2NetworkInsightsPath {
                 }
             })]
         $SourceIp,
+        [parameter(Mandatory = $false)]
+        $FilterAtDestination,
+        [parameter(Mandatory = $false)]
+        $FilterAtSource,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

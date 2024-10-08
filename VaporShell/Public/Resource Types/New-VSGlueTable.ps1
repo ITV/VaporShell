@@ -17,6 +17,11 @@ function New-VSGlueTable {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-tableinput
         UpdateType: Mutable
 
+    .PARAMETER OpenTableFormatInput
+        Type: OpenTableFormatInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-opentableformatinput
+        UpdateType: Mutable
+
     .PARAMETER DatabaseName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-databasename
         PrimitiveType: String
@@ -91,6 +96,8 @@ function New-VSGlueTable {
         $LogicalId,
         [parameter(Mandatory = $true)]
         $TableInput,
+        [parameter(Mandatory = $false)]
+        $OpenTableFormatInput,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

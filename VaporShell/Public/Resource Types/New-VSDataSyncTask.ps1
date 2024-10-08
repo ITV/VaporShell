@@ -44,6 +44,11 @@ function New-VSDataSyncTask {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER TaskReportConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-taskreportconfig
+        UpdateType: Mutable
+        Type: TaskReportConfig
+
     .PARAMETER Excludes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
         UpdateType: Mutable
@@ -62,6 +67,11 @@ function New-VSDataSyncTask {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER ManifestConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-manifestconfig
+        UpdateType: Mutable
+        Type: ManifestConfig
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -174,6 +184,8 @@ function New-VSDataSyncTask {
             })]
         $SourceLocationArn,
         [parameter(Mandatory = $false)]
+        $TaskReportConfig,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DataSync.Task.FilterRule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -198,6 +210,8 @@ function New-VSDataSyncTask {
                 }
             })]
         $Name,
+        [parameter(Mandatory = $false)]
+        $ManifestConfig,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"

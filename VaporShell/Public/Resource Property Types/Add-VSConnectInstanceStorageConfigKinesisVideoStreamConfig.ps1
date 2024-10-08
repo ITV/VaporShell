@@ -54,7 +54,7 @@ function Add-VSConnectInstanceStorageConfigKinesisVideoStreamConfig {
                 }
             })]
         $RetentionPeriodHours,
-        [parameter(Mandatory = $false)]
+        [parameter(Mandatory = $true)]
         $EncryptionConfig
     )
     Begin {

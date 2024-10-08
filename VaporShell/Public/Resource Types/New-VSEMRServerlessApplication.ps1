@@ -14,55 +14,77 @@ function New-VSEMRServerlessApplication {
 
     .PARAMETER AutoStartConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-autostartconfiguration
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: AutoStartConfiguration
+
+    .PARAMETER Architecture
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-architecture
+        UpdateType: Conditional
+        PrimitiveType: String
+
+    .PARAMETER WorkerTypeSpecifications
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-workertypespecifications
+        UpdateType: Conditional
+        Type: Map
+        ItemType: WorkerTypeSpecificationInput
+
+    .PARAMETER MonitoringConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-monitoringconfiguration
+        UpdateType: Conditional
+        Type: MonitoringConfiguration
+
+    .PARAMETER MaximumCapacity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-maximumcapacity
+        UpdateType: Conditional
+        Type: MaximumAllowedResources
+
+    .PARAMETER AutoStopConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-autostopconfiguration
+        UpdateType: Conditional
+        Type: AutoStopConfiguration
+
+    .PARAMETER RuntimeConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-runtimeconfiguration
+        UpdateType: Conditional
+        Type: List
+        ItemType: ConfigurationObject
+        DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Type
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-type
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Architecture
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-architecture
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER WorkerTypeSpecifications
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-workertypespecifications
-        UpdateType: Mutable
-        Type: Map
-        ItemType: WorkerTypeSpecificationInput
-
     .PARAMETER InitialCapacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-initialcapacity
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: List
         ItemType: InitialCapacityConfigKeyValuePair
         DuplicatesAllowed: False
 
+    .PARAMETER InteractiveConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-interactiveconfiguration
+        UpdateType: Conditional
+        Type: InteractiveConfiguration
+
     .PARAMETER ImageConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-imageconfiguration
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: ImageConfigurationInput
-
-    .PARAMETER MaximumCapacity
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-maximumcapacity
-        UpdateType: Mutable
-        Type: MaximumAllowedResources
-
-    .PARAMETER AutoStopConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-autostopconfiguration
-        UpdateType: Mutable
-        Type: AutoStopConfiguration
 
     .PARAMETER NetworkConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-networkconfiguration
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: NetworkConfiguration
 
     .PARAMETER ReleaseLabel
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-releaselabel
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER Tags
@@ -71,11 +93,6 @@ function New-VSEMRServerlessApplication {
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
-
-    .PARAMETER Name
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-name
-        UpdateType: Immutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -141,17 +158,6 @@ function New-VSEMRServerlessApplication {
         $LogicalId,
         [parameter(Mandatory = $false)]
         $AutoStartConfiguration,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Type,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -175,6 +181,45 @@ function New-VSEMRServerlessApplication {
             })]
         $WorkerTypeSpecifications,
         [parameter(Mandatory = $false)]
+        $MonitoringConfiguration,
+        [parameter(Mandatory = $false)]
+        $MaximumCapacity,
+        [parameter(Mandatory = $false)]
+        $AutoStopConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EMRServerless.Application.ConfigurationObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RuntimeConfiguration,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
+        [parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Type,
+        [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EMRServerless.Application.InitialCapacityConfigKeyValuePair"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -186,11 +231,9 @@ function New-VSEMRServerlessApplication {
             })]
         $InitialCapacity,
         [parameter(Mandatory = $false)]
+        $InteractiveConfiguration,
+        [parameter(Mandatory = $false)]
         $ImageConfiguration,
-        [parameter(Mandatory = $false)]
-        $MaximumCapacity,
-        [parameter(Mandatory = $false)]
-        $AutoStopConfiguration,
         [parameter(Mandatory = $false)]
         $NetworkConfiguration,
         [parameter(Mandatory = $true)]
@@ -207,17 +250,6 @@ function New-VSEMRServerlessApplication {
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -291,6 +323,12 @@ function New-VSEMRServerlessApplication {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                RuntimeConfiguration {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name RuntimeConfiguration -Value @($RuntimeConfiguration)
                 }
                 InitialCapacity {
                     if (!($ResourceParams["Properties"])) {

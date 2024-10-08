@@ -30,6 +30,11 @@ function Add-VSKinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration
         UpdateType: Mutable
         Type: RetryOptions
 
+    .PARAMETER SecretsManagerConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-secretsmanagerconfiguration
+        UpdateType: Mutable
+        Type: SecretsManagerConfiguration
+
     .PARAMETER EndpointConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration
         UpdateType: Mutable
@@ -70,6 +75,8 @@ function Add-VSKinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration
         $BufferingHints,
         [parameter(Mandatory = $false)]
         $RetryOptions,
+        [parameter(Mandatory = $false)]
+        $SecretsManagerConfiguration,
         [parameter(Mandatory = $true)]
         $EndpointConfiguration,
         [parameter(Mandatory = $false)]

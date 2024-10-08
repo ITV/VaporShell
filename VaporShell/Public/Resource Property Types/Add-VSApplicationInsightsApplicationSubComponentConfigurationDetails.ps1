@@ -31,6 +31,13 @@ function Add-VSApplicationInsightsApplicationSubComponentConfigurationDetails {
         ItemType: Log
         DuplicatesAllowed: True
 
+    .PARAMETER Processes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-processes
+        UpdateType: Mutable
+        Type: List
+        ItemType: Process
+        DuplicatesAllowed: True
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -70,7 +77,18 @@ function Add-VSApplicationInsightsApplicationSubComponentConfigurationDetails {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Logs
+        $Logs,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ApplicationInsights.Application.Process"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Processes
     )
     Begin {
         $obj = [PSCustomObject]@{}

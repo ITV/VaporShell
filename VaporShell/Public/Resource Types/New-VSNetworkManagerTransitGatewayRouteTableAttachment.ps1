@@ -22,9 +22,19 @@ function New-VSNetworkManagerTransitGatewayRouteTableAttachment {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ProposedNetworkFunctionGroupChange
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html#cfn-networkmanager-transitgatewayroutetableattachment-proposednetworkfunctiongroupchange
+        UpdateType: Mutable
+        Type: ProposedNetworkFunctionGroupChange
+
     .PARAMETER PeeringId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html#cfn-networkmanager-transitgatewayroutetableattachment-peeringid
         UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER NetworkFunctionGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html#cfn-networkmanager-transitgatewayroutetableattachment-networkfunctiongroupname
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
@@ -109,6 +119,8 @@ function New-VSNetworkManagerTransitGatewayRouteTableAttachment {
                 }
             })]
         $TransitGatewayRouteTableArn,
+        [parameter(Mandatory = $false)]
+        $ProposedNetworkFunctionGroupChange,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -120,6 +132,17 @@ function New-VSNetworkManagerTransitGatewayRouteTableAttachment {
                 }
             })]
         $PeeringId,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $NetworkFunctionGroupName,
         [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
         $Tags,

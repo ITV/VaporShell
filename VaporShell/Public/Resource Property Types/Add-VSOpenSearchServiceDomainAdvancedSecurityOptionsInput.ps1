@@ -30,6 +30,11 @@ function Add-VSOpenSearchServiceDomainAdvancedSecurityOptionsInput {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER JWTOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-jwtoptions
+        UpdateType: Mutable
+        Type: JWTOptions
+
     .PARAMETER AnonymousAuthDisableDate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-anonymousauthdisabledate
         UpdateType: Mutable
@@ -82,6 +87,8 @@ function Add-VSOpenSearchServiceDomainAdvancedSecurityOptionsInput {
                 }
             })]
         $Enabled,
+        [parameter(Mandatory = $false)]
+        $JWTOptions,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

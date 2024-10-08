@@ -12,12 +12,12 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfig {
 
     .PARAMETER WorkerConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workerconfiguration
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: WorkerConfiguration
 
     .PARAMETER WorkerCount
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workercount
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: Integer
 
     .FUNCTIONALITY

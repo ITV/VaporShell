@@ -10,6 +10,32 @@ function Add-VSMediaLiveChannelAudioDescription {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html
 
+    .PARAMETER AudioDashRoles
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audiodashroles
+        UpdateType: Mutable
+
+    .PARAMETER LanguageCodeControl
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-languagecodecontrol
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER CodecSettings
+        Type: AudioCodecSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-codecsettings
+        UpdateType: Mutable
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-name
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER AudioWatermarkingSettings
+        Type: AudioWatermarkSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audiowatermarkingsettings
+        UpdateType: Mutable
+
     .PARAMETER AudioNormalizationSettings
         Type: AudioNormalizationSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audionormalizationsettings
@@ -35,8 +61,8 @@ function Add-VSMediaLiveChannelAudioDescription {
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER LanguageCodeControl
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-languagecodecontrol
+    .PARAMETER DvbDashAccessibility
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-dvbdashaccessibility
         PrimitiveType: String
         UpdateType: Mutable
 
@@ -50,21 +76,6 @@ function Add-VSMediaLiveChannelAudioDescription {
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER CodecSettings
-        Type: AudioCodecSettings
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-codecsettings
-        UpdateType: Mutable
-
-    .PARAMETER Name
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-name
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER AudioWatermarkingSettings
-        Type: AudioWatermarkSettings
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audiowatermarkingsettings
-        UpdateType: Mutable
-
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -72,6 +83,34 @@ function Add-VSMediaLiveChannelAudioDescription {
     [cmdletbinding()]
     Param
     (
+        [parameter(Mandatory = $false)]
+        $AudioDashRoles,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LanguageCodeControl,
+        [parameter(Mandatory = $false)]
+        $CodecSettings,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
+        [parameter(Mandatory = $false)]
+        $AudioWatermarkingSettings,
         [parameter(Mandatory = $false)]
         $AudioNormalizationSettings,
         [parameter(Mandatory = $false)]
@@ -119,7 +158,7 @@ function Add-VSMediaLiveChannelAudioDescription {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LanguageCodeControl,
+        $DvbDashAccessibility,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -141,22 +180,7 @@ function Add-VSMediaLiveChannelAudioDescription {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AudioTypeControl,
-        [parameter(Mandatory = $false)]
-        $CodecSettings,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
-        [parameter(Mandatory = $false)]
-        $AudioWatermarkingSettings
+        $AudioTypeControl
     )
     Begin {
         $obj = [PSCustomObject]@{}

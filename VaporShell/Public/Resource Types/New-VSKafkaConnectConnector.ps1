@@ -22,6 +22,17 @@ function New-VSKafkaConnectConnector {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ConnectorConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorconfiguration
+        UpdateType: Immutable
+        Type: Map
+        PrimitiveItemType: String
+
+    .PARAMETER LogDelivery
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-logdelivery
+        UpdateType: Immutable
+        Type: LogDelivery
+
     .PARAMETER WorkerConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-workerconfiguration
         UpdateType: Immutable
@@ -57,16 +68,12 @@ function New-VSKafkaConnectConnector {
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ConnectorConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorconfiguration
-        UpdateType: Immutable
-        Type: Map
-        PrimitiveItemType: String
-
-    .PARAMETER LogDelivery
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-logdelivery
-        UpdateType: Immutable
-        Type: LogDelivery
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: False
 
     .PARAMETER Plugins
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-plugins
@@ -150,6 +157,11 @@ function New-VSKafkaConnectConnector {
                 }
             })]
         $KafkaConnectVersion,
+        [parameter(Mandatory = $true)]
+        [System.Collections.Hashtable]
+        $ConnectorConfiguration,
+        [parameter(Mandatory = $false)]
+        $LogDelivery,
         [parameter(Mandatory = $false)]
         $WorkerConfiguration,
         [parameter(Mandatory = $true)]
@@ -191,11 +203,9 @@ function New-VSKafkaConnectConnector {
                 }
             })]
         $ServiceExecutionRoleArn,
-        [parameter(Mandatory = $true)]
-        [System.Collections.Hashtable]
-        $ConnectorConfiguration,
+        [VaporShell.Core.TransformTag()]
         [parameter(Mandatory = $false)]
-        $LogDelivery,
+        $Tags,
         [parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.KafkaConnect.Connector.Plugin"
@@ -280,6 +290,12 @@ function New-VSKafkaConnectConnector {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
                 Plugins {
                     if (!($ResourceParams["Properties"])) {

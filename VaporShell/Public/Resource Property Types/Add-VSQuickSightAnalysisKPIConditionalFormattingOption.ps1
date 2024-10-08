@@ -15,6 +15,16 @@ function Add-VSQuickSightAnalysisKPIConditionalFormattingOption {
         UpdateType: Mutable
         Type: KPIPrimaryValueConditionalFormatting
 
+    .PARAMETER ActualValue
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpiconditionalformattingoption.html#cfn-quicksight-analysis-kpiconditionalformattingoption-actualvalue
+        UpdateType: Mutable
+        Type: KPIActualValueConditionalFormatting
+
+    .PARAMETER ComparisonValue
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpiconditionalformattingoption.html#cfn-quicksight-analysis-kpiconditionalformattingoption-comparisonvalue
+        UpdateType: Mutable
+        Type: KPIComparisonValueConditionalFormatting
+
     .PARAMETER ProgressBar
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpiconditionalformattingoption.html#cfn-quicksight-analysis-kpiconditionalformattingoption-progressbar
         UpdateType: Mutable
@@ -29,6 +39,10 @@ function Add-VSQuickSightAnalysisKPIConditionalFormattingOption {
     (
         [parameter(Mandatory = $false)]
         $PrimaryValue,
+        [parameter(Mandatory = $false)]
+        $ActualValue,
+        [parameter(Mandatory = $false)]
+        $ComparisonValue,
         [parameter(Mandatory = $false)]
         $ProgressBar
     )

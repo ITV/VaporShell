@@ -15,6 +15,11 @@ function Add-VSIoTWirelessWirelessDeviceLoRaWANDevice {
         UpdateType: Mutable
         Type: AbpV10x
 
+    .PARAMETER FPorts
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-fports
+        UpdateType: Mutable
+        Type: FPorts
+
     .PARAMETER OtaaV11
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav11
         UpdateType: Mutable
@@ -54,6 +59,8 @@ function Add-VSIoTWirelessWirelessDeviceLoRaWANDevice {
     (
         [parameter(Mandatory = $false)]
         $AbpV10x,
+        [parameter(Mandatory = $false)]
+        $FPorts,
         [parameter(Mandatory = $false)]
         $OtaaV11,
         [parameter(Mandatory = $false)]

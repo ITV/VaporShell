@@ -22,14 +22,14 @@ function New-VSIoTDomainConfiguration {
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ServiceType
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER DomainConfigurationStatus
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ServiceType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ValidationCertificateArn
@@ -49,6 +49,11 @@ function New-VSIoTDomainConfiguration {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER ServerCertificateConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificateconfig
+        UpdateType: Mutable
+        Type: ServerCertificateConfig
+
     .PARAMETER AuthorizerConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
         UpdateType: Mutable
@@ -59,7 +64,7 @@ function New-VSIoTDomainConfiguration {
         UpdateType: Mutable
         Type: List
         ItemType: Tag
-        DuplicatesAllowed: True
+        DuplicatesAllowed: False
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -155,7 +160,7 @@ function New-VSIoTDomainConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ServiceType,
+        $DomainConfigurationStatus,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -166,7 +171,7 @@ function New-VSIoTDomainConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DomainConfigurationStatus,
+        $ServiceType,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -182,6 +187,8 @@ function New-VSIoTDomainConfiguration {
         $TlsConfig,
         [parameter(Mandatory = $false)]
         $ServerCertificateArns,
+        [parameter(Mandatory = $false)]
+        $ServerCertificateConfig,
         [parameter(Mandatory = $false)]
         $AuthorizerConfig,
         [VaporShell.Core.TransformTag()]

@@ -56,7 +56,7 @@ function Add-VSQuickSightDataSetLogicalTable {
                 }
             })]
         $DataTransforms,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Source
     )
     Begin {

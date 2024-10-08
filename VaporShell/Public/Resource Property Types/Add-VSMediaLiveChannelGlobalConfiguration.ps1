@@ -15,6 +15,11 @@ function Add-VSMediaLiveChannelGlobalConfiguration {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER OutputLockingSettings
+        Type: OutputLockingSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputlockingsettings
+        UpdateType: Mutable
+
     .PARAMETER OutputTimingSource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputtimingsource
         PrimitiveType: String
@@ -58,6 +63,8 @@ function Add-VSMediaLiveChannelGlobalConfiguration {
                 }
             })]
         $InputEndAction,
+        [parameter(Mandatory = $false)]
+        $OutputLockingSettings,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

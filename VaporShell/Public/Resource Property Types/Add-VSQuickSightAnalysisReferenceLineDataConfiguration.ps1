@@ -20,6 +20,11 @@ function Add-VSQuickSightAnalysisReferenceLineDataConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER SeriesType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedataconfiguration.html#cfn-quicksight-analysis-referencelinedataconfiguration-seriestype
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER StaticConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedataconfiguration.html#cfn-quicksight-analysis-referencelinedataconfiguration-staticconfiguration
         UpdateType: Mutable
@@ -45,6 +50,17 @@ function Add-VSQuickSightAnalysisReferenceLineDataConfiguration {
                 }
             })]
         $AxisBinding,
+        [parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SeriesType,
         [parameter(Mandatory = $false)]
         $StaticConfiguration
     )

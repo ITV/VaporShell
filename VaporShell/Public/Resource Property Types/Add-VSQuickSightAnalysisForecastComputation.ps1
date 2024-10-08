@@ -129,7 +129,7 @@ function Add-VSQuickSightAnalysisForecastComputation {
         $CustomSeasonalityValue,
         [parameter(Mandatory = $false)]
         $Value,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         $Time,
         [parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -12,8 +12,8 @@ function Add-VSS3BucketObjectLockRule {
 
     .PARAMETER DefaultRetention
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html#cfn-s3-bucket-objectlockrule-defaultretention
-        Type: DefaultRetention
         UpdateType: Mutable
+        Type: DefaultRetention
 
     .FUNCTIONALITY
         Vaporshell

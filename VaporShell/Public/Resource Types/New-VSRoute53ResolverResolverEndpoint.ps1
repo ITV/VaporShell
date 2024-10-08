@@ -18,6 +18,12 @@ function New-VSRoute53ResolverResolverEndpoint {
         ItemType: IpAddressRequest
         UpdateType: Mutable
 
+    .PARAMETER Protocols
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-protocols
+        UpdateType: Mutable
+
     .PARAMETER OutpostArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-outpostarn
         PrimitiveType: String
@@ -128,6 +134,8 @@ function New-VSRoute53ResolverResolverEndpoint {
                 }
             })]
         $IpAddresses,
+        [parameter(Mandatory = $false)]
+        $Protocols,
         [parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -267,6 +275,12 @@ function New-VSRoute53ResolverResolverEndpoint {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name IpAddresses -Value @($IpAddresses)
+                }
+                Protocols {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Protocols -Value @($Protocols)
                 }
                 SecurityGroupIds {
                     if (!($ResourceParams["Properties"])) {

@@ -11,14 +11,14 @@ function Add-VSLambdaEventInvokeConfigDestinationConfig {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html
 
     .PARAMETER OnSuccess
-        Type: OnSuccess
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig-onsuccess
         UpdateType: Mutable
+        Type: OnSuccess
 
     .PARAMETER OnFailure
-        Type: OnFailure
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig-onfailure
         UpdateType: Mutable
+        Type: OnFailure
 
     .FUNCTIONALITY
         Vaporshell
