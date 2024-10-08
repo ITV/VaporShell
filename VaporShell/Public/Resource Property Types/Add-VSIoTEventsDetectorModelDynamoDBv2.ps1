@@ -1,11 +1,10 @@
 function Add-VSIoTEventsDetectorModelDynamoDBv2 {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.DynamoDBv2 resource property to the template. 
+        Adds an AWS::IoTEvents::DetectorModel.DynamoDBv2 resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.DynamoDBv2 resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html
@@ -23,11 +22,13 @@ function Add-VSIoTEventsDetectorModelDynamoDBv2 {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.DynamoDBv2')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSIoTEventsDetectorModelDynamoDBv2 {
                 }
             })]
         $TableName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Payload
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSIoTEventsDetectorModelDynamoDBv2 {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTEvents.DetectorModel.DynamoDBv2'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

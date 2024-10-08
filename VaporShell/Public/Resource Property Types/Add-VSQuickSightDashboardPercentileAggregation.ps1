@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardPercentileAggregation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.PercentileAggregation resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.PercentileAggregation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.PercentileAggregation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-percentileaggregation.html
@@ -18,11 +17,13 @@ function Add-VSQuickSightDashboardPercentileAggregation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PercentileAggregation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSQuickSightDashboardPercentileAggregation {
                 }
             })]
         $PercentileValue
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSQuickSightDashboardPercentileAggregation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.PercentileAggregation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSDLMLifecyclePolicyPolicyDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.PolicyDetails resource property to the template. 
+        Adds an AWS::DLM::LifecyclePolicy.PolicyDetails resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.PolicyDetails resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html
@@ -98,11 +97,13 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.PolicyDetails')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -113,9 +114,11 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
                 }
             })]
         $PolicyLanguage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ResourceTypes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DLM.LifecyclePolicy.Schedule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -126,7 +129,8 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
                 }
             })]
         $Schedules,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -137,7 +141,8 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
                 }
             })]
         $PolicyType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -148,9 +153,11 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
                 }
             })]
         $CreateInterval,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -161,9 +168,11 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
                 }
             })]
         $ExtendDeletion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Exclusions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DLM.LifecyclePolicy.Action"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -174,7 +183,8 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
                 }
             })]
         $Actions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -185,7 +195,8 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
                 }
             })]
         $ResourceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -196,16 +207,21 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
                 }
             })]
         $RetainInterval,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EventSource,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CrossRegionCopyTargets,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $TargetTags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ResourceLocations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -216,11 +232,14 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
                 }
             })]
         $CopyTags
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -230,6 +249,7 @@ function Add-VSDLMLifecyclePolicyPolicyDetails {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DLM.LifecyclePolicy.PolicyDetails'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

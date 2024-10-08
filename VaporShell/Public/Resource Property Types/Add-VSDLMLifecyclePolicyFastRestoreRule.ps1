@@ -1,11 +1,10 @@
 function Add-VSDLMLifecyclePolicyFastRestoreRule {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.FastRestoreRule resource property to the template. 
+        Adds an AWS::DLM::LifecyclePolicy.FastRestoreRule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.FastRestoreRule resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html
@@ -34,11 +33,13 @@ function Add-VSDLMLifecyclePolicyFastRestoreRule {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.FastRestoreRule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,9 +50,11 @@ function Add-VSDLMLifecyclePolicyFastRestoreRule {
                 }
             })]
         $IntervalUnit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AvailabilityZones,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +65,8 @@ function Add-VSDLMLifecyclePolicyFastRestoreRule {
                 }
             })]
         $Count,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,11 +77,14 @@ function Add-VSDLMLifecyclePolicyFastRestoreRule {
                 }
             })]
         $Interval
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +94,7 @@ function Add-VSDLMLifecyclePolicyFastRestoreRule {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DLM.LifecyclePolicy.FastRestoreRule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

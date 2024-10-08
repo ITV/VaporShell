@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardCustomParameterValues {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.CustomParameterValues resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.CustomParameterValues resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.CustomParameterValues resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customparametervalues.html
@@ -41,23 +40,31 @@ function Add-VSQuickSightDashboardCustomParameterValues {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CustomParameterValues')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DecimalValues,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IntegerValues,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StringValues,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DateTimeValues
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +74,7 @@ function Add-VSQuickSightDashboardCustomParameterValues {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.CustomParameterValues'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

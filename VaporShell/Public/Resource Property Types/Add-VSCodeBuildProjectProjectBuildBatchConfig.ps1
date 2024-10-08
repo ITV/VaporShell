@@ -1,11 +1,10 @@
 function Add-VSCodeBuildProjectProjectBuildBatchConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::Project.ProjectBuildBatchConfig resource property to the template. 
+        Adds an AWS::CodeBuild::Project.ProjectBuildBatchConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::Project.ProjectBuildBatchConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html
@@ -38,11 +37,13 @@ function Add-VSCodeBuildProjectProjectBuildBatchConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeBuild.Project.ProjectBuildBatchConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,7 +54,8 @@ function Add-VSCodeBuildProjectProjectBuildBatchConfig {
                 }
             })]
         $CombineArtifacts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,7 +66,8 @@ function Add-VSCodeBuildProjectProjectBuildBatchConfig {
                 }
             })]
         $ServiceRole,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,7 +78,8 @@ function Add-VSCodeBuildProjectProjectBuildBatchConfig {
                 }
             })]
         $BatchReportMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,13 +90,17 @@ function Add-VSCodeBuildProjectProjectBuildBatchConfig {
                 }
             })]
         $TimeoutInMins,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Restrictions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -102,6 +110,7 @@ function Add-VSCodeBuildProjectProjectBuildBatchConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeBuild.Project.ProjectBuildBatchConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

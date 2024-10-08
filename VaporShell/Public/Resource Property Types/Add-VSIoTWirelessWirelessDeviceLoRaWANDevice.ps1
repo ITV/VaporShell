@@ -1,11 +1,10 @@
 function Add-VSIoTWirelessWirelessDeviceLoRaWANDevice {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::WirelessDevice.LoRaWANDevice resource property to the template. 
+        Adds an AWS::IoTWireless::WirelessDevice.LoRaWANDevice resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::WirelessDevice.LoRaWANDevice resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html
@@ -53,19 +52,25 @@ function Add-VSIoTWirelessWirelessDeviceLoRaWANDevice {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTWireless.WirelessDevice.LoRaWANDevice')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AbpV10x,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FPorts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OtaaV11,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AbpV11,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,7 +81,8 @@ function Add-VSIoTWirelessWirelessDeviceLoRaWANDevice {
                 }
             })]
         $DeviceProfileId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -87,9 +93,11 @@ function Add-VSIoTWirelessWirelessDeviceLoRaWANDevice {
                 }
             })]
         $DevEui,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OtaaV10x,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,11 +108,14 @@ function Add-VSIoTWirelessWirelessDeviceLoRaWANDevice {
                 }
             })]
         $ServiceProfileId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -114,6 +125,7 @@ function Add-VSIoTWirelessWirelessDeviceLoRaWANDevice {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTWireless.WirelessDevice.LoRaWANDevice'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSGuardDutyFilterCondition {
     <#
     .SYNOPSIS
-        Adds an AWS::GuardDuty::Filter.Condition resource property to the template. 
+        Adds an AWS::GuardDuty::Filter.Condition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GuardDuty::Filter.Condition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html
@@ -81,13 +80,16 @@ function Add-VSGuardDutyFilterCondition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GuardDuty.Filter.Condition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Equals,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -98,7 +100,8 @@ function Add-VSGuardDutyFilterCondition {
                 }
             })]
         $LessThan,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -109,7 +112,8 @@ function Add-VSGuardDutyFilterCondition {
                 }
             })]
         $LessThanOrEqual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -120,7 +124,8 @@ function Add-VSGuardDutyFilterCondition {
                 }
             })]
         $GreaterThan,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -131,7 +136,8 @@ function Add-VSGuardDutyFilterCondition {
                 }
             })]
         $Lt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -142,9 +148,11 @@ function Add-VSGuardDutyFilterCondition {
                 }
             })]
         $Gte,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Neq,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -155,9 +163,11 @@ function Add-VSGuardDutyFilterCondition {
                 }
             })]
         $GreaterThanOrEqual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Eq,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -168,7 +178,8 @@ function Add-VSGuardDutyFilterCondition {
                 }
             })]
         $Lte,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -179,13 +190,17 @@ function Add-VSGuardDutyFilterCondition {
                 }
             })]
         $Gt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NotEquals
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -195,6 +210,7 @@ function Add-VSGuardDutyFilterCondition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GuardDuty.Filter.Condition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

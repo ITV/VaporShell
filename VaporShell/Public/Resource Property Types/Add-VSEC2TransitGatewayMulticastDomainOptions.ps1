@@ -1,11 +1,10 @@
 function Add-VSEC2TransitGatewayMulticastDomainOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayMulticastDomain.Options resource property to the template. 
+        Adds an AWS::EC2::TransitGatewayMulticastDomain.Options resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::TransitGatewayMulticastDomain.Options resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaymulticastdomain-options.html
@@ -28,11 +27,13 @@ function Add-VSEC2TransitGatewayMulticastDomainOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.TransitGatewayMulticastDomain.Options')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSEC2TransitGatewayMulticastDomainOptions {
                 }
             })]
         $StaticSourcesSupport,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +56,8 @@ function Add-VSEC2TransitGatewayMulticastDomainOptions {
                 }
             })]
         $AutoAcceptSharedAssociations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,11 +68,14 @@ function Add-VSEC2TransitGatewayMulticastDomainOptions {
                 }
             })]
         $Igmpv2Support
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +85,7 @@ function Add-VSEC2TransitGatewayMulticastDomainOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.TransitGatewayMulticastDomain.Options'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

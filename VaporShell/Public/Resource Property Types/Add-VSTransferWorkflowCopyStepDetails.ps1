@@ -1,11 +1,10 @@
 function Add-VSTransferWorkflowCopyStepDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::Transfer::Workflow.CopyStepDetails resource property to the template. 
+        Adds an AWS::Transfer::Workflow.CopyStepDetails resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Transfer::Workflow.CopyStepDetails resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html
@@ -33,13 +32,16 @@ function Add-VSTransferWorkflowCopyStepDetails {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Transfer.Workflow.CopyStepDetails')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DestinationFileLocation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,7 +52,8 @@ function Add-VSTransferWorkflowCopyStepDetails {
                 }
             })]
         $SourceFileLocation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +64,8 @@ function Add-VSTransferWorkflowCopyStepDetails {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,11 +76,14 @@ function Add-VSTransferWorkflowCopyStepDetails {
                 }
             })]
         $OverwriteExisting
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -86,6 +93,7 @@ function Add-VSTransferWorkflowCopyStepDetails {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Transfer.Workflow.CopyStepDetails'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

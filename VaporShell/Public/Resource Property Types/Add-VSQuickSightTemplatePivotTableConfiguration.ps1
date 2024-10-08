@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplatePivotTableConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.PivotTableConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Template.PivotTableConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.PivotTableConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableconfiguration.html
@@ -43,27 +42,37 @@ function Add-VSQuickSightTemplatePivotTableConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.PivotTableConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SortConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PaginatedReportOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TableOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FieldWells,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FieldOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TotalOptions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -73,6 +82,7 @@ function Add-VSQuickSightTemplatePivotTableConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.PivotTableConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

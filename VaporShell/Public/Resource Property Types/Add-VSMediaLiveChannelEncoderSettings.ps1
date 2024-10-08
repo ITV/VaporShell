@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelEncoderSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.EncoderSettings resource property to the template. 
+        Adds an AWS::MediaLive::Channel.EncoderSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.EncoderSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html
@@ -87,11 +86,13 @@ function Add-VSMediaLiveChannelEncoderSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.EncoderSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.AudioDescription"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -102,7 +103,8 @@ function Add-VSMediaLiveChannelEncoderSettings {
                 }
             })]
         $AudioDescriptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.VideoDescription"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -113,15 +115,20 @@ function Add-VSMediaLiveChannelEncoderSettings {
                 }
             })]
         $VideoDescriptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GlobalConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MotionGraphicsConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ThumbnailConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FeatureActivations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.CaptionDescription"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -132,11 +139,14 @@ function Add-VSMediaLiveChannelEncoderSettings {
                 }
             })]
         $CaptionDescriptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AvailConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ColorCorrectionSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.OutputGroup"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -147,19 +157,26 @@ function Add-VSMediaLiveChannelEncoderSettings {
                 }
             })]
         $OutputGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AvailBlanking,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NielsenConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BlackoutSlate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TimecodeConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -169,6 +186,7 @@ function Add-VSMediaLiveChannelEncoderSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.EncoderSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

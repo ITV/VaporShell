@@ -1,11 +1,10 @@
 function Add-VSAmplifyUIBuilderFormFieldConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Form.FieldConfig resource property to the template. 
+        Adds an AWS::AmplifyUIBuilder::Form.FieldConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Form.FieldConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html
@@ -40,11 +39,13 @@ function Add-VSAmplifyUIBuilderFormFieldConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.FieldConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AmplifyUIBuilder.Form.FieldValidationConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +56,14 @@ function Add-VSAmplifyUIBuilderFormFieldConfig {
                 }
             })]
         $Validations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InputType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Position,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +74,8 @@ function Add-VSAmplifyUIBuilderFormFieldConfig {
                 }
             })]
         $Label,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,11 +86,14 @@ function Add-VSAmplifyUIBuilderFormFieldConfig {
                 }
             })]
         $Excluded
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -95,6 +103,7 @@ function Add-VSAmplifyUIBuilderFormFieldConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AmplifyUIBuilder.Form.FieldConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSResilienceHubAppResourceMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::ResilienceHub::App.ResourceMapping resource property to the template. 
+        Adds an AWS::ResilienceHub::App.ResourceMapping resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ResilienceHub::App.ResourceMapping resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html
@@ -43,11 +42,13 @@ function Add-VSResilienceHubAppResourceMapping {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ResilienceHub.App.ResourceMapping')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +59,8 @@ function Add-VSResilienceHubAppResourceMapping {
                 }
             })]
         $MappingType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,7 +71,8 @@ function Add-VSResilienceHubAppResourceMapping {
                 }
             })]
         $LogicalStackName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -80,7 +83,8 @@ function Add-VSResilienceHubAppResourceMapping {
                 }
             })]
         $ResourceName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -91,9 +95,11 @@ function Add-VSResilienceHubAppResourceMapping {
                 }
             })]
         $TerraformSourceName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $PhysicalResourceId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -104,11 +110,14 @@ function Add-VSResilienceHubAppResourceMapping {
                 }
             })]
         $EksSourceName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -118,6 +127,7 @@ function Add-VSResilienceHubAppResourceMapping {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ResilienceHub.App.ResourceMapping'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

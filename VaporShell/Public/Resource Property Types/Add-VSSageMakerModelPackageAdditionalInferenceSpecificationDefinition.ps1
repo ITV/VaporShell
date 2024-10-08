@@ -1,11 +1,10 @@
 function Add-VSSageMakerModelPackageAdditionalInferenceSpecificationDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelPackage.AdditionalInferenceSpecificationDefinition resource property to the template. 
+        Adds an AWS::SageMaker::ModelPackage.AdditionalInferenceSpecificationDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelPackage.AdditionalInferenceSpecificationDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-additionalinferencespecificationdefinition.html
@@ -58,11 +57,13 @@ function Add-VSSageMakerModelPackageAdditionalInferenceSpecificationDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.AdditionalInferenceSpecificationDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,11 +74,14 @@ function Add-VSSageMakerModelPackageAdditionalInferenceSpecificationDefinition {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SupportedContentTypes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SupportedRealtimeInferenceInstanceTypes,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.ModelPackage.ModelPackageContainerDefinition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,9 +92,11 @@ function Add-VSSageMakerModelPackageAdditionalInferenceSpecificationDefinition {
                 }
             })]
         $Containers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SupportedTransformInstanceTypes,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,13 +107,17 @@ function Add-VSSageMakerModelPackageAdditionalInferenceSpecificationDefinition {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SupportedResponseMIMETypes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -117,6 +127,7 @@ function Add-VSSageMakerModelPackageAdditionalInferenceSpecificationDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelPackage.AdditionalInferenceSpecificationDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSPipesPipePipeTargetBatchJobParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Pipes::Pipe.PipeTargetBatchJobParameters resource property to the template. 
+        Adds an AWS::Pipes::Pipe.PipeTargetBatchJobParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pipes::Pipe.PipeTargetBatchJobParameters resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html
@@ -51,11 +50,13 @@ function Add-VSPipesPipePipeTargetBatchJobParameters {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetBatchJobParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Pipes.Pipe.BatchJobDependency"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -66,12 +67,15 @@ function Add-VSPipesPipePipeTargetBatchJobParameters {
                 }
             })]
         $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ArrayProperties,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,9 +86,11 @@ function Add-VSPipesPipePipeTargetBatchJobParameters {
                 }
             })]
         $JobName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RetryStrategy,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,13 +101,17 @@ function Add-VSPipesPipePipeTargetBatchJobParameters {
                 }
             })]
         $JobDefinition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ContainerOverrides
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -111,6 +121,7 @@ function Add-VSPipesPipePipeTargetBatchJobParameters {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pipes.Pipe.PipeTargetBatchJobParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

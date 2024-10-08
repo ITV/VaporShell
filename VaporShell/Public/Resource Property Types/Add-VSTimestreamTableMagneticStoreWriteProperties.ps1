@@ -1,11 +1,10 @@
 function Add-VSTimestreamTableMagneticStoreWriteProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::Table.MagneticStoreWriteProperties resource property to the template. 
+        Adds an AWS::Timestream::Table.MagneticStoreWriteProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Timestream::Table.MagneticStoreWriteProperties resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorewriteproperties.html
@@ -23,11 +22,13 @@ function Add-VSTimestreamTableMagneticStoreWriteProperties {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Timestream.Table.MagneticStoreWriteProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSTimestreamTableMagneticStoreWriteProperties {
                 }
             })]
         $EnableMagneticStoreWrites,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MagneticStoreRejectedDataLocation
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSTimestreamTableMagneticStoreWriteProperties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Timestream.Table.MagneticStoreWriteProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

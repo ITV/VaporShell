@@ -1,11 +1,10 @@
 function Add-VSBedrockFlowPromptModelInferenceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Bedrock::Flow.PromptModelInferenceConfiguration resource property to the template. 
+        Adds an AWS::Bedrock::Flow.PromptModelInferenceConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Bedrock::Flow.PromptModelInferenceConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptmodelinferenceconfiguration.html
@@ -40,11 +39,13 @@ function Add-VSBedrockFlowPromptModelInferenceConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Bedrock.Flow.PromptModelInferenceConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,7 +56,8 @@ function Add-VSBedrockFlowPromptModelInferenceConfiguration {
                 }
             })]
         $TopK,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -66,9 +68,11 @@ function Add-VSBedrockFlowPromptModelInferenceConfiguration {
                 }
             })]
         $Temperature,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StopSequences,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,7 +83,8 @@ function Add-VSBedrockFlowPromptModelInferenceConfiguration {
                 }
             })]
         $MaxTokens,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,11 +95,14 @@ function Add-VSBedrockFlowPromptModelInferenceConfiguration {
                 }
             })]
         $TopP
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -104,6 +112,7 @@ function Add-VSBedrockFlowPromptModelInferenceConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Bedrock.Flow.PromptModelInferenceConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSApplicationAutoScalingScalableTargetSuspendedState {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalableTarget.SuspendedState resource property to the template. 
+        Adds an AWS::ApplicationAutoScaling::ScalableTarget.SuspendedState resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalableTarget.SuspendedState resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html
@@ -28,11 +27,13 @@ function Add-VSApplicationAutoScalingScalableTargetSuspendedState {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalableTarget.SuspendedState')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSApplicationAutoScalingScalableTargetSuspendedState {
                 }
             })]
         $DynamicScalingOutSuspended,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +56,8 @@ function Add-VSApplicationAutoScalingScalableTargetSuspendedState {
                 }
             })]
         $ScheduledScalingSuspended,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,11 +68,14 @@ function Add-VSApplicationAutoScalingScalableTargetSuspendedState {
                 }
             })]
         $DynamicScalingInSuspended
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +85,7 @@ function Add-VSApplicationAutoScalingScalableTargetSuspendedState {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApplicationAutoScaling.ScalableTarget.SuspendedState'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

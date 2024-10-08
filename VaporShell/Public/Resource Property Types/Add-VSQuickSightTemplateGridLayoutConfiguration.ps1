@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateGridLayoutConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.GridLayoutConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Template.GridLayoutConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.GridLayoutConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gridlayoutconfiguration.html
@@ -25,13 +24,16 @@ function Add-VSQuickSightTemplateGridLayoutConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.GridLayoutConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $CanvasSizeOptions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.GridLayoutElement"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,11 +44,14 @@ function Add-VSQuickSightTemplateGridLayoutConfiguration {
                 }
             })]
         $Elements
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSQuickSightTemplateGridLayoutConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.GridLayoutConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

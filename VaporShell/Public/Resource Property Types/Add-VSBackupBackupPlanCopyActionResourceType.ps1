@@ -1,11 +1,10 @@
 function Add-VSBackupBackupPlanCopyActionResourceType {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupPlan.CopyActionResourceType resource property to the template. 
+        Adds an AWS::Backup::BackupPlan.CopyActionResourceType resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Backup::BackupPlan.CopyActionResourceType resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html
@@ -23,13 +22,16 @@ function Add-VSBackupBackupPlanCopyActionResourceType {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Backup.BackupPlan.CopyActionResourceType')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Lifecycle,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +42,14 @@ function Add-VSBackupBackupPlanCopyActionResourceType {
                 }
             })]
         $DestinationBackupVaultArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSBackupBackupPlanCopyActionResourceType {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Backup.BackupPlan.CopyActionResourceType'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

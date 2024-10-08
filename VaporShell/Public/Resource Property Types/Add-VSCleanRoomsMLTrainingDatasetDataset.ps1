@@ -1,11 +1,10 @@
 function Add-VSCleanRoomsMLTrainingDatasetDataset {
     <#
     .SYNOPSIS
-        Adds an AWS::CleanRoomsML::TrainingDataset.Dataset resource property to the template. 
+        Adds an AWS::CleanRoomsML::TrainingDataset.Dataset resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CleanRoomsML::TrainingDataset.Dataset resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-dataset.html
@@ -23,11 +22,13 @@ function Add-VSCleanRoomsMLTrainingDatasetDataset {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CleanRoomsML.TrainingDataset.Dataset')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSCleanRoomsMLTrainingDatasetDataset {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $InputConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSCleanRoomsMLTrainingDatasetDataset {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CleanRoomsML.TrainingDataset.Dataset'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

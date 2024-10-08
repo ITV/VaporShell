@@ -1,11 +1,10 @@
 function Add-VSFSxVolumeSnaplockRetentionPeriod {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::Volume.SnaplockRetentionPeriod resource property to the template. 
+        Adds an AWS::FSx::Volume.SnaplockRetentionPeriod resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::FSx::Volume.SnaplockRetentionPeriod resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-snaplockretentionperiod.html
@@ -28,21 +27,28 @@ function Add-VSFSxVolumeSnaplockRetentionPeriod {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.FSx.Volume.SnaplockRetentionPeriod')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $DefaultRetention,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $MaximumRetention,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $MinimumRetention
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +58,7 @@ function Add-VSFSxVolumeSnaplockRetentionPeriod {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.FSx.Volume.SnaplockRetentionPeriod'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

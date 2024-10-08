@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallRuleGroupStatelessRulesAndCustomActions {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions resource property to the template. 
+        Adds an AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
@@ -27,11 +26,13 @@ function Add-VSNetworkFirewallRuleGroupStatelessRulesAndCustomActions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.StatelessRulesAndCustomActions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.StatelessRule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +43,8 @@ function Add-VSNetworkFirewallRuleGroupStatelessRulesAndCustomActions {
                 }
             })]
         $StatelessRules,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.CustomAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +55,14 @@ function Add-VSNetworkFirewallRuleGroupStatelessRulesAndCustomActions {
                 }
             })]
         $CustomActions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +72,7 @@ function Add-VSNetworkFirewallRuleGroupStatelessRulesAndCustomActions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.RuleGroup.StatelessRulesAndCustomActions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

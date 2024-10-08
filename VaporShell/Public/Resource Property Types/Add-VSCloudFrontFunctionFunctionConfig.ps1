@@ -1,11 +1,10 @@
 function Add-VSCloudFrontFunctionFunctionConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Function.FunctionConfig resource property to the template. 
+        Adds an AWS::CloudFront::Function.FunctionConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Function.FunctionConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html
@@ -30,11 +29,13 @@ function Add-VSCloudFrontFunctionFunctionConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Function.FunctionConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,7 +46,8 @@ function Add-VSCloudFrontFunctionFunctionConfig {
                 }
             })]
         $Comment,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +58,8 @@ function Add-VSCloudFrontFunctionFunctionConfig {
                 }
             })]
         $Runtime,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudFront.Function.KeyValueStoreAssociation"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,11 +70,14 @@ function Add-VSCloudFrontFunctionFunctionConfig {
                 }
             })]
         $KeyValueStoreAssociations
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -81,6 +87,7 @@ function Add-VSCloudFrontFunctionFunctionConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Function.FunctionConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

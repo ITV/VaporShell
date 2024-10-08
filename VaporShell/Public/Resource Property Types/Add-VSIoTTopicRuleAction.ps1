@@ -1,11 +1,10 @@
 function Add-VSIoTTopicRuleAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.Action resource property to the template. 
+        Adds an AWS::IoT::TopicRule.Action resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.Action resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html
@@ -123,59 +122,85 @@ function Add-VSIoTTopicRuleAction {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.TopicRule.Action')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $S3,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CloudwatchAlarm,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IotEvents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Firehose,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Republish,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Kafka,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StepFunctions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DynamoDB,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Http,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OpenSearch,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DynamoDBv2,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CloudwatchMetric,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IotSiteWise,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Elasticsearch,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sqs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Kinesis,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CloudwatchLogs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Timestream,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IotAnalytics,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Lambda,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Location
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -185,6 +210,7 @@ function Add-VSIoTTopicRuleAction {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.TopicRule.Action'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

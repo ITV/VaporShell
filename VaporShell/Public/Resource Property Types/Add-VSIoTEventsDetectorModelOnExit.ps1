@@ -1,11 +1,10 @@
 function Add-VSIoTEventsDetectorModelOnExit {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.OnExit resource property to the template. 
+        Adds an AWS::IoTEvents::DetectorModel.OnExit resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.OnExit resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html
@@ -20,11 +19,13 @@ function Add-VSIoTEventsDetectorModelOnExit {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.OnExit')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTEvents.DetectorModel.Event"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +36,14 @@ function Add-VSIoTEventsDetectorModelOnExit {
                 }
             })]
         $Events
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +53,7 @@ function Add-VSIoTEventsDetectorModelOnExit {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTEvents.DetectorModel.OnExit'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

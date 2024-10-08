@@ -1,11 +1,10 @@
 function Add-VSAmplifyAppAutoBranchCreationConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Amplify::App.AutoBranchCreationConfig resource property to the template. 
+        Adds an AWS::Amplify::App.AutoBranchCreationConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Amplify::App.AutoBranchCreationConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html
@@ -72,11 +71,13 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Amplify.App.AutoBranchCreationConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Amplify.App.EnvironmentVariable"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -87,9 +88,11 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
                 }
             })]
         $EnvironmentVariables,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AutoBranchCreationPatterns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,7 +103,8 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
                 }
             })]
         $EnableAutoBranchCreation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,7 +115,8 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
                 }
             })]
         $PullRequestEnvironmentName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -122,7 +127,8 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
                 }
             })]
         $EnablePullRequestPreview,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -133,7 +139,8 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
                 }
             })]
         $EnableAutoBuild,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -144,7 +151,8 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
                 }
             })]
         $EnablePerformanceMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -155,7 +163,8 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
                 }
             })]
         $BuildSpec,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -166,9 +175,11 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
                 }
             })]
         $Stage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BasicAuthConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -179,11 +190,14 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
                 }
             })]
         $Framework
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -193,6 +207,7 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Amplify.App.AutoBranchCreationConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

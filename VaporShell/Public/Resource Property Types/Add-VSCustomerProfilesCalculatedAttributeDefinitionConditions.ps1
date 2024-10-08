@@ -1,11 +1,10 @@
 function Add-VSCustomerProfilesCalculatedAttributeDefinitionConditions {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::CalculatedAttributeDefinition.Conditions resource property to the template. 
+        Adds an AWS::CustomerProfiles::CalculatedAttributeDefinition.Conditions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::CalculatedAttributeDefinition.Conditions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-conditions.html
@@ -28,13 +27,16 @@ function Add-VSCustomerProfilesCalculatedAttributeDefinitionConditions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CustomerProfiles.CalculatedAttributeDefinition.Conditions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Range,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,13 +47,17 @@ function Add-VSCustomerProfilesCalculatedAttributeDefinitionConditions {
                 }
             })]
         $ObjectCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Threshold
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +67,7 @@ function Add-VSCustomerProfilesCalculatedAttributeDefinitionConditions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CustomerProfiles.CalculatedAttributeDefinition.Conditions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

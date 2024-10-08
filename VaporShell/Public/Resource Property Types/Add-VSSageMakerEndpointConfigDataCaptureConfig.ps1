@@ -1,11 +1,10 @@
 function Add-VSSageMakerEndpointConfigDataCaptureConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::EndpointConfig.DataCaptureConfig resource property to the template. 
+        Adds an AWS::SageMaker::EndpointConfig.DataCaptureConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::EndpointConfig.DataCaptureConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html
@@ -44,11 +43,13 @@ function Add-VSSageMakerEndpointConfigDataCaptureConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.DataCaptureConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.EndpointConfig.CaptureOption"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,7 +60,8 @@ function Add-VSSageMakerEndpointConfigDataCaptureConfig {
                 }
             })]
         $CaptureOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +72,8 @@ function Add-VSSageMakerEndpointConfigDataCaptureConfig {
                 }
             })]
         $KmsKeyId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,7 +84,8 @@ function Add-VSSageMakerEndpointConfigDataCaptureConfig {
                 }
             })]
         $DestinationS3Uri,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -92,9 +96,11 @@ function Add-VSSageMakerEndpointConfigDataCaptureConfig {
                 }
             })]
         $InitialSamplingPercentage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CaptureContentTypeHeader,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -105,11 +111,14 @@ function Add-VSSageMakerEndpointConfigDataCaptureConfig {
                 }
             })]
         $EnableCapture
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -119,6 +128,7 @@ function Add-VSSageMakerEndpointConfigDataCaptureConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.EndpointConfig.DataCaptureConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

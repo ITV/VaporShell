@@ -1,11 +1,10 @@
 function Add-VSECSTaskSetNetworkConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::TaskSet.NetworkConfiguration resource property to the template. 
+        Adds an AWS::ECS::TaskSet.NetworkConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ECS::TaskSet.NetworkConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
@@ -18,17 +17,22 @@ function Add-VSECSTaskSetNetworkConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ECS.TaskSet.NetworkConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AwsVpcConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSECSTaskSetNetworkConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ECS.TaskSet.NetworkConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

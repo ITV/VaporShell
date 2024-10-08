@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisSectionBasedLayoutConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.SectionBasedLayoutConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.SectionBasedLayoutConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.SectionBasedLayoutConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sectionbasedlayoutconfiguration.html
@@ -39,13 +38,16 @@ function Add-VSQuickSightAnalysisSectionBasedLayoutConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SectionBasedLayoutConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $CanvasSizeOptions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.HeaderFooterSectionConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +58,8 @@ function Add-VSQuickSightAnalysisSectionBasedLayoutConfiguration {
                 }
             })]
         $FooterSections,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.BodySectionConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,7 +70,8 @@ function Add-VSQuickSightAnalysisSectionBasedLayoutConfiguration {
                 }
             })]
         $BodySections,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.HeaderFooterSectionConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,11 +82,14 @@ function Add-VSQuickSightAnalysisSectionBasedLayoutConfiguration {
                 }
             })]
         $HeaderSections
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -92,6 +99,7 @@ function Add-VSQuickSightAnalysisSectionBasedLayoutConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.SectionBasedLayoutConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

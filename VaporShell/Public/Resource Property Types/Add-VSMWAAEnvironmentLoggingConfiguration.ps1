@@ -1,11 +1,10 @@
 function Add-VSMWAAEnvironmentLoggingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MWAA::Environment.LoggingConfiguration resource property to the template. 
+        Adds an AWS::MWAA::Environment.LoggingConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MWAA::Environment.LoggingConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
@@ -38,25 +37,34 @@ function Add-VSMWAAEnvironmentLoggingConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MWAA.Environment.LoggingConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SchedulerLogs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TaskLogs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DagProcessingLogs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $WebserverLogs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $WorkerLogs
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -66,6 +74,7 @@ function Add-VSMWAAEnvironmentLoggingConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MWAA.Environment.LoggingConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

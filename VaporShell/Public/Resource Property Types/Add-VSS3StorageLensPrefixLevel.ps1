@@ -1,11 +1,10 @@
 function Add-VSS3StorageLensPrefixLevel {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.PrefixLevel resource property to the template. 
+        Adds an AWS::S3::StorageLens.PrefixLevel resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.PrefixLevel resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
@@ -18,17 +17,22 @@ function Add-VSS3StorageLensPrefixLevel {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.StorageLens.PrefixLevel')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $StorageMetrics
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSS3StorageLensPrefixLevel {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.StorageLens.PrefixLevel'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.Filter resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.Filter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.Filter resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filter.html
@@ -53,31 +52,43 @@ function Add-VSQuickSightAnalysisFilter {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.Filter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $NestedFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NumericEqualityFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NumericRangeFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TimeRangeFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RelativeDatesFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TopBottomFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TimeEqualityFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CategoryFilter
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +98,7 @@ function Add-VSQuickSightAnalysisFilter {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.Filter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

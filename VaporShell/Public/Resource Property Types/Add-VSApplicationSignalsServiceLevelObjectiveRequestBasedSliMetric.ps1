@@ -1,11 +1,10 @@
 function Add-VSApplicationSignalsServiceLevelObjectiveRequestBasedSliMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationSignals::ServiceLevelObjective.RequestBasedSliMetric resource property to the template. 
+        Adds an AWS::ApplicationSignals::ServiceLevelObjective.RequestBasedSliMetric resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApplicationSignals::ServiceLevelObjective.RequestBasedSliMetric resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html
@@ -41,13 +40,16 @@ function Add-VSApplicationSignalsServiceLevelObjectiveRequestBasedSliMetric {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.RequestBasedSliMetric')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $MonitoredRequestCountMetric,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +60,8 @@ function Add-VSApplicationSignalsServiceLevelObjectiveRequestBasedSliMetric {
                 }
             })]
         $OperationName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MetricDataQuery"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,10 +72,12 @@ function Add-VSApplicationSignalsServiceLevelObjectiveRequestBasedSliMetric {
                 }
             })]
         $TotalRequestCountMetric,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $KeyAttributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,11 +88,14 @@ function Add-VSApplicationSignalsServiceLevelObjectiveRequestBasedSliMetric {
                 }
             })]
         $MetricType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -97,6 +105,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveRequestBasedSliMetric {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.RequestBasedSliMetric'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

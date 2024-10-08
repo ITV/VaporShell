@@ -1,11 +1,10 @@
 function Add-VSSSMPatchBaselineRule {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::PatchBaseline.Rule resource property to the template. 
+        Adds an AWS::SSM::PatchBaseline.Rule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSM::PatchBaseline.Rule resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html
@@ -38,11 +37,13 @@ function Add-VSSSMPatchBaselineRule {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSM.PatchBaseline.Rule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,7 +54,8 @@ function Add-VSSSMPatchBaselineRule {
                 }
             })]
         $ApproveUntilDate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,9 +66,11 @@ function Add-VSSSMPatchBaselineRule {
                 }
             })]
         $EnableNonSecurity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PatchFilterGroup,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,7 +81,8 @@ function Add-VSSSMPatchBaselineRule {
                 }
             })]
         $ApproveAfterDays,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,11 +93,14 @@ function Add-VSSSMPatchBaselineRule {
                 }
             })]
         $ComplianceLevel
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -102,6 +110,7 @@ function Add-VSSSMPatchBaselineRule {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSM.PatchBaseline.Rule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

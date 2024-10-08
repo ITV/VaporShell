@@ -1,11 +1,10 @@
 function Add-VSIoTAnalyticsChannelChannelStorage {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Channel.ChannelStorage resource property to the template. 
+        Adds an AWS::IoTAnalytics::Channel.ChannelStorage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Channel.ChannelStorage resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-channelstorage.html
@@ -23,13 +22,16 @@ function Add-VSIoTAnalyticsChannelChannelStorage {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Channel.ChannelStorage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $CustomerManagedS3,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +42,14 @@ function Add-VSIoTAnalyticsChannelChannelStorage {
                 }
             })]
         $ServiceManagedS3
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +73,7 @@ function Add-VSIoTAnalyticsChannelChannelStorage {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Channel.ChannelStorage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

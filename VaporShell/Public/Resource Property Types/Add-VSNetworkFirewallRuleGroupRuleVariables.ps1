@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallRuleGroupRuleVariables {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.RuleVariables resource property to the template. 
+        Adds an AWS::NetworkFirewall::RuleGroup.RuleVariables resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.RuleVariables resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html
@@ -25,11 +24,13 @@ function Add-VSNetworkFirewallRuleGroupRuleVariables {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.RuleVariables')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.PortSet"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,7 +41,8 @@ function Add-VSNetworkFirewallRuleGroupRuleVariables {
                 }
             })]
         $PortSets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.IPSet"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +53,14 @@ function Add-VSNetworkFirewallRuleGroupRuleVariables {
                 }
             })]
         $IPSets
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +70,7 @@ function Add-VSNetworkFirewallRuleGroupRuleVariables {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.RuleGroup.RuleVariables'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

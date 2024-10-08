@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardChartAxisLabelOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.ChartAxisLabelOptions resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.ChartAxisLabelOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.ChartAxisLabelOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-chartaxislabeloptions.html
@@ -30,11 +29,13 @@ function Add-VSQuickSightDashboardChartAxisLabelOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ChartAxisLabelOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,7 +46,8 @@ function Add-VSQuickSightDashboardChartAxisLabelOptions {
                 }
             })]
         $Visibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +58,8 @@ function Add-VSQuickSightDashboardChartAxisLabelOptions {
                 }
             })]
         $SortIconVisibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.AxisLabelOptions"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,11 +70,14 @@ function Add-VSQuickSightDashboardChartAxisLabelOptions {
                 }
             })]
         $AxisLabelOptions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -81,6 +87,7 @@ function Add-VSQuickSightDashboardChartAxisLabelOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.ChartAxisLabelOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

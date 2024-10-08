@@ -1,11 +1,10 @@
 function Add-VSDynamoDBGlobalTableProjection {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.Projection resource property to the template. 
+        Adds an AWS::DynamoDB::GlobalTable.Projection resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.Projection resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html
@@ -25,11 +24,13 @@ function Add-VSDynamoDBGlobalTableProjection {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.Projection')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,13 +41,17 @@ function Add-VSDynamoDBGlobalTableProjection {
                 }
             })]
         $ProjectionType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NonKeyAttributes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSDynamoDBGlobalTableProjection {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DynamoDB.GlobalTable.Projection'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

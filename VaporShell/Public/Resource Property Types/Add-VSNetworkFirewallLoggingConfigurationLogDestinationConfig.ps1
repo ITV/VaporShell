@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallLoggingConfigurationLogDestinationConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::LoggingConfiguration.LogDestinationConfig resource property to the template. 
+        Adds an AWS::NetworkFirewall::LoggingConfiguration.LogDestinationConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::LoggingConfiguration.LogDestinationConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html
@@ -29,11 +28,13 @@ function Add-VSNetworkFirewallLoggingConfigurationLogDestinationConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.LoggingConfiguration.LogDestinationConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,10 +45,12 @@ function Add-VSNetworkFirewallLoggingConfigurationLogDestinationConfig {
                 }
             })]
         $LogType,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [System.Collections.Hashtable]
         $LogDestination,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,11 +61,14 @@ function Add-VSNetworkFirewallLoggingConfigurationLogDestinationConfig {
                 }
             })]
         $LogDestinationType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +78,7 @@ function Add-VSNetworkFirewallLoggingConfigurationLogDestinationConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.LoggingConfiguration.LogDestinationConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

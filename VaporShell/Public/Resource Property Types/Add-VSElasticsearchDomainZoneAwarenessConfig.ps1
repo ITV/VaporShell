@@ -1,11 +1,10 @@
 function Add-VSElasticsearchDomainZoneAwarenessConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Elasticsearch::Domain.ZoneAwarenessConfig resource property to the template. 
+        Adds an AWS::Elasticsearch::Domain.ZoneAwarenessConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Elasticsearch::Domain.ZoneAwarenessConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-zoneawarenessconfig.html
@@ -18,11 +17,13 @@ function Add-VSElasticsearchDomainZoneAwarenessConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.ZoneAwarenessConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSElasticsearchDomainZoneAwarenessConfig {
                 }
             })]
         $AvailabilityZoneCount
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSElasticsearchDomainZoneAwarenessConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Elasticsearch.Domain.ZoneAwarenessConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

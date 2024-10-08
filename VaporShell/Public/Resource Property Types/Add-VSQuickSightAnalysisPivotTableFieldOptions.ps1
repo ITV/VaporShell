@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisPivotTableFieldOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.PivotTableFieldOptions resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.PivotTableFieldOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.PivotTableFieldOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottablefieldoptions.html
@@ -34,11 +33,13 @@ function Add-VSQuickSightAnalysisPivotTableFieldOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PivotTableFieldOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.PivotTableFieldCollapseStateOption"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +50,8 @@ function Add-VSQuickSightAnalysisPivotTableFieldOptions {
                 }
             })]
         $CollapseStateOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.PivotTableDataPathOption"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +62,8 @@ function Add-VSQuickSightAnalysisPivotTableFieldOptions {
                 }
             })]
         $DataPathOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.PivotTableFieldOption"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +74,14 @@ function Add-VSQuickSightAnalysisPivotTableFieldOptions {
                 }
             })]
         $SelectedFieldOptions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +91,7 @@ function Add-VSQuickSightAnalysisPivotTableFieldOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.PivotTableFieldOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

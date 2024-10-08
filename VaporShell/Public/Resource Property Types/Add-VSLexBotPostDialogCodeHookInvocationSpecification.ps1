@@ -1,11 +1,10 @@
 function Add-VSLexBotPostDialogCodeHookInvocationSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.PostDialogCodeHookInvocationSpecification resource property to the template. 
+        Adds an AWS::Lex::Bot.PostDialogCodeHookInvocationSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.PostDialogCodeHookInvocationSpecification resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html
@@ -58,33 +57,46 @@ function Add-VSLexBotPostDialogCodeHookInvocationSpecification {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.PostDialogCodeHookInvocationSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SuccessResponse,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FailureConditional,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TimeoutNextStep,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SuccessConditional,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TimeoutResponse,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SuccessNextStep,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FailureResponse,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FailureNextStep,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TimeoutConditional
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -94,6 +106,7 @@ function Add-VSLexBotPostDialogCodeHookInvocationSpecification {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.PostDialogCodeHookInvocationSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

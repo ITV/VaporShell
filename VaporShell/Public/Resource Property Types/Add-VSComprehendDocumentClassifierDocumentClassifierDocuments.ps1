@@ -1,11 +1,10 @@
 function Add-VSComprehendDocumentClassifierDocumentClassifierDocuments {
     <#
     .SYNOPSIS
-        Adds an AWS::Comprehend::DocumentClassifier.DocumentClassifierDocuments resource property to the template. 
+        Adds an AWS::Comprehend::DocumentClassifier.DocumentClassifierDocuments resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Comprehend::DocumentClassifier.DocumentClassifierDocuments resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierdocuments.html
@@ -23,11 +22,13 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierDocuments {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Comprehend.DocumentClassifier.DocumentClassifierDocuments')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierDocuments {
                 }
             })]
         $S3Uri,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierDocuments {
                 }
             })]
         $TestS3Uri
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierDocuments {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Comprehend.DocumentClassifier.DocumentClassifierDocuments'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

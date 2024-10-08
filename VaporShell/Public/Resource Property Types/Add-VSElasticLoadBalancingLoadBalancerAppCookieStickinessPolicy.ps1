@@ -1,11 +1,10 @@
 function Add-VSElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancing::LoadBalancer.AppCookieStickinessPolicy resource property to the template. 
+        Adds an AWS::ElasticLoadBalancing::LoadBalancer.AppCookieStickinessPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancing::LoadBalancer.AppCookieStickinessPolicy resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-AppCookieStickinessPolicy.html
@@ -23,11 +22,13 @@ function Add-VSElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.AppCookieStickinessPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy {
                 }
             })]
         $CookieName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy {
                 }
             })]
         $PolicyName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.AppCookieStickinessPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

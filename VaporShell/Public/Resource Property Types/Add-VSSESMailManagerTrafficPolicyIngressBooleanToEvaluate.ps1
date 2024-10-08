@@ -1,11 +1,10 @@
 function Add-VSSESMailManagerTrafficPolicyIngressBooleanToEvaluate {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::MailManagerTrafficPolicy.IngressBooleanToEvaluate resource property to the template. 
+        Adds an AWS::SES::MailManagerTrafficPolicy.IngressBooleanToEvaluate resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SES::MailManagerTrafficPolicy.IngressBooleanToEvaluate resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html
@@ -18,17 +17,22 @@ function Add-VSSESMailManagerTrafficPolicyIngressBooleanToEvaluate {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressBooleanToEvaluate')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Analysis
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSSESMailManagerTrafficPolicyIngressBooleanToEvaluate {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressBooleanToEvaluate'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

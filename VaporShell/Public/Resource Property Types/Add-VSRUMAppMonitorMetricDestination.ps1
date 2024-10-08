@@ -1,11 +1,10 @@
 function Add-VSRUMAppMonitorMetricDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::RUM::AppMonitor.MetricDestination resource property to the template. 
+        Adds an AWS::RUM::AppMonitor.MetricDestination resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::RUM::AppMonitor.MetricDestination resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdestination.html
@@ -35,11 +34,13 @@ function Add-VSRUMAppMonitorMetricDestination {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.RUM.AppMonitor.MetricDestination')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,7 +51,8 @@ function Add-VSRUMAppMonitorMetricDestination {
                 }
             })]
         $Destination,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +63,8 @@ function Add-VSRUMAppMonitorMetricDestination {
                 }
             })]
         $IamRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.RUM.AppMonitor.MetricDefinition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,7 +75,8 @@ function Add-VSRUMAppMonitorMetricDestination {
                 }
             })]
         $MetricDefinitions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,11 +87,14 @@ function Add-VSRUMAppMonitorMetricDestination {
                 }
             })]
         $DestinationArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -97,6 +104,7 @@ function Add-VSRUMAppMonitorMetricDestination {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.RUM.AppMonitor.MetricDestination'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

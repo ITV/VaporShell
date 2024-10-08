@@ -1,11 +1,10 @@
 function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFieldsUpdate {
     <#
     .SYNOPSIS
-        Adds an AWS::SecurityHub::AutomationRule.AutomationRulesFindingFieldsUpdate resource property to the template. 
+        Adds an AWS::SecurityHub::AutomationRule.AutomationRulesFindingFieldsUpdate resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SecurityHub::AutomationRule.AutomationRulesFindingFieldsUpdate resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html
@@ -63,13 +62,16 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFieldsUpdate {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.AutomationRulesFindingFieldsUpdate')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Types,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -80,9 +82,11 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFieldsUpdate {
                 }
             })]
         $Confidence,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Note,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -93,7 +97,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFieldsUpdate {
                 }
             })]
         $VerificationState,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.RelatedFinding"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -104,14 +109,18 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFieldsUpdate {
                 }
             })]
         $RelatedFindings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Workflow,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Severity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $UserDefinedFields,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -122,11 +131,14 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFieldsUpdate {
                 }
             })]
         $Criticality
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -136,6 +148,7 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFieldsUpdate {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SecurityHub.AutomationRule.AutomationRulesFindingFieldsUpdate'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

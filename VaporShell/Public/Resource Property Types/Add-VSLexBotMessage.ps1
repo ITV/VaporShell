@@ -1,11 +1,10 @@
 function Add-VSLexBotMessage {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.Message resource property to the template. 
+        Adds an AWS::Lex::Bot.Message resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.Message resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-message.html
@@ -33,23 +32,31 @@ function Add-VSLexBotMessage {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.Message')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $CustomPayload,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ImageResponseCard,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PlainTextMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SSMLMessage
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSLexBotMessage {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.Message'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

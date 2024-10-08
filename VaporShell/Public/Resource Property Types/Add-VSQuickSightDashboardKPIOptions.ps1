@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardKPIOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.KPIOptions resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.KPIOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.KPIOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpioptions.html
@@ -58,21 +57,28 @@ function Add-VSQuickSightDashboardKPIOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.KPIOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SecondaryValueFontConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VisualLayoutOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TrendArrows,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecondaryValue,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Comparison,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,17 +89,23 @@ function Add-VSQuickSightDashboardKPIOptions {
                 }
             })]
         $PrimaryValueDisplayType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ProgressBar,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PrimaryValueFontConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sparkline
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -103,6 +115,7 @@ function Add-VSQuickSightDashboardKPIOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.KPIOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

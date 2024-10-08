@@ -1,11 +1,10 @@
 function Add-VSElastiCacheServerlessCacheCacheUsageLimits {
     <#
     .SYNOPSIS
-        Adds an AWS::ElastiCache::ServerlessCache.CacheUsageLimits resource property to the template. 
+        Adds an AWS::ElastiCache::ServerlessCache.CacheUsageLimits resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElastiCache::ServerlessCache.CacheUsageLimits resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-cacheusagelimits.html
@@ -23,19 +22,25 @@ function Add-VSElastiCacheServerlessCacheCacheUsageLimits {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElastiCache.ServerlessCache.CacheUsageLimits')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DataStorage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ECPUPerSecond
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSElastiCacheServerlessCacheCacheUsageLimits {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElastiCache.ServerlessCache.CacheUsageLimits'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

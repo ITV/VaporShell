@@ -1,11 +1,10 @@
 function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.SpotFleetRequestConfigData resource property to the template. 
+        Adds an AWS::EC2::SpotFleet.SpotFleetRequestConfigData resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.SpotFleetRequestConfigData resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html
@@ -134,11 +133,13 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.SpotFleetRequestConfigData')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -149,7 +150,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $Context,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -160,7 +162,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $SpotMaxTotalPrice,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -171,7 +174,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $ExcessCapacityTerminationPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.SpotFleet.SpotFleetTagSpecification"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -182,7 +186,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $TagSpecifications,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -193,7 +198,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $InstancePoolsToUseCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.SpotFleet.LaunchTemplateConfig"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -204,7 +210,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $LaunchTemplateConfigs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -215,7 +222,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $TargetCapacityUnitType,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -226,9 +234,11 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $IamFleetRole,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SpotMaintenanceStrategies,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -239,7 +249,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $TerminateInstancesWithExpiration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -250,7 +261,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $ValidUntil,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -261,7 +273,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $OnDemandMaxTotalPrice,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -272,7 +285,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $OnDemandAllocationStrategy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -283,7 +297,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $SpotPrice,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -294,7 +309,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $AllocationStrategy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -305,7 +321,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $OnDemandTargetCapacity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -316,7 +333,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.SpotFleet.SpotFleetLaunchSpecification"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -327,7 +345,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $LaunchSpecifications,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -338,9 +357,11 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $InstanceInterruptionBehavior,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LoadBalancersConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -351,7 +372,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $ValidFrom,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -362,7 +384,8 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $ReplaceUnhealthyInstances,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -373,11 +396,14 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
                 }
             })]
         $TargetCapacity
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -387,6 +413,7 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.SpotFleet.SpotFleetRequestConfigData'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

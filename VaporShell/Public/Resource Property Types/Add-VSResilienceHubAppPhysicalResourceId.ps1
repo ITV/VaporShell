@@ -1,11 +1,10 @@
 function Add-VSResilienceHubAppPhysicalResourceId {
     <#
     .SYNOPSIS
-        Adds an AWS::ResilienceHub::App.PhysicalResourceId resource property to the template. 
+        Adds an AWS::ResilienceHub::App.PhysicalResourceId resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ResilienceHub::App.PhysicalResourceId resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html
@@ -33,11 +32,13 @@ function Add-VSResilienceHubAppPhysicalResourceId {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ResilienceHub.App.PhysicalResourceId')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,7 +49,8 @@ function Add-VSResilienceHubAppPhysicalResourceId {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,7 +61,8 @@ function Add-VSResilienceHubAppPhysicalResourceId {
                 }
             })]
         $Identifier,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +73,8 @@ function Add-VSResilienceHubAppPhysicalResourceId {
                 }
             })]
         $AwsRegion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,11 +85,14 @@ function Add-VSResilienceHubAppPhysicalResourceId {
                 }
             })]
         $AwsAccountId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -95,6 +102,7 @@ function Add-VSResilienceHubAppPhysicalResourceId {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ResilienceHub.App.PhysicalResourceId'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

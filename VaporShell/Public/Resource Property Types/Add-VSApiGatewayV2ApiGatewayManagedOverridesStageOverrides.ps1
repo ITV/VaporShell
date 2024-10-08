@@ -1,11 +1,10 @@
 function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.StageOverrides resource property to the template. 
+        Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.StageOverrides resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApiGatewayV2::ApiGatewayManagedOverrides.StageOverrides resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html
@@ -43,11 +42,13 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApiGatewayV2.ApiGatewayManagedOverrides.StageOverrides')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,9 +59,11 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AccessLogSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,7 +74,8 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
                 }
             })]
         $AutoDeploy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,7 +86,8 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
                 }
             })]
         $RouteSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -93,13 +98,17 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
                 }
             })]
         $StageVariables,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultRouteSettings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -137,6 +146,7 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApiGatewayV2.ApiGatewayManagedOverrides.StageOverrides'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

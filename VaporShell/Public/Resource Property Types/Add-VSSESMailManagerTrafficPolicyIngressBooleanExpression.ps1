@@ -1,11 +1,10 @@
 function Add-VSSESMailManagerTrafficPolicyIngressBooleanExpression {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::MailManagerTrafficPolicy.IngressBooleanExpression resource property to the template. 
+        Adds an AWS::SES::MailManagerTrafficPolicy.IngressBooleanExpression resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SES::MailManagerTrafficPolicy.IngressBooleanExpression resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html
@@ -23,11 +22,13 @@ function Add-VSSESMailManagerTrafficPolicyIngressBooleanExpression {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressBooleanExpression')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSSESMailManagerTrafficPolicyIngressBooleanExpression {
                 }
             })]
         $Operator,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Evaluate
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSSESMailManagerTrafficPolicyIngressBooleanExpression {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressBooleanExpression'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

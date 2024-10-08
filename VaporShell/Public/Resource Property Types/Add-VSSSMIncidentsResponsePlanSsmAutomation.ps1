@@ -1,11 +1,10 @@
 function Add-VSSSMIncidentsResponsePlanSsmAutomation {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMIncidents::ResponsePlan.SsmAutomation resource property to the template. 
+        Adds an AWS::SSMIncidents::ResponsePlan.SsmAutomation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSMIncidents::ResponsePlan.SsmAutomation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html
@@ -47,11 +46,13 @@ function Add-VSSSMIncidentsResponsePlanSsmAutomation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSMIncidents.ResponsePlan.SsmAutomation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SSMIncidents.ResponsePlan.SsmParameter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +63,8 @@ function Add-VSSSMIncidentsResponsePlanSsmAutomation {
                 }
             })]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,7 +75,8 @@ function Add-VSSSMIncidentsResponsePlanSsmAutomation {
                 }
             })]
         $TargetAccount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SSMIncidents.ResponsePlan.DynamicSsmParameter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,7 +87,8 @@ function Add-VSSSMIncidentsResponsePlanSsmAutomation {
                 }
             })]
         $DynamicParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,7 +99,8 @@ function Add-VSSSMIncidentsResponsePlanSsmAutomation {
                 }
             })]
         $DocumentVersion,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,7 +111,8 @@ function Add-VSSSMIncidentsResponsePlanSsmAutomation {
                 }
             })]
         $RoleArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -117,11 +123,14 @@ function Add-VSSSMIncidentsResponsePlanSsmAutomation {
                 }
             })]
         $DocumentName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -131,6 +140,7 @@ function Add-VSSSMIncidentsResponsePlanSsmAutomation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSMIncidents.ResponsePlan.SsmAutomation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

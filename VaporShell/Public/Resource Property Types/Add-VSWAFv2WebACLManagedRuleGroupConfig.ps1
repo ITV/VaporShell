@@ -1,11 +1,10 @@
 function Add-VSWAFv2WebACLManagedRuleGroupConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.ManagedRuleGroupConfig resource property to the template. 
+        Adds an AWS::WAFv2::WebACL.ManagedRuleGroupConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.ManagedRuleGroupConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html
@@ -48,15 +47,18 @@ function Add-VSWAFv2WebACLManagedRuleGroupConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ManagedRuleGroupConfig')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordField")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordField")]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $UsernameField,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,15 +69,20 @@ function Add-VSWAFv2WebACLManagedRuleGroupConfig {
                 }
             })]
         $LoginPath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AWSManagedRulesATPRuleSet,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AWSManagedRulesBotControlRuleSet,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PasswordField,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AWSManagedRulesACFPRuleSet,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,11 +93,14 @@ function Add-VSWAFv2WebACLManagedRuleGroupConfig {
                 }
             })]
         $PayloadType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -100,6 +110,7 @@ function Add-VSWAFv2WebACLManagedRuleGroupConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.WebACL.ManagedRuleGroupConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

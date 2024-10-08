@@ -1,11 +1,10 @@
 function Add-VSKendraDataSourceSharePointConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.SharePointConfiguration resource property to the template. 
+        Adds an AWS::Kendra::DataSource.SharePointConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.SharePointConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html
@@ -81,11 +80,13 @@ function Add-VSKendraDataSourceSharePointConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Kendra.DataSource.SharePointConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,7 +97,8 @@ function Add-VSKendraDataSourceSharePointConfiguration {
                 }
             })]
         $SecretArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -107,9 +109,11 @@ function Add-VSKendraDataSourceSharePointConfiguration {
                 }
             })]
         $DocumentTitleFieldName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SslCertificateS3Path,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -120,7 +124,8 @@ function Add-VSKendraDataSourceSharePointConfiguration {
                 }
             })]
         $DisableLocalGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -131,13 +136,17 @@ function Add-VSKendraDataSourceSharePointConfiguration {
                 }
             })]
         $CrawlAttachments,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InclusionPatterns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VpcConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Urls,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -148,7 +157,8 @@ function Add-VSKendraDataSourceSharePointConfiguration {
                 }
             })]
         $UseChangeLog,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Kendra.DataSource.DataSourceToIndexFieldMapping"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -159,9 +169,11 @@ function Add-VSKendraDataSourceSharePointConfiguration {
                 }
             })]
         $FieldMappings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExclusionPatterns,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -172,11 +184,14 @@ function Add-VSKendraDataSourceSharePointConfiguration {
                 }
             })]
         $SharePointVersion
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -186,6 +201,7 @@ function Add-VSKendraDataSourceSharePointConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Kendra.DataSource.SharePointConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

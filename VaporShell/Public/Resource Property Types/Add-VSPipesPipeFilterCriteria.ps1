@@ -1,11 +1,10 @@
 function Add-VSPipesPipeFilterCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::Pipes::Pipe.FilterCriteria resource property to the template. 
+        Adds an AWS::Pipes::Pipe.FilterCriteria resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pipes::Pipe.FilterCriteria resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filtercriteria.html
@@ -20,11 +19,13 @@ function Add-VSPipesPipeFilterCriteria {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pipes.Pipe.FilterCriteria')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Pipes.Pipe.Filter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +36,14 @@ function Add-VSPipesPipeFilterCriteria {
                 }
             })]
         $Filters
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +53,7 @@ function Add-VSPipesPipeFilterCriteria {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pipes.Pipe.FilterCriteria'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

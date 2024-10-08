@@ -1,11 +1,10 @@
 function Add-VSIoTAnalyticsDatastoreDatastorePartition {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.DatastorePartition resource property to the template. 
+        Adds an AWS::IoTAnalytics::Datastore.DatastorePartition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.DatastorePartition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartition.html
@@ -23,19 +22,25 @@ function Add-VSIoTAnalyticsDatastoreDatastorePartition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.DatastorePartition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Partition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TimestampPartition
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSIoTAnalyticsDatastoreDatastorePartition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Datastore.DatastorePartition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

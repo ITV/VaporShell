@@ -1,11 +1,10 @@
 function Add-VSLexBotConditionalBranch {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.ConditionalBranch resource property to the template. 
+        Adds an AWS::Lex::Bot.ConditionalBranch resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.ConditionalBranch resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html
@@ -33,15 +32,19 @@ function Add-VSLexBotConditionalBranch {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.ConditionalBranch')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Condition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Response,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,13 +55,17 @@ function Add-VSLexBotConditionalBranch {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $NextStep
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +75,7 @@ function Add-VSLexBotConditionalBranch {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.ConditionalBranch'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelPackage.ModelPackageContainerDefinition resource property to the template. 
+        Adds an AWS::SageMaker::ModelPackage.ModelPackageContainerDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelPackage.ModelPackageContainerDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html
@@ -64,13 +63,16 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.ModelPackageContainerDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ModelInput,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,7 +83,8 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
                 }
             })]
         $NearestModelName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -92,7 +95,8 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
                 }
             })]
         $ContainerHostname,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -103,7 +107,8 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
                 }
             })]
         $ImageDigest,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -114,10 +119,12 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
                 }
             })]
         $FrameworkVersion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Environment,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -128,7 +135,8 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
                 }
             })]
         $ModelDataUrl,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -139,9 +147,11 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
                 }
             })]
         $Image,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ModelDataSource,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -152,11 +162,14 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
                 }
             })]
         $Framework
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -166,6 +179,7 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelPackage.ModelPackageContainerDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

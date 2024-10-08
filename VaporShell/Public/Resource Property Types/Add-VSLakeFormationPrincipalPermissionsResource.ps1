@@ -1,11 +1,10 @@
 function Add-VSLakeFormationPrincipalPermissionsResource {
     <#
     .SYNOPSIS
-        Adds an AWS::LakeFormation::PrincipalPermissions.Resource resource property to the template. 
+        Adds an AWS::LakeFormation::PrincipalPermissions.Resource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::LakeFormation::PrincipalPermissions.Resource resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html
@@ -53,25 +52,34 @@ function Add-VSLakeFormationPrincipalPermissionsResource {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.LakeFormation.PrincipalPermissions.Resource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $LFTag,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Table,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DataCellsFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TableWithColumns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LFTagPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Database,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DataLocation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,11 +90,14 @@ function Add-VSLakeFormationPrincipalPermissionsResource {
                 }
             })]
         $Catalog
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -110,6 +121,7 @@ function Add-VSLakeFormationPrincipalPermissionsResource {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.LakeFormation.PrincipalPermissions.Resource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

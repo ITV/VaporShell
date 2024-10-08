@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplatePieChartVisual {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.PieChartVisual resource property to the template. 
+        Adds an AWS::QuickSight::Template.PieChartVisual resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.PieChartVisual resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-piechartvisual.html
@@ -47,13 +46,16 @@ function Add-VSQuickSightTemplatePieChartVisual {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.PieChartVisual')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Subtitle,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,9 +66,11 @@ function Add-VSQuickSightTemplatePieChartVisual {
                 }
             })]
         $VisualId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ChartConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.VisualCustomAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,9 +81,11 @@ function Add-VSQuickSightTemplatePieChartVisual {
                 }
             })]
         $Actions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Title,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.ColumnHierarchy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,11 +96,14 @@ function Add-VSQuickSightTemplatePieChartVisual {
                 }
             })]
         $ColumnHierarchies
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -104,6 +113,7 @@ function Add-VSQuickSightTemplatePieChartVisual {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.PieChartVisual'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

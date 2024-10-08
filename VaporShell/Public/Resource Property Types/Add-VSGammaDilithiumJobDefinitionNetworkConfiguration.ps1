@@ -1,11 +1,10 @@
 function Add-VSGammaDilithiumJobDefinitionNetworkConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GammaDilithium::JobDefinition.NetworkConfiguration resource property to the template. 
+        Adds an AWS::GammaDilithium::JobDefinition.NetworkConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GammaDilithium::JobDefinition.NetworkConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gammadilithium-jobdefinition-ecstaskproperties-networkconfiguration.html
@@ -18,11 +17,13 @@ function Add-VSGammaDilithiumJobDefinitionNetworkConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.NetworkConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSGammaDilithiumJobDefinitionNetworkConfiguration {
                 }
             })]
         $AssignPublicIp
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSGammaDilithiumJobDefinitionNetworkConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GammaDilithium.JobDefinition.NetworkConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

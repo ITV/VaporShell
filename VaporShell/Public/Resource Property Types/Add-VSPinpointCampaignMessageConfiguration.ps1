@@ -1,11 +1,10 @@
 function Add-VSPinpointCampaignMessageConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Campaign.MessageConfiguration resource property to the template. 
+        Adds an AWS::Pinpoint::Campaign.MessageConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Campaign.MessageConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html
@@ -58,33 +57,46 @@ function Add-VSPinpointCampaignMessageConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.MessageConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $APNSMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BaiduMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InAppMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EmailMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GCMMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SMSMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ADMMessage
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -94,6 +106,7 @@ function Add-VSPinpointCampaignMessageConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pinpoint.Campaign.MessageConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

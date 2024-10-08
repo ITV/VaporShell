@@ -1,11 +1,10 @@
 function Add-VSCodeBuildProjectProjectTriggers {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::Project.ProjectTriggers resource property to the template. 
+        Adds an AWS::CodeBuild::Project.ProjectTriggers resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::Project.ProjectTriggers resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html
@@ -34,11 +33,13 @@ function Add-VSCodeBuildProjectProjectTriggers {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeBuild.Project.ProjectTriggers')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeBuild.Project.FilterGroup"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +50,8 @@ function Add-VSCodeBuildProjectProjectTriggers {
                 }
             })]
         $FilterGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +62,8 @@ function Add-VSCodeBuildProjectProjectTriggers {
                 }
             })]
         $BuildType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,13 +74,17 @@ function Add-VSCodeBuildProjectProjectTriggers {
                 }
             })]
         $Webhook,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ScopeConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +94,7 @@ function Add-VSCodeBuildProjectProjectTriggers {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeBuild.Project.ProjectTriggers'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

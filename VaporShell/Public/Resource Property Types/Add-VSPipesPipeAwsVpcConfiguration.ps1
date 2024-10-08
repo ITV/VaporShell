@@ -1,11 +1,10 @@
 function Add-VSPipesPipeAwsVpcConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Pipes::Pipe.AwsVpcConfiguration resource property to the template. 
+        Adds an AWS::Pipes::Pipe.AwsVpcConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pipes::Pipe.AwsVpcConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-awsvpcconfiguration.html
@@ -32,15 +31,19 @@ function Add-VSPipesPipeAwsVpcConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pipes.Pipe.AwsVpcConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SecurityGroups,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Subnets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +54,14 @@ function Add-VSPipesPipeAwsVpcConfiguration {
                 }
             })]
         $AssignPublicIp
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +71,7 @@ function Add-VSPipesPipeAwsVpcConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pipes.Pipe.AwsVpcConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

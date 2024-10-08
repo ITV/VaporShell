@@ -1,11 +1,10 @@
 function Add-VSCodeDeployDeploymentGroupDeployment {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.Deployment resource property to the template. 
+        Adds an AWS::CodeDeploy::DeploymentGroup.Deployment resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.Deployment resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html
@@ -28,11 +27,13 @@ function Add-VSCodeDeployDeploymentGroupDeployment {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.Deployment')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSCodeDeployDeploymentGroupDeployment {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,13 +56,17 @@ function Add-VSCodeDeployDeploymentGroupDeployment {
                 }
             })]
         $IgnoreApplicationStopFailures,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Revision
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSCodeDeployDeploymentGroupDeployment {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeDeploy.DeploymentGroup.Deployment'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
     <#
     .SYNOPSIS
-        Adds an AWS::PCAConnectorAD::Template.SubjectNameFlagsV2 resource property to the template. 
+        Adds an AWS::PCAConnectorAD::Template.SubjectNameFlagsV2 resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::PCAConnectorAD::Template.SubjectNameFlagsV2 resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv2.html
@@ -63,11 +62,13 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.SubjectNameFlagsV2')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,7 +79,8 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $SanRequireEmail,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,7 +91,8 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $SanRequireDns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,7 +103,8 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $RequireCommonName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,7 +115,8 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $SanRequireUpn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -122,7 +127,8 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $SanRequireDomainDns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -133,7 +139,8 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $SanRequireSpn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -144,7 +151,8 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $RequireEmail,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -155,7 +163,8 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $RequireDirectoryPath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -166,7 +175,8 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $SanRequireDirectoryGuid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -177,11 +187,14 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
                 }
             })]
         $RequireDnsAsCn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -191,6 +204,7 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.PCAConnectorAD.Template.SubjectNameFlagsV2'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

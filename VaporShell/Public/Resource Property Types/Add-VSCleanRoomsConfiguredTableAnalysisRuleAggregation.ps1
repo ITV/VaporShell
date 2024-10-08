@@ -1,11 +1,10 @@
 function Add-VSCleanRoomsConfiguredTableAnalysisRuleAggregation {
     <#
     .SYNOPSIS
-        Adds an AWS::CleanRooms::ConfiguredTable.AnalysisRuleAggregation resource property to the template. 
+        Adds an AWS::CleanRooms::ConfiguredTable.AnalysisRuleAggregation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CleanRooms::ConfiguredTable.AnalysisRuleAggregation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html
@@ -65,15 +64,19 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleAggregation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.AnalysisRuleAggregation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AllowedJoinOperators,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $ScalarFunctions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,7 +87,8 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleAggregation {
                 }
             })]
         $AdditionalAnalyses,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CleanRooms.ConfiguredTable.AggregationConstraint"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,11 +99,14 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleAggregation {
                 }
             })]
         $OutputConstraints,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $DimensionColumns,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $JoinColumns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -110,7 +117,8 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleAggregation {
                 }
             })]
         $JoinRequired,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CleanRooms.ConfiguredTable.AggregateColumn"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -121,11 +129,14 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleAggregation {
                 }
             })]
         $AggregateColumns
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -135,6 +146,7 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleAggregation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CleanRooms.ConfiguredTable.AnalysisRuleAggregation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

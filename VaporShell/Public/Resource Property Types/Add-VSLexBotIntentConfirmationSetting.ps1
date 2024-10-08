@@ -1,11 +1,10 @@
 function Add-VSLexBotIntentConfirmationSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.IntentConfirmationSetting resource property to the template. 
+        Adds an AWS::Lex::Bot.IntentConfirmationSetting resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.IntentConfirmationSetting resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html
@@ -78,21 +77,28 @@ function Add-VSLexBotIntentConfirmationSetting {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.IntentConfirmationSetting')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $PromptSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ConfirmationResponse,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DeclinationConditional,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FailureConditional,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ConfirmationConditional,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -103,25 +109,35 @@ function Add-VSLexBotIntentConfirmationSetting {
                 }
             })]
         $IsActive,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FailureResponse,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CodeHook,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DeclinationNextStep,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ElicitationCodeHook,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ConfirmationNextStep,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FailureNextStep,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DeclinationResponse
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -131,6 +147,7 @@ function Add-VSLexBotIntentConfirmationSetting {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.IntentConfirmationSetting'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

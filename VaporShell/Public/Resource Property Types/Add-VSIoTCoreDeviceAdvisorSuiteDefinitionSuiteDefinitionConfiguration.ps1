@@ -1,11 +1,10 @@
 function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTCoreDeviceAdvisor::SuiteDefinition.SuiteDefinitionConfiguration resource property to the template. 
+        Adds an AWS::IoTCoreDeviceAdvisor::SuiteDefinition.SuiteDefinitionConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTCoreDeviceAdvisor::SuiteDefinition.SuiteDefinitionConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration.html
@@ -40,11 +39,13 @@ function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTCoreDeviceAdvisor.SuiteDefinition.SuiteDefinitionConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,7 +56,8 @@ function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration {
                 }
             })]
         $DevicePermissionRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -66,7 +68,8 @@ function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration {
                 }
             })]
         $SuiteDefinitionName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,7 +80,8 @@ function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration {
                 }
             })]
         $IntendedForQualification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTCoreDeviceAdvisor.SuiteDefinition.DeviceUnderTest"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,7 +92,8 @@ function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration {
                 }
             })]
         $Devices,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -99,11 +104,14 @@ function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration {
                 }
             })]
         $RootGroup
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -113,6 +121,7 @@ function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTCoreDeviceAdvisor.SuiteDefinition.SuiteDefinitionConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

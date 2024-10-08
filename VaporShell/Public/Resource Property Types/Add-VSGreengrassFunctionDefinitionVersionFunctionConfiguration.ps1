@@ -1,11 +1,10 @@
 function Add-VSGreengrassFunctionDefinitionVersionFunctionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::FunctionDefinitionVersion.FunctionConfiguration resource property to the template. 
+        Adds an AWS::Greengrass::FunctionDefinitionVersion.FunctionConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::FunctionDefinitionVersion.FunctionConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html
@@ -48,11 +47,13 @@ function Add-VSGreengrassFunctionDefinitionVersionFunctionConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.FunctionDefinitionVersion.FunctionConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,7 +64,8 @@ function Add-VSGreengrassFunctionDefinitionVersionFunctionConfiguration {
                 }
             })]
         $MemorySize,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -74,7 +76,8 @@ function Add-VSGreengrassFunctionDefinitionVersionFunctionConfiguration {
                 }
             })]
         $Pinned,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,7 +88,8 @@ function Add-VSGreengrassFunctionDefinitionVersionFunctionConfiguration {
                 }
             })]
         $ExecArgs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,7 +100,8 @@ function Add-VSGreengrassFunctionDefinitionVersionFunctionConfiguration {
                 }
             })]
         $Timeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -107,9 +112,11 @@ function Add-VSGreengrassFunctionDefinitionVersionFunctionConfiguration {
                 }
             })]
         $EncodingType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Environment,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -120,11 +127,14 @@ function Add-VSGreengrassFunctionDefinitionVersionFunctionConfiguration {
                 }
             })]
         $Executable
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -134,6 +144,7 @@ function Add-VSGreengrassFunctionDefinitionVersionFunctionConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.FunctionDefinitionVersion.FunctionConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

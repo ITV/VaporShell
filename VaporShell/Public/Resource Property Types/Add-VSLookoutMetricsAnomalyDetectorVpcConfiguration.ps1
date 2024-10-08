@@ -1,11 +1,10 @@
 function Add-VSLookoutMetricsAnomalyDetectorVpcConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.VpcConfiguration resource property to the template. 
+        Adds an AWS::LookoutMetrics::AnomalyDetector.VpcConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.VpcConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html
@@ -27,19 +26,25 @@ function Add-VSLookoutMetricsAnomalyDetectorVpcConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.LookoutMetrics.AnomalyDetector.VpcConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SubnetIdList,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SecurityGroupIdList
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +54,7 @@ function Add-VSLookoutMetricsAnomalyDetectorVpcConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.LookoutMetrics.AnomalyDetector.VpcConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

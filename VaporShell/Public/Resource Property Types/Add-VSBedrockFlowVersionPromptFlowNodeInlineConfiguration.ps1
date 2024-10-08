@@ -1,11 +1,10 @@
 function Add-VSBedrockFlowVersionPromptFlowNodeInlineConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Bedrock::FlowVersion.PromptFlowNodeInlineConfiguration resource property to the template. 
+        Adds an AWS::Bedrock::FlowVersion.PromptFlowNodeInlineConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Bedrock::FlowVersion.PromptFlowNodeInlineConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html
@@ -33,15 +32,19 @@ function Add-VSBedrockFlowVersionPromptFlowNodeInlineConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.PromptFlowNodeInlineConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $InferenceConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $TemplateConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,7 +55,8 @@ function Add-VSBedrockFlowVersionPromptFlowNodeInlineConfiguration {
                 }
             })]
         $TemplateType,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,11 +67,14 @@ function Add-VSBedrockFlowVersionPromptFlowNodeInlineConfiguration {
                 }
             })]
         $ModelId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSBedrockFlowVersionPromptFlowNodeInlineConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Bedrock.FlowVersion.PromptFlowNodeInlineConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

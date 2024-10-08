@@ -1,11 +1,10 @@
 function Add-VSEvidentlyProjectDataDeliveryObject {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Project.DataDeliveryObject resource property to the template. 
+        Adds an AWS::Evidently::Project.DataDeliveryObject resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Evidently::Project.DataDeliveryObject resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-datadeliveryobject.html
@@ -23,13 +22,16 @@ function Add-VSEvidentlyProjectDataDeliveryObject {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Evidently.Project.DataDeliveryObject')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $S3,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +42,14 @@ function Add-VSEvidentlyProjectDataDeliveryObject {
                 }
             })]
         $LogGroup
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSEvidentlyProjectDataDeliveryObject {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Evidently.Project.DataDeliveryObject'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

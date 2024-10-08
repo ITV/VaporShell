@@ -1,11 +1,10 @@
 function Add-VSCodeBuildReportGroupS3ReportExportConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::ReportGroup.S3ReportExportConfig resource property to the template. 
+        Adds an AWS::CodeBuild::ReportGroup.S3ReportExportConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::ReportGroup.S3ReportExportConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html
@@ -43,11 +42,13 @@ function Add-VSCodeBuildReportGroupS3ReportExportConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeBuild.ReportGroup.S3ReportExportConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +59,8 @@ function Add-VSCodeBuildReportGroupS3ReportExportConfig {
                 }
             })]
         $Path,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,7 +71,8 @@ function Add-VSCodeBuildReportGroupS3ReportExportConfig {
                 }
             })]
         $Bucket,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -80,7 +83,8 @@ function Add-VSCodeBuildReportGroupS3ReportExportConfig {
                 }
             })]
         $Packaging,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -91,7 +95,8 @@ function Add-VSCodeBuildReportGroupS3ReportExportConfig {
                 }
             })]
         $EncryptionKey,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -102,7 +107,8 @@ function Add-VSCodeBuildReportGroupS3ReportExportConfig {
                 }
             })]
         $BucketOwner,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -113,11 +119,14 @@ function Add-VSCodeBuildReportGroupS3ReportExportConfig {
                 }
             })]
         $EncryptionDisabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -127,6 +136,7 @@ function Add-VSCodeBuildReportGroupS3ReportExportConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeBuild.ReportGroup.S3ReportExportConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

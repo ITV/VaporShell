@@ -1,11 +1,10 @@
 function Add-VSEMRContainersVirtualClusterEksInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::EMRContainers::VirtualCluster.EksInfo resource property to the template. 
+        Adds an AWS::EMRContainers::VirtualCluster.EksInfo resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMRContainers::VirtualCluster.EksInfo resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html
@@ -18,11 +17,13 @@ function Add-VSEMRContainersVirtualClusterEksInfo {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMRContainers.VirtualCluster.EksInfo')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSEMRContainersVirtualClusterEksInfo {
                 }
             })]
         $Namespace
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSEMRContainersVirtualClusterEksInfo {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMRContainers.VirtualCluster.EksInfo'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

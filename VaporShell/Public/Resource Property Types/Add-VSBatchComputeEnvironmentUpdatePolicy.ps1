@@ -1,11 +1,10 @@
 function Add-VSBatchComputeEnvironmentUpdatePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::Batch::ComputeEnvironment.UpdatePolicy resource property to the template. 
+        Adds an AWS::Batch::ComputeEnvironment.UpdatePolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Batch::ComputeEnvironment.UpdatePolicy resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-updatepolicy.html
@@ -23,11 +22,13 @@ function Add-VSBatchComputeEnvironmentUpdatePolicy {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Batch.ComputeEnvironment.UpdatePolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSBatchComputeEnvironmentUpdatePolicy {
                 }
             })]
         $JobExecutionTimeoutMinutes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSBatchComputeEnvironmentUpdatePolicy {
                 }
             })]
         $TerminateJobsOnUpdate
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSBatchComputeEnvironmentUpdatePolicy {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Batch.ComputeEnvironment.UpdatePolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

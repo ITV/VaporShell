@@ -1,11 +1,10 @@
 function Add-VSEC2EC2FleetSpotOptionsRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.SpotOptionsRequest resource property to the template. 
+        Adds an AWS::EC2::EC2Fleet.SpotOptionsRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.SpotOptionsRequest resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html
@@ -53,11 +52,13 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.SpotOptionsRequest')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,7 +69,8 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
                 }
             })]
         $SingleAvailabilityZone,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,7 +81,8 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
                 }
             })]
         $AllocationStrategy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,7 +93,8 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
                 }
             })]
         $SingleInstanceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,7 +105,8 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
                 }
             })]
         $MinTargetCapacity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -112,9 +117,11 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
                 }
             })]
         $MaxTotalPrice,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MaintenanceStrategies,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,7 +132,8 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
                 }
             })]
         $InstanceInterruptionBehavior,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -136,11 +144,14 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
                 }
             })]
         $InstancePoolsToUseCount
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -150,6 +161,7 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.EC2Fleet.SpotOptionsRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

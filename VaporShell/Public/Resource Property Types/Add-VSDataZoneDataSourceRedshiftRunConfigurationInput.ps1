@@ -1,11 +1,10 @@
 function Add-VSDataZoneDataSourceRedshiftRunConfigurationInput {
     <#
     .SYNOPSIS
-        Adds an AWS::DataZone::DataSource.RedshiftRunConfigurationInput resource property to the template. 
+        Adds an AWS::DataZone::DataSource.RedshiftRunConfigurationInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataZone::DataSource.RedshiftRunConfigurationInput resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html
@@ -35,13 +34,15 @@ function Add-VSDataZoneDataSourceRedshiftRunConfigurationInput {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataZone.DataSource.RedshiftRunConfigurationInput')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RedshiftCredentialConfiguration")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","RedshiftCredentialConfiguration")]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,7 +53,8 @@ function Add-VSDataZoneDataSourceRedshiftRunConfigurationInput {
                 }
             })]
         $DataAccessRole,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DataZone.DataSource.RelationalFilterConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,15 +65,20 @@ function Add-VSDataZoneDataSourceRedshiftRunConfigurationInput {
                 }
             })]
         $RelationalFilterConfigurations,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $RedshiftCredentialConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $RedshiftStorage
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -81,6 +88,7 @@ function Add-VSDataZoneDataSourceRedshiftRunConfigurationInput {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataZone.DataSource.RedshiftRunConfigurationInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

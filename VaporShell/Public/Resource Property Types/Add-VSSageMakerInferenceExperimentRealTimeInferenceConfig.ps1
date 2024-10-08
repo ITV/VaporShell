@@ -1,11 +1,10 @@
 function Add-VSSageMakerInferenceExperimentRealTimeInferenceConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::InferenceExperiment.RealTimeInferenceConfig resource property to the template. 
+        Adds an AWS::SageMaker::InferenceExperiment.RealTimeInferenceConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::InferenceExperiment.RealTimeInferenceConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-realtimeinferenceconfig.html
@@ -23,11 +22,13 @@ function Add-VSSageMakerInferenceExperimentRealTimeInferenceConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.RealTimeInferenceConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSSageMakerInferenceExperimentRealTimeInferenceConfig {
                 }
             })]
         $InstanceCount,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSSageMakerInferenceExperimentRealTimeInferenceConfig {
                 }
             })]
         $InstanceType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSSageMakerInferenceExperimentRealTimeInferenceConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.InferenceExperiment.RealTimeInferenceConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

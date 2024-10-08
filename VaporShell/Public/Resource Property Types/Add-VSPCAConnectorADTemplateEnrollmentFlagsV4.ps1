@@ -1,11 +1,10 @@
 function Add-VSPCAConnectorADTemplateEnrollmentFlagsV4 {
     <#
     .SYNOPSIS
-        Adds an AWS::PCAConnectorAD::Template.EnrollmentFlagsV4 resource property to the template. 
+        Adds an AWS::PCAConnectorAD::Template.EnrollmentFlagsV4 resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::PCAConnectorAD::Template.EnrollmentFlagsV4 resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-enrollmentflagsv4.html
@@ -38,11 +37,13 @@ function Add-VSPCAConnectorADTemplateEnrollmentFlagsV4 {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.EnrollmentFlagsV4')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,7 +54,8 @@ function Add-VSPCAConnectorADTemplateEnrollmentFlagsV4 {
                 }
             })]
         $NoSecurityExtension,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,7 +66,8 @@ function Add-VSPCAConnectorADTemplateEnrollmentFlagsV4 {
                 }
             })]
         $IncludeSymmetricAlgorithms,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,7 +78,8 @@ function Add-VSPCAConnectorADTemplateEnrollmentFlagsV4 {
                 }
             })]
         $UserInteractionRequired,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,7 +90,8 @@ function Add-VSPCAConnectorADTemplateEnrollmentFlagsV4 {
                 }
             })]
         $EnableKeyReuseOnNtTokenKeysetStorageFull,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -97,11 +102,14 @@ function Add-VSPCAConnectorADTemplateEnrollmentFlagsV4 {
                 }
             })]
         $RemoveInvalidCertificateFromPersonalStore
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -111,6 +119,7 @@ function Add-VSPCAConnectorADTemplateEnrollmentFlagsV4 {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.PCAConnectorAD.Template.EnrollmentFlagsV4'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

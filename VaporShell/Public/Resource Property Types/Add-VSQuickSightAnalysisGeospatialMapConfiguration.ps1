@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisGeospatialMapConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.GeospatialMapConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.GeospatialMapConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.GeospatialMapConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialmapconfiguration.html
@@ -48,29 +47,40 @@ function Add-VSQuickSightAnalysisGeospatialMapConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialMapConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Legend,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MapStyleOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FieldWells,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Tooltip,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $WindowOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PointStyleOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VisualPalette
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -80,6 +90,7 @@ function Add-VSQuickSightAnalysisGeospatialMapConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.GeospatialMapConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

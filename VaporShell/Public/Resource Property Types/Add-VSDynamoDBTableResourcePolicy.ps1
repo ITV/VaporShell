@@ -1,11 +1,10 @@
 function Add-VSDynamoDBTableResourcePolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::Table.ResourcePolicy resource property to the template. 
+        Adds an AWS::DynamoDB::Table.ResourcePolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::Table.ResourcePolicy resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html
@@ -18,11 +17,13 @@ function Add-VSDynamoDBTableResourcePolicy {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DynamoDB.Table.ResourcePolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSDynamoDBTableResourcePolicy {
                 }
             })]
         $PolicyDocument
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +65,7 @@ function Add-VSDynamoDBTableResourcePolicy {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DynamoDB.Table.ResourcePolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSNimbleStudioLaunchProfileStreamConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::LaunchProfile.StreamConfiguration resource property to the template. 
+        Adds an AWS::NimbleStudio::LaunchProfile.StreamConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::LaunchProfile.StreamConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html
@@ -67,11 +66,13 @@ function Add-VSNimbleStudioLaunchProfileStreamConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NimbleStudio.LaunchProfile.StreamConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,7 +83,8 @@ function Add-VSNimbleStudioLaunchProfileStreamConfiguration {
                 }
             })]
         $MaxSessionLengthInMinutes,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -93,9 +95,11 @@ function Add-VSNimbleStudioLaunchProfileStreamConfiguration {
                 }
             })]
         $ClipboardMode,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $StreamingImageIds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,7 +110,8 @@ function Add-VSNimbleStudioLaunchProfileStreamConfiguration {
                 }
             })]
         $MaxStoppedSessionLengthInMinutes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -117,7 +122,8 @@ function Add-VSNimbleStudioLaunchProfileStreamConfiguration {
                 }
             })]
         $SessionPersistenceMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -128,19 +134,26 @@ function Add-VSNimbleStudioLaunchProfileStreamConfiguration {
                 }
             })]
         $AutomaticTerminationMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SessionBackup,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Ec2InstanceTypes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SessionStorage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VolumeConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -150,6 +163,7 @@ function Add-VSNimbleStudioLaunchProfileStreamConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NimbleStudio.LaunchProfile.StreamConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

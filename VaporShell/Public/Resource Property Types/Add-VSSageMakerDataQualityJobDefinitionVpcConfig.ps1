@@ -1,11 +1,10 @@
 function Add-VSSageMakerDataQualityJobDefinitionVpcConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::DataQualityJobDefinition.VpcConfig resource property to the template. 
+        Adds an AWS::SageMaker::DataQualityJobDefinition.VpcConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::DataQualityJobDefinition.VpcConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html
@@ -27,19 +26,25 @@ function Add-VSSageMakerDataQualityJobDefinitionVpcConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.VpcConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Subnets,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SecurityGroupIds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +54,7 @@ function Add-VSSageMakerDataQualityJobDefinitionVpcConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.DataQualityJobDefinition.VpcConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

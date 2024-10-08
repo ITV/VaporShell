@@ -1,11 +1,10 @@
 function Add-VSVerifiedPermissionsIdentitySourceOpenIdConnectConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::VerifiedPermissions::IdentitySource.OpenIdConnectConfiguration resource property to the template. 
+        Adds an AWS::VerifiedPermissions::IdentitySource.OpenIdConnectConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::VerifiedPermissions::IdentitySource.OpenIdConnectConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html
@@ -33,11 +32,13 @@ function Add-VSVerifiedPermissionsIdentitySourceOpenIdConnectConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.VerifiedPermissions.IdentitySource.OpenIdConnectConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,11 +49,14 @@ function Add-VSVerifiedPermissionsIdentitySourceOpenIdConnectConfiguration {
                 }
             })]
         $Issuer,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $TokenSelection,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GroupConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,11 +67,14 @@ function Add-VSVerifiedPermissionsIdentitySourceOpenIdConnectConfiguration {
                 }
             })]
         $EntityIdPrefix
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSVerifiedPermissionsIdentitySourceOpenIdConnectConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.VerifiedPermissions.IdentitySource.OpenIdConnectConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSQuickSightTopicTopicCalculatedField {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Topic.TopicCalculatedField resource property to the template. 
+        Adds an AWS::QuickSight::Topic.TopicCalculatedField resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Topic.TopicCalculatedField resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html
@@ -106,19 +105,25 @@ function Add-VSQuickSightTopicTopicCalculatedField {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicCalculatedField')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SemanticType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NotAllowedAggregations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultFormatting,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AllowedAggregations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,9 +134,11 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $CalculatedFieldDescription,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CalculatedFieldSynonyms,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -142,7 +149,8 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $IsIncludedInTopic,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -153,7 +161,8 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $ColumnDataRole,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -164,7 +173,8 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $Aggregation,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -175,7 +185,8 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $Expression,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -186,7 +197,8 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $NonAdditive,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -197,7 +209,8 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $CalculatedFieldName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -208,7 +221,8 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $NeverAggregateInFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -219,7 +233,8 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $TimeGranularity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -230,9 +245,11 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $DisableIndexing,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ComparativeOrder,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Topic.CellValueSynonym"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -243,11 +260,14 @@ function Add-VSQuickSightTopicTopicCalculatedField {
                 }
             })]
         $CellValueSynonyms
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -257,6 +277,7 @@ function Add-VSQuickSightTopicTopicCalculatedField {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Topic.TopicCalculatedField'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

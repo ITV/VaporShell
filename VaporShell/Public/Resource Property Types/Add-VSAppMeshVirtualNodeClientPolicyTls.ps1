@@ -1,11 +1,10 @@
 function Add-VSAppMeshVirtualNodeClientPolicyTls {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.ClientPolicyTls resource property to the template. 
+        Adds an AWS::AppMesh::VirtualNode.ClientPolicyTls resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.ClientPolicyTls resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html
@@ -34,13 +33,16 @@ function Add-VSAppMeshVirtualNodeClientPolicyTls {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.ClientPolicyTls')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Validation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,15 +53,20 @@ function Add-VSAppMeshVirtualNodeClientPolicyTls {
                 }
             })]
         $Enforce,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Ports,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Certificate
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +76,7 @@ function Add-VSAppMeshVirtualNodeClientPolicyTls {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.ClientPolicyTls'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

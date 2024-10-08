@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardRadarChartConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.RadarChartConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.RadarChartConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.RadarChartConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-radarchartconfiguration.html
@@ -88,15 +87,19 @@ function Add-VSQuickSightDashboardRadarChartConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.RadarChartConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SortConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Legend,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -107,13 +110,17 @@ function Add-VSQuickSightDashboardRadarChartConfiguration {
                 }
             })]
         $Shape,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BaseSeriesSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ColorLabelOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CategoryLabelOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -124,9 +131,11 @@ function Add-VSQuickSightDashboardRadarChartConfiguration {
                 }
             })]
         $AxesRangeScale,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VisualPalette,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -137,7 +146,8 @@ function Add-VSQuickSightDashboardRadarChartConfiguration {
                 }
             })]
         $AlternateBandColorsVisibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -148,13 +158,17 @@ function Add-VSQuickSightDashboardRadarChartConfiguration {
                 }
             })]
         $StartAngle,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CategoryAxis,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FieldWells,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ColorAxis,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -165,7 +179,8 @@ function Add-VSQuickSightDashboardRadarChartConfiguration {
                 }
             })]
         $AlternateBandOddColor,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -176,11 +191,14 @@ function Add-VSQuickSightDashboardRadarChartConfiguration {
                 }
             })]
         $AlternateBandEvenColor
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -190,6 +208,7 @@ function Add-VSQuickSightDashboardRadarChartConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.RadarChartConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

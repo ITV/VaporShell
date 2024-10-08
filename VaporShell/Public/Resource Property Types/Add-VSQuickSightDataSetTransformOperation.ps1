@@ -1,11 +1,10 @@
 function Add-VSQuickSightDataSetTransformOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.TransformOperation resource property to the template. 
+        Adds an AWS::QuickSight::DataSet.TransformOperation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.TransformOperation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html
@@ -53,31 +52,43 @@ function Add-VSQuickSightDataSetTransformOperation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.TransformOperation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $TagColumnOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $UntagColumnOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OverrideDatasetParameterOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FilterOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CastColumnTypeOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RenameColumnOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CreateColumnsOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ProjectOperation
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +98,7 @@ function Add-VSQuickSightDataSetTransformOperation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSet.TransformOperation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSDataBrewDatasetInput {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.Input resource property to the template. 
+        Adds an AWS::DataBrew::Dataset.Input resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.Input resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
@@ -33,23 +32,31 @@ function Add-VSDataBrewDatasetInput {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.Input')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DatabaseInputDefinition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $S3InputDefinition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DataCatalogInputDefinition
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSDataBrewDatasetInput {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataBrew.Dataset.Input'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

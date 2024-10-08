@@ -1,11 +1,10 @@
 function Add-VSDLMLifecyclePolicySchedule {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.Schedule resource property to the template. 
+        Adds an AWS::DLM::LifecyclePolicy.Schedule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.Schedule resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html
@@ -72,11 +71,13 @@ function Add-VSDLMLifecyclePolicySchedule {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.Schedule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DLM.LifecyclePolicy.ShareRule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -87,23 +88,31 @@ function Add-VSDLMLifecyclePolicySchedule {
                 }
             })]
         $ShareRules,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DeprecateRule,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $TagsToAdd,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CreateRule,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $VariableTags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FastRestoreRule,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ArchiveRule,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RetainRule,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DLM.LifecyclePolicy.CrossRegionCopyRule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -114,7 +123,8 @@ function Add-VSDLMLifecyclePolicySchedule {
                 }
             })]
         $CrossRegionCopyRules,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,7 +135,8 @@ function Add-VSDLMLifecyclePolicySchedule {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -136,11 +147,14 @@ function Add-VSDLMLifecyclePolicySchedule {
                 }
             })]
         $CopyTags
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -150,6 +164,7 @@ function Add-VSDLMLifecyclePolicySchedule {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DLM.LifecyclePolicy.Schedule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

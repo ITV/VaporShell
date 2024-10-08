@@ -1,11 +1,10 @@
 function Add-VSManagedBlockchainMemberNetworkConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ManagedBlockchain::Member.NetworkConfiguration resource property to the template. 
+        Adds an AWS::ManagedBlockchain::Member.NetworkConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ManagedBlockchain::Member.NetworkConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkconfiguration.html
@@ -43,11 +42,13 @@ function Add-VSManagedBlockchainMemberNetworkConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ManagedBlockchain.Member.NetworkConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +59,8 @@ function Add-VSManagedBlockchainMemberNetworkConfiguration {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,9 +71,11 @@ function Add-VSManagedBlockchainMemberNetworkConfiguration {
                 }
             })]
         $FrameworkVersion,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $VotingPolicy,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,7 +86,8 @@ function Add-VSManagedBlockchainMemberNetworkConfiguration {
                 }
             })]
         $Framework,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -93,13 +98,17 @@ function Add-VSManagedBlockchainMemberNetworkConfiguration {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NetworkFrameworkConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -109,6 +118,7 @@ function Add-VSManagedBlockchainMemberNetworkConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ManagedBlockchain.Member.NetworkConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

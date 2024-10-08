@@ -1,11 +1,10 @@
 function Add-VSFSxFileSystemClientConfigurations {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::FileSystem.ClientConfigurations resource property to the template. 
+        Adds an AWS::FSx::FileSystem.ClientConfigurations resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::FSx::FileSystem.ClientConfigurations resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations.html
@@ -24,13 +23,16 @@ function Add-VSFSxFileSystemClientConfigurations {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.FSx.FileSystem.ClientConfigurations')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Options,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,11 +43,14 @@ function Add-VSFSxFileSystemClientConfigurations {
                 }
             })]
         $Clients
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -55,6 +60,7 @@ function Add-VSFSxFileSystemClientConfigurations {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.FSx.FileSystem.ClientConfigurations'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

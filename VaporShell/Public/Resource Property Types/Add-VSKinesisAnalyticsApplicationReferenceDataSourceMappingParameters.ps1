@@ -1,11 +1,10 @@
 function Add-VSKinesisAnalyticsApplicationReferenceDataSourceMappingParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalytics::ApplicationReferenceDataSource.MappingParameters resource property to the template. 
+        Adds an AWS::KinesisAnalytics::ApplicationReferenceDataSource.MappingParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalytics::ApplicationReferenceDataSource.MappingParameters resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-mappingparameters.html
@@ -23,19 +22,25 @@ function Add-VSKinesisAnalyticsApplicationReferenceDataSourceMappingParameters {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalytics.ApplicationReferenceDataSource.MappingParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $JSONMappingParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CSVMappingParameters
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSKinesisAnalyticsApplicationReferenceDataSourceMappingParameters {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalytics.ApplicationReferenceDataSource.MappingParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

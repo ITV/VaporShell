@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardBoxPlotChartConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.BoxPlotChartConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.BoxPlotChartConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.BoxPlotChartConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-boxplotchartconfiguration.html
@@ -70,15 +69,19 @@ function Add-VSQuickSightDashboardBoxPlotChartConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.BoxPlotChartConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SortConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Legend,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.ReferenceLine"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,27 +92,38 @@ function Add-VSQuickSightDashboardBoxPlotChartConfiguration {
                 }
             })]
         $ReferenceLines,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CategoryAxis,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PrimaryYAxisLabelOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CategoryLabelOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FieldWells,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Tooltip,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BoxPlotOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PrimaryYAxisDisplayOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VisualPalette
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -119,6 +133,7 @@ function Add-VSQuickSightDashboardBoxPlotChartConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.BoxPlotChartConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

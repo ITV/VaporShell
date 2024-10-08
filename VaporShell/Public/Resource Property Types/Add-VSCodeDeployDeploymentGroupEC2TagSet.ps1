@@ -1,11 +1,10 @@
 function Add-VSCodeDeployDeploymentGroupEC2TagSet {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.EC2TagSet resource property to the template. 
+        Adds an AWS::CodeDeploy::DeploymentGroup.EC2TagSet resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.EC2TagSet resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html
@@ -20,11 +19,13 @@ function Add-VSCodeDeployDeploymentGroupEC2TagSet {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagSet')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagSetListObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +36,14 @@ function Add-VSCodeDeployDeploymentGroupEC2TagSet {
                 }
             })]
         $Ec2TagSetList
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +53,7 @@ function Add-VSCodeDeployDeploymentGroupEC2TagSet {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagSet'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSSageMakerInferenceExperimentShadowModeConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::InferenceExperiment.ShadowModeConfig resource property to the template. 
+        Adds an AWS::SageMaker::InferenceExperiment.ShadowModeConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::InferenceExperiment.ShadowModeConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html
@@ -25,11 +24,13 @@ function Add-VSSageMakerInferenceExperimentShadowModeConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.ShadowModeConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,7 +41,8 @@ function Add-VSSageMakerInferenceExperimentShadowModeConfig {
                 }
             })]
         $SourceModelVariantName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.InferenceExperiment.ShadowModelVariantConfig"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +53,14 @@ function Add-VSSageMakerInferenceExperimentShadowModeConfig {
                 }
             })]
         $ShadowModelVariants
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +70,7 @@ function Add-VSSageMakerInferenceExperimentShadowModeConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.InferenceExperiment.ShadowModeConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

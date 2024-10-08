@@ -1,11 +1,10 @@
 function Add-VSEC2NetworkInsightsAnalysisExplanation {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAnalysis.Explanation resource property to the template. 
+        Adds an AWS::EC2::NetworkInsightsAnalysis.Explanation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAnalysis.Explanation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html
@@ -282,13 +281,16 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.Explanation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $VpnGateway,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -299,17 +301,23 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $PacketField,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TransitGatewayAttachment,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Protocols,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IngressRouteTable,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ClassicLoadBalancerListener,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VpcPeeringConnection,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -320,7 +328,8 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $Address,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -331,13 +340,17 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $Port,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Addresses,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ElasticLoadBalancerListener,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TransitGatewayRouteTable,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -348,17 +361,23 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $ExplanationCode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InternetGateway,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SourceVpc,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AttachedTo,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PrefixList,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TransitGatewayRouteTableRoute,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -369,21 +388,29 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $ComponentRegion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LoadBalancerTargetGroup,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NetworkInterface,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomerGateway,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DestinationVpc,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecurityGroup,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TransitGateway,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RouteTable,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -394,7 +421,8 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $State,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -405,15 +433,20 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $LoadBalancerListenerPort,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $vpcEndpoint,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Subnet,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Cidrs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Destination,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AnalysisComponent"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -424,7 +457,8 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $SecurityGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -435,13 +469,17 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $ComponentAccount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VpnConnection,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Vpc,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NatGateway,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -452,7 +490,8 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $Direction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -463,9 +502,11 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $LoadBalancerTargetPort,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LoadBalancerTarget,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AnalysisComponent"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -476,9 +517,11 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $LoadBalancerTargetGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Component,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -489,11 +532,14 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $MissingComponent,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RouteTableRoute,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AvailabilityZones,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.PortRange"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -504,13 +550,17 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $PortRanges,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Acl,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecurityGroupRule,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SubnetRouteTable,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -521,13 +571,17 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
                 }
             })]
         $LoadBalancerArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AclRule
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -537,6 +591,7 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.NetworkInsightsAnalysis.Explanation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

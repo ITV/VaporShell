@@ -1,11 +1,10 @@
 function Add-VSDataBrewJobDataCatalogOutput {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Job.DataCatalogOutput resource property to the template. 
+        Adds an AWS::DataBrew::Job.DataCatalogOutput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Job.DataCatalogOutput resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html
@@ -43,11 +42,13 @@ function Add-VSDataBrewJobDataCatalogOutput {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataBrew.Job.DataCatalogOutput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +59,8 @@ function Add-VSDataBrewJobDataCatalogOutput {
                 }
             })]
         $TableName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,11 +71,14 @@ function Add-VSDataBrewJobDataCatalogOutput {
                 }
             })]
         $Overwrite,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $S3Options,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DatabaseOptions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,7 +89,8 @@ function Add-VSDataBrewJobDataCatalogOutput {
                 }
             })]
         $DatabaseName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,11 +101,14 @@ function Add-VSDataBrewJobDataCatalogOutput {
                 }
             })]
         $CatalogId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -109,6 +118,7 @@ function Add-VSDataBrewJobDataCatalogOutput {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataBrew.Job.DataCatalogOutput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

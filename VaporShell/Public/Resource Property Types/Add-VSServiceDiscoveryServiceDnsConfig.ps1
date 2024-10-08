@@ -1,11 +1,10 @@
 function Add-VSServiceDiscoveryServiceDnsConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceDiscovery::Service.DnsConfig resource property to the template. 
+        Adds an AWS::ServiceDiscovery::Service.DnsConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ServiceDiscovery::Service.DnsConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html
@@ -29,11 +28,13 @@ function Add-VSServiceDiscoveryServiceDnsConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ServiceDiscovery.Service.DnsConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ServiceDiscovery.Service.DnsRecord"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +45,8 @@ function Add-VSServiceDiscoveryServiceDnsConfig {
                 }
             })]
         $DnsRecords,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,7 +57,8 @@ function Add-VSServiceDiscoveryServiceDnsConfig {
                 }
             })]
         $RoutingPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -66,11 +69,14 @@ function Add-VSServiceDiscoveryServiceDnsConfig {
                 }
             })]
         $NamespaceId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -80,6 +86,7 @@ function Add-VSServiceDiscoveryServiceDnsConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ServiceDiscovery.Service.DnsConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSImageBuilderDistributionConfigurationFastLaunchSnapshotConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::DistributionConfiguration.FastLaunchSnapshotConfiguration resource property to the template. 
+        Adds an AWS::ImageBuilder::DistributionConfiguration.FastLaunchSnapshotConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::DistributionConfiguration.FastLaunchSnapshotConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchsnapshotconfiguration.html
@@ -18,11 +17,13 @@ function Add-VSImageBuilderDistributionConfigurationFastLaunchSnapshotConfigurat
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.FastLaunchSnapshotConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSImageBuilderDistributionConfigurationFastLaunchSnapshotConfigurat
                 }
             })]
         $TargetResourceCount
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSImageBuilderDistributionConfigurationFastLaunchSnapshotConfigurat
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ImageBuilder.DistributionConfiguration.FastLaunchSnapshotConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

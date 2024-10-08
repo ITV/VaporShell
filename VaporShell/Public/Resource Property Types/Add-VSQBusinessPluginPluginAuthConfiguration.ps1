@@ -1,11 +1,10 @@
 function Add-VSQBusinessPluginPluginAuthConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QBusiness::Plugin.PluginAuthConfiguration resource property to the template. 
+        Adds an AWS::QBusiness::Plugin.PluginAuthConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QBusiness::Plugin.PluginAuthConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-pluginauthconfiguration.html
@@ -28,13 +27,15 @@ function Add-VSQBusinessPluginPluginAuthConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QBusiness.Plugin.PluginAuthConfiguration')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","OAuth2ClientCredentialConfiguration")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","OAuth2ClientCredentialConfiguration")]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,15 +46,20 @@ function Add-VSQBusinessPluginPluginAuthConfiguration {
                 }
             })]
         $NoAuthConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BasicAuthConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OAuth2ClientCredentialConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +83,7 @@ function Add-VSQBusinessPluginPluginAuthConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QBusiness.Plugin.PluginAuthConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

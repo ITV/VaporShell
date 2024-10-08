@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateTimeRangeFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.TimeRangeFilter resource property to the template. 
+        Adds an AWS::QuickSight::Template.TimeRangeFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.TimeRangeFilter resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timerangefilter.html
@@ -63,17 +62,22 @@ function Add-VSQuickSightTemplateTimeRangeFilter {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.TimeRangeFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $RangeMinimumValue,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Column,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RangeMaximumValue,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,7 +88,8 @@ function Add-VSQuickSightTemplateTimeRangeFilter {
                 }
             })]
         $IncludeMaximum,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,7 +100,8 @@ function Add-VSQuickSightTemplateTimeRangeFilter {
                 }
             })]
         $TimeGranularity,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,9 +112,11 @@ function Add-VSQuickSightTemplateTimeRangeFilter {
                 }
             })]
         $NullOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultFilterControlConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,7 +127,8 @@ function Add-VSQuickSightTemplateTimeRangeFilter {
                 }
             })]
         $FilterId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -130,13 +139,17 @@ function Add-VSQuickSightTemplateTimeRangeFilter {
                 }
             })]
         $IncludeMinimum,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExcludePeriodConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -146,6 +159,7 @@ function Add-VSQuickSightTemplateTimeRangeFilter {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.TimeRangeFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

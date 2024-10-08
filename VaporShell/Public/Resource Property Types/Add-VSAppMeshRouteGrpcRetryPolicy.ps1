@@ -1,11 +1,10 @@
 function Add-VSAppMeshRouteGrpcRetryPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.GrpcRetryPolicy resource property to the template. 
+        Adds an AWS::AppMesh::Route.GrpcRetryPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.GrpcRetryPolicy resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html
@@ -41,11 +40,13 @@ function Add-VSAppMeshRouteGrpcRetryPolicy {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.Route.GrpcRetryPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,19 +57,26 @@ function Add-VSAppMeshRouteGrpcRetryPolicy {
                 }
             })]
         $MaxRetries,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $PerRetryTimeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GrpcRetryEvents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HttpRetryEvents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TcpRetryEvents
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -78,6 +86,7 @@ function Add-VSAppMeshRouteGrpcRetryPolicy {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.Route.GrpcRetryPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

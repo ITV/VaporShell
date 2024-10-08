@@ -1,11 +1,10 @@
 function Add-VSIoTSiteWiseAssetModelPropertyType {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AssetModel.PropertyType resource property to the template. 
+        Adds an AWS::IoTSiteWise::AssetModel.PropertyType resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::AssetModel.PropertyType resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html
@@ -33,11 +32,13 @@ function Add-VSIoTSiteWiseAssetModelPropertyType {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTSiteWise.AssetModel.PropertyType')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,17 +49,23 @@ function Add-VSIoTSiteWiseAssetModelPropertyType {
                 }
             })]
         $TypeName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Attribute,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Metric,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Transform
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +75,7 @@ function Add-VSIoTSiteWiseAssetModelPropertyType {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTSiteWise.AssetModel.PropertyType'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

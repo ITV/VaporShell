@@ -1,11 +1,10 @@
 function Add-VSPipesPipePipeLogConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Pipes::Pipe.PipeLogConfiguration resource property to the template. 
+        Adds an AWS::Pipes::Pipe.PipeLogConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pipes::Pipe.PipeLogConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html
@@ -40,19 +39,25 @@ function Add-VSPipesPipePipeLogConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeLogConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $FirehoseLogDestination,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CloudwatchLogsLogDestination,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IncludeExecutionData,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $S3LogDestination,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,11 +68,14 @@ function Add-VSPipesPipePipeLogConfiguration {
                 }
             })]
         $Level
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +85,7 @@ function Add-VSPipesPipePipeLogConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pipes.Pipe.PipeLogConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

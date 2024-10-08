@@ -1,11 +1,10 @@
 function Add-VSElasticLoadBalancingV2ListenerRuleRuleCondition {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::ListenerRule.RuleCondition resource property to the template. 
+        Adds an AWS::ElasticLoadBalancingV2::ListenerRule.RuleCondition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancingV2::ListenerRule.RuleCondition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html
@@ -55,11 +54,13 @@ function Add-VSElasticLoadBalancingV2ListenerRuleRuleCondition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.RuleCondition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,25 +71,35 @@ function Add-VSElasticLoadBalancingV2ListenerRuleRuleCondition {
                 }
             })]
         $Field,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HttpHeaderConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Values,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $QueryStringConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HostHeaderConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HttpRequestMethodConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PathPatternConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SourceIpConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -98,6 +109,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleRuleCondition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.RuleCondition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

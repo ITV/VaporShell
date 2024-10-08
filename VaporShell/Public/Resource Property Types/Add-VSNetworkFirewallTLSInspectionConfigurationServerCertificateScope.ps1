@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallTLSInspectionConfigurationServerCertificateScope {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::TLSInspectionConfiguration.ServerCertificateScope resource property to the template. 
+        Adds an AWS::NetworkFirewall::TLSInspectionConfiguration.ServerCertificateScope resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::TLSInspectionConfiguration.ServerCertificateScope resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html
@@ -48,13 +47,16 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationServerCertificateScope {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.ServerCertificateScope')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Protocols,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.PortRange"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,7 +67,8 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationServerCertificateScope {
                 }
             })]
         $DestinationPorts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.Address"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,7 +79,8 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationServerCertificateScope {
                 }
             })]
         $Destinations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.Address"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -87,7 +91,8 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationServerCertificateScope {
                 }
             })]
         $Sources,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.PortRange"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -98,11 +103,14 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationServerCertificateScope {
                 }
             })]
         $SourcePorts
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -112,6 +120,7 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationServerCertificateScope {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.ServerCertificateScope'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

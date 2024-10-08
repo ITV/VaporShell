@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardAxisScale {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.AxisScale resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.AxisScale resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.AxisScale resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-axisscale.html
@@ -23,19 +22,25 @@ function Add-VSQuickSightDashboardAxisScale {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.AxisScale')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Logarithmic,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Linear
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSQuickSightDashboardAxisScale {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.AxisScale'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

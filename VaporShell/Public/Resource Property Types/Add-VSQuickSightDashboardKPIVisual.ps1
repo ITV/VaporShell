@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardKPIVisual {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.KPIVisual resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.KPIVisual resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.KPIVisual resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpivisual.html
@@ -52,15 +51,19 @@ function Add-VSQuickSightDashboardKPIVisual {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.KPIVisual')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Subtitle,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ConditionalFormatting,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,9 +74,11 @@ function Add-VSQuickSightDashboardKPIVisual {
                 }
             })]
         $VisualId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ChartConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.VisualCustomAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,9 +89,11 @@ function Add-VSQuickSightDashboardKPIVisual {
                 }
             })]
         $Actions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Title,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.ColumnHierarchy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -97,11 +104,14 @@ function Add-VSQuickSightDashboardKPIVisual {
                 }
             })]
         $ColumnHierarchies
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -111,6 +121,7 @@ function Add-VSQuickSightDashboardKPIVisual {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.KPIVisual'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

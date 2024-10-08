@@ -1,11 +1,10 @@
 function Add-VSBatchJobDefinitionLinuxParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Batch::JobDefinition.LinuxParameters resource property to the template. 
+        Adds an AWS::Batch::JobDefinition.LinuxParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Batch::JobDefinition.LinuxParameters resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html
@@ -45,11 +44,13 @@ function Add-VSBatchJobDefinitionLinuxParameters {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.LinuxParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +61,8 @@ function Add-VSBatchJobDefinitionLinuxParameters {
                 }
             })]
         $Swappiness,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Batch.JobDefinition.Tmpfs"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,7 +73,8 @@ function Add-VSBatchJobDefinitionLinuxParameters {
                 }
             })]
         $Tmpfs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,7 +85,8 @@ function Add-VSBatchJobDefinitionLinuxParameters {
                 }
             })]
         $SharedMemorySize,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Batch.JobDefinition.Device"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -93,7 +97,8 @@ function Add-VSBatchJobDefinitionLinuxParameters {
                 }
             })]
         $Devices,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -104,7 +109,8 @@ function Add-VSBatchJobDefinitionLinuxParameters {
                 }
             })]
         $InitProcessEnabled,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -115,11 +121,14 @@ function Add-VSBatchJobDefinitionLinuxParameters {
                 }
             })]
         $MaxSwap
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -129,6 +138,7 @@ function Add-VSBatchJobDefinitionLinuxParameters {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Batch.JobDefinition.LinuxParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

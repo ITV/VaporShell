@@ -1,11 +1,10 @@
 function Add-VSSSMIncidentsResponsePlanPagerDutyConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMIncidents::ResponsePlan.PagerDutyConfiguration resource property to the template. 
+        Adds an AWS::SSMIncidents::ResponsePlan.PagerDutyConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSMIncidents::ResponsePlan.PagerDutyConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-pagerdutyconfiguration.html
@@ -28,11 +27,13 @@ function Add-VSSSMIncidentsResponsePlanPagerDutyConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSMIncidents.ResponsePlan.PagerDutyConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,9 +44,11 @@ function Add-VSSSMIncidentsResponsePlanPagerDutyConfiguration {
                 }
             })]
         $SecretId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $PagerDutyIncidentConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,11 +59,14 @@ function Add-VSSSMIncidentsResponsePlanPagerDutyConfiguration {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSSSMIncidentsResponsePlanPagerDutyConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSMIncidents.ResponsePlan.PagerDutyConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

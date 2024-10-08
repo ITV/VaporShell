@@ -1,11 +1,10 @@
 function Add-VSSageMakerMonitoringScheduleBatchTransformInput {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.BatchTransformInput resource property to the template. 
+        Adds an AWS::SageMaker::MonitoringSchedule.BatchTransformInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.BatchTransformInput resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-batchtransforminput.html
@@ -43,13 +42,16 @@ function Add-VSSageMakerMonitoringScheduleBatchTransformInput {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.BatchTransformInput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $DatasetFormat,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +62,8 @@ function Add-VSSageMakerMonitoringScheduleBatchTransformInput {
                 }
             })]
         $S3DataDistributionType,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,7 +74,8 @@ function Add-VSSageMakerMonitoringScheduleBatchTransformInput {
                 }
             })]
         $DataCapturedDestinationS3Uri,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,7 +86,8 @@ function Add-VSSageMakerMonitoringScheduleBatchTransformInput {
                 }
             })]
         $S3InputMode,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -93,7 +98,8 @@ function Add-VSSageMakerMonitoringScheduleBatchTransformInput {
                 }
             })]
         $LocalPath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -104,11 +110,14 @@ function Add-VSSageMakerMonitoringScheduleBatchTransformInput {
                 }
             })]
         $ExcludeFeaturesAttribute
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -118,6 +127,7 @@ function Add-VSSageMakerMonitoringScheduleBatchTransformInput {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.MonitoringSchedule.BatchTransformInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

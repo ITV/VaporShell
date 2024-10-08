@@ -1,11 +1,10 @@
 function Add-VSEMRClusterInstanceFleetConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::Cluster.InstanceFleetConfig resource property to the template. 
+        Adds an AWS::EMR::Cluster.InstanceFleetConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::Cluster.InstanceFleetConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html
@@ -45,11 +44,13 @@ function Add-VSEMRClusterInstanceFleetConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.Cluster.InstanceFleetConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EMR.Cluster.InstanceTypeConfig"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,9 +61,11 @@ function Add-VSEMRClusterInstanceFleetConfig {
                 }
             })]
         $InstanceTypeConfigs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LaunchSpecifications,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,9 +76,11 @@ function Add-VSEMRClusterInstanceFleetConfig {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ResizeSpecifications,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,7 +91,8 @@ function Add-VSEMRClusterInstanceFleetConfig {
                 }
             })]
         $TargetOnDemandCapacity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -97,11 +103,14 @@ function Add-VSEMRClusterInstanceFleetConfig {
                 }
             })]
         $TargetSpotCapacity
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -111,6 +120,7 @@ function Add-VSEMRClusterInstanceFleetConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.Cluster.InstanceFleetConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

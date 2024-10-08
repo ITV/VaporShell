@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardInsightConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.InsightConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.InsightConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.InsightConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-insightconfiguration.html
@@ -25,11 +24,13 @@ function Add-VSQuickSightDashboardInsightConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.InsightConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.Computation"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,13 +41,17 @@ function Add-VSQuickSightDashboardInsightConfiguration {
                 }
             })]
         $Computations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomNarrative
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSQuickSightDashboardInsightConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.InsightConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSPipesPipePipeTargetRedshiftDataParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Pipes::Pipe.PipeTargetRedshiftDataParameters resource property to the template. 
+        Adds an AWS::Pipes::Pipe.PipeTargetRedshiftDataParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pipes::Pipe.PipeTargetRedshiftDataParameters resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html
@@ -45,11 +44,13 @@ function Add-VSPipesPipePipeTargetRedshiftDataParameters {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetRedshiftDataParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,9 +61,11 @@ function Add-VSPipesPipePipeTargetRedshiftDataParameters {
                 }
             })]
         $StatementName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Sqls,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,7 +76,8 @@ function Add-VSPipesPipePipeTargetRedshiftDataParameters {
                 }
             })]
         $Database,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,7 +88,8 @@ function Add-VSPipesPipePipeTargetRedshiftDataParameters {
                 }
             })]
         $SecretManagerArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,7 +100,8 @@ function Add-VSPipesPipePipeTargetRedshiftDataParameters {
                 }
             })]
         $DbUser,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,11 +112,14 @@ function Add-VSPipesPipePipeTargetRedshiftDataParameters {
                 }
             })]
         $WithEvent
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -120,6 +129,7 @@ function Add-VSPipesPipePipeTargetRedshiftDataParameters {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pipes.Pipe.PipeTargetRedshiftDataParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

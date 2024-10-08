@@ -1,11 +1,10 @@
 function Add-VSRoute53RecoveryReadinessResourceSetResource {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53RecoveryReadiness::ResourceSet.Resource resource property to the template. 
+        Adds an AWS::Route53RecoveryReadiness::ResourceSet.Resource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Route53RecoveryReadiness::ResourceSet.Resource resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html
@@ -35,11 +34,13 @@ function Add-VSRoute53RecoveryReadinessResourceSetResource {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Route53RecoveryReadiness.ResourceSet.Resource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,11 +51,14 @@ function Add-VSRoute53RecoveryReadinessResourceSetResource {
                 }
             })]
         $ResourceArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DnsTargetResource,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ReadinessScopes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,11 +69,14 @@ function Add-VSRoute53RecoveryReadinessResourceSetResource {
                 }
             })]
         $ComponentId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +86,7 @@ function Add-VSRoute53RecoveryReadinessResourceSetResource {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Route53RecoveryReadiness.ResourceSet.Resource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

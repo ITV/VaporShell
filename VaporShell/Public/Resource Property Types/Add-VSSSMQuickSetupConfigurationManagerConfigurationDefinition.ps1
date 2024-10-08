@@ -1,11 +1,10 @@
 function Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMQuickSetup::ConfigurationManager.ConfigurationDefinition resource property to the template. 
+        Adds an AWS::SSMQuickSetup::ConfigurationManager.ConfigurationDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSMQuickSetup::ConfigurationManager.ConfigurationDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmquicksetup-configurationmanager-configurationdefinition.html
@@ -44,11 +43,13 @@ function Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSMQuickSetup.ConfigurationManager.ConfigurationDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,10 +60,12 @@ function Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [System.Collections.Hashtable]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,7 +76,8 @@ function Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition {
                 }
             })]
         $LocalDeploymentExecutionRoleName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,7 +88,8 @@ function Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition {
                 }
             })]
         $TypeVersion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,7 +100,8 @@ function Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition {
                 }
             })]
         $LocalDeploymentAdministrationRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,11 +112,14 @@ function Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition {
                 }
             })]
         $id
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -120,6 +129,7 @@ function Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSMQuickSetup.ConfigurationManager.ConfigurationDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

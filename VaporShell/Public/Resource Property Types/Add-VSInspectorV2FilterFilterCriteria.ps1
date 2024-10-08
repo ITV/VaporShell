@@ -1,11 +1,10 @@
 function Add-VSInspectorV2FilterFilterCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::InspectorV2::Filter.FilterCriteria resource property to the template. 
+        Adds an AWS::InspectorV2::Filter.FilterCriteria resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::InspectorV2::Filter.FilterCriteria resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html
@@ -230,11 +229,13 @@ function Add-VSInspectorV2FilterFilterCriteria {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.InspectorV2.Filter.FilterCriteria')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.MapFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -245,7 +246,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $ResourceTags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -256,7 +258,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $Ec2InstanceImageId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -267,7 +270,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $FirstObservedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -278,7 +282,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $InspectorScore,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -289,7 +294,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $Ec2InstanceVpcId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -300,7 +306,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $LastObservedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -311,7 +318,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $EcrImagePushedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -322,7 +330,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $EcrImageArchitecture,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -333,7 +342,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $RelatedVulnerabilities,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -344,7 +354,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $EcrImageTags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -355,7 +366,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $VulnerabilityId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -366,7 +378,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $ComponentType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -377,7 +390,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $VendorSeverity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -388,7 +402,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $EcrImageRepositoryName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -399,7 +414,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $Title,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -410,7 +426,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $ResourceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -421,7 +438,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $Severity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -432,7 +450,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $NetworkProtocol,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -443,7 +462,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $UpdatedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -454,7 +474,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $EcrImageHash,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.PortRangeFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -465,7 +486,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $PortRange,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -476,7 +498,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $VulnerabilitySource,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -487,7 +510,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $Ec2InstanceSubnetId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -498,7 +522,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $FindingArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -509,7 +534,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $ResourceId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -520,7 +546,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $FindingStatus,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.PackageFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -531,7 +558,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $VulnerablePackages,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -542,7 +570,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $AwsAccountId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -553,7 +582,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $ComponentId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -564,7 +594,8 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $EcrImageRegistry,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -575,11 +606,14 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $FindingType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -589,6 +623,7 @@ function Add-VSInspectorV2FilterFilterCriteria {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.InspectorV2.Filter.FilterCriteria'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

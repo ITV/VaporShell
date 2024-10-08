@@ -1,11 +1,10 @@
 function Add-VSWAFv2RuleGroupFieldToMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.FieldToMatch resource property to the template. 
+        Adds an AWS::WAFv2::RuleGroup.FieldToMatch resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.FieldToMatch resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
@@ -68,13 +67,16 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.FieldToMatch')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $JsonBody,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,11 +87,14 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
                 }
             })]
         $AllQueryArguments,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $JA3Fingerprint,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SingleQueryArgument,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,7 +105,8 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
                 }
             })]
         $UriPath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,11 +117,14 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
                 }
             })]
         $QueryString,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Headers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Cookies,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -126,15 +135,20 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
                 }
             })]
         $Method,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Body,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SingleHeader
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -200,6 +214,7 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.RuleGroup.FieldToMatch'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

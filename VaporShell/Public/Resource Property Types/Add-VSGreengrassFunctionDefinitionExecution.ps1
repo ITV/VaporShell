@@ -1,11 +1,10 @@
 function Add-VSGreengrassFunctionDefinitionExecution {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::FunctionDefinition.Execution resource property to the template. 
+        Adds an AWS::Greengrass::FunctionDefinition.Execution resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::FunctionDefinition.Execution resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-execution.html
@@ -23,11 +22,13 @@ function Add-VSGreengrassFunctionDefinitionExecution {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.FunctionDefinition.Execution')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSGreengrassFunctionDefinitionExecution {
                 }
             })]
         $IsolationMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RunAs
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSGreengrassFunctionDefinitionExecution {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.FunctionDefinition.Execution'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

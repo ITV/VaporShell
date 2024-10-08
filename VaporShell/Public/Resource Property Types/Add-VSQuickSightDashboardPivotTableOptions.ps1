@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardPivotTableOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.PivotTableOptions resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.PivotTableOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.PivotTableOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html
@@ -78,15 +77,19 @@ function Add-VSQuickSightDashboardPivotTableOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PivotTableOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $RowFieldNamesStyle,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RowHeaderStyle,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -97,7 +100,8 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                 }
             })]
         $CollapsedRowDimensionsVisibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -108,7 +112,8 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                 }
             })]
         $RowsLayout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,7 +124,8 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                 }
             })]
         $MetricPlacement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -130,7 +136,8 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                 }
             })]
         $DefaultCellWidth,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -141,9 +148,11 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                 }
             })]
         $ColumnNamesVisibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RowsLabelOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -154,9 +163,11 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                 }
             })]
         $SingleMetricVisibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ColumnHeaderStyle,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -167,15 +178,20 @@ function Add-VSQuickSightDashboardPivotTableOptions {
                 }
             })]
         $ToggleButtonsVisibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CellStyle,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RowAlternateColorOptions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -185,6 +201,7 @@ function Add-VSQuickSightDashboardPivotTableOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.PivotTableOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

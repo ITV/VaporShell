@@ -1,11 +1,10 @@
 function Add-VSMediaPackageOriginEndpointMssPackage {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::OriginEndpoint.MssPackage resource property to the template. 
+        Adds an AWS::MediaPackage::OriginEndpoint.MssPackage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::OriginEndpoint.MssPackage resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
@@ -33,11 +32,13 @@ function Add-VSMediaPackageOriginEndpointMssPackage {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.MssPackage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,9 +49,11 @@ function Add-VSMediaPackageOriginEndpointMssPackage {
                 }
             })]
         $ManifestWindowSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StreamSelection,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,13 +64,17 @@ function Add-VSMediaPackageOriginEndpointMssPackage {
                 }
             })]
         $SegmentDurationSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Encryption
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSMediaPackageOriginEndpointMssPackage {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaPackage.OriginEndpoint.MssPackage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

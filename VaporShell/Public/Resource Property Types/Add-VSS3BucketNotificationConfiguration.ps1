@@ -1,11 +1,10 @@
 function Add-VSS3BucketNotificationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.NotificationConfiguration resource property to the template. 
+        Adds an AWS::S3::Bucket.NotificationConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.NotificationConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html
@@ -39,11 +38,13 @@ function Add-VSS3BucketNotificationConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.NotificationConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3.Bucket.TopicConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +55,8 @@ function Add-VSS3BucketNotificationConfiguration {
                 }
             })]
         $TopicConfigurations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3.Bucket.QueueConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,7 +67,8 @@ function Add-VSS3BucketNotificationConfiguration {
                 }
             })]
         $QueueConfigurations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3.Bucket.LambdaConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,13 +79,17 @@ function Add-VSS3BucketNotificationConfiguration {
                 }
             })]
         $LambdaConfigurations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EventBridgeConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -92,6 +99,7 @@ function Add-VSS3BucketNotificationConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.NotificationConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisShapeConditionalFormat {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.ShapeConditionalFormat resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.ShapeConditionalFormat resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.ShapeConditionalFormat resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-shapeconditionalformat.html
@@ -18,17 +17,22 @@ function Add-VSQuickSightAnalysisShapeConditionalFormat {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ShapeConditionalFormat')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $BackgroundColor
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSQuickSightAnalysisShapeConditionalFormat {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.ShapeConditionalFormat'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

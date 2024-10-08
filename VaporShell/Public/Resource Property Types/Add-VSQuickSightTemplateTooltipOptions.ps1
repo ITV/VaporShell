@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateTooltipOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.TooltipOptions resource property to the template. 
+        Adds an AWS::QuickSight::Template.TooltipOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.TooltipOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltipoptions.html
@@ -28,11 +27,13 @@ function Add-VSQuickSightTemplateTooltipOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.TooltipOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSQuickSightTemplateTooltipOptions {
                 }
             })]
         $SelectedTooltipType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,13 +56,17 @@ function Add-VSQuickSightTemplateTooltipOptions {
                 }
             })]
         $TooltipVisibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FieldBasedTooltip
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSQuickSightTemplateTooltipOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.TooltipOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

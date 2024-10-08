@@ -1,11 +1,10 @@
 function Add-VSQuickSightTopicTopicNamedEntity {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Topic.TopicNamedEntity resource property to the template. 
+        Adds an AWS::QuickSight::Topic.TopicNamedEntity resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Topic.TopicNamedEntity resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnamedentity.html
@@ -42,13 +41,16 @@ function Add-VSQuickSightTopicTopicNamedEntity {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicNamedEntity')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $EntitySynonyms,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,9 +61,11 @@ function Add-VSQuickSightTopicTopicNamedEntity {
                 }
             })]
         $EntityName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SemanticEntityType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,7 +76,8 @@ function Add-VSQuickSightTopicTopicNamedEntity {
                 }
             })]
         $EntityDescription,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Topic.NamedEntityDefinition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,11 +88,14 @@ function Add-VSQuickSightTopicTopicNamedEntity {
                 }
             })]
         $Definition
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -97,6 +105,7 @@ function Add-VSQuickSightTopicTopicNamedEntity {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Topic.TopicNamedEntity'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::GammaDilithium::JobDefinition.EcsTaskProperties resource property to the template. 
+        Adds an AWS::GammaDilithium::JobDefinition.EcsTaskProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GammaDilithium::JobDefinition.EcsTaskProperties resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gammadilithium-jobdefinition-ecstaskproperties.html
@@ -65,11 +64,13 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EcsTaskProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -80,7 +81,8 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
                 }
             })]
         $PlatformVersion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -91,9 +93,11 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
                 }
             })]
         $ExecutionRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RuntimePlatform,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -104,7 +108,8 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
                 }
             })]
         $TaskRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -115,7 +120,8 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
                 }
             })]
         $IpcMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.GammaDilithium.JobDefinition.Volumes"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -126,7 +132,8 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
                 }
             })]
         $Volumes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.GammaDilithium.JobDefinition.TaskContainerProperties"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -137,9 +144,11 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
                 }
             })]
         $Containers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NetworkConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -150,13 +159,17 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
                 }
             })]
         $PidMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EphemeralStorage
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -166,6 +179,7 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GammaDilithium.JobDefinition.EcsTaskProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

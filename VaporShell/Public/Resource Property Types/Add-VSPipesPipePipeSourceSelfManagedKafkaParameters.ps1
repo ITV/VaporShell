@@ -1,11 +1,10 @@
 function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Pipes::Pipe.PipeSourceSelfManagedKafkaParameters resource property to the template. 
+        Adds an AWS::Pipes::Pipe.PipeSourceSelfManagedKafkaParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pipes::Pipe.PipeSourceSelfManagedKafkaParameters resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html
@@ -60,13 +59,15 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeSourceSelfManagedKafkaParameters')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Credentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Credentials")]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,7 +78,8 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
                 }
             })]
         $StartingPosition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,7 +90,8 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
                 }
             })]
         $BatchSize,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -99,13 +102,17 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
                 }
             })]
         $ConsumerGroupID,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AdditionalBootstrapServers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Vpc,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Credentials,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -116,7 +123,8 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
                 }
             })]
         $ServerRootCaCertificate,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -127,7 +135,8 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
                 }
             })]
         $TopicName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -138,11 +147,14 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
                 }
             })]
         $MaximumBatchingWindowInSeconds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -152,6 +164,7 @@ function Add-VSPipesPipePipeSourceSelfManagedKafkaParameters {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pipes.Pipe.PipeSourceSelfManagedKafkaParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

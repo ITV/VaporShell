@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallRuleGroupTCPFlagField {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.TCPFlagField resource property to the template. 
+        Adds an AWS::NetworkFirewall::RuleGroup.TCPFlagField resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.TCPFlagField resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html
@@ -27,19 +26,25 @@ function Add-VSNetworkFirewallRuleGroupTCPFlagField {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.TCPFlagField')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Flags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Masks
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +54,7 @@ function Add-VSNetworkFirewallRuleGroupTCPFlagField {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.RuleGroup.TCPFlagField'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

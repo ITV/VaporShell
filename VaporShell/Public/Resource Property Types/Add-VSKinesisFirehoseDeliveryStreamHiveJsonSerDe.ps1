@@ -1,11 +1,10 @@
 function Add-VSKinesisFirehoseDeliveryStreamHiveJsonSerDe {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.HiveJsonSerDe resource property to the template. 
+        Adds an AWS::KinesisFirehose::DeliveryStream.HiveJsonSerDe resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.HiveJsonSerDe resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html
@@ -20,17 +19,22 @@ function Add-VSKinesisFirehoseDeliveryStreamHiveJsonSerDe {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.HiveJsonSerDe')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $TimestampFormats
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +44,7 @@ function Add-VSKinesisFirehoseDeliveryStreamHiveJsonSerDe {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisFirehose.DeliveryStream.HiveJsonSerDe'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

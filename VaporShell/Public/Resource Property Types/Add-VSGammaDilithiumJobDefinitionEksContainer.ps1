@@ -1,11 +1,10 @@
 function Add-VSGammaDilithiumJobDefinitionEksContainer {
     <#
     .SYNOPSIS
-        Adds an AWS::GammaDilithium::JobDefinition.EksContainer resource property to the template. 
+        Adds an AWS::GammaDilithium::JobDefinition.EksContainer resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GammaDilithium::JobDefinition.EksContainer resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gammadilithium-jobdefinition-ekscontainer.html
@@ -62,13 +61,16 @@ function Add-VSGammaDilithiumJobDefinitionEksContainer {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EksContainer')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Args,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.GammaDilithium.JobDefinition.EksContainerVolumeMount"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,7 +81,8 @@ function Add-VSGammaDilithiumJobDefinitionEksContainer {
                 }
             })]
         $VolumeMounts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,13 +93,17 @@ function Add-VSGammaDilithiumJobDefinitionEksContainer {
                 }
             })]
         $ImagePullPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Command,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecurityContext,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Resources,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -107,7 +114,8 @@ function Add-VSGammaDilithiumJobDefinitionEksContainer {
                 }
             })]
         $Image,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.GammaDilithium.JobDefinition.EksContainerEnvironmentVariable"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -118,7 +126,8 @@ function Add-VSGammaDilithiumJobDefinitionEksContainer {
                 }
             })]
         $Env,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,11 +138,14 @@ function Add-VSGammaDilithiumJobDefinitionEksContainer {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -143,6 +155,7 @@ function Add-VSGammaDilithiumJobDefinitionEksContainer {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GammaDilithium.JobDefinition.EksContainer'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

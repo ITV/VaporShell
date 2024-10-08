@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateNumericRangeFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.NumericRangeFilter resource property to the template. 
+        Adds an AWS::QuickSight::Template.NumericRangeFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.NumericRangeFilter resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefilter.html
@@ -63,15 +62,19 @@ function Add-VSQuickSightTemplateNumericRangeFilter {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.NumericRangeFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AggregationFunction,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Column,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,9 +85,11 @@ function Add-VSQuickSightTemplateNumericRangeFilter {
                 }
             })]
         $IncludeMaximum,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RangeMinimum,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,7 +100,8 @@ function Add-VSQuickSightTemplateNumericRangeFilter {
                 }
             })]
         $NullOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,9 +112,11 @@ function Add-VSQuickSightTemplateNumericRangeFilter {
                 }
             })]
         $SelectAllOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultFilterControlConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,9 +127,11 @@ function Add-VSQuickSightTemplateNumericRangeFilter {
                 }
             })]
         $FilterId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RangeMaximum,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -132,11 +142,14 @@ function Add-VSQuickSightTemplateNumericRangeFilter {
                 }
             })]
         $IncludeMinimum
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -146,6 +159,7 @@ function Add-VSQuickSightTemplateNumericRangeFilter {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.NumericRangeFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

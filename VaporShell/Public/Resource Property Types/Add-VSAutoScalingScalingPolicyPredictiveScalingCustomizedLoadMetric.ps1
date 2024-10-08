@@ -1,11 +1,10 @@
 function Add-VSAutoScalingScalingPolicyPredictiveScalingCustomizedLoadMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedLoadMetric resource property to the template. 
+        Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedLoadMetric resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedLoadMetric resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html
@@ -20,11 +19,13 @@ function Add-VSAutoScalingScalingPolicyPredictiveScalingCustomizedLoadMetric {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AutoScaling.ScalingPolicy.PredictiveScalingCustomizedLoadMetric')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AutoScaling.ScalingPolicy.MetricDataQuery"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +36,14 @@ function Add-VSAutoScalingScalingPolicyPredictiveScalingCustomizedLoadMetric {
                 }
             })]
         $MetricDataQueries
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +53,7 @@ function Add-VSAutoScalingScalingPolicyPredictiveScalingCustomizedLoadMetric {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AutoScaling.ScalingPolicy.PredictiveScalingCustomizedLoadMetric'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

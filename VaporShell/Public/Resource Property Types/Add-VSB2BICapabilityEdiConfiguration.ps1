@@ -1,11 +1,10 @@
 function Add-VSB2BICapabilityEdiConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::B2BI::Capability.EdiConfiguration resource property to the template. 
+        Adds an AWS::B2BI::Capability.EdiConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::B2BI::Capability.EdiConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html
@@ -33,15 +32,19 @@ function Add-VSB2BICapabilityEdiConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.B2BI.Capability.EdiConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Type,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $InputLocation,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,13 +55,17 @@ function Add-VSB2BICapabilityEdiConfiguration {
                 }
             })]
         $TransformerId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $OutputLocation
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +75,7 @@ function Add-VSB2BICapabilityEdiConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.B2BI.Capability.EdiConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

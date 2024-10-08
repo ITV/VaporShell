@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisHistogramFieldWells {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.HistogramFieldWells resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.HistogramFieldWells resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.HistogramFieldWells resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-histogramfieldwells.html
@@ -18,17 +17,22 @@ function Add-VSQuickSightAnalysisHistogramFieldWells {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.HistogramFieldWells')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $HistogramAggregatedFieldWells
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSQuickSightAnalysisHistogramFieldWells {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.HistogramFieldWells'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

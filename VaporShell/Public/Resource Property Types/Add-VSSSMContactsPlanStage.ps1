@@ -1,11 +1,10 @@
 function Add-VSSSMContactsPlanStage {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMContacts::Plan.Stage resource property to the template. 
+        Adds an AWS::SSMContacts::Plan.Stage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSMContacts::Plan.Stage resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-stage.html
@@ -25,11 +24,13 @@ function Add-VSSSMContactsPlanStage {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSMContacts.Plan.Stage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,7 +41,8 @@ function Add-VSSSMContactsPlanStage {
                 }
             })]
         $DurationInMinutes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SSMContacts.Plan.Targets"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +53,14 @@ function Add-VSSSMContactsPlanStage {
                 }
             })]
         $Targets
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +70,7 @@ function Add-VSSSMContactsPlanStage {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSMContacts.Plan.Stage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

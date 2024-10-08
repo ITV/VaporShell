@@ -1,11 +1,10 @@
 function Add-VSCloudFrontOriginRequestPolicyOriginRequestPolicyConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig resource property to the template. 
+        Adds an AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
@@ -38,11 +37,13 @@ function Add-VSCloudFrontOriginRequestPolicyOriginRequestPolicyConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.OriginRequestPolicy.OriginRequestPolicyConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,13 +54,17 @@ function Add-VSCloudFrontOriginRequestPolicyOriginRequestPolicyConfig {
                 }
             })]
         $Comment,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $HeadersConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $CookiesConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $QueryStringsConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,11 +75,14 @@ function Add-VSCloudFrontOriginRequestPolicyOriginRequestPolicyConfig {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -84,6 +92,7 @@ function Add-VSCloudFrontOriginRequestPolicyOriginRequestPolicyConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.OriginRequestPolicy.OriginRequestPolicyConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisCascadingControlConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.CascadingControlConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.CascadingControlConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.CascadingControlConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-cascadingcontrolconfiguration.html
@@ -20,11 +19,13 @@ function Add-VSQuickSightAnalysisCascadingControlConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.CascadingControlConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.CascadingControlSource"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +36,14 @@ function Add-VSQuickSightAnalysisCascadingControlConfiguration {
                 }
             })]
         $SourceControls
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +53,7 @@ function Add-VSQuickSightAnalysisCascadingControlConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.CascadingControlConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSEKSAccessEntryAccessScope {
     <#
     .SYNOPSIS
-        Adds an AWS::EKS::AccessEntry.AccessScope resource property to the template. 
+        Adds an AWS::EKS::AccessEntry.AccessScope resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EKS::AccessEntry.AccessScope resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accessscope.html
@@ -25,13 +24,16 @@ function Add-VSEKSAccessEntryAccessScope {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EKS.AccessEntry.AccessScope')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Namespaces,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,11 +44,14 @@ function Add-VSEKSAccessEntryAccessScope {
                 }
             })]
         $Type
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSEKSAccessEntryAccessScope {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EKS.AccessEntry.AccessScope'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

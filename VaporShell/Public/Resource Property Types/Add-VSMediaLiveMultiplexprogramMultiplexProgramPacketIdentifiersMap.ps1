@@ -1,11 +1,10 @@
 function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Multiplexprogram.MultiplexProgramPacketIdentifiersMap resource property to the template. 
+        Adds an AWS::MediaLive::Multiplexprogram.MultiplexProgramPacketIdentifiersMap resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Multiplexprogram.MultiplexProgramPacketIdentifiersMap resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html
@@ -86,11 +85,13 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Multiplexprogram.MultiplexProgramPacketIdentifiersMap')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,7 +102,8 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
                 }
             })]
         $EtvPlatformPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -112,9 +114,11 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
                 }
             })]
         $DvbTeletextPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $KlvDataPids,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,7 +129,8 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
                 }
             })]
         $PcrPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -136,7 +141,8 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
                 }
             })]
         $VideoPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -147,11 +153,14 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
                 }
             })]
         $PmtPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Scte27Pids,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DvbSubPids,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -162,7 +171,8 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
                 }
             })]
         $Scte35Pid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -173,7 +183,8 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
                 }
             })]
         $EtvSignalPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -184,7 +195,8 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
                 }
             })]
         $PrivateMetadataPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -195,13 +207,17 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
                 }
             })]
         $TimedMetadataPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AudioPids
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -211,6 +227,7 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Multiplexprogram.MultiplexProgramPacketIdentifiersMap'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

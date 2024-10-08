@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisParameterDropDownControl {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.ParameterDropDownControl resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.ParameterDropDownControl resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.ParameterDropDownControl resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameterdropdowncontrol.html
@@ -53,11 +52,13 @@ function Add-VSQuickSightAnalysisParameterDropDownControl {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ParameterDropDownControl')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,7 +69,8 @@ function Add-VSQuickSightAnalysisParameterDropDownControl {
                 }
             })]
         $ParameterControlId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,9 +81,11 @@ function Add-VSQuickSightAnalysisParameterDropDownControl {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DisplayOptions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -92,9 +96,11 @@ function Add-VSQuickSightAnalysisParameterDropDownControl {
                 }
             })]
         $SourceParameterName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CascadingControlConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -105,7 +111,8 @@ function Add-VSQuickSightAnalysisParameterDropDownControl {
                 }
             })]
         $Title,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -116,13 +123,17 @@ function Add-VSQuickSightAnalysisParameterDropDownControl {
                 }
             })]
         $CommitMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SelectableValues
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -132,6 +143,7 @@ function Add-VSQuickSightAnalysisParameterDropDownControl {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.ParameterDropDownControl'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

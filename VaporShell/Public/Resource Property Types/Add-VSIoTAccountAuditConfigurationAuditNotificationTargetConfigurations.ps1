@@ -1,11 +1,10 @@
 function Add-VSIoTAccountAuditConfigurationAuditNotificationTargetConfigurations {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations resource property to the template. 
+        Adds an AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
@@ -18,17 +17,22 @@ function Add-VSIoTAccountAuditConfigurationAuditNotificationTargetConfigurations
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.AccountAuditConfiguration.AuditNotificationTargetConfigurations')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Sns
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSIoTAccountAuditConfigurationAuditNotificationTargetConfigurations
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.AccountAuditConfiguration.AuditNotificationTargetConfigurations'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

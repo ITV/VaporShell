@@ -1,11 +1,10 @@
 function Add-VSImageBuilderDistributionConfigurationLaunchTemplateConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::DistributionConfiguration.LaunchTemplateConfiguration resource property to the template. 
+        Adds an AWS::ImageBuilder::DistributionConfiguration.LaunchTemplateConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::DistributionConfiguration.LaunchTemplateConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
@@ -28,11 +27,13 @@ function Add-VSImageBuilderDistributionConfigurationLaunchTemplateConfiguration 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.LaunchTemplateConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSImageBuilderDistributionConfigurationLaunchTemplateConfiguration 
                 }
             })]
         $SetDefaultVersion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +56,8 @@ function Add-VSImageBuilderDistributionConfigurationLaunchTemplateConfiguration 
                 }
             })]
         $AccountId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,11 +68,14 @@ function Add-VSImageBuilderDistributionConfigurationLaunchTemplateConfiguration 
                 }
             })]
         $LaunchTemplateId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +85,7 @@ function Add-VSImageBuilderDistributionConfigurationLaunchTemplateConfiguration 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ImageBuilder.DistributionConfiguration.LaunchTemplateConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

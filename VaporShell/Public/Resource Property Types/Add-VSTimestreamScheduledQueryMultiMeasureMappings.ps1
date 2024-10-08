@@ -1,11 +1,10 @@
 function Add-VSTimestreamScheduledQueryMultiMeasureMappings {
     <#
     .SYNOPSIS
-        Adds an AWS::Timestream::ScheduledQuery.MultiMeasureMappings resource property to the template. 
+        Adds an AWS::Timestream::ScheduledQuery.MultiMeasureMappings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Timestream::ScheduledQuery.MultiMeasureMappings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasuremappings.html
@@ -25,11 +24,13 @@ function Add-VSTimestreamScheduledQueryMultiMeasureMappings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Timestream.ScheduledQuery.MultiMeasureMappings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,7 +41,8 @@ function Add-VSTimestreamScheduledQueryMultiMeasureMappings {
                 }
             })]
         $TargetMultiMeasureName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Timestream.ScheduledQuery.MultiMeasureAttributeMapping"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +53,14 @@ function Add-VSTimestreamScheduledQueryMultiMeasureMappings {
                 }
             })]
         $MultiMeasureAttributeMappings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +70,7 @@ function Add-VSTimestreamScheduledQueryMultiMeasureMappings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Timestream.ScheduledQuery.MultiMeasureMappings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

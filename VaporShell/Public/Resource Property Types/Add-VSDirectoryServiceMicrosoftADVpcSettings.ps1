@@ -1,11 +1,10 @@
 function Add-VSDirectoryServiceMicrosoftADVpcSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::DirectoryService::MicrosoftAD.VpcSettings resource property to the template. 
+        Adds an AWS::DirectoryService::MicrosoftAD.VpcSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DirectoryService::MicrosoftAD.VpcSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-microsoftad-vpcsettings.html
@@ -25,13 +24,16 @@ function Add-VSDirectoryServiceMicrosoftADVpcSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DirectoryService.MicrosoftAD.VpcSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SubnetIds,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,11 +44,14 @@ function Add-VSDirectoryServiceMicrosoftADVpcSettings {
                 }
             })]
         $VpcId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSDirectoryServiceMicrosoftADVpcSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DirectoryService.MicrosoftAD.VpcSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSPinpointInAppTemplateButtonConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::InAppTemplate.ButtonConfig resource property to the template. 
+        Adds an AWS::Pinpoint::InAppTemplate.ButtonConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::InAppTemplate.ButtonConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html
@@ -33,23 +32,31 @@ function Add-VSPinpointInAppTemplateButtonConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pinpoint.InAppTemplate.ButtonConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Web,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IOS,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Android
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSPinpointInAppTemplateButtonConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pinpoint.InAppTemplate.ButtonConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

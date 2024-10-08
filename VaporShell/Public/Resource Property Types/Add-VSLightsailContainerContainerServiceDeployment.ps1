@@ -1,11 +1,10 @@
 function Add-VSLightsailContainerContainerServiceDeployment {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Container.ContainerServiceDeployment resource property to the template. 
+        Adds an AWS::Lightsail::Container.ContainerServiceDeployment resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Container.ContainerServiceDeployment resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html
@@ -25,11 +24,13 @@ function Add-VSLightsailContainerContainerServiceDeployment {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lightsail.Container.ContainerServiceDeployment')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Lightsail.Container.Container"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,13 +41,17 @@ function Add-VSLightsailContainerContainerServiceDeployment {
                 }
             })]
         $Containers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PublicEndpoint
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSLightsailContainerContainerServiceDeployment {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lightsail.Container.ContainerServiceDeployment'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

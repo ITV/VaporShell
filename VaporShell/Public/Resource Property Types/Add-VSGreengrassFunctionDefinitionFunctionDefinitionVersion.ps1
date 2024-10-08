@@ -1,11 +1,10 @@
 function Add-VSGreengrassFunctionDefinitionFunctionDefinitionVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::FunctionDefinition.FunctionDefinitionVersion resource property to the template. 
+        Adds an AWS::Greengrass::FunctionDefinition.FunctionDefinitionVersion resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::FunctionDefinition.FunctionDefinitionVersion resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html
@@ -24,13 +23,16 @@ function Add-VSGreengrassFunctionDefinitionFunctionDefinitionVersion {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.FunctionDefinition.FunctionDefinitionVersion')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DefaultConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Greengrass.FunctionDefinition.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,11 +43,14 @@ function Add-VSGreengrassFunctionDefinitionFunctionDefinitionVersion {
                 }
             })]
         $Functions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -55,6 +60,7 @@ function Add-VSGreengrassFunctionDefinitionFunctionDefinitionVersion {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.FunctionDefinition.FunctionDefinitionVersion'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

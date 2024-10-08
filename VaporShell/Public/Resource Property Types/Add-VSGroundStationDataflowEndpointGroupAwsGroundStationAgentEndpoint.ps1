@@ -1,11 +1,10 @@
 function Add-VSGroundStationDataflowEndpointGroupAwsGroundStationAgentEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::DataflowEndpointGroup.AwsGroundStationAgentEndpoint resource property to the template. 
+        Adds an AWS::GroundStation::DataflowEndpointGroup.AwsGroundStationAgentEndpoint resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GroundStation::DataflowEndpointGroup.AwsGroundStationAgentEndpoint resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html
@@ -38,11 +37,13 @@ function Add-VSGroundStationDataflowEndpointGroupAwsGroundStationAgentEndpoint {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GroundStation.DataflowEndpointGroup.AwsGroundStationAgentEndpoint')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,9 +54,11 @@ function Add-VSGroundStationDataflowEndpointGroupAwsGroundStationAgentEndpoint {
                 }
             })]
         $AgentStatus,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IngressAddress,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -66,7 +69,8 @@ function Add-VSGroundStationDataflowEndpointGroupAwsGroundStationAgentEndpoint {
                 }
             })]
         $AuditResults,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,13 +81,17 @@ function Add-VSGroundStationDataflowEndpointGroupAwsGroundStationAgentEndpoint {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EgressAddress
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -93,6 +101,7 @@ function Add-VSGroundStationDataflowEndpointGroupAwsGroundStationAgentEndpoint {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GroundStation.DataflowEndpointGroup.AwsGroundStationAgentEndpoint'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

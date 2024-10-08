@@ -1,11 +1,10 @@
 function Add-VSCloudFrontDistributionDefaultCacheBehavior {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.DefaultCacheBehavior resource property to the template. 
+        Adds an AWS::CloudFront::Distribution.DefaultCacheBehavior resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.DefaultCacheBehavior resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
@@ -120,11 +119,13 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.DefaultCacheBehavior')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -135,7 +136,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $Compress,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudFront.Distribution.FunctionAssociation"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -146,7 +148,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $FunctionAssociations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudFront.Distribution.LambdaFunctionAssociation"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -157,7 +160,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $LambdaFunctionAssociations,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -168,7 +172,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $TargetOriginId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -179,7 +184,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $ViewerProtocolPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -190,7 +196,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $ResponseHeadersPolicyId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -201,9 +208,11 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $RealtimeLogConfigArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TrustedSigners,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -214,7 +223,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $DefaultTTL,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -225,13 +235,17 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $FieldLevelEncryptionId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TrustedKeyGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AllowedMethods,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CachedMethods,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -242,9 +256,11 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $SmoothStreaming,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ForwardedValues,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -255,7 +271,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $OriginRequestPolicyId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -266,7 +283,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $MinTTL,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -277,7 +295,8 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $CachePolicyId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -288,11 +307,14 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
                 }
             })]
         $MaxTTL
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -302,6 +324,7 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Distribution.DefaultCacheBehavior'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

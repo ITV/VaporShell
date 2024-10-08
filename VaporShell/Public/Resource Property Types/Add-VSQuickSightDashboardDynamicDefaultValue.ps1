@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardDynamicDefaultValue {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.DynamicDefaultValue resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.DynamicDefaultValue resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.DynamicDefaultValue resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dynamicdefaultvalue.html
@@ -28,21 +27,28 @@ function Add-VSQuickSightDashboardDynamicDefaultValue {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DynamicDefaultValue')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $GroupNameColumn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $DefaultValueColumn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $UserNameColumn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +58,7 @@ function Add-VSQuickSightDashboardDynamicDefaultValue {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.DynamicDefaultValue'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

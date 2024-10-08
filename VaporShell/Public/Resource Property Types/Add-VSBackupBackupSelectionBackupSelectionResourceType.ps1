@@ -1,11 +1,10 @@
 function Add-VSBackupBackupSelectionBackupSelectionResourceType {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupSelection.BackupSelectionResourceType resource property to the template. 
+        Adds an AWS::Backup::BackupSelection.BackupSelectionResourceType resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Backup::BackupSelection.BackupSelectionResourceType resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html
@@ -49,11 +48,13 @@ function Add-VSBackupBackupSelectionBackupSelectionResourceType {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Backup.BackupSelection.BackupSelectionResourceType')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Backup.BackupSelection.ConditionResourceType"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,9 +65,11 @@ function Add-VSBackupBackupSelectionBackupSelectionResourceType {
                 }
             })]
         $ListOfTags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NotResources,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,7 +80,8 @@ function Add-VSBackupBackupSelectionBackupSelectionResourceType {
                 }
             })]
         $SelectionName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,15 +92,20 @@ function Add-VSBackupBackupSelectionBackupSelectionResourceType {
                 }
             })]
         $IamRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Resources,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Conditions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -106,6 +115,7 @@ function Add-VSBackupBackupSelectionBackupSelectionResourceType {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Backup.BackupSelection.BackupSelectionResourceType'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

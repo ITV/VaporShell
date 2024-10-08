@@ -1,11 +1,10 @@
 function Add-VSGreengrassV2DeploymentComponentConfigurationUpdate {
     <#
     .SYNOPSIS
-        Adds an AWS::GreengrassV2::Deployment.ComponentConfigurationUpdate resource property to the template. 
+        Adds an AWS::GreengrassV2::Deployment.ComponentConfigurationUpdate resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GreengrassV2::Deployment.ComponentConfigurationUpdate resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentconfigurationupdate.html
@@ -25,11 +24,13 @@ function Add-VSGreengrassV2DeploymentComponentConfigurationUpdate {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.ComponentConfigurationUpdate')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,13 +41,17 @@ function Add-VSGreengrassV2DeploymentComponentConfigurationUpdate {
                 }
             })]
         $Merge,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Reset
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSGreengrassV2DeploymentComponentConfigurationUpdate {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GreengrassV2.Deployment.ComponentConfigurationUpdate'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

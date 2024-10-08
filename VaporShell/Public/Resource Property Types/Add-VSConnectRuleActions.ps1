@@ -1,11 +1,10 @@
 function Add-VSConnectRuleActions {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::Rule.Actions resource property to the template. 
+        Adds an AWS::Connect::Rule.Actions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Connect::Rule.Actions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html
@@ -69,11 +68,13 @@ function Add-VSConnectRuleActions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Connect.Rule.Actions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Connect.Rule.EventBridgeAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,7 +85,8 @@ function Add-VSConnectRuleActions {
                 }
             })]
         $EventBridgeActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Connect.Rule.UpdateCaseAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,7 +97,8 @@ function Add-VSConnectRuleActions {
                 }
             })]
         $UpdateCaseActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Connect.Rule.CreateCaseAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,9 +109,11 @@ function Add-VSConnectRuleActions {
                 }
             })]
         $CreateCaseActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AssignContactCategoryActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Connect.Rule.TaskAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,7 +124,8 @@ function Add-VSConnectRuleActions {
                 }
             })]
         $TaskActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Connect.Rule.SubmitAutoEvaluationAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -130,7 +136,8 @@ function Add-VSConnectRuleActions {
                 }
             })]
         $SubmitAutoEvaluationActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Connect.Rule.SendNotificationAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -141,13 +148,17 @@ function Add-VSConnectRuleActions {
                 }
             })]
         $SendNotificationActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EndAssociatedTasksActions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -157,6 +168,7 @@ function Add-VSConnectRuleActions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Connect.Rule.Actions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

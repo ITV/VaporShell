@@ -1,11 +1,10 @@
 function Add-VSAmplifyUIBuilderComponentComponentEvent {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Component.ComponentEvent resource property to the template. 
+        Adds an AWS::AmplifyUIBuilder::Component.ComponentEvent resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Component.ComponentEvent resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html
@@ -28,11 +27,13 @@ function Add-VSAmplifyUIBuilderComponentComponentEvent {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentEvent')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,9 +44,11 @@ function Add-VSAmplifyUIBuilderComponentComponentEvent {
                 }
             })]
         $Action,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,11 +59,14 @@ function Add-VSAmplifyUIBuilderComponentComponentEvent {
                 }
             })]
         $BindingEvent
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSAmplifyUIBuilderComponentComponentEvent {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentEvent'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

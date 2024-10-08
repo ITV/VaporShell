@@ -1,11 +1,10 @@
 function Add-VSWAFv2WebACLAWSManagedRulesBotControlRuleSet {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.AWSManagedRulesBotControlRuleSet resource property to the template. 
+        Adds an AWS::WAFv2::WebACL.AWSManagedRulesBotControlRuleSet resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.AWSManagedRulesBotControlRuleSet resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesbotcontrolruleset.html
@@ -23,11 +22,13 @@ function Add-VSWAFv2WebACLAWSManagedRulesBotControlRuleSet {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.AWSManagedRulesBotControlRuleSet')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSWAFv2WebACLAWSManagedRulesBotControlRuleSet {
                 }
             })]
         $InspectionLevel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSWAFv2WebACLAWSManagedRulesBotControlRuleSet {
                 }
             })]
         $EnableMachineLearning
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSWAFv2WebACLAWSManagedRulesBotControlRuleSet {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.WebACL.AWSManagedRulesBotControlRuleSet'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSDevOpsGuruNotificationChannelNotificationChannelConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::DevOpsGuru::NotificationChannel.NotificationChannelConfig resource property to the template. 
+        Adds an AWS::DevOpsGuru::NotificationChannel.NotificationChannelConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DevOpsGuru::NotificationChannel.NotificationChannelConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html
@@ -23,19 +22,25 @@ function Add-VSDevOpsGuruNotificationChannelNotificationChannelConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DevOpsGuru.NotificationChannel.NotificationChannelConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Filters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sns
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSDevOpsGuruNotificationChannelNotificationChannelConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DevOpsGuru.NotificationChannel.NotificationChannelConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSLexBotVersionBotVersionLocaleSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotVersion.BotVersionLocaleSpecification resource property to the template. 
+        Adds an AWS::Lex::BotVersion.BotVersionLocaleSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::BotVersion.BotVersionLocaleSpecification resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocalespecification.html
@@ -23,11 +22,13 @@ function Add-VSLexBotVersionBotVersionLocaleSpecification {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.BotVersion.BotVersionLocaleSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSLexBotVersionBotVersionLocaleSpecification {
                 }
             })]
         $LocaleId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $BotVersionLocaleDetails
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSLexBotVersionBotVersionLocaleSpecification {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.BotVersion.BotVersionLocaleSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardDefaultFilterDropDownControlOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.DefaultFilterDropDownControlOptions resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.DefaultFilterDropDownControlOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.DefaultFilterDropDownControlOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultfilterdropdowncontroloptions.html
@@ -33,11 +32,13 @@ function Add-VSQuickSightDashboardDefaultFilterDropDownControlOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DefaultFilterDropDownControlOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,9 +49,11 @@ function Add-VSQuickSightDashboardDefaultFilterDropDownControlOptions {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DisplayOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,13 +64,17 @@ function Add-VSQuickSightDashboardDefaultFilterDropDownControlOptions {
                 }
             })]
         $CommitMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SelectableValues
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSQuickSightDashboardDefaultFilterDropDownControlOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.DefaultFilterDropDownControlOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

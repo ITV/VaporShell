@@ -1,11 +1,10 @@
 function Add-VSPCAConnectorADTemplateTemplateDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::PCAConnectorAD::Template.TemplateDefinition resource property to the template. 
+        Adds an AWS::PCAConnectorAD::Template.TemplateDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::PCAConnectorAD::Template.TemplateDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatedefinition.html
@@ -28,21 +27,28 @@ function Add-VSPCAConnectorADTemplateTemplateDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.TemplateDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $TemplateV4,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TemplateV3,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TemplateV2
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +58,7 @@ function Add-VSPCAConnectorADTemplateTemplateDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.PCAConnectorAD.Template.TemplateDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

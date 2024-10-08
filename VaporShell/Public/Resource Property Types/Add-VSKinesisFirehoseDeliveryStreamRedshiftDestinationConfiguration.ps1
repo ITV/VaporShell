@@ -1,11 +1,10 @@
 function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.RedshiftDestinationConfiguration resource property to the template. 
+        Adds an AWS::KinesisFirehose::DeliveryStream.RedshiftDestinationConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.RedshiftDestinationConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html
@@ -73,17 +72,21 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.RedshiftDestinationConfiguration')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $S3BackupConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $S3Configuration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,17 +97,23 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
                 }
             })]
         $Username,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $CopyCommand,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RetryOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecretsManagerConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ProcessingConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CloudWatchLoggingOptions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -115,7 +124,8 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
                 }
             })]
         $ClusterJDBCURL,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -126,7 +136,8 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
                 }
             })]
         $RoleARN,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -137,7 +148,8 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
                 }
             })]
         $Password,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -148,11 +160,14 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
                 }
             })]
         $S3BackupMode
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -162,6 +177,7 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisFirehose.DeliveryStream.RedshiftDestinationConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

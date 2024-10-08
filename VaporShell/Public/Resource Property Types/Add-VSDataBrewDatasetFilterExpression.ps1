@@ -1,11 +1,10 @@
 function Add-VSDataBrewDatasetFilterExpression {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.FilterExpression resource property to the template. 
+        Adds an AWS::DataBrew::Dataset.FilterExpression resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.FilterExpression resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
@@ -25,11 +24,13 @@ function Add-VSDataBrewDatasetFilterExpression {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.FilterExpression')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,7 +41,8 @@ function Add-VSDataBrewDatasetFilterExpression {
                 }
             })]
         $Expression,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DataBrew.Dataset.FilterValue"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +53,14 @@ function Add-VSDataBrewDatasetFilterExpression {
                 }
             })]
         $ValuesMap
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +70,7 @@ function Add-VSDataBrewDatasetFilterExpression {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataBrew.Dataset.FilterExpression'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSAppFlowFlowDestinationConnectorProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.DestinationConnectorProperties resource property to the template. 
+        Adds an AWS::AppFlow::Flow.DestinationConnectorProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.DestinationConnectorProperties resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
@@ -68,37 +67,52 @@ function Add-VSAppFlowFlowDestinationConnectorProperties {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.Flow.DestinationConnectorProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $S3,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomConnector,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Upsolver,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SAPOData,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Snowflake,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LookoutMetrics,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EventBridge,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Zendesk,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Marketo,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Redshift,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Salesforce
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -108,6 +122,7 @@ function Add-VSAppFlowFlowDestinationConnectorProperties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.Flow.DestinationConnectorProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSApiGatewayMethodIntegrationResponse {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::Method.IntegrationResponse resource property to the template. 
+        Adds an AWS::ApiGateway::Method.IntegrationResponse resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApiGateway::Method.IntegrationResponse resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integrationresponse.html
@@ -40,14 +39,17 @@ function Add-VSApiGatewayMethodIntegrationResponse {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApiGateway.Method.IntegrationResponse')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $ResponseTemplates,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +60,8 @@ function Add-VSApiGatewayMethodIntegrationResponse {
                 }
             })]
         $SelectionPattern,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,10 +72,12 @@ function Add-VSApiGatewayMethodIntegrationResponse {
                 }
             })]
         $ContentHandling,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $ResponseParameters,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,11 +88,14 @@ function Add-VSApiGatewayMethodIntegrationResponse {
                 }
             })]
         $StatusCode
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -97,6 +105,7 @@ function Add-VSApiGatewayMethodIntegrationResponse {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApiGateway.Method.IntegrationResponse'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

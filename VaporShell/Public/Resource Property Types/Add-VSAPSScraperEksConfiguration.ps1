@@ -1,11 +1,10 @@
 function Add-VSAPSScraperEksConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::APS::Scraper.EksConfiguration resource property to the template. 
+        Adds an AWS::APS::Scraper.EksConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::APS::Scraper.EksConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html
@@ -32,11 +31,13 @@ function Add-VSAPSScraperEksConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.APS.Scraper.EksConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,15 +48,20 @@ function Add-VSAPSScraperEksConfiguration {
                 }
             })]
         $ClusterArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecurityGroupIds,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SubnetIds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +71,7 @@ function Add-VSAPSScraperEksConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.APS.Scraper.EksConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

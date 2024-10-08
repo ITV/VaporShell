@@ -1,11 +1,10 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewaySpec {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewaySpec resource property to the template. 
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewaySpec resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewaySpec resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html
@@ -29,13 +28,16 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewaySpec {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewaySpec')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Logging,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayListener"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,13 +48,17 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewaySpec {
                 }
             })]
         $Listeners,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BackendDefaults
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -62,6 +68,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewaySpec {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewaySpec'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSEC2NetworkInsightsAnalysisAnalysisPacketHeader {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisPacketHeader resource property to the template. 
+        Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisPacketHeader resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAnalysis.AnalysisPacketHeader resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html
@@ -46,11 +45,13 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisPacketHeader {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AnalysisPacketHeader')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.PortRange"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +62,8 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisPacketHeader {
                 }
             })]
         $DestinationPortRanges,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.PortRange"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,9 +74,11 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisPacketHeader {
                 }
             })]
         $SourcePortRanges,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DestinationAddresses,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,13 +89,17 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisPacketHeader {
                 }
             })]
         $Protocol,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SourceAddresses
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -101,6 +109,7 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisPacketHeader {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AnalysisPacketHeader'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

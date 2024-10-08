@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateRadarChartSortConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.RadarChartSortConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Template.RadarChartSortConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.RadarChartSortConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartsortconfiguration.html
@@ -37,11 +36,13 @@ function Add-VSQuickSightTemplateRadarChartSortConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.RadarChartSortConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.FieldSortOptions"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,11 +53,14 @@ function Add-VSQuickSightTemplateRadarChartSortConfiguration {
                 }
             })]
         $ColorSort,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ColorItemsLimit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CategoryItemsLimit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.FieldSortOptions"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,11 +71,14 @@ function Add-VSQuickSightTemplateRadarChartSortConfiguration {
                 }
             })]
         $CategorySort
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -81,6 +88,7 @@ function Add-VSQuickSightTemplateRadarChartSortConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.RadarChartSortConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

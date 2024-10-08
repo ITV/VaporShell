@@ -1,11 +1,10 @@
 function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::GreengrassV2::ComponentVersion.LambdaExecutionParameters resource property to the template. 
+        Adds an AWS::GreengrassV2::ComponentVersion.LambdaExecutionParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GreengrassV2::ComponentVersion.LambdaExecutionParameters resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html
@@ -73,11 +72,13 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaExecutionParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,7 +89,8 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
                 }
             })]
         $MaxInstancesCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -99,10 +101,12 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
                 }
             })]
         $TimeoutInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $EnvironmentVariables,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaEventSource"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -113,7 +117,8 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
                 }
             })]
         $EventSources,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -124,11 +129,14 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
                 }
             })]
         $Pinned,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExecArgs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LinuxProcessParams,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -139,7 +147,8 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
                 }
             })]
         $InputPayloadEncodingType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -150,7 +159,8 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
                 }
             })]
         $MaxQueueSize,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -161,7 +171,8 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
                 }
             })]
         $StatusTimeoutInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -172,11 +183,14 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
                 }
             })]
         $MaxIdleTimeInSeconds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -186,6 +200,7 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaExecutionParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

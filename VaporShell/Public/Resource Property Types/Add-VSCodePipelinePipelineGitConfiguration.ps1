@@ -1,11 +1,10 @@
 function Add-VSCodePipelinePipelineGitConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::CodePipeline::Pipeline.GitConfiguration resource property to the template. 
+        Adds an AWS::CodePipeline::Pipeline.GitConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodePipeline::Pipeline.GitConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html
@@ -32,11 +31,13 @@ function Add-VSCodePipelinePipelineGitConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.GitConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodePipeline.Pipeline.GitPullRequestFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,7 +48,8 @@ function Add-VSCodePipelinePipelineGitConfiguration {
                 }
             })]
         $PullRequest,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodePipeline.Pipeline.GitPushFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +60,8 @@ function Add-VSCodePipelinePipelineGitConfiguration {
                 }
             })]
         $Push,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,11 +72,14 @@ function Add-VSCodePipelinePipelineGitConfiguration {
                 }
             })]
         $SourceActionName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -83,6 +89,7 @@ function Add-VSCodePipelinePipelineGitConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodePipeline.Pipeline.GitConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

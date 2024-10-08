@@ -1,11 +1,10 @@
 function Add-VSDeadlineFleetFleetAttributeCapability {
     <#
     .SYNOPSIS
-        Adds an AWS::Deadline::Fleet.FleetAttributeCapability resource property to the template. 
+        Adds an AWS::Deadline::Fleet.FleetAttributeCapability resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Deadline::Fleet.FleetAttributeCapability resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetattributecapability.html
@@ -25,13 +24,16 @@ function Add-VSDeadlineFleetFleetAttributeCapability {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Deadline.Fleet.FleetAttributeCapability')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Values,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,11 +44,14 @@ function Add-VSDeadlineFleetFleetAttributeCapability {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSDeadlineFleetFleetAttributeCapability {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Deadline.Fleet.FleetAttributeCapability'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

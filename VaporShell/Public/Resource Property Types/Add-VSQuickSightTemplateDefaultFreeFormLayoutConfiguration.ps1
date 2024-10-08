@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateDefaultFreeFormLayoutConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.DefaultFreeFormLayoutConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Template.DefaultFreeFormLayoutConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.DefaultFreeFormLayoutConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfreeformlayoutconfiguration.html
@@ -18,17 +17,22 @@ function Add-VSQuickSightTemplateDefaultFreeFormLayoutConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.DefaultFreeFormLayoutConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $CanvasSizeOptions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSQuickSightTemplateDefaultFreeFormLayoutConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.DefaultFreeFormLayoutConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSBedrockFlowVersionFlowDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::Bedrock::FlowVersion.FlowDefinition resource property to the template. 
+        Adds an AWS::Bedrock::FlowVersion.FlowDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Bedrock::FlowVersion.FlowDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowdefinition.html
@@ -27,11 +26,13 @@ function Add-VSBedrockFlowVersionFlowDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.FlowDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Bedrock.FlowVersion.FlowConnection"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +43,8 @@ function Add-VSBedrockFlowVersionFlowDefinition {
                 }
             })]
         $Connections,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Bedrock.FlowVersion.FlowNode"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +55,14 @@ function Add-VSBedrockFlowVersionFlowDefinition {
                 }
             })]
         $Nodes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +72,7 @@ function Add-VSBedrockFlowVersionFlowDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Bedrock.FlowVersion.FlowDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

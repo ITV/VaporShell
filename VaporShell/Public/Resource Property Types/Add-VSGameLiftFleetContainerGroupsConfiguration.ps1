@@ -1,11 +1,10 @@
 function Add-VSGameLiftFleetContainerGroupsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::Fleet.ContainerGroupsConfiguration resource property to the template. 
+        Adds an AWS::GameLift::Fleet.ContainerGroupsConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GameLift::Fleet.ContainerGroupsConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsconfiguration.html
@@ -30,21 +29,28 @@ function Add-VSGameLiftFleetContainerGroupsConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GameLift.Fleet.ContainerGroupsConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $ConnectionPortRange,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $ContainerGroupDefinitionNames,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ContainerGroupsPerInstance
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +60,7 @@ function Add-VSGameLiftFleetContainerGroupsConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GameLift.Fleet.ContainerGroupsConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

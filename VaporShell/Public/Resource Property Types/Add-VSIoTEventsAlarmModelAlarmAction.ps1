@@ -1,11 +1,10 @@
 function Add-VSIoTEventsAlarmModelAlarmAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::AlarmModel.AlarmAction resource property to the template. 
+        Adds an AWS::IoTEvents::AlarmModel.AlarmAction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::AlarmModel.AlarmAction resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html
@@ -58,33 +57,46 @@ function Add-VSIoTEventsAlarmModelAlarmAction {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.AlarmAction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DynamoDBv2,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IotEvents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IotSiteWise,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sqs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Firehose,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DynamoDB,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IotTopicPublish,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Lambda
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -94,6 +106,7 @@ function Add-VSIoTEventsAlarmModelAlarmAction {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTEvents.AlarmModel.AlarmAction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

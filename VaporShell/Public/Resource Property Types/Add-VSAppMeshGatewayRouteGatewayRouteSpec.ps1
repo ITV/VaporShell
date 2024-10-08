@@ -1,11 +1,10 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteSpec {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteSpec resource property to the template. 
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteSpec resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteSpec resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html
@@ -33,13 +32,16 @@ function Add-VSAppMeshGatewayRouteGatewayRouteSpec {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteSpec')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $HttpRoute,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,15 +52,20 @@ function Add-VSAppMeshGatewayRouteGatewayRouteSpec {
                 }
             })]
         $Priority,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Http2Route,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GrpcRoute
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +75,7 @@ function Add-VSAppMeshGatewayRouteGatewayRouteSpec {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteSpec'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSMediaLiveMultiplexprogramMultiplexProgramSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Multiplexprogram.MultiplexProgramSettings resource property to the template. 
+        Adds an AWS::MediaLive::Multiplexprogram.MultiplexProgramSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Multiplexprogram.MultiplexProgramSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogramsettings.html
@@ -33,11 +32,13 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Multiplexprogram.MultiplexProgramSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,11 +49,14 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramSettings {
                 }
             })]
         $PreferredChannelPipeline,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ServiceDescriptor,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VideoSettings,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,11 +67,14 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramSettings {
                 }
             })]
         $ProgramNumber
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Multiplexprogram.MultiplexProgramSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

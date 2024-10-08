@@ -1,11 +1,10 @@
 function Add-VSConfigConfigurationRecorderRecordingMode {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::ConfigurationRecorder.RecordingMode resource property to the template. 
+        Adds an AWS::Config::ConfigurationRecorder.RecordingMode resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Config::ConfigurationRecorder.RecordingMode resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmode.html
@@ -25,11 +24,13 @@ function Add-VSConfigConfigurationRecorderRecordingMode {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Config.ConfigurationRecorder.RecordingMode')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,7 +41,8 @@ function Add-VSConfigConfigurationRecorderRecordingMode {
                 }
             })]
         $RecordingFrequency,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Config.ConfigurationRecorder.RecordingModeOverride"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +53,14 @@ function Add-VSConfigConfigurationRecorderRecordingMode {
                 }
             })]
         $RecordingModeOverrides
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +70,7 @@ function Add-VSConfigConfigurationRecorderRecordingMode {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Config.ConfigurationRecorder.RecordingMode'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

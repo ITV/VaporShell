@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisCustomActionFilterOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.CustomActionFilterOperation resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.CustomActionFilterOperation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.CustomActionFilterOperation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-customactionfilteroperation.html
@@ -23,19 +22,25 @@ function Add-VSQuickSightAnalysisCustomActionFilterOperation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.CustomActionFilterOperation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SelectedFieldsConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $TargetVisualsConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSQuickSightAnalysisCustomActionFilterOperation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.CustomActionFilterOperation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

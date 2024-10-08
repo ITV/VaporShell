@@ -1,11 +1,10 @@
 function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.ScheduledTriggerProperties resource property to the template. 
+        Adds an AWS::CustomerProfiles::Integration.ScheduledTriggerProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.ScheduledTriggerProperties resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html
@@ -48,11 +47,13 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.ScheduledTriggerProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,7 +64,8 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
                 }
             })]
         $ScheduleEndTime,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -74,7 +76,8 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
                 }
             })]
         $Timezone,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,7 +88,8 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
                 }
             })]
         $ScheduleExpression,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,7 +100,8 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
                 }
             })]
         $FirstExecutionFrom,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -107,7 +112,8 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
                 }
             })]
         $ScheduleStartTime,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -118,7 +124,8 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
                 }
             })]
         $DataPullMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,11 +136,14 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
                 }
             })]
         $ScheduleOffset
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -143,6 +153,7 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CustomerProfiles.Integration.ScheduledTriggerProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

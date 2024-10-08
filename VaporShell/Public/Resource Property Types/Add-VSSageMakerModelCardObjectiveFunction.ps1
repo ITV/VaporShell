@@ -1,11 +1,10 @@
 function Add-VSSageMakerModelCardObjectiveFunction {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelCard.ObjectiveFunction resource property to the template. 
+        Adds an AWS::SageMaker::ModelCard.ObjectiveFunction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelCard.ObjectiveFunction resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html
@@ -23,13 +22,16 @@ function Add-VSSageMakerModelCardObjectiveFunction {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.ObjectiveFunction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Function,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +42,14 @@ function Add-VSSageMakerModelCardObjectiveFunction {
                 }
             })]
         $Notes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSSageMakerModelCardObjectiveFunction {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelCard.ObjectiveFunction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

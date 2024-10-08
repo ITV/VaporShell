@@ -1,11 +1,10 @@
 function Add-VSResilienceHubResiliencyPolicyPolicyMap {
     <#
     .SYNOPSIS
-        Adds an AWS::ResilienceHub::ResiliencyPolicy.PolicyMap resource property to the template. 
+        Adds an AWS::ResilienceHub::ResiliencyPolicy.PolicyMap resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ResilienceHub::ResiliencyPolicy.PolicyMap resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html
@@ -33,23 +32,31 @@ function Add-VSResilienceHubResiliencyPolicyPolicyMap {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ResilienceHub.ResiliencyPolicy.PolicyMap')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $AZ,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Region,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Hardware,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Software
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSResilienceHubResiliencyPolicyPolicyMap {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ResilienceHub.ResiliencyPolicy.PolicyMap'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

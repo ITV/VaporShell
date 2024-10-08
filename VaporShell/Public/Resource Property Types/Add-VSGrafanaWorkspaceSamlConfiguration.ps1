@@ -1,11 +1,10 @@
 function Add-VSGrafanaWorkspaceSamlConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Grafana::Workspace.SamlConfiguration resource property to the template. 
+        Adds an AWS::Grafana::Workspace.SamlConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Grafana::Workspace.SamlConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-samlconfiguration.html
@@ -40,11 +39,13 @@ function Add-VSGrafanaWorkspaceSamlConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Grafana.Workspace.SamlConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,19 +56,26 @@ function Add-VSGrafanaWorkspaceSamlConfiguration {
                 }
             })]
         $LoginValidityDuration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RoleValues,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $IdpMetadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AssertionAttributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AllowedOrganizations
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +85,7 @@ function Add-VSGrafanaWorkspaceSamlConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Grafana.Workspace.SamlConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

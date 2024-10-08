@@ -1,11 +1,10 @@
 function Add-VSBedrockFlowVersionFlowNodeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Bedrock::FlowVersion.FlowNodeConfiguration resource property to the template. 
+        Adds an AWS::Bedrock::FlowVersion.FlowNodeConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Bedrock::FlowVersion.FlowNodeConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html
@@ -73,17 +72,22 @@ function Add-VSBedrockFlowVersionFlowNodeConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.FlowNodeConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Condition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Retrieval,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Agent,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,11 +98,14 @@ function Add-VSBedrockFlowVersionFlowNodeConfiguration {
                 }
             })]
         $Input,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Storage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $KnowledgeBase,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -109,7 +116,8 @@ function Add-VSBedrockFlowVersionFlowNodeConfiguration {
                 }
             })]
         $Output,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -120,7 +128,8 @@ function Add-VSBedrockFlowVersionFlowNodeConfiguration {
                 }
             })]
         $Iterator,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -131,17 +140,23 @@ function Add-VSBedrockFlowVersionFlowNodeConfiguration {
                 }
             })]
         $Collector,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Prompt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LambdaFunction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Lex
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -207,6 +222,7 @@ function Add-VSBedrockFlowVersionFlowNodeConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Bedrock.FlowVersion.FlowNodeConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

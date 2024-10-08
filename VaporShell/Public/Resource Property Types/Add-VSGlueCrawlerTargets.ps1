@@ -1,11 +1,10 @@
 function Add-VSGlueCrawlerTargets {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Crawler.Targets resource property to the template. 
+        Adds an AWS::Glue::Crawler.Targets resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Crawler.Targets resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html
@@ -55,11 +54,13 @@ function Add-VSGlueCrawlerTargets {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Crawler.Targets')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Crawler.S3Target"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +71,8 @@ function Add-VSGlueCrawlerTargets {
                 }
             })]
         $S3Targets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Crawler.CatalogTarget"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,7 +83,8 @@ function Add-VSGlueCrawlerTargets {
                 }
             })]
         $CatalogTargets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Crawler.DeltaTarget"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -92,7 +95,8 @@ function Add-VSGlueCrawlerTargets {
                 }
             })]
         $DeltaTargets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Crawler.MongoDBTarget"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -103,7 +107,8 @@ function Add-VSGlueCrawlerTargets {
                 }
             })]
         $MongoDBTargets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Crawler.JdbcTarget"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -114,7 +119,8 @@ function Add-VSGlueCrawlerTargets {
                 }
             })]
         $JdbcTargets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Crawler.DynamoDBTarget"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,7 +131,8 @@ function Add-VSGlueCrawlerTargets {
                 }
             })]
         $DynamoDBTargets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Crawler.IcebergTarget"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -136,11 +143,14 @@ function Add-VSGlueCrawlerTargets {
                 }
             })]
         $IcebergTargets
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -150,6 +160,7 @@ function Add-VSGlueCrawlerTargets {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Crawler.Targets'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

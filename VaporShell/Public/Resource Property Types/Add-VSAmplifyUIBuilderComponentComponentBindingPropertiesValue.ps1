@@ -1,11 +1,10 @@
 function Add-VSAmplifyUIBuilderComponentComponentBindingPropertiesValue {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Component.ComponentBindingPropertiesValue resource property to the template. 
+        Adds an AWS::AmplifyUIBuilder::Component.ComponentBindingPropertiesValue resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Component.ComponentBindingPropertiesValue resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalue.html
@@ -28,11 +27,13 @@ function Add-VSAmplifyUIBuilderComponentComponentBindingPropertiesValue {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentBindingPropertiesValue')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSAmplifyUIBuilderComponentComponentBindingPropertiesValue {
                 }
             })]
         $DefaultValue,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,13 +56,17 @@ function Add-VSAmplifyUIBuilderComponentComponentBindingPropertiesValue {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BindingProperties
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSAmplifyUIBuilderComponentComponentBindingPropertiesValue {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentBindingPropertiesValue'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

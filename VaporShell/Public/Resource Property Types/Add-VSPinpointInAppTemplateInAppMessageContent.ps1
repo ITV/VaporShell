@@ -1,11 +1,10 @@
 function Add-VSPinpointInAppTemplateInAppMessageContent {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::InAppTemplate.InAppMessageContent resource property to the template. 
+        Adds an AWS::Pinpoint::InAppTemplate.InAppMessageContent resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::InAppTemplate.InAppMessageContent resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html
@@ -43,15 +42,19 @@ function Add-VSPinpointInAppTemplateInAppMessageContent {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pinpoint.InAppTemplate.InAppMessageContent')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $BodyConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecondaryBtn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,11 +65,14 @@ function Add-VSPinpointInAppTemplateInAppMessageContent {
                 }
             })]
         $ImageUrl,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PrimaryBtn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HeaderConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,11 +83,14 @@ function Add-VSPinpointInAppTemplateInAppMessageContent {
                 }
             })]
         $BackgroundColor
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -91,6 +100,7 @@ function Add-VSPinpointInAppTemplateInAppMessageContent {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pinpoint.InAppTemplate.InAppMessageContent'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

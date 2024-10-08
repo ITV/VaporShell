@@ -1,11 +1,10 @@
 function Add-VSConnectEvaluationFormEvaluationFormItem {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::EvaluationForm.EvaluationFormItem resource property to the template. 
+        Adds an AWS::Connect::EvaluationForm.EvaluationFormItem resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Connect::EvaluationForm.EvaluationFormItem resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitem.html
@@ -23,19 +22,25 @@ function Add-VSConnectEvaluationFormEvaluationFormItem {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormItem')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Question,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Section
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSConnectEvaluationFormEvaluationFormItem {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormItem'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

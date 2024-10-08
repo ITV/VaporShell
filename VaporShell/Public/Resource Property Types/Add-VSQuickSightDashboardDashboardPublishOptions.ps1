@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardDashboardPublishOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.DashboardPublishOptions resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.DashboardPublishOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.DashboardPublishOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html
@@ -68,37 +67,52 @@ function Add-VSQuickSightDashboardDashboardPublishOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DashboardPublishOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SheetControlsOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExportToCSVOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DataPointMenuLabelOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DataPointDrillUpDownOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AdHocFilteringOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VisualPublishOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VisualMenuOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DataPointTooltipOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VisualAxisSortOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExportWithHiddenFieldsOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SheetLayoutElementMaximizationOption
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -108,6 +122,7 @@ function Add-VSQuickSightDashboardDashboardPublishOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.DashboardPublishOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

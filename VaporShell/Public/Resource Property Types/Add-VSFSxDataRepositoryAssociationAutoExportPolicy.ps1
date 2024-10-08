@@ -1,11 +1,10 @@
 function Add-VSFSxDataRepositoryAssociationAutoExportPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::DataRepositoryAssociation.AutoExportPolicy resource property to the template. 
+        Adds an AWS::FSx::DataRepositoryAssociation.AutoExportPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::FSx::DataRepositoryAssociation.AutoExportPolicy resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html
@@ -20,17 +19,22 @@ function Add-VSFSxDataRepositoryAssociationAutoExportPolicy {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.FSx.DataRepositoryAssociation.AutoExportPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Events
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +44,7 @@ function Add-VSFSxDataRepositoryAssociationAutoExportPolicy {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.FSx.DataRepositoryAssociation.AutoExportPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSCleanRoomsConfiguredTableGlueTableReference {
     <#
     .SYNOPSIS
-        Adds an AWS::CleanRooms::ConfiguredTable.GlueTableReference resource property to the template. 
+        Adds an AWS::CleanRooms::ConfiguredTable.GlueTableReference resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CleanRooms::ConfiguredTable.GlueTableReference resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html
@@ -23,11 +22,13 @@ function Add-VSCleanRoomsConfiguredTableGlueTableReference {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.GlueTableReference')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSCleanRoomsConfiguredTableGlueTableReference {
                 }
             })]
         $TableName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSCleanRoomsConfiguredTableGlueTableReference {
                 }
             })]
         $DatabaseName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSCleanRoomsConfiguredTableGlueTableReference {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CleanRooms.ConfiguredTable.GlueTableReference'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateBodySectionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.BodySectionConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Template.BodySectionConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.BodySectionConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectionconfiguration.html
@@ -33,17 +32,22 @@ function Add-VSQuickSightTemplateBodySectionConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.BodySectionConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Content,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Style,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PageBreakConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,11 +58,14 @@ function Add-VSQuickSightTemplateBodySectionConfiguration {
                 }
             })]
         $SectionId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +75,7 @@ function Add-VSQuickSightTemplateBodySectionConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.BodySectionConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

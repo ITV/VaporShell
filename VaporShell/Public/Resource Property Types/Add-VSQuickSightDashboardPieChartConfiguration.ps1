@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardPieChartConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.PieChartConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.PieChartConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.PieChartConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-piechartconfiguration.html
@@ -70,17 +69,22 @@ function Add-VSQuickSightDashboardPieChartConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PieChartConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SortConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Legend,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DataLabels,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.ContributionAnalysisDefault"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -91,25 +95,35 @@ function Add-VSQuickSightDashboardPieChartConfiguration {
                 }
             })]
         $ContributionAnalysisDefaults,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CategoryLabelOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FieldWells,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Tooltip,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DonutOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SmallMultiplesOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ValueLabelOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VisualPalette
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -119,6 +133,7 @@ function Add-VSQuickSightDashboardPieChartConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.PieChartConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

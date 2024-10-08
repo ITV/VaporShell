@@ -1,11 +1,10 @@
 function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackageV2::OriginEndpoint.DashManifestConfiguration resource property to the template. 
+        Adds an AWS::MediaPackageV2::OriginEndpoint.DashManifestConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaPackageV2::OriginEndpoint.DashManifestConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html
@@ -70,11 +69,13 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.DashManifestConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,7 +86,8 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
                 }
             })]
         $ManifestWindowSeconds,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,9 +98,11 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
                 }
             })]
         $ManifestName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PeriodTriggers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -109,7 +113,8 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
                 }
             })]
         $DrmSignaling,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -120,9 +125,11 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
                 }
             })]
         $SuggestedPresentationDelaySeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $UtcTiming,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -133,9 +140,11 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
                 }
             })]
         $MinBufferTimeSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FilterConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -146,7 +155,8 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
                 }
             })]
         $MinUpdatePeriodSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -157,13 +167,17 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
                 }
             })]
         $SegmentTemplateFormat,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ScteDash
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -173,6 +187,7 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaPackageV2.OriginEndpoint.DashManifestConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

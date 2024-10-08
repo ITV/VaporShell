@@ -1,11 +1,10 @@
 function Add-VSSageMakerClusterClusterInstanceGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Cluster.ClusterInstanceGroup resource property to the template. 
+        Adds an AWS::SageMaker::Cluster.ClusterInstanceGroup resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Cluster.ClusterInstanceGroup resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html
@@ -62,11 +61,13 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.Cluster.ClusterInstanceGroup')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,9 +78,11 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
                 }
             })]
         $InstanceCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OnStartDeepHealthChecks,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,7 +93,8 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
                 }
             })]
         $InstanceGroupName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.Cluster.ClusterInstanceStorageConfig"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,7 +105,8 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
                 }
             })]
         $InstanceStorageConfigs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -112,9 +117,11 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
                 }
             })]
         $CurrentCount,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $LifeCycleConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,7 +132,8 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
                 }
             })]
         $InstanceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -136,7 +144,8 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
                 }
             })]
         $ThreadsPerCore,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -147,11 +156,14 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
                 }
             })]
         $ExecutionRole
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -161,6 +173,7 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.Cluster.ClusterInstanceGroup'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

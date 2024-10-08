@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallRuleGroupReferenceSets {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.ReferenceSets resource property to the template. 
+        Adds an AWS::NetworkFirewall::RuleGroup.ReferenceSets resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.ReferenceSets resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-referencesets.html
@@ -19,11 +18,13 @@ function Add-VSNetworkFirewallRuleGroupReferenceSets {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.ReferenceSets')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.IPSetReference"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -34,11 +35,14 @@ function Add-VSNetworkFirewallRuleGroupReferenceSets {
                 }
             })]
         $IPSetReferences
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -48,6 +52,7 @@ function Add-VSNetworkFirewallRuleGroupReferenceSets {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.RuleGroup.ReferenceSets'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

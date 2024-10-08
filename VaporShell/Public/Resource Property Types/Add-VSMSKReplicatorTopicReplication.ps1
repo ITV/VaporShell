@@ -1,11 +1,10 @@
 function Add-VSMSKReplicatorTopicReplication {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Replicator.TopicReplication resource property to the template. 
+        Adds an AWS::MSK::Replicator.TopicReplication resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MSK::Replicator.TopicReplication resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html
@@ -52,19 +51,25 @@ function Add-VSMSKReplicatorTopicReplication {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MSK.Replicator.TopicReplication')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $StartingPosition,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $TopicsToReplicate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TopicsToExclude,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TopicNameConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,7 +80,8 @@ function Add-VSMSKReplicatorTopicReplication {
                 }
             })]
         $CopyTopicConfigurations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,7 +92,8 @@ function Add-VSMSKReplicatorTopicReplication {
                 }
             })]
         $DetectAndCopyNewTopics,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -97,11 +104,14 @@ function Add-VSMSKReplicatorTopicReplication {
                 }
             })]
         $CopyAccessControlListsForTopics
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -111,6 +121,7 @@ function Add-VSMSKReplicatorTopicReplication {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MSK.Replicator.TopicReplication'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

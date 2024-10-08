@@ -1,11 +1,10 @@
 function Add-VSTransferWorkflowWorkflowStep {
     <#
     .SYNOPSIS
-        Adds an AWS::Transfer::Workflow.WorkflowStep resource property to the template. 
+        Adds an AWS::Transfer::Workflow.WorkflowStep resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Transfer::Workflow.WorkflowStep resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html
@@ -43,17 +42,22 @@ function Add-VSTransferWorkflowWorkflowStep {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Transfer.Workflow.WorkflowStep')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $CustomStepDetails,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CopyStepDetails,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DecryptStepDetails,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,15 +68,20 @@ function Add-VSTransferWorkflowWorkflowStep {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TagStepDetails,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DeleteStepDetails
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -82,6 +91,7 @@ function Add-VSTransferWorkflowWorkflowStep {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Transfer.Workflow.WorkflowStep'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

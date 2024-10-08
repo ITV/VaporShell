@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateComparisonFormatConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.ComparisonFormatConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Template.ComparisonFormatConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.ComparisonFormatConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-comparisonformatconfiguration.html
@@ -23,19 +22,25 @@ function Add-VSQuickSightTemplateComparisonFormatConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.ComparisonFormatConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $NumberDisplayFormatConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PercentageDisplayFormatConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSQuickSightTemplateComparisonFormatConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.ComparisonFormatConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

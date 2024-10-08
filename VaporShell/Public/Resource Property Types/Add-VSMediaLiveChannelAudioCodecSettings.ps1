@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelAudioCodecSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioCodecSettings resource property to the template. 
+        Adds an AWS::MediaLive::Channel.AudioCodecSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioCodecSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html
@@ -48,29 +47,40 @@ function Add-VSMediaLiveChannelAudioCodecSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioCodecSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Eac3Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Ac3Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Mp2Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Eac3AtmosSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PassThroughSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $WavSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AacSettings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -80,6 +90,7 @@ function Add-VSMediaLiveChannelAudioCodecSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.AudioCodecSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

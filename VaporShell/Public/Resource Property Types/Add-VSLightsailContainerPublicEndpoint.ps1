@@ -1,11 +1,10 @@
 function Add-VSLightsailContainerPublicEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::Lightsail::Container.PublicEndpoint resource property to the template. 
+        Adds an AWS::Lightsail::Container.PublicEndpoint resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lightsail::Container.PublicEndpoint resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html
@@ -28,11 +27,13 @@ function Add-VSLightsailContainerPublicEndpoint {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lightsail.Container.PublicEndpoint')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSLightsailContainerPublicEndpoint {
                 }
             })]
         $ContainerName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,13 +56,17 @@ function Add-VSLightsailContainerPublicEndpoint {
                 }
             })]
         $ContainerPort,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HealthCheckConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSLightsailContainerPublicEndpoint {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lightsail.Container.PublicEndpoint'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

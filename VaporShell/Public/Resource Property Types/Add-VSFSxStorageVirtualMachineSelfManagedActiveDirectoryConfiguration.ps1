@@ -1,11 +1,10 @@
 function Add-VSFSxStorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::StorageVirtualMachine.SelfManagedActiveDirectoryConfiguration resource property to the template. 
+        Adds an AWS::FSx::StorageVirtualMachine.SelfManagedActiveDirectoryConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::FSx::StorageVirtualMachine.SelfManagedActiveDirectoryConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration-selfmanagedactivedirectoryconfiguration.html
@@ -44,13 +43,15 @@ function Add-VSFSxStorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.FSx.StorageVirtualMachine.SelfManagedActiveDirectoryConfiguration')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +62,8 @@ function Add-VSFSxStorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
                 }
             })]
         $FileSystemAdministratorsGroup,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,7 +74,8 @@ function Add-VSFSxStorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
                 }
             })]
         $UserName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,7 +86,8 @@ function Add-VSFSxStorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
                 }
             })]
         $DomainName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,9 +98,11 @@ function Add-VSFSxStorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
                 }
             })]
         $OrganizationalUnitDistinguishedName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DnsIps,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -107,11 +113,14 @@ function Add-VSFSxStorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
                 }
             })]
         $Password
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -121,6 +130,7 @@ function Add-VSFSxStorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.FSx.StorageVirtualMachine.SelfManagedActiveDirectoryConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

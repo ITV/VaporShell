@@ -1,11 +1,10 @@
 function Add-VSAppFlowFlowPrefixConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.PrefixConfig resource property to the template. 
+        Adds an AWS::AppFlow::Flow.PrefixConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.PrefixConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html
@@ -30,11 +29,13 @@ function Add-VSAppFlowFlowPrefixConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.Flow.PrefixConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,9 +46,11 @@ function Add-VSAppFlowFlowPrefixConfig {
                 }
             })]
         $PrefixType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PathPrefixHierarchy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,11 +61,14 @@ function Add-VSAppFlowFlowPrefixConfig {
                 }
             })]
         $PrefixFormat
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +78,7 @@ function Add-VSAppFlowFlowPrefixConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.Flow.PrefixConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

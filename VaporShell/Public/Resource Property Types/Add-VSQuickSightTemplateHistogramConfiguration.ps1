@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateHistogramConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.HistogramConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Template.HistogramConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.HistogramConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-histogramconfiguration.html
@@ -53,31 +52,43 @@ function Add-VSQuickSightTemplateHistogramConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.HistogramConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $YAxisDisplayOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DataLabels,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BinOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FieldWells,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Tooltip,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $XAxisLabelOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VisualPalette,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $XAxisDisplayOptions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +98,7 @@ function Add-VSQuickSightTemplateHistogramConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.HistogramConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

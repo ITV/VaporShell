@@ -1,11 +1,10 @@
 function Add-VSAppTestTestCaseMainframeActionProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppTest::TestCase.MainframeActionProperties resource property to the template. 
+        Adds an AWS::AppTest::TestCase.MainframeActionProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppTest::TestCase.MainframeActionProperties resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeactionproperties.html
@@ -18,11 +17,13 @@ function Add-VSAppTestTestCaseMainframeActionProperties {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppTest.TestCase.MainframeActionProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSAppTestTestCaseMainframeActionProperties {
                 }
             })]
         $DmsTaskArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSAppTestTestCaseMainframeActionProperties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppTest.TestCase.MainframeActionProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

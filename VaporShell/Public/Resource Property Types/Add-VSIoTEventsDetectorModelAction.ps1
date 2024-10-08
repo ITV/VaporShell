@@ -1,11 +1,10 @@
 function Add-VSIoTEventsDetectorModelAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.Action resource property to the template. 
+        Adds an AWS::IoTEvents::DetectorModel.Action resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.Action resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html
@@ -78,41 +77,58 @@ function Add-VSIoTEventsDetectorModelAction {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.Action')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $IotEvents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Firehose,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DynamoDB,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IotTopicPublish,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DynamoDBv2,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IotSiteWise,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ResetTimer,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sqs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SetTimer,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ClearTimer,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Lambda,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SetVariable
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -122,6 +138,7 @@ function Add-VSIoTEventsDetectorModelAction {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTEvents.DetectorModel.Action'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

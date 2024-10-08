@@ -1,11 +1,10 @@
 function Add-VSEMRContainersVirtualClusterContainerProvider {
     <#
     .SYNOPSIS
-        Adds an AWS::EMRContainers::VirtualCluster.ContainerProvider resource property to the template. 
+        Adds an AWS::EMRContainers::VirtualCluster.ContainerProvider resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMRContainers::VirtualCluster.ContainerProvider resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html
@@ -28,11 +27,13 @@ function Add-VSEMRContainersVirtualClusterContainerProvider {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMRContainers.VirtualCluster.ContainerProvider')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSEMRContainersVirtualClusterContainerProvider {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,13 +56,17 @@ function Add-VSEMRContainersVirtualClusterContainerProvider {
                 }
             })]
         $Id,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Info
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSEMRContainersVirtualClusterContainerProvider {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMRContainers.VirtualCluster.ContainerProvider'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

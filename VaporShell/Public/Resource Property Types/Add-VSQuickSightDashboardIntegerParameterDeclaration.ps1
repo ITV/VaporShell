@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardIntegerParameterDeclaration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.IntegerParameterDeclaration resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.IntegerParameterDeclaration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.IntegerParameterDeclaration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameterdeclaration.html
@@ -40,11 +39,13 @@ function Add-VSQuickSightDashboardIntegerParameterDeclaration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.IntegerParameterDeclaration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.MappedDataSetParameter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,9 +56,11 @@ function Add-VSQuickSightDashboardIntegerParameterDeclaration {
                 }
             })]
         $MappedDataSetParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultValues,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,9 +71,11 @@ function Add-VSQuickSightDashboardIntegerParameterDeclaration {
                 }
             })]
         $ParameterValueType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ValueWhenUnset,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,11 +86,14 @@ function Add-VSQuickSightDashboardIntegerParameterDeclaration {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -95,6 +103,7 @@ function Add-VSQuickSightDashboardIntegerParameterDeclaration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.IntegerParameterDeclaration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

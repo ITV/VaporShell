@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelAudioChannelMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioChannelMapping resource property to the template. 
+        Adds an AWS::MediaLive::Channel.AudioChannelMapping resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioChannelMapping resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html
@@ -24,11 +23,13 @@ function Add-VSMediaLiveChannelAudioChannelMapping {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioChannelMapping')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -39,7 +40,8 @@ function Add-VSMediaLiveChannelAudioChannelMapping {
                 }
             })]
         $OutputChannel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.InputChannelLevel"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,11 +52,14 @@ function Add-VSMediaLiveChannelAudioChannelMapping {
                 }
             })]
         $InputChannelLevels
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -64,6 +69,7 @@ function Add-VSMediaLiveChannelAudioChannelMapping {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.AudioChannelMapping'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

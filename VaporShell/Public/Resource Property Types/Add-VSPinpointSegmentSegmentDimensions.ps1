@@ -1,11 +1,10 @@
 function Add-VSPinpointSegmentSegmentDimensions {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Segment.SegmentDimensions resource property to the template. 
+        Adds an AWS::Pinpoint::Segment.SegmentDimensions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Segment.SegmentDimensions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html
@@ -43,13 +42,16 @@ function Add-VSPinpointSegmentSegmentDimensions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.SegmentDimensions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Demographic,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +62,8 @@ function Add-VSPinpointSegmentSegmentDimensions {
                 }
             })]
         $Metrics,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,9 +74,11 @@ function Add-VSPinpointSegmentSegmentDimensions {
                 }
             })]
         $Attributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Behavior,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,13 +89,17 @@ function Add-VSPinpointSegmentSegmentDimensions {
                 }
             })]
         $UserAttributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Location
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -142,6 +151,7 @@ function Add-VSPinpointSegmentSegmentDimensions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pinpoint.Segment.SegmentDimensions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

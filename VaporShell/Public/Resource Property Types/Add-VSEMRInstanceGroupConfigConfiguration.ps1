@@ -1,11 +1,10 @@
 function Add-VSEMRInstanceGroupConfigConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::InstanceGroupConfig.Configuration resource property to the template. 
+        Adds an AWS::EMR::InstanceGroupConfig.Configuration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::InstanceGroupConfig.Configuration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html
@@ -32,11 +31,13 @@ function Add-VSEMRInstanceGroupConfigConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.Configuration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,10 +48,12 @@ function Add-VSEMRInstanceGroupConfigConfiguration {
                 }
             })]
         $Classification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $ConfigurationProperties,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EMR.InstanceGroupConfig.Configuration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,11 +64,14 @@ function Add-VSEMRInstanceGroupConfigConfiguration {
                 }
             })]
         $Configurations
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -75,6 +81,7 @@ function Add-VSEMRInstanceGroupConfigConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.InstanceGroupConfig.Configuration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

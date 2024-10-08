@@ -1,11 +1,10 @@
 function Add-VSAppMeshVirtualNodeListener {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.Listener resource property to the template. 
+        Adds an AWS::AppMesh::VirtualNode.Listener resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.Listener resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html
@@ -43,27 +42,37 @@ function Add-VSAppMeshVirtualNodeListener {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.Listener')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ConnectionPool,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Timeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HealthCheck,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TLS,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $PortMapping,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OutlierDetection
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -73,6 +82,7 @@ function Add-VSAppMeshVirtualNodeListener {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.Listener'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallTLSInspectionConfigurationCheckCertificateRevocationStatus {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::TLSInspectionConfiguration.CheckCertificateRevocationStatus resource property to the template. 
+        Adds an AWS::NetworkFirewall::TLSInspectionConfiguration.CheckCertificateRevocationStatus resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::TLSInspectionConfiguration.CheckCertificateRevocationStatus resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-checkcertificaterevocationstatus.html
@@ -23,11 +22,13 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationCheckCertificateRevocati
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.CheckCertificateRevocationStatus')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationCheckCertificateRevocati
                 }
             })]
         $UnknownStatusAction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationCheckCertificateRevocati
                 }
             })]
         $RevokedStatusAction
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationCheckCertificateRevocati
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.CheckCertificateRevocationStatus'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

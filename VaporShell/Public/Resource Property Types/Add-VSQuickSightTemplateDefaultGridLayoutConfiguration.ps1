@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateDefaultGridLayoutConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.DefaultGridLayoutConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Template.DefaultGridLayoutConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.DefaultGridLayoutConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultgridlayoutconfiguration.html
@@ -18,17 +17,22 @@ function Add-VSQuickSightTemplateDefaultGridLayoutConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.DefaultGridLayoutConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $CanvasSizeOptions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSQuickSightTemplateDefaultGridLayoutConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.DefaultGridLayoutConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

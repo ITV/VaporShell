@@ -1,11 +1,10 @@
 function Add-VSBudgetsBudgetNotificationWithSubscribers {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::Budget.NotificationWithSubscribers resource property to the template. 
+        Adds an AWS::Budgets::Budget.NotificationWithSubscribers resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Budgets::Budget.NotificationWithSubscribers resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html
@@ -24,11 +23,13 @@ function Add-VSBudgetsBudgetNotificationWithSubscribers {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Budgets.Budget.NotificationWithSubscribers')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Budgets.Budget.Subscriber"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -39,13 +40,17 @@ function Add-VSBudgetsBudgetNotificationWithSubscribers {
                 }
             })]
         $Subscribers,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Notification
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -55,6 +60,7 @@ function Add-VSBudgetsBudgetNotificationWithSubscribers {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Budgets.Budget.NotificationWithSubscribers'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

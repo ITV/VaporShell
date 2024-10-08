@@ -1,11 +1,10 @@
 function Add-VSIoTAnalyticsPipelineActivity {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Pipeline.Activity resource property to the template. 
+        Adds an AWS::IoTAnalytics::Pipeline.Activity resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Pipeline.Activity resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html
@@ -63,35 +62,49 @@ function Add-VSIoTAnalyticsPipelineActivity {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.Activity')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SelectAttributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Datastore,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Filter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AddAttributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Channel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DeviceShadowEnrich,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Math,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Lambda,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DeviceRegistryEnrich,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RemoveAttributes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -101,6 +114,7 @@ function Add-VSIoTAnalyticsPipelineActivity {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Pipeline.Activity'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

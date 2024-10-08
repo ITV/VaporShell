@@ -1,11 +1,10 @@
 function Add-VSBedrockDataSourceConfluenceCrawlerConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Bedrock::DataSource.ConfluenceCrawlerConfiguration resource property to the template. 
+        Adds an AWS::Bedrock::DataSource.ConfluenceCrawlerConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Bedrock::DataSource.ConfluenceCrawlerConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencecrawlerconfiguration.html
@@ -18,17 +17,22 @@ function Add-VSBedrockDataSourceConfluenceCrawlerConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.ConfluenceCrawlerConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $FilterConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSBedrockDataSourceConfluenceCrawlerConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Bedrock.DataSource.ConfluenceCrawlerConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

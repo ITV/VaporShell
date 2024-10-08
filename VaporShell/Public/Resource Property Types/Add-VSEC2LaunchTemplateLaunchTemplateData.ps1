@@ -1,11 +1,10 @@
 function Add-VSEC2LaunchTemplateLaunchTemplateData {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.LaunchTemplateData resource property to the template. 
+        Adds an AWS::EC2::LaunchTemplate.LaunchTemplateData resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.LaunchTemplateData resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html
@@ -184,13 +183,16 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.LaunchTemplateData')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SecurityGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.LaunchTemplate.TagSpecification"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -201,7 +203,8 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $TagSpecifications,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Function.Base64","Vaporshell.Resource.UserData"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -212,7 +215,8 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $UserData,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.LaunchTemplate.BlockDeviceMapping"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -223,11 +227,14 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $BlockDeviceMappings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MaintenanceOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IamInstanceProfile,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -238,7 +245,8 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $KernelId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -249,7 +257,8 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $EbsOptimized,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.LaunchTemplate.ElasticGpuSpecification"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -260,7 +269,8 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $ElasticGpuSpecifications,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.LaunchTemplate.LaunchTemplateElasticInferenceAccelerator"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -271,9 +281,11 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $ElasticInferenceAccelerators,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Placement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.LaunchTemplate.NetworkInterface"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -284,9 +296,11 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $NetworkInterfaces,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EnclaveOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -297,7 +311,8 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $ImageId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -308,13 +323,17 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $InstanceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Monitoring,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HibernationOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MetadataOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.LaunchTemplate.LicenseSpecification"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -325,7 +344,8 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $LicenseSpecifications,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -336,7 +356,8 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $InstanceInitiatedShutdownBehavior,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -347,13 +368,17 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $DisableApiStop,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CpuOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PrivateDnsNameOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecurityGroupIds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -364,7 +389,8 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $KeyName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -375,11 +401,14 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $DisableApiTermination,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InstanceMarketOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InstanceRequirements,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -390,15 +419,20 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $RamDiskId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CapacityReservationSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CreditSpecification
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -408,6 +442,7 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.LaunchTemplate.LaunchTemplateData'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateGeospatialMapAggregatedFieldWells {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.GeospatialMapAggregatedFieldWells resource property to the template. 
+        Adds an AWS::QuickSight::Template.GeospatialMapAggregatedFieldWells resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.GeospatialMapAggregatedFieldWells resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialmapaggregatedfieldwells.html
@@ -34,11 +33,13 @@ function Add-VSQuickSightTemplateGeospatialMapAggregatedFieldWells {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.GeospatialMapAggregatedFieldWells')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.DimensionField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +50,8 @@ function Add-VSQuickSightTemplateGeospatialMapAggregatedFieldWells {
                 }
             })]
         $Colors,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.MeasureField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +62,8 @@ function Add-VSQuickSightTemplateGeospatialMapAggregatedFieldWells {
                 }
             })]
         $Values,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.DimensionField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +74,14 @@ function Add-VSQuickSightTemplateGeospatialMapAggregatedFieldWells {
                 }
             })]
         $Geospatial
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +91,7 @@ function Add-VSQuickSightTemplateGeospatialMapAggregatedFieldWells {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.GeospatialMapAggregatedFieldWells'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

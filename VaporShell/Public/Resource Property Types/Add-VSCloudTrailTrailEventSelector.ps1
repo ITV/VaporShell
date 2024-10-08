@@ -1,11 +1,10 @@
 function Add-VSCloudTrailTrailEventSelector {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudTrail::Trail.EventSelector resource property to the template. 
+        Adds an AWS::CloudTrail::Trail.EventSelector resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudTrail::Trail.EventSelector resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html
@@ -37,11 +36,13 @@ function Add-VSCloudTrailTrailEventSelector {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudTrail.Trail.EventSelector')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,7 +53,8 @@ function Add-VSCloudTrailTrailEventSelector {
                 }
             })]
         $IncludeManagementEvents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,9 +65,11 @@ function Add-VSCloudTrailTrailEventSelector {
                 }
             })]
         $ReadWriteType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExcludeManagementEventSources,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudTrail.Trail.DataResource"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,11 +80,14 @@ function Add-VSCloudTrailTrailEventSelector {
                 }
             })]
         $DataResources
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -90,6 +97,7 @@ function Add-VSCloudTrailTrailEventSelector {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudTrail.Trail.EventSelector'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

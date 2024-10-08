@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateWordCloudAggregatedFieldWells {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.WordCloudAggregatedFieldWells resource property to the template. 
+        Adds an AWS::QuickSight::Template.WordCloudAggregatedFieldWells resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.WordCloudAggregatedFieldWells resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-wordcloudaggregatedfieldwells.html
@@ -27,11 +26,13 @@ function Add-VSQuickSightTemplateWordCloudAggregatedFieldWells {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.WordCloudAggregatedFieldWells')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.DimensionField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +43,8 @@ function Add-VSQuickSightTemplateWordCloudAggregatedFieldWells {
                 }
             })]
         $GroupBy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.MeasureField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +55,14 @@ function Add-VSQuickSightTemplateWordCloudAggregatedFieldWells {
                 }
             })]
         $Size
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +72,7 @@ function Add-VSQuickSightTemplateWordCloudAggregatedFieldWells {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.WordCloudAggregatedFieldWells'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

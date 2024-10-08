@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelHlsOutputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.HlsOutputSettings resource property to the template. 
+        Adds an AWS::MediaLive::Channel.HlsOutputSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.HlsOutputSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsoutputsettings.html
@@ -33,11 +32,13 @@ function Add-VSMediaLiveChannelHlsOutputSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.HlsOutputSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,9 +49,11 @@ function Add-VSMediaLiveChannelHlsOutputSettings {
                 }
             })]
         $NameModifier,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HlsSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +64,8 @@ function Add-VSMediaLiveChannelHlsOutputSettings {
                 }
             })]
         $H265PackagingType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,11 +76,14 @@ function Add-VSMediaLiveChannelHlsOutputSettings {
                 }
             })]
         $SegmentModifier
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -86,6 +93,7 @@ function Add-VSMediaLiveChannelHlsOutputSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.HlsOutputSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSCognitoLogDeliveryConfigurationLogConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::LogDeliveryConfiguration.LogConfiguration resource property to the template. 
+        Adds an AWS::Cognito::LogDeliveryConfiguration.LogConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Cognito::LogDeliveryConfiguration.LogConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html
@@ -38,13 +37,16 @@ function Add-VSCognitoLogDeliveryConfigurationLogConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Cognito.LogDeliveryConfiguration.LogConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $FirehoseConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +57,14 @@ function Add-VSCognitoLogDeliveryConfigurationLogConfiguration {
                 }
             })]
         $EventSource,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $S3Configuration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CloudWatchLogsConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,11 +75,14 @@ function Add-VSCognitoLogDeliveryConfigurationLogConfiguration {
                 }
             })]
         $LogLevel
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -84,6 +92,7 @@ function Add-VSCognitoLogDeliveryConfigurationLogConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Cognito.LogDeliveryConfiguration.LogConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

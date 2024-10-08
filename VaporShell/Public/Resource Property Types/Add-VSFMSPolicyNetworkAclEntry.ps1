@@ -1,11 +1,10 @@
 function Add-VSFMSPolicyNetworkAclEntry {
     <#
     .SYNOPSIS
-        Adds an AWS::FMS::Policy.NetworkAclEntry resource property to the template. 
+        Adds an AWS::FMS::Policy.NetworkAclEntry resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::FMS::Policy.NetworkAclEntry resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html
@@ -48,15 +47,19 @@ function Add-VSFMSPolicyNetworkAclEntry {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.FMS.Policy.NetworkAclEntry')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $PortRange,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IcmpTypeCode,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,7 +70,8 @@ function Add-VSFMSPolicyNetworkAclEntry {
                 }
             })]
         $RuleAction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,7 +82,8 @@ function Add-VSFMSPolicyNetworkAclEntry {
                 }
             })]
         $CidrBlock,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,7 +94,8 @@ function Add-VSFMSPolicyNetworkAclEntry {
                 }
             })]
         $Egress,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,7 +106,8 @@ function Add-VSFMSPolicyNetworkAclEntry {
                 }
             })]
         $Ipv6CidrBlock,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,11 +118,14 @@ function Add-VSFMSPolicyNetworkAclEntry {
                 }
             })]
         $Protocol
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -125,6 +135,7 @@ function Add-VSFMSPolicyNetworkAclEntry {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.FMS.Policy.NetworkAclEntry'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

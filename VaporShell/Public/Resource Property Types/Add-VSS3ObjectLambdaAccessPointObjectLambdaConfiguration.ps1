@@ -1,11 +1,10 @@
 function Add-VSS3ObjectLambdaAccessPointObjectLambdaConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3ObjectLambda::AccessPoint.ObjectLambdaConfiguration resource property to the template. 
+        Adds an AWS::S3ObjectLambda::AccessPoint.ObjectLambdaConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3ObjectLambda::AccessPoint.ObjectLambdaConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html
@@ -37,11 +36,13 @@ function Add-VSS3ObjectLambdaAccessPointObjectLambdaConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3ObjectLambda.AccessPoint.ObjectLambdaConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,7 +53,8 @@ function Add-VSS3ObjectLambdaAccessPointObjectLambdaConfiguration {
                 }
             })]
         $SupportingAccessPoint,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3ObjectLambda.AccessPoint.TransformationConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,9 +65,11 @@ function Add-VSS3ObjectLambdaAccessPointObjectLambdaConfiguration {
                 }
             })]
         $TransformationConfigurations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AllowedFeatures,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,11 +80,14 @@ function Add-VSS3ObjectLambdaAccessPointObjectLambdaConfiguration {
                 }
             })]
         $CloudWatchMetricsEnabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -90,6 +97,7 @@ function Add-VSS3ObjectLambdaAccessPointObjectLambdaConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3ObjectLambda.AccessPoint.ObjectLambdaConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

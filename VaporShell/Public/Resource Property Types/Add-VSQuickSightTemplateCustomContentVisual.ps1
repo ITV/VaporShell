@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateCustomContentVisual {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.CustomContentVisual resource property to the template. 
+        Adds an AWS::QuickSight::Template.CustomContentVisual resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.CustomContentVisual resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customcontentvisual.html
@@ -45,13 +44,16 @@ function Add-VSQuickSightTemplateCustomContentVisual {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.CustomContentVisual')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Subtitle,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,9 +64,11 @@ function Add-VSQuickSightTemplateCustomContentVisual {
                 }
             })]
         $VisualId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ChartConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.VisualCustomAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,7 +79,8 @@ function Add-VSQuickSightTemplateCustomContentVisual {
                 }
             })]
         $Actions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,13 +91,17 @@ function Add-VSQuickSightTemplateCustomContentVisual {
                 }
             })]
         $DataSetIdentifier,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Title
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -102,6 +111,7 @@ function Add-VSQuickSightTemplateCustomContentVisual {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.CustomContentVisual'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

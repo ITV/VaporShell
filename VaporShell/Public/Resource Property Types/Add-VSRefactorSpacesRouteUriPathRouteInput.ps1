@@ -1,11 +1,10 @@
 function Add-VSRefactorSpacesRouteUriPathRouteInput {
     <#
     .SYNOPSIS
-        Adds an AWS::RefactorSpaces::Route.UriPathRouteInput resource property to the template. 
+        Adds an AWS::RefactorSpaces::Route.UriPathRouteInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::RefactorSpaces::Route.UriPathRouteInput resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html
@@ -40,11 +39,13 @@ function Add-VSRefactorSpacesRouteUriPathRouteInput {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.RefactorSpaces.Route.UriPathRouteInput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,7 +56,8 @@ function Add-VSRefactorSpacesRouteUriPathRouteInput {
                 }
             })]
         $SourcePath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -66,7 +68,8 @@ function Add-VSRefactorSpacesRouteUriPathRouteInput {
                 }
             })]
         $AppendSourcePath,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,9 +80,11 @@ function Add-VSRefactorSpacesRouteUriPathRouteInput {
                 }
             })]
         $ActivationState,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Methods,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,11 +95,14 @@ function Add-VSRefactorSpacesRouteUriPathRouteInput {
                 }
             })]
         $IncludeChildPaths
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -104,6 +112,7 @@ function Add-VSRefactorSpacesRouteUriPathRouteInput {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.RefactorSpaces.Route.UriPathRouteInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

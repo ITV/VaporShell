@@ -1,11 +1,10 @@
 function Add-VSBackupReportPlanReportSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::ReportPlan.ReportSetting resource property to the template. 
+        Adds an AWS::Backup::ReportPlan.ReportSetting resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Backup::ReportPlan.ReportSetting resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html
@@ -46,13 +45,16 @@ function Add-VSBackupReportPlanReportSetting {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Backup.ReportPlan.ReportSetting')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $FrameworkArns,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,17 +65,23 @@ function Add-VSBackupReportPlanReportSetting {
                 }
             })]
         $ReportTemplate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OrganizationUnits,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Regions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Accounts
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -83,6 +91,7 @@ function Add-VSBackupReportPlanReportSetting {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Backup.ReportPlan.ReportSetting'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

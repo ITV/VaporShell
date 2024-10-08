@@ -1,11 +1,10 @@
 function Add-VSBCMDataExportsExportExport {
     <#
     .SYNOPSIS
-        Adds an AWS::BCMDataExports::Export.Export resource property to the template. 
+        Adds an AWS::BCMDataExports::Export.Export resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::BCMDataExports::Export.Export resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-export.html
@@ -43,11 +42,13 @@ function Add-VSBCMDataExportsExportExport {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.BCMDataExports.Export.Export')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,9 +59,11 @@ function Add-VSBCMDataExportsExportExport {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $RefreshCadence,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +74,14 @@ function Add-VSBCMDataExportsExportExport {
                 }
             })]
         $ExportArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $DataQuery,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $DestinationConfigurations,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,11 +92,14 @@ function Add-VSBCMDataExportsExportExport {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -100,6 +109,7 @@ function Add-VSBCMDataExportsExportExport {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.BCMDataExports.Export.Export'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

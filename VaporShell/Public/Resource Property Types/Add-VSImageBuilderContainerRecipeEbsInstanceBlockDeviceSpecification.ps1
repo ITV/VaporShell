@@ -1,11 +1,10 @@
 function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ContainerRecipe.EbsInstanceBlockDeviceSpecification resource property to the template. 
+        Adds an AWS::ImageBuilder::ContainerRecipe.EbsInstanceBlockDeviceSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::ContainerRecipe.EbsInstanceBlockDeviceSpecification resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html
@@ -53,11 +52,13 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ImageBuilder.ContainerRecipe.EbsInstanceBlockDeviceSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,7 +69,8 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
                 }
             })]
         $SnapshotId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,7 +81,8 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
                 }
             })]
         $VolumeType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,7 +93,8 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
                 }
             })]
         $KmsKeyId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,7 +105,8 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
                 }
             })]
         $Encrypted,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -112,7 +117,8 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
                 }
             })]
         $Throughput,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -123,7 +129,8 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
                 }
             })]
         $Iops,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -134,7 +141,8 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
                 }
             })]
         $VolumeSize,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -145,11 +153,14 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
                 }
             })]
         $DeleteOnTermination
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -159,6 +170,7 @@ function Add-VSImageBuilderContainerRecipeEbsInstanceBlockDeviceSpecification {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ImageBuilder.ContainerRecipe.EbsInstanceBlockDeviceSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

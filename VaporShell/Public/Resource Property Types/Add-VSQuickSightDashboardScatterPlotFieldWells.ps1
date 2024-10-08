@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardScatterPlotFieldWells {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.ScatterPlotFieldWells resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.ScatterPlotFieldWells resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.ScatterPlotFieldWells resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-scatterplotfieldwells.html
@@ -23,19 +22,25 @@ function Add-VSQuickSightDashboardScatterPlotFieldWells {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ScatterPlotFieldWells')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ScatterPlotUnaggregatedFieldWells,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ScatterPlotCategoricallyAggregatedFieldWells
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSQuickSightDashboardScatterPlotFieldWells {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.ScatterPlotFieldWells'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

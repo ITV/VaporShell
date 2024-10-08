@@ -1,11 +1,10 @@
 function Add-VSNetworkManagerConnectAttachmentProposedNetworkFunctionGroupChange {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkManager::ConnectAttachment.ProposedNetworkFunctionGroupChange resource property to the template. 
+        Adds an AWS::NetworkManager::ConnectAttachment.ProposedNetworkFunctionGroupChange resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkManager::ConnectAttachment.ProposedNetworkFunctionGroupChange resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectattachment-proposednetworkfunctiongroupchange.html
@@ -30,14 +29,17 @@ function Add-VSNetworkManagerConnectAttachmentProposedNetworkFunctionGroupChange
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkManager.ConnectAttachment.ProposedNetworkFunctionGroupChange')]
     [cmdletbinding()]
+
     Param
     (
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,7 +50,8 @@ function Add-VSNetworkManagerConnectAttachmentProposedNetworkFunctionGroupChange
                 }
             })]
         $NetworkFunctionGroupName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,11 +62,14 @@ function Add-VSNetworkManagerConnectAttachmentProposedNetworkFunctionGroupChange
                 }
             })]
         $AttachmentPolicyRuleNumber
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -73,6 +79,7 @@ function Add-VSNetworkManagerConnectAttachmentProposedNetworkFunctionGroupChange
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkManager.ConnectAttachment.ProposedNetworkFunctionGroupChange'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

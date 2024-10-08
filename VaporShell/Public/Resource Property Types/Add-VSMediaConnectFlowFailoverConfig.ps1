@@ -1,11 +1,10 @@
 function Add-VSMediaConnectFlowFailoverConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaConnect::Flow.FailoverConfig resource property to the template. 
+        Adds an AWS::MediaConnect::Flow.FailoverConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaConnect::Flow.FailoverConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html
@@ -33,11 +32,13 @@ function Add-VSMediaConnectFlowFailoverConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.FailoverConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,9 +49,11 @@ function Add-VSMediaConnectFlowFailoverConfig {
                 }
             })]
         $State,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SourcePriority,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +64,8 @@ function Add-VSMediaConnectFlowFailoverConfig {
                 }
             })]
         $FailoverMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,11 +76,14 @@ function Add-VSMediaConnectFlowFailoverConfig {
                 }
             })]
         $RecoveryWindow
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -86,6 +93,7 @@ function Add-VSMediaConnectFlowFailoverConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaConnect.Flow.FailoverConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

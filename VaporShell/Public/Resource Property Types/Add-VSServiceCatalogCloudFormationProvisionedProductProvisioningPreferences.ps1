@@ -1,11 +1,10 @@
 function Add-VSServiceCatalogCloudFormationProvisionedProductProvisioningPreferences {
     <#
     .SYNOPSIS
-        Adds an AWS::ServiceCatalog::CloudFormationProvisionedProduct.ProvisioningPreferences resource property to the template. 
+        Adds an AWS::ServiceCatalog::CloudFormationProvisionedProduct.ProvisioningPreferences resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ServiceCatalog::CloudFormationProvisionedProduct.ProvisioningPreferences resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html
@@ -52,13 +51,16 @@ function Add-VSServiceCatalogCloudFormationProvisionedProductProvisioningPrefere
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ServiceCatalog.CloudFormationProvisionedProduct.ProvisioningPreferences')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $StackSetAccounts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,7 +71,8 @@ function Add-VSServiceCatalogCloudFormationProvisionedProductProvisioningPrefere
                 }
             })]
         $StackSetFailureToleranceCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -80,7 +83,8 @@ function Add-VSServiceCatalogCloudFormationProvisionedProductProvisioningPrefere
                 }
             })]
         $StackSetMaxConcurrencyPercentage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -91,9 +95,11 @@ function Add-VSServiceCatalogCloudFormationProvisionedProductProvisioningPrefere
                 }
             })]
         $StackSetMaxConcurrencyCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StackSetRegions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -104,7 +110,8 @@ function Add-VSServiceCatalogCloudFormationProvisionedProductProvisioningPrefere
                 }
             })]
         $StackSetOperationType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -115,11 +122,14 @@ function Add-VSServiceCatalogCloudFormationProvisionedProductProvisioningPrefere
                 }
             })]
         $StackSetFailureTolerancePercentage
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -129,6 +139,7 @@ function Add-VSServiceCatalogCloudFormationProvisionedProductProvisioningPrefere
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ServiceCatalog.CloudFormationProvisionedProduct.ProvisioningPreferences'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

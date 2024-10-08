@@ -1,11 +1,10 @@
 function Add-VSWAFv2LoggingConfigurationCondition {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::LoggingConfiguration.Condition resource property to the template. 
+        Adds an AWS::WAFv2::LoggingConfiguration.Condition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::LoggingConfiguration.Condition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-condition.html
@@ -23,19 +22,25 @@ function Add-VSWAFv2LoggingConfigurationCondition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.LoggingConfiguration.Condition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $LabelNameCondition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ActionCondition
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSWAFv2LoggingConfigurationCondition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.LoggingConfiguration.Condition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

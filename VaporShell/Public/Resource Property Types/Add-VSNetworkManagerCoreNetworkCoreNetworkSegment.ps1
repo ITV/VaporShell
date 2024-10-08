@@ -1,11 +1,10 @@
 function Add-VSNetworkManagerCoreNetworkCoreNetworkSegment {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkManager::CoreNetwork.CoreNetworkSegment resource property to the template. 
+        Adds an AWS::NetworkManager::CoreNetwork.CoreNetworkSegment resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkManager::CoreNetwork.CoreNetworkSegment resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworksegment.html
@@ -32,15 +31,19 @@ function Add-VSNetworkManagerCoreNetworkCoreNetworkSegment {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkManager.CoreNetwork.CoreNetworkSegment')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $EdgeLocations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SharedSegments,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +54,14 @@ function Add-VSNetworkManagerCoreNetworkCoreNetworkSegment {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +71,7 @@ function Add-VSNetworkManagerCoreNetworkCoreNetworkSegment {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkManager.CoreNetwork.CoreNetworkSegment'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

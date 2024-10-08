@@ -1,11 +1,10 @@
 function Add-VSCodePipelinePipelineStageDeclaration {
     <#
     .SYNOPSIS
-        Adds an AWS::CodePipeline::Pipeline.StageDeclaration resource property to the template. 
+        Adds an AWS::CodePipeline::Pipeline.StageDeclaration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodePipeline::Pipeline.StageDeclaration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html
@@ -47,11 +46,13 @@ function Add-VSCodePipelinePipelineStageDeclaration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.StageDeclaration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodePipeline.Pipeline.BlockerDeclaration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +63,8 @@ function Add-VSCodePipelinePipelineStageDeclaration {
                 }
             })]
         $Blockers,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodePipeline.Pipeline.ActionDeclaration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,11 +75,14 @@ function Add-VSCodePipelinePipelineStageDeclaration {
                 }
             })]
         $Actions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BeforeEntry,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OnSuccess,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,13 +93,17 @@ function Add-VSCodePipelinePipelineStageDeclaration {
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OnFailure
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -104,6 +113,7 @@ function Add-VSCodePipelinePipelineStageDeclaration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodePipeline.Pipeline.StageDeclaration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

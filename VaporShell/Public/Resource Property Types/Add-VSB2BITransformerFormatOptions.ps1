@@ -1,11 +1,10 @@
 function Add-VSB2BITransformerFormatOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::B2BI::Transformer.FormatOptions resource property to the template. 
+        Adds an AWS::B2BI::Transformer.FormatOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::B2BI::Transformer.FormatOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-formatoptions.html
@@ -18,17 +17,22 @@ function Add-VSB2BITransformerFormatOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.B2BI.Transformer.FormatOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $X12
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSB2BITransformerFormatOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.B2BI.Transformer.FormatOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

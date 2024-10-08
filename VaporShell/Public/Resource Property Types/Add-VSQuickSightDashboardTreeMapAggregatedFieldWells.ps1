@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardTreeMapAggregatedFieldWells {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.TreeMapAggregatedFieldWells resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.TreeMapAggregatedFieldWells resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.TreeMapAggregatedFieldWells resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-treemapaggregatedfieldwells.html
@@ -34,11 +33,13 @@ function Add-VSQuickSightDashboardTreeMapAggregatedFieldWells {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TreeMapAggregatedFieldWells')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.MeasureField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +50,8 @@ function Add-VSQuickSightDashboardTreeMapAggregatedFieldWells {
                 }
             })]
         $Sizes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.MeasureField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +62,8 @@ function Add-VSQuickSightDashboardTreeMapAggregatedFieldWells {
                 }
             })]
         $Colors,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.DimensionField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +74,14 @@ function Add-VSQuickSightDashboardTreeMapAggregatedFieldWells {
                 }
             })]
         $Groups
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +91,7 @@ function Add-VSQuickSightDashboardTreeMapAggregatedFieldWells {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.TreeMapAggregatedFieldWells'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

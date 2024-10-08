@@ -1,11 +1,10 @@
 function Add-VSMSKClusterVpcConnectivitySasl {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.VpcConnectivitySasl resource property to the template. 
+        Adds an AWS::MSK::Cluster.VpcConnectivitySasl resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.VpcConnectivitySasl resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivitysasl.html
@@ -23,19 +22,25 @@ function Add-VSMSKClusterVpcConnectivitySasl {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MSK.Cluster.VpcConnectivitySasl')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Iam,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Scram
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSMSKClusterVpcConnectivitySasl {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MSK.Cluster.VpcConnectivitySasl'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

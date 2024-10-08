@@ -1,11 +1,10 @@
 function Add-VSEMRInstanceFleetConfigOnDemandCapacityReservationOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::InstanceFleetConfig.OnDemandCapacityReservationOptions resource property to the template. 
+        Adds an AWS::EMR::InstanceFleetConfig.OnDemandCapacityReservationOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::InstanceFleetConfig.OnDemandCapacityReservationOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions.html
@@ -28,11 +27,13 @@ function Add-VSEMRInstanceFleetConfigOnDemandCapacityReservationOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.OnDemandCapacityReservationOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSEMRInstanceFleetConfigOnDemandCapacityReservationOptions {
                 }
             })]
         $CapacityReservationPreference,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +56,8 @@ function Add-VSEMRInstanceFleetConfigOnDemandCapacityReservationOptions {
                 }
             })]
         $CapacityReservationResourceGroupArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,11 +68,14 @@ function Add-VSEMRInstanceFleetConfigOnDemandCapacityReservationOptions {
                 }
             })]
         $UsageStrategy
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +85,7 @@ function Add-VSEMRInstanceFleetConfigOnDemandCapacityReservationOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.InstanceFleetConfig.OnDemandCapacityReservationOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

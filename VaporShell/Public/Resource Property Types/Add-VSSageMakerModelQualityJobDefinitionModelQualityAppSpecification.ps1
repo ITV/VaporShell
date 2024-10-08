@@ -1,11 +1,10 @@
 function Add-VSSageMakerModelQualityJobDefinitionModelQualityAppSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelQualityJobDefinition.ModelQualityAppSpecification resource property to the template. 
+        Adds an AWS::SageMaker::ModelQualityJobDefinition.ModelQualityAppSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelQualityJobDefinition.ModelQualityAppSpecification resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
@@ -53,13 +52,16 @@ function Add-VSSageMakerModelQualityJobDefinitionModelQualityAppSpecification {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.ModelQualityAppSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ContainerEntrypoint,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +72,8 @@ function Add-VSSageMakerModelQualityJobDefinitionModelQualityAppSpecification {
                 }
             })]
         $ProblemType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,7 +84,8 @@ function Add-VSSageMakerModelQualityJobDefinitionModelQualityAppSpecification {
                 }
             })]
         $PostAnalyticsProcessorSourceUri,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -92,10 +96,12 @@ function Add-VSSageMakerModelQualityJobDefinitionModelQualityAppSpecification {
                 }
             })]
         $RecordPreprocessorSourceUri,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Environment,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,13 +112,17 @@ function Add-VSSageMakerModelQualityJobDefinitionModelQualityAppSpecification {
                 }
             })]
         $ImageUri,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ContainerArguments
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -122,6 +132,7 @@ function Add-VSSageMakerModelQualityJobDefinitionModelQualityAppSpecification {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.ModelQualityAppSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

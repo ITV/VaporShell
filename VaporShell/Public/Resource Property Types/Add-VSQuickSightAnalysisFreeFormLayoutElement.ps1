@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisFreeFormLayoutElement {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.FreeFormLayoutElement resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.FreeFormLayoutElement resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.FreeFormLayoutElement resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelement.html
@@ -75,11 +74,13 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FreeFormLayoutElement')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,9 +91,11 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
                 }
             })]
         $ElementType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BorderStyle,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -103,7 +106,8 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
                 }
             })]
         $Height,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -114,7 +118,8 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
                 }
             })]
         $Visibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.SheetElementRenderingRule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,7 +130,8 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
                 }
             })]
         $RenderingRules,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -136,9 +142,11 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
                 }
             })]
         $YAxisLocation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LoadingAnimation,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -149,9 +157,11 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
                 }
             })]
         $Width,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BackgroundStyle,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -162,7 +172,8 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
                 }
             })]
         $ElementId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -173,13 +184,17 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
                 }
             })]
         $XAxisLocation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SelectedBorderStyle
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -189,6 +204,7 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.FreeFormLayoutElement'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

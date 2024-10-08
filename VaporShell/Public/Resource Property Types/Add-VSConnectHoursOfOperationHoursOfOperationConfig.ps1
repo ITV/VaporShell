@@ -1,11 +1,10 @@
 function Add-VSConnectHoursOfOperationHoursOfOperationConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::HoursOfOperation.HoursOfOperationConfig resource property to the template. 
+        Adds an AWS::Connect::HoursOfOperation.HoursOfOperationConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Connect::HoursOfOperation.HoursOfOperationConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html
@@ -28,15 +27,19 @@ function Add-VSConnectHoursOfOperationHoursOfOperationConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Connect.HoursOfOperation.HoursOfOperationConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $EndTime,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $StartTime,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,11 +50,14 @@ function Add-VSConnectHoursOfOperationHoursOfOperationConfig {
                 }
             })]
         $Day
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +67,7 @@ function Add-VSConnectHoursOfOperationHoursOfOperationConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Connect.HoursOfOperation.HoursOfOperationConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

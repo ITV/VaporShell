@@ -1,11 +1,10 @@
 function Add-VSWAFv2WebACLJsonMatchPattern {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.JsonMatchPattern resource property to the template. 
+        Adds an AWS::WAFv2::WebACL.JsonMatchPattern resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.JsonMatchPattern resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
@@ -25,11 +24,13 @@ function Add-VSWAFv2WebACLJsonMatchPattern {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.JsonMatchPattern')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,13 +41,17 @@ function Add-VSWAFv2WebACLJsonMatchPattern {
                 }
             })]
         $All,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IncludedPaths
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +75,7 @@ function Add-VSWAFv2WebACLJsonMatchPattern {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.WebACL.JsonMatchPattern'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

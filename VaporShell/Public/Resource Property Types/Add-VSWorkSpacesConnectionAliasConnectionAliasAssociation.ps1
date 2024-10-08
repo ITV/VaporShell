@@ -1,11 +1,10 @@
 function Add-VSWorkSpacesConnectionAliasConnectionAliasAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::WorkSpaces::ConnectionAlias.ConnectionAliasAssociation resource property to the template. 
+        Adds an AWS::WorkSpaces::ConnectionAlias.ConnectionAliasAssociation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WorkSpaces::ConnectionAlias.ConnectionAliasAssociation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html
@@ -33,11 +32,13 @@ function Add-VSWorkSpacesConnectionAliasConnectionAliasAssociation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WorkSpaces.ConnectionAlias.ConnectionAliasAssociation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,7 +49,8 @@ function Add-VSWorkSpacesConnectionAliasConnectionAliasAssociation {
                 }
             })]
         $AssociatedAccountId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,7 +61,8 @@ function Add-VSWorkSpacesConnectionAliasConnectionAliasAssociation {
                 }
             })]
         $ResourceId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +73,8 @@ function Add-VSWorkSpacesConnectionAliasConnectionAliasAssociation {
                 }
             })]
         $ConnectionIdentifier,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,11 +85,14 @@ function Add-VSWorkSpacesConnectionAliasConnectionAliasAssociation {
                 }
             })]
         $AssociationStatus
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -95,6 +102,7 @@ function Add-VSWorkSpacesConnectionAliasConnectionAliasAssociation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WorkSpaces.ConnectionAlias.ConnectionAliasAssociation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

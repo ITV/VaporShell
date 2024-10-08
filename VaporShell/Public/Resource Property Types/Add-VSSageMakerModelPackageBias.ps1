@@ -1,11 +1,10 @@
 function Add-VSSageMakerModelPackageBias {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelPackage.Bias resource property to the template. 
+        Adds an AWS::SageMaker::ModelPackage.Bias resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelPackage.Bias resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-bias.html
@@ -28,21 +27,28 @@ function Add-VSSageMakerModelPackageBias {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.Bias')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Report,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PreTrainingReport,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PostTrainingReport
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +58,7 @@ function Add-VSSageMakerModelPackageBias {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelPackage.Bias'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

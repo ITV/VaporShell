@@ -1,11 +1,10 @@
 function Add-VSMediaPackageOriginEndpointCmafEncryption {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::OriginEndpoint.CmafEncryption resource property to the template. 
+        Adds an AWS::MediaPackage::OriginEndpoint.CmafEncryption resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::OriginEndpoint.CmafEncryption resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
@@ -33,11 +32,13 @@ function Add-VSMediaPackageOriginEndpointCmafEncryption {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.CmafEncryption')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,9 +49,11 @@ function Add-VSMediaPackageOriginEndpointCmafEncryption {
                 }
             })]
         $KeyRotationIntervalSeconds,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SpekeKeyProvider,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +64,8 @@ function Add-VSMediaPackageOriginEndpointCmafEncryption {
                 }
             })]
         $ConstantInitializationVector,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,11 +76,14 @@ function Add-VSMediaPackageOriginEndpointCmafEncryption {
                 }
             })]
         $EncryptionMethod
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -86,6 +93,7 @@ function Add-VSMediaPackageOriginEndpointCmafEncryption {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaPackage.OriginEndpoint.CmafEncryption'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

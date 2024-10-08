@@ -1,11 +1,10 @@
 function Add-VSRedshiftServerlessWorkgroupVpcEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::RedshiftServerless::Workgroup.VpcEndpoint resource property to the template. 
+        Adds an AWS::RedshiftServerless::Workgroup.VpcEndpoint resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::RedshiftServerless::Workgroup.VpcEndpoint resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-vpcendpoint.html
@@ -30,11 +29,13 @@ function Add-VSRedshiftServerlessWorkgroupVpcEndpoint {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.RedshiftServerless.Workgroup.VpcEndpoint')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,7 +46,8 @@ function Add-VSRedshiftServerlessWorkgroupVpcEndpoint {
                 }
             })]
         $VpcId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.RedshiftServerless.Workgroup.NetworkInterface"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +58,8 @@ function Add-VSRedshiftServerlessWorkgroupVpcEndpoint {
                 }
             })]
         $NetworkInterfaces,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,11 +70,14 @@ function Add-VSRedshiftServerlessWorkgroupVpcEndpoint {
                 }
             })]
         $VpcEndpointId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -81,6 +87,7 @@ function Add-VSRedshiftServerlessWorkgroupVpcEndpoint {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.RedshiftServerless.Workgroup.VpcEndpoint'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

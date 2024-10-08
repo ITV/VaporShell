@@ -1,11 +1,10 @@
 function Add-VSSageMakerModelCardContent {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelCard.Content resource property to the template. 
+        Adds an AWS::SageMaker::ModelCard.Content resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelCard.Content resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html
@@ -50,19 +49,25 @@ function Add-VSSageMakerModelCardContent {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.Content')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $IntendedUses,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AdditionalInformation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ModelOverview,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TrainingDetails,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.ModelCard.EvaluationDetail"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,15 +78,20 @@ function Add-VSSageMakerModelCardContent {
                 }
             })]
         $EvaluationDetails,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ModelPackageDetails,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BusinessDetails
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -91,6 +101,7 @@ function Add-VSSageMakerModelCardContent {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelCard.Content'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

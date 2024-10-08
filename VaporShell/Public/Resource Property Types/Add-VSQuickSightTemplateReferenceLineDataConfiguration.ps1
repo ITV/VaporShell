@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateReferenceLineDataConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.ReferenceLineDataConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Template.ReferenceLineDataConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.ReferenceLineDataConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinedataconfiguration.html
@@ -33,13 +32,16 @@ function Add-VSQuickSightTemplateReferenceLineDataConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.ReferenceLineDataConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DynamicConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,7 +52,8 @@ function Add-VSQuickSightTemplateReferenceLineDataConfiguration {
                 }
             })]
         $AxisBinding,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,13 +64,17 @@ function Add-VSQuickSightTemplateReferenceLineDataConfiguration {
                 }
             })]
         $SeriesType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StaticConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSQuickSightTemplateReferenceLineDataConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.ReferenceLineDataConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSApplicationSignalsServiceLevelObjectiveCalendarInterval {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationSignals::ServiceLevelObjective.CalendarInterval resource property to the template. 
+        Adds an AWS::ApplicationSignals::ServiceLevelObjective.CalendarInterval resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApplicationSignals::ServiceLevelObjective.CalendarInterval resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-calendarinterval.html
@@ -28,11 +27,13 @@ function Add-VSApplicationSignalsServiceLevelObjectiveCalendarInterval {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.CalendarInterval')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSApplicationSignalsServiceLevelObjectiveCalendarInterval {
                 }
             })]
         $DurationUnit,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +56,8 @@ function Add-VSApplicationSignalsServiceLevelObjectiveCalendarInterval {
                 }
             })]
         $StartTime,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,11 +68,14 @@ function Add-VSApplicationSignalsServiceLevelObjectiveCalendarInterval {
                 }
             })]
         $Duration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +85,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveCalendarInterval {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.CalendarInterval'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

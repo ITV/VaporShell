@@ -1,11 +1,10 @@
 function Add-VSMSKReplicatorKafkaClusterClientVpcConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Replicator.KafkaClusterClientVpcConfig resource property to the template. 
+        Adds an AWS::MSK::Replicator.KafkaClusterClientVpcConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MSK::Replicator.KafkaClusterClientVpcConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientvpcconfig.html
@@ -27,19 +26,25 @@ function Add-VSMSKReplicatorKafkaClusterClientVpcConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MSK.Replicator.KafkaClusterClientVpcConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SecurityGroupIds,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SubnetIds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +54,7 @@ function Add-VSMSKReplicatorKafkaClusterClientVpcConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MSK.Replicator.KafkaClusterClientVpcConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

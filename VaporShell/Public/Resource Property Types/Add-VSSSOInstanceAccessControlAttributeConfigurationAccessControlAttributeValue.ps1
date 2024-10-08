@@ -1,11 +1,10 @@
 function Add-VSSSOInstanceAccessControlAttributeConfigurationAccessControlAttributeValue {
     <#
     .SYNOPSIS
-        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttributeValue resource property to the template. 
+        Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttributeValue resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttributeValue resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html
@@ -20,17 +19,22 @@ function Add-VSSSOInstanceAccessControlAttributeConfigurationAccessControlAttrib
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSO.InstanceAccessControlAttributeConfiguration.AccessControlAttributeValue')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Source
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +44,7 @@ function Add-VSSSOInstanceAccessControlAttributeConfigurationAccessControlAttrib
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSO.InstanceAccessControlAttributeConfiguration.AccessControlAttributeValue'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSIoTWirelessTaskDefinitionLoRaWANGatewayVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANGatewayVersion resource property to the template. 
+        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANGatewayVersion resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::TaskDefinition.LoRaWANGatewayVersion resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html
@@ -28,11 +27,13 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANGatewayVersion {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTWireless.TaskDefinition.LoRaWANGatewayVersion')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANGatewayVersion {
                 }
             })]
         $Station,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +56,8 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANGatewayVersion {
                 }
             })]
         $Model,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,11 +68,14 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANGatewayVersion {
                 }
             })]
         $PackageVersion
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +85,7 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANGatewayVersion {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTWireless.TaskDefinition.LoRaWANGatewayVersion'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

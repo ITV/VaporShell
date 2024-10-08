@@ -1,11 +1,10 @@
 function Add-VSCloudFrontResponseHeadersPolicyCorsConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy.CorsConfig resource property to the template. 
+        Adds an AWS::CloudFront::ResponseHeadersPolicy.CorsConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ResponseHeadersPolicy.CorsConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html
@@ -48,13 +47,15 @@ function Add-VSCloudFrontResponseHeadersPolicyCorsConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.CorsConfig')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AccessControlAllowCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","AccessControlAllowCredentials")]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,9 +66,11 @@ function Add-VSCloudFrontResponseHeadersPolicyCorsConfig {
                 }
             })]
         $AccessControlAllowCredentials,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AccessControlAllowHeaders,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,13 +81,17 @@ function Add-VSCloudFrontResponseHeadersPolicyCorsConfig {
                 }
             })]
         $OriginOverride,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AccessControlAllowMethods,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AccessControlExposeHeaders,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AccessControlAllowOrigins,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,11 +102,14 @@ function Add-VSCloudFrontResponseHeadersPolicyCorsConfig {
                 }
             })]
         $AccessControlMaxAgeSec
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -109,6 +119,7 @@ function Add-VSCloudFrontResponseHeadersPolicyCorsConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.CorsConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

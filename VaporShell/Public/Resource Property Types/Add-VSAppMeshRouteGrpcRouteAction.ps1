@@ -1,11 +1,10 @@
 function Add-VSAppMeshRouteGrpcRouteAction {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.GrpcRouteAction resource property to the template. 
+        Adds an AWS::AppMesh::Route.GrpcRouteAction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.GrpcRouteAction resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcrouteaction.html
@@ -19,11 +18,13 @@ function Add-VSAppMeshRouteGrpcRouteAction {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.Route.GrpcRouteAction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppMesh.Route.WeightedTarget"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -34,11 +35,14 @@ function Add-VSAppMeshRouteGrpcRouteAction {
                 }
             })]
         $WeightedTargets
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -48,6 +52,7 @@ function Add-VSAppMeshRouteGrpcRouteAction {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.Route.GrpcRouteAction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

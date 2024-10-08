@@ -1,11 +1,10 @@
 function Add-VSMediaPackageOriginEndpointCmafPackage {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::OriginEndpoint.CmafPackage resource property to the template. 
+        Adds an AWS::MediaPackage::OriginEndpoint.CmafPackage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::OriginEndpoint.CmafPackage resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html
@@ -40,11 +39,13 @@ function Add-VSMediaPackageOriginEndpointCmafPackage {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.CmafPackage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,9 +56,11 @@ function Add-VSMediaPackageOriginEndpointCmafPackage {
                 }
             })]
         $SegmentPrefix,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StreamSelection,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,9 +71,11 @@ function Add-VSMediaPackageOriginEndpointCmafPackage {
                 }
             })]
         $SegmentDurationSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Encryption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaPackage.OriginEndpoint.HlsManifest"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,11 +86,14 @@ function Add-VSMediaPackageOriginEndpointCmafPackage {
                 }
             })]
         $HlsManifests
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -95,6 +103,7 @@ function Add-VSMediaPackageOriginEndpointCmafPackage {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaPackage.OriginEndpoint.CmafPackage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

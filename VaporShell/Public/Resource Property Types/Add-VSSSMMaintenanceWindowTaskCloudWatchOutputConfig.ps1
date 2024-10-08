@@ -1,11 +1,10 @@
 function Add-VSSSMMaintenanceWindowTaskCloudWatchOutputConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::MaintenanceWindowTask.CloudWatchOutputConfig resource property to the template. 
+        Adds an AWS::SSM::MaintenanceWindowTask.CloudWatchOutputConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSM::MaintenanceWindowTask.CloudWatchOutputConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-cloudwatchoutputconfig.html
@@ -23,11 +22,13 @@ function Add-VSSSMMaintenanceWindowTaskCloudWatchOutputConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSM.MaintenanceWindowTask.CloudWatchOutputConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSSSMMaintenanceWindowTaskCloudWatchOutputConfig {
                 }
             })]
         $CloudWatchOutputEnabled,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSSSMMaintenanceWindowTaskCloudWatchOutputConfig {
                 }
             })]
         $CloudWatchLogGroupName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSSSMMaintenanceWindowTaskCloudWatchOutputConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSM.MaintenanceWindowTask.CloudWatchOutputConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

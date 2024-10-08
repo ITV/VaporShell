@@ -1,11 +1,10 @@
 function Add-VSSageMakerMonitoringScheduleMonitoringJobDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.MonitoringJobDefinition resource property to the template. 
+        Adds an AWS::SageMaker::MonitoringSchedule.MonitoringJobDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.MonitoringJobDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
@@ -61,11 +60,13 @@ function Add-VSSageMakerMonitoringScheduleMonitoringJobDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.MonitoringJobDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.MonitoringSchedule.MonitoringInput"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,22 +77,30 @@ function Add-VSSageMakerMonitoringScheduleMonitoringJobDefinition {
                 }
             })]
         $MonitoringInputs,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $MonitoringResources,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BaselineConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StoppingCondition,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $MonitoringAppSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NetworkConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Environment,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $MonitoringOutputConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -102,11 +111,14 @@ function Add-VSSageMakerMonitoringScheduleMonitoringJobDefinition {
                 }
             })]
         $RoleArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -116,6 +128,7 @@ function Add-VSSageMakerMonitoringScheduleMonitoringJobDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.MonitoringSchedule.MonitoringJobDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

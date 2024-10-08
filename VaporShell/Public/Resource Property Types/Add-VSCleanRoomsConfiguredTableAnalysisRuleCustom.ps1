@@ -1,11 +1,10 @@
 function Add-VSCleanRoomsConfiguredTableAnalysisRuleCustom {
     <#
     .SYNOPSIS
-        Adds an AWS::CleanRooms::ConfiguredTable.AnalysisRuleCustom resource property to the template. 
+        Adds an AWS::CleanRooms::ConfiguredTable.AnalysisRuleCustom resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CleanRooms::ConfiguredTable.AnalysisRuleCustom resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html
@@ -44,11 +43,13 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleCustom {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.AnalysisRuleCustom')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,19 +60,26 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleCustom {
                 }
             })]
         $AdditionalAnalyses,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AllowedAnalysisProviders,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DifferentialPrivacy,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AllowedAnalyses,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DisallowedOutputColumns
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -81,6 +89,7 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleCustom {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CleanRooms.ConfiguredTable.AnalysisRuleCustom'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

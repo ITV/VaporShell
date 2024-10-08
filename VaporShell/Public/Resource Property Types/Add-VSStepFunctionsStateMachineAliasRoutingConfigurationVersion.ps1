@@ -1,11 +1,10 @@
 function Add-VSStepFunctionsStateMachineAliasRoutingConfigurationVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::StepFunctions::StateMachineAlias.RoutingConfigurationVersion resource property to the template. 
+        Adds an AWS::StepFunctions::StateMachineAlias.RoutingConfigurationVersion resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::StepFunctions::StateMachineAlias.RoutingConfigurationVersion resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-routingconfigurationversion.html
@@ -23,11 +22,13 @@ function Add-VSStepFunctionsStateMachineAliasRoutingConfigurationVersion {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachineAlias.RoutingConfigurationVersion')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSStepFunctionsStateMachineAliasRoutingConfigurationVersion {
                 }
             })]
         $StateMachineVersionArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSStepFunctionsStateMachineAliasRoutingConfigurationVersion {
                 }
             })]
         $Weight
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSStepFunctionsStateMachineAliasRoutingConfigurationVersion {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.StepFunctions.StateMachineAlias.RoutingConfigurationVersion'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

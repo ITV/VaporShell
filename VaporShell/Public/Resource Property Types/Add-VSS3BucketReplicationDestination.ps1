@@ -1,11 +1,10 @@
 function Add-VSS3BucketReplicationDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.ReplicationDestination resource property to the template. 
+        Adds an AWS::S3::Bucket.ReplicationDestination resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.ReplicationDestination resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html
@@ -48,13 +47,16 @@ function Add-VSS3BucketReplicationDestination {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.ReplicationDestination')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AccessControlTranslation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,9 +67,11 @@ function Add-VSS3BucketReplicationDestination {
                 }
             })]
         $Account,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Metrics,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,9 +82,11 @@ function Add-VSS3BucketReplicationDestination {
                 }
             })]
         $Bucket,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EncryptionConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -91,13 +97,17 @@ function Add-VSS3BucketReplicationDestination {
                 }
             })]
         $StorageClass,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ReplicationTime
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -107,6 +117,7 @@ function Add-VSS3BucketReplicationDestination {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.ReplicationDestination'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

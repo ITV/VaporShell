@@ -1,11 +1,10 @@
 function Add-VSQuickSightDataSetNewDefaultValues {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.NewDefaultValues resource property to the template. 
+        Adds an AWS::QuickSight::DataSet.NewDefaultValues resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.NewDefaultValues resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html
@@ -41,23 +40,31 @@ function Add-VSQuickSightDataSetNewDefaultValues {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.NewDefaultValues')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DecimalStaticValues,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IntegerStaticValues,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StringStaticValues,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DateTimeStaticValues
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +74,7 @@ function Add-VSQuickSightDataSetNewDefaultValues {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSet.NewDefaultValues'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

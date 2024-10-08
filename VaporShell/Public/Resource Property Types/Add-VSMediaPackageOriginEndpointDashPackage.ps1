@@ -1,11 +1,10 @@
 function Add-VSMediaPackageOriginEndpointDashPackage {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::OriginEndpoint.DashPackage resource property to the template. 
+        Adds an AWS::MediaPackage::OriginEndpoint.DashPackage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::OriginEndpoint.DashPackage resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html
@@ -97,11 +96,13 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.DashPackage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -112,7 +113,8 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $ManifestWindowSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -123,7 +125,8 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $AdsOnDeliveryRestrictions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -134,9 +137,11 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $ManifestLayout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StreamSelection,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -147,7 +152,8 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $IncludeIframeOnlyStream,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -158,11 +164,14 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $SegmentTemplateFormat,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Encryption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AdTriggers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -173,9 +182,11 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $Profile,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PeriodTriggers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -186,7 +197,8 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $SuggestedPresentationDelaySeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -197,7 +209,8 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $UtcTiming,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -208,7 +221,8 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $MinBufferTimeSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -219,7 +233,8 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $SegmentDurationSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -230,7 +245,8 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $MinUpdatePeriodSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -241,11 +257,14 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
                 }
             })]
         $UtcTimingUri
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -255,6 +274,7 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaPackage.OriginEndpoint.DashPackage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

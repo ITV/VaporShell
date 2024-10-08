@@ -1,11 +1,10 @@
 function Add-VSSecurityLakeSubscriberSource {
     <#
     .SYNOPSIS
-        Adds an AWS::SecurityLake::Subscriber.Source resource property to the template. 
+        Adds an AWS::SecurityLake::Subscriber.Source resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SecurityLake::Subscriber.Source resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-source.html
@@ -23,19 +22,25 @@ function Add-VSSecurityLakeSubscriberSource {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SecurityLake.Subscriber.Source')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AwsLogSource,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomLogSource
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSSecurityLakeSubscriberSource {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SecurityLake.Subscriber.Source'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

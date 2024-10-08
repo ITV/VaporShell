@@ -1,11 +1,10 @@
 function Add-VSDataSyncTaskOverrides {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::Task.Overrides resource property to the template. 
+        Adds an AWS::DataSync::Task.Overrides resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataSync::Task.Overrides resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-overrides.html
@@ -33,23 +32,31 @@ function Add-VSDataSyncTaskOverrides {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataSync.Task.Overrides')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Verified,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Skipped,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Transferred,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Deleted
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSDataSyncTaskOverrides {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataSync.Task.Overrides'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

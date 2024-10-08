@@ -1,11 +1,10 @@
 function Add-VSVpcLatticeRuleHttpMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::VpcLattice::Rule.HttpMatch resource property to the template. 
+        Adds an AWS::VpcLattice::Rule.HttpMatch resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::VpcLattice::Rule.HttpMatch resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html
@@ -30,11 +29,13 @@ function Add-VSVpcLatticeRuleHttpMatch {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.VpcLattice.Rule.HttpMatch')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.VpcLattice.Rule.HeaderMatch"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,9 +46,11 @@ function Add-VSVpcLatticeRuleHttpMatch {
                 }
             })]
         $HeaderMatches,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PathMatch,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,11 +61,14 @@ function Add-VSVpcLatticeRuleHttpMatch {
                 }
             })]
         $Method
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +78,7 @@ function Add-VSVpcLatticeRuleHttpMatch {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.VpcLattice.Rule.HttpMatch'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

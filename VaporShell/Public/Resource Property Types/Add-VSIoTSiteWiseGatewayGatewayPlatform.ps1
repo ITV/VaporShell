@@ -1,11 +1,10 @@
 function Add-VSIoTSiteWiseGatewayGatewayPlatform {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::Gateway.GatewayPlatform resource property to the template. 
+        Adds an AWS::IoTSiteWise::Gateway.GatewayPlatform resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::Gateway.GatewayPlatform resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
@@ -28,21 +27,28 @@ function Add-VSIoTSiteWiseGatewayGatewayPlatform {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTSiteWise.Gateway.GatewayPlatform')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $GreengrassV2,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Greengrass,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SiemensIE
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +58,7 @@ function Add-VSIoTSiteWiseGatewayGatewayPlatform {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTSiteWise.Gateway.GatewayPlatform'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisVisual {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.Visual resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.Visual resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.Visual resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visual.html
@@ -128,61 +127,88 @@ function Add-VSQuickSightAnalysisVisual {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.Visual')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $FunnelChartVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FilledMapVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BoxPlotVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $WaterfallVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomContentVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PieChartVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $KPIVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HistogramVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TableVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PivotTableVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GeospatialMapVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BarChartVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ScatterPlotVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RadarChartVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HeatMapVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TreeMapVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ComboChartVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $WordCloudVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InsightVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SankeyDiagramVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GaugeChartVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LineChartVisual,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EmptyVisual
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -192,6 +218,7 @@ function Add-VSQuickSightAnalysisVisual {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.Visual'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSWAFv2WebACLResponseInspectionHeader {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.ResponseInspectionHeader resource property to the template. 
+        Adds an AWS::WAFv2::WebACL.ResponseInspectionHeader resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.ResponseInspectionHeader resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionheader.html
@@ -32,15 +31,19 @@ function Add-VSWAFv2WebACLResponseInspectionHeader {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ResponseInspectionHeader')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SuccessValues,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $FailureValues,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +54,14 @@ function Add-VSWAFv2WebACLResponseInspectionHeader {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +71,7 @@ function Add-VSWAFv2WebACLResponseInspectionHeader {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.WebACL.ResponseInspectionHeader'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

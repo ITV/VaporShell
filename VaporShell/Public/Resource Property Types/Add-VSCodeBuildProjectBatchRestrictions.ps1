@@ -1,11 +1,10 @@
 function Add-VSCodeBuildProjectBatchRestrictions {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::Project.BatchRestrictions resource property to the template. 
+        Adds an AWS::CodeBuild::Project.BatchRestrictions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::Project.BatchRestrictions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html
@@ -24,13 +23,16 @@ function Add-VSCodeBuildProjectBatchRestrictions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeBuild.Project.BatchRestrictions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ComputeTypesAllowed,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,11 +43,14 @@ function Add-VSCodeBuildProjectBatchRestrictions {
                 }
             })]
         $MaximumBuildsAllowed
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -55,6 +60,7 @@ function Add-VSCodeBuildProjectBatchRestrictions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeBuild.Project.BatchRestrictions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSM2EnvironmentStorageConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::M2::Environment.StorageConfiguration resource property to the template. 
+        Adds an AWS::M2::Environment.StorageConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::M2::Environment.StorageConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-storageconfiguration.html
@@ -23,19 +22,25 @@ function Add-VSM2EnvironmentStorageConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.M2.Environment.StorageConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Efs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Fsx
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSM2EnvironmentStorageConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.M2.Environment.StorageConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

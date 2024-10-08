@@ -1,11 +1,10 @@
 function Add-VSGroundStationMissionProfileStreamsKmsKey {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::MissionProfile.StreamsKmsKey resource property to the template. 
+        Adds an AWS::GroundStation::MissionProfile.StreamsKmsKey resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GroundStation::MissionProfile.StreamsKmsKey resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-streamskmskey.html
@@ -23,11 +22,13 @@ function Add-VSGroundStationMissionProfileStreamsKmsKey {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GroundStation.MissionProfile.StreamsKmsKey')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSGroundStationMissionProfileStreamsKmsKey {
                 }
             })]
         $KmsKeyArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSGroundStationMissionProfileStreamsKmsKey {
                 }
             })]
         $KmsAliasArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSGroundStationMissionProfileStreamsKmsKey {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GroundStation.MissionProfile.StreamsKmsKey'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

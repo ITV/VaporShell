@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelAvailSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AvailSettings resource property to the template. 
+        Adds an AWS::MediaLive::Channel.AvailSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AvailSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html
@@ -28,21 +27,28 @@ function Add-VSMediaLiveChannelAvailSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AvailSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Scte35SpliceInsert,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Scte35TimeSignalApos,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Esam
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +58,7 @@ function Add-VSMediaLiveChannelAvailSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.AvailSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

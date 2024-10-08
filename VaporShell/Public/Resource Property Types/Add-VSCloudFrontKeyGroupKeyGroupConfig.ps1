@@ -1,11 +1,10 @@
 function Add-VSCloudFrontKeyGroupKeyGroupConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::KeyGroup.KeyGroupConfig resource property to the template. 
+        Adds an AWS::CloudFront::KeyGroup.KeyGroupConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::KeyGroup.KeyGroupConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
@@ -30,11 +29,13 @@ function Add-VSCloudFrontKeyGroupKeyGroupConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.KeyGroup.KeyGroupConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,9 +46,11 @@ function Add-VSCloudFrontKeyGroupKeyGroupConfig {
                 }
             })]
         $Comment,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Items,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,11 +61,14 @@ function Add-VSCloudFrontKeyGroupKeyGroupConfig {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +78,7 @@ function Add-VSCloudFrontKeyGroupKeyGroupConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.KeyGroup.KeyGroupConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

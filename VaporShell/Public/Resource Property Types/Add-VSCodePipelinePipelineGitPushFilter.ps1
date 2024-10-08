@@ -1,11 +1,10 @@
 function Add-VSCodePipelinePipelineGitPushFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::CodePipeline::Pipeline.GitPushFilter resource property to the template. 
+        Adds an AWS::CodePipeline::Pipeline.GitPushFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodePipeline::Pipeline.GitPushFilter resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html
@@ -28,21 +27,28 @@ function Add-VSCodePipelinePipelineGitPushFilter {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.GitPushFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $FilePaths,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Branches,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Tags
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +58,7 @@ function Add-VSCodePipelinePipelineGitPushFilter {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodePipeline.Pipeline.GitPushFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

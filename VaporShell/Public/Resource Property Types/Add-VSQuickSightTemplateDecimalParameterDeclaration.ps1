@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateDecimalParameterDeclaration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.DecimalParameterDeclaration resource property to the template. 
+        Adds an AWS::QuickSight::Template.DecimalParameterDeclaration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.DecimalParameterDeclaration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-decimalparameterdeclaration.html
@@ -40,11 +39,13 @@ function Add-VSQuickSightTemplateDecimalParameterDeclaration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.DecimalParameterDeclaration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.MappedDataSetParameter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,9 +56,11 @@ function Add-VSQuickSightTemplateDecimalParameterDeclaration {
                 }
             })]
         $MappedDataSetParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultValues,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,9 +71,11 @@ function Add-VSQuickSightTemplateDecimalParameterDeclaration {
                 }
             })]
         $ParameterValueType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ValueWhenUnset,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,11 +86,14 @@ function Add-VSQuickSightTemplateDecimalParameterDeclaration {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -95,6 +103,7 @@ function Add-VSQuickSightTemplateDecimalParameterDeclaration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.DecimalParameterDeclaration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

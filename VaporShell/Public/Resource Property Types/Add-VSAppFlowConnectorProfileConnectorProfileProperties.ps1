@@ -1,11 +1,10 @@
 function Add-VSAppFlowConnectorProfileConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.ConnectorProfileProperties resource property to the template. 
+        Adds an AWS::AppFlow::ConnectorProfile.ConnectorProfileProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.ConnectorProfileProperties resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html
@@ -83,43 +82,61 @@ function Add-VSAppFlowConnectorProfileConnectorProfileProperties {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.ConnectorProfileProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ServiceNow,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomConnector,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SAPOData,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Pardot,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Veeva,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Datadog,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Marketo,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Redshift,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Slack,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Snowflake,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Dynatrace,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Zendesk,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InforNexus,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Salesforce
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -129,6 +146,7 @@ function Add-VSAppFlowConnectorProfileConnectorProfileProperties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.ConnectorProfile.ConnectorProfileProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

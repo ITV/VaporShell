@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisNumberDisplayFormatConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.NumberDisplayFormatConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.NumberDisplayFormatConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.NumberDisplayFormatConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numberdisplayformatconfiguration.html
@@ -48,15 +47,19 @@ function Add-VSQuickSightAnalysisNumberDisplayFormatConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.NumberDisplayFormatConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $NegativeValueConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DecimalPlacesConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,9 +70,11 @@ function Add-VSQuickSightAnalysisNumberDisplayFormatConfiguration {
                 }
             })]
         $NumberScale,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NullValueFormatConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -80,9 +85,11 @@ function Add-VSQuickSightAnalysisNumberDisplayFormatConfiguration {
                 }
             })]
         $Suffix,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SeparatorConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -93,11 +100,14 @@ function Add-VSQuickSightAnalysisNumberDisplayFormatConfiguration {
                 }
             })]
         $Prefix
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -107,6 +117,7 @@ function Add-VSQuickSightAnalysisNumberDisplayFormatConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.NumberDisplayFormatConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

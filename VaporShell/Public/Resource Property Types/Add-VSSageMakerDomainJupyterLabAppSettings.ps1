@@ -1,11 +1,10 @@
 function Add-VSSageMakerDomainJupyterLabAppSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Domain.JupyterLabAppSettings resource property to the template. 
+        Adds an AWS::SageMaker::Domain.JupyterLabAppSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Domain.JupyterLabAppSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterlabappsettings.html
@@ -44,11 +43,13 @@ function Add-VSSageMakerDomainJupyterLabAppSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.Domain.JupyterLabAppSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.Domain.CustomImage"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,11 +60,14 @@ function Add-VSSageMakerDomainJupyterLabAppSettings {
                 }
             })]
         $CustomImages,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultResourceSpec,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LifecycleConfigArns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.Domain.CodeRepository"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -74,13 +78,17 @@ function Add-VSSageMakerDomainJupyterLabAppSettings {
                 }
             })]
         $CodeRepositories,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AppLifecycleManagement
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -90,6 +98,7 @@ function Add-VSSageMakerDomainJupyterLabAppSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.Domain.JupyterLabAppSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

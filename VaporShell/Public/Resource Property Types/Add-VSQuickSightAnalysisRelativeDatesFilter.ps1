@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisRelativeDatesFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.RelativeDatesFilter resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.RelativeDatesFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.RelativeDatesFilter resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-relativedatesfilter.html
@@ -68,11 +67,13 @@ function Add-VSQuickSightAnalysisRelativeDatesFilter {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.RelativeDatesFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,9 +84,11 @@ function Add-VSQuickSightAnalysisRelativeDatesFilter {
                 }
             })]
         $RelativeDateValue,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Column,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,7 +99,8 @@ function Add-VSQuickSightAnalysisRelativeDatesFilter {
                 }
             })]
         $RelativeDateType,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -107,7 +111,8 @@ function Add-VSQuickSightAnalysisRelativeDatesFilter {
                 }
             })]
         $TimeGranularity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -118,7 +123,8 @@ function Add-VSQuickSightAnalysisRelativeDatesFilter {
                 }
             })]
         $ParameterName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,9 +135,11 @@ function Add-VSQuickSightAnalysisRelativeDatesFilter {
                 }
             })]
         $NullOption,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultFilterControlConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -142,9 +150,11 @@ function Add-VSQuickSightAnalysisRelativeDatesFilter {
                 }
             })]
         $FilterId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AnchorDateConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -155,13 +165,17 @@ function Add-VSQuickSightAnalysisRelativeDatesFilter {
                 }
             })]
         $MinimumGranularity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExcludePeriodConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -171,6 +185,7 @@ function Add-VSQuickSightAnalysisRelativeDatesFilter {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.RelativeDatesFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

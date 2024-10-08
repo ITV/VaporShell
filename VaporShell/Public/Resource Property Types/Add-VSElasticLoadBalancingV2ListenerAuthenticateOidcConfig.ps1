@@ -1,11 +1,10 @@
 function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::Listener.AuthenticateOidcConfig resource property to the template. 
+        Adds an AWS::ElasticLoadBalancingV2::Listener.AuthenticateOidcConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancingV2::Listener.AuthenticateOidcConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html
@@ -74,11 +73,13 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.AuthenticateOidcConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,7 +90,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $UseExistingClientSecret,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,7 +102,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $OnUnauthenticatedRequest,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,7 +114,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $TokenEndpoint,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -122,7 +126,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $SessionTimeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -133,7 +138,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $Scope,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -144,7 +150,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $Issuer,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -155,7 +162,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $ClientSecret,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -166,7 +174,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $UserInfoEndpoint,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -177,7 +186,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $ClientId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -188,7 +198,8 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $AuthorizationEndpoint,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -199,14 +210,18 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
                 }
             })]
         $SessionCookieName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $AuthenticationRequestExtraParams
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -216,6 +231,7 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateOidcConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancingV2.Listener.AuthenticateOidcConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

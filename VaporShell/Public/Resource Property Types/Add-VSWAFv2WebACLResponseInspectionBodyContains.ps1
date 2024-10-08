@@ -1,11 +1,10 @@
 function Add-VSWAFv2WebACLResponseInspectionBodyContains {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.ResponseInspectionBodyContains resource property to the template. 
+        Adds an AWS::WAFv2::WebACL.ResponseInspectionBodyContains resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.ResponseInspectionBodyContains resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionbodycontains.html
@@ -27,19 +26,25 @@ function Add-VSWAFv2WebACLResponseInspectionBodyContains {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ResponseInspectionBodyContains')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SuccessStrings,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $FailureStrings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +54,7 @@ function Add-VSWAFv2WebACLResponseInspectionBodyContains {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.WebACL.ResponseInspectionBodyContains'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

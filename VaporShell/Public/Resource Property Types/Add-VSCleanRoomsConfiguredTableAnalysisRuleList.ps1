@@ -1,11 +1,10 @@
 function Add-VSCleanRoomsConfiguredTableAnalysisRuleList {
     <#
     .SYNOPSIS
-        Adds an AWS::CleanRooms::ConfiguredTable.AnalysisRuleList resource property to the template. 
+        Adds an AWS::CleanRooms::ConfiguredTable.AnalysisRuleList resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CleanRooms::ConfiguredTable.AnalysisRuleList resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html
@@ -39,15 +38,19 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleList {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.AnalysisRuleList')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AllowedJoinOperators,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $ListColumns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,13 +61,17 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleList {
                 }
             })]
         $AdditionalAnalyses,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $JoinColumns
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -74,6 +81,7 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleList {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CleanRooms.ConfiguredTable.AnalysisRuleList'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSWAFRegionalXssMatchSetXssMatchTuple {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFRegional::XssMatchSet.XssMatchTuple resource property to the template. 
+        Adds an AWS::WAFRegional::XssMatchSet.XssMatchTuple resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFRegional::XssMatchSet.XssMatchTuple resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html
@@ -23,11 +22,13 @@ function Add-VSWAFRegionalXssMatchSetXssMatchTuple {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFRegional.XssMatchSet.XssMatchTuple')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSWAFRegionalXssMatchSetXssMatchTuple {
                 }
             })]
         $TextTransformation,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $FieldToMatch
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSWAFRegionalXssMatchSetXssMatchTuple {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFRegional.XssMatchSet.XssMatchTuple'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

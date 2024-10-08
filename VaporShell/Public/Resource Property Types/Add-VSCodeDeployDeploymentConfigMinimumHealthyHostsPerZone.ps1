@@ -1,11 +1,10 @@
 function Add-VSCodeDeployDeploymentConfigMinimumHealthyHostsPerZone {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHostsPerZone resource property to the template. 
+        Adds an AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHostsPerZone resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHostsPerZone resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhostsperzone.html
@@ -23,11 +22,13 @@ function Add-VSCodeDeployDeploymentConfigMinimumHealthyHostsPerZone {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentConfig.MinimumHealthyHostsPerZone')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSCodeDeployDeploymentConfigMinimumHealthyHostsPerZone {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSCodeDeployDeploymentConfigMinimumHealthyHostsPerZone {
                 }
             })]
         $Value
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSCodeDeployDeploymentConfigMinimumHealthyHostsPerZone {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeDeploy.DeploymentConfig.MinimumHealthyHostsPerZone'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSMediaPackagePackagingConfigurationSpekeKeyProvider {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::PackagingConfiguration.SpekeKeyProvider resource property to the template. 
+        Adds an AWS::MediaPackage::PackagingConfiguration.SpekeKeyProvider resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::PackagingConfiguration.SpekeKeyProvider resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html
@@ -35,15 +34,19 @@ function Add-VSMediaPackagePackagingConfigurationSpekeKeyProvider {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.SpekeKeyProvider')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SystemIds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EncryptionContractConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +57,8 @@ function Add-VSMediaPackagePackagingConfigurationSpekeKeyProvider {
                 }
             })]
         $RoleArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,11 +69,14 @@ function Add-VSMediaPackagePackagingConfigurationSpekeKeyProvider {
                 }
             })]
         $Url
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +86,7 @@ function Add-VSMediaPackagePackagingConfigurationSpekeKeyProvider {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaPackage.PackagingConfiguration.SpekeKeyProvider'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

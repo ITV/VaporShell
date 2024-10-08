@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardTableUnaggregatedFieldWells {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.TableUnaggregatedFieldWells resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.TableUnaggregatedFieldWells resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.TableUnaggregatedFieldWells resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tableunaggregatedfieldwells.html
@@ -20,11 +19,13 @@ function Add-VSQuickSightDashboardTableUnaggregatedFieldWells {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TableUnaggregatedFieldWells')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.UnaggregatedField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +36,14 @@ function Add-VSQuickSightDashboardTableUnaggregatedFieldWells {
                 }
             })]
         $Values
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +53,7 @@ function Add-VSQuickSightDashboardTableUnaggregatedFieldWells {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.TableUnaggregatedFieldWells'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

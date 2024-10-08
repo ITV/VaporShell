@@ -1,11 +1,10 @@
 function Add-VSPaymentCryptographyKeyKeyAttributes {
     <#
     .SYNOPSIS
-        Adds an AWS::PaymentCryptography::Key.KeyAttributes resource property to the template. 
+        Adds an AWS::PaymentCryptography::Key.KeyAttributes resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::PaymentCryptography::Key.KeyAttributes resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html
@@ -33,11 +32,13 @@ function Add-VSPaymentCryptographyKeyKeyAttributes {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.PaymentCryptography.Key.KeyAttributes')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,7 +49,8 @@ function Add-VSPaymentCryptographyKeyKeyAttributes {
                 }
             })]
         $KeyClass,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,9 +61,11 @@ function Add-VSPaymentCryptographyKeyKeyAttributes {
                 }
             })]
         $KeyUsage,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $KeyModesOfUse,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,11 +76,14 @@ function Add-VSPaymentCryptographyKeyKeyAttributes {
                 }
             })]
         $KeyAlgorithm
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -86,6 +93,7 @@ function Add-VSPaymentCryptographyKeyKeyAttributes {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.PaymentCryptography.Key.KeyAttributes'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

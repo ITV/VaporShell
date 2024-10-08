@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.ScatterPlotCategoricallyAggregatedFieldWells resource property to the template. 
+        Adds an AWS::QuickSight::Template.ScatterPlotCategoricallyAggregatedFieldWells resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.ScatterPlotCategoricallyAggregatedFieldWells resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotcategoricallyaggregatedfieldwells.html
@@ -48,11 +47,13 @@ function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.ScatterPlotCategoricallyAggregatedFieldWells')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.DimensionField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,7 +64,8 @@ function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
                 }
             })]
         $Category,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.MeasureField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -74,7 +76,8 @@ function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
                 }
             })]
         $Size,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.DimensionField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,7 +88,8 @@ function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
                 }
             })]
         $Label,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.MeasureField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,7 +100,8 @@ function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
                 }
             })]
         $XAxis,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.MeasureField"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -107,11 +112,14 @@ function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
                 }
             })]
         $YAxis
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -121,6 +129,7 @@ function Add-VSQuickSightTemplateScatterPlotCategoricallyAggregatedFieldWells {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.ScatterPlotCategoricallyAggregatedFieldWells'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

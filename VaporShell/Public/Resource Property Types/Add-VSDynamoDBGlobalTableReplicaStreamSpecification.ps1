@@ -1,11 +1,10 @@
 function Add-VSDynamoDBGlobalTableReplicaStreamSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.ReplicaStreamSpecification resource property to the template. 
+        Adds an AWS::DynamoDB::GlobalTable.ReplicaStreamSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.ReplicaStreamSpecification resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html
@@ -18,17 +17,22 @@ function Add-VSDynamoDBGlobalTableReplicaStreamSpecification {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaStreamSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $ResourcePolicy
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSDynamoDBGlobalTableReplicaStreamSpecification {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaStreamSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

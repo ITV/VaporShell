@@ -1,11 +1,10 @@
 function Add-VSDataBrewDatasetFormatOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.FormatOptions resource property to the template. 
+        Adds an AWS::DataBrew::Dataset.FormatOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.FormatOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
@@ -28,21 +27,28 @@ function Add-VSDataBrewDatasetFormatOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.FormatOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Excel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Csv,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Json
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +58,7 @@ function Add-VSDataBrewDatasetFormatOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataBrew.Dataset.FormatOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

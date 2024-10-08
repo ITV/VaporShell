@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardBarChartSortConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.BarChartSortConfiguration resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.BarChartSortConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.BarChartSortConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-barchartsortconfiguration.html
@@ -49,11 +48,13 @@ function Add-VSQuickSightDashboardBarChartSortConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.BarChartSortConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.FieldSortOptions"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,7 +65,8 @@ function Add-VSQuickSightDashboardBarChartSortConfiguration {
                 }
             })]
         $SmallMultiplesSort,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.FieldSortOptions"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,11 +77,14 @@ function Add-VSQuickSightDashboardBarChartSortConfiguration {
                 }
             })]
         $ColorSort,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ColorItemsLimit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CategoryItemsLimit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.FieldSortOptions"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,13 +95,17 @@ function Add-VSQuickSightDashboardBarChartSortConfiguration {
                 }
             })]
         $CategorySort,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SmallMultiplesLimitConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -106,6 +115,7 @@ function Add-VSQuickSightDashboardBarChartSortConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.BarChartSortConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

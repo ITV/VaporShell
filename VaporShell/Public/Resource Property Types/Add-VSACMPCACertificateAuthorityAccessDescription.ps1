@@ -1,11 +1,10 @@
 function Add-VSACMPCACertificateAuthorityAccessDescription {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::CertificateAuthority.AccessDescription resource property to the template. 
+        Adds an AWS::ACMPCA::CertificateAuthority.AccessDescription resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::CertificateAuthority.AccessDescription resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
@@ -23,19 +22,25 @@ function Add-VSACMPCACertificateAuthorityAccessDescription {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ACMPCA.CertificateAuthority.AccessDescription')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $AccessMethod,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AccessLocation
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSACMPCACertificateAuthorityAccessDescription {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ACMPCA.CertificateAuthority.AccessDescription'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

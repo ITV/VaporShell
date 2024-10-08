@@ -1,11 +1,10 @@
 function Add-VSAppTestTestCaseDatabaseCDC {
     <#
     .SYNOPSIS
-        Adds an AWS::AppTest::TestCase.DatabaseCDC resource property to the template. 
+        Adds an AWS::AppTest::TestCase.DatabaseCDC resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppTest::TestCase.DatabaseCDC resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-databasecdc.html
@@ -23,19 +22,25 @@ function Add-VSAppTestTestCaseDatabaseCDC {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppTest.TestCase.DatabaseCDC')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SourceMetadata,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $TargetMetadata
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSAppTestTestCaseDatabaseCDC {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppTest.TestCase.DatabaseCDC'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

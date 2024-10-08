@@ -1,11 +1,10 @@
 function Add-VSConnectUserHierarchyStructureUserHierarchyStructure {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::UserHierarchyStructure.UserHierarchyStructure resource property to the template. 
+        Adds an AWS::Connect::UserHierarchyStructure.UserHierarchyStructure resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Connect::UserHierarchyStructure.UserHierarchyStructure resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-userhierarchystructure.html
@@ -38,25 +37,34 @@ function Add-VSConnectUserHierarchyStructureUserHierarchyStructure {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Connect.UserHierarchyStructure.UserHierarchyStructure')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $LevelThree,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LevelTwo,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LevelFive,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LevelFour,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LevelOne
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -66,6 +74,7 @@ function Add-VSConnectUserHierarchyStructureUserHierarchyStructure {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Connect.UserHierarchyStructure.UserHierarchyStructure'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

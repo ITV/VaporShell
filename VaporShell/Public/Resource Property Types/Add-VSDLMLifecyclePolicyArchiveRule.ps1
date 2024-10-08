@@ -1,11 +1,10 @@
 function Add-VSDLMLifecyclePolicyArchiveRule {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.ArchiveRule resource property to the template. 
+        Adds an AWS::DLM::LifecyclePolicy.ArchiveRule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.ArchiveRule resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiverule.html
@@ -18,17 +17,22 @@ function Add-VSDLMLifecyclePolicyArchiveRule {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.ArchiveRule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $RetainRule
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSDLMLifecyclePolicyArchiveRule {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DLM.LifecyclePolicy.ArchiveRule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

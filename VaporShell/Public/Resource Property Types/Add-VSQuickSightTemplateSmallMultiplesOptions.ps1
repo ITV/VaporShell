@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateSmallMultiplesOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.SmallMultiplesOptions resource property to the template. 
+        Adds an AWS::QuickSight::Template.SmallMultiplesOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.SmallMultiplesOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-smallmultiplesoptions.html
@@ -38,11 +37,13 @@ function Add-VSQuickSightTemplateSmallMultiplesOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.SmallMultiplesOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,9 +54,11 @@ function Add-VSQuickSightTemplateSmallMultiplesOptions {
                 }
             })]
         $MaxVisibleRows,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PanelConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -66,15 +69,20 @@ function Add-VSQuickSightTemplateSmallMultiplesOptions {
                 }
             })]
         $MaxVisibleColumns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $XAxis,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $YAxis
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -84,6 +92,7 @@ function Add-VSQuickSightTemplateSmallMultiplesOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.SmallMultiplesOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

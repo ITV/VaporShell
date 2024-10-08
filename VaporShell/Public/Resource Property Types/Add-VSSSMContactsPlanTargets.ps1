@@ -1,11 +1,10 @@
 function Add-VSSSMContactsPlanTargets {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMContacts::Plan.Targets resource property to the template. 
+        Adds an AWS::SSMContacts::Plan.Targets resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSMContacts::Plan.Targets resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-targets.html
@@ -23,19 +22,25 @@ function Add-VSSSMContactsPlanTargets {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSMContacts.Plan.Targets')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ChannelTargetInfo,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ContactTargetInfo
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSSSMContactsPlanTargets {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSMContacts.Plan.Targets'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSApplicationSignalsServiceLevelObjectiveMonitoredRequestCountMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationSignals::ServiceLevelObjective.MonitoredRequestCountMetric resource property to the template. 
+        Adds an AWS::ApplicationSignals::ServiceLevelObjective.MonitoredRequestCountMetric resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApplicationSignals::ServiceLevelObjective.MonitoredRequestCountMetric resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-monitoredrequestcountmetric.html
@@ -27,11 +26,13 @@ function Add-VSApplicationSignalsServiceLevelObjectiveMonitoredRequestCountMetri
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MonitoredRequestCountMetric')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MetricDataQuery"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +43,8 @@ function Add-VSApplicationSignalsServiceLevelObjectiveMonitoredRequestCountMetri
                 }
             })]
         $GoodCountMetric,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MetricDataQuery"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +55,14 @@ function Add-VSApplicationSignalsServiceLevelObjectiveMonitoredRequestCountMetri
                 }
             })]
         $BadCountMetric
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +72,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveMonitoredRequestCountMetri
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MonitoredRequestCountMetric'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

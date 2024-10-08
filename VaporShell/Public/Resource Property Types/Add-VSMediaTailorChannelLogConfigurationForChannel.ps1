@@ -1,11 +1,10 @@
 function Add-VSMediaTailorChannelLogConfigurationForChannel {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaTailor::Channel.LogConfigurationForChannel resource property to the template. 
+        Adds an AWS::MediaTailor::Channel.LogConfigurationForChannel resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaTailor::Channel.LogConfigurationForChannel resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-logconfigurationforchannel.html
@@ -20,17 +19,22 @@ function Add-VSMediaTailorChannelLogConfigurationForChannel {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaTailor.Channel.LogConfigurationForChannel')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $LogTypes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +44,7 @@ function Add-VSMediaTailorChannelLogConfigurationForChannel {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaTailor.Channel.LogConfigurationForChannel'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

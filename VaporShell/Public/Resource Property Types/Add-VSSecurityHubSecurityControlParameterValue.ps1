@@ -1,11 +1,10 @@
 function Add-VSSecurityHubSecurityControlParameterValue {
     <#
     .SYNOPSIS
-        Adds an AWS::SecurityHub::SecurityControl.ParameterValue resource property to the template. 
+        Adds an AWS::SecurityHub::SecurityControl.ParameterValue resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SecurityHub::SecurityControl.ParameterValue resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parametervalue.html
@@ -59,11 +58,13 @@ function Add-VSSecurityHubSecurityControlParameterValue {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SecurityHub.SecurityControl.ParameterValue')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -74,7 +75,8 @@ function Add-VSSecurityHubSecurityControlParameterValue {
                 }
             })]
         $Enum,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,13 +87,17 @@ function Add-VSSecurityHubSecurityControlParameterValue {
                 }
             })]
         $Integer,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StringList,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EnumList,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IntegerList,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -102,7 +108,8 @@ function Add-VSSecurityHubSecurityControlParameterValue {
                 }
             })]
         $String,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -113,7 +120,8 @@ function Add-VSSecurityHubSecurityControlParameterValue {
                 }
             })]
         $Boolean,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -124,11 +132,14 @@ function Add-VSSecurityHubSecurityControlParameterValue {
                 }
             })]
         $Double
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -138,6 +149,7 @@ function Add-VSSecurityHubSecurityControlParameterValue {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SecurityHub.SecurityControl.ParameterValue'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

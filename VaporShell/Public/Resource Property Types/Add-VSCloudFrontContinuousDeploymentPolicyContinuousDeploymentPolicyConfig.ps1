@@ -1,11 +1,10 @@
 function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfig resource property to the template. 
+        Adds an AWS::CloudFront::ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html
@@ -45,11 +44,13 @@ function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyCon
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,9 +61,11 @@ function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyCon
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SingleHeaderPolicyConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,17 +76,23 @@ function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyCon
                 }
             })]
         $Enabled,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $StagingDistributionDnsNames,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TrafficConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SingleWeightPolicyConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -93,6 +102,7 @@ function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyCon
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

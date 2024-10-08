@@ -1,11 +1,10 @@
 function Add-VSDataZoneUserProfileUserProfileDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::DataZone::UserProfile.UserProfileDetails resource property to the template. 
+        Adds an AWS::DataZone::UserProfile.UserProfileDetails resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataZone::UserProfile.UserProfileDetails resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-userprofiledetails.html
@@ -23,19 +22,25 @@ function Add-VSDataZoneUserProfileUserProfileDetails {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataZone.UserProfile.UserProfileDetails')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Iam,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sso
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSDataZoneUserProfileUserProfileDetails {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataZone.UserProfile.UserProfileDetails'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSConnectRoutingProfileRoutingProfileQueueReference {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::RoutingProfile.RoutingProfileQueueReference resource property to the template. 
+        Adds an AWS::Connect::RoutingProfile.RoutingProfileQueueReference resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Connect::RoutingProfile.RoutingProfileQueueReference resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeuereference.html
@@ -23,11 +22,13 @@ function Add-VSConnectRoutingProfileRoutingProfileQueueReference {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Connect.RoutingProfile.RoutingProfileQueueReference')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSConnectRoutingProfileRoutingProfileQueueReference {
                 }
             })]
         $Channel,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSConnectRoutingProfileRoutingProfileQueueReference {
                 }
             })]
         $QueueArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSConnectRoutingProfileRoutingProfileQueueReference {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Connect.RoutingProfile.RoutingProfileQueueReference'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSEMRInstanceFleetConfigInstanceFleetResizingSpecifications {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::InstanceFleetConfig.InstanceFleetResizingSpecifications resource property to the template. 
+        Adds an AWS::EMR::InstanceFleetConfig.InstanceFleetResizingSpecifications resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::InstanceFleetConfig.InstanceFleetResizingSpecifications resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications.html
@@ -23,19 +22,25 @@ function Add-VSEMRInstanceFleetConfigInstanceFleetResizingSpecifications {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.InstanceFleetResizingSpecifications')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $OnDemandResizeSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SpotResizeSpecification
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSEMRInstanceFleetConfigInstanceFleetResizingSpecifications {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.InstanceFleetConfig.InstanceFleetResizingSpecifications'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

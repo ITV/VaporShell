@@ -1,11 +1,10 @@
 function Add-VSDeadlineFleetCustomerManagedWorkerCapabilities {
     <#
     .SYNOPSIS
-        Adds an AWS::Deadline::Fleet.CustomerManagedWorkerCapabilities resource property to the template. 
+        Adds an AWS::Deadline::Fleet.CustomerManagedWorkerCapabilities resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Deadline::Fleet.CustomerManagedWorkerCapabilities resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html
@@ -64,11 +63,13 @@ function Add-VSDeadlineFleetCustomerManagedWorkerCapabilities {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Deadline.Fleet.CustomerManagedWorkerCapabilities')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Deadline.Fleet.FleetAttributeCapability"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,9 +80,11 @@ function Add-VSDeadlineFleetCustomerManagedWorkerCapabilities {
                 }
             })]
         $CustomAttributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AcceleratorCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Deadline.Fleet.FleetAmountCapability"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -92,15 +95,20 @@ function Add-VSDeadlineFleetCustomerManagedWorkerCapabilities {
                 }
             })]
         $CustomAmounts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AcceleratorTypes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AcceleratorTotalMemoryMiB,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $VCpuCount,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $MemoryMiB,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,7 +119,8 @@ function Add-VSDeadlineFleetCustomerManagedWorkerCapabilities {
                 }
             })]
         $OsFamily,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -122,11 +131,14 @@ function Add-VSDeadlineFleetCustomerManagedWorkerCapabilities {
                 }
             })]
         $CpuArchitectureType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -136,6 +148,7 @@ function Add-VSDeadlineFleetCustomerManagedWorkerCapabilities {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Deadline.Fleet.CustomerManagedWorkerCapabilities'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

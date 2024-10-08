@@ -1,11 +1,10 @@
 function Add-VSWAFv2WebACLResponseInspectionStatusCode {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.ResponseInspectionStatusCode resource property to the template. 
+        Adds an AWS::WAFv2::WebACL.ResponseInspectionStatusCode resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.ResponseInspectionStatusCode resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionstatuscode.html
@@ -27,19 +26,25 @@ function Add-VSWAFv2WebACLResponseInspectionStatusCode {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ResponseInspectionStatusCode')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SuccessCodes,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $FailureCodes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +54,7 @@ function Add-VSWAFv2WebACLResponseInspectionStatusCode {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.WebACL.ResponseInspectionStatusCode'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

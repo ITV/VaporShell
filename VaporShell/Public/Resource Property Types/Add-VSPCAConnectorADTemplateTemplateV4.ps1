@@ -1,11 +1,10 @@
 function Add-VSPCAConnectorADTemplateTemplateV4 {
     <#
     .SYNOPSIS
-        Adds an AWS::PCAConnectorAD::Template.TemplateV4 resource property to the template. 
+        Adds an AWS::PCAConnectorAD::Template.TemplateV4 resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::PCAConnectorAD::Template.TemplateV4 resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html
@@ -60,27 +59,37 @@ function Add-VSPCAConnectorADTemplateTemplateV4 {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.TemplateV4')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SubjectNameFlags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SupersededTemplates,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $PrivateKeyFlags,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $PrivateKeyAttributes,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $GeneralFlags,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $CertificateValidity,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Extensions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $EnrollmentFlags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -91,11 +100,14 @@ function Add-VSPCAConnectorADTemplateTemplateV4 {
                 }
             })]
         $HashAlgorithm
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -105,6 +117,7 @@ function Add-VSPCAConnectorADTemplateTemplateV4 {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.PCAConnectorAD.Template.TemplateV4'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSSageMakerUserProfileCodeEditorAppSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::UserProfile.CodeEditorAppSettings resource property to the template. 
+        Adds an AWS::SageMaker::UserProfile.CodeEditorAppSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::UserProfile.CodeEditorAppSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html
@@ -37,11 +36,13 @@ function Add-VSSageMakerUserProfileCodeEditorAppSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.CodeEditorAppSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.UserProfile.CustomImage"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,17 +53,23 @@ function Add-VSSageMakerUserProfileCodeEditorAppSettings {
                 }
             })]
         $CustomImages,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultResourceSpec,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LifecycleConfigArns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AppLifecycleManagement
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +79,7 @@ function Add-VSSageMakerUserProfileCodeEditorAppSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.UserProfile.CodeEditorAppSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

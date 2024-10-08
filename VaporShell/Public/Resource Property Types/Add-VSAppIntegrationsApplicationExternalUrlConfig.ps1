@@ -1,11 +1,10 @@
 function Add-VSAppIntegrationsApplicationExternalUrlConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppIntegrations::Application.ExternalUrlConfig resource property to the template. 
+        Adds an AWS::AppIntegrations::Application.ExternalUrlConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppIntegrations::Application.ExternalUrlConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-externalurlconfig.html
@@ -25,13 +24,16 @@ function Add-VSAppIntegrationsApplicationExternalUrlConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppIntegrations.Application.ExternalUrlConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ApprovedOrigins,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,11 +44,14 @@ function Add-VSAppIntegrationsApplicationExternalUrlConfig {
                 }
             })]
         $AccessUrl
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSAppIntegrationsApplicationExternalUrlConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppIntegrations.Application.ExternalUrlConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

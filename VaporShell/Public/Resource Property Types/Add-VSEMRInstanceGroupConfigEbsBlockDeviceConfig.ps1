@@ -1,11 +1,10 @@
 function Add-VSEMRInstanceGroupConfigEbsBlockDeviceConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::InstanceGroupConfig.EbsBlockDeviceConfig resource property to the template. 
+        Adds an AWS::EMR::InstanceGroupConfig.EbsBlockDeviceConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::InstanceGroupConfig.EbsBlockDeviceConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html
@@ -23,13 +22,16 @@ function Add-VSEMRInstanceGroupConfigEbsBlockDeviceConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.EbsBlockDeviceConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $VolumeSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +42,14 @@ function Add-VSEMRInstanceGroupConfigEbsBlockDeviceConfig {
                 }
             })]
         $VolumesPerInstance
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSEMRInstanceGroupConfigEbsBlockDeviceConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.InstanceGroupConfig.EbsBlockDeviceConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

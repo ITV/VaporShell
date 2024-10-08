@@ -1,11 +1,10 @@
 function Add-VSAppRunnerServiceImageConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.ImageConfiguration resource property to the template. 
+        Adds an AWS::AppRunner::Service.ImageConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.ImageConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html
@@ -37,11 +36,13 @@ function Add-VSAppRunnerServiceImageConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppRunner.Service.ImageConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppRunner.Service.KeyValuePair"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,7 +53,8 @@ function Add-VSAppRunnerServiceImageConfiguration {
                 }
             })]
         $RuntimeEnvironmentSecrets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,7 +65,8 @@ function Add-VSAppRunnerServiceImageConfiguration {
                 }
             })]
         $StartCommand,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppRunner.Service.KeyValuePair"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -74,7 +77,8 @@ function Add-VSAppRunnerServiceImageConfiguration {
                 }
             })]
         $RuntimeEnvironmentVariables,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,11 +89,14 @@ function Add-VSAppRunnerServiceImageConfiguration {
                 }
             })]
         $Port
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -99,6 +106,7 @@ function Add-VSAppRunnerServiceImageConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppRunner.Service.ImageConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

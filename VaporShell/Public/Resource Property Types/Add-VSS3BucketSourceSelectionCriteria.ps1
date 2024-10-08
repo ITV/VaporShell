@@ -1,11 +1,10 @@
 function Add-VSS3BucketSourceSelectionCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template. 
+        Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
@@ -23,19 +22,25 @@ function Add-VSS3BucketSourceSelectionCriteria {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.SourceSelectionCriteria')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ReplicaModifications,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SseKmsEncryptedObjects
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSS3BucketSourceSelectionCriteria {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.SourceSelectionCriteria'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

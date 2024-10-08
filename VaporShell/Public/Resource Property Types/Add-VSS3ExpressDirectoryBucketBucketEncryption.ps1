@@ -1,11 +1,10 @@
 function Add-VSS3ExpressDirectoryBucketBucketEncryption {
     <#
     .SYNOPSIS
-        Adds an AWS::S3Express::DirectoryBucket.BucketEncryption resource property to the template. 
+        Adds an AWS::S3Express::DirectoryBucket.BucketEncryption resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3Express::DirectoryBucket.BucketEncryption resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-bucketencryption.html
@@ -20,11 +19,13 @@ function Add-VSS3ExpressDirectoryBucketBucketEncryption {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3Express.DirectoryBucket.BucketEncryption')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3Express.DirectoryBucket.ServerSideEncryptionRule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +36,14 @@ function Add-VSS3ExpressDirectoryBucketBucketEncryption {
                 }
             })]
         $ServerSideEncryptionConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +53,7 @@ function Add-VSS3ExpressDirectoryBucketBucketEncryption {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3Express.DirectoryBucket.BucketEncryption'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

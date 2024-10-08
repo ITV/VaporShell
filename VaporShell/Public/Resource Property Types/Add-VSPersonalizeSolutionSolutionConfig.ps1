@@ -1,11 +1,10 @@
 function Add-VSPersonalizeSolutionSolutionConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Personalize::Solution.SolutionConfig resource property to the template. 
+        Adds an AWS::Personalize::Solution.SolutionConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Personalize::Solution.SolutionConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-solutionconfig.html
@@ -40,11 +39,13 @@ function Add-VSPersonalizeSolutionSolutionConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Personalize.Solution.SolutionConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,21 +56,28 @@ function Add-VSPersonalizeSolutionSolutionConfig {
                 }
             })]
         $EventValueThreshold,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HpoConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $AlgorithmHyperParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $FeatureTransformationParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AutoMLConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +87,7 @@ function Add-VSPersonalizeSolutionSolutionConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Personalize.Solution.SolutionConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

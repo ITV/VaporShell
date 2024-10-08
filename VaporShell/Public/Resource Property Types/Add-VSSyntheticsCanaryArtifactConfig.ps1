@@ -1,11 +1,10 @@
 function Add-VSSyntheticsCanaryArtifactConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Synthetics::Canary.ArtifactConfig resource property to the template. 
+        Adds an AWS::Synthetics::Canary.ArtifactConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Synthetics::Canary.ArtifactConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-artifactconfig.html
@@ -18,17 +17,22 @@ function Add-VSSyntheticsCanaryArtifactConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Synthetics.Canary.ArtifactConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $S3Encryption
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSSyntheticsCanaryArtifactConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Synthetics.Canary.ArtifactConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

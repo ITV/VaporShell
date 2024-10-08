@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisVisualCustomActionOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.VisualCustomActionOperation resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.VisualCustomActionOperation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.VisualCustomActionOperation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html
@@ -33,23 +32,31 @@ function Add-VSQuickSightAnalysisVisualCustomActionOperation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.VisualCustomActionOperation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $NavigationOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SetParametersOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FilterOperation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $URLOperation
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSQuickSightAnalysisVisualCustomActionOperation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.VisualCustomActionOperation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSApiGatewayDeploymentDeploymentCanarySettings {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::Deployment.DeploymentCanarySettings resource property to the template. 
+        Adds an AWS::ApiGateway::Deployment.DeploymentCanarySettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApiGateway::Deployment.DeploymentCanarySettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html
@@ -29,14 +28,17 @@ function Add-VSApiGatewayDeploymentDeploymentCanarySettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApiGateway.Deployment.DeploymentCanarySettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $StageVariableOverrides,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,7 +49,8 @@ function Add-VSApiGatewayDeploymentDeploymentCanarySettings {
                 }
             })]
         $PercentTraffic,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,11 +61,14 @@ function Add-VSApiGatewayDeploymentDeploymentCanarySettings {
                 }
             })]
         $UseStageCache
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +78,7 @@ function Add-VSApiGatewayDeploymentDeploymentCanarySettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApiGateway.Deployment.DeploymentCanarySettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

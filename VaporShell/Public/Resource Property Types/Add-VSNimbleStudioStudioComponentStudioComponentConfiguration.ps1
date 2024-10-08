@@ -1,11 +1,10 @@
 function Add-VSNimbleStudioStudioComponentStudioComponentConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NimbleStudio::StudioComponent.StudioComponentConfiguration resource property to the template. 
+        Adds an AWS::NimbleStudio::StudioComponent.StudioComponentConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NimbleStudio::StudioComponent.StudioComponentConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html
@@ -33,23 +32,31 @@ function Add-VSNimbleStudioStudioComponentStudioComponentConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NimbleStudio.StudioComponent.StudioComponentConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $LicenseServiceConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ComputeFarmConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ActiveDirectoryConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SharedFileSystemConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSNimbleStudioStudioComponentStudioComponentConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NimbleStudio.StudioComponent.StudioComponentConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

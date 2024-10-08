@@ -1,11 +1,10 @@
 function Add-VSBedrockFlowConditionFlowNodeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Bedrock::Flow.ConditionFlowNodeConfiguration resource property to the template. 
+        Adds an AWS::Bedrock::Flow.ConditionFlowNodeConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Bedrock::Flow.ConditionFlowNodeConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-conditionflownodeconfiguration.html
@@ -20,11 +19,13 @@ function Add-VSBedrockFlowConditionFlowNodeConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Bedrock.Flow.ConditionFlowNodeConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Bedrock.Flow.FlowCondition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +36,14 @@ function Add-VSBedrockFlowConditionFlowNodeConfiguration {
                 }
             })]
         $Conditions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +53,7 @@ function Add-VSBedrockFlowConditionFlowNodeConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Bedrock.Flow.ConditionFlowNodeConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

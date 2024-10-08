@@ -1,11 +1,10 @@
 function Add-VSPipesPipeEcsTaskOverride {
     <#
     .SYNOPSIS
-        Adds an AWS::Pipes::Pipe.EcsTaskOverride resource property to the template. 
+        Adds an AWS::Pipes::Pipe.EcsTaskOverride resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pipes::Pipe.EcsTaskOverride resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecstaskoverride.html
@@ -52,11 +51,13 @@ function Add-VSPipesPipeEcsTaskOverride {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pipes.Pipe.EcsTaskOverride')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,7 +68,8 @@ function Add-VSPipesPipeEcsTaskOverride {
                 }
             })]
         $ExecutionRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,7 +80,8 @@ function Add-VSPipesPipeEcsTaskOverride {
                 }
             })]
         $TaskRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,7 +92,8 @@ function Add-VSPipesPipeEcsTaskOverride {
                 }
             })]
         $Memory,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,7 +104,8 @@ function Add-VSPipesPipeEcsTaskOverride {
                 }
             })]
         $Cpu,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Pipes.Pipe.EcsInferenceAcceleratorOverride"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,9 +116,11 @@ function Add-VSPipesPipeEcsTaskOverride {
                 }
             })]
         $InferenceAcceleratorOverrides,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EphemeralStorage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Pipes.Pipe.EcsContainerOverride"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -124,11 +131,14 @@ function Add-VSPipesPipeEcsTaskOverride {
                 }
             })]
         $ContainerOverrides
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -138,6 +148,7 @@ function Add-VSPipesPipeEcsTaskOverride {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pipes.Pipe.EcsTaskOverride'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

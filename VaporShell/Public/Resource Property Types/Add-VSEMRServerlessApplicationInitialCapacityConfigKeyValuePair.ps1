@@ -1,11 +1,10 @@
 function Add-VSEMRServerlessApplicationInitialCapacityConfigKeyValuePair {
     <#
     .SYNOPSIS
-        Adds an AWS::EMRServerless::Application.InitialCapacityConfigKeyValuePair resource property to the template. 
+        Adds an AWS::EMRServerless::Application.InitialCapacityConfigKeyValuePair resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMRServerless::Application.InitialCapacityConfigKeyValuePair resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html
@@ -23,13 +22,16 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfigKeyValuePair {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMRServerless.Application.InitialCapacityConfigKeyValuePair')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Value,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +42,14 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfigKeyValuePair {
                 }
             })]
         $Key
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfigKeyValuePair {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMRServerless.Application.InitialCapacityConfigKeyValuePair'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

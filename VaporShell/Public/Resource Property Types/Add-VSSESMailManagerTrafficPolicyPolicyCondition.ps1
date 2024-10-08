@@ -1,11 +1,10 @@
 function Add-VSSESMailManagerTrafficPolicyPolicyCondition {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::MailManagerTrafficPolicy.PolicyCondition resource property to the template. 
+        Adds an AWS::SES::MailManagerTrafficPolicy.PolicyCondition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SES::MailManagerTrafficPolicy.PolicyCondition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html
@@ -33,23 +32,31 @@ function Add-VSSESMailManagerTrafficPolicyPolicyCondition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.PolicyCondition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $BooleanExpression,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StringExpression,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TlsExpression,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IpExpression
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSSESMailManagerTrafficPolicyPolicyCondition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SES.MailManagerTrafficPolicy.PolicyCondition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

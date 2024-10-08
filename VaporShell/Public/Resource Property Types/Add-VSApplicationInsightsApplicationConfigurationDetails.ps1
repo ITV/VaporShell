@@ -1,11 +1,10 @@
 function Add-VSApplicationInsightsApplicationConfigurationDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationInsights::Application.ConfigurationDetails resource property to the template. 
+        Adds an AWS::ApplicationInsights::Application.ConfigurationDetails resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApplicationInsights::Application.ConfigurationDetails resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
@@ -73,13 +72,16 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.ConfigurationDetails')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $NetWeaverPrometheusExporter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationInsights.Application.WindowsEvent"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,7 +92,8 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
                 }
             })]
         $WindowsEvents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationInsights.Application.AlarmMetric"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,7 +104,8 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
                 }
             })]
         $AlarmMetrics,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationInsights.Application.Alarm"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -112,13 +116,17 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
                 }
             })]
         $Alarms,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SQLServerPrometheusExporter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HAClusterPrometheusExporter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HANAPrometheusExporter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationInsights.Application.Log"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,7 +137,8 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
                 }
             })]
         $Logs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationInsights.Application.Process"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -140,13 +149,17 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
                 }
             })]
         $Processes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $JMXPrometheusExporter
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -156,6 +169,7 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApplicationInsights.Application.ConfigurationDetails'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

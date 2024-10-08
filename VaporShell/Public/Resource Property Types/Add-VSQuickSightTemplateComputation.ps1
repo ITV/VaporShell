@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateComputation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.Computation resource property to the template. 
+        Adds an AWS::QuickSight::Template.Computation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.Computation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-computation.html
@@ -63,35 +62,49 @@ function Add-VSQuickSightTemplateComputation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.Computation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $PeriodToDate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GrowthRate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TopBottomRanked,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TotalAggregation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Forecast,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MaximumMinimum,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PeriodOverPeriod,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MetricComparison,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TopBottomMovers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $UniqueValues
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -101,6 +114,7 @@ function Add-VSQuickSightTemplateComputation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.Computation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

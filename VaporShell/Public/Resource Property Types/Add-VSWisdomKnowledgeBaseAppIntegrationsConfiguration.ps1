@@ -1,11 +1,10 @@
 function Add-VSWisdomKnowledgeBaseAppIntegrationsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Wisdom::KnowledgeBase.AppIntegrationsConfiguration resource property to the template. 
+        Adds an AWS::Wisdom::KnowledgeBase.AppIntegrationsConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Wisdom::KnowledgeBase.AppIntegrationsConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-appintegrationsconfiguration.html
@@ -25,13 +24,16 @@ function Add-VSWisdomKnowledgeBaseAppIntegrationsConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.AppIntegrationsConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ObjectFields,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,11 +44,14 @@ function Add-VSWisdomKnowledgeBaseAppIntegrationsConfiguration {
                 }
             })]
         $AppIntegrationArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSWisdomKnowledgeBaseAppIntegrationsConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Wisdom.KnowledgeBase.AppIntegrationsConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

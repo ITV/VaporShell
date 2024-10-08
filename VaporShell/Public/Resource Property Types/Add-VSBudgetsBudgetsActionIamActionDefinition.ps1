@@ -1,11 +1,10 @@
 function Add-VSBudgetsBudgetsActionIamActionDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::BudgetsAction.IamActionDefinition resource property to the template. 
+        Adds an AWS::Budgets::BudgetsAction.IamActionDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Budgets::BudgetsAction.IamActionDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html
@@ -39,11 +38,13 @@ function Add-VSBudgetsBudgetsActionIamActionDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Budgets.BudgetsAction.IamActionDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,17 +55,23 @@ function Add-VSBudgetsBudgetsActionIamActionDefinition {
                 }
             })]
         $PolicyArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Groups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Roles,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Users
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -74,6 +81,7 @@ function Add-VSBudgetsBudgetsActionIamActionDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Budgets.BudgetsAction.IamActionDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

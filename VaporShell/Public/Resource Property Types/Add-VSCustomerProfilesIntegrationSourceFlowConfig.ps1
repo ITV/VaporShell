@@ -1,11 +1,10 @@
 function Add-VSCustomerProfilesIntegrationSourceFlowConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.SourceFlowConfig resource property to the template. 
+        Adds an AWS::CustomerProfiles::Integration.SourceFlowConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.SourceFlowConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html
@@ -33,11 +32,13 @@ function Add-VSCustomerProfilesIntegrationSourceFlowConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.SourceFlowConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,9 +49,11 @@ function Add-VSCustomerProfilesIntegrationSourceFlowConfig {
                 }
             })]
         $ConnectorProfileName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SourceConnectorProperties,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,13 +64,17 @@ function Add-VSCustomerProfilesIntegrationSourceFlowConfig {
                 }
             })]
         $ConnectorType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IncrementalPullConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSCustomerProfilesIntegrationSourceFlowConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CustomerProfiles.Integration.SourceFlowConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

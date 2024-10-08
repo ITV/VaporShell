@@ -1,11 +1,10 @@
 function Add-VSSageMakerModelPackageModelMetrics {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelPackage.ModelMetrics resource property to the template. 
+        Adds an AWS::SageMaker::ModelPackage.ModelMetrics resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelPackage.ModelMetrics resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html
@@ -33,23 +32,31 @@ function Add-VSSageMakerModelPackageModelMetrics {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.ModelMetrics')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ModelDataQuality,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Bias,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ModelQuality,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Explainability
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSSageMakerModelPackageModelMetrics {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelPackage.ModelMetrics'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

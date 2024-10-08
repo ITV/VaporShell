@@ -1,11 +1,10 @@
 function Add-VSCloudFormationStackSetDeploymentTargets {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::StackSet.DeploymentTargets resource property to the template. 
+        Adds an AWS::CloudFormation::StackSet.DeploymentTargets resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFormation::StackSet.DeploymentTargets resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
@@ -37,11 +36,13 @@ function Add-VSCloudFormationStackSetDeploymentTargets {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFormation.StackSet.DeploymentTargets')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,9 +53,11 @@ function Add-VSCloudFormationStackSetDeploymentTargets {
                 }
             })]
         $AccountFilterType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Accounts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,13 +68,17 @@ function Add-VSCloudFormationStackSetDeploymentTargets {
                 }
             })]
         $AccountsUrl,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OrganizationalUnitIds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -81,6 +88,7 @@ function Add-VSCloudFormationStackSetDeploymentTargets {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFormation.StackSet.DeploymentTargets'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSGreengrassFunctionDefinitionDefaultConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::FunctionDefinition.DefaultConfig resource property to the template. 
+        Adds an AWS::Greengrass::FunctionDefinition.DefaultConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::FunctionDefinition.DefaultConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-defaultconfig.html
@@ -18,17 +17,22 @@ function Add-VSGreengrassFunctionDefinitionDefaultConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.FunctionDefinition.DefaultConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Execution
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSGreengrassFunctionDefinitionDefaultConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.FunctionDefinition.DefaultConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

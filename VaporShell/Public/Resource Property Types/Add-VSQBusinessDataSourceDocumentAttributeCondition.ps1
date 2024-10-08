@@ -1,11 +1,10 @@
 function Add-VSQBusinessDataSourceDocumentAttributeCondition {
     <#
     .SYNOPSIS
-        Adds an AWS::QBusiness::DataSource.DocumentAttributeCondition resource property to the template. 
+        Adds an AWS::QBusiness::DataSource.DocumentAttributeCondition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QBusiness::DataSource.DocumentAttributeCondition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html
@@ -28,11 +27,13 @@ function Add-VSQBusinessDataSourceDocumentAttributeCondition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QBusiness.DataSource.DocumentAttributeCondition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,9 +44,11 @@ function Add-VSQBusinessDataSourceDocumentAttributeCondition {
                 }
             })]
         $Operator,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Value,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,11 +59,14 @@ function Add-VSQBusinessDataSourceDocumentAttributeCondition {
                 }
             })]
         $Key
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSQBusinessDataSourceDocumentAttributeCondition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QBusiness.DataSource.DocumentAttributeCondition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

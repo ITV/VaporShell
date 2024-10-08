@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateExplicitHierarchy {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.ExplicitHierarchy resource property to the template. 
+        Adds an AWS::QuickSight::Template.ExplicitHierarchy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.ExplicitHierarchy resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-explicithierarchy.html
@@ -32,11 +31,13 @@ function Add-VSQuickSightTemplateExplicitHierarchy {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.ExplicitHierarchy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,7 +48,8 @@ function Add-VSQuickSightTemplateExplicitHierarchy {
                 }
             })]
         $HierarchyId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.DrillDownFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +60,8 @@ function Add-VSQuickSightTemplateExplicitHierarchy {
                 }
             })]
         $DrillDownFilters,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.ColumnIdentifier"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,11 +72,14 @@ function Add-VSQuickSightTemplateExplicitHierarchy {
                 }
             })]
         $Columns
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -83,6 +89,7 @@ function Add-VSQuickSightTemplateExplicitHierarchy {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.ExplicitHierarchy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

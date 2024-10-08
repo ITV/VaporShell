@@ -1,11 +1,10 @@
 function Add-VSBedrockFlowVersionPromptFlowNodeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Bedrock::FlowVersion.PromptFlowNodeConfiguration resource property to the template. 
+        Adds an AWS::Bedrock::FlowVersion.PromptFlowNodeConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Bedrock::FlowVersion.PromptFlowNodeConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeconfiguration.html
@@ -18,17 +17,22 @@ function Add-VSBedrockFlowVersionPromptFlowNodeConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.PromptFlowNodeConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SourceConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSBedrockFlowVersionPromptFlowNodeConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Bedrock.FlowVersion.PromptFlowNodeConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

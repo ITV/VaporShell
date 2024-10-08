@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelH265ColorSpaceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.H265ColorSpaceSettings resource property to the template. 
+        Adds an AWS::MediaLive::Channel.H265ColorSpaceSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.H265ColorSpaceSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html
@@ -38,25 +37,34 @@ function Add-VSMediaLiveChannelH265ColorSpaceSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.H265ColorSpaceSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Rec601Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Rec709Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ColorSpacePassthroughSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DolbyVision81Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Hdr10Settings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -66,6 +74,7 @@ function Add-VSMediaLiveChannelH265ColorSpaceSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.H265ColorSpaceSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

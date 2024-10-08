@@ -1,11 +1,10 @@
 function Add-VSKinesisAnalyticsV2ApplicationOutputOutput {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::ApplicationOutput.Output resource property to the template. 
+        Adds an AWS::KinesisAnalyticsV2::ApplicationOutput.Output resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::ApplicationOutput.Output resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html
@@ -38,19 +37,25 @@ function Add-VSKinesisAnalyticsV2ApplicationOutputOutput {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.ApplicationOutput.Output')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $DestinationSchema,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LambdaOutput,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $KinesisFirehoseOutput,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $KinesisStreamsOutput,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,11 +66,14 @@ function Add-VSKinesisAnalyticsV2ApplicationOutputOutput {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -75,6 +83,7 @@ function Add-VSKinesisAnalyticsV2ApplicationOutputOutput {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalyticsV2.ApplicationOutput.Output'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSIoTThingGroupAttributePayload {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::ThingGroup.AttributePayload resource property to the template. 
+        Adds an AWS::IoT::ThingGroup.AttributePayload resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::ThingGroup.AttributePayload resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-attributepayload.html
@@ -19,18 +18,23 @@ function Add-VSIoTThingGroupAttributePayload {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.ThingGroup.AttributePayload')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Attributes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +44,7 @@ function Add-VSIoTThingGroupAttributePayload {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.ThingGroup.AttributePayload'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSLexBotSlotDefaultValueSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SlotDefaultValueSpecification resource property to the template. 
+        Adds an AWS::Lex::Bot.SlotDefaultValueSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SlotDefaultValueSpecification resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotdefaultvaluespecification.html
@@ -20,11 +19,13 @@ function Add-VSLexBotSlotDefaultValueSpecification {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotDefaultValueSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Lex.Bot.SlotDefaultValue"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +36,14 @@ function Add-VSLexBotSlotDefaultValueSpecification {
                 }
             })]
         $DefaultValueList
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +53,7 @@ function Add-VSLexBotSlotDefaultValueSpecification {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.SlotDefaultValueSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

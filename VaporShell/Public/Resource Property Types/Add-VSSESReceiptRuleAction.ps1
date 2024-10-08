@@ -1,11 +1,10 @@
 function Add-VSSESReceiptRuleAction {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::ReceiptRule.Action resource property to the template. 
+        Adds an AWS::SES::ReceiptRule.Action resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SES::ReceiptRule.Action resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html
@@ -48,29 +47,40 @@ function Add-VSSESReceiptRuleAction {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SES.ReceiptRule.Action')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $BounceAction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $S3Action,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StopAction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SNSAction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $WorkmailAction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AddHeaderAction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LambdaAction
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -80,6 +90,7 @@ function Add-VSSESReceiptRuleAction {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SES.ReceiptRule.Action'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

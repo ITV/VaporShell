@@ -1,11 +1,10 @@
 function Add-VSCustomerProfilesDomainAttributeTypesSelector {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Domain.AttributeTypesSelector resource property to the template. 
+        Adds an AWS::CustomerProfiles::Domain.AttributeTypesSelector resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Domain.AttributeTypesSelector resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-attributetypesselector.html
@@ -39,13 +38,16 @@ function Add-VSCustomerProfilesDomainAttributeTypesSelector {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CustomerProfiles.Domain.AttributeTypesSelector')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Address,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,15 +58,20 @@ function Add-VSCustomerProfilesDomainAttributeTypesSelector {
                 }
             })]
         $AttributeMatchingModel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PhoneNumber,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EmailAddress
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -74,6 +81,7 @@ function Add-VSCustomerProfilesDomainAttributeTypesSelector {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CustomerProfiles.Domain.AttributeTypesSelector'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

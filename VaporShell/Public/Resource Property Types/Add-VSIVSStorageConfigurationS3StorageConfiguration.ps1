@@ -1,11 +1,10 @@
 function Add-VSIVSStorageConfigurationS3StorageConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IVS::StorageConfiguration.S3StorageConfiguration resource property to the template. 
+        Adds an AWS::IVS::StorageConfiguration.S3StorageConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IVS::StorageConfiguration.S3StorageConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html
@@ -18,11 +17,13 @@ function Add-VSIVSStorageConfigurationS3StorageConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IVS.StorageConfiguration.S3StorageConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSIVSStorageConfigurationS3StorageConfiguration {
                 }
             })]
         $BucketName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSIVSStorageConfigurationS3StorageConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IVS.StorageConfiguration.S3StorageConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

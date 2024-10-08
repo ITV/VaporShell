@@ -1,11 +1,10 @@
 function Add-VSGreengrassResourceDefinitionVersionLocalDeviceResourceData {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::ResourceDefinitionVersion.LocalDeviceResourceData resource property to the template. 
+        Adds an AWS::Greengrass::ResourceDefinitionVersion.LocalDeviceResourceData resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::ResourceDefinitionVersion.LocalDeviceResourceData resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html
@@ -23,11 +22,13 @@ function Add-VSGreengrassResourceDefinitionVersionLocalDeviceResourceData {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.LocalDeviceResourceData')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSGreengrassResourceDefinitionVersionLocalDeviceResourceData {
                 }
             })]
         $SourcePath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GroupOwnerSetting
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSGreengrassResourceDefinitionVersionLocalDeviceResourceData {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.LocalDeviceResourceData'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

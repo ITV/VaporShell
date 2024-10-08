@@ -1,11 +1,10 @@
 function Add-VSWAFRegionalByteMatchSetByteMatchTuple {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFRegional::ByteMatchSet.ByteMatchTuple resource property to the template. 
+        Adds an AWS::WAFRegional::ByteMatchSet.ByteMatchTuple resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFRegional::ByteMatchSet.ByteMatchTuple resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html
@@ -38,11 +37,13 @@ function Add-VSWAFRegionalByteMatchSetByteMatchTuple {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFRegional.ByteMatchSet.ByteMatchTuple')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,7 +54,8 @@ function Add-VSWAFRegionalByteMatchSetByteMatchTuple {
                 }
             })]
         $TargetString,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,7 +66,8 @@ function Add-VSWAFRegionalByteMatchSetByteMatchTuple {
                 }
             })]
         $TargetStringBase64,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,7 +78,8 @@ function Add-VSWAFRegionalByteMatchSetByteMatchTuple {
                 }
             })]
         $PositionalConstraint,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,13 +90,17 @@ function Add-VSWAFRegionalByteMatchSetByteMatchTuple {
                 }
             })]
         $TextTransformation,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $FieldToMatch
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -102,6 +110,7 @@ function Add-VSWAFRegionalByteMatchSetByteMatchTuple {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFRegional.ByteMatchSet.ByteMatchTuple'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

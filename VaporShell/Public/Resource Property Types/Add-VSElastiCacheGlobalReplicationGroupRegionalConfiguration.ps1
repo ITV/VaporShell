@@ -1,11 +1,10 @@
 function Add-VSElastiCacheGlobalReplicationGroupRegionalConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ElastiCache::GlobalReplicationGroup.RegionalConfiguration resource property to the template. 
+        Adds an AWS::ElastiCache::GlobalReplicationGroup.RegionalConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElastiCache::GlobalReplicationGroup.RegionalConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
@@ -30,11 +29,13 @@ function Add-VSElastiCacheGlobalReplicationGroupRegionalConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElastiCache.GlobalReplicationGroup.RegionalConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,7 +46,8 @@ function Add-VSElastiCacheGlobalReplicationGroupRegionalConfiguration {
                 }
             })]
         $ReplicationGroupRegion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +58,8 @@ function Add-VSElastiCacheGlobalReplicationGroupRegionalConfiguration {
                 }
             })]
         $ReplicationGroupId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ElastiCache.GlobalReplicationGroup.ReshardingConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,11 +70,14 @@ function Add-VSElastiCacheGlobalReplicationGroupRegionalConfiguration {
                 }
             })]
         $ReshardingConfigurations
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -81,6 +87,7 @@ function Add-VSElastiCacheGlobalReplicationGroupRegionalConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElastiCache.GlobalReplicationGroup.RegionalConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

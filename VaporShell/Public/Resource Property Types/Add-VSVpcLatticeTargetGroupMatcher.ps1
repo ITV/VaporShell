@@ -1,11 +1,10 @@
 function Add-VSVpcLatticeTargetGroupMatcher {
     <#
     .SYNOPSIS
-        Adds an AWS::VpcLattice::TargetGroup.Matcher resource property to the template. 
+        Adds an AWS::VpcLattice::TargetGroup.Matcher resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::VpcLattice::TargetGroup.Matcher resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-matcher.html
@@ -18,11 +17,13 @@ function Add-VSVpcLatticeTargetGroupMatcher {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.VpcLattice.TargetGroup.Matcher')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSVpcLatticeTargetGroupMatcher {
                 }
             })]
         $HttpCode
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSVpcLatticeTargetGroupMatcher {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.VpcLattice.TargetGroup.Matcher'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

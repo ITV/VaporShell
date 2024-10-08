@@ -1,11 +1,10 @@
 function Add-VSWAFSqlInjectionMatchSetSqlInjectionMatchTuple {
     <#
     .SYNOPSIS
-        Adds an AWS::WAF::SqlInjectionMatchSet.SqlInjectionMatchTuple resource property to the template. 
+        Adds an AWS::WAF::SqlInjectionMatchSet.SqlInjectionMatchTuple resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAF::SqlInjectionMatchSet.SqlInjectionMatchTuple resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sqlinjectionmatchset-sqlinjectionmatchtuples.html
@@ -23,13 +22,16 @@ function Add-VSWAFSqlInjectionMatchSetSqlInjectionMatchTuple {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAF.SqlInjectionMatchSet.SqlInjectionMatchTuple')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $FieldToMatch,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +42,14 @@ function Add-VSWAFSqlInjectionMatchSetSqlInjectionMatchTuple {
                 }
             })]
         $TextTransformation
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSWAFSqlInjectionMatchSetSqlInjectionMatchTuple {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAF.SqlInjectionMatchSet.SqlInjectionMatchTuple'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

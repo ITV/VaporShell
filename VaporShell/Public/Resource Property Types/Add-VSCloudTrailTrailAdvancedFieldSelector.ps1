@@ -1,11 +1,10 @@
 function Add-VSCloudTrailTrailAdvancedFieldSelector {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudTrail::Trail.AdvancedFieldSelector resource property to the template. 
+        Adds an AWS::CloudTrail::Trail.AdvancedFieldSelector resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudTrail::Trail.AdvancedFieldSelector resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html
@@ -60,11 +59,13 @@ function Add-VSCloudTrailTrailAdvancedFieldSelector {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudTrail.Trail.AdvancedFieldSelector')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,23 +76,32 @@ function Add-VSCloudTrailTrailAdvancedFieldSelector {
                 }
             })]
         $Field,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Equals,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NotStartsWith,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NotEndsWith,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StartsWith,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EndsWith,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NotEquals
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -101,6 +111,7 @@ function Add-VSCloudTrailTrailAdvancedFieldSelector {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudTrail.Trail.AdvancedFieldSelector'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

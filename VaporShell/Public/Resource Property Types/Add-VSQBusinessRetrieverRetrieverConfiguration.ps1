@@ -1,11 +1,10 @@
 function Add-VSQBusinessRetrieverRetrieverConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::QBusiness::Retriever.RetrieverConfiguration resource property to the template. 
+        Adds an AWS::QBusiness::Retriever.RetrieverConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QBusiness::Retriever.RetrieverConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-retrieverconfiguration.html
@@ -23,19 +22,25 @@ function Add-VSQBusinessRetrieverRetrieverConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QBusiness.Retriever.RetrieverConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $KendraIndexConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NativeIndexConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSQBusinessRetrieverRetrieverConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QBusiness.Retriever.RetrieverConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

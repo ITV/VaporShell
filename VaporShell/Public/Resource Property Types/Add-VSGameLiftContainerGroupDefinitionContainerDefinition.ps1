@@ -1,11 +1,10 @@
 function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::ContainerGroupDefinition.ContainerDefinition resource property to the template. 
+        Adds an AWS::GameLift::ContainerGroupDefinition.ContainerDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GameLift::ContainerGroupDefinition.ContainerDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdefinition.html
@@ -86,11 +85,13 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,11 +102,14 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
                 }
             })]
         $WorkingDirectory,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MemoryLimits,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HealthCheck,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -116,9 +120,11 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
                 }
             })]
         $Cpu,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EntryPoint,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,7 +135,8 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
                 }
             })]
         $ImageUri,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -140,7 +147,8 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
                 }
             })]
         $ResolvedImageDigest,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -151,9 +159,11 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
                 }
             })]
         $Essential,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PortConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerDependency"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -164,7 +174,8 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
                 }
             })]
         $DependsOn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -175,9 +186,11 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
                 }
             })]
         $ContainerName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Command,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerEnvironment"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -188,11 +201,14 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
                 }
             })]
         $Environment
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -202,6 +218,7 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

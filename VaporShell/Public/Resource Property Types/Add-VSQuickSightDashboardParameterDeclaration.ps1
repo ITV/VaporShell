@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardParameterDeclaration {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.ParameterDeclaration resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.ParameterDeclaration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.ParameterDeclaration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterdeclaration.html
@@ -33,23 +32,31 @@ function Add-VSQuickSightDashboardParameterDeclaration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ParameterDeclaration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $StringParameterDeclaration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DateTimeParameterDeclaration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DecimalParameterDeclaration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IntegerParameterDeclaration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSQuickSightDashboardParameterDeclaration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.ParameterDeclaration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

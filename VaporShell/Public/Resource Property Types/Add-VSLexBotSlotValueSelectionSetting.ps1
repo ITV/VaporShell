@@ -1,11 +1,10 @@
 function Add-VSLexBotSlotValueSelectionSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SlotValueSelectionSetting resource property to the template. 
+        Adds an AWS::Lex::Bot.SlotValueSelectionSetting resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SlotValueSelectionSetting resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html
@@ -28,15 +27,19 @@ function Add-VSLexBotSlotValueSelectionSetting {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotValueSelectionSetting')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AdvancedRecognitionSetting,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RegexFilter,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,11 +50,14 @@ function Add-VSLexBotSlotValueSelectionSetting {
                 }
             })]
         $ResolutionStrategy
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +67,7 @@ function Add-VSLexBotSlotValueSelectionSetting {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.SlotValueSelectionSetting'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

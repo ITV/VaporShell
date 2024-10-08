@@ -1,11 +1,10 @@
 function Add-VSECRPublicRepositoryRepositoryCatalogData {
     <#
     .SYNOPSIS
-        Adds an AWS::ECR::PublicRepository.RepositoryCatalogData resource property to the template. 
+        Adds an AWS::ECR::PublicRepository.RepositoryCatalogData resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ECR::PublicRepository.RepositoryCatalogData resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-publicrepository-repositorycatalogdata.html
@@ -42,11 +41,13 @@ function Add-VSECRPublicRepositoryRepositoryCatalogData {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ECR.PublicRepository.RepositoryCatalogData')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,9 +58,11 @@ function Add-VSECRPublicRepositoryRepositoryCatalogData {
                 }
             })]
         $AboutText,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OperatingSystems,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +73,8 @@ function Add-VSECRPublicRepositoryRepositoryCatalogData {
                 }
             })]
         $UsageText,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,13 +85,17 @@ function Add-VSECRPublicRepositoryRepositoryCatalogData {
                 }
             })]
         $RepositoryDescription,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Architectures
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -97,6 +105,7 @@ function Add-VSECRPublicRepositoryRepositoryCatalogData {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ECR.PublicRepository.RepositoryCatalogData'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.InstanceNetworkInterfaceSpecification resource property to the template. 
+        Adds an AWS::EC2::SpotFleet.InstanceNetworkInterfaceSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.InstanceNetworkInterfaceSpecification resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html
@@ -74,11 +73,13 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.InstanceNetworkInterfaceSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,7 +90,8 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.SpotFleet.PrivateIpAddressSpecification"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,7 +102,8 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $PrivateIpAddresses,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,7 +114,8 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $SecondaryPrivateIpAddressCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -122,9 +126,11 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $DeviceIndex,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Groups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -135,7 +141,8 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $Ipv6AddressCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.SpotFleet.InstanceIpv6Address"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -146,7 +153,8 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $Ipv6Addresses,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -157,7 +165,8 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $SubnetId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -168,7 +177,8 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $AssociatePublicIpAddress,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -179,7 +189,8 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $NetworkInterfaceId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -190,11 +201,14 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
                 }
             })]
         $DeleteOnTermination
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -204,6 +218,7 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.SpotFleet.InstanceNetworkInterfaceSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

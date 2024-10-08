@@ -1,11 +1,10 @@
 function Add-VSCodeCommitRepositoryRepositoryTrigger {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeCommit::Repository.RepositoryTrigger resource property to the template. 
+        Adds an AWS::CodeCommit::Repository.RepositoryTrigger resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeCommit::Repository.RepositoryTrigger resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html
@@ -40,15 +39,19 @@ function Add-VSCodeCommitRepositoryRepositoryTrigger {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeCommit.Repository.RepositoryTrigger')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Events,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Branches,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,7 +62,8 @@ function Add-VSCodeCommitRepositoryRepositoryTrigger {
                 }
             })]
         $CustomData,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +74,8 @@ function Add-VSCodeCommitRepositoryRepositoryTrigger {
                 }
             })]
         $DestinationArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,11 +86,14 @@ function Add-VSCodeCommitRepositoryRepositoryTrigger {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -95,6 +103,7 @@ function Add-VSCodeCommitRepositoryRepositoryTrigger {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeCommit.Repository.RepositoryTrigger'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

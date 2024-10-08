@@ -1,11 +1,10 @@
 function Add-VSBedrockFlowPromptTemplateConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Bedrock::Flow.PromptTemplateConfiguration resource property to the template. 
+        Adds an AWS::Bedrock::Flow.PromptTemplateConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Bedrock::Flow.PromptTemplateConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-prompttemplateconfiguration.html
@@ -18,17 +17,22 @@ function Add-VSBedrockFlowPromptTemplateConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Bedrock.Flow.PromptTemplateConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Text
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSBedrockFlowPromptTemplateConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Bedrock.Flow.PromptTemplateConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

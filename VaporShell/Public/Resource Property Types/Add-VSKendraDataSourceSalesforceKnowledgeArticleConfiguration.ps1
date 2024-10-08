@@ -1,11 +1,10 @@
 function Add-VSKendraDataSourceSalesforceKnowledgeArticleConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.SalesforceKnowledgeArticleConfiguration resource property to the template. 
+        Adds an AWS::Kendra::DataSource.SalesforceKnowledgeArticleConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.SalesforceKnowledgeArticleConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html
@@ -32,15 +31,19 @@ function Add-VSKendraDataSourceSalesforceKnowledgeArticleConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Kendra.DataSource.SalesforceKnowledgeArticleConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $IncludedStates,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StandardKnowledgeArticleTypeConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Kendra.DataSource.SalesforceCustomKnowledgeArticleTypeConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +54,14 @@ function Add-VSKendraDataSourceSalesforceKnowledgeArticleConfiguration {
                 }
             })]
         $CustomKnowledgeArticleTypeConfigurations
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +71,7 @@ function Add-VSKendraDataSourceSalesforceKnowledgeArticleConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Kendra.DataSource.SalesforceKnowledgeArticleConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSGreengrassResourceDefinitionResourceDataContainer {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::ResourceDefinition.ResourceDataContainer resource property to the template. 
+        Adds an AWS::Greengrass::ResourceDefinition.ResourceDataContainer resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::ResourceDefinition.ResourceDataContainer resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html
@@ -38,25 +37,34 @@ function Add-VSGreengrassResourceDefinitionResourceDataContainer {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinition.ResourceDataContainer')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SecretsManagerSecretResourceData,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SageMakerMachineLearningModelResourceData,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LocalVolumeResourceData,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LocalDeviceResourceData,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $S3MachineLearningModelResourceData
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -66,6 +74,7 @@ function Add-VSGreengrassResourceDefinitionResourceDataContainer {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.ResourceDefinition.ResourceDataContainer'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

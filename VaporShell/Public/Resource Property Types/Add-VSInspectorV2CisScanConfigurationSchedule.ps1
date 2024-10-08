@@ -1,11 +1,10 @@
 function Add-VSInspectorV2CisScanConfigurationSchedule {
     <#
     .SYNOPSIS
-        Adds an AWS::InspectorV2::CisScanConfiguration.Schedule resource property to the template. 
+        Adds an AWS::InspectorV2::CisScanConfiguration.Schedule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::InspectorV2::CisScanConfiguration.Schedule resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-schedule.html
@@ -33,17 +32,22 @@ function Add-VSInspectorV2CisScanConfigurationSchedule {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.InspectorV2.CisScanConfiguration.Schedule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Daily,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Monthly,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Weekly,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,11 +58,14 @@ function Add-VSInspectorV2CisScanConfigurationSchedule {
                 }
             })]
         $OneTime
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -82,6 +89,7 @@ function Add-VSInspectorV2CisScanConfigurationSchedule {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.InspectorV2.CisScanConfiguration.Schedule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

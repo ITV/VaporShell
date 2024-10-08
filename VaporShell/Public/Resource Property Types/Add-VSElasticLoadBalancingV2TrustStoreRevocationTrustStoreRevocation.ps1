@@ -1,11 +1,10 @@
 function Add-VSElasticLoadBalancingV2TrustStoreRevocationTrustStoreRevocation {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::TrustStoreRevocation.TrustStoreRevocation resource property to the template. 
+        Adds an AWS::ElasticLoadBalancingV2::TrustStoreRevocation.TrustStoreRevocation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancingV2::TrustStoreRevocation.TrustStoreRevocation resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-truststorerevocation-truststorerevocation.html
@@ -33,11 +32,13 @@ function Add-VSElasticLoadBalancingV2TrustStoreRevocationTrustStoreRevocation {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.TrustStoreRevocation.TrustStoreRevocation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,7 +49,8 @@ function Add-VSElasticLoadBalancingV2TrustStoreRevocationTrustStoreRevocation {
                 }
             })]
         $NumberOfRevokedEntries,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,7 +61,8 @@ function Add-VSElasticLoadBalancingV2TrustStoreRevocationTrustStoreRevocation {
                 }
             })]
         $TrustStoreArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +73,8 @@ function Add-VSElasticLoadBalancingV2TrustStoreRevocationTrustStoreRevocation {
                 }
             })]
         $RevocationType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,11 +85,14 @@ function Add-VSElasticLoadBalancingV2TrustStoreRevocationTrustStoreRevocation {
                 }
             })]
         $RevocationId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -95,6 +102,7 @@ function Add-VSElasticLoadBalancingV2TrustStoreRevocationTrustStoreRevocation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancingV2.TrustStoreRevocation.TrustStoreRevocation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

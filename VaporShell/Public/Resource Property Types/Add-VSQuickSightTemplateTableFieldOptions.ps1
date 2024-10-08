@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateTableFieldOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.TableFieldOptions resource property to the template. 
+        Adds an AWS::QuickSight::Template.TableFieldOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.TableFieldOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldoptions.html
@@ -32,15 +31,19 @@ function Add-VSQuickSightTemplateTableFieldOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.TableFieldOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Order,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PinnedFieldOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.TableFieldOption"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +54,14 @@ function Add-VSQuickSightTemplateTableFieldOptions {
                 }
             })]
         $SelectedFieldOptions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +71,7 @@ function Add-VSQuickSightTemplateTableFieldOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.TableFieldOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSQuickSightThemeDataColorPalette {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.DataColorPalette resource property to the template. 
+        Adds an AWS::QuickSight::Theme.DataColorPalette resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.DataColorPalette resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html
@@ -32,11 +31,13 @@ function Add-VSQuickSightThemeDataColorPalette {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Theme.DataColorPalette')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,15 +48,20 @@ function Add-VSQuickSightThemeDataColorPalette {
                 }
             })]
         $EmptyFillColor,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Colors,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MinMaxGradient
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +71,7 @@ function Add-VSQuickSightThemeDataColorPalette {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Theme.DataColorPalette'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

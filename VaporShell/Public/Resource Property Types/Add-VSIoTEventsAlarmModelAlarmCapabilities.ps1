@@ -1,11 +1,10 @@
 function Add-VSIoTEventsAlarmModelAlarmCapabilities {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::AlarmModel.AlarmCapabilities resource property to the template. 
+        Adds an AWS::IoTEvents::AlarmModel.AlarmCapabilities resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::AlarmModel.AlarmCapabilities resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html
@@ -23,19 +22,25 @@ function Add-VSIoTEventsAlarmModelAlarmCapabilities {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.AlarmCapabilities')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AcknowledgeFlow,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InitializationConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSIoTEventsAlarmModelAlarmCapabilities {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTEvents.AlarmModel.AlarmCapabilities'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

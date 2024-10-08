@@ -1,11 +1,10 @@
 function Add-VSSageMakerSpaceSpaceJupyterLabAppSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Space.SpaceJupyterLabAppSettings resource property to the template. 
+        Adds an AWS::SageMaker::Space.SpaceJupyterLabAppSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Space.SpaceJupyterLabAppSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html
@@ -30,13 +29,16 @@ function Add-VSSageMakerSpaceSpaceJupyterLabAppSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.Space.SpaceJupyterLabAppSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DefaultResourceSpec,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.Space.CodeRepository"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,13 +49,17 @@ function Add-VSSageMakerSpaceSpaceJupyterLabAppSettings {
                 }
             })]
         $CodeRepositories,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AppLifecycleManagement
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +69,7 @@ function Add-VSSageMakerSpaceSpaceJupyterLabAppSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.Space.SpaceJupyterLabAppSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

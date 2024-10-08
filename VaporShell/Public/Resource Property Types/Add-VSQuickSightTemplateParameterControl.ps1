@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateParameterControl {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.ParameterControl resource property to the template. 
+        Adds an AWS::QuickSight::Template.ParameterControl resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.ParameterControl resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametercontrol.html
@@ -43,27 +42,37 @@ function Add-VSQuickSightTemplateParameterControl {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.ParameterControl')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Slider,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TextArea,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Dropdown,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TextField,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $List,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DateTimePicker
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -73,6 +82,7 @@ function Add-VSQuickSightTemplateParameterControl {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.ParameterControl'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

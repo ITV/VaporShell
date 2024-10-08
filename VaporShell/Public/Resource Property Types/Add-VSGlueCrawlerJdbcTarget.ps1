@@ -1,11 +1,10 @@
 function Add-VSGlueCrawlerJdbcTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Crawler.JdbcTarget resource property to the template. 
+        Adds an AWS::Glue::Crawler.JdbcTarget resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Crawler.JdbcTarget resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html
@@ -35,11 +34,13 @@ function Add-VSGlueCrawlerJdbcTarget {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Crawler.JdbcTarget')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,7 +51,8 @@ function Add-VSGlueCrawlerJdbcTarget {
                 }
             })]
         $ConnectionName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,15 +63,20 @@ function Add-VSGlueCrawlerJdbcTarget {
                 }
             })]
         $Path,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Exclusions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EnableAdditionalMetadata
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +86,7 @@ function Add-VSGlueCrawlerJdbcTarget {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Crawler.JdbcTarget'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

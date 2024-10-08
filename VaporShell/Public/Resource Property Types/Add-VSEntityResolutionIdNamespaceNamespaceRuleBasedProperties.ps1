@@ -1,11 +1,10 @@
 function Add-VSEntityResolutionIdNamespaceNamespaceRuleBasedProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::EntityResolution::IdNamespace.NamespaceRuleBasedProperties resource property to the template. 
+        Adds an AWS::EntityResolution::IdNamespace.NamespaceRuleBasedProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EntityResolution::IdNamespace.NamespaceRuleBasedProperties resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html
@@ -39,11 +38,13 @@ function Add-VSEntityResolutionIdNamespaceNamespaceRuleBasedProperties {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EntityResolution.IdNamespace.NamespaceRuleBasedProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,11 +55,14 @@ function Add-VSEntityResolutionIdNamespaceNamespaceRuleBasedProperties {
                 }
             })]
         $AttributeMatchingModel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RuleDefinitionTypes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RecordMatchingModels,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EntityResolution.IdNamespace.Rule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,11 +73,14 @@ function Add-VSEntityResolutionIdNamespaceNamespaceRuleBasedProperties {
                 }
             })]
         $Rules
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -83,6 +90,7 @@ function Add-VSEntityResolutionIdNamespaceNamespaceRuleBasedProperties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EntityResolution.IdNamespace.NamespaceRuleBasedProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

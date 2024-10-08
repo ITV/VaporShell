@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallFirewallPolicyCustomAction {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::FirewallPolicy.CustomAction resource property to the template. 
+        Adds an AWS::NetworkFirewall::FirewallPolicy.CustomAction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::FirewallPolicy.CustomAction resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html
@@ -23,11 +22,13 @@ function Add-VSNetworkFirewallFirewallPolicyCustomAction {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.CustomAction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSNetworkFirewallFirewallPolicyCustomAction {
                 }
             })]
         $ActionName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $ActionDefinition
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSNetworkFirewallFirewallPolicyCustomAction {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.FirewallPolicy.CustomAction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

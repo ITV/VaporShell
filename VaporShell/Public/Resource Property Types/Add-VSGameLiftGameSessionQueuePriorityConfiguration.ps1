@@ -1,11 +1,10 @@
 function Add-VSGameLiftGameSessionQueuePriorityConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::GameSessionQueue.PriorityConfiguration resource property to the template. 
+        Adds an AWS::GameLift::GameSessionQueue.PriorityConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GameLift::GameSessionQueue.PriorityConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html
@@ -27,19 +26,25 @@ function Add-VSGameLiftGameSessionQueuePriorityConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GameLift.GameSessionQueue.PriorityConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $PriorityOrder,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LocationOrder
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +54,7 @@ function Add-VSGameLiftGameSessionQueuePriorityConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GameLift.GameSessionQueue.PriorityConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

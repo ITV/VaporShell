@@ -1,11 +1,10 @@
 function Add-VSECSTaskDefinitionKernelCapabilities {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::TaskDefinition.KernelCapabilities resource property to the template. 
+        Adds an AWS::ECS::TaskDefinition.KernelCapabilities resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ECS::TaskDefinition.KernelCapabilities resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html
@@ -27,19 +26,25 @@ function Add-VSECSTaskDefinitionKernelCapabilities {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.KernelCapabilities')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Add,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Drop
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +54,7 @@ function Add-VSECSTaskDefinitionKernelCapabilities {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ECS.TaskDefinition.KernelCapabilities'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

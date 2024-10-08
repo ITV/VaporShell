@@ -1,11 +1,10 @@
 function Add-VSDataBrewJobS3TableOutputOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Job.S3TableOutputOptions resource property to the template. 
+        Adds an AWS::DataBrew::Job.S3TableOutputOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Job.S3TableOutputOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html
@@ -18,17 +17,22 @@ function Add-VSDataBrewJobS3TableOutputOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataBrew.Job.S3TableOutputOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Location
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSDataBrewJobS3TableOutputOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataBrew.Job.S3TableOutputOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSPCAConnectorADTemplateGroupAccessControlEntryAccessRights {
     <#
     .SYNOPSIS
-        Adds an AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.AccessRights resource property to the template. 
+        Adds an AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.AccessRights resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.AccessRights resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-templategroupaccesscontrolentry-accessrights.html
@@ -23,11 +22,13 @@ function Add-VSPCAConnectorADTemplateGroupAccessControlEntryAccessRights {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.PCAConnectorAD.TemplateGroupAccessControlEntry.AccessRights')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSPCAConnectorADTemplateGroupAccessControlEntryAccessRights {
                 }
             })]
         $Enroll,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSPCAConnectorADTemplateGroupAccessControlEntryAccessRights {
                 }
             })]
         $AutoEnroll
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSPCAConnectorADTemplateGroupAccessControlEntryAccessRights {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.PCAConnectorAD.TemplateGroupAccessControlEntry.AccessRights'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

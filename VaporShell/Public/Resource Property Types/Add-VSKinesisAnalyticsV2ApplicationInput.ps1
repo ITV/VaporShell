@@ -1,11 +1,10 @@
 function Add-VSKinesisAnalyticsV2ApplicationInput {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.Input resource property to the template. 
+        Adds an AWS::KinesisAnalyticsV2::Application.Input resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.Input resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html
@@ -43,11 +42,13 @@ function Add-VSKinesisAnalyticsV2ApplicationInput {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.Input')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,21 +59,29 @@ function Add-VSKinesisAnalyticsV2ApplicationInput {
                 }
             })]
         $NamePrefix,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $InputSchema,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $KinesisStreamsInput,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $KinesisFirehoseInput,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InputProcessingConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InputParallelism
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -82,6 +91,7 @@ function Add-VSKinesisAnalyticsV2ApplicationInput {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalyticsV2.Application.Input'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

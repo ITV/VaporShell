@@ -1,11 +1,10 @@
 function Add-VSVerifiedPermissionsPolicyTemplateLinkedPolicyDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::VerifiedPermissions::Policy.TemplateLinkedPolicyDefinition resource property to the template. 
+        Adds an AWS::VerifiedPermissions::Policy.TemplateLinkedPolicyDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::VerifiedPermissions::Policy.TemplateLinkedPolicyDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html
@@ -28,13 +27,16 @@ function Add-VSVerifiedPermissionsPolicyTemplateLinkedPolicyDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.VerifiedPermissions.Policy.TemplateLinkedPolicyDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Resource,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,13 +47,17 @@ function Add-VSVerifiedPermissionsPolicyTemplateLinkedPolicyDefinition {
                 }
             })]
         $PolicyTemplateId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Principal
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +67,7 @@ function Add-VSVerifiedPermissionsPolicyTemplateLinkedPolicyDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.VerifiedPermissions.Policy.TemplateLinkedPolicyDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

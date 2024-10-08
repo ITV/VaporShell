@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisCategoryDrillDownFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.CategoryDrillDownFilter resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.CategoryDrillDownFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.CategoryDrillDownFilter resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-categorydrilldownfilter.html
@@ -25,19 +24,25 @@ function Add-VSQuickSightAnalysisCategoryDrillDownFilter {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.CategoryDrillDownFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Column,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $CategoryValues
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +52,7 @@ function Add-VSQuickSightAnalysisCategoryDrillDownFilter {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.CategoryDrillDownFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

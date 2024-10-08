@@ -1,11 +1,10 @@
 function Add-VSSageMakerPipelinePipelineDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Pipeline.PipelineDefinition resource property to the template. 
+        Adds an AWS::SageMaker::Pipeline.PipelineDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Pipeline.PipelineDefinition resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html
@@ -23,11 +22,13 @@ function Add-VSSageMakerPipelinePipelineDefinition {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.Pipeline.PipelineDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSSageMakerPipelinePipelineDefinition {
                 }
             })]
         $PipelineDefinitionBody,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PipelineDefinitionS3Location
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSSageMakerPipelinePipelineDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.Pipeline.PipelineDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

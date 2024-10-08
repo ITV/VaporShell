@@ -1,11 +1,10 @@
 function Add-VSDynamoDBGlobalTableReadProvisionedThroughputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.ReadProvisionedThroughputSettings resource property to the template. 
+        Adds an AWS::DynamoDB::GlobalTable.ReadProvisionedThroughputSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.ReadProvisionedThroughputSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html
@@ -23,11 +22,13 @@ function Add-VSDynamoDBGlobalTableReadProvisionedThroughputSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.ReadProvisionedThroughputSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSDynamoDBGlobalTableReadProvisionedThroughputSettings {
                 }
             })]
         $ReadCapacityUnits,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ReadCapacityAutoScalingSettings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSDynamoDBGlobalTableReadProvisionedThroughputSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DynamoDB.GlobalTable.ReadProvisionedThroughputSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

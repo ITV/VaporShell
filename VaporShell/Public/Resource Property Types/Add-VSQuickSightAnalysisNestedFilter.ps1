@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisNestedFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.NestedFilter resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.NestedFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.NestedFilter resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-nestedfilter.html
@@ -33,15 +32,19 @@ function Add-VSQuickSightAnalysisNestedFilter {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.NestedFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Column,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $InnerFilter,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,7 +55,8 @@ function Add-VSQuickSightAnalysisNestedFilter {
                 }
             })]
         $IncludeInnerSet,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,11 +67,14 @@ function Add-VSQuickSightAnalysisNestedFilter {
                 }
             })]
         $FilterId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSQuickSightAnalysisNestedFilter {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.NestedFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

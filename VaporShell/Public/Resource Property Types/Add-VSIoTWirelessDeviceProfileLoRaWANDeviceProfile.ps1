@@ -1,11 +1,10 @@
 function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::DeviceProfile.LoRaWANDeviceProfile resource property to the template. 
+        Adds an AWS::IoTWireless::DeviceProfile.LoRaWANDeviceProfile resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::DeviceProfile.LoRaWANDeviceProfile resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html
@@ -110,11 +109,13 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTWireless.DeviceProfile.LoRaWANDeviceProfile')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,7 +126,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $PingSlotPeriod,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -136,7 +138,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $ClassCTimeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -147,7 +150,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $RxFreq2,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -158,7 +162,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $RfRegion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -169,7 +174,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $ClassBTimeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -180,7 +186,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $RxDelay1,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -191,7 +198,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $SupportsClassC,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -202,7 +210,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $SupportsClassB,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -213,7 +222,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $RxDrOffset1,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -224,9 +234,11 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $MaxEirp,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FactoryPresetFreqsList,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -237,7 +249,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $SupportsJoin,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -248,7 +261,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $PingSlotDr,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -259,7 +273,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $MacVersion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -270,7 +285,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $PingSlotFreq,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -281,7 +297,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $RegParamsRevision,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -292,7 +309,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $RxDataRate2,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -303,7 +321,8 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $Supports32BitFCnt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -314,11 +333,14 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
                 }
             })]
         $MaxDutyCycle
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -328,6 +350,7 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTWireless.DeviceProfile.LoRaWANDeviceProfile'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

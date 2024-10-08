@@ -1,11 +1,10 @@
 function Add-VSAmplifyUIBuilderComponentMutationActionSetStateParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::AmplifyUIBuilder::Component.MutationActionSetStateParameter resource property to the template. 
+        Adds an AWS::AmplifyUIBuilder::Component.MutationActionSetStateParameter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AmplifyUIBuilder::Component.MutationActionSetStateParameter resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-mutationactionsetstateparameter.html
@@ -28,13 +27,16 @@ function Add-VSAmplifyUIBuilderComponentMutationActionSetStateParameter {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.MutationActionSetStateParameter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Set,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,7 +47,8 @@ function Add-VSAmplifyUIBuilderComponentMutationActionSetStateParameter {
                 }
             })]
         $ComponentName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,11 +59,14 @@ function Add-VSAmplifyUIBuilderComponentMutationActionSetStateParameter {
                 }
             })]
         $Property
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSAmplifyUIBuilderComponentMutationActionSetStateParameter {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AmplifyUIBuilder.Component.MutationActionSetStateParameter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

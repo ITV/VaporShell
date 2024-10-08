@@ -1,11 +1,10 @@
 function Add-VSFISExperimentTemplateExperimentTemplateTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::FIS::ExperimentTemplate.ExperimentTemplateTarget resource property to the template. 
+        Adds an AWS::FIS::ExperimentTemplate.ExperimentTemplateTarget resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::FIS::ExperimentTemplate.ExperimentTemplateTarget resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html
@@ -49,11 +48,13 @@ function Add-VSFISExperimentTemplateExperimentTemplateTarget {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateTarget')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateTargetFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,13 +65,16 @@ function Add-VSFISExperimentTemplateExperimentTemplateTarget {
                 }
             })]
         $Filters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $ResourceTags,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,9 +85,11 @@ function Add-VSFISExperimentTemplateExperimentTemplateTarget {
                 }
             })]
         $ResourceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ResourceArns,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,11 +100,14 @@ function Add-VSFISExperimentTemplateExperimentTemplateTarget {
                 }
             })]
         $SelectionMode
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -108,6 +117,7 @@ function Add-VSFISExperimentTemplateExperimentTemplateTarget {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateTarget'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

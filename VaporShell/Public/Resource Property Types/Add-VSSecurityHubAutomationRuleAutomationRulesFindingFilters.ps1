@@ -1,11 +1,10 @@
 function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
     <#
     .SYNOPSIS
-        Adds an AWS::SecurityHub::AutomationRule.AutomationRulesFindingFilters resource property to the template. 
+        Adds an AWS::SecurityHub::AutomationRule.AutomationRulesFindingFilters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SecurityHub::AutomationRule.AutomationRulesFindingFilters resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html
@@ -258,11 +257,13 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.AutomationRulesFindingFilters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -273,7 +274,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ProductArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -284,7 +286,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $SourceUrl,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.MapFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -295,7 +298,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ResourceDetailsOther,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -306,7 +310,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -317,7 +322,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ProductName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.MapFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -328,7 +334,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ResourceTags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -339,7 +346,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $FirstObservedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -350,7 +358,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $CreatedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -361,7 +370,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $NoteText,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -372,7 +382,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $LastObservedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.MapFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -383,7 +394,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $UserDefinedFields,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -394,7 +406,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $NoteUpdatedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -405,7 +418,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ComplianceSecurityControlId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -416,7 +430,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $CompanyName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -427,7 +442,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ResourceRegion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -438,7 +454,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $NoteUpdatedBy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -449,7 +466,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $Confidence,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -460,7 +478,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ResourcePartition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -471,7 +490,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $VerificationState,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -482,7 +502,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $Criticality,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -493,7 +514,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $SeverityLabel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -504,7 +526,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $RelatedFindingsProductArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -515,7 +538,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ComplianceStatus,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -526,7 +550,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $GeneratorId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -537,7 +562,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $RecordState,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -548,7 +574,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $Title,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -559,7 +586,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ResourceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -570,7 +598,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ComplianceAssociatedStandardsId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -581,7 +610,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $UpdatedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -592,7 +622,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $RelatedFindingsId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -603,7 +634,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $WorkflowStatus,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -614,7 +646,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -625,7 +658,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $ResourceId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -636,7 +670,8 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $AwsAccountId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -647,11 +682,14 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
                 }
             })]
         $Id
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -661,6 +699,7 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SecurityHub.AutomationRule.AutomationRulesFindingFilters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

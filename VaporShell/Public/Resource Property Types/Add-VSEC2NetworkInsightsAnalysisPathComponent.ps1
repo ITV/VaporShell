@@ -1,11 +1,10 @@
 function Add-VSEC2NetworkInsightsAnalysisPathComponent {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAnalysis.PathComponent resource property to the template. 
+        Adds an AWS::EC2::NetworkInsightsAnalysis.PathComponent resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAnalysis.PathComponent resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html
@@ -102,11 +101,13 @@ function Add-VSEC2NetworkInsightsAnalysisPathComponent {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.PathComponent')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AdditionalDetail"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -117,19 +118,26 @@ function Add-VSEC2NetworkInsightsAnalysisPathComponent {
                 }
             })]
         $AdditionalDetails,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InboundHeader,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Vpc,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DestinationVpc,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecurityGroupRule,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TransitGateway,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ElasticLoadBalancerListener,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.NetworkInsightsAnalysis.Explanation"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -140,7 +148,8 @@ function Add-VSEC2NetworkInsightsAnalysisPathComponent {
                 }
             })]
         $Explanations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -151,7 +160,8 @@ function Add-VSEC2NetworkInsightsAnalysisPathComponent {
                 }
             })]
         $ServiceName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -162,25 +172,35 @@ function Add-VSEC2NetworkInsightsAnalysisPathComponent {
                 }
             })]
         $SequenceNumber,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SourceVpc,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OutboundHeader,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AclRule,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TransitGatewayRouteTableRoute,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Component,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Subnet,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RouteTableRoute
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -190,6 +210,7 @@ function Add-VSEC2NetworkInsightsAnalysisPathComponent {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.NetworkInsightsAnalysis.PathComponent'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

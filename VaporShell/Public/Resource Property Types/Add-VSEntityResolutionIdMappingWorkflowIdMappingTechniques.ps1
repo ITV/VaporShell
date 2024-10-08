@@ -1,11 +1,10 @@
 function Add-VSEntityResolutionIdMappingWorkflowIdMappingTechniques {
     <#
     .SYNOPSIS
-        Adds an AWS::EntityResolution::IdMappingWorkflow.IdMappingTechniques resource property to the template. 
+        Adds an AWS::EntityResolution::IdMappingWorkflow.IdMappingTechniques resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EntityResolution::IdMappingWorkflow.IdMappingTechniques resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html
@@ -28,15 +27,19 @@ function Add-VSEntityResolutionIdMappingWorkflowIdMappingTechniques {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EntityResolution.IdMappingWorkflow.IdMappingTechniques')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $RuleBasedProperties,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ProviderProperties,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,11 +50,14 @@ function Add-VSEntityResolutionIdMappingWorkflowIdMappingTechniques {
                 }
             })]
         $IdMappingType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +67,7 @@ function Add-VSEntityResolutionIdMappingWorkflowIdMappingTechniques {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EntityResolution.IdMappingWorkflow.IdMappingTechniques'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

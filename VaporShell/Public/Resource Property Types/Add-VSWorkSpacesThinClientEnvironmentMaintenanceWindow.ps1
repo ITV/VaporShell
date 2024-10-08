@@ -1,11 +1,10 @@
 function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
     <#
     .SYNOPSIS
-        Adds an AWS::WorkSpacesThinClient::Environment.MaintenanceWindow resource property to the template. 
+        Adds an AWS::WorkSpacesThinClient::Environment.MaintenanceWindow resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WorkSpacesThinClient::Environment.MaintenanceWindow resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html
@@ -50,11 +49,13 @@ function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WorkSpacesThinClient.Environment.MaintenanceWindow')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,7 +66,8 @@ function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
                 }
             })]
         $EndTimeMinute,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,9 +78,11 @@ function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DaysOfTheWeek,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,7 +93,8 @@ function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
                 }
             })]
         $ApplyTimeOf,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,7 +105,8 @@ function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
                 }
             })]
         $StartTimeMinute,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,7 +117,8 @@ function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
                 }
             })]
         $StartTimeHour,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -122,11 +129,14 @@ function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
                 }
             })]
         $EndTimeHour
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -136,6 +146,7 @@ function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WorkSpacesThinClient.Environment.MaintenanceWindow'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

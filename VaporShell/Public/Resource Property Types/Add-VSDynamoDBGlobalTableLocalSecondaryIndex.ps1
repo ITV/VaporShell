@@ -1,11 +1,10 @@
 function Add-VSDynamoDBGlobalTableLocalSecondaryIndex {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.LocalSecondaryIndex resource property to the template. 
+        Adds an AWS::DynamoDB::GlobalTable.LocalSecondaryIndex resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.LocalSecondaryIndex resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html
@@ -30,11 +29,13 @@ function Add-VSDynamoDBGlobalTableLocalSecondaryIndex {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.LocalSecondaryIndex')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,9 +46,11 @@ function Add-VSDynamoDBGlobalTableLocalSecondaryIndex {
                 }
             })]
         $IndexName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Projection,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.KeySchema"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,11 +61,14 @@ function Add-VSDynamoDBGlobalTableLocalSecondaryIndex {
                 }
             })]
         $KeySchema
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +78,7 @@ function Add-VSDynamoDBGlobalTableLocalSecondaryIndex {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DynamoDB.GlobalTable.LocalSecondaryIndex'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

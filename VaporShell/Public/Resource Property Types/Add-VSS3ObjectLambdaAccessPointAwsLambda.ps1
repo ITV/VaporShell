@@ -1,11 +1,10 @@
 function Add-VSS3ObjectLambdaAccessPointAwsLambda {
     <#
     .SYNOPSIS
-        Adds an AWS::S3ObjectLambda::AccessPoint.AwsLambda resource property to the template. 
+        Adds an AWS::S3ObjectLambda::AccessPoint.AwsLambda resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3ObjectLambda::AccessPoint.AwsLambda resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-awslambda.html
@@ -23,11 +22,13 @@ function Add-VSS3ObjectLambdaAccessPointAwsLambda {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3ObjectLambda.AccessPoint.AwsLambda')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSS3ObjectLambdaAccessPointAwsLambda {
                 }
             })]
         $FunctionArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSS3ObjectLambdaAccessPointAwsLambda {
                 }
             })]
         $FunctionPayload
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSS3ObjectLambdaAccessPointAwsLambda {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3ObjectLambda.AccessPoint.AwsLambda'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

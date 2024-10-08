@@ -1,11 +1,10 @@
 function Add-VSImageBuilderImageRecipeAdditionalInstanceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::ImageRecipe.AdditionalInstanceConfiguration resource property to the template. 
+        Adds an AWS::ImageBuilder::ImageRecipe.AdditionalInstanceConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::ImageRecipe.AdditionalInstanceConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
@@ -23,11 +22,13 @@ function Add-VSImageBuilderImageRecipeAdditionalInstanceConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ImageBuilder.ImageRecipe.AdditionalInstanceConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSImageBuilderImageRecipeAdditionalInstanceConfiguration {
                 }
             })]
         $UserDataOverride,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SystemsManagerAgent
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSImageBuilderImageRecipeAdditionalInstanceConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ImageBuilder.ImageRecipe.AdditionalInstanceConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSMediaTailorChannelTimeShiftConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaTailor::Channel.TimeShiftConfiguration resource property to the template. 
+        Adds an AWS::MediaTailor::Channel.TimeShiftConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaTailor::Channel.TimeShiftConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-timeshiftconfiguration.html
@@ -18,11 +17,13 @@ function Add-VSMediaTailorChannelTimeShiftConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaTailor.Channel.TimeShiftConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSMediaTailorChannelTimeShiftConfiguration {
                 }
             })]
         $MaxTimeDelaySeconds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSMediaTailorChannelTimeShiftConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaTailor.Channel.TimeShiftConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

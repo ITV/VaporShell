@@ -1,11 +1,10 @@
 function Add-VSEMRServerlessApplicationConfigurationObject {
     <#
     .SYNOPSIS
-        Adds an AWS::EMRServerless::Application.ConfigurationObject resource property to the template. 
+        Adds an AWS::EMRServerless::Application.ConfigurationObject resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMRServerless::Application.ConfigurationObject resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-configurationobject.html
@@ -31,11 +30,13 @@ function Add-VSEMRServerlessApplicationConfigurationObject {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMRServerless.Application.ConfigurationObject')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,10 +47,12 @@ function Add-VSEMRServerlessApplicationConfigurationObject {
                 }
             })]
         $Classification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Properties,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EMRServerless.Application.ConfigurationObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,11 +63,14 @@ function Add-VSEMRServerlessApplicationConfigurationObject {
                 }
             })]
         $Configurations
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -74,6 +80,7 @@ function Add-VSEMRServerlessApplicationConfigurationObject {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMRServerless.Application.ConfigurationObject'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

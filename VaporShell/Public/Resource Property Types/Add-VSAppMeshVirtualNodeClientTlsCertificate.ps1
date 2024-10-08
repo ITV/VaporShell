@@ -1,11 +1,10 @@
 function Add-VSAppMeshVirtualNodeClientTlsCertificate {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.ClientTlsCertificate resource property to the template. 
+        Adds an AWS::AppMesh::VirtualNode.ClientTlsCertificate resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.ClientTlsCertificate resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clienttlscertificate.html
@@ -23,19 +22,25 @@ function Add-VSAppMeshVirtualNodeClientTlsCertificate {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.ClientTlsCertificate')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SDS,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $File
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSAppMeshVirtualNodeClientTlsCertificate {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.ClientTlsCertificate'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

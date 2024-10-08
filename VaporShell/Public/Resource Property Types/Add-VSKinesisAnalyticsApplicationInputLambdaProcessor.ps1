@@ -1,11 +1,10 @@
 function Add-VSKinesisAnalyticsApplicationInputLambdaProcessor {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalytics::Application.InputLambdaProcessor resource property to the template. 
+        Adds an AWS::KinesisAnalytics::Application.InputLambdaProcessor resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalytics::Application.InputLambdaProcessor resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputlambdaprocessor.html
@@ -23,11 +22,13 @@ function Add-VSKinesisAnalyticsApplicationInputLambdaProcessor {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalytics.Application.InputLambdaProcessor')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSKinesisAnalyticsApplicationInputLambdaProcessor {
                 }
             })]
         $ResourceARN,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSKinesisAnalyticsApplicationInputLambdaProcessor {
                 }
             })]
         $RoleARN
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSKinesisAnalyticsApplicationInputLambdaProcessor {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalytics.Application.InputLambdaProcessor'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

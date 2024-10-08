@@ -1,11 +1,10 @@
 function Add-VSPersonalizeSolutionHpoConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Personalize::Solution.HpoConfig resource property to the template. 
+        Adds an AWS::Personalize::Solution.HpoConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Personalize::Solution.HpoConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html
@@ -28,21 +27,28 @@ function Add-VSPersonalizeSolutionHpoConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Personalize.Solution.HpoConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $HpoResourceConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AlgorithmHyperParameterRanges,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HpoObjective
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +58,7 @@ function Add-VSPersonalizeSolutionHpoConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Personalize.Solution.HpoConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

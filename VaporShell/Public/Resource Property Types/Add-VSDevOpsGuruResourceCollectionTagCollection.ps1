@@ -1,11 +1,10 @@
 function Add-VSDevOpsGuruResourceCollectionTagCollection {
     <#
     .SYNOPSIS
-        Adds an AWS::DevOpsGuru::ResourceCollection.TagCollection resource property to the template. 
+        Adds an AWS::DevOpsGuru::ResourceCollection.TagCollection resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DevOpsGuru::ResourceCollection.TagCollection resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-tagcollection.html
@@ -25,11 +24,13 @@ function Add-VSDevOpsGuruResourceCollectionTagCollection {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DevOpsGuru.ResourceCollection.TagCollection')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,13 +41,17 @@ function Add-VSDevOpsGuruResourceCollectionTagCollection {
                 }
             })]
         $AppBoundaryKey,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TagValues
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSDevOpsGuruResourceCollectionTagCollection {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DevOpsGuru.ResourceCollection.TagCollection'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

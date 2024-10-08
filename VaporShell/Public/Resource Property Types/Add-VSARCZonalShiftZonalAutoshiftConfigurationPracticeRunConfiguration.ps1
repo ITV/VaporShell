@@ -1,11 +1,10 @@
 function Add-VSARCZonalShiftZonalAutoshiftConfigurationPracticeRunConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ARCZonalShift::ZonalAutoshiftConfiguration.PracticeRunConfiguration resource property to the template. 
+        Adds an AWS::ARCZonalShift::ZonalAutoshiftConfiguration.PracticeRunConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ARCZonalShift::ZonalAutoshiftConfiguration.PracticeRunConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration.html
@@ -41,13 +40,16 @@ function Add-VSARCZonalShiftZonalAutoshiftConfigurationPracticeRunConfiguration 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ARCZonalShift.ZonalAutoshiftConfiguration.PracticeRunConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $BlockedDates,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ARCZonalShift.ZonalAutoshiftConfiguration.ControlCondition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +60,8 @@ function Add-VSARCZonalShiftZonalAutoshiftConfigurationPracticeRunConfiguration 
                 }
             })]
         $OutcomeAlarms,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ARCZonalShift.ZonalAutoshiftConfiguration.ControlCondition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,13 +72,17 @@ function Add-VSARCZonalShiftZonalAutoshiftConfigurationPracticeRunConfiguration 
                 }
             })]
         $BlockingAlarms,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BlockedWindows
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +92,7 @@ function Add-VSARCZonalShiftZonalAutoshiftConfigurationPracticeRunConfiguration 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ARCZonalShift.ZonalAutoshiftConfiguration.PracticeRunConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

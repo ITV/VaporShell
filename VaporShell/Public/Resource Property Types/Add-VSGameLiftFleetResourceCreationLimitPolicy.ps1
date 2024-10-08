@@ -1,11 +1,10 @@
 function Add-VSGameLiftFleetResourceCreationLimitPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::GameLift::Fleet.ResourceCreationLimitPolicy resource property to the template. 
+        Adds an AWS::GameLift::Fleet.ResourceCreationLimitPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GameLift::Fleet.ResourceCreationLimitPolicy resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html
@@ -23,11 +22,13 @@ function Add-VSGameLiftFleetResourceCreationLimitPolicy {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GameLift.Fleet.ResourceCreationLimitPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSGameLiftFleetResourceCreationLimitPolicy {
                 }
             })]
         $PolicyPeriodInMinutes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSGameLiftFleetResourceCreationLimitPolicy {
                 }
             })]
         $NewGameSessionsPerCreator
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSGameLiftFleetResourceCreationLimitPolicy {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GameLift.Fleet.ResourceCreationLimitPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

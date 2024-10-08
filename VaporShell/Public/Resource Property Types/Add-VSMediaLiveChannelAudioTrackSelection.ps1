@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelAudioTrackSelection {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioTrackSelection resource property to the template. 
+        Adds an AWS::MediaLive::Channel.AudioTrackSelection resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioTrackSelection resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html
@@ -24,13 +23,16 @@ function Add-VSMediaLiveChannelAudioTrackSelection {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioTrackSelection')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DolbyEDecode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.AudioTrack"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,11 +43,14 @@ function Add-VSMediaLiveChannelAudioTrackSelection {
                 }
             })]
         $Tracks
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -55,6 +60,7 @@ function Add-VSMediaLiveChannelAudioTrackSelection {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.AudioTrackSelection'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

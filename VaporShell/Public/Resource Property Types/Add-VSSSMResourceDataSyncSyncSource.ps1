@@ -1,11 +1,10 @@
 function Add-VSSSMResourceDataSyncSyncSource {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::ResourceDataSync.SyncSource resource property to the template. 
+        Adds an AWS::SSM::ResourceDataSync.SyncSource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSM::ResourceDataSync.SyncSource resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html
@@ -35,11 +34,13 @@ function Add-VSSSMResourceDataSyncSyncSource {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSM.ResourceDataSync.SyncSource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,9 +51,11 @@ function Add-VSSSMResourceDataSyncSyncSource {
                 }
             })]
         $SourceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AwsOrganizationsSource,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,13 +66,17 @@ function Add-VSSSMResourceDataSyncSyncSource {
                 }
             })]
         $IncludeFutureRegions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SourceRegions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +86,7 @@ function Add-VSSSMResourceDataSyncSyncSource {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSM.ResourceDataSync.SyncSource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

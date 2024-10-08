@@ -1,11 +1,10 @@
 function Add-VSWAFv2LoggingConfigurationFieldToMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::LoggingConfiguration.FieldToMatch resource property to the template. 
+        Adds an AWS::WAFv2::LoggingConfiguration.FieldToMatch resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::LoggingConfiguration.FieldToMatch resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
@@ -33,11 +32,13 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.LoggingConfiguration.FieldToMatch')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,7 +49,8 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
                 }
             })]
         $QueryString,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,7 +61,8 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
                 }
             })]
         $UriPath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,13 +73,17 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
                 }
             })]
         $Method,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SingleHeader
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -128,6 +135,7 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.LoggingConfiguration.FieldToMatch'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

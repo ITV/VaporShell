@@ -1,11 +1,10 @@
 function Add-VSStepFunctionsStateMachineAliasDeploymentPreference {
     <#
     .SYNOPSIS
-        Adds an AWS::StepFunctions::StateMachineAlias.DeploymentPreference resource property to the template. 
+        Adds an AWS::StepFunctions::StateMachineAlias.DeploymentPreference resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::StepFunctions::StateMachineAlias.DeploymentPreference resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html
@@ -40,11 +39,13 @@ function Add-VSStepFunctionsStateMachineAliasDeploymentPreference {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachineAlias.DeploymentPreference')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,7 +56,8 @@ function Add-VSStepFunctionsStateMachineAliasDeploymentPreference {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -66,7 +68,8 @@ function Add-VSStepFunctionsStateMachineAliasDeploymentPreference {
                 }
             })]
         $StateMachineVersionArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,9 +80,11 @@ function Add-VSStepFunctionsStateMachineAliasDeploymentPreference {
                 }
             })]
         $Percentage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Alarms,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,11 +95,14 @@ function Add-VSStepFunctionsStateMachineAliasDeploymentPreference {
                 }
             })]
         $Interval
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -104,6 +112,7 @@ function Add-VSStepFunctionsStateMachineAliasDeploymentPreference {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.StepFunctions.StateMachineAlias.DeploymentPreference'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSApiGatewayV2DomainNameMutualTlsAuthentication {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::DomainName.MutualTlsAuthentication resource property to the template. 
+        Adds an AWS::ApiGatewayV2::DomainName.MutualTlsAuthentication resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApiGatewayV2::DomainName.MutualTlsAuthentication resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html
@@ -23,11 +22,13 @@ function Add-VSApiGatewayV2DomainNameMutualTlsAuthentication {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApiGatewayV2.DomainName.MutualTlsAuthentication')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSApiGatewayV2DomainNameMutualTlsAuthentication {
                 }
             })]
         $TruststoreVersion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSApiGatewayV2DomainNameMutualTlsAuthentication {
                 }
             })]
         $TruststoreUri
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSApiGatewayV2DomainNameMutualTlsAuthentication {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApiGatewayV2.DomainName.MutualTlsAuthentication'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

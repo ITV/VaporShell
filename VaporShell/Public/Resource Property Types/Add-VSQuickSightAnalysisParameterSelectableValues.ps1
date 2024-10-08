@@ -1,11 +1,10 @@
 function Add-VSQuickSightAnalysisParameterSelectableValues {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Analysis.ParameterSelectableValues resource property to the template. 
+        Adds an AWS::QuickSight::Analysis.ParameterSelectableValues resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Analysis.ParameterSelectableValues resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameterselectablevalues.html
@@ -25,19 +24,25 @@ function Add-VSQuickSightAnalysisParameterSelectableValues {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ParameterSelectableValues')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $LinkToDataSetColumn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Values
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +52,7 @@ function Add-VSQuickSightAnalysisParameterSelectableValues {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.ParameterSelectableValues'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

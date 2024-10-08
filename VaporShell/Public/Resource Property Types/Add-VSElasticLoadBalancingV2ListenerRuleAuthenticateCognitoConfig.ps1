@@ -1,11 +1,10 @@
 function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::ListenerRule.AuthenticateCognitoConfig resource property to the template. 
+        Adds an AWS::ElasticLoadBalancingV2::ListenerRule.AuthenticateCognitoConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancingV2::ListenerRule.AuthenticateCognitoConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html
@@ -54,11 +53,13 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.AuthenticateCognitoConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,7 +70,8 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
                 }
             })]
         $OnUnauthenticatedRequest,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -80,7 +82,8 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
                 }
             })]
         $UserPoolClientId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -91,7 +94,8 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
                 }
             })]
         $UserPoolDomain,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -102,7 +106,8 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
                 }
             })]
         $SessionTimeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -113,7 +118,8 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
                 }
             })]
         $Scope,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -124,7 +130,8 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
                 }
             })]
         $SessionCookieName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -135,14 +142,18 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
                 }
             })]
         $UserPoolArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $AuthenticationRequestExtraParams
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -152,6 +163,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.AuthenticateCognitoConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

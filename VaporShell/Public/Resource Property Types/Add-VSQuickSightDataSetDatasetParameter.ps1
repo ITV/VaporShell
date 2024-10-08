@@ -1,11 +1,10 @@
 function Add-VSQuickSightDataSetDatasetParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.DatasetParameter resource property to the template. 
+        Adds an AWS::QuickSight::DataSet.DatasetParameter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.DatasetParameter resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html
@@ -33,23 +32,31 @@ function Add-VSQuickSightDataSetDatasetParameter {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.DatasetParameter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $IntegerDatasetParameter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DateTimeDatasetParameter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DecimalDatasetParameter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StringDatasetParameter
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSQuickSightDataSetDatasetParameter {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSet.DatasetParameter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

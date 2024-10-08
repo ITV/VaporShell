@@ -1,11 +1,10 @@
 function Add-VSManagedBlockchainMemberMemberFrameworkConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ManagedBlockchain::Member.MemberFrameworkConfiguration resource property to the template. 
+        Adds an AWS::ManagedBlockchain::Member.MemberFrameworkConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ManagedBlockchain::Member.MemberFrameworkConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberframeworkconfiguration.html
@@ -18,17 +17,22 @@ function Add-VSManagedBlockchainMemberMemberFrameworkConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ManagedBlockchain.Member.MemberFrameworkConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $MemberFabricConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSManagedBlockchainMemberMemberFrameworkConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ManagedBlockchain.Member.MemberFrameworkConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

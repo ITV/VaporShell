@@ -1,11 +1,10 @@
 function Add-VSQuickSightTemplateRelativeDateTimeControlDisplayOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.RelativeDateTimeControlDisplayOptions resource property to the template. 
+        Adds an AWS::QuickSight::Template.RelativeDateTimeControlDisplayOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.RelativeDateTimeControlDisplayOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html
@@ -28,15 +27,19 @@ function Add-VSQuickSightTemplateRelativeDateTimeControlDisplayOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.RelativeDateTimeControlDisplayOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $TitleOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InfoIconLabelOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,11 +50,14 @@ function Add-VSQuickSightTemplateRelativeDateTimeControlDisplayOptions {
                 }
             })]
         $DateTimeFormat
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +67,7 @@ function Add-VSQuickSightTemplateRelativeDateTimeControlDisplayOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.RelativeDateTimeControlDisplayOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

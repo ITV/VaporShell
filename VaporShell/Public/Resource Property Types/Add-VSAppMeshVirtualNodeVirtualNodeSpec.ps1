@@ -1,11 +1,10 @@
 function Add-VSAppMeshVirtualNodeVirtualNodeSpec {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.VirtualNodeSpec resource property to the template. 
+        Adds an AWS::AppMesh::VirtualNode.VirtualNodeSpec resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.VirtualNodeSpec resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html
@@ -40,13 +39,16 @@ function Add-VSAppMeshVirtualNodeVirtualNodeSpec {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.VirtualNodeSpec')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Logging,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppMesh.VirtualNode.Backend"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,7 +59,8 @@ function Add-VSAppMeshVirtualNodeVirtualNodeSpec {
                 }
             })]
         $Backends,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppMesh.VirtualNode.Listener"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,15 +71,20 @@ function Add-VSAppMeshVirtualNodeVirtualNodeSpec {
                 }
             })]
         $Listeners,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BackendDefaults,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ServiceDiscovery
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -86,6 +94,7 @@ function Add-VSAppMeshVirtualNodeVirtualNodeSpec {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.VirtualNodeSpec'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

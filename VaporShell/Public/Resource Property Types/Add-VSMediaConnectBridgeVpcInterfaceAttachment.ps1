@@ -1,11 +1,10 @@
 function Add-VSMediaConnectBridgeVpcInterfaceAttachment {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaConnect::Bridge.VpcInterfaceAttachment resource property to the template. 
+        Adds an AWS::MediaConnect::Bridge.VpcInterfaceAttachment resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaConnect::Bridge.VpcInterfaceAttachment resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-vpcinterfaceattachment.html
@@ -18,11 +17,13 @@ function Add-VSMediaConnectBridgeVpcInterfaceAttachment {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaConnect.Bridge.VpcInterfaceAttachment')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSMediaConnectBridgeVpcInterfaceAttachment {
                 }
             })]
         $VpcInterfaceName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSMediaConnectBridgeVpcInterfaceAttachment {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaConnect.Bridge.VpcInterfaceAttachment'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

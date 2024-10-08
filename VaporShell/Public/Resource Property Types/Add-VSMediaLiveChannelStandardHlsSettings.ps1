@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelStandardHlsSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.StandardHlsSettings resource property to the template. 
+        Adds an AWS::MediaLive::Channel.StandardHlsSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.StandardHlsSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html
@@ -23,11 +22,13 @@ function Add-VSMediaLiveChannelStandardHlsSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.StandardHlsSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSMediaLiveChannelStandardHlsSettings {
                 }
             })]
         $AudioRenditionSets,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $M3u8Settings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSMediaLiveChannelStandardHlsSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.StandardHlsSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

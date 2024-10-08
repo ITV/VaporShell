@@ -1,11 +1,10 @@
 function Add-VSNetworkManagerConnectPeerConnectPeerConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkManager::ConnectPeer.ConnectPeerConfiguration resource property to the template. 
+        Adds an AWS::NetworkManager::ConnectPeer.ConnectPeerConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkManager::ConnectPeer.ConnectPeerConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html
@@ -42,11 +41,13 @@ function Add-VSNetworkManagerConnectPeerConnectPeerConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkManager.ConnectPeer.ConnectPeerConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkManager.ConnectPeer.ConnectPeerBgpConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,7 +58,8 @@ function Add-VSNetworkManagerConnectPeerConnectPeerConfiguration {
                 }
             })]
         $BgpConfigurations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,7 +70,8 @@ function Add-VSNetworkManagerConnectPeerConnectPeerConfiguration {
                 }
             })]
         $PeerAddress,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,9 +82,11 @@ function Add-VSNetworkManagerConnectPeerConnectPeerConfiguration {
                 }
             })]
         $CoreNetworkAddress,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InsideCidrBlocks,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -92,11 +97,14 @@ function Add-VSNetworkManagerConnectPeerConnectPeerConfiguration {
                 }
             })]
         $Protocol
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -106,6 +114,7 @@ function Add-VSNetworkManagerConnectPeerConnectPeerConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkManager.ConnectPeer.ConnectPeerConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

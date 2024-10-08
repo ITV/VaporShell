@@ -1,11 +1,10 @@
 function Add-VSBackupBackupPlanBackupPlanResourceType {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupPlan.BackupPlanResourceType resource property to the template. 
+        Adds an AWS::Backup::BackupPlan.BackupPlanResourceType resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Backup::BackupPlan.BackupPlanResourceType resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
@@ -32,11 +31,13 @@ function Add-VSBackupBackupPlanBackupPlanResourceType {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Backup.BackupPlan.BackupPlanResourceType')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,7 +48,8 @@ function Add-VSBackupBackupPlanBackupPlanResourceType {
                 }
             })]
         $BackupPlanName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Backup.BackupPlan.AdvancedBackupSettingResourceType"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,7 +60,8 @@ function Add-VSBackupBackupPlanBackupPlanResourceType {
                 }
             })]
         $AdvancedBackupSettings,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Backup.BackupPlan.BackupRuleResourceType"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -69,11 +72,14 @@ function Add-VSBackupBackupPlanBackupPlanResourceType {
                 }
             })]
         $BackupPlanRule
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -83,6 +89,7 @@ function Add-VSBackupBackupPlanBackupPlanResourceType {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Backup.BackupPlan.BackupPlanResourceType'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

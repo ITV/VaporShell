@@ -1,11 +1,10 @@
 function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskCreate resource property to the template. 
+        Adds an AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskCreate resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskCreate resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html
@@ -33,11 +32,13 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTWireless.TaskDefinition.LoRaWANUpdateGatewayTaskCreate')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -48,7 +49,8 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate {
                 }
             })]
         $UpdateSignature,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -59,15 +61,20 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate {
                 }
             })]
         $SigKeyCrc,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $UpdateVersion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CurrentVersion
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTWireless.TaskDefinition.LoRaWANUpdateGatewayTaskCreate'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

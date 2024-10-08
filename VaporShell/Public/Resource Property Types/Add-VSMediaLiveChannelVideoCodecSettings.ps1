@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelVideoCodecSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.VideoCodecSettings resource property to the template. 
+        Adds an AWS::MediaLive::Channel.VideoCodecSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.VideoCodecSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html
@@ -33,23 +32,31 @@ function Add-VSMediaLiveChannelVideoCodecSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.VideoCodecSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Mpeg2Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FrameCaptureSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $H264Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $H265Settings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSMediaLiveChannelVideoCodecSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.VideoCodecSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

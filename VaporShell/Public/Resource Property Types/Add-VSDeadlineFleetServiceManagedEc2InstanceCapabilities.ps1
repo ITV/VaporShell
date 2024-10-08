@@ -1,11 +1,10 @@
 function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
     <#
     .SYNOPSIS
-        Adds an AWS::Deadline::Fleet.ServiceManagedEc2InstanceCapabilities resource property to the template. 
+        Adds an AWS::Deadline::Fleet.ServiceManagedEc2InstanceCapabilities resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Deadline::Fleet.ServiceManagedEc2InstanceCapabilities resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html
@@ -66,13 +65,16 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Deadline.Fleet.ServiceManagedEc2InstanceCapabilities')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AllowedInstanceTypes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Deadline.Fleet.FleetAttributeCapability"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,7 +85,8 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
                 }
             })]
         $CustomAttributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Deadline.Fleet.FleetAmountCapability"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,13 +97,17 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
                 }
             })]
         $CustomAmounts,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $VCpuCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExcludedInstanceTypes,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $MemoryMiB,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,7 +118,8 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
                 }
             })]
         $OsFamily,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -122,13 +130,17 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
                 }
             })]
         $CpuArchitectureType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RootEbsVolume
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -138,6 +150,7 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Deadline.Fleet.ServiceManagedEc2InstanceCapabilities'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

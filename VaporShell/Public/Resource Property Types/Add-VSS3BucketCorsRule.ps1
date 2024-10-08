@@ -1,11 +1,10 @@
 function Add-VSS3BucketCorsRule {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.CorsRule resource property to the template. 
+        Adds an AWS::S3::Bucket.CorsRule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.CorsRule resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsrule.html
@@ -51,19 +50,25 @@ function Add-VSS3BucketCorsRule {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.CorsRule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ExposedHeaders,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AllowedMethods,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AllowedOrigins,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AllowedHeaders,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -74,7 +79,8 @@ function Add-VSS3BucketCorsRule {
                 }
             })]
         $MaxAge,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,11 +91,14 @@ function Add-VSS3BucketCorsRule {
                 }
             })]
         $Id
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -99,6 +108,7 @@ function Add-VSS3BucketCorsRule {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.CorsRule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

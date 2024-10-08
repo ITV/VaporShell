@@ -1,11 +1,10 @@
 function Add-VSAppFlowFlowSourceConnectorProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.SourceConnectorProperties resource property to the template. 
+        Adds an AWS::AppFlow::Flow.SourceConnectorProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.SourceConnectorProperties resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html
@@ -98,49 +97,70 @@ function Add-VSAppFlowFlowSourceConnectorProperties {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SourceConnectorProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Amplitude,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $S3,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GoogleAnalytics,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ServiceNow,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomConnector,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SAPOData,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Pardot,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Veeva,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Trendmicro,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Datadog,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Marketo,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Singular,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Slack,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Dynatrace,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Zendesk,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InforNexus,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Salesforce
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -150,6 +170,7 @@ function Add-VSAppFlowFlowSourceConnectorProperties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.Flow.SourceConnectorProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

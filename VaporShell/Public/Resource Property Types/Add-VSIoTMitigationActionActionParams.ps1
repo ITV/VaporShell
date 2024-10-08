@@ -1,11 +1,10 @@
 function Add-VSIoTMitigationActionActionParams {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction.ActionParams resource property to the template. 
+        Adds an AWS::IoT::MitigationAction.ActionParams resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::MitigationAction.ActionParams resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html
@@ -43,27 +42,37 @@ function Add-VSIoTMitigationActionActionParams {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.MitigationAction.ActionParams')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $UpdateDeviceCertificateParams,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AddThingsToThingGroupParams,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PublishFindingToSnsParams,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EnableIoTLoggingParams,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ReplaceDefaultPolicyVersionParams,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $UpdateCACertificateParams
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -73,6 +82,7 @@ function Add-VSIoTMitigationActionActionParams {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.MitigationAction.ActionParams'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

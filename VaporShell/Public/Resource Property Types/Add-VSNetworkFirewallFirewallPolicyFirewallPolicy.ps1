@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::FirewallPolicy.FirewallPolicy resource property to the template. 
+        Adds an AWS::NetworkFirewall::FirewallPolicy.FirewallPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::FirewallPolicy.FirewallPolicy resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html
@@ -70,11 +69,13 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.FirewallPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.FirewallPolicy.StatelessRuleGroupReference"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,7 +86,8 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
                 }
             })]
         $StatelessRuleGroupReferences,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.FirewallPolicy.StatefulRuleGroupReference"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,11 +98,14 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
                 }
             })]
         $StatefulRuleGroupReferences,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $StatelessDefaultActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StatefulEngineOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.FirewallPolicy.CustomAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -111,13 +116,17 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
                 }
             })]
         $StatelessCustomActions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $StatelessFragmentDefaultActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PolicyVariables,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StatefulDefaultActions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -128,11 +137,14 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
                 }
             })]
         $TLSInspectionConfigurationArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -142,6 +154,7 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.FirewallPolicy.FirewallPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

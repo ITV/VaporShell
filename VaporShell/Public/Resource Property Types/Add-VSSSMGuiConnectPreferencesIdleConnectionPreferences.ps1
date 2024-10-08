@@ -1,11 +1,10 @@
 function Add-VSSSMGuiConnectPreferencesIdleConnectionPreferences {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMGuiConnect::Preferences.IdleConnectionPreferences resource property to the template. 
+        Adds an AWS::SSMGuiConnect::Preferences.IdleConnectionPreferences resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSMGuiConnect::Preferences.IdleConnectionPreferences resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmguiconnect-preferences-idleconnectionpreferences.html
@@ -23,19 +22,25 @@ function Add-VSSSMGuiConnectPreferencesIdleConnectionPreferences {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSMGuiConnect.Preferences.IdleConnectionPreferences')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Timeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Alert
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSSSMGuiConnectPreferencesIdleConnectionPreferences {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSMGuiConnect.Preferences.IdleConnectionPreferences'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

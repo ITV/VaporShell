@@ -1,11 +1,10 @@
 function Add-VSMediaConnectBridgeBridgeSource {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaConnect::Bridge.BridgeSource resource property to the template. 
+        Adds an AWS::MediaConnect::Bridge.BridgeSource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaConnect::Bridge.BridgeSource resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgesource.html
@@ -23,19 +22,25 @@ function Add-VSMediaConnectBridgeBridgeSource {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaConnect.Bridge.BridgeSource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $NetworkSource,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FlowSource
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -45,6 +50,7 @@ function Add-VSMediaConnectBridgeBridgeSource {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaConnect.Bridge.BridgeSource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

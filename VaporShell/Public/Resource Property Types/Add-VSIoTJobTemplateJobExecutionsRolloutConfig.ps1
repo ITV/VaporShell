@@ -1,11 +1,10 @@
 function Add-VSIoTJobTemplateJobExecutionsRolloutConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::JobTemplate.JobExecutionsRolloutConfig resource property to the template. 
+        Adds an AWS::IoT::JobTemplate.JobExecutionsRolloutConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::JobTemplate.JobExecutionsRolloutConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html
@@ -23,11 +22,13 @@ function Add-VSIoTJobTemplateJobExecutionsRolloutConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.JobTemplate.JobExecutionsRolloutConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSIoTJobTemplateJobExecutionsRolloutConfig {
                 }
             })]
         $MaximumPerMinute,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExponentialRolloutRate
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSIoTJobTemplateJobExecutionsRolloutConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.JobTemplate.JobExecutionsRolloutConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

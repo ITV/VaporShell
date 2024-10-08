@@ -1,11 +1,10 @@
 function Add-VSMediaLiveChannelHlsCdnSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.HlsCdnSettings resource property to the template. 
+        Adds an AWS::MediaLive::Channel.HlsCdnSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.HlsCdnSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html
@@ -38,25 +37,34 @@ function Add-VSMediaLiveChannelHlsCdnSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.HlsCdnSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $HlsWebdavSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HlsS3Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HlsAkamaiSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HlsBasicPutSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HlsMediaStoreSettings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -66,6 +74,7 @@ function Add-VSMediaLiveChannelHlsCdnSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.HlsCdnSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

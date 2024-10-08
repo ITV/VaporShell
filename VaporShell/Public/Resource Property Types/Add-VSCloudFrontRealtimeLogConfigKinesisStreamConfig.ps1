@@ -1,11 +1,10 @@
 function Add-VSCloudFrontRealtimeLogConfigKinesisStreamConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig resource property to the template. 
+        Adds an AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
@@ -23,11 +22,13 @@ function Add-VSCloudFrontRealtimeLogConfigKinesisStreamConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.RealtimeLogConfig.KinesisStreamConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSCloudFrontRealtimeLogConfigKinesisStreamConfig {
                 }
             })]
         $StreamArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSCloudFrontRealtimeLogConfigKinesisStreamConfig {
                 }
             })]
         $RoleArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSCloudFrontRealtimeLogConfigKinesisStreamConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.RealtimeLogConfig.KinesisStreamConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSSSMContactsRotationShiftCoverage {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMContacts::Rotation.ShiftCoverage resource property to the template. 
+        Adds an AWS::SSMContacts::Rotation.ShiftCoverage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSMContacts::Rotation.ShiftCoverage resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-shiftcoverage.html
@@ -25,11 +24,13 @@ function Add-VSSSMContactsRotationShiftCoverage {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSMContacts.Rotation.ShiftCoverage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,7 +41,8 @@ function Add-VSSSMContactsRotationShiftCoverage {
                 }
             })]
         $DayOfWeek,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SSMContacts.Rotation.CoverageTime"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +53,14 @@ function Add-VSSSMContactsRotationShiftCoverage {
                 }
             })]
         $CoverageTimes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +70,7 @@ function Add-VSSSMContactsRotationShiftCoverage {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSMContacts.Rotation.ShiftCoverage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSSageMakerAppImageConfigCodeEditorAppImageConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::AppImageConfig.CodeEditorAppImageConfig resource property to the template. 
+        Adds an AWS::SageMaker::AppImageConfig.CodeEditorAppImageConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::AppImageConfig.CodeEditorAppImageConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-codeeditorappimageconfig.html
@@ -18,17 +17,22 @@ function Add-VSSageMakerAppImageConfigCodeEditorAppImageConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.AppImageConfig.CodeEditorAppImageConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ContainerConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSSageMakerAppImageConfigCodeEditorAppImageConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.AppImageConfig.CodeEditorAppImageConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

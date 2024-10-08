@@ -1,11 +1,10 @@
 function Add-VSDeviceFarmTestGridProjectVpcConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::DeviceFarm::TestGridProject.VpcConfig resource property to the template. 
+        Adds an AWS::DeviceFarm::TestGridProject.VpcConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DeviceFarm::TestGridProject.VpcConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devicefarm-testgridproject-vpcconfig.html
@@ -32,11 +31,13 @@ function Add-VSDeviceFarmTestGridProjectVpcConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DeviceFarm.TestGridProject.VpcConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,15 +48,20 @@ function Add-VSDeviceFarmTestGridProjectVpcConfig {
                 }
             })]
         $VpcId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SecurityGroupIds,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SubnetIds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +71,7 @@ function Add-VSDeviceFarmTestGridProjectVpcConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DeviceFarm.TestGridProject.VpcConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

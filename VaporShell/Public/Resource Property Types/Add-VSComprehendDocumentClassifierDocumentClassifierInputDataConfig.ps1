@@ -1,11 +1,10 @@
 function Add-VSComprehendDocumentClassifierDocumentClassifierInputDataConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Comprehend::DocumentClassifier.DocumentClassifierInputDataConfig resource property to the template. 
+        Adds an AWS::Comprehend::DocumentClassifier.DocumentClassifierInputDataConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Comprehend::DocumentClassifier.DocumentClassifierInputDataConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html
@@ -55,13 +54,16 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierInputDataConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Comprehend.DocumentClassifier.DocumentClassifierInputDataConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DocumentReaderConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,9 +74,11 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierInputDataConfig {
                 }
             })]
         $S3Uri,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Documents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,7 +89,8 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierInputDataConfig {
                 }
             })]
         $DataFormat,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,7 +101,8 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierInputDataConfig {
                 }
             })]
         $DocumentType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Comprehend.DocumentClassifier.AugmentedManifestsListItem"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -107,7 +113,8 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierInputDataConfig {
                 }
             })]
         $AugmentedManifests,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -118,7 +125,8 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierInputDataConfig {
                 }
             })]
         $LabelDelimiter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,11 +137,14 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierInputDataConfig {
                 }
             })]
         $TestS3Uri
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -143,6 +154,7 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierInputDataConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Comprehend.DocumentClassifier.DocumentClassifierInputDataConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

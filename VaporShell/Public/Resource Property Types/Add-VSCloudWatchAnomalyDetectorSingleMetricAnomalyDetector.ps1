@@ -1,11 +1,10 @@
 function Add-VSCloudWatchAnomalyDetectorSingleMetricAnomalyDetector {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudWatch::AnomalyDetector.SingleMetricAnomalyDetector resource property to the template. 
+        Adds an AWS::CloudWatch::AnomalyDetector.SingleMetricAnomalyDetector resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudWatch::AnomalyDetector.SingleMetricAnomalyDetector resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html
@@ -39,11 +38,13 @@ function Add-VSCloudWatchAnomalyDetectorSingleMetricAnomalyDetector {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudWatch.AnomalyDetector.SingleMetricAnomalyDetector')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +55,8 @@ function Add-VSCloudWatchAnomalyDetectorSingleMetricAnomalyDetector {
                 }
             })]
         $MetricName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,7 +67,8 @@ function Add-VSCloudWatchAnomalyDetectorSingleMetricAnomalyDetector {
                 }
             })]
         $AccountId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,7 +79,8 @@ function Add-VSCloudWatchAnomalyDetectorSingleMetricAnomalyDetector {
                 }
             })]
         $Stat,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudWatch.AnomalyDetector.Dimension"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -87,7 +91,8 @@ function Add-VSCloudWatchAnomalyDetectorSingleMetricAnomalyDetector {
                 }
             })]
         $Dimensions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -98,11 +103,14 @@ function Add-VSCloudWatchAnomalyDetectorSingleMetricAnomalyDetector {
                 }
             })]
         $Namespace
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -112,6 +120,7 @@ function Add-VSCloudWatchAnomalyDetectorSingleMetricAnomalyDetector {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudWatch.AnomalyDetector.SingleMetricAnomalyDetector'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

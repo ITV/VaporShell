@@ -1,11 +1,10 @@
 function Add-VSPersonalizeSolutionAlgorithmHyperParameterRanges {
     <#
     .SYNOPSIS
-        Adds an AWS::Personalize::Solution.AlgorithmHyperParameterRanges resource property to the template. 
+        Adds an AWS::Personalize::Solution.AlgorithmHyperParameterRanges resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Personalize::Solution.AlgorithmHyperParameterRanges resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html
@@ -34,11 +33,13 @@ function Add-VSPersonalizeSolutionAlgorithmHyperParameterRanges {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Personalize.Solution.AlgorithmHyperParameterRanges')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Personalize.Solution.IntegerHyperParameterRange"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +50,8 @@ function Add-VSPersonalizeSolutionAlgorithmHyperParameterRanges {
                 }
             })]
         $IntegerHyperParameterRanges,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Personalize.Solution.CategoricalHyperParameterRange"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +62,8 @@ function Add-VSPersonalizeSolutionAlgorithmHyperParameterRanges {
                 }
             })]
         $CategoricalHyperParameterRanges,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Personalize.Solution.ContinuousHyperParameterRange"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +74,14 @@ function Add-VSPersonalizeSolutionAlgorithmHyperParameterRanges {
                 }
             })]
         $ContinuousHyperParameterRanges
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +91,7 @@ function Add-VSPersonalizeSolutionAlgorithmHyperParameterRanges {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Personalize.Solution.AlgorithmHyperParameterRanges'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

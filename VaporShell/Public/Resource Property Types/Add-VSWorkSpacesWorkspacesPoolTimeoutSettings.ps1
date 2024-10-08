@@ -1,11 +1,10 @@
 function Add-VSWorkSpacesWorkspacesPoolTimeoutSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::WorkSpaces::WorkspacesPool.TimeoutSettings resource property to the template. 
+        Adds an AWS::WorkSpaces::WorkspacesPool.TimeoutSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WorkSpaces::WorkspacesPool.TimeoutSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-timeoutsettings.html
@@ -28,11 +27,13 @@ function Add-VSWorkSpacesWorkspacesPoolTimeoutSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WorkSpaces.WorkspacesPool.TimeoutSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +44,8 @@ function Add-VSWorkSpacesWorkspacesPoolTimeoutSettings {
                 }
             })]
         $MaxUserDurationInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +56,8 @@ function Add-VSWorkSpacesWorkspacesPoolTimeoutSettings {
                 }
             })]
         $IdleDisconnectTimeoutInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,11 +68,14 @@ function Add-VSWorkSpacesWorkspacesPoolTimeoutSettings {
                 }
             })]
         $DisconnectTimeoutInSeconds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -79,6 +85,7 @@ function Add-VSWorkSpacesWorkspacesPoolTimeoutSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WorkSpaces.WorkspacesPool.TimeoutSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSMediaConnectFlowInputConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaConnect::Flow.InputConfiguration resource property to the template. 
+        Adds an AWS::MediaConnect::Flow.InputConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaConnect::Flow.InputConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-inputconfiguration.html
@@ -23,11 +22,13 @@ function Add-VSMediaConnectFlowInputConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.InputConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSMediaConnectFlowInputConfiguration {
                 }
             })]
         $InputPort,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Interface
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSMediaConnectFlowInputConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaConnect.Flow.InputConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

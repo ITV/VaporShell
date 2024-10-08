@@ -1,11 +1,10 @@
 function Add-VSRUMAppMonitorAppMonitorConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::RUM::AppMonitor.AppMonitorConfiguration resource property to the template. 
+        Adds an AWS::RUM::AppMonitor.AppMonitorConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::RUM::AppMonitor.AppMonitorConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html
@@ -73,11 +72,13 @@ function Add-VSRUMAppMonitorAppMonitorConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.RUM.AppMonitor.AppMonitorConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.RUM.AppMonitor.MetricDestination"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,13 +89,17 @@ function Add-VSRUMAppMonitorAppMonitorConfiguration {
                 }
             })]
         $MetricDestinations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IncludedPages,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ExcludedPages,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FavoritePages,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -105,7 +110,8 @@ function Add-VSRUMAppMonitorAppMonitorConfiguration {
                 }
             })]
         $SessionSampleRate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -116,9 +122,11 @@ function Add-VSRUMAppMonitorAppMonitorConfiguration {
                 }
             })]
         $AllowCookies,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Telemetries,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,7 +137,8 @@ function Add-VSRUMAppMonitorAppMonitorConfiguration {
                 }
             })]
         $IdentityPoolId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -140,7 +149,8 @@ function Add-VSRUMAppMonitorAppMonitorConfiguration {
                 }
             })]
         $GuestRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -151,11 +161,14 @@ function Add-VSRUMAppMonitorAppMonitorConfiguration {
                 }
             })]
         $EnableXRay
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -165,6 +178,7 @@ function Add-VSRUMAppMonitorAppMonitorConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.RUM.AppMonitor.AppMonitorConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

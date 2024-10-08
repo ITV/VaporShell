@@ -1,11 +1,10 @@
 function Add-VSNetworkFirewallFirewallPolicyStatefulEngineOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions resource property to the template. 
+        Adds an AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html
@@ -23,11 +22,13 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulEngineOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.StatefulEngineOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulEngineOptions {
                 }
             })]
         $StreamExceptionPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulEngineOptions {
                 }
             })]
         $RuleOrder
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulEngineOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.FirewallPolicy.StatefulEngineOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

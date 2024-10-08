@@ -1,11 +1,10 @@
 function Add-VSIoTFleetWiseCampaignConditionBasedSignalFetchConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTFleetWise::Campaign.ConditionBasedSignalFetchConfig resource property to the template. 
+        Adds an AWS::IoTFleetWise::Campaign.ConditionBasedSignalFetchConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTFleetWise::Campaign.ConditionBasedSignalFetchConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedsignalfetchconfig.html
@@ -23,11 +22,13 @@ function Add-VSIoTFleetWiseCampaignConditionBasedSignalFetchConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.ConditionBasedSignalFetchConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSIoTFleetWiseCampaignConditionBasedSignalFetchConfig {
                 }
             })]
         $ConditionExpression,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSIoTFleetWiseCampaignConditionBasedSignalFetchConfig {
                 }
             })]
         $TriggerMode
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSIoTFleetWiseCampaignConditionBasedSignalFetchConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTFleetWise.Campaign.ConditionBasedSignalFetchConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

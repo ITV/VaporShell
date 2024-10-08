@@ -1,11 +1,10 @@
 function Add-VSEC2LaunchTemplateElasticGpuSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.ElasticGpuSpecification resource property to the template. 
+        Adds an AWS::EC2::LaunchTemplate.ElasticGpuSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.ElasticGpuSpecification resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html
@@ -18,11 +17,13 @@ function Add-VSEC2LaunchTemplateElasticGpuSpecification {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.ElasticGpuSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSEC2LaunchTemplateElasticGpuSpecification {
                 }
             })]
         $Type
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSEC2LaunchTemplateElasticGpuSpecification {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.LaunchTemplate.ElasticGpuSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

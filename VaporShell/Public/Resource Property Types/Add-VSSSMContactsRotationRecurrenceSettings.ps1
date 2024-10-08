@@ -1,11 +1,10 @@
 function Add-VSSSMContactsRotationRecurrenceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::SSMContacts::Rotation.RecurrenceSettings resource property to the template. 
+        Adds an AWS::SSMContacts::Rotation.RecurrenceSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSMContacts::Rotation.RecurrenceSettings resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-recurrencesettings.html
@@ -51,13 +50,16 @@ function Add-VSSSMContactsRotationRecurrenceSettings {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSMContacts.Rotation.RecurrenceSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $DailySettings,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,7 +70,8 @@ function Add-VSSSMContactsRotationRecurrenceSettings {
                 }
             })]
         $NumberOfOnCalls,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SSMContacts.Rotation.ShiftCoverage"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,7 +82,8 @@ function Add-VSSSMContactsRotationRecurrenceSettings {
                 }
             })]
         $ShiftCoverages,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SSMContacts.Rotation.WeeklySetting"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,7 +94,8 @@ function Add-VSSSMContactsRotationRecurrenceSettings {
                 }
             })]
         $WeeklySettings,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,7 +106,8 @@ function Add-VSSSMContactsRotationRecurrenceSettings {
                 }
             })]
         $RecurrenceMultiplier,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SSMContacts.Rotation.MonthlySetting"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -112,11 +118,14 @@ function Add-VSSSMContactsRotationRecurrenceSettings {
                 }
             })]
         $MonthlySettings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -126,6 +135,7 @@ function Add-VSSSMContactsRotationRecurrenceSettings {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSMContacts.Rotation.RecurrenceSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

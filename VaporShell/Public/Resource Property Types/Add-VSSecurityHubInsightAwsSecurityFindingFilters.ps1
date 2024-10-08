@@ -1,11 +1,10 @@
 function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
     <#
     .SYNOPSIS
-        Adds an AWS::SecurityHub::Insight.AwsSecurityFindingFilters resource property to the template. 
+        Adds an AWS::SecurityHub::Insight.AwsSecurityFindingFilters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SecurityHub::Insight.AwsSecurityFindingFilters resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html
@@ -713,11 +712,13 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SecurityHub.Insight.AwsSecurityFindingFilters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -728,7 +729,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsEc2InstanceIamInstanceProfileArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -739,7 +741,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $SourceUrl,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -750,7 +753,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ProcessName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -761,7 +765,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $FindingProviderFieldsConfidence,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -772,7 +777,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $FirstObservedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -783,7 +789,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $CreatedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -794,7 +801,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $MalwareState,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.MapFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -805,7 +813,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $UserDefinedFields,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -816,7 +825,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkSourcePort,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -827,7 +837,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsIamUserUserName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -838,7 +849,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkSourceDomain,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -849,7 +861,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourcePartition,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -860,7 +873,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $FindingProviderFieldsRelatedFindingsId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -871,7 +885,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkDirection,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -882,7 +897,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $Criticality,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -893,7 +909,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceApplicationArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -904,7 +921,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ComplianceSecurityControlParametersValue,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -915,7 +933,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $SeverityLabel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -926,7 +945,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $RelatedFindingsProductArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -937,7 +957,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsIamAccessKeyPrincipalName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -948,7 +969,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ThreatIntelIndicatorCategory,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -959,7 +981,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ComplianceStatus,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -970,7 +993,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ThreatIntelIndicatorValue,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -981,7 +1005,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceContainerImageName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -992,7 +1017,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $MalwareType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1003,7 +1029,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ThreatIntelIndicatorSource,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1014,7 +1041,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsIamAccessKeyCreatedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1025,7 +1053,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsEc2InstanceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1036,7 +1065,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $RecommendationText,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1047,7 +1077,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $AwsAccountName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1058,7 +1089,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $FindingProviderFieldsRelatedFindingsProductArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1069,7 +1101,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $AwsAccountId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1080,7 +1113,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $Id,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1091,7 +1125,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ProcessParentPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1102,7 +1137,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceApplicationName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1113,7 +1149,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ProductArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.IpFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1124,7 +1161,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsEc2InstanceIpV6Addresses,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1135,7 +1173,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $MalwareName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1146,7 +1185,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1157,7 +1197,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceContainerLaunchedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1168,7 +1209,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ProcessPid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1179,7 +1221,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NoteText,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1190,7 +1233,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsEc2InstanceKeyName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1201,7 +1245,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $FindingProviderFieldsTypes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1212,7 +1257,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ComplianceSecurityControlId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1223,7 +1269,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NoteUpdatedBy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1234,7 +1281,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $VerificationState,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1245,7 +1293,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $GeneratorId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1256,7 +1305,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1267,7 +1317,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkProtocol,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1278,7 +1329,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $UpdatedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1289,7 +1341,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ProcessPath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1300,7 +1353,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $WorkflowStatus,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1311,7 +1365,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceContainerName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1322,7 +1377,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1333,7 +1389,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1344,7 +1401,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkDestinationDomain,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1355,7 +1413,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ProductName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.MapFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1366,7 +1425,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceTags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1377,7 +1437,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsEc2InstanceVpcId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1388,7 +1449,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsS3BucketOwnerName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1399,7 +1461,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $LastObservedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1410,7 +1473,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ComplianceSecurityControlParametersName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.IpFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1421,7 +1485,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkSourceIpV4,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1432,7 +1497,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ProcessLaunchedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1443,7 +1509,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsEc2InstanceLaunchedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1454,7 +1521,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NoteUpdatedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1465,7 +1533,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ThreatIntelIndicatorType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1476,7 +1545,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $CompanyName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1487,7 +1557,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceRegion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1498,7 +1569,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsIamAccessKeyStatus,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.IpFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1509,7 +1581,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkSourceIpV6,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1520,7 +1593,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $Confidence,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.MapFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1531,7 +1605,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ProductFields,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1542,7 +1617,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ThreatIntelIndicatorLastObservedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1553,7 +1629,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsEc2InstanceSubnetId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1564,7 +1641,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ComplianceAssociatedStandardsId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1575,7 +1653,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsEc2InstanceImageId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.IpFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1586,7 +1665,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsEc2InstanceIpV4Addresses,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1597,7 +1677,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $RelatedFindingsId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1608,7 +1689,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ProcessTerminatedAt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1619,7 +1701,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceContainerImageId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.IpFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1630,7 +1713,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkDestinationIpV4,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1641,7 +1725,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $Region,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.IpFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1652,7 +1737,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkDestinationIpV6,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1663,7 +1749,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $VulnerabilitiesExploitAvailable,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1674,7 +1761,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $FindingProviderFieldsCriticality,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.NumberFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1685,7 +1773,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkDestinationPort,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.MapFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1696,7 +1785,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceDetailsOther,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1707,7 +1797,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $FindingProviderFieldsSeverityLabel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1718,7 +1809,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ThreatIntelIndicatorSourceUrl,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1729,7 +1821,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $FindingProviderFieldsSeverityOriginal,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1740,7 +1833,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $MalwarePath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.BooleanFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1751,7 +1845,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $Sample,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1762,7 +1857,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $RecordState,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1773,7 +1869,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $Title,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1784,7 +1881,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $WorkflowState,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1795,7 +1893,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $NetworkSourceMac,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1806,7 +1905,8 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $ResourceAwsS3BucketOwnerId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SecurityHub.Insight.StringFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -1817,11 +1917,14 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
                 }
             })]
         $VulnerabilitiesFixAvailable
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -1831,6 +1934,7 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SecurityHub.Insight.AwsSecurityFindingFilters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

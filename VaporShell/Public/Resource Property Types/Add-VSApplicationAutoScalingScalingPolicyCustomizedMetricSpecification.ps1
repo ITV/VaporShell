@@ -1,11 +1,10 @@
 function Add-VSApplicationAutoScalingScalingPolicyCustomizedMetricSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalingPolicy.CustomizedMetricSpecification resource property to the template. 
+        Adds an AWS::ApplicationAutoScaling::ScalingPolicy.CustomizedMetricSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalingPolicy.CustomizedMetricSpecification resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html
@@ -47,11 +46,13 @@ function Add-VSApplicationAutoScalingScalingPolicyCustomizedMetricSpecification 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalingPolicy.CustomizedMetricSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +63,8 @@ function Add-VSApplicationAutoScalingScalingPolicyCustomizedMetricSpecification 
                 }
             })]
         $MetricName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationAutoScaling.ScalingPolicy.TargetTrackingMetricDataQuery"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,7 +75,8 @@ function Add-VSApplicationAutoScalingScalingPolicyCustomizedMetricSpecification 
                 }
             })]
         $Metrics,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,7 +87,8 @@ function Add-VSApplicationAutoScalingScalingPolicyCustomizedMetricSpecification 
                 }
             })]
         $Statistic,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ApplicationAutoScaling.ScalingPolicy.MetricDimension"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,7 +99,8 @@ function Add-VSApplicationAutoScalingScalingPolicyCustomizedMetricSpecification 
                 }
             })]
         $Dimensions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,7 +111,8 @@ function Add-VSApplicationAutoScalingScalingPolicyCustomizedMetricSpecification 
                 }
             })]
         $Unit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -117,11 +123,14 @@ function Add-VSApplicationAutoScalingScalingPolicyCustomizedMetricSpecification 
                 }
             })]
         $Namespace
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -131,6 +140,7 @@ function Add-VSApplicationAutoScalingScalingPolicyCustomizedMetricSpecification 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApplicationAutoScaling.ScalingPolicy.CustomizedMetricSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

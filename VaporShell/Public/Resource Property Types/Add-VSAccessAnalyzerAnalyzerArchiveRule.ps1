@@ -1,11 +1,10 @@
 function Add-VSAccessAnalyzerAnalyzerArchiveRule {
     <#
     .SYNOPSIS
-        Adds an AWS::AccessAnalyzer::Analyzer.ArchiveRule resource property to the template. 
+        Adds an AWS::AccessAnalyzer::Analyzer.ArchiveRule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AccessAnalyzer::Analyzer.ArchiveRule resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
@@ -25,11 +24,13 @@ function Add-VSAccessAnalyzerAnalyzerArchiveRule {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AccessAnalyzer.Analyzer.ArchiveRule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AccessAnalyzer.Analyzer.Filter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,7 +41,8 @@ function Add-VSAccessAnalyzerAnalyzerArchiveRule {
                 }
             })]
         $Filter,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +53,14 @@ function Add-VSAccessAnalyzerAnalyzerArchiveRule {
                 }
             })]
         $RuleName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +70,7 @@ function Add-VSAccessAnalyzerAnalyzerArchiveRule {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AccessAnalyzer.Analyzer.ArchiveRule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

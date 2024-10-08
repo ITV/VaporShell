@@ -1,11 +1,10 @@
 function Add-VSGreengrassConnectorDefinitionConnectorDefinitionVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::ConnectorDefinition.ConnectorDefinitionVersion resource property to the template. 
+        Adds an AWS::Greengrass::ConnectorDefinition.ConnectorDefinitionVersion resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::ConnectorDefinition.ConnectorDefinitionVersion resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html
@@ -19,11 +18,13 @@ function Add-VSGreengrassConnectorDefinitionConnectorDefinitionVersion {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.ConnectorDefinition.ConnectorDefinitionVersion')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Greengrass.ConnectorDefinition.Connector"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -34,11 +35,14 @@ function Add-VSGreengrassConnectorDefinitionConnectorDefinitionVersion {
                 }
             })]
         $Connectors
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -48,6 +52,7 @@ function Add-VSGreengrassConnectorDefinitionConnectorDefinitionVersion {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.ConnectorDefinition.ConnectorDefinitionVersion'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,11 +1,10 @@
 function Add-VSWAFv2RuleGroupIPSetReferenceStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.IPSetReferenceStatement resource property to the template. 
+        Adds an AWS::WAFv2::RuleGroup.IPSetReferenceStatement resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.IPSetReferenceStatement resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
@@ -23,13 +22,16 @@ function Add-VSWAFv2RuleGroupIPSetReferenceStatement {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.IPSetReferenceStatement')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $IPSetForwardedIPConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +42,14 @@ function Add-VSWAFv2RuleGroupIPSetReferenceStatement {
                 }
             })]
         $Arn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSWAFv2RuleGroupIPSetReferenceStatement {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.RuleGroup.IPSetReferenceStatement'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

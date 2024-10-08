@@ -1,11 +1,10 @@
 function Add-VSSageMakerModelQualityJobDefinitionMonitoringResources {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelQualityJobDefinition.MonitoringResources resource property to the template. 
+        Adds an AWS::SageMaker::ModelQualityJobDefinition.MonitoringResources resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelQualityJobDefinition.MonitoringResources resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
@@ -18,17 +17,22 @@ function Add-VSSageMakerModelQualityJobDefinitionMonitoringResources {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.MonitoringResources')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $ClusterConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -38,6 +42,7 @@ function Add-VSSageMakerModelQualityJobDefinitionMonitoringResources {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.MonitoringResources'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

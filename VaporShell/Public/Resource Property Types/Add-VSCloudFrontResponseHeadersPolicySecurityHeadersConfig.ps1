@@ -1,11 +1,10 @@
 function Add-VSCloudFrontResponseHeadersPolicySecurityHeadersConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy.SecurityHeadersConfig resource property to the template. 
+        Adds an AWS::CloudFront::ResponseHeadersPolicy.SecurityHeadersConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ResponseHeadersPolicy.SecurityHeadersConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html
@@ -43,27 +42,37 @@ function Add-VSCloudFrontResponseHeadersPolicySecurityHeadersConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.SecurityHeadersConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ContentSecurityPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FrameOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ContentTypeOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StrictTransportSecurity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $XSSProtection,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ReferrerPolicy
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -73,6 +82,7 @@ function Add-VSCloudFrontResponseHeadersPolicySecurityHeadersConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.SecurityHeadersConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

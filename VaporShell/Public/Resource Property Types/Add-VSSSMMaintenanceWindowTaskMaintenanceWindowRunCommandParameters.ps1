@@ -1,11 +1,10 @@
 function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::MaintenanceWindowTask.MaintenanceWindowRunCommandParameters resource property to the template. 
+        Adds an AWS::SSM::MaintenanceWindowTask.MaintenanceWindowRunCommandParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSM::MaintenanceWindowTask.MaintenanceWindowRunCommandParameters resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html
@@ -68,11 +67,13 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSM.MaintenanceWindowTask.MaintenanceWindowRunCommandParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,7 +84,8 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
                 }
             })]
         $TimeoutSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,7 +96,8 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
                 }
             })]
         $Comment,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -105,7 +108,8 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
                 }
             })]
         $OutputS3KeyPrefix,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -116,9 +120,11 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
                 }
             })]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CloudWatchOutputConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,7 +135,8 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
                 }
             })]
         $DocumentHashType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -140,9 +147,11 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
                 }
             })]
         $ServiceRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NotificationConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -153,7 +162,8 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
                 }
             })]
         $DocumentVersion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -164,7 +174,8 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
                 }
             })]
         $OutputS3BucketName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -175,11 +186,14 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
                 }
             })]
         $DocumentHash
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -203,6 +217,7 @@ function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSM.MaintenanceWindowTask.MaintenanceWindowRunCommandParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

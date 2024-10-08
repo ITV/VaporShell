@@ -1,11 +1,10 @@
 function Add-VSAppFlowFlowS3OutputFormatConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.S3OutputFormatConfig resource property to the template. 
+        Adds an AWS::AppFlow::Flow.S3OutputFormatConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.S3OutputFormatConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html
@@ -33,13 +32,16 @@ function Add-VSAppFlowFlowS3OutputFormatConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.Flow.S3OutputFormatConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $PrefixConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,9 +52,11 @@ function Add-VSAppFlowFlowS3OutputFormatConfig {
                 }
             })]
         $FileType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AggregationConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,11 +67,14 @@ function Add-VSAppFlowFlowS3OutputFormatConfig {
                 }
             })]
         $PreserveSourceDataTyping
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +84,7 @@ function Add-VSAppFlowFlowS3OutputFormatConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.Flow.S3OutputFormatConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

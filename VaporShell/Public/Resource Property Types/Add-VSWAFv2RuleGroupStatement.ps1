@@ -1,11 +1,10 @@
 function Add-VSWAFv2RuleGroupStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.Statement resource property to the template. 
+        Adds an AWS::WAFv2::RuleGroup.Statement resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.Statement resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
@@ -78,41 +77,58 @@ function Add-VSWAFv2RuleGroupStatement {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.Statement')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SizeConstraintStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AndStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $XssMatchStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NotStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ByteMatchStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RateBasedStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GeoMatchStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LabelMatchStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RegexMatchStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SqliMatchStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RegexPatternSetReferenceStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OrStatement,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $IPSetReferenceStatement
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -122,6 +138,7 @@ function Add-VSWAFv2RuleGroupStatement {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.RuleGroup.Statement'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

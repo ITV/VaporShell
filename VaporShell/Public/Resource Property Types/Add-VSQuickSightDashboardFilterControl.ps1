@@ -1,11 +1,10 @@
 function Add-VSQuickSightDashboardFilterControl {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.FilterControl resource property to the template. 
+        Adds an AWS::QuickSight::Dashboard.FilterControl resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.FilterControl resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filtercontrol.html
@@ -53,31 +52,43 @@ function Add-VSQuickSightDashboardFilterControl {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FilterControl')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Slider,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TextArea,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Dropdown,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TextField,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $List,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DateTimePicker,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RelativeDateTime,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CrossSheet
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +98,7 @@ function Add-VSQuickSightDashboardFilterControl {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.FilterControl'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

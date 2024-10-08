@@ -1,11 +1,10 @@
 function Add-VSLexBotSlotValueElicitationSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SlotValueElicitationSetting resource property to the template. 
+        Adds an AWS::Lex::Bot.SlotValueElicitationSetting resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SlotValueElicitationSetting resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html
@@ -45,15 +44,19 @@ function Add-VSLexBotSlotValueElicitationSetting {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotValueElicitationSetting')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $PromptSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $WaitAndContinueSpecification,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,9 +67,11 @@ function Add-VSLexBotSlotValueElicitationSetting {
                 }
             })]
         $SlotConstraint,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SlotCaptureSetting,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Lex.Bot.SampleUtterance"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,13 +82,17 @@ function Add-VSLexBotSlotValueElicitationSetting {
                 }
             })]
         $SampleUtterances,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DefaultValueSpecification
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -93,6 +102,7 @@ function Add-VSLexBotSlotValueElicitationSetting {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.SlotValueElicitationSetting'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
