@@ -135,7 +135,7 @@ function $FunctionName {
         if ($Name -notin $resourcesToExcludeUpdatePolicy) {
             $scriptContents += @"
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.`n
 "@
@@ -165,7 +165,8 @@ function $FunctionName {
         }
     }
     $scriptContents += @"
-    `nParam
+
+    Param
     (
 "@
     if ($ResourceType -ne "Property") {
@@ -359,8 +360,8 @@ function $FunctionName {
 "@
         }
 
-        #XXX # ensure definitions are separated by blank lines
-        # $scriptContents += "`n"
+        # ensure definitions are separated by blank lines
+        $scriptContents += ""
     }
     if ($ResourceType -ne "Property") {
         if ($Name -notin "AWS::AutoScaling::AutoScalingGroup", "AWS::EC2::Instance", "AWS::CloudFormation::WaitCondition") {
