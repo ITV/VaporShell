@@ -1,18 +1,15 @@
 function Add-VSFSxFileSystemNfsExports {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::FileSystem.NfsExports resource property to the template. The configuration object for mounting a file system.
+        Adds an AWS::FSx::FileSystem.NfsExports resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::FSx::FileSystem.NfsExports resource property to the template.
-The configuration object for mounting a file system.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html
 
     .PARAMETER ClientConfigurations
-        A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations
         ItemType: ClientConfigurations
@@ -21,11 +18,13 @@ The configuration object for mounting a file system.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.FSx.FileSystem.NfsExports')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.FSx.FileSystem.ClientConfigurations"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -36,11 +35,14 @@ The configuration object for mounting a file system.
                 }
             })]
         $ClientConfigurations
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -50,6 +52,7 @@ The configuration object for mounting a file system.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.FSx.FileSystem.NfsExports'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

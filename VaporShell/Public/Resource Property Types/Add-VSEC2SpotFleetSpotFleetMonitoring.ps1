@@ -1,19 +1,15 @@
 function Add-VSEC2SpotFleetSpotFleetMonitoring {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.SpotFleetMonitoring resource property to the template. Describes whether monitoring is enabled.
+        Adds an AWS::EC2::SpotFleet.SpotFleetMonitoring resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.SpotFleetMonitoring resource property to the template.
-Describes whether monitoring is enabled.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html
 
     .PARAMETER Enabled
-        Enables monitoring for the instance.
-Default: false
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
         UpdateType: Immutable
         PrimitiveType: Boolean
@@ -21,11 +17,13 @@ Default: false
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.SpotFleetMonitoring')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -36,11 +34,14 @@ Default: false
                 }
             })]
         $Enabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -50,6 +51,7 @@ Default: false
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.SpotFleet.SpotFleetMonitoring'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

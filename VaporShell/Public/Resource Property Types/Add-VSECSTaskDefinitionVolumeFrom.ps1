@@ -1,37 +1,34 @@
 function Add-VSECSTaskDefinitionVolumeFrom {
     <#
     .SYNOPSIS
-        Adds an AWS::ECS::TaskDefinition.VolumeFrom resource property to the template. The VolumeFrom property specifies details on a data volume from another container in the same task definition.
+        Adds an AWS::ECS::TaskDefinition.VolumeFrom resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ECS::TaskDefinition.VolumeFrom resource property to the template.
-The VolumeFrom property specifies details on a data volume from another container in the same task definition.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html
 
     .PARAMETER ReadOnly
-        If this value is true, the container has read-only access to the volume. If this value is false, then the container can write to the volume. The default value is false.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html#cfn-ecs-taskdefinition-volumefrom-readonly
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER SourceContainer
-        The name of another container within the same task definition to mount volumes from.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html#cfn-ecs-taskdefinition-volumefrom-sourcecontainer
         UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.VolumeFrom')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The VolumeFrom property specifies details on a data volume from another containe
                 }
             })]
         $ReadOnly,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The VolumeFrom property specifies details on a data volume from another containe
                 }
             })]
         $SourceContainer
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The VolumeFrom property specifies details on a data volume from another containe
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ECS.TaskDefinition.VolumeFrom'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

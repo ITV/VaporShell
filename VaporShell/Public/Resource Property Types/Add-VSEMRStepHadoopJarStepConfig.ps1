@@ -1,68 +1,51 @@
 function Add-VSEMRStepHadoopJarStepConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::Step.HadoopJarStepConfig resource property to the template. A job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
+        Adds an AWS::EMR::Step.HadoopJarStepConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::Step.HadoopJarStepConfig resource property to the template.
-A job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html
 
     .PARAMETER Args
-        A list of command line arguments passed to the JAR file's main function when executed.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html#cfn-elasticmapreduce-step-hadoopjarstepconfig-args
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html#cfn-emr-step-hadoopjarstepconfig-args
+        UpdateType: Immutable
         Type: List
-        UpdateType: Immutable
-
-    .PARAMETER Jar
-        A path to a JAR file run during the step.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html#cfn-elasticmapreduce-step-hadoopjarstepconfig-jar
-        PrimitiveType: String
-        UpdateType: Immutable
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER MainClass
-        The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html#cfn-elasticmapreduce-step-hadoopjarstepconfig-mainclass
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html#cfn-emr-step-hadoopjarstepconfig-mainclass
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER StepProperties
-        A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html#cfn-elasticmapreduce-step-hadoopjarstepconfig-stepproperties
-        DuplicatesAllowed: False
-        ItemType: KeyValue
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html#cfn-emr-step-hadoopjarstepconfig-stepproperties
         UpdateType: Immutable
+        Type: List
+        ItemType: KeyValue
+        DuplicatesAllowed: False
+
+    .PARAMETER Jar
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html#cfn-emr-step-hadoopjarstepconfig-jar
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.Step.HadoopJarStepConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Args,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Jar,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,7 +56,8 @@ A job flow step consisting of a JAR file whose main function will be executed. T
                 }
             })]
         $MainClass,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EMR.Step.KeyValue"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,12 +67,27 @@ A job flow step consisting of a JAR file whose main function will be executed. T
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StepProperties
+        $StepProperties,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Jar
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -98,6 +97,7 @@ A job flow step consisting of a JAR file whose main function will be executed. T
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.Step.HadoopJarStepConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

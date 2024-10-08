@@ -1,14 +1,10 @@
 function New-VSAppMeshVirtualService {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualService resource to the template. Creates a virtual service within a service mesh.
+        Adds an AWS::AppMesh::VirtualService resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::AppMesh::VirtualService resource to the template. Creates a virtual service within a service mesh.
-
-A virtual service is an abstraction of a real service that is provided by a virtual node directly or indirectly by means of a virtual router. Dependent services call your virtual service by its virtualServiceName, and those requests are routed to the virtual node or virtual router that is specified as the provider for the virtual service.
-
-For more information about virtual services, see Virtual services: https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html.
+        Adds an AWS::AppMesh::VirtualService resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html
@@ -17,36 +13,26 @@ For more information about virtual services, see Virtual services: https://docs.
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER MeshName
-        The name of the service mesh to create the virtual service in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-meshname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER MeshOwner
-        The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see Working with shared meshes: https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-meshowner
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER VirtualServiceName
-        The name to use for the virtual service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-virtualservicename
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Spec
-        The virtual service specification to apply.
-
         Type: VirtualServiceSpec
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-spec
         UpdateType: Mutable
 
     .PARAMETER Tags
-        Optional metadata that you can apply to the virtual service to assist with categorization and organization. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-tags
         ItemType: Tag
@@ -82,28 +68,29 @@ For more information about virtual services, see Virtual services: https://docs.
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualService')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -114,7 +101,8 @@ For more information about virtual services, see Virtual services: https://docs.
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,7 +113,8 @@ For more information about virtual services, see Virtual services: https://docs.
                 }
             })]
         $MeshName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -136,7 +125,8 @@ For more information about virtual services, see Virtual services: https://docs.
                 }
             })]
         $MeshOwner,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -147,12 +137,15 @@ For more information about virtual services, see Virtual services: https://docs.
                 }
             })]
         $VirtualServiceName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Spec,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -163,27 +156,28 @@ For more information about virtual services, see Virtual services: https://docs.
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -194,9 +188,15 @@ For more information about virtual services, see Virtual services: https://docs.
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -204,6 +204,7 @@ For more information about virtual services, see Virtual services: https://docs.
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -241,6 +242,7 @@ For more information about virtual services, see Virtual services: https://docs.
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualService'

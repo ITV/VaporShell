@@ -1,16 +1,10 @@
 function New-VSResourceGroupsGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::ResourceGroups::Group resource to the template. Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see Build queries and groups in AWS Resource Groups: https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html in the * AWS Resource Groups User Guide*. For more information about service-linked groups and service configurations, see Service configurations for Resource Groups: https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html.
+        Adds an AWS::ResourceGroups::Group resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::ResourceGroups::Group resource to the template. Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see Build queries and groups in AWS Resource Groups: https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html in the * AWS Resource Groups User Guide*. For more information about service-linked groups and service configurations, see Service configurations for Resource Groups: https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html.
-
-**Minimum permissions**
-
-To run this command, you must have the following permissions:
-
-+  resource-groups:CreateGroup
+        Adds an AWS::ResourceGroups::Group resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html
@@ -18,55 +12,41 @@ To run this command, you must have the following permissions:
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of a resource group. The name must be unique within the AWS Region in which you create the resource. To create multiple resource groups based on the same CloudFormation stack, you must generate unique names for each.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        The description of the resource group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ResourceQuery
-        The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see Build queries and groups in AWS Resource Groups: https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html in the *AWS Resource Groups User Guide*
-+ You can include either a ResourceQuery or a Configuration, but not both.
-+ You can specify the group's membership either by using a ResourceQuery or by using a list of Resources, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
-        UpdateType: Mutable
-        Type: ResourceQuery
-
-    .PARAMETER Tags
-        The tag key and value pairs that are attached to the resource group.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
-        UpdateType: Mutable
-        Type: List
-        ItemType: Tag
-
     .PARAMETER Configuration
-        The service configuration currently associated with the resource group and in effect for the members of the resource group. A Configuration consists of one or more ConfigurationItem entries. For information about service configurations for resource groups and how to construct them, see Service configurations for resource groups: https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html in the *AWS Resource Groups User Guide*.
-You can include either a Configuration or a ResourceQuery, but not both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
         UpdateType: Mutable
         Type: List
         ItemType: ConfigurationItem
+        DuplicatesAllowed: True
+
+    .PARAMETER ResourceQuery
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
+        UpdateType: Mutable
+        Type: ResourceQuery
 
     .PARAMETER Resources
-        A list of the Amazon Resource Names ARNs of AWS resources that you want to add to the specified group.
-+ You can specify the group membership either by using a list of Resources or by using a ResourceQuery, but not both.
-+ You can include a Resources property only if you also specify a Configuration property.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
+        UpdateType: Mutable
+        Type: List
+        ItemType: Tag
+        DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -98,28 +78,29 @@ You can include either a Configuration or a ResourceQuery, but not both.
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ResourceGroups.Group')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -130,18 +111,8 @@ You can include either a Configuration or a ResourceQuery, but not both.
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -152,12 +123,8 @@ You can include either a Configuration or a ResourceQuery, but not both.
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
-        $ResourceQuery,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ResourceGroups.Group.ConfigurationItem"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -168,9 +135,30 @@ You can include either a Configuration or a ResourceQuery, but not both.
                 }
             })]
         $Configuration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $ResourceQuery,
+
+        [Parameter(Mandatory = $false)]
         $Resources,
-        [parameter(Mandatory = $false)]
+
+        [VaporShell.Core.TransformTag()]
+        [Parameter(Mandatory = $false)]
+        $Tags,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -181,27 +169,28 @@ You can include either a Configuration or a ResourceQuery, but not both.
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -212,9 +201,15 @@ You can include either a Configuration or a ResourceQuery, but not both.
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -222,6 +217,7 @@ You can include either a Configuration or a ResourceQuery, but not both.
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -244,12 +240,6 @@ You can include either a Configuration or a ResourceQuery, but not both.
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Tags {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
-                }
                 Configuration {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -262,6 +252,12 @@ You can include either a Configuration or a ResourceQuery, but not both.
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Resources -Value @($Resources)
                 }
+                Tags {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
                 Default {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -271,6 +267,7 @@ You can include either a Configuration or a ResourceQuery, but not both.
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ResourceGroups.Group'

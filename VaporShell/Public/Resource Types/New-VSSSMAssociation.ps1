@@ -1,10 +1,10 @@
 function New-VSSSMAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::Association resource to the template. The AWS::SSM::Association resource creates a State Manager association for your managed instances. A State Manager association defines the state that you want to maintain on your instances. For example, an association can specify that anti-virus software must be installed and running on your instances, or that certain ports must be closed. For static targets, the association specifies a schedule for when the configuration is reapplied. For dynamic targets, such as an AWS Resource Groups or an AWS Auto Scaling Group, State Manager applies the configuration when new instances are added to the group. The association also specifies actions to take when applying the configuration. For example, an association for anti-virus software might run once a day. If the software is not installed, then State Manager installs it. If the software is installed, but the service is not running, then the association might instruct State Manager to start the service.
+        Adds an AWS::SSM::Association resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::SSM::Association resource to the template. The AWS::SSM::Association resource creates a State Manager association for your managed instances. A State Manager association defines the state that you want to maintain on your instances. For example, an association can specify that anti-virus software must be installed and running on your instances, or that certain ports must be closed. For static targets, the association specifies a schedule for when the configuration is reapplied. For dynamic targets, such as an AWS Resource Groups or an AWS Auto Scaling Group, State Manager applies the configuration when new instances are added to the group. The association also specifies actions to take when applying the configuration. For example, an association for anti-virus software might run once a day. If the software is not installed, then State Manager installs it. If the software is installed, but the service is not running, then the association might instruct State Manager to start the service.
+        Adds an AWS::SSM::Association resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
@@ -13,137 +13,93 @@ function New-VSSSMAssociation {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AssociationName
-        Specify a descriptive name for the association.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER DocumentVersion
-        The version of the SSM document to associate with the target.
-Note the following important information.
-+ State Manager doesn't support running associations that use a new version of a document if that document is shared from another account. State Manager always runs the default version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed. If you want to run an association using a new version of a document shared form another account, you must set the document version to default.
-+ DocumentVersion is not valid for documents owned by AWS, such as AWS-RunPatchBaseline or AWS-UpdateSSMAgent. If you specify DocumentVersion for an AWS document, the system returns the following error: "Error occurred during operation 'CreateAssociation'." RequestToken: <token>, HandlerErrorCode: GeneralServiceException.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+    .PARAMETER CalendarNames
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER InstanceId
-        The ID of the instance that the SSM document is associated with. You must specify the InstanceId or Targets property.
-InstanceId has been deprecated. To specify an instance ID for an association, use the Targets parameter. If you use the parameter InstanceId, you cannot use the parameters AssociationName, DocumentVersion, MaxErrors, MaxConcurrency, OutputLocation, or ScheduleExpression. To use these parameters, you must use the Targets parameter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Name
-        The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents. The documents can be AWS-predefined documents, documents you created, or a document that is shared with you from another account. For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:
-arn:partition:ssm:region:account-id:document/document-name
-For example: arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document
-For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, AWS-ApplyPatchBaseline or My-Document.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Parameters
-        The parameters for the runtime configuration of the document.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-        UpdateType: Mutable
-        Type: Map
-        PrimitiveItemType: Json
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER ScheduleExpression
-        A cron expression that specifies a schedule when the association runs. The schedule runs in Coordinated Universal Time UTC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Targets
-        The targets for the association. You must specify the InstanceId or Targets property. You can target all instances in an AWS account by specifying the InstanceIds key with a value of *. To view a JSON and a YAML example that targets all instances, see "Create an association for all managed instances in an AWS account" on the Examples page.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
-        UpdateType: Mutable
-        Type: List
-        ItemType: Target
-
-    .PARAMETER OutputLocation
-        An Amazon Simple Storage Service Amazon S3 bucket where you want to store the output details of the request.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
-        UpdateType: Mutable
-        Type: InstanceAssociationOutputLocation
-
-    .PARAMETER AutomationTargetParameterName
-        Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER MaxErrors
-        The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
-Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER MaxConcurrency
-        The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
-If a new managed node starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for MaxConcurrency.
+    .PARAMETER Parameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+        UpdateType: Mutable
+        PrimitiveType: Json
 
+    .PARAMETER InstanceId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER WaitForSuccessTimeoutSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER MaxConcurrency
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ComplianceSeverity
-        The severity level that is assigned to the association.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER SyncCompliance
-        The mode for generating association compliance. You can specify AUTO or MANUAL. In AUTO mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is COMPLIANT. If the association execution doesn't run successfully, the association is NON-COMPLIANT.
-In MANUAL mode, you must specify the AssociationId as a parameter for the PutComplianceItems API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the PutComplianceItems API action.
-By default, all associations use AUTO mode.
+    .PARAMETER Targets
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+        UpdateType: Mutable
+        Type: List
+        ItemType: Target
+        DuplicatesAllowed: True
 
+    .PARAMETER SyncCompliance
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER WaitForSuccessTimeoutSeconds
-        The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
+    .PARAMETER OutputLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+        UpdateType: Mutable
+        Type: InstanceAssociationOutputLocation
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+    .PARAMETER ScheduleOffset
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleoffset
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER ApplyOnlyAtCronInterval
-        By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER ApplyOnlyAtCronInterval
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
         UpdateType: Mutable
         PrimitiveType: Boolean
 
-    .PARAMETER CalendarNames
-        The names or Amazon Resource Names ARNs of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see AWS Systems Manager Change Calendar: https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
+    .PARAMETER DocumentVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
         UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
+        PrimitiveType: String
 
-    .PARAMETER ScheduleOffset
-        +  Reference: Cron and Rate Expressions for Systems Manager: https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleoffset
+    .PARAMETER AutomationTargetParameterName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
         UpdateType: Mutable
-        PrimitiveType: Integer
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -175,28 +131,29 @@ By default, all associations use AUTO mode.
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSM.Association')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -207,7 +164,8 @@ By default, all associations use AUTO mode.
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -218,43 +176,11 @@ By default, all associations use AUTO mode.
                 }
             })]
         $AssociationName,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DocumentVersion,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $InstanceId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $CalendarNames,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -265,31 +191,8 @@ By default, all associations use AUTO mode.
                 }
             })]
         $ScheduleExpression,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.SSM.Association.Target"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Targets,
-        [parameter(Mandatory = $false)]
-        $OutputLocation,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AutomationTargetParameterName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -300,7 +203,20 @@ By default, all associations use AUTO mode.
                 }
             })]
         $MaxErrors,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Parameters,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -310,30 +226,9 @@ By default, all associations use AUTO mode.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MaxConcurrency,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ComplianceSeverity,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SyncCompliance,
-        [parameter(Mandatory = $false)]
+        $InstanceId,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -344,9 +239,10 @@ By default, all associations use AUTO mode.
                 }
             })]
         $WaitForSuccessTimeoutSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -354,10 +250,48 @@ By default, all associations use AUTO mode.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ApplyOnlyAtCronInterval,
-        [parameter(Mandatory = $false)]
-        $CalendarNames,
-        [parameter(Mandatory = $false)]
+        $MaxConcurrency,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ComplianceSeverity,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.SSM.Association.Target"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Targets,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SyncCompliance,
+
+        [Parameter(Mandatory = $false)]
+        $OutputLocation,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -368,7 +302,56 @@ By default, all associations use AUTO mode.
                 }
             })]
         $ScheduleOffset,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ApplyOnlyAtCronInterval,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DocumentVersion,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AutomationTargetParameterName,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -379,27 +362,28 @@ By default, all associations use AUTO mode.
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -410,9 +394,15 @@ By default, all associations use AUTO mode.
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -420,6 +410,7 @@ By default, all associations use AUTO mode.
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -442,17 +433,34 @@ By default, all associations use AUTO mode.
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
+                CalendarNames {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CalendarNames -Value @($CalendarNames)
+                }
                 Targets {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Targets -Value @($Targets)
                 }
-                CalendarNames {
+                Parameters {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CalendarNames -Value @($CalendarNames)
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {
@@ -463,6 +471,7 @@ By default, all associations use AUTO mode.
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSM.Association'

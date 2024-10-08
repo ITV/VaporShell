@@ -1,12 +1,10 @@
 function New-VSLexBot {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot resource to the template. Specifies an Amazon Lex conversational bot.
+        Adds an AWS::Lex::Bot resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::Lex::Bot resource to the template. Specifies an Amazon Lex conversational bot.
-
-You must configure an intent based on the AMAZON.FallbackIntent built-in intent. If you don't add one, creating the bot will fail.
+        Adds an AWS::Lex::Bot resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html
@@ -14,62 +12,49 @@ You must configure an intent based on the AMAZON.FallbackIntent built-in intent.
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Name
-        The name of the field to filter the list of bots.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-name
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        The description of the version.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-description
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The Amazon Resource Name ARN of the IAM role used to build and run the bot.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-rolearn
+    .PARAMETER AutoBuildBotLocales
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-autobuildbotlocales
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER DataPrivacy
-        Provides information on additional privacy protections Amazon Lex should use with the bot's data.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-dataprivacy
-        UpdateType: Mutable
-        PrimitiveType: Json
-
-    .PARAMETER IdleSessionTTLInSeconds
-        The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
-A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
-You can specify between 60 1 minute and 86,400 24 hours seconds.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-idlesessionttlinseconds
-        UpdateType: Mutable
-        PrimitiveType: Integer
+        PrimitiveType: Boolean
 
     .PARAMETER BotLocales
-        A list of locales for the bot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-botlocales
         UpdateType: Mutable
         Type: List
         ItemType: BotLocale
         DuplicatesAllowed: False
 
-    .PARAMETER BotFileS3Location
-        The Amazon S3 location of files used to import a bot. The files must be in the import format specified in JSON format for importing and exporting: https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html in the *Amazon Lex developer guide.*
+    .PARAMETER IdleSessionTTLInSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-idlesessionttlinseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
+    .PARAMETER BotFileS3Location
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-botfiles3location
         UpdateType: Mutable
         Type: S3Location
 
-    .PARAMETER BotTags
-        A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the UpdateBot operation to update tags. To update tags, use the TagResource operation.
+    .PARAMETER TestBotAliasSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliassettings
+        UpdateType: Mutable
+        Type: TestBotAliasSettings
 
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-rolearn
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-name
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER BotTags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-bottags
         UpdateType: Mutable
         Type: List
@@ -77,25 +62,16 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
         DuplicatesAllowed: False
 
     .PARAMETER TestBotAliasTags
-        A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the UpdateAlias operation to update tags. To update tags on the test alias, use the TagResource operation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliastags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
 
-    .PARAMETER AutoBuildBotLocales
-        Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-autobuildbotlocales
+    .PARAMETER DataPrivacy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-dataprivacy
         UpdateType: Mutable
-        PrimitiveType: Boolean
-
-    .PARAMETER TestBotAliasSettings
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliassettings
-        UpdateType: Mutable
-        Type: TestBotAliasSettings
+        Type: DataPrivacy
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -127,28 +103,29 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -159,18 +136,8 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -181,59 +148,8 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
                 }
             })]
         $Description,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $RoleArn,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DataPrivacy,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $IdleSessionTTLInSeconds,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Lex.Bot.BotLocale"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $BotLocales,
-        [parameter(Mandatory = $false)]
-        $BotFileS3Location,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $BotTags,
-        [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
-        $TestBotAliasTags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -244,9 +160,73 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
                 }
             })]
         $AutoBuildBotLocales,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Lex.Bot.BotLocale"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BotLocales,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IdleSessionTTLInSeconds,
+
+        [Parameter(Mandatory = $false)]
+        $BotFileS3Location,
+
+        [Parameter(Mandatory = $false)]
         $TestBotAliasSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RoleArn,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
+
+        [VaporShell.Core.TransformTag()]
+        [Parameter(Mandatory = $false)]
+        $BotTags,
+
+        [VaporShell.Core.TransformTag()]
+        [Parameter(Mandatory = $false)]
+        $TestBotAliasTags,
+
+        [Parameter(Mandatory = $true)]
+        $DataPrivacy,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -257,27 +237,28 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -288,9 +269,15 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -298,6 +285,7 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -338,23 +326,6 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name TestBotAliasTags -Value @($TestBotAliasTags)
                 }
-                DataPrivacy {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
                 Default {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -364,6 +335,7 @@ You can specify between 60 1 minute and 86,400 24 hours seconds.
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot'

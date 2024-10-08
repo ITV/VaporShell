@@ -1,39 +1,39 @@
 function Add-VSEC2LaunchTemplateCpuOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.CpuOptions resource property to the template. Specifies the CPU options for an instance. For more information, see Optimize CPU options: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html in the *Amazon Elastic Compute Cloud User Guide*.
+        Adds an AWS::EC2::LaunchTemplate.CpuOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.CpuOptions resource property to the template.
-Specifies the CPU options for an instance. For more information, see Optimize CPU options: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html in the *Amazon Elastic Compute Cloud User Guide*.
-
-CpuOptions is a property of AWS::EC2::LaunchTemplate LaunchTemplateData: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html
 
     .PARAMETER ThreadsPerCore
-        The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-threadspercore
-        PrimitiveType: Integer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html#cfn-ec2-launchtemplate-cpuoptions-threadspercore
         UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER AmdSevSnp
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html#cfn-ec2-launchtemplate-cpuoptions-amdsevsnp
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER CoreCount
-        The number of CPU cores for the instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-corecount
-        PrimitiveType: Integer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html#cfn-ec2-launchtemplate-cpuoptions-corecount
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.CpuOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +44,20 @@ CpuOptions is a property of AWS::EC2::LaunchTemplate LaunchTemplateData: https:/
                 }
             })]
         $ThreadsPerCore,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AmdSevSnp,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +68,14 @@ CpuOptions is a property of AWS::EC2::LaunchTemplate LaunchTemplateData: https:/
                 }
             })]
         $CoreCount
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +85,7 @@ CpuOptions is a property of AWS::EC2::LaunchTemplate LaunchTemplateData: https:/
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.LaunchTemplate.CpuOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

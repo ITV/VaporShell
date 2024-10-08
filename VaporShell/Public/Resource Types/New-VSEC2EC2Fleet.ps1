@@ -1,10 +1,10 @@
 function New-VSEC2EC2Fleet {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet resource to the template. Specifies the configuration information to launch a fleet--or group--of instances. An EC2 Fleet can launch multiple instance types across multiple Availability Zones, using the On-Demand Instance, Reserved Instance, and Spot Instance purchasing models together. Using EC2 Fleet, you can define separate On-Demand and Spot capacity targets, specify the instance types that work best for your applications, and specify how Amazon EC2 should distribute your fleet capacity within each purchasing model. For more information, see Launching an EC2 Fleet: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html in the *Amazon EC2 User Guide for Linux Instances*.
+        Adds an AWS::EC2::EC2Fleet resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::EC2::EC2Fleet resource to the template. Specifies the configuration information to launch a fleet--or group--of instances. An EC2 Fleet can launch multiple instance types across multiple Availability Zones, using the On-Demand Instance, Reserved Instance, and Spot Instance purchasing models together. Using EC2 Fleet, you can define separate On-Demand and Spot capacity targets, specify the instance types that work best for your applications, and specify how Amazon EC2 should distribute your fleet capacity within each purchasing model. For more information, see Launching an EC2 Fleet: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html in the *Amazon EC2 User Guide for Linux Instances*.
+        Adds an AWS::EC2::EC2Fleet resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
@@ -12,43 +12,32 @@ function New-VSEC2EC2Fleet {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER TargetCapacitySpecification
-        The number of units to request.
+    .PARAMETER Context
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER TargetCapacitySpecification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
         UpdateType: Mutable
         Type: TargetCapacitySpecificationRequest
 
     .PARAMETER OnDemandOptions
-        Describes the configuration of On-Demand Instances in an EC2 Fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
         UpdateType: Immutable
         Type: OnDemandOptionsRequest
 
     .PARAMETER Type
-        The fleet type. The default value is maintain.
-+  maintain - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
-+  request - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
-+  instant - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
-For more information, see EC2 Fleet request types: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html in the *Amazon EC2 User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ExcessCapacityTerminationPolicy
-        Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TagSpecifications
-        The key-value pair for tagging the EC2 Fleet request on creation. For more information, see Tagging your resources: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources.
-If the fleet type is instant, specify a resource type of fleet to tag the fleet or instance to tag the instances at launch.
-If the fleet type is maintain or request, specify a resource type of fleet to tag the fleet. You cannot specify a resource type of instance. To tag instances at launch, specify the tags in a launch template: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
         UpdateType: Immutable
         Type: List
@@ -56,29 +45,21 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
         DuplicatesAllowed: True
 
     .PARAMETER SpotOptions
-        Describes the configuration of Spot Instances in an EC2 Fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
         UpdateType: Immutable
         Type: SpotOptionsRequest
 
     .PARAMETER ValidFrom
-        The start date and time of the request, in UTC format for example, *YYYY*-*MM*-*DD*T*HH*:*MM*:*SS*Z. The default is to start fulfilling the request immediately.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ReplaceUnhealthyInstances
-        Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type maintain. For more information, see EC2 Fleet health checks: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks in the *Amazon EC2 User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER LaunchTemplateConfigs
-        The configuration for the EC2 Fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
         UpdateType: Immutable
         Type: List
@@ -86,24 +67,13 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
         DuplicatesAllowed: True
 
     .PARAMETER TerminateInstancesWithExpiration
-        Indicates whether running instances should be terminated when the EC2 Fleet expires.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER ValidUntil
-        The end date and time of the request, in UTC format for example, *YYYY*-*MM*-*DD*T*HH*:*MM*:*SS*Z. At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
         UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER Context
-        Reserved.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy
@@ -136,28 +106,29 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -168,101 +139,8 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        $TargetCapacitySpecification,
-        [parameter(Mandatory = $false)]
-        $OnDemandOptions,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Type,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ExcessCapacityTerminationPolicy,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.EC2.EC2Fleet.TagSpecification"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TagSpecifications,
-        [parameter(Mandatory = $false)]
-        $SpotOptions,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ValidFrom,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ReplaceUnhealthyInstances,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.EC2.EC2Fleet.FleetLaunchTemplateConfigRequest"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $LaunchTemplateConfigs,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $TerminateInstancesWithExpiration,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ValidUntil,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -273,7 +151,113 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
                 }
             })]
         $Context,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $true)]
+        $TargetCapacitySpecification,
+
+        [Parameter(Mandatory = $false)]
+        $OnDemandOptions,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Type,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ExcessCapacityTerminationPolicy,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EC2.EC2Fleet.TagSpecification"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TagSpecifications,
+
+        [Parameter(Mandatory = $false)]
+        $SpotOptions,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ValidFrom,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ReplaceUnhealthyInstances,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EC2.EC2Fleet.FleetLaunchTemplateConfigRequest"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LaunchTemplateConfigs,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TerminateInstancesWithExpiration,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ValidUntil,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -284,27 +268,28 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -315,9 +300,15 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -325,6 +316,7 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -368,6 +360,7 @@ If the fleet type is maintain or request, specify a resource type of fleet to ta
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.EC2Fleet'

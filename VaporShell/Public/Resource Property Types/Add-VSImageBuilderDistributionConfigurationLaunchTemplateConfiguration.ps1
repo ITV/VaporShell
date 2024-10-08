@@ -1,46 +1,41 @@
 function Add-VSImageBuilderDistributionConfigurationLaunchTemplateConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ImageBuilder::DistributionConfiguration.LaunchTemplateConfiguration resource property to the template. Identifies an Amazon EC2 launch template to use for a specific account.
+        Adds an AWS::ImageBuilder::DistributionConfiguration.LaunchTemplateConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ImageBuilder::DistributionConfiguration.LaunchTemplateConfiguration resource property to the template.
-Identifies an Amazon EC2 launch template to use for a specific account.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
 
-    .PARAMETER LaunchTemplateId
-        Identifies the Amazon EC2 launch template to use.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER AccountId
-        The account ID that this configuration applies to.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER SetDefaultVersion
-        Set the specified Amazon EC2 launch template as the default launch template for the specified account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER AccountId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER LaunchTemplateId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.LaunchTemplateConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -48,8 +43,9 @@ Identifies an Amazon EC2 launch template to use for a specific account.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LaunchTemplateId,
-        [parameter(Mandatory = $false)]
+        $SetDefaultVersion,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,9 +56,10 @@ Identifies an Amazon EC2 launch template to use for a specific account.
                 }
             })]
         $AccountId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -70,12 +67,15 @@ Identifies an Amazon EC2 launch template to use for a specific account.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SetDefaultVersion
+        $LaunchTemplateId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +85,7 @@ Identifies an Amazon EC2 launch template to use for a specific account.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ImageBuilder.DistributionConfiguration.LaunchTemplateConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

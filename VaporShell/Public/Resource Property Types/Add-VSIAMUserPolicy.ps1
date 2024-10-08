@@ -1,52 +1,34 @@
 function Add-VSIAMUserPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::IAM::User.Policy resource property to the template. Contains information about an attached policy.
+        Adds an AWS::IAM::User.Policy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IAM::User.Policy resource property to the template.
-Contains information about an attached policy.
-
-An attached policy is a managed policy that has been attached to a user, group, or role.
-
-For more information about managed policies, refer to Managed Policies and Inline Policies: https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html in the *IAM User Guide*.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html
-
-    .PARAMETER PolicyDocument
-        The policy document.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policydocument
-        PrimitiveType: Json
-        UpdateType: Mutable
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-policy.html
 
     .PARAMETER PolicyName
-        The friendly name not ARN identifying the policy.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policyname
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-policy.html#cfn-iam-user-policy-policyname
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER PolicyDocument
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-policy.html#cfn-iam-user-policy-policydocument
+        UpdateType: Mutable
+        PrimitiveType: Json
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IAM.User.Policy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PolicyDocument,
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,12 +38,27 @@ For more information about managed policies, refer to Managed Policies and Inlin
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PolicyName
+        $PolicyName,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PolicyDocument
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +82,7 @@ For more information about managed policies, refer to Managed Policies and Inlin
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IAM.User.Policy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

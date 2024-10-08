@@ -1,114 +1,94 @@
 function Add-VSCognitoUserPoolLambdaConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPool.LambdaConfig resource property to the template. Specifies the configuration for AWS Lambda triggers.
+        Adds an AWS::Cognito::UserPool.LambdaConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPool.LambdaConfig resource property to the template.
-Specifies the configuration for AWS Lambda triggers.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html
 
     .PARAMETER CreateAuthChallenge
-        Creates an authentication challenge.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-createauthchallenge
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER PreSignUp
-        A pre-registration AWS Lambda trigger.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-presignup
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER KMSKeyID
-        The Amazon Resource Name of a AWS Key Management Service AWS KMS key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER UserMigration
-        The user migration Lambda config type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-usermigration
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER PostAuthentication
-        A post-authentication AWS Lambda trigger.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-postauthentication
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER VerifyAuthChallengeResponse
-        Verifies the authentication challenge response.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-verifyauthchallengeresponse
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER PreAuthentication
-        A pre-authentication AWS Lambda trigger.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-preauthentication
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DefineAuthChallenge
-        Defines the authentication challenge.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER PreTokenGeneration
-        A Lambda trigger that is invoked before token generation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengeneration
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER CustomSMSSender
-        A custom SMS sender AWS Lambda trigger.
-
-        Type: CustomSMSSender
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customsmssender
         UpdateType: Mutable
+        Type: CustomSMSSender
 
     .PARAMETER PostConfirmation
-        A post-confirmation AWS Lambda trigger.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-postconfirmation
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER CustomMessage
-        A custom Message AWS Lambda trigger.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-custommessage
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER PreTokenGenerationConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengenerationconfig
+        UpdateType: Mutable
+        Type: PreTokenGenerationConfig
 
     .PARAMETER CustomEmailSender
-        A custom email sender AWS Lambda trigger.
-
-        Type: CustomEmailSender
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customemailsender
         UpdateType: Mutable
+        Type: CustomEmailSender
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Cognito.UserPool.LambdaConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,7 +99,8 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $CreateAuthChallenge,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -130,7 +111,8 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $PreSignUp,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -141,7 +123,8 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $KMSKeyID,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -152,7 +135,8 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $UserMigration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -163,7 +147,8 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $PostAuthentication,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -174,7 +159,8 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $VerifyAuthChallengeResponse,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -185,7 +171,8 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $PreAuthentication,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -196,7 +183,8 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $DefineAuthChallenge,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -207,9 +195,11 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $PreTokenGeneration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomSMSSender,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -220,7 +210,8 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $PostConfirmation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -231,13 +222,20 @@ Specifies the configuration for AWS Lambda triggers.
                 }
             })]
         $CustomMessage,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $PreTokenGenerationConfig,
+
+        [Parameter(Mandatory = $false)]
         $CustomEmailSender
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -247,6 +245,7 @@ Specifies the configuration for AWS Lambda triggers.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Cognito.UserPool.LambdaConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,93 +1,67 @@
 function Add-VSMediaLiveChannelInputSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.InputSettings resource property to the template. Information about extracting content from the input and about handling the content.
+        Adds an AWS::MediaLive::Channel.InputSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.InputSettings resource property to the template.
-Information about extracting content from the input and about handling the content.
-
-The parent of this entity is InputAttachment.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html
 
     .PARAMETER Scte35Pid
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-scte35pid
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER DeblockFilter
-        Enables or disables the deblock filter when filtering.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-deblockfilter
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER FilterStrength
-        Adjusts the magnitude of filtering from 1 minimal to 5 strongest.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-filterstrength
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER InputFilter
-        Turns on the filter for this input. MPEG-2 inputs have the deblocking filter enabled by default. 1 auto - filtering is applied depending on input type/quality 2 disabled - no filtering is applied to the input 3 forced - filtering is applied regardless of the input type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-inputfilter
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SourceEndBehavior
-        The loop input if it is a file.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-sourceendbehavior
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER VideoSelector
-        Information about one video to extract from the input.
-
         Type: VideoSelector
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-videoselector
         UpdateType: Mutable
 
     .PARAMETER Smpte2038DataPreference
-        Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input. Applicable data types are captions, timecode, AFD, and SCTE-104 messages. - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source if any. - IGNORE: Never extract any ancillary data from SMPTE-2038.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-smpte2038datapreference
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AudioSelectors
-        Information about the specific audio to extract from the input.
-The parent of this entity is InputSettings.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-audioselectors
         ItemType: AudioSelector
         UpdateType: Mutable
 
     .PARAMETER CaptionSelectors
-        Information about the specific captions to extract from the input.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-captionselectors
         ItemType: CaptionSelector
         UpdateType: Mutable
 
     .PARAMETER DenoiseFilter
-        Enables or disables the denoise filter when filtering.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-denoisefilter
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NetworkInputSettings
-        Information about how to connect to the upstream system.
-
         Type: NetworkInputSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-networkinputsettings
         UpdateType: Mutable
@@ -95,11 +69,13 @@ The parent of this entity is InputSettings.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.InputSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -110,7 +86,8 @@ The parent of this entity is InputSettings.
                 }
             })]
         $Scte35Pid,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -121,7 +98,8 @@ The parent of this entity is InputSettings.
                 }
             })]
         $DeblockFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -132,7 +110,8 @@ The parent of this entity is InputSettings.
                 }
             })]
         $FilterStrength,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -143,7 +122,8 @@ The parent of this entity is InputSettings.
                 }
             })]
         $InputFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -154,9 +134,11 @@ The parent of this entity is InputSettings.
                 }
             })]
         $SourceEndBehavior,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VideoSelector,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -167,7 +149,8 @@ The parent of this entity is InputSettings.
                 }
             })]
         $Smpte2038DataPreference,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.AudioSelector"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -178,7 +161,8 @@ The parent of this entity is InputSettings.
                 }
             })]
         $AudioSelectors,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.CaptionSelector"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -189,7 +173,8 @@ The parent of this entity is InputSettings.
                 }
             })]
         $CaptionSelectors,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -200,13 +185,17 @@ The parent of this entity is InputSettings.
                 }
             })]
         $DenoiseFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NetworkInputSettings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -216,6 +205,7 @@ The parent of this entity is InputSettings.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.InputSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

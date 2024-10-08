@@ -1,25 +1,20 @@
 function Add-VSAutoScalingScalingPolicyMetricDimension {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.MetricDimension resource property to the template. MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
+        Adds an AWS::AutoScaling::ScalingPolicy.MetricDimension resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.MetricDimension resource property to the template.
-MetricDimension specifies a name/value pair that is part of the identity of a CloudWatch metric for the Dimensions property of the AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html property type. Duplicate dimensions are not allowed.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html
 
     .PARAMETER Value
-        The value of the dimension.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-value
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the dimension.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-name
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ MetricDimension specifies a name/value pair that is part of the identity of a Cl
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AutoScaling.ScalingPolicy.MetricDimension')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ MetricDimension specifies a name/value pair that is part of the identity of a Cl
                 }
             })]
         $Value,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ MetricDimension specifies a name/value pair that is part of the identity of a Cl
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ MetricDimension specifies a name/value pair that is part of the identity of a Cl
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AutoScaling.ScalingPolicy.MetricDimension'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

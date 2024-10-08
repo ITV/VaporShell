@@ -1,25 +1,20 @@
 function Add-VSAppStreamDirectoryConfigServiceAccountCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::DirectoryConfig.ServiceAccountCredentials resource property to the template. The credentials for the service account used by the streaming instance to connect to the directory.
+        Adds an AWS::AppStream::DirectoryConfig.ServiceAccountCredentials resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppStream::DirectoryConfig.ServiceAccountCredentials resource property to the template.
-The credentials for the service account used by the streaming instance to connect to the directory.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html
 
     .PARAMETER AccountName
-        The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html#cfn-appstream-directoryconfig-serviceaccountcredentials-accountname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER AccountPassword
-        The password for the account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html#cfn-appstream-directoryconfig-serviceaccountcredentials-accountpassword
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,13 +22,15 @@ The credentials for the service account used by the streaming instance to connec
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppStream.DirectoryConfig.ServiceAccountCredentials')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AccountPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","AccountPassword")]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +41,8 @@ The credentials for the service account used by the streaming instance to connec
                 }
             })]
         $AccountName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +53,14 @@ The credentials for the service account used by the streaming instance to connec
                 }
             })]
         $AccountPassword
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +70,7 @@ The credentials for the service account used by the streaming instance to connec
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppStream.DirectoryConfig.ServiceAccountCredentials'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

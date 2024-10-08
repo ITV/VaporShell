@@ -1,30 +1,29 @@
 function Add-VSGlueTriggerNotificationProperty {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Trigger.NotificationProperty resource property to the template. Specifies configuration properties of a job run notification.
+        Adds an AWS::Glue::Trigger.NotificationProperty resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Trigger.NotificationProperty resource property to the template.
-Specifies configuration properties of a job run notification.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html
 
     .PARAMETER NotifyDelayAfter
-        After a job run starts, the number of minutes to wait before sending a job run delay notification
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Trigger.NotificationProperty')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Specifies configuration properties of a job run notification.
                 }
             })]
         $NotifyDelayAfter
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Specifies configuration properties of a job run notification.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Trigger.NotificationProperty'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

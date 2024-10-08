@@ -1,34 +1,25 @@
 function Add-VSPinpointApplicationSettingsCampaignHook {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::ApplicationSettings.CampaignHook resource property to the template. Specifies the Lambda function to use by default as a code hook for campaigns in the application.
+        Adds an AWS::Pinpoint::ApplicationSettings.CampaignHook resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::ApplicationSettings.CampaignHook resource property to the template.
-Specifies the Lambda function to use by default as a code hook for campaigns in the application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html
 
     .PARAMETER Mode
-        The mode that Amazon Pinpoint uses to invoke the Lambda function. Possible values are:
-+  FILTER - Invoke the function to customize the segment that's used by a campaign.
-+  DELIVERY - Deprecated Previously, invoked the function to send a campaign through a custom channel. This functionality is not supported anymore. To send a campaign through a custom channel, use the CustomDeliveryConfiguration and CampaignCustomMessage objects of the campaign.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html#cfn-pinpoint-applicationsettings-campaignhook-mode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER WebUrl
-        The web URL that Amazon Pinpoint calls to invoke the Lambda function over HTTPS.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html#cfn-pinpoint-applicationsettings-campaignhook-weburl
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER LambdaFunctionName
-        The name or Amazon Resource Name ARN of the Lambda function that Amazon Pinpoint invokes to send messages for campaigns in the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html#cfn-pinpoint-applicationsettings-campaignhook-lambdafunctionname
         PrimitiveType: String
         UpdateType: Mutable
@@ -36,11 +27,13 @@ Specifies the Lambda function to use by default as a code hook for campaigns in 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pinpoint.ApplicationSettings.CampaignHook')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,7 +44,8 @@ Specifies the Lambda function to use by default as a code hook for campaigns in 
                 }
             })]
         $Mode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +56,8 @@ Specifies the Lambda function to use by default as a code hook for campaigns in 
                 }
             })]
         $WebUrl,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,11 +68,14 @@ Specifies the Lambda function to use by default as a code hook for campaigns in 
                 }
             })]
         $LambdaFunctionName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +85,7 @@ Specifies the Lambda function to use by default as a code hook for campaigns in 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pinpoint.ApplicationSettings.CampaignHook'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

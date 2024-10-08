@@ -1,37 +1,34 @@
 function Add-VSCognitoUserPoolResourceServerResourceServerScopeType {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPoolResourceServer.ResourceServerScopeType resource property to the template. A resource server scope.
+        Adds an AWS::Cognito::UserPoolResourceServer.ResourceServerScopeType resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPoolResourceServer.ResourceServerScopeType resource property to the template.
-A resource server scope.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html
 
     .PARAMETER ScopeName
-        The name of the scope.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopename
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER ScopeDescription
-        A description of the scope.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopedescription
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Cognito.UserPoolResourceServer.ResourceServerScopeType')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ A resource server scope.
                 }
             })]
         $ScopeName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ A resource server scope.
                 }
             })]
         $ScopeDescription
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ A resource server scope.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Cognito.UserPoolResourceServer.ResourceServerScopeType'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

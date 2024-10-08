@@ -1,24 +1,23 @@
 function Add-VSWAFv2RuleGroupHeaders {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.Headers resource property to the template. 
+        Adds an AWS::WAFv2::RuleGroup.Headers resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.Headers resource property to the template.
 
-
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html
-
-    .PARAMETER MatchPattern
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-matchpattern
-        UpdateType: Mutable
-        Type: HeaderMatchPattern
 
     .PARAMETER MatchScope
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-matchscope
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER MatchPattern
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-matchpattern
+        UpdateType: Mutable
+        Type: HeaderMatchPattern
 
     .PARAMETER OversizeHandling
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-oversizehandling
@@ -28,13 +27,13 @@ function Add-VSWAFv2RuleGroupHeaders {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.Headers')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
-        $MatchPattern,
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,7 +44,11 @@ function Add-VSWAFv2RuleGroupHeaders {
                 }
             })]
         $MatchScope,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
+        $MatchPattern,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,11 +59,14 @@ function Add-VSWAFv2RuleGroupHeaders {
                 }
             })]
         $OversizeHandling
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSWAFv2RuleGroupHeaders {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.RuleGroup.Headers'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

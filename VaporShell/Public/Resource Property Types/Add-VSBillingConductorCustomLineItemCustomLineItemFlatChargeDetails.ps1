@@ -1,18 +1,15 @@
 function Add-VSBillingConductorCustomLineItemCustomLineItemFlatChargeDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::BillingConductor::CustomLineItem.CustomLineItemFlatChargeDetails resource property to the template. The charge details of a custom line item. It should contain only one of Flat or Percentage.
+        Adds an AWS::BillingConductor::CustomLineItem.CustomLineItemFlatChargeDetails resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::BillingConductor::CustomLineItem.CustomLineItemFlatChargeDetails resource property to the template.
-The charge details of a custom line item. It should contain only one of Flat or Percentage.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html
 
     .PARAMETER ChargeValue
-        The custom line item's fixed charge value in USD.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html#cfn-billingconductor-customlineitem-customlineitemflatchargedetails-chargevalue
         UpdateType: Mutable
         PrimitiveType: Double
@@ -20,11 +17,13 @@ The charge details of a custom line item. It should contain only one of Flat or 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.BillingConductor.CustomLineItem.CustomLineItemFlatChargeDetails')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The charge details of a custom line item. It should contain only one of Flat or 
                 }
             })]
         $ChargeValue
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The charge details of a custom line item. It should contain only one of Flat or 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.BillingConductor.CustomLineItem.CustomLineItemFlatChargeDetails'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

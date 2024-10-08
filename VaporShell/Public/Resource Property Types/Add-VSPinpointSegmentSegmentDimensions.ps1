@@ -1,53 +1,40 @@
 function Add-VSPinpointSegmentSegmentDimensions {
     <#
     .SYNOPSIS
-        Adds an AWS::Pinpoint::Segment.SegmentDimensions resource property to the template. Specifies the dimension settings for a segment.
+        Adds an AWS::Pinpoint::Segment.SegmentDimensions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Pinpoint::Segment.SegmentDimensions resource property to the template.
-Specifies the dimension settings for a segment.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html
 
     .PARAMETER Demographic
-        The demographic-based criteria, such as device platform, for the segment.
-
         Type: Demographic
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-demographic
         UpdateType: Mutable
 
     .PARAMETER Metrics
-        One or more custom metrics to use as criteria for the segment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-metrics
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER Attributes
-        One or more custom attributes to use as criteria for the segment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-attributes
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER Behavior
-        The behavior-based criteria, such as how recently users have used your app, for the segment.
-
         Type: Behavior
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-behavior
         UpdateType: Mutable
 
     .PARAMETER UserAttributes
-        One or more custom user attributes to use as criteria for the segment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-userattributes
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER Location
-        The location-based criteria, such as region or GPS coordinates, for the segment.
-
         Type: Location
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-location
         UpdateType: Mutable
@@ -55,13 +42,16 @@ Specifies the dimension settings for a segment.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.SegmentDimensions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Demographic,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,7 +62,8 @@ Specifies the dimension settings for a segment.
                 }
             })]
         $Metrics,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,9 +74,11 @@ Specifies the dimension settings for a segment.
                 }
             })]
         $Attributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Behavior,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,13 +89,17 @@ Specifies the dimension settings for a segment.
                 }
             })]
         $UserAttributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Location
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -154,6 +151,7 @@ Specifies the dimension settings for a segment.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Pinpoint.Segment.SegmentDimensions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

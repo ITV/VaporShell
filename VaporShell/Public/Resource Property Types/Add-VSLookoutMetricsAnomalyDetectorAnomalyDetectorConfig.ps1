@@ -1,18 +1,15 @@
 function Add-VSLookoutMetricsAnomalyDetectorAnomalyDetectorConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorConfig resource property to the template. Contains information about a detector's configuration.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorConfig resource property to the template.
-Contains information about a detector's configuration.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html
 
     .PARAMETER AnomalyDetectorFrequency
-        The frequency at which the detector analyzes its source data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Contains information about a detector's configuration.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.LookoutMetrics.AnomalyDetector.AnomalyDetectorConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Contains information about a detector's configuration.
                 }
             })]
         $AnomalyDetectorFrequency
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Contains information about a detector's configuration.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.LookoutMetrics.AnomalyDetector.AnomalyDetectorConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

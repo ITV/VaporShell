@@ -1,18 +1,15 @@
 function Add-VSLookoutMetricsAnomalyDetectorCloudwatchConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::LookoutMetrics::AnomalyDetector.CloudwatchConfig resource property to the template. Details about an Amazon CloudWatch datasource.
+        Adds an AWS::LookoutMetrics::AnomalyDetector.CloudwatchConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::LookoutMetrics::AnomalyDetector.CloudwatchConfig resource property to the template.
-Details about an Amazon CloudWatch datasource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html
 
     .PARAMETER RoleArn
-        An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Details about an Amazon CloudWatch datasource.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.LookoutMetrics.AnomalyDetector.CloudwatchConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Details about an Amazon CloudWatch datasource.
                 }
             })]
         $RoleArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Details about an Amazon CloudWatch datasource.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.LookoutMetrics.AnomalyDetector.CloudwatchConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

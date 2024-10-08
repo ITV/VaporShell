@@ -1,32 +1,25 @@
 function Add-VSIoTAnalyticsDatasetAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Dataset.Action resource property to the template. Information needed to run the "containerAction" to produce data set contents.
+        Adds an AWS::IoTAnalytics::Dataset.Action resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Dataset.Action resource property to the template.
-Information needed to run the "containerAction" to produce data set contents.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html
 
     .PARAMETER ActionName
-        The name of the data set action by which data set contents are automatically created.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-actionname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ContainerAction
-        Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-containeraction
         UpdateType: Mutable
         Type: ContainerAction
 
     .PARAMETER QueryAction
-        An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-queryaction
         UpdateType: Mutable
         Type: QueryAction
@@ -34,11 +27,13 @@ Information needed to run the "containerAction" to produce data set contents.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.Action')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,15 +44,20 @@ Information needed to run the "containerAction" to produce data set contents.
                 }
             })]
         $ActionName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ContainerAction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $QueryAction
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +67,7 @@ Information needed to run the "containerAction" to produce data set contents.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Dataset.Action'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

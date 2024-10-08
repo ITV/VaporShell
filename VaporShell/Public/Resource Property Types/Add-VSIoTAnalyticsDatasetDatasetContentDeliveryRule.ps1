@@ -1,25 +1,20 @@
 function Add-VSIoTAnalyticsDatasetDatasetContentDeliveryRule {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Dataset.DatasetContentDeliveryRule resource property to the template. When dataset contents are created, they are delivered to destination specified here.
+        Adds an AWS::IoTAnalytics::Dataset.DatasetContentDeliveryRule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Dataset.DatasetContentDeliveryRule resource property to the template.
-When dataset contents are created, they are delivered to destination specified here.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html
 
     .PARAMETER Destination
-        The destination to which dataset contents are delivered.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html#cfn-iotanalytics-dataset-datasetcontentdeliveryrule-destination
         UpdateType: Mutable
         Type: DatasetContentDeliveryRuleDestination
 
     .PARAMETER EntryName
-        The name of the dataset content delivery rules entry.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html#cfn-iotanalytics-dataset-datasetcontentdeliveryrule-entryname
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,13 +22,16 @@ When dataset contents are created, they are delivered to destination specified h
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.DatasetContentDeliveryRule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Destination,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,11 +42,14 @@ When dataset contents are created, they are delivered to destination specified h
                 }
             })]
         $EntryName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ When dataset contents are created, they are delivered to destination specified h
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Dataset.DatasetContentDeliveryRule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

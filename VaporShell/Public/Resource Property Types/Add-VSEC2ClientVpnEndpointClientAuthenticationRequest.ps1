@@ -1,39 +1,30 @@
 function Add-VSEC2ClientVpnEndpointClientAuthenticationRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::ClientVpnEndpoint.ClientAuthenticationRequest resource property to the template. Describes the authentication method to be used by a Client VPN endpoint. For more information, see Authentication: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication in the * AWS Client VPN Administrator Guide*.
+        Adds an AWS::EC2::ClientVpnEndpoint.ClientAuthenticationRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::ClientVpnEndpoint.ClientAuthenticationRequest resource property to the template.
-Describes the authentication method to be used by a Client VPN endpoint. For more information, see Authentication: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication in the * AWS Client VPN Administrator Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html
 
     .PARAMETER MutualAuthentication
-        Information about the authentication certificates to be used, if applicable. You must provide this information if **Type** is certificate-authentication.
-
         Type: CertificateAuthenticationRequest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-mutualauthentication
         UpdateType: Mutable
 
     .PARAMETER Type
-        The type of client authentication to be used.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-type
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER FederatedAuthentication
-        Information about the IAM SAML identity provider, if applicable.
-
         Type: FederatedAuthenticationRequest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-federatedauthentication
         UpdateType: Mutable
 
     .PARAMETER ActiveDirectory
-        Information about the Active Directory to be used, if applicable. You must provide this information if **Type** is directory-service-authentication.
-
         Type: DirectoryServiceAuthenticationRequest
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-activedirectory
         UpdateType: Mutable
@@ -41,13 +32,16 @@ Describes the authentication method to be used by a Client VPN endpoint. For mor
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.ClientAuthenticationRequest')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $MutualAuthentication,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,15 +52,20 @@ Describes the authentication method to be used by a Client VPN endpoint. For mor
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $FederatedAuthentication,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ActiveDirectory
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -76,6 +75,7 @@ Describes the authentication method to be used by a Client VPN endpoint. For mor
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.ClientVpnEndpoint.ClientAuthenticationRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

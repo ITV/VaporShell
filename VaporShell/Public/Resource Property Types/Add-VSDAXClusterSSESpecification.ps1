@@ -1,18 +1,15 @@
 function Add-VSDAXClusterSSESpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::DAX::Cluster.SSESpecification resource property to the template. Represents the settings used to enable server-side encryption.
+        Adds an AWS::DAX::Cluster.SSESpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DAX::Cluster.SSESpecification resource property to the template.
-Represents the settings used to enable server-side encryption.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax-cluster-ssespecification.html
 
     .PARAMETER SSEEnabled
-        Indicates whether server-side encryption is enabled true or disabled false on the cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax-cluster-ssespecification.html#cfn-dax-cluster-ssespecification-sseenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Represents the settings used to enable server-side encryption.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DAX.Cluster.SSESpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Represents the settings used to enable server-side encryption.
                 }
             })]
         $SSEEnabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Represents the settings used to enable server-side encryption.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DAX.Cluster.SSESpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

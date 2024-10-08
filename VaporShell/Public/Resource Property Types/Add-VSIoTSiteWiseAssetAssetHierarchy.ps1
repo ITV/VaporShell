@@ -1,26 +1,30 @@
 function Add-VSIoTSiteWiseAssetAssetHierarchy {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::Asset.AssetHierarchy resource property to the template. Describes an asset hierarchy that contains a childAssetId and hierarchyLogicalId.
+        Adds an AWS::IoTSiteWise::Asset.AssetHierarchy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::Asset.AssetHierarchy resource property to the template.
-Describes an asset hierarchy that contains a childAssetId and hierarchyLogicalId.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html
 
     .PARAMETER LogicalId
-        The LogicalID of the hierarchy. This ID is a hierarchyLogicalId.
-The maximum length is 256 characters, with the pattern ^u0000-u001Fu007F]+.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ChildAssetId
-        The Id of the child asset.
+    .PARAMETER ExternalId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-externalid
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER Id
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-id
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ChildAssetId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
         UpdateType: Mutable
         PrimitiveType: String
@@ -28,11 +32,13 @@ The maximum length is 256 characters, with the pattern ^u0000-u001Fu007F]+.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTSiteWise.Asset.AssetHierarchy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +49,32 @@ The maximum length is 256 characters, with the pattern ^u0000-u001Fu007F]+.
                 }
             })]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ExternalId,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Id,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,11 +85,14 @@ The maximum length is 256 characters, with the pattern ^u0000-u001Fu007F]+.
                 }
             })]
         $ChildAssetId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +102,7 @@ The maximum length is 256 characters, with the pattern ^u0000-u001Fu007F]+.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTSiteWise.Asset.AssetHierarchy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

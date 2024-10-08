@@ -1,32 +1,25 @@
 function Add-VSBackupBackupSelectionConditionResourceType {
     <#
     .SYNOPSIS
-        Adds an AWS::Backup::BackupSelection.ConditionResourceType resource property to the template. Specifies an object that contains an array of triplets made up of a condition type (such as STRINGEQUALS, a key, and a value. Conditions are used to filter resources in a selection that is assigned to a backup plan.
+        Adds an AWS::Backup::BackupSelection.ConditionResourceType resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Backup::BackupSelection.ConditionResourceType resource property to the template.
-Specifies an object that contains an array of triplets made up of a condition type (such as STRINGEQUALS, a key, and a value. Conditions are used to filter resources in a selection that is assigned to a backup plan.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html
 
-    .PARAMETER ConditionKey
-        The key in a key-value pair. For example, in "Department": "accounting", "Department" is the key.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER ConditionValue
-        The value in a key-value pair. For example, in "Department": "accounting", "accounting" is the value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER ConditionType
-        An operation, such as STRINGEQUALS, that is applied to a key-value pair used to filter resources in a selection.
+    .PARAMETER ConditionKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER ConditionType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype
         UpdateType: Immutable
         PrimitiveType: String
@@ -34,22 +27,13 @@ Specifies an object that contains an array of triplets made up of a condition ty
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Backup.BackupSelection.ConditionResourceType')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ConditionKey,
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +44,20 @@ Specifies an object that contains an array of triplets made up of a condition ty
                 }
             })]
         $ConditionValue,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ConditionKey,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +68,14 @@ Specifies an object that contains an array of triplets made up of a condition ty
                 }
             })]
         $ConditionType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +85,7 @@ Specifies an object that contains an array of triplets made up of a condition ty
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Backup.BackupSelection.ConditionResourceType'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

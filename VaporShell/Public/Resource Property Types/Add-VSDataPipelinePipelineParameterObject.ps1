@@ -1,39 +1,36 @@
 function Add-VSDataPipelinePipelineParameterObject {
     <#
     .SYNOPSIS
-        Adds an AWS::DataPipeline::Pipeline.ParameterObject resource property to the template. Contains information about a parameter object.
+        Adds an AWS::DataPipeline::Pipeline.ParameterObject resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataPipeline::Pipeline.ParameterObject resource property to the template.
-Contains information about a parameter object.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html
 
     .PARAMETER Attributes
-        The attributes of the parameter object.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html#cfn-datapipeline-pipeline-parameterobjects-attributes
-        DuplicatesAllowed: True
-        ItemType: ParameterAttribute
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-attributes
         UpdateType: Mutable
+        Type: List
+        ItemType: ParameterAttribute
+        DuplicatesAllowed: True
 
     .PARAMETER Id
-        The ID of the parameter object.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html#cfn-datapipeline-pipeline-parameterobjects-id
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-id
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataPipeline.Pipeline.ParameterObject')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DataPipeline.Pipeline.ParameterAttribute"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +41,8 @@ Contains information about a parameter object.
                 }
             })]
         $Attributes,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +53,14 @@ Contains information about a parameter object.
                 }
             })]
         $Id
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +70,7 @@ Contains information about a parameter object.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataPipeline.Pipeline.ParameterObject'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

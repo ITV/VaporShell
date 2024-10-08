@@ -1,10 +1,10 @@
 function New-VSEvidentlyFeature {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Feature resource to the template. Creates or updates an Evidently *feature* that you want to launch or test. You can define up to five variations of a feature, and use these variations in your launches and experiments. A feature must be created in a project. For information about creating a project, see CreateProject: https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html.
+        Adds an AWS::Evidently::Feature resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::Evidently::Feature resource to the template. Creates or updates an Evidently *feature* that you want to launch or test. You can define up to five variations of a feature, and use these variations in your launches and experiments. A feature must be created in a project. For information about creating a project, see CreateProject: https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html.
+        Adds an AWS::Evidently::Feature resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html
@@ -13,73 +13,50 @@ function New-VSEvidentlyFeature {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Project
-        The name or ARN of the project that is to contain the new feature.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-project
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Name
-        The name for the feature. It can include up to 127 characters.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-name
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER Description
-        An optional description of the feature.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EvaluationStrategy
-        Specify ALL_RULES to activate the traffic allocation specified by any ongoing launches or experiments. Specify DEFAULT_VARIATION to serve the default variation to all users instead.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-evaluationstrategy
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Variations
-        An array of structures that contain the configuration of the feature's different variations.
-Each VariationObject in the Variations array for a feature must have the same type of value BooleanValue, DoubleValue, LongValue or StringValue.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-variations
-        UpdateType: Mutable
-        Type: List
-        ItemType: VariationObject
-        DuplicatesAllowed: False
-
     .PARAMETER DefaultVariation
-        The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
-This variation must also be listed in the Variations structure.
-If you omit DefaultVariation, the first variation listed in the Variations structure is used as the default variation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-defaultvariation
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EntityOverrides
-        Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-entityoverrides
         UpdateType: Mutable
         Type: List
         ItemType: EntityOverride
         DuplicatesAllowed: False
 
-    .PARAMETER Tags
-        Assigns one or more tags key-value pairs to the feature.
-Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-You can associate as many as 50 tags with a feature.
-For more information, see Tagging AWS resources: https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html.
+    .PARAMETER Variations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-variations
+        UpdateType: Mutable
+        Type: List
+        ItemType: VariationObject
+        DuplicatesAllowed: False
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-name
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -111,28 +88,29 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Evidently.Feature')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -143,7 +121,8 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -154,18 +133,8 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $Project,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -176,7 +145,8 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -187,18 +157,8 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $EvaluationStrategy,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Evidently.Feature.VariationObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Variations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -209,7 +169,8 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $DefaultVariation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Evidently.Feature.EntityOverride"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -220,10 +181,36 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $EntityOverrides,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Evidently.Feature.VariationObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Variations,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -234,27 +221,28 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -265,9 +253,15 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -275,6 +269,7 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -297,17 +292,17 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Variations {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Variations -Value @($Variations)
-                }
                 EntityOverrides {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name EntityOverrides -Value @($EntityOverrides)
+                }
+                Variations {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Variations -Value @($Variations)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {
@@ -324,6 +319,7 @@ For more information, see Tagging AWS resources: https://docs.aws.amazon.com/gen
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Evidently.Feature'

@@ -1,18 +1,15 @@
 function Add-VSAutoScalingScalingPolicyPredictiveScalingCustomizedLoadMetric {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedLoadMetric resource property to the template. Contains load metric information for the CustomizedLoadMetricSpecification property of the AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html property type.
+        Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedLoadMetric resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedLoadMetric resource property to the template.
-Contains load metric information for the CustomizedLoadMetricSpecification property of the AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html
 
     .PARAMETER MetricDataQueries
-        One or more metric data queries to provide the data points for a load metric. Use multiple metric data queries only if you are performing a math expression on returned data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html#cfn-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric-metricdataqueries
         UpdateType: Mutable
         Type: List
@@ -22,11 +19,13 @@ Contains load metric information for the CustomizedLoadMetricSpecification prope
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AutoScaling.ScalingPolicy.PredictiveScalingCustomizedLoadMetric')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AutoScaling.ScalingPolicy.MetricDataQuery"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +36,14 @@ Contains load metric information for the CustomizedLoadMetricSpecification prope
                 }
             })]
         $MetricDataQueries
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +53,7 @@ Contains load metric information for the CustomizedLoadMetricSpecification prope
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AutoScaling.ScalingPolicy.PredictiveScalingCustomizedLoadMetric'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

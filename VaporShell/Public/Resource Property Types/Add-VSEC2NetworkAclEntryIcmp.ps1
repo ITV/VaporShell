@@ -1,37 +1,34 @@
 function Add-VSEC2NetworkAclEntryIcmp {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkAclEntry.Icmp resource property to the template. Describes the ICMP type and code.
+        Adds an AWS::EC2::NetworkAclEntry.Icmp resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkAclEntry.Icmp resource property to the template.
-Describes the ICMP type and code.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html
 
-    .PARAMETER Code
-        The Internet Control Message Protocol ICMP code. You can use -1 to specify all ICMP codes for the given ICMP type. Requirement is conditional: Required if you specify 1 ICMP for the protocol parameter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-code
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-type
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER Type
-        The Internet Control Message Protocol ICMP type. You can use -1 to specify all ICMP types. Conditional requirement: Required if you specify 1 ICMP for the CreateNetworkAclEntry protocol parameter.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-type
+    .PARAMETER Code
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-code
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.NetworkAclEntry.Icmp')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,8 +38,9 @@ Describes the ICMP type and code.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Code,
-        [parameter(Mandatory = $false)]
+        $Type,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,12 +50,15 @@ Describes the ICMP type and code.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Type
+        $Code
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Describes the ICMP type and code.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.NetworkAclEntry.Icmp'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

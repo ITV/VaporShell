@@ -1,18 +1,15 @@
 function Add-VSIoTSiteWiseAccessPolicyPortal {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::AccessPolicy.Portal resource property to the template. The Portal property type specifies the AWS IoT SiteWise Monitor portal for an AWS::IoTSiteWise::AccessPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html.
+        Adds an AWS::IoTSiteWise::AccessPolicy.Portal resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTSiteWise::AccessPolicy.Portal resource property to the template.
-The Portal property type specifies the AWS IoT SiteWise Monitor portal for an AWS::IoTSiteWise::AccessPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
 
     .PARAMETER id
-        The ID of the portal.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html#cfn-iotsitewise-accesspolicy-portal-id
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The Portal property type specifies the AWS IoT SiteWise Monitor portal for an AW
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTSiteWise.AccessPolicy.Portal')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The Portal property type specifies the AWS IoT SiteWise Monitor portal for an AW
                 }
             })]
         $id
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The Portal property type specifies the AWS IoT SiteWise Monitor portal for an AW
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTSiteWise.AccessPolicy.Portal'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

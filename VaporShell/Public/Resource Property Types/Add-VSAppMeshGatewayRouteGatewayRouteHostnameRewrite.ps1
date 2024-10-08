@@ -1,18 +1,15 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteHostnameRewrite {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite resource property to the template. An object representing the gateway route host name to rewrite.
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite resource property to the template.
-An object representing the gateway route host name to rewrite.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamerewrite.html
 
     .PARAMETER DefaultTargetHostname
-        The default target host name to write to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamerewrite.html#cfn-appmesh-gatewayroute-gatewayroutehostnamerewrite-defaulttargethostname
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ An object representing the gateway route host name to rewrite.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteHostnameRewrite')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ An object representing the gateway route host name to rewrite.
                 }
             })]
         $DefaultTargetHostname
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ An object representing the gateway route host name to rewrite.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteHostnameRewrite'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

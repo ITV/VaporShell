@@ -1,18 +1,15 @@
 function Add-VSRefactorSpacesServiceLambdaEndpointInput {
     <#
     .SYNOPSIS
-        Adds an AWS::RefactorSpaces::Service.LambdaEndpointInput resource property to the template. The input for the AWS Lambda endpoint type.
+        Adds an AWS::RefactorSpaces::Service.LambdaEndpointInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::RefactorSpaces::Service.LambdaEndpointInput resource property to the template.
-The input for the AWS Lambda endpoint type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-lambdaendpointinput.html
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the Lambda endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-lambdaendpointinput.html#cfn-refactorspaces-service-lambdaendpointinput-arn
         UpdateType: Immutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The input for the AWS Lambda endpoint type.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.RefactorSpaces.Service.LambdaEndpointInput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The input for the AWS Lambda endpoint type.
                 }
             })]
         $Arn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The input for the AWS Lambda endpoint type.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.RefactorSpaces.Service.LambdaEndpointInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

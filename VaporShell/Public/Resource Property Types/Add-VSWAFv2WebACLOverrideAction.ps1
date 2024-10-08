@@ -1,25 +1,20 @@
 function Add-VSWAFv2WebACLOverrideAction {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.OverrideAction resource property to the template. The action to use to override the Action settings on the rules in the web ACL. You can use none, in which case the rule actions are in effect, or count, in which case, if a rule matches a web request, it only counts the match.
+        Adds an AWS::WAFv2::WebACL.OverrideAction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.OverrideAction resource property to the template.
-The action to use to override the Action settings on the rules in the web ACL. You can use none, in which case the rule actions are in effect, or count, in which case, if a rule matches a web request, it only counts the match.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
 
     .PARAMETER Count
-        Override the rule action settings to count.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
         UpdateType: Mutable
         PrimitiveType: Json
 
     .PARAMETER None
-        Don't override the rule action settings.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
         UpdateType: Mutable
         PrimitiveType: Json
@@ -27,11 +22,13 @@ The action to use to override the Action settings on the rules in the web ACL. Y
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.OverrideAction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The action to use to override the Action settings on the rules in the web ACL. Y
                 }
             })]
         $Count,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The action to use to override the Action settings on the rules in the web ACL. Y
                 }
             })]
         $None
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -95,6 +96,7 @@ The action to use to override the Action settings on the rules in the web ACL. Y
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.WebACL.OverrideAction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

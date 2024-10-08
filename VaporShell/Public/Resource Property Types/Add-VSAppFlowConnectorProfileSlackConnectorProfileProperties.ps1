@@ -1,18 +1,15 @@
 function Add-VSAppFlowConnectorProfileSlackConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.SlackConnectorProfileProperties resource property to the template. The SlackConnectorProfileProperties property type specifies the connector-specific profile properties required when using Slack.
+        Adds an AWS::AppFlow::ConnectorProfile.SlackConnectorProfileProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.SlackConnectorProfileProperties resource property to the template.
-The SlackConnectorProfileProperties property type specifies the connector-specific profile properties required when using Slack.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Slack resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The SlackConnectorProfileProperties property type specifies the connector-specif
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.SlackConnectorProfileProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The SlackConnectorProfileProperties property type specifies the connector-specif
                 }
             })]
         $InstanceUrl
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The SlackConnectorProfileProperties property type specifies the connector-specif
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.ConnectorProfile.SlackConnectorProfileProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,65 +1,61 @@
 function Add-VSSSMPatchBaselineRule {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::PatchBaseline.Rule resource property to the template. The Rule property type specifies an approval rule for a Systems Manager patch baseline.
+        Adds an AWS::SSM::PatchBaseline.Rule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSM::PatchBaseline.Rule resource property to the template.
-The Rule property type specifies an approval rule for a Systems Manager patch baseline.
-
-The PatchRules property of the RuleGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html property type contains a list of Rule property types.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html
 
     .PARAMETER ApproveUntilDate
-        The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
-Enter dates in the format YYYY-MM-DD. For example, 2021-12-31.
-
-        Type: PatchStringDate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER EnableNonSecurity
-        For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is false. Applies to Linux managed nodes only.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER PatchFilterGroup
-        The patch filter group that defines the criteria for the rule.
-
-        Type: PatchFilterGroup
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup
         UpdateType: Mutable
+        Type: PatchFilterGroup
 
     .PARAMETER ApproveAfterDays
-        The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of 7 means that patches are approved seven days after they are released.
-You must specify a value for ApproveAfterDays.
-Exception: Not supported on Debian Server or Ubuntu Server.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER ComplianceLevel
-        A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: UNSPECIFIED, CRITICAL, HIGH, MEDIUM, LOW, and INFORMATIONAL.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSM.PatchBaseline.Rule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $ApproveUntilDate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,9 +66,11 @@ Exception: Not supported on Debian Server or Ubuntu Server.
                 }
             })]
         $EnableNonSecurity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PatchFilterGroup,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,7 +81,8 @@ Exception: Not supported on Debian Server or Ubuntu Server.
                 }
             })]
         $ApproveAfterDays,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,11 +93,14 @@ Exception: Not supported on Debian Server or Ubuntu Server.
                 }
             })]
         $ComplianceLevel
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -108,6 +110,7 @@ Exception: Not supported on Debian Server or Ubuntu Server.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSM.PatchBaseline.Rule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSIoTAnalyticsDatasetDatasetContentVersionValue {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Dataset.DatasetContentVersionValue resource property to the template. The dataset whose latest contents are used as input to the notebook or application.
+        Adds an AWS::IoTAnalytics::Dataset.DatasetContentVersionValue resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Dataset.DatasetContentVersionValue resource property to the template.
-The dataset whose latest contents are used as input to the notebook or application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentversionvalue.html
 
     .PARAMETER DatasetName
-        The name of the dataset whose latest contents are used as input to the notebook or application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentversionvalue.html#cfn-iotanalytics-dataset-datasetcontentversionvalue-datasetname
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The dataset whose latest contents are used as input to the notebook or applicati
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.DatasetContentVersionValue')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The dataset whose latest contents are used as input to the notebook or applicati
                 }
             })]
         $DatasetName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The dataset whose latest contents are used as input to the notebook or applicati
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Dataset.DatasetContentVersionValue'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

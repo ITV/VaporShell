@@ -1,27 +1,20 @@
 function Add-VSSESReceiptFilterIpFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::ReceiptFilter.IpFilter resource property to the template. A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.
+        Adds an AWS::SES::ReceiptFilter.IpFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SES::ReceiptFilter.IpFilter resource property to the template.
-A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.
-
-For information about setting up IP address filters, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html
 
     .PARAMETER Policy
-        Indicates whether to block or allow incoming mail from the specified IP addresses.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-policy
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Cidr
-        A single IP address or a range of IP addresses to block or allow, specified in Classless Inter-Domain Routing CIDR notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see RFC 2317: https://tools.ietf.org/html/rfc2317.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-cidr
         PrimitiveType: String
         UpdateType: Mutable
@@ -29,11 +22,13 @@ For information about setting up IP address filters, see the Amazon SES Develope
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SES.ReceiptFilter.IpFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +39,8 @@ For information about setting up IP address filters, see the Amazon SES Develope
                 }
             })]
         $Policy,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +51,14 @@ For information about setting up IP address filters, see the Amazon SES Develope
                 }
             })]
         $Cidr
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +68,7 @@ For information about setting up IP address filters, see the Amazon SES Develope
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SES.ReceiptFilter.IpFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

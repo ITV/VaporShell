@@ -1,25 +1,20 @@
 function Add-VSCloudFormationResourceVersionLoggingConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFormation::ResourceVersion.LoggingConfig resource property to the template. Logging configuration information for a resource.
+        Adds an AWS::CloudFormation::ResourceVersion.LoggingConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFormation::ResourceVersion.LoggingConfig resource property to the template.
-Logging configuration information for a resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
 
     .PARAMETER LogGroupName
-        The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER LogRoleArn
-        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
         UpdateType: Immutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ Logging configuration information for a resource.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFormation.ResourceVersion.LoggingConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Logging configuration information for a resource.
                 }
             })]
         $LogGroupName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Logging configuration information for a resource.
                 }
             })]
         $LogRoleArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Logging configuration information for a resource.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFormation.ResourceVersion.LoggingConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

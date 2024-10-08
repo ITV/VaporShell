@@ -1,14 +1,10 @@
 function New-VSIoTSiteWisePortal {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTSiteWise::Portal resource to the template. Creates a portal, which can contain projects and dashboards. Before you can create a portal, you must enable AWS SSO. AWS IoT SiteWise Monitor uses AWS SSO to manage user permissions. For more information, see Enabling AWS SSO: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso in the *AWS IoT SiteWise User Guide*.
+        Adds an AWS::IoTSiteWise::Portal resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::IoTSiteWise::Portal resource to the template. Creates a portal, which can contain projects and dashboards. Before you can create a portal, you must enable AWS SSO. AWS IoT SiteWise Monitor uses AWS SSO to manage user permissions. For more information, see Enabling AWS SSO: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso in the *AWS IoT SiteWise User Guide*.
-
-**Note**
-
-Before you can sign in to a new portal, you must add at least one AWS SSO user or group to that portal. For more information, see Adding or removing portal administrators: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins in the *AWS IoT SiteWise User Guide*.
+        Adds an AWS::IoTSiteWise::Portal resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
@@ -16,68 +12,47 @@ Before you can sign in to a new portal, you must add at least one AWS SSO user o
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER PortalAuthMode
-        The service to use to authenticate users to the portal. Choose from the following options:
-+  SSO – The portal uses AWS Single Sign-On to authenticate users and manage user permissions. Before you can create a portal that uses AWS SSO, you must enable AWS SSO. For more information, see Enabling AWS SSO: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso in the *AWS IoT SiteWise User Guide*. This option is only available in AWS Regions other than the China Regions.
-+  IAM – The portal uses AWS Identity and Access Management IAM to authenticate users and manage user permissions.
-You can't change this value after you create a portal.
-Default: SSO
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER PortalContactEmail
-        The AWS administrator's contact email address.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER PortalDescription
-        A description for the portal.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER PortalName
-        A friendly name for the portal.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER RoleArn
-        The ARN: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf. For more information, see Using service roles for AWS IoT SiteWise Monitor: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html in the *AWS IoT SiteWise User Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
-        UpdateType: Mutable
+    .PARAMETER PortalAuthMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER NotificationSenderEmail
-        The email address that sends alarm notifications.
-If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html to manage your emails, you must verify the sender email address in Amazon SES: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Alarms
-        Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see Monitoring with alarms: https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html in the * AWS IoT SiteWise Application Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: Alarms
+
+    .PARAMETER PortalContactEmail
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER RoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Tags
-        A list of key-value pairs that contain metadata for the portal. For more information, see Tagging your AWS IoT SiteWise resources: https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html in the *AWS IoT SiteWise User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
+
+    .PARAMETER PortalDescription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -109,28 +84,29 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTSiteWise.Portal')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -141,40 +117,8 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PortalAuthMode,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PortalContactEmail,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $PortalDescription,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -185,7 +129,8 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
                 }
             })]
         $PortalName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -195,8 +140,9 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RoleArn,
-        [parameter(Mandatory = $false)]
+        $PortalAuthMode,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -207,9 +153,13 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
                 }
             })]
         $NotificationSenderEmail,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $Alarms,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -217,11 +167,37 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Alarms,
+        $PortalContactEmail,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RoleArn,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PortalDescription,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -232,27 +208,28 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -263,9 +240,15 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -273,6 +256,7 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -301,23 +285,6 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
                 }
-                Alarms {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
                 Default {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -327,6 +294,7 @@ If you use the AWS IoT Events managed Lambda function: https://docs.aws.amazon.c
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTSiteWise.Portal'

@@ -1,18 +1,15 @@
 function Add-VSAppFlowConnectorProfileInforNexusConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.InforNexusConnectorProfileProperties resource property to the template. The InforNexusConnectorProfileProperties property type specifies the connector-specific profile properties required by Infor Nexus.
+        Adds an AWS::AppFlow::ConnectorProfile.InforNexusConnectorProfileProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.InforNexusConnectorProfileProperties resource property to the template.
-The InforNexusConnectorProfileProperties property type specifies the connector-specific profile properties required by Infor Nexus.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Infor Nexus resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The InforNexusConnectorProfileProperties property type specifies the connector-s
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.InforNexusConnectorProfileProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The InforNexusConnectorProfileProperties property type specifies the connector-s
                 }
             })]
         $InstanceUrl
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The InforNexusConnectorProfileProperties property type specifies the connector-s
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.ConnectorProfile.InforNexusConnectorProfileProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

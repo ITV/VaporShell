@@ -1,10 +1,10 @@
 function New-VSApiGatewayV2RouteResponse {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGatewayV2::RouteResponse resource to the template. The AWS::ApiGatewayV2::RouteResponse resource creates a route response for a WebSocket API. For more information, see Set up Route Responses for a WebSocket API in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGatewayV2::RouteResponse resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::ApiGatewayV2::RouteResponse resource to the template. The AWS::ApiGatewayV2::RouteResponse resource creates a route response for a WebSocket API. For more information, see Set up Route Responses for a WebSocket API in API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html in the *API Gateway Developer Guide*.
+        Adds an AWS::ApiGatewayV2::RouteResponse resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html
@@ -13,46 +13,35 @@ function New-VSApiGatewayV2RouteResponse {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER RouteResponseKey
-        The route response key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeresponsekey
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER ResponseParameters
-        The route response parameters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-responseparameters
-        PrimitiveType: Json
         UpdateType: Mutable
+        Type: Map
+        ItemType: ParameterConstraints
 
     .PARAMETER RouteId
-        The route ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeid
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER ModelSelectionExpression
-        The model selection expression for the route response. Supported only for WebSocket APIs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-modelselectionexpression
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER ApiId
-        The API identifier.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-apiid
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER ResponseModels
-        The response models for the route response.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-responsemodels
-        PrimitiveType: Json
         UpdateType: Mutable
+        PrimitiveType: Json
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -84,28 +73,29 @@ function New-VSApiGatewayV2RouteResponse {
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApiGatewayV2.RouteResponse')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -116,7 +106,8 @@ function New-VSApiGatewayV2RouteResponse {
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -127,9 +118,10 @@ function New-VSApiGatewayV2RouteResponse {
                 }
             })]
         $RouteResponseKey,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                $allowedTypes = "Vaporshell.Resource.ApiGatewayV2.RouteResponse.ParameterConstraints"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -138,7 +130,8 @@ function New-VSApiGatewayV2RouteResponse {
                 }
             })]
         $ResponseParameters,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -149,7 +142,8 @@ function New-VSApiGatewayV2RouteResponse {
                 }
             })]
         $RouteId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -160,7 +154,8 @@ function New-VSApiGatewayV2RouteResponse {
                 }
             })]
         $ModelSelectionExpression,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -171,7 +166,8 @@ function New-VSApiGatewayV2RouteResponse {
                 }
             })]
         $ApiId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -182,7 +178,8 @@ function New-VSApiGatewayV2RouteResponse {
                 }
             })]
         $ResponseModels,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -193,27 +190,28 @@ function New-VSApiGatewayV2RouteResponse {
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -224,9 +222,15 @@ function New-VSApiGatewayV2RouteResponse {
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -234,6 +238,7 @@ function New-VSApiGatewayV2RouteResponse {
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -255,23 +260,6 @@ function New-VSApiGatewayV2RouteResponse {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
-                }
-                ResponseParameters {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 ResponseModels {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
@@ -299,6 +287,7 @@ function New-VSApiGatewayV2RouteResponse {
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApiGatewayV2.RouteResponse'

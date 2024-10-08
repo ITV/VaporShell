@@ -1,18 +1,15 @@
 function Add-VSEC2SpotFleetClassicLoadBalancersConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.ClassicLoadBalancersConfig resource property to the template. Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
+        Adds an AWS::EC2::SpotFleet.ClassicLoadBalancersConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.ClassicLoadBalancersConfig resource property to the template.
-Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html
 
     .PARAMETER ClassicLoadBalancers
-        One or more Classic Load Balancers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html#cfn-ec2-spotfleet-classicloadbalancersconfig-classicloadbalancers
         UpdateType: Immutable
         Type: List
@@ -22,11 +19,13 @@ Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet regis
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.ClassicLoadBalancersConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.SpotFleet.ClassicLoadBalancer"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +36,14 @@ Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet regis
                 }
             })]
         $ClassicLoadBalancers
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +53,7 @@ Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet regis
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.SpotFleet.ClassicLoadBalancersConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,47 +1,30 @@
 function Add-VSAutoScalingLaunchConfigurationBlockDeviceMapping {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping resource property to the template. BlockDeviceMapping specifies a block device mapping for the BlockDeviceMappings property of the AWS::AutoScaling::LaunchConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html resource.
+        Adds an AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping resource property to the template.
-BlockDeviceMapping specifies a block device mapping for the BlockDeviceMappings property of the AWS::AutoScaling::LaunchConfiguration: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html resource.
-
-Each instance that is launched has an associated root device volume, either an Amazon EBS volume or an instance store volume. You can use block device mappings to specify additional EBS volumes or instance store volumes to attach to an instance when it is launched.
-
-For more information, see Example block device mapping: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#block-device-mapping-ex in the *Amazon EC2 User Guide for Linux Instances*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html
 
-    .PARAMETER NoDevice
-        Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
-If NoDevice is true for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.
-If you specify NoDevice, you cannot specify Ebs.
+    .PARAMETER Ebs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-ebs
+        UpdateType: Immutable
+        Type: BlockDevice
 
+    .PARAMETER NoDevice
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-nodevice
         UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER VirtualName
-        The name of the virtual device. The name must be in the form ephemeral*X* where *X* is a number starting from zero 0, for example, ephemeral0.
-You can specify either VirtualName or Ebs, but not both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-virtualname
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Ebs
-        Parameters used to automatically set up EBS volumes when an instance is launched.
-You can specify either VirtualName or Ebs, but not both.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-ebs
-        UpdateType: Immutable
-        Type: BlockDevice
-
     .PARAMETER DeviceName
-        The device name exposed to the EC2 instance for example, /dev/sdh or xvdh. For more information, see Device naming on Linux instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html in the *Amazon EC2 User Guide for Linux Instances*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-devicename
         UpdateType: Immutable
         PrimitiveType: String
@@ -49,11 +32,16 @@ You can specify either VirtualName or Ebs, but not both.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AutoScaling.LaunchConfiguration.BlockDeviceMapping')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        $Ebs,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,7 +52,8 @@ You can specify either VirtualName or Ebs, but not both.
                 }
             })]
         $NoDevice,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,9 +64,8 @@ You can specify either VirtualName or Ebs, but not both.
                 }
             })]
         $VirtualName,
-        [parameter(Mandatory = $false)]
-        $Ebs,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,11 +76,14 @@ You can specify either VirtualName or Ebs, but not both.
                 }
             })]
         $DeviceName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -102,6 +93,7 @@ You can specify either VirtualName or Ebs, but not both.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AutoScaling.LaunchConfiguration.BlockDeviceMapping'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

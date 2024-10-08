@@ -1,25 +1,20 @@
 function Add-VSMSKClusterCloudWatchLogs {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.CloudWatchLogs resource property to the template. Details of the CloudWatch Logs destination for broker logs.
+        Adds an AWS::MSK::Cluster.CloudWatchLogs resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.CloudWatchLogs resource property to the template.
-Details of the CloudWatch Logs destination for broker logs.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html
 
     .PARAMETER LogGroup
-        The CloudWatch Logs group that is the destination for broker logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-loggroup
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Enabled
-        Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -27,11 +22,13 @@ Details of the CloudWatch Logs destination for broker logs.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MSK.Cluster.CloudWatchLogs')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Details of the CloudWatch Logs destination for broker logs.
                 }
             })]
         $LogGroup,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Details of the CloudWatch Logs destination for broker logs.
                 }
             })]
         $Enabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Details of the CloudWatch Logs destination for broker logs.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MSK.Cluster.CloudWatchLogs'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

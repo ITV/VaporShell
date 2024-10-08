@@ -1,3 +1,0 @@
-[submodule "ci/aws-cloudformation-user-guide"]
-	path = ci/aws-cloudformation-user-guide
-	url = https://github.com/awsdocs/aws-cloudformation-user-guide.git

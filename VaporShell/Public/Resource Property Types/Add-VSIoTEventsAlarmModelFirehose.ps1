@@ -1,11 +1,10 @@
 function Add-VSIoTEventsAlarmModelFirehose {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::AlarmModel.Firehose resource property to the template. 
+        Adds an AWS::IoTEvents::AlarmModel.Firehose resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::AlarmModel.Firehose resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-firehose.html
@@ -28,11 +27,13 @@ function Add-VSIoTEventsAlarmModelFirehose {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.Firehose')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,9 +44,11 @@ function Add-VSIoTEventsAlarmModelFirehose {
                 }
             })]
         $DeliveryStreamName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Payload,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,11 +59,14 @@ function Add-VSIoTEventsAlarmModelFirehose {
                 }
             })]
         $Separator
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSIoTEventsAlarmModelFirehose {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTEvents.AlarmModel.Firehose'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,30 +1,37 @@
 function Add-VSCognitoUserPoolUserPoolAddOns {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPool.UserPoolAddOns resource property to the template. The user pool add-ons type.
+        Adds an AWS::Cognito::UserPool.UserPoolAddOns resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPool.UserPoolAddOns resource property to the template.
-The user pool add-ons type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html
 
-    .PARAMETER AdvancedSecurityMode
-        The advanced security mode.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecuritymode
-        PrimitiveType: String
+    .PARAMETER AdvancedSecurityAdditionalFlows
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecurityadditionalflows
         UpdateType: Mutable
+        Type: AdvancedSecurityAdditionalFlows
+
+    .PARAMETER AdvancedSecurityMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecuritymode
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Cognito.UserPool.UserPoolAddOns')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        $AdvancedSecurityAdditionalFlows,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +42,14 @@ The user pool add-ons type.
                 }
             })]
         $AdvancedSecurityMode
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +59,7 @@ The user pool add-ons type.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Cognito.UserPool.UserPoolAddOns'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

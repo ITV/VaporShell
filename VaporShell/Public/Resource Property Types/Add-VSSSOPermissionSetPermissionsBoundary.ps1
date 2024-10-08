@@ -1,11 +1,10 @@
 function Add-VSSSOPermissionSetPermissionsBoundary {
     <#
     .SYNOPSIS
-        Adds an AWS::SSO::PermissionSet.PermissionsBoundary resource property to the template. 
+        Adds an AWS::SSO::PermissionSet.PermissionsBoundary resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSO::PermissionSet.PermissionsBoundary resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-permissionsboundary.html
@@ -23,13 +22,16 @@ function Add-VSSSOPermissionSetPermissionsBoundary {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSO.PermissionSet.PermissionsBoundary')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $CustomerManagedPolicyReference,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +42,14 @@ function Add-VSSSOPermissionSetPermissionsBoundary {
                 }
             })]
         $ManagedPolicyArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSSSOPermissionSetPermissionsBoundary {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSO.PermissionSet.PermissionsBoundary'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

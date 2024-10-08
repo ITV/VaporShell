@@ -1,27 +1,20 @@
 function Add-VSCloudFrontKeyGroupKeyGroupConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::KeyGroup.KeyGroupConfig resource property to the template. A key group configuration.
+        Adds an AWS::CloudFront::KeyGroup.KeyGroupConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::KeyGroup.KeyGroupConfig resource property to the template.
-A key group configuration.
-
-A key group contains a list of public keys that you can use with CloudFront signed URLs and signed cookies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
 
     .PARAMETER Comment
-        A comment to describe the key group. The comment cannot be longer than 128 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Items
-        A list of the identifiers of the public keys in the key group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
         UpdateType: Mutable
         Type: List
@@ -29,8 +22,6 @@ A key group contains a list of public keys that you can use with CloudFront sign
         DuplicatesAllowed: True
 
     .PARAMETER Name
-        A name to identify the key group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
         UpdateType: Mutable
         PrimitiveType: String
@@ -38,11 +29,13 @@ A key group contains a list of public keys that you can use with CloudFront sign
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.KeyGroup.KeyGroupConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,9 +46,11 @@ A key group contains a list of public keys that you can use with CloudFront sign
                 }
             })]
         $Comment,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Items,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -66,11 +61,14 @@ A key group contains a list of public keys that you can use with CloudFront sign
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -80,6 +78,7 @@ A key group contains a list of public keys that you can use with CloudFront sign
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.KeyGroup.KeyGroupConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

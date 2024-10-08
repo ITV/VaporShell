@@ -1,18 +1,15 @@
 function Add-VSIVSRecordingConfigurationS3DestinationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IVS::RecordingConfiguration.S3DestinationConfiguration resource property to the template. The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+        Adds an AWS::IVS::RecordingConfiguration.S3DestinationConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IVS::RecordingConfiguration.S3DestinationConfiguration resource property to the template.
-The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html
 
     .PARAMETER BucketName
-        Location S3 bucket name where recorded videos will be stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
         UpdateType: Immutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The S3DestinationConfiguration property type describes an S3 location where reco
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IVS.RecordingConfiguration.S3DestinationConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The S3DestinationConfiguration property type describes an S3 location where reco
                 }
             })]
         $BucketName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The S3DestinationConfiguration property type describes an S3 location where reco
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IVS.RecordingConfiguration.S3DestinationConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

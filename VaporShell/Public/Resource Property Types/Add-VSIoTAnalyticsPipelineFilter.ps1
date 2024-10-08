@@ -1,32 +1,25 @@
 function Add-VSIoTAnalyticsPipelineFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Pipeline.Filter resource property to the template. An activity that filters a message based on its attributes.
+        Adds an AWS::IoTAnalytics::Pipeline.Filter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Pipeline.Filter resource property to the template.
-An activity that filters a message based on its attributes.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html
 
     .PARAMETER Filter
-        An expression that looks like an SQL WHERE clause that must return a Boolean value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-filter
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Next
-        The next activity in the pipeline.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-next
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the 'filter' activity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-name
         UpdateType: Mutable
         PrimitiveType: String
@@ -34,11 +27,13 @@ An activity that filters a message based on its attributes.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.Filter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ An activity that filters a message based on its attributes.
                 }
             })]
         $Filter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +56,8 @@ An activity that filters a message based on its attributes.
                 }
             })]
         $Next,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +68,14 @@ An activity that filters a message based on its attributes.
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +85,7 @@ An activity that filters a message based on its attributes.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Pipeline.Filter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

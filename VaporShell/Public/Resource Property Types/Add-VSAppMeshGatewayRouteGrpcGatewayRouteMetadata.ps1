@@ -1,32 +1,25 @@
 function Add-VSAppMeshGatewayRouteGrpcGatewayRouteMetadata {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata resource property to the template. An object representing the metadata of the gateway route.
+        Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata resource property to the template.
-An object representing the metadata of the gateway route.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html
 
     .PARAMETER Invert
-        Specify True to match anything except the match criteria. The default value is False.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html#cfn-appmesh-gatewayroute-grpcgatewayroutemetadata-invert
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Name
-        A name for the gateway route metadata.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html#cfn-appmesh-gatewayroute-grpcgatewayroutemetadata-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Match
-        The criteria for determining a metadata match.
-
         Type: GatewayRouteMetadataMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html#cfn-appmesh-gatewayroute-grpcgatewayroutemetadata-match
         UpdateType: Mutable
@@ -34,11 +27,13 @@ An object representing the metadata of the gateway route.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.GrpcGatewayRouteMetadata')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ An object representing the metadata of the gateway route.
                 }
             })]
         $Invert,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,13 +56,17 @@ An object representing the metadata of the gateway route.
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Match
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -76,6 +76,7 @@ An object representing the metadata of the gateway route.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.GatewayRoute.GrpcGatewayRouteMetadata'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

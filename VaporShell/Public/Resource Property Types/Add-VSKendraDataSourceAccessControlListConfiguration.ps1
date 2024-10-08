@@ -1,18 +1,15 @@
 function Add-VSKendraDataSourceAccessControlListConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.AccessControlListConfiguration resource property to the template. Specifies access control list files for the documents in a data source.
+        Adds an AWS::Kendra::DataSource.AccessControlListConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.AccessControlListConfiguration resource property to the template.
-Specifies access control list files for the documents in a data source.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html
 
     .PARAMETER KeyPath
-        Path to the AWS S3 bucket that contains the access control list files.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html#cfn-kendra-datasource-accesscontrollistconfiguration-keypath
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Specifies access control list files for the documents in a data source.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Kendra.DataSource.AccessControlListConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Specifies access control list files for the documents in a data source.
                 }
             })]
         $KeyPath
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Specifies access control list files for the documents in a data source.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Kendra.DataSource.AccessControlListConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSAppStreamImageBuilderVpcConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::ImageBuilder.VpcConfig resource property to the template. The VPC configuration for the image builder.
+        Adds an AWS::AppStream::ImageBuilder.VpcConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppStream::ImageBuilder.VpcConfig resource property to the template.
-The VPC configuration for the image builder.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html
 
     .PARAMETER SecurityGroupIds
-        The identifiers of the security groups for the image builder.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-securitygroupids
         UpdateType: Mutable
         Type: List
@@ -20,8 +17,6 @@ The VPC configuration for the image builder.
         DuplicatesAllowed: True
 
     .PARAMETER SubnetIds
-        The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-subnetids
         UpdateType: Mutable
         Type: List
@@ -31,19 +26,25 @@ The VPC configuration for the image builder.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppStream.ImageBuilder.VpcConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SecurityGroupIds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SubnetIds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -53,6 +54,7 @@ The VPC configuration for the image builder.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppStream.ImageBuilder.VpcConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

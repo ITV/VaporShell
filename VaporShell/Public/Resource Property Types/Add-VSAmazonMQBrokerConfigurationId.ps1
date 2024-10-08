@@ -1,29 +1,20 @@
 function Add-VSAmazonMQBrokerConfigurationId {
     <#
     .SYNOPSIS
-        Adds an AWS::AmazonMQ::Broker.ConfigurationId resource property to the template. A list of information about the configuration.
+        Adds an AWS::AmazonMQ::Broker.ConfigurationId resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AmazonMQ::Broker.ConfigurationId resource property to the template.
-A list of information about the configuration.
-
-**Important**
-
-Does not apply to RabbitMQ brokers.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-configurationid.html
 
     .PARAMETER Revision
-        The revision number of the configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-configurationid.html#cfn-amazonmq-broker-configurationid-revision
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Id
-        The unique ID that Amazon MQ generates for the configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-configurationid.html#cfn-amazonmq-broker-configurationid-id
         PrimitiveType: String
         UpdateType: Mutable
@@ -31,11 +22,13 @@ Does not apply to RabbitMQ brokers.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AmazonMQ.Broker.ConfigurationId')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,7 +39,8 @@ Does not apply to RabbitMQ brokers.
                 }
             })]
         $Revision,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,11 +51,14 @@ Does not apply to RabbitMQ brokers.
                 }
             })]
         $Id
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +68,7 @@ Does not apply to RabbitMQ brokers.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AmazonMQ.Broker.ConfigurationId'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSCodeDeployDeploymentGroupTriggerConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.TriggerConfig resource property to the template. Information about notification triggers for the deployment group.
+        Adds an AWS::CodeDeploy::DeploymentGroup.TriggerConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.TriggerConfig resource property to the template.
-Information about notification triggers for the deployment group.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html
 
     .PARAMETER TriggerEvents
-        The event type or types that trigger notifications.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggerevents
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -20,15 +17,11 @@ Information about notification triggers for the deployment group.
         UpdateType: Mutable
 
     .PARAMETER TriggerName
-        The name of the notification trigger.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggername
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TriggerTargetArn
-        The Amazon Resource Name ARN of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggertargetarn
         PrimitiveType: String
         UpdateType: Mutable
@@ -36,13 +29,16 @@ Information about notification triggers for the deployment group.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.TriggerConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $TriggerEvents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,7 +49,8 @@ Information about notification triggers for the deployment group.
                 }
             })]
         $TriggerName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,11 +61,14 @@ Information about notification triggers for the deployment group.
                 }
             })]
         $TriggerTargetArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -78,6 +78,7 @@ Information about notification triggers for the deployment group.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeDeploy.DeploymentGroup.TriggerConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

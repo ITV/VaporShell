@@ -1,44 +1,31 @@
 function Add-VSAppMeshRouteHttpRetryPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.HttpRetryPolicy resource property to the template. An object that represents a retry policy. Specify at least one value for at least one of the types of RetryEvents, a value for maxRetries, and a value for perRetryTimeout. Both server-error and gateway-error under httpRetryEvents include the Envoy reset policy. For more information on the reset policy, see the Envoy documentation: https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on.
+        Adds an AWS::AppMesh::Route.HttpRetryPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.HttpRetryPolicy resource property to the template.
-An object that represents a retry policy. Specify at least one value for at least one of the types of RetryEvents, a value for maxRetries, and a value for perRetryTimeout. Both server-error and gateway-error under httpRetryEvents include the Envoy reset policy. For more information on the reset policy, see the Envoy documentation: https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html
 
     .PARAMETER MaxRetries
-        The maximum number of retry attempts.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-maxretries
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER PerRetryTimeout
-        The timeout for each retry attempt.
-
         Type: Duration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-perretrytimeout
         UpdateType: Mutable
 
     .PARAMETER HttpRetryEvents
-        Specify at least one of the following values.
-+ **server-error** – HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511
-+ **gateway-error** – HTTP status codes 502, 503, and 504
-+ **client-error** – HTTP status code 409
-+ **stream-error** – Retry on refused stream
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-httpretryevents
         UpdateType: Mutable
 
     .PARAMETER TcpRetryEvents
-        Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-tcpretryevents
@@ -47,11 +34,13 @@ An object that represents a retry policy. Specify at least one value for at leas
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.Route.HttpRetryPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,17 +51,23 @@ An object that represents a retry policy. Specify at least one value for at leas
                 }
             })]
         $MaxRetries,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $PerRetryTimeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HttpRetryEvents,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TcpRetryEvents
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -82,6 +77,7 @@ An object that represents a retry policy. Specify at least one value for at leas
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.Route.HttpRetryPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

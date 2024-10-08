@@ -1,25 +1,20 @@
 function Add-VSBatchJobDefinitionEnvironment {
     <#
     .SYNOPSIS
-        Adds an AWS::Batch::JobDefinition.Environment resource property to the template. The Environment property type specifies environment variables to use in a job definition.
+        Adds an AWS::Batch::JobDefinition.Environment resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Batch::JobDefinition.Environment resource property to the template.
-The Environment property type specifies environment variables to use in a job definition.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-environment.html
 
     .PARAMETER Value
-        The value of the environment variable.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-environment.html#cfn-batch-jobdefinition-environment-value
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the environment variable.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-environment.html#cfn-batch-jobdefinition-environment-name
         PrimitiveType: String
         UpdateType: Mutable
@@ -27,11 +22,13 @@ The Environment property type specifies environment variables to use in a job de
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.Environment')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The Environment property type specifies environment variables to use in a job de
                 }
             })]
         $Value,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The Environment property type specifies environment variables to use in a job de
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The Environment property type specifies environment variables to use in a job de
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Batch.JobDefinition.Environment'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,16 +1,10 @@
 function New-VSOpsWorksLayer {
     <#
     .SYNOPSIS
-        Adds an AWS::OpsWorks::Layer resource to the template. Creates a layer. For more information, see How to Create a Layer: https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html.
+        Adds an AWS::OpsWorks::Layer resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::OpsWorks::Layer resource to the template. Creates a layer. For more information, see How to Create a Layer: https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html.
-
-**Note**
-
-You should use **CreateLayer** for noncustom layer types such as PHP App Server only if the stack does not have an existing layer of that type. A stack can have at most one instance of each noncustom layer; if you attempt to create a second instance, **CreateLayer** fails. A stack can have an arbitrary number of custom layers, so you can call **CreateLayer** as many times as you like for that layer type.
-
-**Required Permissions**: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see Managing User Permissions: https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html.
+        Adds an AWS::OpsWorks::Layer resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html
@@ -19,9 +13,6 @@ You should use **CreateLayer** for noncustom layer types such as PHP App Server 
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Attributes
-        One or more user-defined key-value pairs to be added to the stack attributes.
-To create a cluster layer, set the EcsClusterArn attribute to the cluster's ARN.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-attributes
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -29,43 +20,31 @@ To create a cluster layer, set the EcsClusterArn attribute to the cluster's ARN.
         UpdateType: Mutable
 
     .PARAMETER AutoAssignElasticIps
-        Whether to automatically assign an Elastic IP address: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html to the layer's instances. For more information, see How to Edit a Layer: https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignelasticips
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER AutoAssignPublicIps
-        For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see How to Edit a Layer: https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignpublicips
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER CustomInstanceProfileArn
-        The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see Using Identifiers: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-custominstanceprofilearn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CustomJson
-        A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see  Using Custom JSON: https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html. This feature is supported as of version 1.7.42 of the AWS CLI.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-customjson
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER CustomRecipes
-        A LayerCustomRecipes object that specifies the layer custom recipes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-customrecipes
         Type: Recipes
         UpdateType: Mutable
 
     .PARAMETER CustomSecurityGroupIds
-        An array containing the layer custom security group IDs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-customsecuritygroupids
         DuplicatesAllowed: True
         PrimitiveItemType: String
@@ -73,44 +52,31 @@ To create a cluster layer, set the EcsClusterArn attribute to the cluster's ARN.
         UpdateType: Mutable
 
     .PARAMETER EnableAutoHealing
-        Whether to disable auto healing for the layer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-enableautohealing
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER InstallUpdatesOnBoot
-        Whether to install operating system and package updates when the instance boots. The default value is true. To control when updates are installed, set this value to false. You must then update your instances manually by using CreateDeployment: https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateDeployment to run the update_dependencies stack command or by manually running yum Amazon Linux or apt-get Ubuntu on the instances.
-To ensure that your instances have the latest security updates, we strongly recommend using the default value of true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-installupdatesonboot
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER LifecycleEventConfiguration
-        A LifeCycleEventConfiguration object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-lifecycleeventconfiguration
         Type: LifecycleEventConfiguration
         UpdateType: Mutable
 
     .PARAMETER LoadBasedAutoScaling
-        The load-based scaling configuration for the AWS OpsWorks layer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-loadbasedautoscaling
         Type: LoadBasedAutoScaling
         UpdateType: Mutable
 
     .PARAMETER Name
-        The layer name, which is used by the console. Layer names can be a maximum of 32 characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Packages
-        An array of Package objects that describes the layer packages.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-packages
         DuplicatesAllowed: True
         PrimitiveItemType: String
@@ -118,23 +84,16 @@ To ensure that your instances have the latest security updates, we strongly reco
         UpdateType: Mutable
 
     .PARAMETER Shortname
-        For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 32 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
-Built-in layer short names are defined by AWS OpsWorks Stacks. For more information, see the Layer Reference: https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-shortname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER StackId
-        The layer stack ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-stackid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Tags
-        Specifies one or more sets of tags key–value pairs to associate with this AWS OpsWorks layer. Use tags to manage your resources.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-tags
         DuplicatesAllowed: True
         ItemType: Tag
@@ -142,22 +101,16 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
         UpdateType: Mutable
 
     .PARAMETER Type
-        The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-type
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER UseEbsOptimizedInstances
-        Whether to use Amazon EBS-optimized instances.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-useebsoptimizedinstances
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER VolumeConfigurations
-        A VolumeConfigurations object that describes the layer's Amazon EBS volumes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-volumeconfigurations
         DuplicatesAllowed: True
         ItemType: VolumeConfiguration
@@ -194,28 +147,29 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.OpsWorks.Layer')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -226,10 +180,12 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Attributes,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -240,7 +196,8 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $AutoAssignElasticIps,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -251,7 +208,8 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $AutoAssignPublicIps,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -262,7 +220,8 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $CustomInstanceProfileArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -273,11 +232,14 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $CustomJson,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomRecipes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CustomSecurityGroupIds,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -288,7 +250,8 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $EnableAutoHealing,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -299,11 +262,14 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $InstallUpdatesOnBoot,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LifecycleEventConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LoadBasedAutoScaling,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -314,9 +280,11 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Packages,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -327,7 +295,8 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $Shortname,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -338,10 +307,12 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $StackId,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -352,7 +323,8 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -363,7 +335,8 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $UseEbsOptimizedInstances,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.OpsWorks.Layer.VolumeConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -374,7 +347,8 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $VolumeConfigurations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -385,27 +359,28 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -416,9 +391,15 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -426,6 +407,7 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -498,6 +480,7 @@ Built-in layer short names are defined by AWS OpsWorks Stacks. For more informat
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.OpsWorks.Layer'

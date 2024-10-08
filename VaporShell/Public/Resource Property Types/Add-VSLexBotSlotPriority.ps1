@@ -1,25 +1,20 @@
 function Add-VSLexBotSlotPriority {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SlotPriority resource property to the template. Sets the priority that Amazon Lex should use when eliciting slots values from a user.
+        Adds an AWS::Lex::Bot.SlotPriority resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SlotPriority resource property to the template.
-Sets the priority that Amazon Lex should use when eliciting slots values from a user.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html
 
     .PARAMETER Priority
-        The priority that Amazon Lex should apply to the slot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html#cfn-lex-bot-slotpriority-priority
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER SlotName
-        The name of the slot.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html#cfn-lex-bot-slotpriority-slotname
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ Sets the priority that Amazon Lex should use when eliciting slots values from a 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotPriority')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Sets the priority that Amazon Lex should use when eliciting slots values from a 
                 }
             })]
         $Priority,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Sets the priority that Amazon Lex should use when eliciting slots values from a 
                 }
             })]
         $SlotName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Sets the priority that Amazon Lex should use when eliciting slots values from a 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.SlotPriority'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

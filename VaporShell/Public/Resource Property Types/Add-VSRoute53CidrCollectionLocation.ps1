@@ -1,19 +1,13 @@
 function Add-VSRoute53CidrCollectionLocation {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53::CidrCollection.Location resource property to the template. 
+        Adds an AWS::Route53::CidrCollection.Location resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Route53::CidrCollection.Location resource property to the template.
 
-
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html
-
-    .PARAMETER LocationName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-locationname
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER CidrList
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-cidrlist
@@ -22,14 +16,24 @@ function Add-VSRoute53CidrCollectionLocation {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
+    .PARAMETER LocationName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-locationname
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Route53.CidrCollection.Location')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
+        $CidrList,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -39,14 +43,15 @@ function Add-VSRoute53CidrCollectionLocation {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LocationName,
-        [parameter(Mandatory = $true)]
-        $CidrList
+        $LocationName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSRoute53CidrCollectionLocation {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Route53.CidrCollection.Location'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

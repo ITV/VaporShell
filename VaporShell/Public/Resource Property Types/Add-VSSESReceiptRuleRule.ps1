@@ -1,62 +1,42 @@
 function Add-VSSESReceiptRuleRule {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::ReceiptRule.Rule resource property to the template. Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.
+        Adds an AWS::SES::ReceiptRule.Rule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SES::ReceiptRule.Rule resource property to the template.
-Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.
-
-Each receipt rule defines a set of email addresses or domains that it applies to. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.
-
-For information about setting up receipt rules, see the Amazon SES Developer Guide: https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html
 
     .PARAMETER ScanEnabled
-        If true, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-scanenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Recipients
-        The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule matches all recipients on all verified domains.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-recipients
         UpdateType: Mutable
 
     .PARAMETER Actions
-        An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-actions
         ItemType: Action
         UpdateType: Mutable
 
     .PARAMETER Enabled
-        If true, the receipt rule is active. The default value is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-enabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the receipt rule. The name must meet the following requirements:
-+ Contain only ASCII letters a-z, A-Z, numbers 0-9, underscores _, or dashes -.
-+ Start and end with a letter or number.
-+ Contain 64 characters or fewer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-name
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER TlsPolicy
-        Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security TLS. If this parameter is set to Require, Amazon SES bounces emails that are not received over TLS. The default is Optional.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-tlspolicy
         PrimitiveType: String
         UpdateType: Mutable
@@ -64,11 +44,13 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SES.ReceiptRule.Rule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,9 +61,11 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
                 }
             })]
         $ScanEnabled,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Recipients,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SES.ReceiptRule.Action"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -92,7 +76,8 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
                 }
             })]
         $Actions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -103,7 +88,8 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
                 }
             })]
         $Enabled,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -114,7 +100,8 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,11 +112,14 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
                 }
             })]
         $TlsPolicy
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -139,6 +129,7 @@ For information about setting up receipt rules, see the Amazon SES Developer Gui
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SES.ReceiptRule.Rule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

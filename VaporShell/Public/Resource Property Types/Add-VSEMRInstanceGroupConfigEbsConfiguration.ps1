@@ -1,18 +1,15 @@
 function Add-VSEMRInstanceGroupConfigEbsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::InstanceGroupConfig.EbsConfiguration resource property to the template. The Amazon EBS configuration of a cluster instance.
+        Adds an AWS::EMR::InstanceGroupConfig.EbsConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::InstanceGroupConfig.EbsConfiguration resource property to the template.
-The Amazon EBS configuration of a cluster instance.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html
 
     .PARAMETER EbsBlockDeviceConfigs
-        An array of Amazon EBS volume specifications attached to a cluster instance.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfigs
         DuplicatesAllowed: False
         ItemType: EbsBlockDeviceConfig
@@ -20,8 +17,6 @@ The Amazon EBS configuration of a cluster instance.
         UpdateType: Mutable
 
     .PARAMETER EbsOptimized
-        Indicates whether an Amazon EBS volume is EBS-optimized.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsoptimized
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -29,11 +24,13 @@ The Amazon EBS configuration of a cluster instance.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.EbsConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EMR.InstanceGroupConfig.EbsBlockDeviceConfig"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +41,8 @@ The Amazon EBS configuration of a cluster instance.
                 }
             })]
         $EbsBlockDeviceConfigs,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +53,14 @@ The Amazon EBS configuration of a cluster instance.
                 }
             })]
         $EbsOptimized
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +70,7 @@ The Amazon EBS configuration of a cluster instance.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.InstanceGroupConfig.EbsConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

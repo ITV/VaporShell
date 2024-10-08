@@ -1,32 +1,30 @@
 function Add-VSIoTTopicRuleRepublishAction {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.RepublishAction resource property to the template. Describes an action to republish to another topic.
+        Adds an AWS::IoT::TopicRule.RepublishAction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.RepublishAction resource property to the template.
-Describes an action to republish to another topic.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html
 
     .PARAMETER Qos
-        The Quality of Service QoS level to use when republishing messages. The default value is 0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER Topic
-        The name of the MQTT topic.
+    .PARAMETER Headers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-headers
+        UpdateType: Mutable
+        Type: RepublishActionHeaders
 
+    .PARAMETER Topic
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the IAM role that grants access.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -34,11 +32,13 @@ Describes an action to republish to another topic.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.TopicRule.RepublishAction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +49,11 @@ Describes an action to republish to another topic.
                 }
             })]
         $Qos,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
+        $Headers,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +64,8 @@ Describes an action to republish to another topic.
                 }
             })]
         $Topic,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +76,14 @@ Describes an action to republish to another topic.
                 }
             })]
         $RoleArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +93,7 @@ Describes an action to republish to another topic.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.TopicRule.RepublishAction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

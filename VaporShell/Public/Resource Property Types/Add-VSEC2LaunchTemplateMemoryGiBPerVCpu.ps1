@@ -1,37 +1,34 @@
 function Add-VSEC2LaunchTemplateMemoryGiBPerVCpu {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.MemoryGiBPerVCpu resource property to the template. The minimum and maximum amount of memory per vCPU, in GiB.
+        Adds an AWS::EC2::LaunchTemplate.MemoryGiBPerVCpu resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.MemoryGiBPerVCpu resource property to the template.
-The minimum and maximum amount of memory per vCPU, in GiB.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorygibpervcpu.html
 
     .PARAMETER Min
-        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorygibpervcpu.html#cfn-ec2-launchtemplate-memorygibpervcpu-min
-        PrimitiveType: Double
         UpdateType: Mutable
+        PrimitiveType: Double
 
     .PARAMETER Max
-        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorygibpervcpu.html#cfn-ec2-launchtemplate-memorygibpervcpu-max
-        PrimitiveType: Double
         UpdateType: Mutable
+        PrimitiveType: Double
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.MemoryGiBPerVCpu')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The minimum and maximum amount of memory per vCPU, in GiB.
                 }
             })]
         $Min,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The minimum and maximum amount of memory per vCPU, in GiB.
                 }
             })]
         $Max
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The minimum and maximum amount of memory per vCPU, in GiB.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.LaunchTemplate.MemoryGiBPerVCpu'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

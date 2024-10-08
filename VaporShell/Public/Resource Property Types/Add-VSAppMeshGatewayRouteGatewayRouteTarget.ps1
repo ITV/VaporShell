@@ -1,25 +1,20 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteTarget {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteTarget resource property to the template. An object that represents a gateway route target.
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteTarget resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteTarget resource property to the template.
-An object that represents a gateway route target.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html
 
     .PARAMETER Port
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-port
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER VirtualService
-        An object that represents a virtual service gateway route target.
-
         Type: GatewayRouteVirtualService
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice
         UpdateType: Mutable
@@ -27,11 +22,13 @@ An object that represents a gateway route target.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteTarget')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,13 +39,17 @@ An object that represents a gateway route target.
                 }
             })]
         $Port,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $VirtualService
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ An object that represents a gateway route target.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteTarget'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

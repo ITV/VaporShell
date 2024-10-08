@@ -1,46 +1,39 @@
 function Add-VSSSMPatchBaselinePatchFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::PatchBaseline.PatchFilter resource property to the template. The PatchFilter property type defines a patch filter for an AWS Systems Manager patch baseline.
+        Adds an AWS::SSM::PatchBaseline.PatchFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSM::PatchBaseline.PatchFilter resource property to the template.
-The PatchFilter property type defines a patch filter for an AWS Systems Manager patch baseline.
-
-The PatchFilters property of the PatchFilterGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html property type contains a list of PatchFilter property types.
-
-You can view lists of valid values for the patch properties by running the DescribePatchProperties command. For more information, see DescribePatchProperties: https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html in the *AWS Systems Manager API Reference*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html
 
     .PARAMETER Values
-        The value for the filter key.
-For information about valid values for each key based on operating system type, see PatchFilter: https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html in the *AWS Systems Manager API Reference*.
-
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-values
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Key
-        The key for the filter.
-For information about valid keys, see PatchFilter: https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html in the *AWS Systems Manager API Reference*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-key
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSM.PatchBaseline.PatchFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Values,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,11 +44,14 @@ For information about valid keys, see PatchFilter: https://docs.aws.amazon.com/s
                 }
             })]
         $Key
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +61,7 @@ For information about valid keys, see PatchFilter: https://docs.aws.amazon.com/s
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSM.PatchBaseline.PatchFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

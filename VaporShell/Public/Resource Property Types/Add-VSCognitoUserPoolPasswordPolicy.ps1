@@ -1,68 +1,63 @@
 function Add-VSCognitoUserPoolPasswordPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPool.PasswordPolicy resource property to the template. The password policy type.
+        Adds an AWS::Cognito::UserPool.PasswordPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPool.PasswordPolicy resource property to the template.
-The password policy type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html
 
     .PARAMETER RequireNumbers
-        In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requirenumbers
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER MinimumLength
-        The minimum length of the password in the policy that you have set. This value can't be less than 6.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-minimumlength
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER TemporaryPasswordValidityDays
-        The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.
-When you set TemporaryPasswordValidityDays for a user pool, you can no longer set the deprecated UnusedAccountValidityDays value for that user pool.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-temporarypasswordvaliditydays
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER RequireUppercase
-        In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requireuppercase
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER RequireLowercase
-        In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requirelowercase
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER RequireSymbols
-        In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requiresymbols
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER PasswordHistorySize
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-passwordhistorysize
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Cognito.UserPool.PasswordPolicy')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","TemporaryPasswordValidityDays")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","TemporaryPasswordValidityDays")]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordHistorySize")]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordHistorySize")]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,7 +68,8 @@ When you set TemporaryPasswordValidityDays for a user pool, you can no longer se
                 }
             })]
         $RequireNumbers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,7 +80,8 @@ When you set TemporaryPasswordValidityDays for a user pool, you can no longer se
                 }
             })]
         $MinimumLength,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -95,7 +92,8 @@ When you set TemporaryPasswordValidityDays for a user pool, you can no longer se
                 }
             })]
         $TemporaryPasswordValidityDays,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,7 +104,8 @@ When you set TemporaryPasswordValidityDays for a user pool, you can no longer se
                 }
             })]
         $RequireUppercase,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -117,7 +116,8 @@ When you set TemporaryPasswordValidityDays for a user pool, you can no longer se
                 }
             })]
         $RequireLowercase,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -127,12 +127,27 @@ When you set TemporaryPasswordValidityDays for a user pool, you can no longer se
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RequireSymbols
+        $RequireSymbols,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PasswordHistorySize
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -142,6 +157,7 @@ When you set TemporaryPasswordValidityDays for a user pool, you can no longer se
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Cognito.UserPool.PasswordPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

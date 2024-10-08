@@ -1,56 +1,46 @@
 function Add-VSConfigConfigRuleSource {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::ConfigRule.Source resource property to the template. Provides the AWS Config rule owner (AWS or customer, the rule identifier, and the events that trigger the evaluation of your AWS resources.
+        Adds an AWS::Config::ConfigRule.Source resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Config::ConfigRule.Source resource property to the template.
-Provides the AWS Config rule owner (AWS or customer, the rule identifier, and the events that trigger the evaluation of your AWS resources.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html
 
-    .PARAMETER CustomPolicyDetails
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-custompolicydetails
-        Type: CustomPolicyDetails
-        UpdateType: Mutable
-
     .PARAMETER Owner
-        Indicates whether AWS or the customer owns and manages the AWS Config rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-owner
+        UpdateType: Mutable
         PrimitiveType: String
-        UpdateType: Mutable
 
-    .PARAMETER SourceDetails
-        Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
-        DuplicatesAllowed: False
-        ItemType: SourceDetail
-        Type: List
+    .PARAMETER CustomPolicyDetails
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-custompolicydetails
         UpdateType: Mutable
+        Type: CustomPolicyDetails
 
     .PARAMETER SourceIdentifier
-        For AWS Config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using AWS Config managed rules: https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html.
-For custom rules, the identifier is the Amazon Resource Name ARN of the rule's AWS Lambda function, such as arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER SourceDetails
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
+        UpdateType: Mutable
+        Type: List
+        ItemType: SourceDetail
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Config.ConfigRule.Source')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
-        $CustomPolicyDetails,
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,18 +51,11 @@ For custom rules, the identifier is the Amazon Resource Name ARN of the rule's A
                 }
             })]
         $Owner,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.Config.ConfigRule.SourceDetail"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SourceDetails,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $CustomPolicyDetails,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,12 +65,27 @@ For custom rules, the identifier is the Amazon Resource Name ARN of the rule's A
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SourceIdentifier
+        $SourceIdentifier,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Config.ConfigRule.SourceDetail"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SourceDetails
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -97,6 +95,7 @@ For custom rules, the identifier is the Amazon Resource Name ARN of the rule's A
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Config.ConfigRule.Source'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSKinesisAnalyticsV2ApplicationSqlApplicationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.SqlApplicationConfiguration resource property to the template. Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::Application.SqlApplicationConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.SqlApplicationConfiguration resource property to the template.
-Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html
 
     .PARAMETER Inputs
-        The array of Input: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_Input.html objects describing the input streams used by the application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-sqlapplicationconfiguration-inputs
         UpdateType: Mutable
         Type: List
@@ -22,11 +19,13 @@ Describes the inputs, outputs, and reference data sources for a SQL-based Kinesi
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.SqlApplicationConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.KinesisAnalyticsV2.Application.Input"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +36,14 @@ Describes the inputs, outputs, and reference data sources for a SQL-based Kinesi
                 }
             })]
         $Inputs
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +53,7 @@ Describes the inputs, outputs, and reference data sources for a SQL-based Kinesi
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalyticsV2.Application.SqlApplicationConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

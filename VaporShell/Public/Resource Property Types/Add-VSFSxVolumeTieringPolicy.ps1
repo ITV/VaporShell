@@ -1,11 +1,10 @@
 function Add-VSFSxVolumeTieringPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::Volume.TieringPolicy resource property to the template. 
+        Adds an AWS::FSx::Volume.TieringPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::FSx::Volume.TieringPolicy resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-tieringpolicy.html
@@ -23,11 +22,13 @@ function Add-VSFSxVolumeTieringPolicy {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.FSx.Volume.TieringPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,7 +39,8 @@ function Add-VSFSxVolumeTieringPolicy {
                 }
             })]
         $CoolingPeriod,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,11 +51,14 @@ function Add-VSFSxVolumeTieringPolicy {
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +68,7 @@ function Add-VSFSxVolumeTieringPolicy {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.FSx.Volume.TieringPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSQuickSightDataSetFilterOperation {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.FilterOperation resource property to the template. A transform operation that filters rows based on a condition.
+        Adds an AWS::QuickSight::DataSet.FilterOperation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.FilterOperation resource property to the template.
-A transform operation that filters rows based on a condition.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html
 
     .PARAMETER ConditionExpression
-        An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ A transform operation that filters rows based on a condition.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.FilterOperation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ A transform operation that filters rows based on a condition.
                 }
             })]
         $ConditionExpression
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ A transform operation that filters rows based on a condition.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSet.FilterOperation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

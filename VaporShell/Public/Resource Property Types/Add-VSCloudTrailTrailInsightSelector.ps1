@@ -1,18 +1,15 @@
 function Add-VSCloudTrailTrailInsightSelector {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudTrail::Trail.InsightSelector resource property to the template. A JSON string that contains a list of insight types that are logged on a trail.
+        Adds an AWS::CloudTrail::Trail.InsightSelector resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudTrail::Trail.InsightSelector resource property to the template.
-A JSON string that contains a list of insight types that are logged on a trail.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
 
     .PARAMETER InsightType
-        The type of insights to log on a trail. ApiCallRateInsight and ApiErrorRateInsight are valid insight types.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-insighttype
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ A JSON string that contains a list of insight types that are logged on a trail.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudTrail.Trail.InsightSelector')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ A JSON string that contains a list of insight types that are logged on a trail.
                 }
             })]
         $InsightType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ A JSON string that contains a list of insight types that are logged on a trail.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudTrail.Trail.InsightSelector'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

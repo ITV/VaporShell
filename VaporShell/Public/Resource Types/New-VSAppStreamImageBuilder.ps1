@@ -1,12 +1,10 @@
 function New-VSAppStreamImageBuilder {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::ImageBuilder resource to the template. The AWS::AppStream::ImageBuilder resource creates an image builder for Amazon AppStream 2.0. An image builder is a virtual machine that is used to create an image.
+        Adds an AWS::AppStream::ImageBuilder resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::AppStream::ImageBuilder resource to the template. The AWS::AppStream::ImageBuilder resource creates an image builder for Amazon AppStream 2.0. An image builder is a virtual machine that is used to create an image.
-
-The initial state of the image builder is PENDING. When it is ready, the state is RUNNING.
+        Adds an AWS::AppStream::ImageBuilder resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html
@@ -15,112 +13,56 @@ The initial state of the image builder is PENDING. When it is ready, the state i
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        The description to display.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-description
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER VpcConfig
-        The VPC configuration for the image builder. You can specify only one subnet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-vpcconfig
         UpdateType: Mutable
         Type: VpcConfig
 
     .PARAMETER EnableDefaultInternetAccess
-        Enables or disables default internet access for the image builder.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-enabledefaultinternetaccess
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER DomainJoinInfo
-        The name of the directory and organizational unit OU to use to join the image builder to a Microsoft Active Directory domain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-domainjoininfo
         UpdateType: Mutable
         Type: DomainJoinInfo
 
     .PARAMETER AppstreamAgentVersion
-        The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify LATEST].
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-appstreamagentversion
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        A unique name for the image builder.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-name
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ImageName
-        The name of the image used to create the image builder.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagename
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DisplayName
-        The image builder name to display.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-displayname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER IamRoleArn
-        The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
-For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances: https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html in the *Amazon AppStream 2.0 Administration Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-iamrolearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER InstanceType
-        The instance type to use when launching the image builder. The following instance types are available:
-+ stream.standard.small
-+ stream.standard.medium
-+ stream.standard.large
-+ stream.compute.large
-+ stream.compute.xlarge
-+ stream.compute.2xlarge
-+ stream.compute.4xlarge
-+ stream.compute.8xlarge
-+ stream.memory.large
-+ stream.memory.xlarge
-+ stream.memory.2xlarge
-+ stream.memory.4xlarge
-+ stream.memory.8xlarge
-+ stream.memory.z1d.large
-+ stream.memory.z1d.xlarge
-+ stream.memory.z1d.2xlarge
-+ stream.memory.z1d.3xlarge
-+ stream.memory.z1d.6xlarge
-+ stream.memory.z1d.12xlarge
-+ stream.graphics-design.large
-+ stream.graphics-design.xlarge
-+ stream.graphics-design.2xlarge
-+ stream.graphics-design.4xlarge
-+ stream.graphics-desktop.2xlarge
-+ stream.graphics.g4dn.xlarge
-+ stream.graphics.g4dn.2xlarge
-+ stream.graphics.g4dn.4xlarge
-+ stream.graphics.g4dn.8xlarge
-+ stream.graphics.g4dn.12xlarge
-+ stream.graphics.g4dn.16xlarge
-+ stream.graphics-pro.4xlarge
-+ stream.graphics-pro.8xlarge
-+ stream.graphics-pro.16xlarge
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-instancetype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        An array of key-value pairs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-tags
         UpdateType: Mutable
         Type: List
@@ -128,15 +70,11 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
         DuplicatesAllowed: True
 
     .PARAMETER ImageArn
-        The ARN of the public, private, or shared image to use.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER AccessEndpoints
-        The list of virtual private cloud VPC interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-accessendpoints
         UpdateType: Mutable
         Type: List
@@ -173,28 +111,29 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppStream.ImageBuilder')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -205,7 +144,8 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -216,9 +156,11 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VpcConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -229,9 +171,11 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $EnableDefaultInternetAccess,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DomainJoinInfo,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -242,7 +186,8 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $AppstreamAgentVersion,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -253,7 +198,8 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -264,7 +210,8 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $ImageName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -275,7 +222,8 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $DisplayName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -286,7 +234,8 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $IamRoleArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -297,10 +246,12 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $InstanceType,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -311,7 +262,8 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $ImageArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppStream.ImageBuilder.AccessEndpoint"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -322,7 +274,8 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $AccessEndpoints,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -333,27 +286,28 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -364,9 +318,15 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -374,6 +334,7 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -417,6 +378,7 @@ For more information, see Using an IAM Role to Grant Permissions to Applications
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppStream.ImageBuilder'

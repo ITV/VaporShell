@@ -1,39 +1,36 @@
 function Add-VSAutoScalingAutoScalingGroupMemoryGiBPerVCpuRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest resource property to the template. MemoryGiBPerVCpuRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+        Adds an AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest resource property to the template.
-MemoryGiBPerVCpuRequest is a property of the InstanceRequirements property of the AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html property type that describes the minimum and maximum amount of memory per vCPU for an instance type, in GiB.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html
 
-    .PARAMETER Max
-        The memory maximum in GiB.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html#cfn-autoscaling-autoscalinggroup-memorygibpervcpurequest-max
-        PrimitiveType: Integer
-        UpdateType: Mutable
-
     .PARAMETER Min
-        The memory minimum in GiB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html#cfn-autoscaling-autoscalinggroup-memorygibpervcpurequest-min
-        PrimitiveType: Integer
-        UpdateType: Mutable
+        UpdateType: Conditional
+        PrimitiveType: Double
+
+    .PARAMETER Max
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html#cfn-autoscaling-autoscalinggroup-memorygibpervcpurequest-max
+        UpdateType: Conditional
+        PrimitiveType: Double
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.MemoryGiBPerVCpuRequest')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -41,10 +38,11 @@ MemoryGiBPerVCpuRequest is a property of the InstanceRequirements property of th
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Max,
-        [parameter(Mandatory = $false)]
+        $Min,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -52,12 +50,15 @@ MemoryGiBPerVCpuRequest is a property of the InstanceRequirements property of th
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Min
+        $Max
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ MemoryGiBPerVCpuRequest is a property of the InstanceRequirements property of th
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AutoScaling.AutoScalingGroup.MemoryGiBPerVCpuRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

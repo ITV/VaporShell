@@ -1,18 +1,15 @@
 function Add-VSSageMakerEndpointAlarm {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Endpoint.Alarm resource property to the template. An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
+        Adds an AWS::SageMaker::Endpoint.Alarm resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Endpoint.Alarm resource property to the template.
-An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html
 
     .PARAMETER AlarmName
-        The name of a CloudWatch alarm in your account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html#cfn-sagemaker-endpoint-alarm-alarmname
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.Endpoint.Alarm')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
                 }
             })]
         $AlarmName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.Endpoint.Alarm'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

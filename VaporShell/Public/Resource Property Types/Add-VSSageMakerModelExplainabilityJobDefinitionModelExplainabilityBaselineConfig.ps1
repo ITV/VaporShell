@@ -1,37 +1,37 @@
 function Add-VSSageMakerModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig resource property to the template. The configuration for a baseline model explainability job.
+        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig resource property to the template.
-The configuration for a baseline model explainability job.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
 
-    .PARAMETER BaseliningJobName
-        The name of the baseline model explainability job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER ConstraintsResource
-        The constraints resource for a model explainability job.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
         UpdateType: Immutable
         Type: ConstraintsResource
 
+    .PARAMETER BaseliningJobName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        $ConstraintsResource,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,14 +41,15 @@ The configuration for a baseline model explainability job.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $BaseliningJobName,
-        [parameter(Mandatory = $false)]
-        $ConstraintsResource
+        $BaseliningJobName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ The configuration for a baseline model explainability job.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

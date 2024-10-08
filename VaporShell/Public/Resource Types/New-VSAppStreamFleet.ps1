@@ -1,10 +1,10 @@
 function New-VSAppStreamFleet {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::Fleet resource to the template. The AWS::AppStream::Fleet resource creates a fleet for Amazon AppStream 2.0. A fleet consists of streaming instances that run a specified image when using Always-On or On-Demand.
+        Adds an AWS::AppStream::Fleet resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::AppStream::Fleet resource to the template. The AWS::AppStream::Fleet resource creates a fleet for Amazon AppStream 2.0. A fleet consists of streaming instances that run a specified image when using Always-On or On-Demand.
+        Adds an AWS::AppStream::Fleet resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html
@@ -13,200 +13,113 @@ function New-VSAppStreamFleet {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        The description to display.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ComputeCapacity
-        The desired capacity for the fleet. This is not allowed for Elastic fleets.
-
         Type: ComputeCapacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-computecapacity
         UpdateType: Mutable
 
     .PARAMETER Platform
-        The platform of the fleet. Platform is a required setting for Elastic fleets, and is not used for other fleet types.
-*Allowed Values*: WINDOWS_SERVER_2019 | AMAZON_LINUX2
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-platform
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER VpcConfig
-        The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types.
-
         Type: VpcConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-vpcconfig
         UpdateType: Mutable
 
     .PARAMETER FleetType
-        The fleet type.
-ALWAYS_ON
-Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.
-ON_DEMAND
-Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.
-ELASTIC
-The pool of streaming instances is managed by Amazon AppStream 2.0. When a user selects their application or desktop to launch, they will start streaming after the app block has been downloaded and mounted to a streaming instance.
-*Allowed Values*: ALWAYS_ON | ELASTIC | ON_DEMAND
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER EnableDefaultInternetAccess
-        Enables or disables default internet access for the fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-enabledefaultinternetaccess
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER DomainJoinInfo
-        The name of the directory and organizational unit OU to use to join the fleet to a Microsoft Active Directory domain. This is not allowed for Elastic fleets.
-
         Type: DomainJoinInfo
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-domainjoininfo
         UpdateType: Mutable
 
     .PARAMETER SessionScriptS3Location
-        +  CreateFleet: https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateFleet.html in the *Amazon AppStream 2.0 API Reference*
-
         Type: S3Location
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-sessionscripts3location
         UpdateType: Mutable
 
     .PARAMETER Name
-        A unique name for the fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER ImageName
-        The name of the image used to create the fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER MaxUserDurationInSeconds
-        The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
-Specify a value between 600 and 360000.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxuserdurationinseconds
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER IdleDisconnectTimeoutInSeconds
-        The amount of time that users can be idle inactive before they are disconnected from their streaming session and the DisconnectTimeoutInSeconds time interval begins. Users are notified before they are disconnected due to inactivity. If they try to reconnect to the streaming session before the time interval specified in DisconnectTimeoutInSeconds elapses, they are connected to their previous session. Users are considered idle when they stop providing keyboard or mouse input during their streaming session. File uploads and downloads, audio in, audio out, and pixels changing do not qualify as user activity. If users continue to be idle after the time interval in IdleDisconnectTimeoutInSeconds elapses, they are disconnected.
-To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600.
-If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes for example, 60, 120, and 180. If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER UsbDeviceFilterStrings
-        The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-usbdevicefilterstrings
         UpdateType: Mutable
 
     .PARAMETER DisconnectTimeoutInSeconds
-        The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
-Specify a value between 60 and 360000.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-disconnecttimeoutinseconds
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER DisplayName
-        The fleet name to display.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-displayname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER StreamView
-        The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When APP is specified, only the windows of applications opened by users display. When DESKTOP is specified, the standard desktop that is provided by the operating system displays.
-The default value is APP.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER IamRoleArn
-        The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
-For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances: https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html in the *Amazon AppStream 2.0 Administration Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER InstanceType
-        The instance type to use when launching fleet instances. The following instance types are available for non-Elastic fleets:
-+ stream.standard.small
-+ stream.standard.medium
-+ stream.standard.large
-+ stream.compute.large
-+ stream.compute.xlarge
-+ stream.compute.2xlarge
-+ stream.compute.4xlarge
-+ stream.compute.8xlarge
-+ stream.memory.large
-+ stream.memory.xlarge
-+ stream.memory.2xlarge
-+ stream.memory.4xlarge
-+ stream.memory.8xlarge
-+ stream.memory.z1d.large
-+ stream.memory.z1d.xlarge
-+ stream.memory.z1d.2xlarge
-+ stream.memory.z1d.3xlarge
-+ stream.memory.z1d.6xlarge
-+ stream.memory.z1d.12xlarge
-+ stream.graphics-design.large
-+ stream.graphics-design.xlarge
-+ stream.graphics-design.2xlarge
-+ stream.graphics-design.4xlarge
-+ stream.graphics-desktop.2xlarge
-+ stream.graphics.g4dn.xlarge
-+ stream.graphics.g4dn.2xlarge
-+ stream.graphics.g4dn.4xlarge
-+ stream.graphics.g4dn.8xlarge
-+ stream.graphics.g4dn.12xlarge
-+ stream.graphics.g4dn.16xlarge
-+ stream.graphics-pro.4xlarge
-+ stream.graphics-pro.8xlarge
-+ stream.graphics-pro.16xlarge
-The following instance types are available for Elastic fleets:
-+ stream.standard.small
-+ stream.standard.medium
+    .PARAMETER MaxSessionsPerInstance
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxsessionsperinstance
+        PrimitiveType: Integer
+        UpdateType: Mutable
 
+    .PARAMETER InstanceType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-instancetype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER MaxConcurrentSessions
-        The maximum number of concurrent sessions that can be run on an Elastic fleet. This setting is required for Elastic fleets, but is not used for other fleet types.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxconcurrentsessions
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Tags
-        An array of key-value pairs.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER ImageArn
-        The ARN of the public, private, or shared image to use.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagearn
         PrimitiveType: String
         UpdateType: Mutable
@@ -241,28 +154,29 @@ The following instance types are available for Elastic fleets:
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppStream.Fleet')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -273,7 +187,8 @@ The following instance types are available for Elastic fleets:
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -284,9 +199,11 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ComputeCapacity,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -297,9 +214,11 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $Platform,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VpcConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -310,7 +229,8 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $FleetType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -321,11 +241,14 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $EnableDefaultInternetAccess,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DomainJoinInfo,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SessionScriptS3Location,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -336,7 +259,8 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -347,7 +271,8 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $ImageName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -358,7 +283,8 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $MaxUserDurationInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -369,9 +295,11 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $IdleDisconnectTimeoutInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $UsbDeviceFilterStrings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -382,7 +310,8 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $DisconnectTimeoutInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -393,7 +322,8 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $DisplayName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -404,7 +334,8 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $StreamView,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -415,7 +346,20 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $IamRoleArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxSessionsPerInstance,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -426,7 +370,8 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $InstanceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -437,10 +382,12 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $MaxConcurrentSessions,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -451,7 +398,8 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $ImageArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -462,27 +410,28 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -493,9 +442,15 @@ The following instance types are available for Elastic fleets:
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -503,6 +458,7 @@ The following instance types are available for Elastic fleets:
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -546,6 +502,7 @@ The following instance types are available for Elastic fleets:
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppStream.Fleet'

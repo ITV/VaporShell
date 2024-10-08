@@ -1,18 +1,15 @@
 function Add-VSQuickSightTemplateTemplateSourceTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.TemplateSourceTemplate resource property to the template. The source template of the template.
+        Adds an AWS::QuickSight::Template.TemplateSourceTemplate resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.TemplateSourceTemplate resource property to the template.
-The source template of the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html#cfn-quicksight-template-templatesourcetemplate-arn
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The source template of the template.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.TemplateSourceTemplate')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The source template of the template.
                 }
             })]
         $Arn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The source template of the template.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.TemplateSourceTemplate'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

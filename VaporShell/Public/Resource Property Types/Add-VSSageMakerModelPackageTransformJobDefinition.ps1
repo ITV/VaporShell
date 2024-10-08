@@ -1,24 +1,18 @@
 function Add-VSSageMakerModelPackageTransformJobDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelPackage.TransformJobDefinition resource property to the template. 
+        Adds an AWS::SageMaker::ModelPackage.TransformJobDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelPackage.TransformJobDefinition resource property to the template.
 
-
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html
 
-    .PARAMETER Environment
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-environment
+    .PARAMETER TransformResources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformresources
         UpdateType: Immutable
-        Type: Environment
-
-    .PARAMETER BatchStrategy
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-batchstrategy
-        UpdateType: Immutable
-        PrimitiveType: String
+        Type: TransformResources
 
     .PARAMETER MaxConcurrentTransforms
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-maxconcurrenttransforms
@@ -30,42 +24,40 @@ function Add-VSSageMakerModelPackageTransformJobDefinition {
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER TransformInput
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transforminput
-        UpdateType: Immutable
-        Type: TransformInput
-
     .PARAMETER TransformOutput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformoutput
         UpdateType: Immutable
         Type: TransformOutput
 
-    .PARAMETER TransformResources
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformresources
+    .PARAMETER Environment
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-environment
         UpdateType: Immutable
-        Type: TransformResources
+        Type: Map
+        PrimitiveItemType: String
+
+    .PARAMETER TransformInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transforminput
+        UpdateType: Immutable
+        Type: TransformInput
+
+    .PARAMETER BatchStrategy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-batchstrategy
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.TransformJobDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Environment,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $BatchStrategy,
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
+        $TransformResources,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,7 +68,8 @@ function Add-VSSageMakerModelPackageTransformJobDefinition {
                 }
             })]
         $MaxConcurrentTransforms,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -87,17 +80,36 @@ function Add-VSSageMakerModelPackageTransformJobDefinition {
                 }
             })]
         $MaxPayloadInMB,
-        [parameter(Mandatory = $true)]
-        $TransformInput,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $TransformOutput,
-        [parameter(Mandatory = $true)]
-        $TransformResources
+
+        [Parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $Environment,
+
+        [Parameter(Mandatory = $true)]
+        $TransformInput,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BatchStrategy
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -107,6 +119,7 @@ function Add-VSSageMakerModelPackageTransformJobDefinition {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelPackage.TransformJobDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,34 +1,25 @@
 function Add-VSMediaLiveChannelWavSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.WavSettings resource property to the template. The setup of WAV audio in the output.
+        Adds an AWS::MediaLive::Channel.WavSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.WavSettings resource property to the template.
-The setup of WAV audio in the output.
-
-The parent of this entity is AudioCodecSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html
 
     .PARAMETER CodingMode
-        The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html#cfn-medialive-channel-wavsettings-codingmode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SampleRate
-        Sample rate in Hz.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html#cfn-medialive-channel-wavsettings-samplerate
         PrimitiveType: Double
         UpdateType: Mutable
 
     .PARAMETER BitDepth
-        Bits per sample.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html#cfn-medialive-channel-wavsettings-bitdepth
         PrimitiveType: Double
         UpdateType: Mutable
@@ -36,11 +27,13 @@ The parent of this entity is AudioCodecSettings.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.WavSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,7 +44,8 @@ The parent of this entity is AudioCodecSettings.
                 }
             })]
         $CodingMode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +56,8 @@ The parent of this entity is AudioCodecSettings.
                 }
             })]
         $SampleRate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,11 +68,14 @@ The parent of this entity is AudioCodecSettings.
                 }
             })]
         $BitDepth
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +85,7 @@ The parent of this entity is AudioCodecSettings.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.WavSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

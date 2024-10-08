@@ -1,18 +1,15 @@
 function Add-VSKinesisAnalyticsV2ApplicationGlueDataCatalogConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration resource property to the template. The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
+        Adds an AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration resource property to the template.
-The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html
 
     .PARAMETER DatabaseARN
-        The Amazon Resource Name ARN of the database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html#cfn-kinesisanalyticsv2-application-gluedatacatalogconfiguration-databasearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The configuration of the Glue Data Catalog that you use for Apache Flink SQL que
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.GlueDataCatalogConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The configuration of the Glue Data Catalog that you use for Apache Flink SQL que
                 }
             })]
         $DatabaseARN
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The configuration of the Glue Data Catalog that you use for Apache Flink SQL que
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalyticsV2.Application.GlueDataCatalogConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

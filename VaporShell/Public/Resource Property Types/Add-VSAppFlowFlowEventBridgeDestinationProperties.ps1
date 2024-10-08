@@ -1,25 +1,20 @@
 function Add-VSAppFlowFlowEventBridgeDestinationProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.EventBridgeDestinationProperties resource property to the template. The properties that are applied when Amazon EventBridge is being used as a destination.
+        Adds an AWS::AppFlow::Flow.EventBridgeDestinationProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.EventBridgeDestinationProperties resource property to the template.
-The properties that are applied when Amazon EventBridge is being used as a destination.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html
 
     .PARAMETER Object
-        The object specified in the Amazon EventBridge flow destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ErrorHandlingConfig
-        The object specified in the Amplitude flow source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
         UpdateType: Mutable
         Type: ErrorHandlingConfig
@@ -27,11 +22,13 @@ The properties that are applied when Amazon EventBridge is being used as a desti
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.Flow.EventBridgeDestinationProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,13 +39,17 @@ The properties that are applied when Amazon EventBridge is being used as a desti
                 }
             })]
         $Object,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ErrorHandlingConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ The properties that are applied when Amazon EventBridge is being used as a desti
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.Flow.EventBridgeDestinationProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

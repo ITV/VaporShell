@@ -1,30 +1,29 @@
 function Add-VSEventsRuleSqsParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::Events::Rule.SqsParameters resource property to the template. This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+        Adds an AWS::Events::Rule.SqsParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Events::Rule.SqsParameters resource property to the template.
-This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sqsparameters.html
 
     .PARAMETER MessageGroupId
-        The FIFO message group ID to use as the target.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sqsparameters.html#cfn-events-rule-sqsparameters-messagegroupid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Events.Rule.SqsParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ This structure includes the custom parameter to be used when the target is an SQ
                 }
             })]
         $MessageGroupId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ This structure includes the custom parameter to be used when the target is an SQ
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Events.Rule.SqsParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

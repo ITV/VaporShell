@@ -1,33 +1,26 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewaySpec {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewaySpec resource property to the template. An object that represents the specification of a service mesh resource.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewaySpec resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewaySpec resource property to the template.
-An object that represents the specification of a service mesh resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html
 
     .PARAMETER Logging
-        An object that represents logging information.
-
         Type: VirtualGatewayLogging
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-logging
         UpdateType: Mutable
 
     .PARAMETER Listeners
-        The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-listeners
         ItemType: VirtualGatewayListener
         UpdateType: Mutable
 
     .PARAMETER BackendDefaults
-        A reference to an object that represents the defaults for backends.
-
         Type: VirtualGatewayBackendDefaults
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-backenddefaults
         UpdateType: Mutable
@@ -35,13 +28,16 @@ An object that represents the specification of a service mesh resource.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewaySpec')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Logging,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayListener"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,13 +48,17 @@ An object that represents the specification of a service mesh resource.
                 }
             })]
         $Listeners,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BackendDefaults
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +68,7 @@ An object that represents the specification of a service mesh resource.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewaySpec'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

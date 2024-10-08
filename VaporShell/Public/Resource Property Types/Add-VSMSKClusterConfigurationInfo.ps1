@@ -1,25 +1,20 @@
 function Add-VSMSKClusterConfigurationInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::MSK::Cluster.ConfigurationInfo resource property to the template. Specifies the Amazon MSK configuration to use for the brokers.
+        Adds an AWS::MSK::Cluster.ConfigurationInfo resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MSK::Cluster.ConfigurationInfo resource property to the template.
-Specifies the Amazon MSK configuration to use for the brokers.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-configurationinfo.html
 
     .PARAMETER Revision
-        The revision of the Amazon MSK configuration to use.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-configurationinfo.html#cfn-msk-cluster-configurationinfo-revision
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the MSK configuration to use. For example, arn:aws:kafka:us-east-1:123456789012:configuration/example-configuration-name/abcdabcd-1234-abcd-1234-abcd123e8e8e-1.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-configurationinfo.html#cfn-msk-cluster-configurationinfo-arn
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ Specifies the Amazon MSK configuration to use for the brokers.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MSK.Cluster.ConfigurationInfo')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Specifies the Amazon MSK configuration to use for the brokers.
                 }
             })]
         $Revision,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Specifies the Amazon MSK configuration to use for the brokers.
                 }
             })]
         $Arn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Specifies the Amazon MSK configuration to use for the brokers.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MSK.Cluster.ConfigurationInfo'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

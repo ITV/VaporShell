@@ -1,25 +1,20 @@
 function Add-VSApplicationInsightsApplicationSubComponentTypeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationInsights::Application.SubComponentTypeConfiguration resource property to the template. The AWS::ApplicationInsights::Application SubComponentTypeConfiguration property type specifies the sub-component configurations for a component.
+        Adds an AWS::ApplicationInsights::Application.SubComponentTypeConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApplicationInsights::Application.SubComponentTypeConfiguration resource property to the template.
-The AWS::ApplicationInsights::Application SubComponentTypeConfiguration property type specifies the sub-component configurations for a component.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
 
     .PARAMETER SubComponentType
-        The sub-component type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER SubComponentConfigurationDetails
-        The configuration settings of the sub-components.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
         UpdateType: Mutable
         Type: SubComponentConfigurationDetails
@@ -27,11 +22,13 @@ The AWS::ApplicationInsights::Application SubComponentTypeConfiguration property
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.SubComponentTypeConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,13 +39,17 @@ The AWS::ApplicationInsights::Application SubComponentTypeConfiguration property
                 }
             })]
         $SubComponentType,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SubComponentConfigurationDetails
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ The AWS::ApplicationInsights::Application SubComponentTypeConfiguration property
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApplicationInsights.Application.SubComponentTypeConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSAppMeshVirtualNodeTlsValidationContextFileTrust {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.TlsValidationContextFileTrust resource property to the template. An object that represents a Transport Layer Security (TLS validation context trust for a local file.
+        Adds an AWS::AppMesh::VirtualNode.TlsValidationContextFileTrust resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.TlsValidationContextFileTrust resource property to the template.
-An object that represents a Transport Layer Security (TLS validation context trust for a local file.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html
 
     .PARAMETER CertificateChain
-        The certificate trust chain for a certificate stored on the file system of the virtual node that the proxy is running on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html#cfn-appmesh-virtualnode-tlsvalidationcontextfiletrust-certificatechain
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ An object that represents a Transport Layer Security (TLS validation context tru
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.TlsValidationContextFileTrust')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ An object that represents a Transport Layer Security (TLS validation context tru
                 }
             })]
         $CertificateChain
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ An object that represents a Transport Layer Security (TLS validation context tru
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.TlsValidationContextFileTrust'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

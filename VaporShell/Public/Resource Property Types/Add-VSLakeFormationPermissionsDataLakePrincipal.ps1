@@ -1,18 +1,15 @@
 function Add-VSLakeFormationPermissionsDataLakePrincipal {
     <#
     .SYNOPSIS
-        Adds an AWS::LakeFormation::Permissions.DataLakePrincipal resource property to the template. The Lake Formation principal.
+        Adds an AWS::LakeFormation::Permissions.DataLakePrincipal resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::LakeFormation::Permissions.DataLakePrincipal resource property to the template.
-The Lake Formation principal.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html
 
     .PARAMETER DataLakePrincipalIdentifier
-        An identifier for the Lake Formation principal.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html#cfn-lakeformation-permissions-datalakeprincipal-datalakeprincipalidentifier
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ The Lake Formation principal.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.LakeFormation.Permissions.DataLakePrincipal')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The Lake Formation principal.
                 }
             })]
         $DataLakePrincipalIdentifier
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The Lake Formation principal.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.LakeFormation.Permissions.DataLakePrincipal'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

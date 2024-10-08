@@ -1,18 +1,15 @@
 function Add-VSIoTAccountAuditConfigurationAuditCheckConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::AccountAuditConfiguration.AuditCheckConfiguration resource property to the template. Which audit checks are enabled and disabled for this account.
+        Adds an AWS::IoT::AccountAuditConfiguration.AuditCheckConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::AccountAuditConfiguration.AuditCheckConfiguration resource property to the template.
-Which audit checks are enabled and disabled for this account.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html
 
     .PARAMETER Enabled
-        True if this audit check is enabled for this account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfiguration-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -20,11 +17,13 @@ Which audit checks are enabled and disabled for this account.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.AccountAuditConfiguration.AuditCheckConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Which audit checks are enabled and disabled for this account.
                 }
             })]
         $Enabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Which audit checks are enabled and disabled for this account.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.AccountAuditConfiguration.AuditCheckConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

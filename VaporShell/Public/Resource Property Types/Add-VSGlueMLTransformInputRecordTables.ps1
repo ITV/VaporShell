@@ -1,18 +1,15 @@
 function Add-VSGlueMLTransformInputRecordTables {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::MLTransform.InputRecordTables resource property to the template. A list of AWS Glue table definitions used by the transform.
+        Adds an AWS::Glue::MLTransform.InputRecordTables resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::MLTransform.InputRecordTables resource property to the template.
-A list of AWS Glue table definitions used by the transform.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html
 
     .PARAMETER GlueTables
-        The database and table in the AWS Glue Data Catalog that is used for input or output data.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html#cfn-glue-mltransform-inputrecordtables-gluetables
         ItemType: GlueTables
@@ -21,11 +18,13 @@ A list of AWS Glue table definitions used by the transform.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.MLTransform.InputRecordTables')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.MLTransform.GlueTables"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -36,11 +35,14 @@ A list of AWS Glue table definitions used by the transform.
                 }
             })]
         $GlueTables
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -50,6 +52,7 @@ A list of AWS Glue table definitions used by the transform.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.MLTransform.InputRecordTables'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

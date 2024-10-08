@@ -1,18 +1,15 @@
 function Add-VSLexBotSampleValue {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SampleValue resource property to the template. Defines one of the values for a slot type.
+        Adds an AWS::Lex::Bot.SampleValue resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SampleValue resource property to the template.
-Defines one of the values for a slot type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-samplevalue.html
 
     .PARAMETER Value
-        The value that can be used for a slot type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-samplevalue.html#cfn-lex-bot-samplevalue-value
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Defines one of the values for a slot type.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.SampleValue')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Defines one of the values for a slot type.
                 }
             })]
         $Value
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Defines one of the values for a slot type.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.SampleValue'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSQuickSightThemeFont {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.Font resource property to the template. <a name="aws-properties-quicksight-theme-font-description"></a>The Font property type specifies Not currently supported by AWS CloudFormation. for an AWS::QuickSight::Theme: aws-resource-quicksight-theme.md.
+        Adds an AWS::QuickSight::Theme.Font resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.Font resource property to the template.
-<a name="aws-properties-quicksight-theme-font-description"></a>The Font property type specifies Not currently supported by AWS CloudFormation. for an AWS::QuickSight::Theme: aws-resource-quicksight-theme.md.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html
 
     .PARAMETER FontFamily
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html#cfn-quicksight-theme-font-fontfamily
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ function Add-VSQuickSightThemeFont {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Theme.Font')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ function Add-VSQuickSightThemeFont {
                 }
             })]
         $FontFamily
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ function Add-VSQuickSightThemeFont {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Theme.Font'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

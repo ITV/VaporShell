@@ -1,32 +1,25 @@
 function Add-VSQuickSightDataSourceAuroraPostgreSqlParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.AuroraPostgreSqlParameters resource property to the template. Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
+        Adds an AWS::QuickSight::DataSource.AuroraPostgreSqlParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.AuroraPostgreSqlParameters resource property to the template.
-Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html
 
     .PARAMETER Port
-        The port that Amazon Aurora PostgreSQL is listening on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Database
-        The Amazon Aurora PostgreSQL database to connect to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Host
-        The Amazon Aurora PostgreSQL-Compatible host to connect to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host
         UpdateType: Mutable
         PrimitiveType: String
@@ -34,11 +27,13 @@ Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.AuroraPostgreSqlParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
                 }
             })]
         $Port,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +56,8 @@ Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
                 }
             })]
         $Database,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +68,14 @@ Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
                 }
             })]
         $Host
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +85,7 @@ Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSource.AuroraPostgreSqlParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

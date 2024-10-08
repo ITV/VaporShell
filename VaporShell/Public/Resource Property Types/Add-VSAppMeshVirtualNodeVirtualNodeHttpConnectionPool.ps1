@@ -1,25 +1,20 @@
 function Add-VSAppMeshVirtualNodeVirtualNodeHttpConnectionPool {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.VirtualNodeHttpConnectionPool resource property to the template. An object that represents a type of connection pool.
+        Adds an AWS::AppMesh::VirtualNode.VirtualNodeHttpConnectionPool resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.VirtualNodeHttpConnectionPool resource property to the template.
-An object that represents a type of connection pool.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html
 
     .PARAMETER MaxConnections
-        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxconnections
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER MaxPendingRequests
-        Number of overflowing requests after max_connections Envoy will queue to upstream cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxpendingrequests
         PrimitiveType: Integer
         UpdateType: Mutable
@@ -27,11 +22,13 @@ An object that represents a type of connection pool.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.VirtualNodeHttpConnectionPool')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ An object that represents a type of connection pool.
                 }
             })]
         $MaxConnections,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ An object that represents a type of connection pool.
                 }
             })]
         $MaxPendingRequests
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ An object that represents a type of connection pool.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.VirtualNodeHttpConnectionPool'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

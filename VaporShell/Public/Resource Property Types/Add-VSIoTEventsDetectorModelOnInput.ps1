@@ -1,18 +1,15 @@
 function Add-VSIoTEventsDetectorModelOnInput {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.OnInput resource property to the template. Specifies the actions performed when the condition evaluates to TRUE.
+        Adds an AWS::IoTEvents::DetectorModel.OnInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.OnInput resource property to the template.
-Specifies the actions performed when the condition evaluates to TRUE.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html
 
     .PARAMETER Events
-        Specifies the actions performed when the condition evaluates to TRUE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
         UpdateType: Mutable
         Type: List
@@ -20,8 +17,6 @@ Specifies the actions performed when the condition evaluates to TRUE.
         DuplicatesAllowed: True
 
     .PARAMETER TransitionEvents
-        Specifies the actions performed, and the next state entered, when a condition evaluates to TRUE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
         UpdateType: Mutable
         Type: List
@@ -31,11 +26,13 @@ Specifies the actions performed when the condition evaluates to TRUE.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.OnInput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTEvents.DetectorModel.Event"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,7 +43,8 @@ Specifies the actions performed when the condition evaluates to TRUE.
                 }
             })]
         $Events,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTEvents.DetectorModel.TransitionEvent"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,11 +55,14 @@ Specifies the actions performed when the condition evaluates to TRUE.
                 }
             })]
         $TransitionEvents
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +72,7 @@ Specifies the actions performed when the condition evaluates to TRUE.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTEvents.DetectorModel.OnInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

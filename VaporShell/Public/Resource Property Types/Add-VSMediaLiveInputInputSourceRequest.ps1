@@ -1,34 +1,25 @@
 function Add-VSMediaLiveInputInputSourceRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.InputSourceRequest resource property to the template. Settings that apply only if the input is a pull type of input.
+        Adds an AWS::MediaLive::Input.InputSourceRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.InputSourceRequest resource property to the template.
-Settings that apply only if the input is a pull type of input.
-
-The parent of this entity is Input.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html
 
     .PARAMETER Username
-        The user name to connect to the upstream system. The user name applies only if the upstream system requires credentials.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-username
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER PasswordParam
-        The password parameter that holds the password for accessing the upstream system. The password parameter applies only if the upstream system requires credentials.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-passwordparam
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Url
-        For a pull input, the URL where MediaLive pulls the source content from.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-url
         PrimitiveType: String
         UpdateType: Mutable
@@ -36,13 +27,15 @@ The parent of this entity is Input.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Input.InputSourceRequest')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordParam")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordParam")]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,7 +46,8 @@ The parent of this entity is Input.
                 }
             })]
         $Username,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,7 +58,8 @@ The parent of this entity is Input.
                 }
             })]
         $PasswordParam,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,11 +70,14 @@ The parent of this entity is Input.
                 }
             })]
         $Url
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -89,6 +87,7 @@ The parent of this entity is Input.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Input.InputSourceRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

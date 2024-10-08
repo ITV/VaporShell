@@ -1,25 +1,20 @@
 function Add-VSACMPCACertificateExtendedKeyUsage {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::Certificate.ExtendedKeyUsage resource property to the template. Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the KeyUsage extension.
+        Adds an AWS::ACMPCA::Certificate.ExtendedKeyUsage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ACMPCA::Certificate.ExtendedKeyUsage resource property to the template.
-Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the KeyUsage extension.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
 
     .PARAMETER ExtendedKeyUsageType
-        Specifies a standard ExtendedKeyUsage as defined as in RFC 5280: https://tools.ietf.org/html/rfc5280#section-4.2.1.12.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ExtendedKeyUsageObjectIdentifier
-        Specifies a custom ExtendedKeyUsage with an object identifier OID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
         UpdateType: Immutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ Specifies additional purposes for which the certified public key may be used oth
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.ExtendedKeyUsage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Specifies additional purposes for which the certified public key may be used oth
                 }
             })]
         $ExtendedKeyUsageType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Specifies additional purposes for which the certified public key may be used oth
                 }
             })]
         $ExtendedKeyUsageObjectIdentifier
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Specifies additional purposes for which the certified public key may be used oth
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ACMPCA.Certificate.ExtendedKeyUsage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

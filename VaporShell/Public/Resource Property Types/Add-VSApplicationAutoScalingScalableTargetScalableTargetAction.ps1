@@ -1,37 +1,34 @@
 function Add-VSApplicationAutoScalingScalableTargetScalableTargetAction {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction resource property to the template. ScalableTargetAction specifies the minimum and maximum capacity for the ScalableTargetAction property of the AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html property type.
+        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction resource property to the template.
-ScalableTargetAction specifies the minimum and maximum capacity for the ScalableTargetAction property of the AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html
 
-    .PARAMETER MaxCapacity
-        The maximum capacity.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-maxcapacity
-        PrimitiveType: Integer
-        UpdateType: Mutable
-
     .PARAMETER MinCapacity
-        The minimum capacity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-mincapacity
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER MaxCapacity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-maxcapacity
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalableTarget.ScalableTargetAction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,8 +38,9 @@ ScalableTargetAction specifies the minimum and maximum capacity for the Scalable
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MaxCapacity,
-        [parameter(Mandatory = $false)]
+        $MinCapacity,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,12 +50,15 @@ ScalableTargetAction specifies the minimum and maximum capacity for the Scalable
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MinCapacity
+        $MaxCapacity
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ ScalableTargetAction specifies the minimum and maximum capacity for the Scalable
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApplicationAutoScaling.ScalableTarget.ScalableTargetAction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

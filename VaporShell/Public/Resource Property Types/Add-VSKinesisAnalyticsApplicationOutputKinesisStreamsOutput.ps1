@@ -1,25 +1,20 @@
 function Add-VSKinesisAnalyticsApplicationOutputKinesisStreamsOutput {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalytics::ApplicationOutput.KinesisStreamsOutput resource property to the template. When configuring application output, identifies an Amazon Kinesis stream as the destination. You provide the stream Amazon Resource Name (ARN and also an IAM role ARN that Amazon Kinesis Analytics can use to write to the stream on your behalf.
+        Adds an AWS::KinesisAnalytics::ApplicationOutput.KinesisStreamsOutput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalytics::ApplicationOutput.KinesisStreamsOutput resource property to the template.
-When configuring application output, identifies an Amazon Kinesis stream as the destination. You provide the stream Amazon Resource Name (ARN and also an IAM role ARN that Amazon Kinesis Analytics can use to write to the stream on your behalf.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisstreamsoutput.html
 
     .PARAMETER ResourceARN
-        ARN of the destination Amazon Kinesis stream to write to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisstreamsoutput.html#cfn-kinesisanalytics-applicationoutput-kinesisstreamsoutput-resourcearn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RoleARN
-        ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. You need to grant the necessary permissions to this role.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisstreamsoutput.html#cfn-kinesisanalytics-applicationoutput-kinesisstreamsoutput-rolearn
         PrimitiveType: String
         UpdateType: Mutable
@@ -27,11 +22,13 @@ When configuring application output, identifies an Amazon Kinesis stream as the 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalytics.ApplicationOutput.KinesisStreamsOutput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ When configuring application output, identifies an Amazon Kinesis stream as the 
                 }
             })]
         $ResourceARN,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ When configuring application output, identifies an Amazon Kinesis stream as the 
                 }
             })]
         $RoleARN
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ When configuring application output, identifies an Amazon Kinesis stream as the 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalytics.ApplicationOutput.KinesisStreamsOutput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

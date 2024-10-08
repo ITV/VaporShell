@@ -1,14 +1,10 @@
 function New-VSCodeDeployDeploymentGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup resource to the template. The AWS::CodeDeploy::DeploymentGroup resource creates an AWS CodeDeploy deployment group that specifies which instances your application revisions are deployed to, along with other deployment options. For more information, see CreateDeploymentGroup: https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html in the *CodeDeploy API Reference*.
+        Adds an AWS::CodeDeploy::DeploymentGroup resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::CodeDeploy::DeploymentGroup resource to the template. The AWS::CodeDeploy::DeploymentGroup resource creates an AWS CodeDeploy deployment group that specifies which instances your application revisions are deployed to, along with other deployment options. For more information, see CreateDeploymentGroup: https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html in the *CodeDeploy API Reference*.
-
-**Note**
-
-Amazon ECS blue/green deployments through CodeDeploy do not use the AWS::CodeDeploy::DeploymentGroup resource. To perform Amazon ECS blue/green deployments, use the AWS::CodeDeploy::BlueGreen hook. See Perform Amazon ECS blue/green deployments through CodeDeploy using AWS CloudFormation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html for more information.
+        Adds an AWS::CodeDeploy::DeploymentGroup resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html
@@ -17,29 +13,21 @@ Amazon ECS blue/green deployments through CodeDeploy do not use the AWS::CodeDep
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AlarmConfiguration
-        Information about the Amazon CloudWatch alarms that are associated with the deployment group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-alarmconfiguration
         Type: AlarmConfiguration
         UpdateType: Mutable
 
     .PARAMETER ApplicationName
-        The name of an existing CodeDeploy application to associate this deployment group with.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-applicationname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER AutoRollbackConfiguration
-        Information about the automatic rollback configuration that is associated with the deployment group. If you specify this property, don't specify the Deployment property.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autorollbackconfiguration
         Type: AutoRollbackConfiguration
         UpdateType: Mutable
 
     .PARAMETER AutoScalingGroups
-        A list of associated Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created. Duplicates are not allowed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autoscalinggroups
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -47,46 +35,31 @@ Amazon ECS blue/green deployments through CodeDeploy do not use the AWS::CodeDep
         UpdateType: Mutable
 
     .PARAMETER BlueGreenDeploymentConfiguration
-        Information about blue/green deployment options for a deployment group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration
         Type: BlueGreenDeploymentConfiguration
         UpdateType: Mutable
 
     .PARAMETER Deployment
-        The application revision to deploy to this deployment group. If you specify this property, your target application revision is deployed as soon as the provisioning process is complete. If you specify this property, don't specify the AutoRollbackConfiguration property.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deployment
         Type: Deployment
         UpdateType: Mutable
 
     .PARAMETER DeploymentConfigName
-        A deployment configuration name or a predefined configuration name. With predefined configurations, you can deploy application revisions to one instance at a time CodeDeployDefault.OneAtATime, half of the instances at a time CodeDeployDefault.HalfAtATime, or all the instances at once CodeDeployDefault.AllAtOnce. For more information and valid values, see Working with Deployment Configurations: https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html in the *AWS CodeDeploy User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentconfigname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DeploymentGroupName
-        A name for the deployment group. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name. For more information, see Name Type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentgroupname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER DeploymentStyle
-        Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer.
-If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
-For blue/green deployments, AWS CloudFormation supports deployments on Lambda compute platforms only. You can perform Amazon ECS blue/green deployments using AWS::CodeDeploy::BlueGreen  hook. See Perform Amazon ECS blue/green deployments through CodeDeploy using AWS CloudFormation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html for more information.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentstyle
         Type: DeploymentStyle
         UpdateType: Mutable
 
     .PARAMETER ECSServices
-        The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format <clustername>:<servicename>.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ecsservices
         DuplicatesAllowed: False
         ItemType: ECSService
@@ -94,9 +67,6 @@ For blue/green deployments, AWS CloudFormation supports deployments on Lambda co
         UpdateType: Mutable
 
     .PARAMETER Ec2TagFilters
-        The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed.
-You can specify EC2TagFilters or Ec2TagSet, but not both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagfilters
         DuplicatesAllowed: False
         ItemType: EC2TagFilter
@@ -104,23 +74,16 @@ You can specify EC2TagFilters or Ec2TagSet, but not both.
         UpdateType: Mutable
 
     .PARAMETER Ec2TagSet
-        Information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagset
         Type: EC2TagSet
         UpdateType: Mutable
 
     .PARAMETER LoadBalancerInfo
-        Information about the load balancer to use in a deployment. For more information, see  Integrating CodeDeploy with Elastic Load Balancing: https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html in the *AWS CodeDeploy User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo
         Type: LoadBalancerInfo
         UpdateType: Mutable
 
     .PARAMETER OnPremisesInstanceTagFilters
-        The on-premises instance tags already applied to on-premises instances that you want to include in the deployment group. CodeDeploy includes all on-premises instances identified by any of the tags you specify in this deployment group. To register on-premises instances with CodeDeploy, see Working with On-Premises Instances for CodeDeploy: https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-on-premises.html in the *AWS CodeDeploy User Guide*. Duplicates are not allowed.
-You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but not both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters
         DuplicatesAllowed: False
         ItemType: TagFilter
@@ -128,9 +91,6 @@ You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but no
         UpdateType: Mutable
 
     .PARAMETER OnPremisesTagSet
-        Information about groups of tags applied to on-premises instances. The deployment group includes only on-premises instances identified by all the tag groups.
-You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but not both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisestagset
         Type: OnPremisesTagSet
         UpdateType: Mutable
@@ -141,9 +101,6 @@ You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but no
         UpdateType: Mutable
 
     .PARAMETER ServiceRoleArn
-        A service role Amazon Resource Name ARN that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see Create a Service Role for AWS CodeDeploy: https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html in the *AWS CodeDeploy User Guide*.
-In some cases, you might need to add a dependency on the service role's policy. For more information, see IAM role policy in DependsOn Attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-servicerolearn
         PrimitiveType: String
         UpdateType: Mutable
@@ -155,9 +112,12 @@ In some cases, you might need to add a dependency on the service role's policy. 
         Type: List
         UpdateType: Mutable
 
-    .PARAMETER TriggerConfigurations
-        Information about triggers associated with the deployment group. Duplicates are not allowed
+    .PARAMETER TerminationHookEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-terminationhookenabled
+        PrimitiveType: Boolean
+        UpdateType: Mutable
 
+    .PARAMETER TriggerConfigurations
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-triggerconfigurations
         DuplicatesAllowed: False
         ItemType: TriggerConfig
@@ -194,28 +154,29 @@ In some cases, you might need to add a dependency on the service role's policy. 
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -226,9 +187,11 @@ In some cases, you might need to add a dependency on the service role's policy. 
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AlarmConfiguration,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -239,15 +202,20 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $ApplicationName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AutoRollbackConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AutoScalingGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BlueGreenDeploymentConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Deployment,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -258,7 +226,8 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $DeploymentConfigName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -269,9 +238,11 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $DeploymentGroupName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DeploymentStyle,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeDeploy.DeploymentGroup.ECSService"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -282,7 +253,8 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $ECSServices,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -293,11 +265,14 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $Ec2TagFilters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Ec2TagSet,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LoadBalancerInfo,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeDeploy.DeploymentGroup.TagFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -308,9 +283,11 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $OnPremisesInstanceTagFilters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OnPremisesTagSet,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -321,7 +298,8 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $OutdatedInstancesStrategy,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -332,10 +310,24 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $ServiceRoleArn,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TerminationHookEnabled,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeDeploy.DeploymentGroup.TriggerConfig"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -346,7 +338,8 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $TriggerConfigurations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -357,27 +350,28 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -388,9 +382,15 @@ In some cases, you might need to add a dependency on the service role's policy. 
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -398,6 +398,7 @@ In some cases, you might need to add a dependency on the service role's policy. 
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -465,6 +466,7 @@ In some cases, you might need to add a dependency on the service role's policy. 
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeDeploy.DeploymentGroup'

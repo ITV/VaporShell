@@ -1,24 +1,15 @@
 function Add-VSGreengrassLoggerDefinitionLoggerDefinitionVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::LoggerDefinition.LoggerDefinitionVersion resource property to the template. <a name="aws-properties-greengrass-loggerdefinition-loggerdefinitionversion-description"></a> A logger definition version contains a list of loggers: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html.
+        Adds an AWS::Greengrass::LoggerDefinition.LoggerDefinitionVersion resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::LoggerDefinition.LoggerDefinitionVersion resource property to the template.
-<a name="aws-properties-greengrass-loggerdefinition-loggerdefinitionversion-description"></a> A logger definition version contains a list of loggers: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html.
-
-**Note**
-
-After you create a logger definition version that contains the loggers you want to deploy, you must add it to your group version. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html.
-
-<a name="aws-properties-greengrass-loggerdefinition-loggerdefinitionversion-inheritance"></a> In an AWS CloudFormation template, LoggerDefinitionVersion is the property type of the InitialVersion property in the https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html
 
     .PARAMETER Loggers
-        The loggers in this version.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html#cfn-greengrass-loggerdefinition-loggerdefinitionversion-loggers
         ItemType: Logger
@@ -27,11 +18,13 @@ After you create a logger definition version that contains the loggers you want 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.LoggerDefinition.LoggerDefinitionVersion')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Greengrass.LoggerDefinition.Logger"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,11 +35,14 @@ After you create a logger definition version that contains the loggers you want 
                 }
             })]
         $Loggers
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +52,7 @@ After you create a logger definition version that contains the loggers you want 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.LoggerDefinition.LoggerDefinitionVersion'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

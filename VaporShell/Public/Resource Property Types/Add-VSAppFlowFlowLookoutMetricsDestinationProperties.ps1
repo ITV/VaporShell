@@ -1,18 +1,15 @@
 function Add-VSAppFlowFlowLookoutMetricsDestinationProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.LookoutMetricsDestinationProperties resource property to the template. The properties that are applied when Amazon Lookout for Metrics is used as a destination.
+        Adds an AWS::AppFlow::Flow.LookoutMetricsDestinationProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.LookoutMetricsDestinationProperties resource property to the template.
-The properties that are applied when Amazon Lookout for Metrics is used as a destination.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html
 
     .PARAMETER Object
-        The object specified in the Amazon Lookout for Metrics flow destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The properties that are applied when Amazon Lookout for Metrics is used as a des
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.Flow.LookoutMetricsDestinationProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The properties that are applied when Amazon Lookout for Metrics is used as a des
                 }
             })]
         $Object
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The properties that are applied when Amazon Lookout for Metrics is used as a des
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.Flow.LookoutMetricsDestinationProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

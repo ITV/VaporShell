@@ -1,27 +1,20 @@
 function Add-VSMediaLiveChannelInputChannelLevel {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.InputChannelLevel resource property to the template. The setting to remix the audio.
+        Adds an AWS::MediaLive::Channel.InputChannelLevel resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.InputChannelLevel resource property to the template.
-The setting to remix the audio.
-
-The parent of this entity is AudioChannelMappings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html
 
     .PARAMETER InputChannel
-        The index of the input channel that is used as a source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html#cfn-medialive-channel-inputchannellevel-inputchannel
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Gain
-        The remixing value. Units are in dB, and acceptable values are within the range from -60 mute to 6 dB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html#cfn-medialive-channel-inputchannellevel-gain
         PrimitiveType: Integer
         UpdateType: Mutable
@@ -29,11 +22,13 @@ The parent of this entity is AudioChannelMappings.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.InputChannelLevel')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +39,8 @@ The parent of this entity is AudioChannelMappings.
                 }
             })]
         $InputChannel,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +51,14 @@ The parent of this entity is AudioChannelMappings.
                 }
             })]
         $Gain
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +68,7 @@ The parent of this entity is AudioChannelMappings.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.InputChannelLevel'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

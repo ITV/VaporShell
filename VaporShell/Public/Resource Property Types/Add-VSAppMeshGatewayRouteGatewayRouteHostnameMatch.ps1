@@ -1,25 +1,20 @@
 function Add-VSAppMeshGatewayRouteGatewayRouteHostnameMatch {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch resource property to the template. An object representing the gateway route host name to match.
+        Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch resource property to the template.
-An object representing the gateway route host name to match.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html
 
     .PARAMETER Suffix
-        The specified ending characters of the host name to match on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html#cfn-appmesh-gatewayroute-gatewayroutehostnamematch-suffix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Exact
-        The exact host name to match on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html#cfn-appmesh-gatewayroute-gatewayroutehostnamematch-exact
         PrimitiveType: String
         UpdateType: Mutable
@@ -27,11 +22,13 @@ An object representing the gateway route host name to match.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteHostnameMatch')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ An object representing the gateway route host name to match.
                 }
             })]
         $Suffix,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ An object representing the gateway route host name to match.
                 }
             })]
         $Exact
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ An object representing the gateway route host name to match.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteHostnameMatch'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

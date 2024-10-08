@@ -1,22 +1,10 @@
 function New-VSACMPCAPermission {
     <#
     .SYNOPSIS
-        Adds an AWS::ACMPCA::Permission resource to the template. Grants permissions to the AWS Certificate Manager (ACM service principal (acm.amazonaws.com to perform IssueCertificate: https://docs.aws.amazon.com/latest/APIReference/API_IssueCertificate.html, GetCertificate: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html, and ListPermissions: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListPermissions.html actions on a CA. These actions are needed for the ACM principal to renew private PKI certificates requested through ACM and residing in the same AWS account as the CA.
+        Adds an AWS::ACMPCA::Permission resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::ACMPCA::Permission resource to the template. Grants permissions to the AWS Certificate Manager (ACM service principal (acm.amazonaws.com to perform IssueCertificate: https://docs.aws.amazon.com/latest/APIReference/API_IssueCertificate.html, GetCertificate: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html, and ListPermissions: https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListPermissions.html actions on a CA. These actions are needed for the ACM principal to renew private PKI certificates requested through ACM and residing in the same AWS account as the CA.
-
-**About permissions**
-
-+ If the private CA and the certificates it issues reside in the same account, you can use AWS::ACMPCA::Permission to grant permissions for ACM to carry out automatic certificate renewals.
-
-+ For automatic certificate renewal to succeed, the ACM service principal needs permissions to create, retrieve, and list permissions.
-
-+ If the private CA and the ACM certificates reside in different accounts, then permissions cannot be used to enable automatic renewals. Instead, the ACM certificate owner must set up a resource-based policy to enable cross-account issuance and renewals. For more information, see Using a Resource Based Policy with ACM Private CA: https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html.
-
-**Note**
-
-To update an AWS::ACMPCA::Permission resource, you must first delete the existing permission resource from the CloudFormation stack and then create a new permission resource with updated properties.
+        Adds an AWS::ACMPCA::Permission resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html
@@ -24,32 +12,25 @@ To update an AWS::ACMPCA::Permission resource, you must first delete the existin
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER Actions
-        The private CA actions that can be performed by the designated AWS service. Supported actions are IssueCertificate, GetCertificate, and ListPermissions.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html#cfn-acmpca-permission-actions
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER CertificateAuthorityArn
-        The Amazon Resource Number ARN of the private CA from which the permission was issued.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html#cfn-acmpca-permission-certificateauthorityarn
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER Principal
-        The AWS service or entity that holds the permission. At this time, the only valid principal is acm.amazonaws.com.
+    .PARAMETER Actions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html#cfn-acmpca-permission-actions
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html#cfn-acmpca-permission-principal
+    .PARAMETER SourceAccount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html#cfn-acmpca-permission-sourceaccount
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER SourceAccount
-        The ID of the account that assigned the permission.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html#cfn-acmpca-permission-sourceaccount
+    .PARAMETER Principal
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html#cfn-acmpca-permission-principal
         UpdateType: Immutable
         PrimitiveType: String
 
@@ -83,28 +64,29 @@ To update an AWS::ACMPCA::Permission resource, you must first delete the existin
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ACMPCA.Permission')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -115,9 +97,8 @@ To update an AWS::ACMPCA::Permission resource, you must first delete the existin
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        $Actions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -128,18 +109,11 @@ To update an AWS::ACMPCA::Permission resource, you must first delete the existin
                 }
             })]
         $CertificateAuthorityArn,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Principal,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $true)]
+        $Actions,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -150,7 +124,20 @@ To update an AWS::ACMPCA::Permission resource, you must first delete the existin
                 }
             })]
         $SourceAccount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Principal,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -161,27 +148,28 @@ To update an AWS::ACMPCA::Permission resource, you must first delete the existin
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -192,9 +180,15 @@ To update an AWS::ACMPCA::Permission resource, you must first delete the existin
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -202,6 +196,7 @@ To update an AWS::ACMPCA::Permission resource, you must first delete the existin
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -239,6 +234,7 @@ To update an AWS::ACMPCA::Permission resource, you must first delete the existin
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ACMPCA.Permission'

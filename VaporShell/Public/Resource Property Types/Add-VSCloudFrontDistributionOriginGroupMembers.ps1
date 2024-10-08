@@ -1,25 +1,20 @@
 function Add-VSCloudFrontDistributionOriginGroupMembers {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.OriginGroupMembers resource property to the template. A complex data type for the origins included in an origin group.
+        Adds an AWS::CloudFront::Distribution.OriginGroupMembers resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.OriginGroupMembers resource property to the template.
-A complex data type for the origins included in an origin group.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html
 
     .PARAMETER Quantity
-        The number of origins in an origin group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Items
-        Items origins in an origin group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
         UpdateType: Mutable
         Type: List
@@ -29,11 +24,13 @@ A complex data type for the origins included in an origin group.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.OriginGroupMembers')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +41,8 @@ A complex data type for the origins included in an origin group.
                 }
             })]
         $Quantity,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudFront.Distribution.OriginGroupMember"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +53,14 @@ A complex data type for the origins included in an origin group.
                 }
             })]
         $Items
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +70,7 @@ A complex data type for the origins included in an origin group.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Distribution.OriginGroupMembers'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

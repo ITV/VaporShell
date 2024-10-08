@@ -1,18 +1,15 @@
 function Add-VSEC2SpotFleetTargetGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.TargetGroup resource property to the template. Describes a load balancer target group.
+        Adds an AWS::EC2::SpotFleet.TargetGroup resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.TargetGroup resource property to the template.
-Describes a load balancer target group.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the target group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html#cfn-ec2-spotfleet-targetgroup-arn
         UpdateType: Immutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Describes a load balancer target group.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.TargetGroup')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Describes a load balancer target group.
                 }
             })]
         $Arn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Describes a load balancer target group.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.SpotFleet.TargetGroup'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

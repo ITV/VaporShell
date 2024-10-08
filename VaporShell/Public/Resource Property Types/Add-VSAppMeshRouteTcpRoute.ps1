@@ -1,32 +1,25 @@
 function Add-VSAppMeshRouteTcpRoute {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.TcpRoute resource property to the template. An object that represents a TCP route type.
+        Adds an AWS::AppMesh::Route.TcpRoute resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.TcpRoute resource property to the template.
-An object that represents a TCP route type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html
 
     .PARAMETER Action
-        The action to take if a match is determined.
-
         Type: TcpRouteAction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-action
         UpdateType: Mutable
 
     .PARAMETER Timeout
-        An object that represents types of timeouts.
-
         Type: TcpTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-timeout
         UpdateType: Mutable
 
     .PARAMETER Match
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Type: TcpRouteMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-match
         UpdateType: Mutable
@@ -34,21 +27,28 @@ An object that represents a TCP route type.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.Route.TcpRoute')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Action,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Timeout,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Match
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +58,7 @@ An object that represents a TCP route type.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.Route.TcpRoute'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,42 +1,39 @@
 function Add-VSAppSyncResolverCachingConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::Resolver.CachingConfig resource property to the template. The caching configuration for a resolver that has caching activated.
+        Adds an AWS::AppSync::Resolver.CachingConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppSync::Resolver.CachingConfig resource property to the template.
-The caching configuration for a resolver that has caching activated.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html
 
     .PARAMETER CachingKeys
-        The caching keys for a resolver that has caching activated.
-Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html#cfn-appsync-resolver-cachingconfig-cachingkeys
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER Ttl
-        The TTL in seconds for a resolver that has caching activated.
-Valid values are 1–3,600 seconds.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html#cfn-appsync-resolver-cachingconfig-ttl
-        PrimitiveType: Double
         UpdateType: Mutable
+        PrimitiveType: Double
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppSync.Resolver.CachingConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $CachingKeys,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,11 +44,14 @@ Valid values are 1–3,600 seconds.
                 }
             })]
         $Ttl
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +61,7 @@ Valid values are 1–3,600 seconds.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppSync.Resolver.CachingConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

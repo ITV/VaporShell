@@ -1,30 +1,20 @@
 function Add-VSCassandraTableEncryptionSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Cassandra::Table.EncryptionSpecification resource property to the template. Specifies the encryption at rest option selected for the table.
+        Adds an AWS::Cassandra::Table.EncryptionSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Cassandra::Table.EncryptionSpecification resource property to the template.
-Specifies the encryption at rest option selected for the table.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html
 
     .PARAMETER EncryptionType
-        The encryption at rest options for the table.
-+ **AWS owned key** default - AWS_OWNED_KMS_KEY
-+ **Customer managed key** - CUSTOMER_MANAGED_KMS_KEY
-**Important**
-If you choose CUSTOMER_MANAGED_KMS_KEY, a kms_key_identifier in the format of a key ARN is required.
-Valid values: CUSTOMER_MANAGED_KMS_KEY | AWS_OWNED_KMS_KEY.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER KmsKeyIdentifier
-        Requires a kms_key_identifier in the format of a key ARN.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
         UpdateType: Mutable
         PrimitiveType: String
@@ -32,11 +22,13 @@ Valid values: CUSTOMER_MANAGED_KMS_KEY | AWS_OWNED_KMS_KEY.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Cassandra.Table.EncryptionSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,7 +39,8 @@ Valid values: CUSTOMER_MANAGED_KMS_KEY | AWS_OWNED_KMS_KEY.
                 }
             })]
         $EncryptionType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,11 +51,14 @@ Valid values: CUSTOMER_MANAGED_KMS_KEY | AWS_OWNED_KMS_KEY.
                 }
             })]
         $KmsKeyIdentifier
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +68,7 @@ Valid values: CUSTOMER_MANAGED_KMS_KEY | AWS_OWNED_KMS_KEY.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Cassandra.Table.EncryptionSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

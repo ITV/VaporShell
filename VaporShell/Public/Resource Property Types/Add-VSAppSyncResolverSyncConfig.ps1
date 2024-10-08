@@ -1,51 +1,39 @@
 function Add-VSAppSyncResolverSyncConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::Resolver.SyncConfig resource property to the template. Describes a Sync configuration for a resolver.
+        Adds an AWS::AppSync::Resolver.SyncConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppSync::Resolver.SyncConfig resource property to the template.
-Describes a Sync configuration for a resolver.
-
-Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html
 
     .PARAMETER ConflictHandler
-        The Conflict Resolution strategy to perform in the event of a conflict.
-+  **OPTIMISTIC_CONCURRENCY**: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
-+  **AUTOMERGE**: Resolve conflicts with the Automerge conflict resolution strategy.
-+  **LAMBDA**: Resolve conflicts with an AWS Lambda function supplied in the LambdaConflictHandlerConfig.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-conflicthandler
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER ConflictDetection
-        The Conflict Detection strategy to use.
-+  **VERSION**: Detect conflicts based on object versions for this resolver.
-+  **NONE**: Do not detect conflicts when invoking this resolver.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-conflictdetection
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER LambdaConflictHandlerConfig
-        The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
-
-        Type: LambdaConflictHandlerConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-lambdaconflicthandlerconfig
         UpdateType: Mutable
+        Type: LambdaConflictHandlerConfig
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppSync.Resolver.SyncConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +44,8 @@ Specifies which Conflict Detection strategy and Resolution strategy to use when 
                 }
             })]
         $ConflictHandler,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,13 +56,17 @@ Specifies which Conflict Detection strategy and Resolution strategy to use when 
                 }
             })]
         $ConflictDetection,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LambdaConflictHandlerConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -83,6 +76,7 @@ Specifies which Conflict Detection strategy and Resolution strategy to use when 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppSync.Resolver.SyncConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSIoTAnalyticsDatasetIotEventsDestinationConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Dataset.IotEventsDestinationConfiguration resource property to the template. Configuration information for delivery of dataset contents to AWS IoT Events.
+        Adds an AWS::IoTAnalytics::Dataset.IotEventsDestinationConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Dataset.IotEventsDestinationConfiguration resource property to the template.
-Configuration information for delivery of dataset contents to AWS IoT Events.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-ioteventsdestinationconfiguration.html
 
     .PARAMETER InputName
-        The name of the AWS IoT Events input to which dataset contents are delivered.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-ioteventsdestinationconfiguration.html#cfn-iotanalytics-dataset-ioteventsdestinationconfiguration-inputname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RoleArn
-        The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-ioteventsdestinationconfiguration.html#cfn-iotanalytics-dataset-ioteventsdestinationconfiguration-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ Configuration information for delivery of dataset contents to AWS IoT Events.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.IotEventsDestinationConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Configuration information for delivery of dataset contents to AWS IoT Events.
                 }
             })]
         $InputName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Configuration information for delivery of dataset contents to AWS IoT Events.
                 }
             })]
         $RoleArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Configuration information for delivery of dataset contents to AWS IoT Events.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Dataset.IotEventsDestinationConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

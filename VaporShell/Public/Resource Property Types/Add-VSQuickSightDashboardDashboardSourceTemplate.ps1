@@ -1,26 +1,22 @@
 function Add-VSQuickSightDashboardDashboardSourceTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.DashboardSourceTemplate resource property to the template. Dashboard source template.
+        Adds an AWS::QuickSight::Dashboard.DashboardSourceTemplate resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.DashboardSourceTemplate resource property to the template.
-Dashboard source template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html
 
     .PARAMETER DataSetReferences
-        Dataset references.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
         UpdateType: Mutable
         Type: List
         ItemType: DataSetReference
+        DuplicatesAllowed: True
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
         UpdateType: Mutable
         PrimitiveType: String
@@ -28,11 +24,13 @@ Dashboard source template.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DashboardSourceTemplate')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.DataSetReference"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +41,8 @@ Dashboard source template.
                 }
             })]
         $DataSetReferences,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,11 +53,14 @@ Dashboard source template.
                 }
             })]
         $Arn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +70,7 @@ Dashboard source template.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.DashboardSourceTemplate'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSEC2SpotFleetMemoryMiBRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.MemoryMiBRequest resource property to the template. The minimum and maximum amount of memory, in MiB.
+        Adds an AWS::EC2::SpotFleet.MemoryMiBRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.MemoryMiBRequest resource property to the template.
-The minimum and maximum amount of memory, in MiB.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorymibrequest.html
 
     .PARAMETER Min
-        The minimum amount of memory, in MiB. To specify no minimum limit, specify 0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorymibrequest.html#cfn-ec2-spotfleet-memorymibrequest-min
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Max
-        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorymibrequest.html#cfn-ec2-spotfleet-memorymibrequest-max
         UpdateType: Immutable
         PrimitiveType: Integer
@@ -27,11 +22,13 @@ The minimum and maximum amount of memory, in MiB.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.MemoryMiBRequest')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The minimum and maximum amount of memory, in MiB.
                 }
             })]
         $Min,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The minimum and maximum amount of memory, in MiB.
                 }
             })]
         $Max
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The minimum and maximum amount of memory, in MiB.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.SpotFleet.MemoryMiBRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

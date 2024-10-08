@@ -1,18 +1,15 @@
 function Add-VSLexBotVersionBotVersionLocaleDetails {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotVersion.BotVersionLocaleDetails resource property to the template. The version of a bot used for a bot locale.
+        Adds an AWS::Lex::BotVersion.BotVersionLocaleDetails resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::BotVersion.BotVersionLocaleDetails resource property to the template.
-The version of a bot used for a bot locale.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html
 
     .PARAMETER SourceBotVersion
-        The version of a bot used for a bot locale.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html#cfn-lex-botversion-botversionlocaledetails-sourcebotversion
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The version of a bot used for a bot locale.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.BotVersion.BotVersionLocaleDetails')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The version of a bot used for a bot locale.
                 }
             })]
         $SourceBotVersion
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The version of a bot used for a bot locale.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.BotVersion.BotVersionLocaleDetails'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

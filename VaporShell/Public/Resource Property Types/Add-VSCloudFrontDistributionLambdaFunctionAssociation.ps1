@@ -1,37 +1,25 @@
 function Add-VSCloudFrontDistributionLambdaFunctionAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.LambdaFunctionAssociation resource property to the template. A complex type that contains a Lambda@Edge function association.
+        Adds an AWS::CloudFront::Distribution.LambdaFunctionAssociation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.LambdaFunctionAssociation resource property to the template.
-A complex type that contains a Lambda@Edge function association.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html
 
     .PARAMETER IncludeBody
-        A flag that allows a Lambda@Edge function to have read access to the body content. For more information, see Accessing the Request Body by Choosing the Include Body Option: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html in the Amazon CloudFront Developer Guide.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER EventType
-        Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:
-+  viewer-request: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
-+  origin-request: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
-+  origin-response: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
-+  viewer-response: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
-If the origin returns an HTTP status code other than HTTP 200 OK, the function doesn't execute.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER LambdaFunctionARN
-        The ARN of the Lambda@Edge function. You must specify the ARN of a function version; you can't specify an alias or $LATEST.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
         UpdateType: Mutable
         PrimitiveType: String
@@ -39,11 +27,13 @@ If the origin returns an HTTP status code other than HTTP 200 OK, the function d
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.LambdaFunctionAssociation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,7 +44,8 @@ If the origin returns an HTTP status code other than HTTP 200 OK, the function d
                 }
             })]
         $IncludeBody,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,7 +56,8 @@ If the origin returns an HTTP status code other than HTTP 200 OK, the function d
                 }
             })]
         $EventType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,11 +68,14 @@ If the origin returns an HTTP status code other than HTTP 200 OK, the function d
                 }
             })]
         $LambdaFunctionARN
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -90,6 +85,7 @@ If the origin returns an HTTP status code other than HTTP 200 OK, the function d
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Distribution.LambdaFunctionAssociation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,12 +1,10 @@
 function New-VSEC2DHCPOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::DHCPOptions resource to the template. Specifies a set of DHCP options for your VPC.
+        Adds an AWS::EC2::DHCPOptions resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::EC2::DHCPOptions resource to the template. Specifies a set of DHCP options for your VPC.
-
-You must specify at least one of the following properties: DomainNameServers, NetbiosNameServers, NtpServers. If you specify NetbiosNameServers, you must specify NetbiosNodeType.
+        Adds an AWS::EC2::DHCPOptions resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html
@@ -14,50 +12,43 @@ You must specify at least one of the following properties: DomainNameServers, Ne
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DomainName
-        This value is used to complete unqualified DNS hostnames. If you're using AmazonProvidedDNS in us-east-1, specify ec2.internal. If you're using AmazonProvidedDNS in another Region, specify *region*.compute.internal for example, ap-northeast-1.compute.internal. Otherwise, specify a domain name for example, *MyCompany.com*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER DomainNameServers
-        The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS. The default is AmazonProvidedDNS. To have your instance receive a custom DNS hostname as specified in DomainName, you must set this property to a custom DNS server.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
-
     .PARAMETER NetbiosNameServers
-        The IPv4 addresses of up to four NetBIOS name servers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER NetbiosNodeType
-        The NetBIOS node type 1, 2, 4, or 8. We recommend that you specify 2 broadcast and multicast are not currently supported.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
-        UpdateType: Immutable
-        PrimitiveType: Integer
-
     .PARAMETER NtpServers
-        The IPv4 addresses of up to four Network Time Protocol NTP servers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
-    .PARAMETER Tags
-        Any tags assigned to the DHCP options set.
+    .PARAMETER DomainName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+        UpdateType: Immutable
+        PrimitiveType: String
 
+    .PARAMETER Ipv6AddressPreferredLeaseTime
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ipv6addresspreferredleasetime
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
+    .PARAMETER NetbiosNodeType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
+    .PARAMETER DomainNameServers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
         UpdateType: Mutable
         Type: List
@@ -94,28 +85,29 @@ You must specify at least one of the following properties: DomainNameServers, Ne
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.DHCPOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -126,7 +118,14 @@ You must specify at least one of the following properties: DomainNameServers, Ne
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $NetbiosNameServers,
+
+        [Parameter(Mandatory = $false)]
+        $NtpServers,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -137,11 +136,20 @@ You must specify at least one of the following properties: DomainNameServers, Ne
                 }
             })]
         $DomainName,
-        [parameter(Mandatory = $false)]
-        $DomainNameServers,
-        [parameter(Mandatory = $false)]
-        $NetbiosNameServers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Ipv6AddressPreferredLeaseTime,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -152,12 +160,15 @@ You must specify at least one of the following properties: DomainNameServers, Ne
                 }
             })]
         $NetbiosNodeType,
-        [parameter(Mandatory = $false)]
-        $NtpServers,
+
+        [Parameter(Mandatory = $false)]
+        $DomainNameServers,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -168,27 +179,28 @@ You must specify at least one of the following properties: DomainNameServers, Ne
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -199,9 +211,15 @@ You must specify at least one of the following properties: DomainNameServers, Ne
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -209,6 +227,7 @@ You must specify at least one of the following properties: DomainNameServers, Ne
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -231,12 +250,6 @@ You must specify at least one of the following properties: DomainNameServers, Ne
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                DomainNameServers {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DomainNameServers -Value @($DomainNameServers)
-                }
                 NetbiosNameServers {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -248,6 +261,12 @@ You must specify at least one of the following properties: DomainNameServers, Ne
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name NtpServers -Value @($NtpServers)
+                }
+                DomainNameServers {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DomainNameServers -Value @($DomainNameServers)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {
@@ -264,6 +283,7 @@ You must specify at least one of the following properties: DomainNameServers, Ne
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.DHCPOptions'

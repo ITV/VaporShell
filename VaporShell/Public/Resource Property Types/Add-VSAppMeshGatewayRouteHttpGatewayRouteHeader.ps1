@@ -1,32 +1,25 @@
 function Add-VSAppMeshGatewayRouteHttpGatewayRouteHeader {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader resource property to the template. An object that represents the HTTP header in the gateway route.
+        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader resource property to the template.
-An object that represents the HTTP header in the gateway route.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html
 
     .PARAMETER Invert
-        Specify True to match anything except the match criteria. The default value is False.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-invert
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Name
-        A name for the HTTP header in the gateway route that will be matched on.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Match
-        An object that represents the method and value to match with the header value sent in a request. Specify one match method.
-
         Type: HttpGatewayRouteHeaderMatch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-match
         UpdateType: Mutable
@@ -34,11 +27,13 @@ An object that represents the HTTP header in the gateway route.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.HttpGatewayRouteHeader')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ An object that represents the HTTP header in the gateway route.
                 }
             })]
         $Invert,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,13 +56,17 @@ An object that represents the HTTP header in the gateway route.
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Match
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -76,6 +76,7 @@ An object that represents the HTTP header in the gateway route.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.GatewayRoute.HttpGatewayRouteHeader'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

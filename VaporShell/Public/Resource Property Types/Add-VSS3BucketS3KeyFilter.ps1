@@ -1,36 +1,31 @@
 function Add-VSS3BucketS3KeyFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.S3KeyFilter resource property to the template. A container for object key name prefix and suffix filtering rules.
+        Adds an AWS::S3::Bucket.S3KeyFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.S3KeyFilter resource property to the template.
-A container for object key name prefix and suffix filtering rules.
-
-**Note**
-
-The same type of filter rule cannot be used more than once. For example, you cannot specify two prefix rules.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3keyfilter.html
 
     .PARAMETER Rules
-        A list of containers for the key-value pair that defines the criteria for the filter rule.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules
-        DuplicatesAllowed: False
-        ItemType: FilterRule
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3keyfilter.html#cfn-s3-bucket-s3keyfilter-rules
         UpdateType: Mutable
+        Type: List
+        ItemType: FilterRule
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.S3KeyFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3.Bucket.FilterRule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,11 +36,14 @@ The same type of filter rule cannot be used more than once. For example, you can
                 }
             })]
         $Rules
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -55,6 +53,7 @@ The same type of filter rule cannot be used more than once. For example, you can
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.S3KeyFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

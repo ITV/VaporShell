@@ -1,18 +1,15 @@
 function Add-VSNetworkFirewallRuleGroupStatelessRulesAndCustomActions {
     <#
     .SYNOPSIS
-        Adds an AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions resource property to the template. Stateless inspection criteria. Each stateless rule group uses exactly one of these data types to define its stateless rules.
+        Adds an AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions resource property to the template.
-Stateless inspection criteria. Each stateless rule group uses exactly one of these data types to define its stateless rules.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
 
     .PARAMETER StatelessRules
-        Defines the set of stateless rules for use in a stateless rule group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
         UpdateType: Mutable
         Type: List
@@ -20,8 +17,6 @@ Stateless inspection criteria. Each stateless rule group uses exactly one of the
         DuplicatesAllowed: True
 
     .PARAMETER CustomActions
-        Defines an array of individual custom action definitions that are available for use by the stateless rules in this StatelessRulesAndCustomActions specification. You name each custom action that you define, and then you can use it by name in your stateless rule AWS::NetworkFirewall::RuleGroup RuleDefinition: aws-properties-networkfirewall-rulegroup-ruledefinition.md Actions specification.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
         UpdateType: Mutable
         Type: List
@@ -31,11 +26,13 @@ Stateless inspection criteria. Each stateless rule group uses exactly one of the
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.StatelessRulesAndCustomActions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.StatelessRule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,7 +43,8 @@ Stateless inspection criteria. Each stateless rule group uses exactly one of the
                 }
             })]
         $StatelessRules,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.NetworkFirewall.RuleGroup.CustomAction"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,11 +55,14 @@ Stateless inspection criteria. Each stateless rule group uses exactly one of the
                 }
             })]
         $CustomActions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +72,7 @@ Stateless inspection criteria. Each stateless rule group uses exactly one of the
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.NetworkFirewall.RuleGroup.StatelessRulesAndCustomActions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

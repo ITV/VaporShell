@@ -1,27 +1,25 @@
 function Add-VSMediaLiveChannelFrameCaptureSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.FrameCaptureSettings resource property to the template. The frame capture settings.
+        Adds an AWS::MediaLive::Channel.FrameCaptureSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.FrameCaptureSettings resource property to the template.
-The frame capture settings.
-
-The parent of this entity is VideoCodecSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html
 
-    .PARAMETER CaptureInterval
-        The frequency, in seconds, for capturing frames for inclusion in the output. For example, "10" means capture a frame every 10 seconds.
+    .PARAMETER TimecodeBurninSettings
+        Type: TimecodeBurninSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-timecodeburninsettings
+        UpdateType: Mutable
 
+    .PARAMETER CaptureInterval
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureinterval
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER CaptureIntervalUnits
-        Unit for the frame capture interval.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureintervalunits
         PrimitiveType: String
         UpdateType: Mutable
@@ -29,11 +27,16 @@ The parent of this entity is VideoCodecSettings.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.FrameCaptureSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        $TimecodeBurninSettings,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +47,8 @@ The parent of this entity is VideoCodecSettings.
                 }
             })]
         $CaptureInterval,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +59,14 @@ The parent of this entity is VideoCodecSettings.
                 }
             })]
         $CaptureIntervalUnits
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +76,7 @@ The parent of this entity is VideoCodecSettings.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.FrameCaptureSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSAppFlowConnectorProfileVeevaConnectorProfileProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileProperties resource property to the template. The VeevaConnectorProfileProperties property type specifies the connector-specific profile properties required when using Veeva.
+        Adds an AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileProperties resource property to the template.
-The VeevaConnectorProfileProperties property type specifies the connector-specific profile properties required when using Veeva.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html
 
     .PARAMETER InstanceUrl
-        The location of the Veeva resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The VeevaConnectorProfileProperties property type specifies the connector-specif
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.VeevaConnectorProfileProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The VeevaConnectorProfileProperties property type specifies the connector-specif
                 }
             })]
         $InstanceUrl
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The VeevaConnectorProfileProperties property type specifies the connector-specif
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.ConnectorProfile.VeevaConnectorProfileProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

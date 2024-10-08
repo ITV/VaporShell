@@ -1,25 +1,20 @@
 function Add-VSCloudFrontDistributionDefaultCacheBehavior {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.DefaultCacheBehavior resource property to the template. A complex type that describes the default cache behavior if you don’t specify a CacheBehavior element or if request URLs don’t match any of the values of PathPattern in CacheBehavior elements. You must create exactly one default cache behavior.
+        Adds an AWS::CloudFront::Distribution.DefaultCacheBehavior resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.DefaultCacheBehavior resource property to the template.
-A complex type that describes the default cache behavior if you don’t specify a CacheBehavior element or if request URLs don’t match any of the values of PathPattern in CacheBehavior elements. You must create exactly one default cache behavior.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
 
     .PARAMETER Compress
-        Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify true; if not, specify false. For more information, see Serving Compressed Files: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html in the *Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER FunctionAssociations
-        A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the LIVE stage to associate them with a cache behavior.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
         UpdateType: Mutable
         Type: List
@@ -27,8 +22,6 @@ A complex type that describes the default cache behavior if you don’t specify 
         DuplicatesAllowed: True
 
     .PARAMETER LambdaFunctionAssociations
-        A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
         UpdateType: Mutable
         Type: List
@@ -36,43 +29,26 @@ A complex type that describes the default cache behavior if you don’t specify 
         DuplicatesAllowed: True
 
     .PARAMETER TargetOriginId
-        The value of ID for the origin that you want CloudFront to route requests to when they use the default cache behavior.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ViewerProtocolPolicy
-        The protocol that viewers can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. You can specify the following options:
-+  allow-all: Viewers can use HTTP or HTTPS.
-+  redirect-to-https: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 Moved Permanently to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
-+  https-only: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 Forbidden.
-For more information about requiring the HTTPS protocol, see Requiring HTTPS Between Viewers and CloudFront: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html in the *Amazon CloudFront Developer Guide*.
-The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects’ cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see Managing Cache Expiration: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html in the *Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ResponseHeadersPolicyId
-        The identifier for a response headers policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-responseheaderspolicyid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RealtimeLogConfigArn
-        The Amazon Resource Name ARN of the real-time log configuration that is attached to this cache behavior. For more information, see Real-time logs: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html in the *Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TrustedSigners
-        We recommend using TrustedKeyGroups instead of TrustedSigners.
-A list of AWS account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
-When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in a trusted signer’s AWS account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see Serving private content: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html in the *Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
         UpdateType: Mutable
         Type: List
@@ -80,24 +56,16 @@ When a cache behavior contains trusted signers, CloudFront requires signed URLs 
         DuplicatesAllowed: True
 
     .PARAMETER DefaultTTL
-        This field is deprecated. We recommend that you use the DefaultTTL field in a cache policy instead of this field. For more information, see Creating cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy or Using the managed cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html in the *Amazon CloudFront Developer Guide*.
-The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. For more information, see Managing How Long Content Stays in an Edge Cache Expiration: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html in the *Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER FieldLevelEncryptionId
-        The value of ID for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for the default cache behavior.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TrustedKeyGroups
-        A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
-When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see Serving private content: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html in the *Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
         UpdateType: Mutable
         Type: List
@@ -105,12 +73,6 @@ When a cache behavior contains trusted key groups, CloudFront requires signed UR
         DuplicatesAllowed: True
 
     .PARAMETER AllowedMethods
-        A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:
-+ CloudFront forwards only GET and HEAD requests.
-+ CloudFront forwards only GET, HEAD, and OPTIONS requests.
-+ CloudFront forwards GET, HEAD, OPTIONS, PUT, PATCH, POST, and DELETE requests.
-If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
         UpdateType: Mutable
         Type: List
@@ -118,11 +80,6 @@ If you pick the third choice, you may need to restrict access to your Amazon S3 
         DuplicatesAllowed: True
 
     .PARAMETER CachedMethods
-        A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
-+ CloudFront caches responses to GET and HEAD requests.
-+ CloudFront caches responses to GET, HEAD, and OPTIONS requests.
-If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
         UpdateType: Mutable
         Type: List
@@ -130,51 +87,31 @@ If you pick the second choice for your Amazon S3 Origin, you may need to forward
         DuplicatesAllowed: True
 
     .PARAMETER SmoothStreaming
-        Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify true; if not, specify false. If you specify true for SmoothStreaming, you can still distribute other content using this cache behavior if the content matches the value of PathPattern.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER ForwardedValues
-        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see Working with policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html in the *Amazon CloudFront Developer Guide*.
-If you want to include values in the cache key, use a cache policy. For more information, see Creating cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy or Using the managed cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html in the *Amazon CloudFront Developer Guide*.
-If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see Creating origin request policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy or Using the managed origin request policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html in the *Amazon CloudFront Developer Guide*.
-A DefaultCacheBehavior must include either a CachePolicyId or ForwardedValues. We recommend that you use a CachePolicyId.
-A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
         UpdateType: Mutable
         Type: ForwardedValues
 
     .PARAMETER OriginRequestPolicyId
-        The unique identifier of the origin request policy that is attached to the default cache behavior. For more information, see Creating origin request policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy or Using the managed origin request policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html in the *Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER MinTTL
-        This field is deprecated. We recommend that you use the MinTTL field in a cache policy instead of this field. For more information, see Creating cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy or Using the managed cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html in the *Amazon CloudFront Developer Guide*.
-The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see Managing How Long Content Stays in an Edge Cache Expiration: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html in the *Amazon CloudFront Developer Guide*.
-You must specify 0 for MinTTL if you configure CloudFront to forward all headers to your origin under Headers, if you specify 1 for Quantity and * for Name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER CachePolicyId
-        The unique identifier of the cache policy that is attached to the default cache behavior. For more information, see Creating cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy or Using the managed cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html in the *Amazon CloudFront Developer Guide*.
-A DefaultCacheBehavior must include either a CachePolicyId or ForwardedValues. We recommend that you use a CachePolicyId.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER MaxTTL
-        This field is deprecated. We recommend that you use the MaxTTL field in a cache policy instead of this field. For more information, see Creating cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy or Using the managed cache policies: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html in the *Amazon CloudFront Developer Guide*.
-The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. For more information, see Managing How Long Content Stays in an Edge Cache Expiration: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html in the *Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
         UpdateType: Mutable
         PrimitiveType: Double
@@ -182,11 +119,13 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.DefaultCacheBehavior')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -197,7 +136,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $Compress,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudFront.Distribution.FunctionAssociation"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -208,7 +148,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $FunctionAssociations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CloudFront.Distribution.LambdaFunctionAssociation"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -219,7 +160,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $LambdaFunctionAssociations,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -230,7 +172,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $TargetOriginId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -241,7 +184,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $ViewerProtocolPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -252,7 +196,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $ResponseHeadersPolicyId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -263,9 +208,11 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $RealtimeLogConfigArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TrustedSigners,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -276,7 +223,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $DefaultTTL,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -287,13 +235,17 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $FieldLevelEncryptionId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TrustedKeyGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AllowedMethods,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CachedMethods,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -304,9 +256,11 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $SmoothStreaming,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ForwardedValues,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -317,7 +271,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $OriginRequestPolicyId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -328,7 +283,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $MinTTL,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -339,7 +295,8 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $CachePolicyId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -350,11 +307,14 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
                 }
             })]
         $MaxTTL
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -364,6 +324,7 @@ The maximum amount of time that you want objects to stay in CloudFront caches be
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Distribution.DefaultCacheBehavior'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

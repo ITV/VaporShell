@@ -1,25 +1,20 @@
 function Add-VSIoTTopicRuleAssetPropertyTimestamp {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::TopicRule.AssetPropertyTimestamp resource property to the template. An asset property timestamp entry containing the following information.
+        Adds an AWS::IoT::TopicRule.AssetPropertyTimestamp resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::TopicRule.AssetPropertyTimestamp resource property to the template.
-An asset property timestamp entry containing the following information.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html
 
     .PARAMETER TimeInSeconds
-        A string that contains the time in seconds since epoch. Accepts substitution templates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER OffsetInNanos
-        Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ An asset property timestamp entry containing the following information.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.TopicRule.AssetPropertyTimestamp')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ An asset property timestamp entry containing the following information.
                 }
             })]
         $TimeInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ An asset property timestamp entry containing the following information.
                 }
             })]
         $OffsetInNanos
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ An asset property timestamp entry containing the following information.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.TopicRule.AssetPropertyTimestamp'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

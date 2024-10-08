@@ -1,29 +1,20 @@
 function Add-VSAmazonMQBrokerEncryptionOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::AmazonMQ::Broker.EncryptionOptions resource property to the template. Encryption options for the broker.
+        Adds an AWS::AmazonMQ::Broker.EncryptionOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AmazonMQ::Broker.EncryptionOptions resource property to the template.
-Encryption options for the broker.
-
-**Important**
-
-Does not apply to RabbitMQ brokers.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-encryptionoptions.html
 
     .PARAMETER KmsKeyId
-        The customer master key CMK to use for the A AWS KMS KMS. This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-encryptionoptions.html#cfn-amazonmq-broker-encryptionoptions-kmskeyid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER UseAwsOwnedKey
-        Enables the use of an AWS owned CMK using AWS KMS KMS. Set to true by default, if no value is provided, for example, for RabbitMQ brokers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-encryptionoptions.html#cfn-amazonmq-broker-encryptionoptions-useawsownedkey
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -31,11 +22,13 @@ Does not apply to RabbitMQ brokers.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AmazonMQ.Broker.EncryptionOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,7 +39,8 @@ Does not apply to RabbitMQ brokers.
                 }
             })]
         $KmsKeyId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,11 +51,14 @@ Does not apply to RabbitMQ brokers.
                 }
             })]
         $UseAwsOwnedKey
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +68,7 @@ Does not apply to RabbitMQ brokers.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AmazonMQ.Broker.EncryptionOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

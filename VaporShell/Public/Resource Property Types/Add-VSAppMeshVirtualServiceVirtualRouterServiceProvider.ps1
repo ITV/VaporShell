@@ -1,18 +1,15 @@
 function Add-VSAppMeshVirtualServiceVirtualRouterServiceProvider {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualService.VirtualRouterServiceProvider resource property to the template. An object that represents a virtual node service provider.
+        Adds an AWS::AppMesh::VirtualService.VirtualRouterServiceProvider resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualService.VirtualRouterServiceProvider resource property to the template.
-An object that represents a virtual node service provider.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html
 
     .PARAMETER VirtualRouterName
-        The name of the virtual router that is acting as a service provider.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html#cfn-appmesh-virtualservice-virtualrouterserviceprovider-virtualroutername
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ An object that represents a virtual node service provider.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualService.VirtualRouterServiceProvider')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ An object that represents a virtual node service provider.
                 }
             })]
         $VirtualRouterName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ An object that represents a virtual node service provider.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualService.VirtualRouterServiceProvider'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

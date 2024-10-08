@@ -1,25 +1,20 @@
 function Add-VSEMRClusterScalingAction {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::Cluster.ScalingAction resource property to the template. ScalingAction is a subproperty of the ScalingRule property type. ScalingAction determines the type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+        Adds an AWS::EMR::Cluster.ScalingAction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::Cluster.ScalingAction resource property to the template.
-ScalingAction is a subproperty of the ScalingRule property type. ScalingAction determines the type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html
 
     .PARAMETER Market
-        Not available for instance groups. Instance groups use the market type specified for the group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html#cfn-elasticmapreduce-cluster-scalingaction-market
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SimpleScalingPolicyConfiguration
-        The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html#cfn-elasticmapreduce-cluster-scalingaction-simplescalingpolicyconfiguration
         Type: SimpleScalingPolicyConfiguration
         UpdateType: Mutable
@@ -27,11 +22,13 @@ ScalingAction is a subproperty of the ScalingRule property type. ScalingAction d
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.Cluster.ScalingAction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,13 +39,17 @@ ScalingAction is a subproperty of the ScalingRule property type. ScalingAction d
                 }
             })]
         $Market,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $SimpleScalingPolicyConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ ScalingAction is a subproperty of the ScalingRule property type. ScalingAction d
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.Cluster.ScalingAction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,39 +1,34 @@
 function Add-VSS3BucketMetrics {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.Metrics resource property to the template. A container specifying replication metrics-related settings enabling replication metrics and events.
+        Adds an AWS::S3::Bucket.Metrics resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.Metrics resource property to the template.
-A container specifying replication metrics-related settings enabling replication metrics and events.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html
 
-    .PARAMETER EventThreshold
-        A container specifying the time threshold for emitting the s3:Replication:OperationMissedThreshold event.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
-        Type: ReplicationTimeValue
-        UpdateType: Mutable
-
     .PARAMETER Status
-        Specifies whether the replication metrics are enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER EventThreshold
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
+        UpdateType: Mutable
+        Type: ReplicationTimeValue
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.Metrics')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
-        $EventThreshold,
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,12 +38,18 @@ A container specifying replication metrics-related settings enabling replication
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Status
+        $Status,
+
+        [Parameter(Mandatory = $false)]
+        $EventThreshold
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ A container specifying replication metrics-related settings enabling replication
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.Metrics'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

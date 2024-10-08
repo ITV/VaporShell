@@ -1,20 +1,15 @@
 function Add-VSEFSFileSystemBackupPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::EFS::FileSystem.BackupPolicy resource property to the template. The backup policy turns automatic backups for the file system on or off.
+        Adds an AWS::EFS::FileSystem.BackupPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EFS::FileSystem.BackupPolicy resource property to the template.
-The backup policy turns automatic backups for the file system on or off.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
 
     .PARAMETER Status
-        Set the backup policy status for the file system.
-+  ** ENABLED** - Turns automatic backups on for the file system.
-+  ** DISABLED** - Turns automatic backups off for the file system.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
         UpdateType: Mutable
         PrimitiveType: String
@@ -22,11 +17,13 @@ The backup policy turns automatic backups for the file system on or off.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EFS.FileSystem.BackupPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +34,14 @@ The backup policy turns automatic backups for the file system on or off.
                 }
             })]
         $Status
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +51,7 @@ The backup policy turns automatic backups for the file system on or off.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EFS.FileSystem.BackupPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

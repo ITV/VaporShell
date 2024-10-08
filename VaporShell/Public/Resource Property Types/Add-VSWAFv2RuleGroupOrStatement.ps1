@@ -1,31 +1,31 @@
 function Add-VSWAFv2RuleGroupOrStatement {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.OrStatement resource property to the template. A logical rule statement used to combine other rule statements with OR logic. You provide more than one Statement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement within the OrStatement.
+        Adds an AWS::WAFv2::RuleGroup.OrStatement resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.OrStatement resource property to the template.
-A logical rule statement used to combine other rule statements with OR logic. You provide more than one Statement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement within the OrStatement.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
 
     .PARAMETER Statements
-        The statements to combine with OR logic. You can use any statements that can be nested.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
         UpdateType: Mutable
         Type: List
         ItemType: Statement
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.OrStatement')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.WAFv2.RuleGroup.Statement"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -36,11 +36,14 @@ A logical rule statement used to combine other rule statements with OR logic. Yo
                 }
             })]
         $Statements
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -50,6 +53,7 @@ A logical rule statement used to combine other rule statements with OR logic. Yo
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.RuleGroup.OrStatement'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

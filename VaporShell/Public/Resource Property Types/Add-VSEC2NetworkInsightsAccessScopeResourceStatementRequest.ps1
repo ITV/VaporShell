@@ -1,47 +1,50 @@
 function Add-VSEC2NetworkInsightsAccessScopeResourceStatementRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInsightsAccessScope.ResourceStatementRequest resource property to the template. Describes a resource statement.
+        Adds an AWS::EC2::NetworkInsightsAccessScope.ResourceStatementRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInsightsAccessScope.ResourceStatementRequest resource property to the template.
-Describes a resource statement.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html
 
-    .PARAMETER Resources
-        The resources.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resources
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER ResourceTypes
-        The resource types.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resourcetypes
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Resources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resources
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAccessScope.ResourceStatementRequest')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
-        $Resources,
-        [parameter(Mandatory = $false)]
-        $ResourceTypes
+        [Parameter(Mandatory = $false)]
+        $ResourceTypes,
+
+        [Parameter(Mandatory = $false)]
+        $Resources
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +54,7 @@ Describes a resource statement.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.NetworkInsightsAccessScope.ResourceStatementRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

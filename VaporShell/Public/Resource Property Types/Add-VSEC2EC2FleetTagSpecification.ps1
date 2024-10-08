@@ -1,27 +1,20 @@
 function Add-VSEC2EC2FleetTagSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.TagSpecification resource property to the template. Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.
+        Adds an AWS::EC2::EC2Fleet.TagSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.TagSpecification resource property to the template.
-Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.
-
-TagSpecification is a property of the  AWS::EC2::EC2Fleet: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html
 
     .PARAMETER ResourceType
-        The type of resource to tag. ResourceType must be fleet.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-resourcetype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags to apply to the resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-tags
         UpdateType: Immutable
         Type: List
@@ -31,11 +24,13 @@ TagSpecification is a property of the  AWS::EC2::EC2Fleet: https://docs.aws.amaz
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.TagSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,14 +41,18 @@ TagSpecification is a property of the  AWS::EC2::EC2Fleet: https://docs.aws.amaz
                 }
             })]
         $ResourceType,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +62,7 @@ TagSpecification is a property of the  AWS::EC2::EC2Fleet: https://docs.aws.amaz
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.EC2Fleet.TagSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

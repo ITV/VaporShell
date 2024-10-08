@@ -1,27 +1,20 @@
 function Add-VSAppSyncDataSourceHttpConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::DataSource.HttpConfig resource property to the template. Use the HttpConfig property type to specify HttpConfig for an AWS AppSync data source.
+        Adds an AWS::AppSync::DataSource.HttpConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppSync::DataSource.HttpConfig resource property to the template.
-Use the HttpConfig property type to specify HttpConfig for an AWS AppSync data source.
-
-HttpConfig is a property of the AWS::AppSync::DataSource: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html
 
     .PARAMETER Endpoint
-        The endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-endpoint
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AuthorizationConfig
-        The authorization configuration.
-
         Type: AuthorizationConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-authorizationconfig
         UpdateType: Mutable
@@ -29,11 +22,13 @@ HttpConfig is a property of the AWS::AppSync::DataSource: https://docs.aws.amazo
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppSync.DataSource.HttpConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,13 +39,17 @@ HttpConfig is a property of the AWS::AppSync::DataSource: https://docs.aws.amazo
                 }
             })]
         $Endpoint,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AuthorizationConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -60,6 +59,7 @@ HttpConfig is a property of the AWS::AppSync::DataSource: https://docs.aws.amazo
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppSync.DataSource.HttpConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

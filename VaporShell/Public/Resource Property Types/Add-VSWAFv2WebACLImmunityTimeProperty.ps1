@@ -1,18 +1,15 @@
 function Add-VSWAFv2WebACLImmunityTimeProperty {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::WebACL.ImmunityTimeProperty resource property to the template. Determines how long a CAPTCHA token remains valid after the client successfully solves a CAPTCHA puzzle.
+        Adds an AWS::WAFv2::WebACL.ImmunityTimeProperty resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::WebACL.ImmunityTimeProperty resource property to the template.
-Determines how long a CAPTCHA token remains valid after the client successfully solves a CAPTCHA puzzle.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html
 
     .PARAMETER ImmunityTime
-        The amount of time, in seconds, that a CAPTCHA token is valid. The default setting is 300.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html#cfn-wafv2-webacl-immunitytimeproperty-immunitytime
         UpdateType: Mutable
         PrimitiveType: Integer
@@ -20,11 +17,13 @@ Determines how long a CAPTCHA token remains valid after the client successfully 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ImmunityTimeProperty')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Determines how long a CAPTCHA token remains valid after the client successfully 
                 }
             })]
         $ImmunityTime
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Determines how long a CAPTCHA token remains valid after the client successfully 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.WebACL.ImmunityTimeProperty'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSKinesisAnalyticsV2ApplicationS3ContentBaseLocation {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation resource property to the template. The base location of the Amazon Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation resource property to the template.
-The base location of the Amazon Data Analytics application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentbaselocation.html
 
     .PARAMETER BucketARN
-        The Amazon Resource Name ARN of the S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentbaselocation.html#cfn-kinesisanalyticsv2-application-s3contentbaselocation-bucketarn
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BasePath
-        The base path for the S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentbaselocation.html#cfn-kinesisanalyticsv2-application-s3contentbaselocation-basepath
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ The base location of the Amazon Data Analytics application.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.S3ContentBaseLocation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The base location of the Amazon Data Analytics application.
                 }
             })]
         $BucketARN,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The base location of the Amazon Data Analytics application.
                 }
             })]
         $BasePath
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The base location of the Amazon Data Analytics application.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalyticsV2.Application.S3ContentBaseLocation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

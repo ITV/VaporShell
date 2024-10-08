@@ -1,25 +1,20 @@
 function Add-VSCodeDeployDeploymentConfigTimeBasedLinear {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentConfig.TimeBasedLinear resource property to the template. A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        Adds an AWS::CodeDeploy::DeploymentConfig.TimeBasedLinear resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentConfig.TimeBasedLinear resource property to the template.
-A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedlinear.html
 
     .PARAMETER LinearInterval
-        The number of minutes between each incremental traffic shift of a TimeBasedLinear deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedlinear.html#cfn-codedeploy-deploymentconfig-timebasedlinear-linearinterval
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER LinearPercentage
-        The percentage of traffic that is shifted at the start of each increment of a TimeBasedLinear deployment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedlinear.html#cfn-codedeploy-deploymentconfig-timebasedlinear-linearpercentage
         UpdateType: Immutable
         PrimitiveType: Integer
@@ -27,11 +22,13 @@ A configuration that shifts traffic from one version of a Lambda function or ECS
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentConfig.TimeBasedLinear')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ A configuration that shifts traffic from one version of a Lambda function or ECS
                 }
             })]
         $LinearInterval,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ A configuration that shifts traffic from one version of a Lambda function or ECS
                 }
             })]
         $LinearPercentage
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ A configuration that shifts traffic from one version of a Lambda function or ECS
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeDeploy.DeploymentConfig.TimeBasedLinear'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

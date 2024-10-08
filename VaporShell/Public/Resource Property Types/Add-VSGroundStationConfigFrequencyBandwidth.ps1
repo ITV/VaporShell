@@ -1,28 +1,20 @@
 function Add-VSGroundStationConfigFrequencyBandwidth {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.FrequencyBandwidth resource property to the template. Defines a bandwidth.
+        Adds an AWS::GroundStation::Config.FrequencyBandwidth resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.FrequencyBandwidth resource property to the template.
-Defines a bandwidth.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html
 
     .PARAMETER Value
-        The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations:
-+ For AntennaDownlinkDemodDecodeconfig, valid values are between 125 kHz to 650 MHz.
-+ For AntennaDownlinkconfig, valid values are between 10 kHz to 54 MHz.
-+ For AntennaUplinkConfig, valid values are between 10 kHz to 54 MHz.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-value
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Units
-        The units of the bandwidth.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-units
         UpdateType: Mutable
         PrimitiveType: String
@@ -30,11 +22,13 @@ Defines a bandwidth.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GroundStation.Config.FrequencyBandwidth')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,7 +39,8 @@ Defines a bandwidth.
                 }
             })]
         $Value,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,11 +51,14 @@ Defines a bandwidth.
                 }
             })]
         $Units
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +68,7 @@ Defines a bandwidth.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GroundStation.Config.FrequencyBandwidth'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

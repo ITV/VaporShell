@@ -1,14 +1,18 @@
 function Add-VSIoTFleetWiseSignalCatalogNode {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTFleetWise::SignalCatalog.Node resource property to the template. 
+        Adds an AWS::IoTFleetWise::SignalCatalog.Node resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTFleetWise::SignalCatalog.Node resource property to the template.
 
-
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html
+
+    .PARAMETER Attribute
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-attribute
+        UpdateType: Mutable
+        Type: Attribute
 
     .PARAMETER Branch
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-branch
@@ -25,31 +29,34 @@ function Add-VSIoTFleetWiseSignalCatalogNode {
         UpdateType: Mutable
         Type: Actuator
 
-    .PARAMETER Attribute
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-attribute
-        UpdateType: Mutable
-        Type: Attribute
-
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTFleetWise.SignalCatalog.Node')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        $Attribute,
+
+        [Parameter(Mandatory = $false)]
         $Branch,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Sensor,
-        [parameter(Mandatory = $false)]
-        $Actuator,
-        [parameter(Mandatory = $false)]
-        $Attribute
+
+        [Parameter(Mandatory = $false)]
+        $Actuator
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +66,7 @@ function Add-VSIoTFleetWiseSignalCatalogNode {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTFleetWise.SignalCatalog.Node'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

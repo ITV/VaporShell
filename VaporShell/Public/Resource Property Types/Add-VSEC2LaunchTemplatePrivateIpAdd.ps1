@@ -1,39 +1,34 @@
 function Add-VSEC2LaunchTemplatePrivateIpAdd {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.PrivateIpAdd resource property to the template. Specifies a secondary private IPv4 address for a network interface.
+        Adds an AWS::EC2::LaunchTemplate.PrivateIpAdd resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.PrivateIpAdd resource property to the template.
-Specifies a secondary private IPv4 address for a network interface.
-
-PrivateIpAdd is a property of AWS::EC2::LaunchTemplate NetworkInterface: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html
 
     .PARAMETER PrivateIpAddress
-        The private IPv4 addresses.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-privateipaddress
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Primary
-        Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-primary
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.PrivateIpAdd')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +39,8 @@ PrivateIpAdd is a property of AWS::EC2::LaunchTemplate NetworkInterface: https:/
                 }
             })]
         $PrivateIpAddress,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +51,14 @@ PrivateIpAdd is a property of AWS::EC2::LaunchTemplate NetworkInterface: https:/
                 }
             })]
         $Primary
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +68,7 @@ PrivateIpAdd is a property of AWS::EC2::LaunchTemplate NetworkInterface: https:/
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.LaunchTemplate.PrivateIpAdd'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

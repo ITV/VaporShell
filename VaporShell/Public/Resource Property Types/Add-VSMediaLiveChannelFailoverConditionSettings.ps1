@@ -1,34 +1,25 @@
 function Add-VSMediaLiveChannelFailoverConditionSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.FailoverConditionSettings resource property to the template. Settings for one failover condition.
+        Adds an AWS::MediaLive::Channel.FailoverConditionSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.FailoverConditionSettings resource property to the template.
-Settings for one failover condition.
-
-The parent of this entity is FailoverCondition.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html
 
     .PARAMETER AudioSilenceSettings
-        MediaLive will perform a failover if the specified audio selector is silent for the specified period.
-
         Type: AudioSilenceFailoverSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-audiosilencesettings
         UpdateType: Mutable
 
     .PARAMETER VideoBlackSettings
-        MediaLive will perform a failover if content is considered black for the specified period.
-
         Type: VideoBlackFailoverSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-videoblacksettings
         UpdateType: Mutable
 
     .PARAMETER InputLossSettings
-        MediaLive will perform a failover if content is not detected in this input for the specified period.
-
         Type: InputLossFailoverSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-inputlosssettings
         UpdateType: Mutable
@@ -36,21 +27,28 @@ The parent of this entity is FailoverCondition.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.FailoverConditionSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AudioSilenceSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VideoBlackSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InputLossSettings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -60,6 +58,7 @@ The parent of this entity is FailoverCondition.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.FailoverConditionSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

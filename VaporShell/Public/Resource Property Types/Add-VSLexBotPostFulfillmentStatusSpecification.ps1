@@ -1,54 +1,102 @@
 function Add-VSLexBotPostFulfillmentStatusSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.PostFulfillmentStatusSpecification resource property to the template. Provides a setting that determines whether the post-fulfillment response is sent to the user. For more information, see  Post-fulfillment response : https://docs.aws.amazon.com/lex/latest/dg/streaming-progress.html#progress-complete in the *Amazon Lex developer guide*.
+        Adds an AWS::Lex::Bot.PostFulfillmentStatusSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.PostFulfillmentStatusSpecification resource property to the template.
-Provides a setting that determines whether the post-fulfillment response is sent to the user. For more information, see  Post-fulfillment response : https://docs.aws.amazon.com/lex/latest/dg/streaming-progress.html#progress-complete in the *Amazon Lex developer guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html
 
     .PARAMETER SuccessResponse
-        Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-successresponse
         UpdateType: Mutable
         Type: ResponseSpecification
 
-    .PARAMETER FailureResponse
-        Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failureresponse
+    .PARAMETER FailureConditional
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failureconditional
         UpdateType: Mutable
-        Type: ResponseSpecification
+        Type: ConditionalSpecification
+
+    .PARAMETER TimeoutNextStep
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-timeoutnextstep
+        UpdateType: Mutable
+        Type: DialogState
+
+    .PARAMETER SuccessConditional
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-successconditional
+        UpdateType: Mutable
+        Type: ConditionalSpecification
 
     .PARAMETER TimeoutResponse
-        Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-timeoutresponse
         UpdateType: Mutable
         Type: ResponseSpecification
 
+    .PARAMETER SuccessNextStep
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-successnextstep
+        UpdateType: Mutable
+        Type: DialogState
+
+    .PARAMETER FailureResponse
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failureresponse
+        UpdateType: Mutable
+        Type: ResponseSpecification
+
+    .PARAMETER FailureNextStep
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failurenextstep
+        UpdateType: Mutable
+        Type: DialogState
+
+    .PARAMETER TimeoutConditional
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-timeoutconditional
+        UpdateType: Mutable
+        Type: ConditionalSpecification
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.PostFulfillmentStatusSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SuccessResponse,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $FailureConditional,
+
+        [Parameter(Mandatory = $false)]
+        $TimeoutNextStep,
+
+        [Parameter(Mandatory = $false)]
+        $SuccessConditional,
+
+        [Parameter(Mandatory = $false)]
+        $TimeoutResponse,
+
+        [Parameter(Mandatory = $false)]
+        $SuccessNextStep,
+
+        [Parameter(Mandatory = $false)]
         $FailureResponse,
-        [parameter(Mandatory = $false)]
-        $TimeoutResponse
+
+        [Parameter(Mandatory = $false)]
+        $FailureNextStep,
+
+        [Parameter(Mandatory = $false)]
+        $TimeoutConditional
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +106,7 @@ Provides a setting that determines whether the post-fulfillment response is sent
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.PostFulfillmentStatusSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

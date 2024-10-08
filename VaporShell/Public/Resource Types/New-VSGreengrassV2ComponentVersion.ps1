@@ -1,38 +1,10 @@
 function New-VSGreengrassV2ComponentVersion {
     <#
     .SYNOPSIS
-        Adds an AWS::GreengrassV2::ComponentVersion resource to the template. Creates a component. Components are software that run on Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to AWS IoT Greengrass. Then, you can deploy the component to other core devices.
+        Adds an AWS::GreengrassV2::ComponentVersion resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::GreengrassV2::ComponentVersion resource to the template. Creates a component. Components are software that run on Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to AWS IoT Greengrass. Then, you can deploy the component to other core devices.
-
-You can use this operation to do the following:
-
-+ **Create components from recipes**
-
-Create a component from a recipe, which is a file that defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform capability. For more information, see AWS IoT Greengrass component recipe reference: https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html in the *AWS IoT Greengrass V2 Developer Guide*.
-
-To create a component from a recipe, specify inlineRecipe when you call this operation.
-
-+ **Create components from Lambda functions**
-
-Create a component from an AWS Lambda function that runs on AWS IoT Greengrass. This creates a recipe and artifacts from the Lambda function's deployment package. You can use this operation to migrate Lambda functions from AWS IoT Greengrass V1 to AWS IoT Greengrass V2.
-
-This function only accepts Lambda functions that use the following runtimes:
-
-+ Python 2.7 – python2.7
-
-+ Python 3.7 – python3.7
-
-+ Python 3.8 – python3.8
-
-+ Java 8 – java8
-
-+ Node.js 10 – nodejs10.x
-
-+ Node.js 12 – nodejs12.x
-
-To create a component from a Lambda function, specify lambdaFunction when you call this operation.
+        Adds an AWS::GreengrassV2::ComponentVersion resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
@@ -40,33 +12,17 @@ To create a component from a Lambda function, specify lambdaFunction when you ca
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER InlineRecipe
-        The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
-You must specify either InlineRecipe or LambdaFunction.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER LambdaFunction
-        The parameters to create a component from a Lambda function.
-You must specify either InlineRecipe or LambdaFunction.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
         UpdateType: Immutable
         Type: LambdaFunctionRecipeSource
 
+    .PARAMETER InlineRecipe
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER Tags
-        Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see Tag your AWS IoT Greengrass Version 2 resources: https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html in the *AWS IoT Greengrass V2 Developer Guide*.
-This Json property type is processed as a map of key-value pairs. It uses the following format, which is different from most Tags implementations in AWS CloudFormation templates.
-
-"Tags": {
-"KeyName0": "value",
-"KeyName1": "value",
-"KeyName2": "value"
-}
-
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
         UpdateType: Mutable
         Type: Map
@@ -102,28 +58,29 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -134,7 +91,11 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $LambdaFunction,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -145,12 +106,12 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
                 }
             })]
         $InlineRecipe,
-        [parameter(Mandatory = $false)]
-        $LambdaFunction,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [System.Collections.Hashtable]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -161,27 +122,28 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -192,9 +154,15 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -202,6 +170,7 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -233,6 +202,7 @@ This Json property type is processed as a map of key-value pairs. It uses the fo
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GreengrassV2.ComponentVersion'

@@ -1,39 +1,38 @@
 function Add-VSAuditManagerAssessmentScope {
     <#
     .SYNOPSIS
-        Adds an AWS::AuditManager::Assessment.Scope resource property to the template. The Scope property type specifies the wrapper that contains the AWS accounts and services in scope for the assessment.
+        Adds an AWS::AuditManager::Assessment.Scope resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AuditManager::Assessment.Scope resource property to the template.
-The Scope property type specifies the wrapper that contains the AWS accounts and services in scope for the assessment.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
 
     .PARAMETER AwsAccounts
-        The AWS accounts that are included in the scope of the assessment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
         UpdateType: Mutable
         Type: List
         ItemType: AWSAccount
+        DuplicatesAllowed: True
 
     .PARAMETER AwsServices
-        The AWS services that are included in the scope of the assessment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
         UpdateType: Mutable
         Type: List
         ItemType: AWSService
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AuditManager.Assessment.Scope')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AuditManager.Assessment.AWSAccount"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +43,8 @@ The Scope property type specifies the wrapper that contains the AWS accounts and
                 }
             })]
         $AwsAccounts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AuditManager.Assessment.AWSService"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +55,14 @@ The Scope property type specifies the wrapper that contains the AWS accounts and
                 }
             })]
         $AwsServices
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +72,7 @@ The Scope property type specifies the wrapper that contains the AWS accounts and
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AuditManager.Assessment.Scope'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

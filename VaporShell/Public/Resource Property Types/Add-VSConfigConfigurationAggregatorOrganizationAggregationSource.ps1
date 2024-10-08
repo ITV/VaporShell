@@ -1,25 +1,20 @@
 function Add-VSConfigConfigurationAggregatorOrganizationAggregationSource {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::ConfigurationAggregator.OrganizationAggregationSource resource property to the template. This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        Adds an AWS::Config::ConfigurationAggregator.OrganizationAggregationSource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Config::ConfigurationAggregator.OrganizationAggregationSource resource property to the template.
-This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
 
     .PARAMETER AllAwsRegions
-        If true, aggregate existing AWS Config regions and future regions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER AwsRegions
-        The source regions being aggregated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
         UpdateType: Mutable
         Type: List
@@ -27,8 +22,6 @@ This object contains regions to set up the aggregator and an IAM role to retriev
         DuplicatesAllowed: True
 
     .PARAMETER RoleArn
-        ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -36,11 +29,13 @@ This object contains regions to set up the aggregator and an IAM role to retriev
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Config.ConfigurationAggregator.OrganizationAggregationSource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,9 +46,11 @@ This object contains regions to set up the aggregator and an IAM role to retriev
                 }
             })]
         $AllAwsRegions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AwsRegions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,11 +61,14 @@ This object contains regions to set up the aggregator and an IAM role to retriev
                 }
             })]
         $RoleArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -78,6 +78,7 @@ This object contains regions to set up the aggregator and an IAM role to retriev
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Config.ConfigurationAggregator.OrganizationAggregationSource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

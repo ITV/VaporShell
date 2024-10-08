@@ -1,37 +1,34 @@
 function Add-VSApiGatewayApiKeyStageKey {
     <#
     .SYNOPSIS
-        Adds an AWS::ApiGateway::ApiKey.StageKey resource property to the template. StageKey is a property of the AWS::ApiGateway::ApiKey: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
+        Adds an AWS::ApiGateway::ApiKey.StageKey resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApiGateway::ApiKey.StageKey resource property to the template.
-StageKey is a property of the AWS::ApiGateway::ApiKey: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
 
-    .PARAMETER RestApiId
-        The ID of a RestApi resource that includes the stage with which you want to associate the API key.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
+    .PARAMETER StageName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER StageName
-        The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
+    .PARAMETER RestApiId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
         UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApiGateway.ApiKey.StageKey')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,8 +38,9 @@ StageKey is a property of the AWS::ApiGateway::ApiKey: https://docs.aws.amazon.c
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $RestApiId,
-        [parameter(Mandatory = $false)]
+        $StageName,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,12 +50,15 @@ StageKey is a property of the AWS::ApiGateway::ApiKey: https://docs.aws.amazon.c
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StageName
+        $RestApiId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ StageKey is a property of the AWS::ApiGateway::ApiKey: https://docs.aws.amazon.c
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApiGateway.ApiKey.StageKey'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,20 +1,15 @@
 function Add-VSMediaLiveChannelVideoSelectorColorSpaceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.VideoSelectorColorSpaceSettings resource property to the template. Settings to configure color space settings in the incoming video.
+        Adds an AWS::MediaLive::Channel.VideoSelectorColorSpaceSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.VideoSelectorColorSpaceSettings resource property to the template.
-Settings to configure color space settings in the incoming video.
-
-The parent of this entity is VideoSelector.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorcolorspacesettings.html
 
     .PARAMETER Hdr10Settings
-        Settings to configure color space settings in the incoming video.
-
         Type: Hdr10Settings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorcolorspacesettings.html#cfn-medialive-channel-videoselectorcolorspacesettings-hdr10settings
         UpdateType: Mutable
@@ -22,17 +17,22 @@ The parent of this entity is VideoSelector.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.VideoSelectorColorSpaceSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Hdr10Settings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -42,6 +42,7 @@ The parent of this entity is VideoSelector.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.VideoSelectorColorSpaceSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

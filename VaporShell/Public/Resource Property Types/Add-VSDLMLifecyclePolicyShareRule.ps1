@@ -1,33 +1,26 @@
 function Add-VSDLMLifecyclePolicyShareRule {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.ShareRule resource property to the template. Specifies a rule for sharing snapshots across AWS accounts.
+        Adds an AWS::DLM::LifecyclePolicy.ShareRule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.ShareRule resource property to the template.
-Specifies a rule for sharing snapshots across AWS accounts.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html
 
     .PARAMETER TargetAccounts
-        The IDs of the AWS accounts with which to share the snapshots.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-targetaccounts
         UpdateType: Mutable
 
     .PARAMETER UnshareIntervalUnit
-        The unit of time for the automatic unsharing interval.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareintervalunit
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER UnshareInterval
-        The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareinterval
         PrimitiveType: Integer
         UpdateType: Mutable
@@ -35,13 +28,16 @@ Specifies a rule for sharing snapshots across AWS accounts.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.ShareRule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $TargetAccounts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,7 +48,8 @@ Specifies a rule for sharing snapshots across AWS accounts.
                 }
             })]
         $UnshareIntervalUnit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,11 +60,14 @@ Specifies a rule for sharing snapshots across AWS accounts.
                 }
             })]
         $UnshareInterval
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +77,7 @@ Specifies a rule for sharing snapshots across AWS accounts.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DLM.LifecyclePolicy.ShareRule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSCustomerProfilesIntegrationTriggerConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.TriggerConfig resource property to the template. <a name="aws-properties-customerprofiles-integration-triggerconfig-description"></a>The TriggerConfig property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.TriggerConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.TriggerConfig resource property to the template.
-<a name="aws-properties-customerprofiles-integration-triggerconfig-description"></a>The TriggerConfig property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html
 
     .PARAMETER TriggerType
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggertype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TriggerProperties
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggerproperties
         UpdateType: Mutable
         Type: TriggerProperties
@@ -27,11 +22,13 @@ function Add-VSCustomerProfilesIntegrationTriggerConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.TriggerConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,13 +39,17 @@ function Add-VSCustomerProfilesIntegrationTriggerConfig {
                 }
             })]
         $TriggerType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TriggerProperties
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ function Add-VSCustomerProfilesIntegrationTriggerConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CustomerProfiles.Integration.TriggerConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

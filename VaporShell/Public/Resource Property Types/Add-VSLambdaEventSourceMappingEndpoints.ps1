@@ -1,18 +1,15 @@
 function Add-VSLambdaEventSourceMappingEndpoints {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::EventSourceMapping.Endpoints resource property to the template. The list of bootstrap servers for your Kafka brokers in the following format: "KafkaBootstrapServers": "abc.xyz.com:xxxx","abc2.xyz.com:xxxx"].
+        Adds an AWS::Lambda::EventSourceMapping.Endpoints resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lambda::EventSourceMapping.Endpoints resource property to the template.
-The list of bootstrap servers for your Kafka brokers in the following format: "KafkaBootstrapServers": "abc.xyz.com:xxxx","abc2.xyz.com:xxxx"].
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html
 
     .PARAMETER KafkaBootstrapServers
-        The list of bootstrap servers for your Kafka brokers in the following format: "KafkaBootstrapServers": "abc.xyz.com:xxxx","abc2.xyz.com:xxxx"].
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
         UpdateType: Immutable
         Type: List
@@ -22,17 +19,22 @@ The list of bootstrap servers for your Kafka brokers in the following format: "K
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.Endpoints')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $KafkaBootstrapServers
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -42,6 +44,7 @@ The list of bootstrap servers for your Kafka brokers in the following format: "K
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lambda.EventSourceMapping.Endpoints'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

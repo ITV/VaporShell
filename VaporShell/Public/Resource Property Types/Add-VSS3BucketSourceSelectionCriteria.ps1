@@ -1,45 +1,46 @@
 function Add-VSS3BucketSourceSelectionCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template. A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
+        Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.SourceSelectionCriteria resource property to the template.
-A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
 
     .PARAMETER ReplicaModifications
-        A filter that you can specify for selection for modifications on replicas.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
-        Type: ReplicaModifications
         UpdateType: Mutable
+        Type: ReplicaModifications
 
     .PARAMETER SseKmsEncryptedObjects
-        A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
-        Type: SseKmsEncryptedObjects
         UpdateType: Mutable
+        Type: SseKmsEncryptedObjects
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.SourceSelectionCriteria')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ReplicaModifications,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SseKmsEncryptedObjects
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +50,7 @@ A container that describes additional filters for identifying the source objects
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.SourceSelectionCriteria'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

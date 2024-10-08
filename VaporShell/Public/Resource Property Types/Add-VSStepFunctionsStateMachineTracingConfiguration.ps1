@@ -1,18 +1,15 @@
 function Add-VSStepFunctionsStateMachineTracingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::StepFunctions::StateMachine.TracingConfiguration resource property to the template. Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set Enabled to true.
+        Adds an AWS::StepFunctions::StateMachine.TracingConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::StepFunctions::StateMachine.TracingConfiguration resource property to the template.
-Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set Enabled to true.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html
 
     .PARAMETER Enabled
-        When set to true, X-Ray tracing is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -20,11 +17,13 @@ Selects whether or not the state machine's AWS X-Ray tracing is enabled. To conf
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachine.TracingConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Selects whether or not the state machine's AWS X-Ray tracing is enabled. To conf
                 }
             })]
         $Enabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Selects whether or not the state machine's AWS X-Ray tracing is enabled. To conf
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.StepFunctions.StateMachine.TracingConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

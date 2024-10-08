@@ -1,18 +1,15 @@
 function Add-VSLexBotSampleUtterance {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SampleUtterance resource property to the template. A sample utterance that invokes and intent or responds to a slot elicitation prompt.
+        Adds an AWS::Lex::Bot.SampleUtterance resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SampleUtterance resource property to the template.
-A sample utterance that invokes and intent or responds to a slot elicitation prompt.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html
 
     .PARAMETER Utterance
-        The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html#cfn-lex-bot-sampleutterance-utterance
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ A sample utterance that invokes and intent or responds to a slot elicitation pro
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.SampleUtterance')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ A sample utterance that invokes and intent or responds to a slot elicitation pro
                 }
             })]
         $Utterance
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ A sample utterance that invokes and intent or responds to a slot elicitation pro
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.SampleUtterance'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

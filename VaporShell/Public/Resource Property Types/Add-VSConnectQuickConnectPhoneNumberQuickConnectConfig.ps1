@@ -1,18 +1,15 @@
 function Add-VSConnectQuickConnectPhoneNumberQuickConnectConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig resource property to the template. Contains information about a phone number for a quick connect.
+        Adds an AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig resource property to the template.
-Contains information about a phone number for a quick connect.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html
 
     .PARAMETER PhoneNumber
-        The phone number in E.164 format.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html#cfn-connect-quickconnect-phonenumberquickconnectconfig-phonenumber
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Contains information about a phone number for a quick connect.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Connect.QuickConnect.PhoneNumberQuickConnectConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Contains information about a phone number for a quick connect.
                 }
             })]
         $PhoneNumber
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Contains information about a phone number for a quick connect.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Connect.QuickConnect.PhoneNumberQuickConnectConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

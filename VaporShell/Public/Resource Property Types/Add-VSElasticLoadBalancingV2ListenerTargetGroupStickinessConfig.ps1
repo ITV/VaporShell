@@ -1,25 +1,20 @@
 function Add-VSElasticLoadBalancingV2ListenerTargetGroupStickinessConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::Listener.TargetGroupStickinessConfig resource property to the template. Information about the target group stickiness for a rule.
+        Adds an AWS::ElasticLoadBalancingV2::Listener.TargetGroupStickinessConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancingV2::Listener.TargetGroupStickinessConfig resource property to the template.
-Information about the target group stickiness for a rule.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html
 
     .PARAMETER Enabled
-        Indicates whether target group stickiness is enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER DurationSeconds
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds 7 days.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-durationseconds
         UpdateType: Mutable
         PrimitiveType: Integer
@@ -27,11 +22,13 @@ Information about the target group stickiness for a rule.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.TargetGroupStickinessConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Information about the target group stickiness for a rule.
                 }
             })]
         $Enabled,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Information about the target group stickiness for a rule.
                 }
             })]
         $DurationSeconds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Information about the target group stickiness for a rule.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancingV2.Listener.TargetGroupStickinessConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

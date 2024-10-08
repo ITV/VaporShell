@@ -1,25 +1,20 @@
 function Add-VSCloudFrontDistributionLegacyS3Origin {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.LegacyS3Origin resource property to the template. <a name="aws-properties-cloudfront-distribution-legacys3origin-description"></a>The LegacyS3Origin property type specifies Not currently supported by AWS CloudFormation. for an AWS::CloudFront::Distribution: aws-resource-cloudfront-distribution.md.
+        Adds an AWS::CloudFront::Distribution.LegacyS3Origin resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.LegacyS3Origin resource property to the template.
-<a name="aws-properties-cloudfront-distribution-legacys3origin-description"></a>The LegacyS3Origin property type specifies Not currently supported by AWS CloudFormation. for an AWS::CloudFront::Distribution: aws-resource-cloudfront-distribution.md.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html
 
     .PARAMETER OriginAccessIdentity
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-originaccessidentity
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DNSName
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-dnsname
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ function Add-VSCloudFrontDistributionLegacyS3Origin {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.LegacyS3Origin')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ function Add-VSCloudFrontDistributionLegacyS3Origin {
                 }
             })]
         $OriginAccessIdentity,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ function Add-VSCloudFrontDistributionLegacyS3Origin {
                 }
             })]
         $DNSName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ function Add-VSCloudFrontDistributionLegacyS3Origin {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Distribution.LegacyS3Origin'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

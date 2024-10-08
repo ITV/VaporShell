@@ -1,33 +1,25 @@
 function Add-VSGluePartitionPartitionInput {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Partition.PartitionInput resource property to the template. The structure used to create and update a partition.
+        Adds an AWS::Glue::Partition.PartitionInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Partition.PartitionInput resource property to the template.
-The structure used to create and update a partition.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html
 
     .PARAMETER Parameters
-        These key-value pairs define partition parameters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER StorageDescriptor
-        Provides information about the physical location where the partition is stored.
-
         Type: StorageDescriptor
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-storagedescriptor
         UpdateType: Mutable
 
     .PARAMETER Values
-        The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input.
-The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values
@@ -36,11 +28,13 @@ The values for the keys for the new partition must be passed as an array of Stri
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Partition.PartitionInput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,15 +45,20 @@ The values for the keys for the new partition must be passed as an array of Stri
                 }
             })]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StorageDescriptor,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Values
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -83,6 +82,7 @@ The values for the keys for the new partition must be passed as an array of Stri
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Partition.PartitionInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

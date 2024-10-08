@@ -1,32 +1,31 @@
 function Add-VSS3BucketLifecycleConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.LifecycleConfiguration resource property to the template. Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see Object Lifecycle Management: https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html in the *Amazon S3 User Guide*.
+        Adds an AWS::S3::Bucket.LifecycleConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.LifecycleConfiguration resource property to the template.
-Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see Object Lifecycle Management: https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html in the *Amazon S3 User Guide*.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html
 
     .PARAMETER Rules
-        A lifecycle rule for individual objects in an Amazon S3 bucket.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html#cfn-s3-bucket-lifecycleconfig-rules
-        DuplicatesAllowed: False
-        ItemType: Rule
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html#cfn-s3-bucket-lifecycleconfiguration-rules
         UpdateType: Mutable
+        Type: List
+        ItemType: Rule
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.LifecycleConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3.Bucket.Rule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +36,14 @@ Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For mo
                 }
             })]
         $Rules
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +53,7 @@ Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For mo
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.LifecycleConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

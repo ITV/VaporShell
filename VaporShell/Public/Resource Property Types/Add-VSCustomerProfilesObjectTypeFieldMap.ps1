@@ -1,25 +1,20 @@
 function Add-VSCustomerProfilesObjectTypeFieldMap {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::ObjectType.FieldMap resource property to the template. A map of the name and ObjectType field.
+        Adds an AWS::CustomerProfiles::ObjectType.FieldMap resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::ObjectType.FieldMap resource property to the template.
-A map of the name and ObjectType field.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html
 
     .PARAMETER Name
-        Name of the field.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ObjectTypeField
-        Represents a field in a ProfileObjectType.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield
         UpdateType: Mutable
         Type: ObjectTypeField
@@ -27,11 +22,13 @@ A map of the name and ObjectType field.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CustomerProfiles.ObjectType.FieldMap')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,13 +39,17 @@ A map of the name and ObjectType field.
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ObjectTypeField
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ A map of the name and ObjectType field.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CustomerProfiles.ObjectType.FieldMap'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

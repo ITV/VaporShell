@@ -1,32 +1,25 @@
 function Add-VSCloudFrontDistributionOriginGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.OriginGroup resource property to the template. An origin group includes two origins (a primary origin and a second origin to failover to and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specifiy the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
+        Adds an AWS::CloudFront::Distribution.OriginGroup resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.OriginGroup resource property to the template.
-An origin group includes two origins (a primary origin and a second origin to failover to and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specifiy the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html
 
     .PARAMETER Id
-        The origin group's ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER FailoverCriteria
-        A complex type that contains information about the failover criteria for an origin group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
         UpdateType: Mutable
         Type: OriginGroupFailoverCriteria
 
     .PARAMETER Members
-        A complex type that contains information about the origins in an origin group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
         UpdateType: Mutable
         Type: OriginGroupMembers
@@ -34,11 +27,13 @@ An origin group includes two origins (a primary origin and a second origin to fa
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.OriginGroup')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,15 +44,20 @@ An origin group includes two origins (a primary origin and a second origin to fa
                 }
             })]
         $Id,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $FailoverCriteria,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Members
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +67,7 @@ An origin group includes two origins (a primary origin and a second origin to fa
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Distribution.OriginGroup'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

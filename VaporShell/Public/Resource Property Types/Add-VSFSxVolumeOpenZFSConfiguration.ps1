@@ -1,11 +1,10 @@
 function Add-VSFSxVolumeOpenZFSConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::FSx::Volume.OpenZFSConfiguration resource property to the template. 
+        Adds an AWS::FSx::Volume.OpenZFSConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::FSx::Volume.OpenZFSConfiguration resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html
@@ -71,11 +70,13 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.FSx.Volume.OpenZFSConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,9 +87,11 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
                 }
             })]
         $ReadOnly,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Options,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -99,7 +102,8 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
                 }
             })]
         $DataCompressionType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.FSx.Volume.NfsExports"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -110,7 +114,8 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
                 }
             })]
         $NfsExports,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -121,7 +126,8 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
                 }
             })]
         $StorageCapacityQuotaGiB,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -132,7 +138,8 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
                 }
             })]
         $CopyTagsToSnapshots,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -143,7 +150,8 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
                 }
             })]
         $ParentVolumeId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -154,7 +162,8 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
                 }
             })]
         $StorageCapacityReservationGiB,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -165,9 +174,11 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
                 }
             })]
         $RecordSizeKiB,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OriginSnapshot,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.FSx.Volume.UserAndGroupQuotas"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -178,11 +189,14 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
                 }
             })]
         $UserAndGroupQuotas
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -192,6 +206,7 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.FSx.Volume.OpenZFSConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

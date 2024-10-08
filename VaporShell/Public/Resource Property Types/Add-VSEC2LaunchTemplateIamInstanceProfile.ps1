@@ -1,41 +1,34 @@
 function Add-VSEC2LaunchTemplateIamInstanceProfile {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::LaunchTemplate.IamInstanceProfile resource property to the template. Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
+        Adds an AWS::EC2::LaunchTemplate.IamInstanceProfile resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::LaunchTemplate.IamInstanceProfile resource property to the template.
-Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
-
-If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
-
-IamInstanceProfile is a property of AWS::EC2::LaunchTemplate LaunchTemplateData: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-iaminstanceprofile.html
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the instance profile.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-arn
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-iaminstanceprofile.html#cfn-ec2-launchtemplate-iaminstanceprofile-arn
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Name
-        The name of the instance profile.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-name
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-iaminstanceprofile.html#cfn-ec2-launchtemplate-iaminstanceprofile-name
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.IamInstanceProfile')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,7 +39,8 @@ IamInstanceProfile is a property of AWS::EC2::LaunchTemplate LaunchTemplateData:
                 }
             })]
         $Arn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,11 +51,14 @@ IamInstanceProfile is a property of AWS::EC2::LaunchTemplate LaunchTemplateData:
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +68,7 @@ IamInstanceProfile is a property of AWS::EC2::LaunchTemplate LaunchTemplateData:
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.LaunchTemplate.IamInstanceProfile'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,10 +1,10 @@
 function New-VSSageMakerEndpointConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::EndpointConfig resource to the template. The AWS::SageMaker::EndpointConfig resource creates a configuration for an Amazon SageMaker endpoint. For more information, see CreateEndpointConfig: https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html in the *SageMaker Developer Guide*.
+        Adds an AWS::SageMaker::EndpointConfig resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::EndpointConfig resource to the template. The AWS::SageMaker::EndpointConfig resource creates a configuration for an Amazon SageMaker endpoint. For more information, see CreateEndpointConfig: https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html in the *SageMaker Developer Guide*.
+        Adds an AWS::SageMaker::EndpointConfig resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html
@@ -12,54 +12,59 @@ function New-VSSageMakerEndpointConfig {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER DataCaptureConfig
-        Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
+    .PARAMETER ShadowProductionVariants
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-shadowproductionvariants
+        ItemType: ProductionVariant
+        UpdateType: Immutable
 
+    .PARAMETER DataCaptureConfig
         Type: DataCaptureConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig
         UpdateType: Immutable
 
-    .PARAMETER ProductionVariants
-        A list of ProductionVariant objects, one for each model that you want to host at this endpoint.
+    .PARAMETER ExecutionRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-executionrolearn
+        PrimitiveType: String
+        UpdateType: Immutable
 
+    .PARAMETER EnableNetworkIsolation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-enablenetworkisolation
+        PrimitiveType: Boolean
+        UpdateType: Immutable
+
+    .PARAMETER ProductionVariants
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-productionvariants
         ItemType: ProductionVariant
         UpdateType: Immutable
 
     .PARAMETER KmsKeyId
-        The Amazon Resource Name ARN of an AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-+ Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
-+ Key ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
-+ Alias name: alias/ExampleAlias
-+ Alias name ARN: arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias
-The KMS key policy must grant permission to the IAM role that you specify in your CreateEndpoint, UpdateEndpoint requests. For more information, refer to the AWS Key Management Service section Using Key Policies in AWS KMS : https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html
-Certain Nitro-based instances include local storage, dependent on the instance type. Local storage volumes are encrypted using a hardware module on the instance. You can't request a KmsKeyId when using an instance type with local storage. If any of the models that you specify in the ProductionVariants parameter use nitro-based instances with local storage, do not specify a value for the KmsKeyId parameter. If you specify a value for KmsKeyId when using any nitro-based instances with local storage, the call to CreateEndpointConfig fails.
-For a list of instance types that support local instance storage, see Instance Store Volumes: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes.
-For more information about local instance storage encryption, see SSD Instance Store Volumes: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-kmskeyid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER AsyncInferenceConfig
-        Specifies configuration for how an endpoint performs asynchronous inference.
-
         Type: AsyncInferenceConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig
         UpdateType: Immutable
 
-    .PARAMETER EndpointConfigName
-        The name of the endpoint configuration.
+    .PARAMETER VpcConfig
+        Type: VpcConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-vpcconfig
+        UpdateType: Immutable
 
+    .PARAMETER EndpointConfigName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname
         PrimitiveType: String
         UpdateType: Immutable
 
-    .PARAMETER Tags
-        A list of key-value pairs to apply to this resource.
-For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html and Using Cost Allocation Tags: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what.
+    .PARAMETER ExplainerConfig
+        Type: ExplainerConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-explainerconfig
+        UpdateType: Immutable
 
+    .PARAMETER Tags
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-tags
         ItemType: Tag
@@ -95,28 +100,29 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -127,9 +133,47 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.SageMaker.EndpointConfig.ProductionVariant"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ShadowProductionVariants,
+
+        [Parameter(Mandatory = $false)]
         $DataCaptureConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ExecutionRoleArn,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableNetworkIsolation,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.EndpointConfig.ProductionVariant"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -140,7 +184,8 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $ProductionVariants,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -151,9 +196,14 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $KmsKeyId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AsyncInferenceConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $VpcConfig,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -164,10 +214,15 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $EndpointConfigName,
+
+        [Parameter(Mandatory = $false)]
+        $ExplainerConfig,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -178,27 +233,28 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -209,9 +265,15 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -219,6 +281,7 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -241,6 +304,12 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
+                ShadowProductionVariants {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ShadowProductionVariants -Value @($ShadowProductionVariants)
+                }
                 ProductionVariants {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -262,6 +331,7 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.EndpointConfig'

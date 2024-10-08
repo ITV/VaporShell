@@ -1,27 +1,20 @@
 function Add-VSCloudFrontResponseHeadersPolicyContentSecurityPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::ResponseHeadersPolicy.ContentSecurityPolicy resource property to the template. The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+        Adds an AWS::CloudFront::ResponseHeadersPolicy.ContentSecurityPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::ResponseHeadersPolicy.ContentSecurityPolicy resource property to the template.
-The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-
-For more information about the Content-Security-Policy HTTP response header, see Content-Security-Policy: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy in the MDN Web Docs.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html
 
     .PARAMETER ContentSecurityPolicy
-        The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html#cfn-cloudfront-responseheaderspolicy-contentsecuritypolicy-contentsecuritypolicy
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Override
-        A Boolean that determines whether CloudFront overrides the Content-Security-Policy HTTP response header received from the origin with the one specified in this response headers policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html#cfn-cloudfront-responseheaderspolicy-contentsecuritypolicy-override
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -29,11 +22,13 @@ For more information about the Content-Security-Policy HTTP response header, see
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.ContentSecurityPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +39,8 @@ For more information about the Content-Security-Policy HTTP response header, see
                 }
             })]
         $ContentSecurityPolicy,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +51,14 @@ For more information about the Content-Security-Policy HTTP response header, see
                 }
             })]
         $Override
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +68,7 @@ For more information about the Content-Security-Policy HTTP response header, see
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.ContentSecurityPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

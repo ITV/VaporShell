@@ -1,18 +1,15 @@
 function Add-VSEMRClusterScriptBootstrapActionConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::Cluster.ScriptBootstrapActionConfig resource property to the template. ScriptBootstrapActionConfig is a subproperty of the BootstrapActionConfig property type. ScriptBootstrapActionConfig specifies the arguments and location of the bootstrap script for EMR to run on all cluster nodes before it installs open-source big data applications on them.
+        Adds an AWS::EMR::Cluster.ScriptBootstrapActionConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::Cluster.ScriptBootstrapActionConfig resource property to the template.
-ScriptBootstrapActionConfig is a subproperty of the BootstrapActionConfig property type. ScriptBootstrapActionConfig specifies the arguments and location of the bootstrap script for EMR to run on all cluster nodes before it installs open-source big data applications on them.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html
 
     .PARAMETER Args
-        A list of command line arguments to pass to the bootstrap action script.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html#cfn-elasticmapreduce-cluster-scriptbootstrapactionconfig-args
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -20,8 +17,6 @@ ScriptBootstrapActionConfig is a subproperty of the BootstrapActionConfig proper
         UpdateType: Mutable
 
     .PARAMETER Path
-        Location in Amazon S3 of the script to run during a bootstrap action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html#cfn-elasticmapreduce-cluster-scriptbootstrapactionconfig-path
         PrimitiveType: String
         UpdateType: Mutable
@@ -29,13 +24,16 @@ ScriptBootstrapActionConfig is a subproperty of the BootstrapActionConfig proper
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.Cluster.ScriptBootstrapActionConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Args,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,11 +44,14 @@ ScriptBootstrapActionConfig is a subproperty of the BootstrapActionConfig proper
                 }
             })]
         $Path
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -60,6 +61,7 @@ ScriptBootstrapActionConfig is a subproperty of the BootstrapActionConfig proper
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.Cluster.ScriptBootstrapActionConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSKinesisAnalyticsV2ApplicationEnvironmentProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.EnvironmentProperties resource property to the template. Describes execution properties for a Flink-based Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::Application.EnvironmentProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.EnvironmentProperties resource property to the template.
-Describes execution properties for a Flink-based Kinesis Data Analytics application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html
 
     .PARAMETER PropertyGroups
-        Describes the execution property groups.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html#cfn-kinesisanalyticsv2-application-environmentproperties-propertygroups
         UpdateType: Mutable
         Type: List
@@ -22,11 +19,13 @@ Describes execution properties for a Flink-based Kinesis Data Analytics applicat
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.EnvironmentProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.KinesisAnalyticsV2.Application.PropertyGroup"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +36,14 @@ Describes execution properties for a Flink-based Kinesis Data Analytics applicat
                 }
             })]
         $PropertyGroups
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +53,7 @@ Describes execution properties for a Flink-based Kinesis Data Analytics applicat
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalyticsV2.Application.EnvironmentProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

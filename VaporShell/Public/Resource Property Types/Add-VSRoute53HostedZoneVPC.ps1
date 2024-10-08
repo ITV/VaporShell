@@ -1,43 +1,34 @@
 function Add-VSRoute53HostedZoneVPC {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53::HostedZone.VPC resource property to the template. *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
+        Adds an AWS::Route53::HostedZone.VPC resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Route53::HostedZone.VPC resource property to the template.
-*Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
-
-**Note**
-
-For public hosted zones, omit VPCs, VPCId, and VPCRegion.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
 
-    .PARAMETER VPCId
-        *Private hosted zones only:* The ID of an Amazon VPC.
-For public hosted zones, omit VPCs, VPCId, and VPCRegion.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
+    .PARAMETER VPCRegion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER VPCRegion
-        *Private hosted zones only:* The region that an Amazon VPC was created in.
-For public hosted zones, omit VPCs, VPCId, and VPCRegion.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
+    .PARAMETER VPCId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
         UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Route53.HostedZone.VPC')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,8 +38,9 @@ For public hosted zones, omit VPCs, VPCId, and VPCRegion.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VPCId,
-        [parameter(Mandatory = $true)]
+        $VPCRegion,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,12 +50,15 @@ For public hosted zones, omit VPCs, VPCId, and VPCRegion.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VPCRegion
+        $VPCId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -73,6 +68,7 @@ For public hosted zones, omit VPCs, VPCId, and VPCRegion.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Route53.HostedZone.VPC'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

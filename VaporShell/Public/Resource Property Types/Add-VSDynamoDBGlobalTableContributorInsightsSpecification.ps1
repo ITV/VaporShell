@@ -1,18 +1,15 @@
 function Add-VSDynamoDBGlobalTableContributorInsightsSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable.ContributorInsightsSpecification resource property to the template. Configures contributor insights settings for a replica or one of its indexes.
+        Adds an AWS::DynamoDB::GlobalTable.ContributorInsightsSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::GlobalTable.ContributorInsightsSpecification resource property to the template.
-Configures contributor insights settings for a replica or one of its indexes.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html
 
     .PARAMETER Enabled
-        Indicates whether CloudWatch Contributor Insights are to be enabled true or disabled false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -20,11 +17,13 @@ Configures contributor insights settings for a replica or one of its indexes.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.ContributorInsightsSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Configures contributor insights settings for a replica or one of its indexes.
                 }
             })]
         $Enabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Configures contributor insights settings for a replica or one of its indexes.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DynamoDB.GlobalTable.ContributorInsightsSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

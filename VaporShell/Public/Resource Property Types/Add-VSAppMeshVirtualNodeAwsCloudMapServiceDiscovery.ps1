@@ -1,43 +1,30 @@
 function Add-VSAppMeshVirtualNodeAwsCloudMapServiceDiscovery {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery resource property to the template. An object that represents the AWS Cloud Map service discovery information for your virtual node.
+        Adds an AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery resource property to the template.
-An object that represents the AWS Cloud Map service discovery information for your virtual node.
-
-**Note**
-
-AWS Cloud Map is not available in the eu-south-1 Region.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html
 
     .PARAMETER NamespaceName
-        The name of the AWS Cloud Map namespace to use.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-namespacename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ServiceName
-        The name of the AWS Cloud Map service to use.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-servicename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER IpPreference
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-ippreference
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Attributes
-        A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-attributes
         ItemType: AwsCloudMapInstanceAttribute
@@ -46,11 +33,13 @@ AWS Cloud Map is not available in the eu-south-1 Region.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.AwsCloudMapServiceDiscovery')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +50,8 @@ AWS Cloud Map is not available in the eu-south-1 Region.
                 }
             })]
         $NamespaceName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,7 +62,8 @@ AWS Cloud Map is not available in the eu-south-1 Region.
                 }
             })]
         $ServiceName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,7 +74,8 @@ AWS Cloud Map is not available in the eu-south-1 Region.
                 }
             })]
         $IpPreference,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppMesh.VirtualNode.AwsCloudMapInstanceAttribute"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,11 +86,14 @@ AWS Cloud Map is not available in the eu-south-1 Region.
                 }
             })]
         $Attributes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -108,6 +103,7 @@ AWS Cloud Map is not available in the eu-south-1 Region.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.AwsCloudMapServiceDiscovery'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

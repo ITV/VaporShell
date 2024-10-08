@@ -1,18 +1,15 @@
 function Add-VSIoTAnalyticsDatasetTriggeringDataset {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Dataset.TriggeringDataset resource property to the template. Information about the dataset whose content generation triggers the new dataset content generation.
+        Adds an AWS::IoTAnalytics::Dataset.TriggeringDataset resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Dataset.TriggeringDataset resource property to the template.
-Information about the dataset whose content generation triggers the new dataset content generation.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html
 
     .PARAMETER DatasetName
-        The name of the data set whose content generation triggers the new data set content generation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html#cfn-iotanalytics-dataset-triggeringdataset-datasetname
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Information about the dataset whose content generation triggers the new dataset 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.TriggeringDataset')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Information about the dataset whose content generation triggers the new dataset 
                 }
             })]
         $DatasetName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Information about the dataset whose content generation triggers the new dataset 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Dataset.TriggeringDataset'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

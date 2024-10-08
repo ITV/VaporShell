@@ -1,26 +1,22 @@
 function Add-VSQuickSightTemplateTemplateSourceAnalysis {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Template.TemplateSourceAnalysis resource property to the template. The source analysis of the template.
+        Adds an AWS::QuickSight::Template.TemplateSourceAnalysis resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Template.TemplateSourceAnalysis resource property to the template.
-The source analysis of the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html
 
     .PARAMETER DataSetReferences
-        A structure containing information about the dataset references used as placeholders in the template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-datasetreferences
         UpdateType: Mutable
         Type: List
         ItemType: DataSetReference
+        DuplicatesAllowed: True
 
     .PARAMETER Arn
-        The Amazon Resource Name ARN of the resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-arn
         UpdateType: Mutable
         PrimitiveType: String
@@ -28,11 +24,13 @@ The source analysis of the template.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Template.TemplateSourceAnalysis')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.Template.DataSetReference"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +41,8 @@ The source analysis of the template.
                 }
             })]
         $DataSetReferences,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,11 +53,14 @@ The source analysis of the template.
                 }
             })]
         $Arn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +70,7 @@ The source analysis of the template.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Template.TemplateSourceAnalysis'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

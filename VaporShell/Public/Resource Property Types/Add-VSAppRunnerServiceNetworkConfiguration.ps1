@@ -1,36 +1,63 @@
 function Add-VSAppRunnerServiceNetworkConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AppRunner::Service.NetworkConfiguration resource property to the template. Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+        Adds an AWS::AppRunner::Service.NetworkConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppRunner::Service.NetworkConfiguration resource property to the template.
-Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html
 
-    .PARAMETER EgressConfiguration
-        Network configuration settings for outbound message traffic.
+    .PARAMETER IpAddressType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-ipaddresstype
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER EgressConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-egressconfiguration
         UpdateType: Mutable
         Type: EgressConfiguration
 
+    .PARAMETER IngressConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-ingressconfiguration
+        UpdateType: Mutable
+        Type: IngressConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppRunner.Service.NetworkConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
-        $EgressConfiguration
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IpAddressType,
+
+        [Parameter(Mandatory = $false)]
+        $EgressConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $IngressConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +67,7 @@ Describes configuration settings related to network traffic of an AWS App Runner
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppRunner.Service.NetworkConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

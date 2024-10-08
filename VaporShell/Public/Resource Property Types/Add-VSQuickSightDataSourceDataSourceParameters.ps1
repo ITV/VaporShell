@@ -1,180 +1,190 @@
 function Add-VSQuickSightDataSourceDataSourceParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.DataSourceParameters resource property to the template. The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        Adds an AWS::QuickSight::DataSource.DataSourceParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.DataSourceParameters resource property to the template.
-The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html
 
     .PARAMETER AuroraPostgreSqlParameters
-        The parameters for Amazon Aurora.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters
         UpdateType: Mutable
         Type: AuroraPostgreSqlParameters
 
     .PARAMETER TeradataParameters
-        The parameters for Teradata.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters
         UpdateType: Mutable
         Type: TeradataParameters
 
     .PARAMETER RdsParameters
-        The parameters for Amazon RDS.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-rdsparameters
         UpdateType: Mutable
         Type: RdsParameters
 
     .PARAMETER AthenaParameters
-        The parameters for Amazon Athena.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters
         UpdateType: Mutable
         Type: AthenaParameters
 
     .PARAMETER SparkParameters
-        The parameters for Spark.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sparkparameters
         UpdateType: Mutable
         Type: SparkParameters
 
     .PARAMETER MariaDbParameters
-        The parameters for MariaDB.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters
         UpdateType: Mutable
         Type: MariaDbParameters
 
     .PARAMETER OracleParameters
-        Oracle parameters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-oracleparameters
         UpdateType: Mutable
         Type: OracleParameters
 
     .PARAMETER PrestoParameters
-        The parameters for Presto.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-prestoparameters
         UpdateType: Mutable
         Type: PrestoParameters
 
-    .PARAMETER RedshiftParameters
-        The parameters for Amazon Redshift.
+    .PARAMETER StarburstParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-starburstparameters
+        UpdateType: Mutable
+        Type: StarburstParameters
 
+    .PARAMETER RedshiftParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters
         UpdateType: Mutable
         Type: RedshiftParameters
 
     .PARAMETER MySqlParameters
-        The parameters for MySQL.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mysqlparameters
         UpdateType: Mutable
         Type: MySqlParameters
 
     .PARAMETER SqlServerParameters
-        The parameters for SQL Server.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters
         UpdateType: Mutable
         Type: SqlServerParameters
 
     .PARAMETER SnowflakeParameters
-        The parameters for Snowflake.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters
         UpdateType: Mutable
         Type: SnowflakeParameters
 
     .PARAMETER AmazonElasticsearchParameters
-        The parameters for OpenSearch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters
         UpdateType: Mutable
         Type: AmazonElasticsearchParameters
 
     .PARAMETER AmazonOpenSearchParameters
-        The parameters for OpenSearch.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonopensearchparameters
         UpdateType: Mutable
         Type: AmazonOpenSearchParameters
 
     .PARAMETER PostgreSqlParameters
-        The parameters for PostgreSQL.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-postgresqlparameters
         UpdateType: Mutable
         Type: PostgreSqlParameters
 
     .PARAMETER AuroraParameters
-        The parameters for Amazon Aurora MySQL.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-auroraparameters
         UpdateType: Mutable
         Type: AuroraParameters
 
     .PARAMETER S3Parameters
-        The parameters for S3.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters
         UpdateType: Mutable
         Type: S3Parameters
 
+    .PARAMETER TrinoParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-trinoparameters
+        UpdateType: Mutable
+        Type: TrinoParameters
+
+    .PARAMETER DatabricksParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-databricksparameters
+        UpdateType: Mutable
+        Type: DatabricksParameters
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.DataSourceParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $AuroraPostgreSqlParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TeradataParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RdsParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AthenaParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SparkParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MariaDbParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OracleParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PrestoParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $StarburstParameters,
+
+        [Parameter(Mandatory = $false)]
         $RedshiftParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MySqlParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SqlServerParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SnowflakeParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AmazonElasticsearchParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AmazonOpenSearchParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PostgreSqlParameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AuroraParameters,
-        [parameter(Mandatory = $false)]
-        $S3Parameters
+
+        [Parameter(Mandatory = $false)]
+        $S3Parameters,
+
+        [Parameter(Mandatory = $false)]
+        $TrinoParameters,
+
+        [Parameter(Mandatory = $false)]
+        $DatabricksParameters
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -184,6 +194,7 @@ The parameters that Amazon QuickSight uses to connect to your underlying data so
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSource.DataSourceParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

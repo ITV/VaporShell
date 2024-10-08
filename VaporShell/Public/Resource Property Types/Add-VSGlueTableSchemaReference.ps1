@@ -1,32 +1,25 @@
 function Add-VSGlueTableSchemaReference {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Table.SchemaReference resource property to the template. An object that references a schema stored in the AWS Glue Schema Registry.
+        Adds an AWS::Glue::Table.SchemaReference resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Table.SchemaReference resource property to the template.
-An object that references a schema stored in the AWS Glue Schema Registry.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html
 
     .PARAMETER SchemaVersionId
-        The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SchemaId
-        A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
-
         Type: SchemaId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
         UpdateType: Mutable
 
     .PARAMETER SchemaVersionNumber
-        The version number of the schema.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
         PrimitiveType: Integer
         UpdateType: Mutable
@@ -34,11 +27,13 @@ An object that references a schema stored in the AWS Glue Schema Registry.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Table.SchemaReference')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,9 +44,11 @@ An object that references a schema stored in the AWS Glue Schema Registry.
                 }
             })]
         $SchemaVersionId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SchemaId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,11 +59,14 @@ An object that references a schema stored in the AWS Glue Schema Registry.
                 }
             })]
         $SchemaVersionNumber
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -76,6 +76,7 @@ An object that references a schema stored in the AWS Glue Schema Registry.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Table.SchemaReference'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

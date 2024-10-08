@@ -1,18 +1,15 @@
 function Add-VSManagedBlockchainMemberNetworkFabricConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::ManagedBlockchain::Member.NetworkFabricConfiguration resource property to the template. Hyperledger Fabric configuration properties for the network.
+        Adds an AWS::ManagedBlockchain::Member.NetworkFabricConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ManagedBlockchain::Member.NetworkFabricConfiguration resource property to the template.
-Hyperledger Fabric configuration properties for the network.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html
 
     .PARAMETER Edition
-        The edition of Amazon Managed Blockchain that the network uses. Valid values are standard and starter. For more information, see
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html#cfn-managedblockchain-member-networkfabricconfiguration-edition
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Hyperledger Fabric configuration properties for the network.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ManagedBlockchain.Member.NetworkFabricConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Hyperledger Fabric configuration properties for the network.
                 }
             })]
         $Edition
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Hyperledger Fabric configuration properties for the network.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ManagedBlockchain.Member.NetworkFabricConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

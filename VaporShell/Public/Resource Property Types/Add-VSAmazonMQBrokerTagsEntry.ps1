@@ -1,25 +1,20 @@
 function Add-VSAmazonMQBrokerTagsEntry {
     <#
     .SYNOPSIS
-        Adds an AWS::AmazonMQ::Broker.TagsEntry resource property to the template. A key-value pair to associate with the broker.
+        Adds an AWS::AmazonMQ::Broker.TagsEntry resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AmazonMQ::Broker.TagsEntry resource property to the template.
-A key-value pair to associate with the broker.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-tagsentry.html
 
     .PARAMETER Value
-        The value in a key-value pair.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-tagsentry.html#cfn-amazonmq-broker-tagsentry-value
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Key
-        The key in a key-value pair.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-tagsentry.html#cfn-amazonmq-broker-tagsentry-key
         PrimitiveType: String
         UpdateType: Mutable
@@ -27,11 +22,13 @@ A key-value pair to associate with the broker.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AmazonMQ.Broker.TagsEntry')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ A key-value pair to associate with the broker.
                 }
             })]
         $Value,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ A key-value pair to associate with the broker.
                 }
             })]
         $Key
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ A key-value pair to associate with the broker.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AmazonMQ.Broker.TagsEntry'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

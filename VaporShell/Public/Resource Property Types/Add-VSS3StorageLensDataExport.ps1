@@ -1,25 +1,20 @@
 function Add-VSS3StorageLensDataExport {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.DataExport resource property to the template. This resource contains the details of the Amazon S3 Storage Lens metrics export.
+        Adds an AWS::S3::StorageLens.DataExport resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.DataExport resource property to the template.
-This resource contains the details of the Amazon S3 Storage Lens metrics export.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
 
     .PARAMETER S3BucketDestination
-        This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
         UpdateType: Mutable
         Type: S3BucketDestination
 
     .PARAMETER CloudWatchMetrics
-        This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-cloudwatchmetrics
         UpdateType: Mutable
         Type: CloudWatchMetrics
@@ -27,19 +22,25 @@ This resource contains the details of the Amazon S3 Storage Lens metrics export.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.StorageLens.DataExport')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $S3BucketDestination,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CloudWatchMetrics
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +50,7 @@ This resource contains the details of the Amazon S3 Storage Lens metrics export.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.StorageLens.DataExport'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

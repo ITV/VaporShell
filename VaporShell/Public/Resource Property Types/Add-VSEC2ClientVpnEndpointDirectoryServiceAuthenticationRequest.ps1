@@ -1,18 +1,15 @@
 function Add-VSEC2ClientVpnEndpointDirectoryServiceAuthenticationRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::ClientVpnEndpoint.DirectoryServiceAuthenticationRequest resource property to the template. Describes the Active Directory to be used for client authentication.
+        Adds an AWS::EC2::ClientVpnEndpoint.DirectoryServiceAuthenticationRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::ClientVpnEndpoint.DirectoryServiceAuthenticationRequest resource property to the template.
-Describes the Active Directory to be used for client authentication.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html
 
     .PARAMETER DirectoryId
-        The ID of the Active Directory to be used for authentication.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html#cfn-ec2-clientvpnendpoint-directoryserviceauthenticationrequest-directoryid
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Describes the Active Directory to be used for client authentication.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.DirectoryServiceAuthenticationRequest')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Describes the Active Directory to be used for client authentication.
                 }
             })]
         $DirectoryId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Describes the Active Directory to be used for client authentication.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.ClientVpnEndpoint.DirectoryServiceAuthenticationRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSElasticLoadBalancingLoadBalancerConnectionSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancing::LoadBalancer.ConnectionSettings resource property to the template. Specifies the idle timeout value for your Classic Load Balancer.
+        Adds an AWS::ElasticLoadBalancing::LoadBalancer.ConnectionSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancing::LoadBalancer.ConnectionSettings resource property to the template.
-Specifies the idle timeout value for your Classic Load Balancer.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectionsettings.html
 
     .PARAMETER IdleTimeout
-        The time, in seconds, that the connection is allowed to be idle no data has been sent over the connection before it is closed by the load balancer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectionsettings.html#cfn-elb-connectionsettings-idletimeout
         PrimitiveType: Integer
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Specifies the idle timeout value for your Classic Load Balancer.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.ConnectionSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Specifies the idle timeout value for your Classic Load Balancer.
                 }
             })]
         $IdleTimeout
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Specifies the idle timeout value for your Classic Load Balancer.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.ConnectionSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

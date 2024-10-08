@@ -1,18 +1,15 @@
 function Add-VSIoTMitigationActionPublishFindingToSnsParams {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction.PublishFindingToSnsParams resource property to the template. Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+        Adds an AWS::IoT::MitigationAction.PublishFindingToSnsParams resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::MitigationAction.PublishFindingToSnsParams resource property to the template.
-Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html
 
     .PARAMETER TopicArn
-        The ARN of the topic to which you want to publish the findings.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html#cfn-iot-mitigationaction-publishfindingtosnsparams-topicarn
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Parameters to define a mitigation action that publishes findings to Amazon SNS. 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.MitigationAction.PublishFindingToSnsParams')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Parameters to define a mitigation action that publishes findings to Amazon SNS. 
                 }
             })]
         $TopicArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Parameters to define a mitigation action that publishes findings to Amazon SNS. 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.MitigationAction.PublishFindingToSnsParams'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,39 +1,30 @@
 function Add-VSLakeFormationPermissionsTableResource {
     <#
     .SYNOPSIS
-        Adds an AWS::LakeFormation::Permissions.TableResource resource property to the template. A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        Adds an AWS::LakeFormation::Permissions.TableResource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::LakeFormation::Permissions.TableResource resource property to the template.
-A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html
 
     .PARAMETER DatabaseName
-        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-databasename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CatalogId
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TableWildcard
-        An empty object representing all tables under a database. If this field is specified instead of the Name field, all tables under DatabaseName will have permission changes applied.
-
         Type: TableWildcard
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-name
         PrimitiveType: String
         UpdateType: Mutable
@@ -41,11 +32,13 @@ A structure for the table object. A table is a metadata definition that represen
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.LakeFormation.Permissions.TableResource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +49,8 @@ A structure for the table object. A table is a metadata definition that represen
                 }
             })]
         $DatabaseName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,9 +61,11 @@ A structure for the table object. A table is a metadata definition that represen
                 }
             })]
         $CatalogId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TableWildcard,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -80,11 +76,14 @@ A structure for the table object. A table is a metadata definition that represen
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -94,6 +93,7 @@ A structure for the table object. A table is a metadata definition that represen
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.LakeFormation.Permissions.TableResource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,21 +1,15 @@
 function Add-VSCodeDeployDeploymentGroupEC2TagSet {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.EC2TagSet resource property to the template. The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. EC2TagSet cannot be used in the same template as EC2TagFilter.
+        Adds an AWS::CodeDeploy::DeploymentGroup.EC2TagSet resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.EC2TagSet resource property to the template.
-The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. EC2TagSet cannot be used in the same template as EC2TagFilter.
-
-For information about using tags and tag groups to help manage your Amazon EC2 instances and on-premises instances, see Tagging Instances for Deployment Groups in AWS CodeDeploy: https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-tagging.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html
 
     .PARAMETER Ec2TagSetList
-        The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
-Duplicates are not allowed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html#cfn-codedeploy-deploymentgroup-ec2tagset-ec2tagsetlist
         DuplicatesAllowed: False
         ItemType: EC2TagSetListObject
@@ -25,11 +19,13 @@ Duplicates are not allowed.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagSet')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagSetListObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,11 +36,14 @@ Duplicates are not allowed.
                 }
             })]
         $Ec2TagSetList
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +53,7 @@ Duplicates are not allowed.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagSet'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

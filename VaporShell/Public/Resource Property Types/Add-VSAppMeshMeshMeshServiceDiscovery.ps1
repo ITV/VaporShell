@@ -1,11 +1,10 @@
 function Add-VSAppMeshMeshMeshServiceDiscovery {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Mesh.MeshServiceDiscovery resource property to the template. <a name="aws-properties-appmesh-mesh-meshservicediscovery-description"></a>The MeshServiceDiscovery property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppMesh::Mesh: aws-resource-appmesh-mesh.md.
+        Adds an AWS::AppMesh::Mesh.MeshServiceDiscovery resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Mesh.MeshServiceDiscovery resource property to the template.
-<a name="aws-properties-appmesh-mesh-meshservicediscovery-description"></a>The MeshServiceDiscovery property type specifies Not currently supported by AWS CloudFormation. for an AWS::AppMesh::Mesh: aws-resource-appmesh-mesh.md.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html
@@ -18,11 +17,13 @@ function Add-VSAppMeshMeshMeshServiceDiscovery {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.Mesh.MeshServiceDiscovery')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSAppMeshMeshMeshServiceDiscovery {
                 }
             })]
         $IpPreference
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSAppMeshMeshMeshServiceDiscovery {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.Mesh.MeshServiceDiscovery'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSKendraIndexUserTokenConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::Index.UserTokenConfiguration resource property to the template. Provides the configuration information for a token.
+        Adds an AWS::Kendra::Index.UserTokenConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Kendra::Index.UserTokenConfiguration resource property to the template.
-Provides the configuration information for a token.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html
 
     .PARAMETER JwtTokenTypeConfiguration
-        Information about the JWT token type configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jwttokentypeconfiguration
         UpdateType: Mutable
         Type: JwtTokenTypeConfiguration
 
     .PARAMETER JsonTokenTypeConfiguration
-        Information about the JSON token type configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jsontokentypeconfiguration
         UpdateType: Mutable
         Type: JsonTokenTypeConfiguration
@@ -27,19 +22,25 @@ Provides the configuration information for a token.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Kendra.Index.UserTokenConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $JwtTokenTypeConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $JsonTokenTypeConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +50,7 @@ Provides the configuration information for a token.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Kendra.Index.UserTokenConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

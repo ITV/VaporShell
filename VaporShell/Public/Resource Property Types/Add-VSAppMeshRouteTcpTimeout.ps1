@@ -1,18 +1,15 @@
 function Add-VSAppMeshRouteTcpTimeout {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.TcpTimeout resource property to the template. An object that represents types of timeouts.
+        Adds an AWS::AppMesh::Route.TcpTimeout resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.TcpTimeout resource property to the template.
-An object that represents types of timeouts.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcptimeout.html
 
     .PARAMETER Idle
-        An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
-
         Type: Duration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcptimeout.html#cfn-appmesh-route-tcptimeout-idle
         UpdateType: Mutable
@@ -20,17 +17,22 @@ An object that represents types of timeouts.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.Route.TcpTimeout')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Idle
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +42,7 @@ An object that represents types of timeouts.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.Route.TcpTimeout'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

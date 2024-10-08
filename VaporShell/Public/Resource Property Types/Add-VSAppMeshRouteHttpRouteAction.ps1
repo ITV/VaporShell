@@ -1,18 +1,15 @@
 function Add-VSAppMeshRouteHttpRouteAction {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.HttpRouteAction resource property to the template. An object that represents the action to take if a match is determined.
+        Adds an AWS::AppMesh::Route.HttpRouteAction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.HttpRouteAction resource property to the template.
-An object that represents the action to take if a match is determined.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html
 
     .PARAMETER WeightedTargets
-        An object that represents the targets that traffic is routed to when a request matches the route.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html#cfn-appmesh-route-httprouteaction-weightedtargets
         ItemType: WeightedTarget
@@ -21,11 +18,13 @@ An object that represents the action to take if a match is determined.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.Route.HttpRouteAction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppMesh.Route.WeightedTarget"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -36,11 +35,14 @@ An object that represents the action to take if a match is determined.
                 }
             })]
         $WeightedTargets
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -50,6 +52,7 @@ An object that represents the action to take if a match is determined.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.Route.HttpRouteAction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

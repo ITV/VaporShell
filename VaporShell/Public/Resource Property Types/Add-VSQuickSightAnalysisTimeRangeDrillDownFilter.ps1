@@ -1,0 +1,101 @@
+function Add-VSQuickSightAnalysisTimeRangeDrillDownFilter {
+    <#
+    .SYNOPSIS
+        Adds an AWS::QuickSight::Analysis.TimeRangeDrillDownFilter resource property to the template.
+
+    .DESCRIPTION
+        Adds an AWS::QuickSight::Analysis.TimeRangeDrillDownFilter resource property to the template.
+
+    .LINK
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html
+
+    .PARAMETER Column
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html#cfn-quicksight-analysis-timerangedrilldownfilter-column
+        UpdateType: Mutable
+        Type: ColumnIdentifier
+
+    .PARAMETER RangeMinimum
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html#cfn-quicksight-analysis-timerangedrilldownfilter-rangeminimum
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER TimeGranularity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html#cfn-quicksight-analysis-timerangedrilldownfilter-timegranularity
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER RangeMaximum
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangedrilldownfilter.html#cfn-quicksight-analysis-timerangedrilldownfilter-rangemaximum
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .FUNCTIONALITY
+        Vaporshell
+    #>
+
+    [OutputType('Vaporshell.Resource.QuickSight.Analysis.TimeRangeDrillDownFilter')]
+    [cmdletbinding()]
+
+    Param
+    (
+        [Parameter(Mandatory = $true)]
+        $Column,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RangeMinimum,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TimeGranularity,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RangeMaximum
+
+    )
+
+    Begin {
+        $obj = [PSCustomObject]@{}
+        $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
+    }
+
+    Process {
+        foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
+            switch ($key) {
+                Default {
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
+                }
+            }
+        }
+    }
+
+    End {
+        $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Analysis.TimeRangeDrillDownFilter'
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
+    }
+}

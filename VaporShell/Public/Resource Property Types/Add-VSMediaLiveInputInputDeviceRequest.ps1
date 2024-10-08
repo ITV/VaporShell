@@ -1,18 +1,15 @@
 function Add-VSMediaLiveInputInputDeviceRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.InputDeviceRequest resource property to the template. This entity is not used. Ignore it.
+        Adds an AWS::MediaLive::Input.InputDeviceRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.InputDeviceRequest resource property to the template.
-This entity is not used. Ignore it.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicerequest.html
 
     .PARAMETER Id
-        This property is not used. Ignore it.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicerequest.html#cfn-medialive-input-inputdevicerequest-id
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ This entity is not used. Ignore it.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Input.InputDeviceRequest')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ This entity is not used. Ignore it.
                 }
             })]
         $Id
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ This entity is not used. Ignore it.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Input.InputDeviceRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

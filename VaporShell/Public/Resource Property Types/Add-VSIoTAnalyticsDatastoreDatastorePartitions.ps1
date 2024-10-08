@@ -1,18 +1,15 @@
 function Add-VSIoTAnalyticsDatastoreDatastorePartitions {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.DatastorePartitions resource property to the template. Information about the partition dimensions in a data store.
+        Adds an AWS::IoTAnalytics::Datastore.DatastorePartitions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.DatastorePartitions resource property to the template.
-Information about the partition dimensions in a data store.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartitions.html
 
     .PARAMETER Partitions
-        A list of partition dimensions in a data store.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartitions.html#cfn-iotanalytics-datastore-datastorepartitions-partitions
         UpdateType: Mutable
         Type: List
@@ -22,11 +19,13 @@ Information about the partition dimensions in a data store.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.DatastorePartitions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.IoTAnalytics.Datastore.DatastorePartition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +36,14 @@ Information about the partition dimensions in a data store.
                 }
             })]
         $Partitions
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +53,7 @@ Information about the partition dimensions in a data store.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Datastore.DatastorePartitions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

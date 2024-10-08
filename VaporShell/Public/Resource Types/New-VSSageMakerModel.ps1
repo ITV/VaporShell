@@ -1,10 +1,10 @@
 function New-VSSageMakerModel {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Model resource to the template. The AWS::SageMaker::Model resource to create a model to host at an Amazon SageMaker endpoint. For more information, see Deploying a Model on Amazon SageMaker Hosting Services: https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html in the *Amazon SageMaker Developer Guide*.
+        Adds an AWS::SageMaker::Model resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::SageMaker::Model resource to the template. The AWS::SageMaker::Model resource to create a model to host at an Amazon SageMaker endpoint. For more information, see Deploying a Model on Amazon SageMaker Hosting Services: https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html in the *Amazon SageMaker Developer Guide*.
+        Adds an AWS::SageMaker::Model resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html
@@ -13,60 +13,42 @@ function New-VSSageMakerModel {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER ExecutionRoleArn
-        The Amazon Resource Name ARN of the IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see SageMaker Roles: https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html.
-To be able to pass this role to SageMaker, the caller of this API must have the iam:PassRole permission.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER EnableNetworkIsolation
-        Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-enablenetworkisolation
         PrimitiveType: Boolean
         UpdateType: Immutable
 
     .PARAMETER PrimaryContainer
-        The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
-
         Type: ContainerDefinition
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer
         UpdateType: Immutable
 
     .PARAMETER ModelName
-        The name of the new model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER VpcConfig
-        A VpcConfig: https://docs.aws.amazon.com/sagemaker/latest/dg/API_VpcConfig.html object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. VpcConfig is used in hosting services and in batch transform. For more information, see Protect Endpoints by Using an Amazon Virtual Private Cloud: https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html and Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud: https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html.
-
         Type: VpcConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig
         UpdateType: Immutable
 
     .PARAMETER Containers
-        Specifies the containers in the inference pipeline.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers
         ItemType: ContainerDefinition
         UpdateType: Immutable
 
     .PARAMETER InferenceExecutionConfig
-        Specifies details of how containers in a multi-container endpoint are called.
-
         Type: InferenceExecutionConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-inferenceexecutionconfig
         UpdateType: Immutable
 
     .PARAMETER Tags
-        A list of key-value pairs to apply to this resource.
-For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html and Using Cost Allocation Tags: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what in the *AWS Billing and Cost Management User Guide*.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags
         ItemType: Tag
@@ -102,28 +84,29 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.Model')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -134,7 +117,8 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -145,7 +129,8 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $ExecutionRoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -156,9 +141,11 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $EnableNetworkIsolation,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PrimaryContainer,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -169,9 +156,11 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $ModelName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VpcConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.Model.ContainerDefinition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -182,12 +171,15 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $Containers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InferenceExecutionConfig,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -198,27 +190,28 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -229,9 +222,15 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -239,6 +238,7 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -282,6 +282,7 @@ For more information, see Resource Tag: https://docs.aws.amazon.com/AWSCloudForm
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.Model'

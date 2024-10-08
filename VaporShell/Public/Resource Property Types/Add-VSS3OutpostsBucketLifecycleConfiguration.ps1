@@ -1,18 +1,15 @@
 function Add-VSS3OutpostsBucketLifecycleConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3Outposts::Bucket.LifecycleConfiguration resource property to the template. The container for the lifecycle configuration for the objects stored in an S3 on Outposts bucket.
+        Adds an AWS::S3Outposts::Bucket.LifecycleConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3Outposts::Bucket.LifecycleConfiguration resource property to the template.
-The container for the lifecycle configuration for the objects stored in an S3 on Outposts bucket.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html
 
     .PARAMETER Rules
-        The container for the lifecycle configuration rules for the objects stored in the S3 on Outposts bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
         UpdateType: Mutable
         Type: List
@@ -22,11 +19,13 @@ The container for the lifecycle configuration for the objects stored in an S3 on
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3Outposts.Bucket.LifecycleConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3Outposts.Bucket.Rule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +36,14 @@ The container for the lifecycle configuration for the objects stored in an S3 on
                 }
             })]
         $Rules
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +53,7 @@ The container for the lifecycle configuration for the objects stored in an S3 on
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3Outposts.Bucket.LifecycleConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

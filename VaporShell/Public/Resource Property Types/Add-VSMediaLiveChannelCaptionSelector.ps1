@@ -1,34 +1,25 @@
 function Add-VSMediaLiveChannelCaptionSelector {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.CaptionSelector resource property to the template. Information about one caption to extract from the input.
+        Adds an AWS::MediaLive::Channel.CaptionSelector resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.CaptionSelector resource property to the template.
-Information about one caption to extract from the input.
-
-The parent of this entity is InputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html
 
     .PARAMETER LanguageCode
-        When specified, this field indicates the three-letter language code of the captions track to extract from the source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html#cfn-medialive-channel-captionselector-languagecode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SelectorSettings
-        Information about the specific audio to extract from the input.
-
         Type: CaptionSelectorSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html#cfn-medialive-channel-captionselector-selectorsettings
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name identifier for a captions selector. This name is used to associate this captions selector with one or more captions descriptions. Names must be unique within a channel.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html#cfn-medialive-channel-captionselector-name
         PrimitiveType: String
         UpdateType: Mutable
@@ -36,11 +27,13 @@ The parent of this entity is InputSettings.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.CaptionSelector')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,9 +44,11 @@ The parent of this entity is InputSettings.
                 }
             })]
         $LanguageCode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SelectorSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,11 +59,14 @@ The parent of this entity is InputSettings.
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -78,6 +76,7 @@ The parent of this entity is InputSettings.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.CaptionSelector'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

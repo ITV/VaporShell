@@ -1,27 +1,20 @@
 function Add-VSIoT1ClickProjectDeviceTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT1Click::Project.DeviceTemplate resource property to the template. In AWS CloudFormation, use the DeviceTemplate property type to define the template for an AWS IoT 1-Click project.
+        Adds an AWS::IoT1Click::Project.DeviceTemplate resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT1Click::Project.DeviceTemplate resource property to the template.
-In AWS CloudFormation, use the DeviceTemplate property type to define the template for an AWS IoT 1-Click project.
-
-DeviceTemplate is a property of the AWS::IoT1Click::Project resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-devicetemplate.html
 
     .PARAMETER DeviceType
-        The device type, which currently must be "button".
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-devicetemplate.html#cfn-iot1click-project-devicetemplate-devicetype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CallbackOverrides
-        An optional AWS Lambda function to invoke instead of the default AWS Lambda function provided by the placement template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-devicetemplate.html#cfn-iot1click-project-devicetemplate-callbackoverrides
         PrimitiveType: Json
         UpdateType: Mutable
@@ -29,11 +22,13 @@ DeviceTemplate is a property of the AWS::IoT1Click::Project resource.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT1Click.Project.DeviceTemplate')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +39,8 @@ DeviceTemplate is a property of the AWS::IoT1Click::Project resource.
                 }
             })]
         $DeviceType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +51,14 @@ DeviceTemplate is a property of the AWS::IoT1Click::Project resource.
                 }
             })]
         $CallbackOverrides
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -83,6 +82,7 @@ DeviceTemplate is a property of the AWS::IoT1Click::Project resource.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT1Click.Project.DeviceTemplate'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

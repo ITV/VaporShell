@@ -1,26 +1,22 @@
 function Add-VSQuickSightDashboardDecimalParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.DecimalParameter resource property to the template. A decimal parameter.
+        Adds an AWS::QuickSight::Dashboard.DecimalParameter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.DecimalParameter resource property to the template.
-A decimal parameter.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html
 
     .PARAMETER Values
-        The values for the decimal parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-values
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: Double
+        DuplicatesAllowed: True
 
     .PARAMETER Name
-        A display name for the decimal parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-name
         UpdateType: Mutable
         PrimitiveType: String
@@ -28,13 +24,16 @@ A decimal parameter.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DecimalParameter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Values,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,11 +44,14 @@ A decimal parameter.
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -59,6 +61,7 @@ A decimal parameter.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.DecimalParameter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,33 +1,29 @@
 function Add-VSEC2InstanceHibernationOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::Instance.HibernationOptions resource property to the template. Specifies the hibernation options for the instance.
+        Adds an AWS::EC2::Instance.HibernationOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::Instance.HibernationOptions resource property to the template.
-Specifies the hibernation options for the instance.
-
-HibernationOptions is a property of the AWS::EC2::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html
 
     .PARAMETER Configured
-        If you set this parameter to true, your instance is enabled for hibernation.
-Default: false
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
+        UpdateType: Immutable
         PrimitiveType: Boolean
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.Instance.HibernationOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,11 +34,14 @@ Default: false
                 }
             })]
         $Configured
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -52,6 +51,7 @@ Default: false
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.Instance.HibernationOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

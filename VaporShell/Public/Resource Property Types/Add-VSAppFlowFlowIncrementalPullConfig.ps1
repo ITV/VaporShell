@@ -1,18 +1,15 @@
 function Add-VSAppFlowFlowIncrementalPullConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.IncrementalPullConfig resource property to the template. Specifies the configuration used when importing incremental records from the source.
+        Adds an AWS::AppFlow::Flow.IncrementalPullConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.IncrementalPullConfig resource property to the template.
-Specifies the configuration used when importing incremental records from the source.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html
 
     .PARAMETER DatetimeTypeFieldName
-        A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Specifies the configuration used when importing incremental records from the sou
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.Flow.IncrementalPullConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Specifies the configuration used when importing incremental records from the sou
                 }
             })]
         $DatetimeTypeFieldName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Specifies the configuration used when importing incremental records from the sou
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.Flow.IncrementalPullConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

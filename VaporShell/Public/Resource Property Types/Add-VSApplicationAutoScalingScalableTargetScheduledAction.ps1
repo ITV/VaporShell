@@ -1,78 +1,54 @@
 function Add-VSApplicationAutoScalingScalableTargetScheduledAction {
     <#
     .SYNOPSIS
-        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScheduledAction resource property to the template. ScheduledAction is a property of the AWS::ApplicationAutoScaling::ScalableTarget: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html resource that specifies a scheduled action for a scalable target.
+        Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScheduledAction resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ApplicationAutoScaling::ScalableTarget.ScheduledAction resource property to the template.
-ScheduledAction is a property of the AWS::ApplicationAutoScaling::ScalableTarget: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html resource that specifies a scheduled action for a scalable target.
-
-For more information, see PutScheduledAction: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html in the *Application Auto Scaling API Reference*. For more information about scheduled scaling, including the format for cron expressions, see Scheduled scaling: https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html in the *Application Auto Scaling User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html
 
-    .PARAMETER EndTime
-        The date and time that the action is scheduled to end, in UTC.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-endtime
-        PrimitiveType: Timestamp
+    .PARAMETER Timezone
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-timezone
         UpdateType: Mutable
-
-    .PARAMETER ScalableTargetAction
-        The new minimum and maximum capacity. You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scalabletargetaction
-        Type: ScalableTargetAction
-        UpdateType: Mutable
-
-    .PARAMETER Schedule
-        The schedule for this action. The following formats are supported:
-+ At expressions - "atyyyy-mm-ddThh:mm:ss"
-+ Rate expressions - "ratevalue unit"
-+ Cron expressions - "cronfields"
-At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
-At and cron expressions use Universal Coordinated Time UTC by default.
-The cron format consists of six fields separated by white spaces: Minutes] Hours] Day_of_Month] Month] Day_of_Week] Year].
-For rate expressions, *value* is a positive integer and *unit* is minute | minutes | hour | hours | day | days.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-schedule
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER ScheduledActionName
-        The name of the scheduled action. This name must be unique among all other scheduled actions on the specified scalable target.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scheduledactionname
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER EndTime
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-endtime
+        UpdateType: Mutable
+        PrimitiveType: Timestamp
+
+    .PARAMETER Schedule
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-schedule
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER StartTime
-        The date and time that the action is scheduled to begin, in UTC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-starttime
+        UpdateType: Mutable
         PrimitiveType: Timestamp
-        UpdateType: Mutable
 
-    .PARAMETER Timezone
-        The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-timezone
-        PrimitiveType: String
+    .PARAMETER ScalableTargetAction
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scalabletargetaction
         UpdateType: Mutable
+        Type: ScalableTargetAction
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalableTarget.ScheduledAction')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
-        $EndTime,
-        [parameter(Mandatory = $false)]
-        $ScalableTargetAction,
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,8 +58,9 @@ For rate expressions, *value* is a positive integer and *unit* is minute | minut
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Schedule,
-        [parameter(Mandatory = $true)]
+        $Timezone,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,9 +71,11 @@ For rate expressions, *value* is a positive integer and *unit* is minute | minut
                 }
             })]
         $ScheduledActionName,
-        [parameter(Mandatory = $false)]
-        $StartTime,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $EndTime,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -106,12 +85,21 @@ For rate expressions, *value* is a positive integer and *unit* is minute | minut
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Timezone
+        $Schedule,
+
+        [Parameter(Mandatory = $false)]
+        $StartTime,
+
+        [Parameter(Mandatory = $false)]
+        $ScalableTargetAction
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -121,6 +109,7 @@ For rate expressions, *value* is a positive integer and *unit* is minute | minut
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ApplicationAutoScaling.ScalableTarget.ScheduledAction'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

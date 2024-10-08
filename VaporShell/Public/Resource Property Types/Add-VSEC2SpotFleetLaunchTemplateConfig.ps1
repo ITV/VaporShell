@@ -1,25 +1,20 @@
 function Add-VSEC2SpotFleetLaunchTemplateConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.LaunchTemplateConfig resource property to the template. Specifies a launch template and overrides.
+        Adds an AWS::EC2::SpotFleet.LaunchTemplateConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.LaunchTemplateConfig resource property to the template.
-Specifies a launch template and overrides.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html
 
     .PARAMETER LaunchTemplateSpecification
-        The launch template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-launchtemplatespecification
         UpdateType: Immutable
         Type: FleetLaunchTemplateSpecification
 
     .PARAMETER Overrides
-        Any parameters that you specify override the same parameters in the launch template.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-overrides
         UpdateType: Immutable
         Type: List
@@ -29,13 +24,16 @@ Specifies a launch template and overrides.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.LaunchTemplateConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $LaunchTemplateSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.SpotFleet.LaunchTemplateOverrides"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,11 +44,14 @@ Specifies a launch template and overrides.
                 }
             })]
         $Overrides
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -60,6 +61,7 @@ Specifies a launch template and overrides.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.SpotFleet.LaunchTemplateConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

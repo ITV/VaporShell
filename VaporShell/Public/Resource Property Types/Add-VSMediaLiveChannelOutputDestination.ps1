@@ -1,42 +1,31 @@
 function Add-VSMediaLiveChannelOutputDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.OutputDestination resource property to the template. Configuration information for an output.
+        Adds an AWS::MediaLive::Channel.OutputDestination resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.OutputDestination resource property to the template.
-Configuration information for an output.
-
-This entity is at the top level in the channel.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html
 
     .PARAMETER MultiplexSettings
-        Destination settings for a Multiplex output; one destination for both encoders.
-
         Type: MultiplexProgramChannelDestinationSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-multiplexsettings
         UpdateType: Mutable
 
     .PARAMETER Id
-        The ID for this destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-id
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Settings
-        The destination settings for an output.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-settings
         ItemType: OutputDestinationSettings
         UpdateType: Mutable
 
     .PARAMETER MediaPackageSettings
-        The destination settings for a MediaPackage output.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-mediapackagesettings
         ItemType: MediaPackageOutputDestinationSettings
@@ -45,13 +34,16 @@ This entity is at the top level in the channel.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.OutputDestination')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $MultiplexSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +54,8 @@ This entity is at the top level in the channel.
                 }
             })]
         $Id,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.OutputDestinationSettings"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,7 +66,8 @@ This entity is at the top level in the channel.
                 }
             })]
         $Settings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.MediaPackageOutputDestinationSettings"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,11 +78,14 @@ This entity is at the top level in the channel.
                 }
             })]
         $MediaPackageSettings
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -98,6 +95,7 @@ This entity is at the top level in the channel.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.OutputDestination'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

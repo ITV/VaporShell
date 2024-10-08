@@ -1,27 +1,20 @@
 function Add-VSEC2CapacityReservationTagSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::CapacityReservation.TagSpecification resource property to the template. An array of key-value pairs to apply to this resource.
+        Adds an AWS::EC2::CapacityReservation.TagSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::CapacityReservation.TagSpecification resource property to the template.
-An array of key-value pairs to apply to this resource.
-
-For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html
 
     .PARAMETER ResourceType
-        The type of resource to tag. Specify capacity-reservation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-resourcetype
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
-        The tags to apply to the resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-tags
         UpdateType: Immutable
         Type: List
@@ -31,11 +24,13 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.CapacityReservation.TagSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,14 +41,18 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
                 }
             })]
         $ResourceType,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -63,6 +62,7 @@ For more information, see Tag: https://docs.aws.amazon.com/AWSCloudFormation/lat
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.CapacityReservation.TagSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

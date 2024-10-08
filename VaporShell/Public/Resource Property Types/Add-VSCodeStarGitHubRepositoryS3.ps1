@@ -1,34 +1,25 @@
 function Add-VSCodeStarGitHubRepositoryS3 {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeStar::GitHubRepository.S3 resource property to the template. The S3 property type specifies information about the Amazon S3 bucket that contains the code to be committed to the new repository.
+        Adds an AWS::CodeStar::GitHubRepository.S3 resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeStar::GitHubRepository.S3 resource property to the template.
-The S3 property type specifies information about the Amazon S3 bucket that contains the code to be committed to the new repository.
-
-S3 is a property of the AWS::CodeStar::GitHubRepository resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-s3.html
 
     .PARAMETER ObjectVersion
-        The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-s3.html#cfn-codestar-githubrepository-s3-objectversion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Bucket
-        The name of the Amazon S3 bucket that contains the ZIP file with the content to be committed to the new repository.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-s3.html#cfn-codestar-githubrepository-s3-bucket
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Key
-        The S3 object key or file name for the ZIP file.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-s3.html#cfn-codestar-githubrepository-s3-key
         PrimitiveType: String
         UpdateType: Mutable
@@ -36,11 +27,13 @@ S3 is a property of the AWS::CodeStar::GitHubRepository resource.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeStar.GitHubRepository.S3')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,7 +44,8 @@ S3 is a property of the AWS::CodeStar::GitHubRepository resource.
                 }
             })]
         $ObjectVersion,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +56,8 @@ S3 is a property of the AWS::CodeStar::GitHubRepository resource.
                 }
             })]
         $Bucket,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,11 +68,14 @@ S3 is a property of the AWS::CodeStar::GitHubRepository resource.
                 }
             })]
         $Key
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +85,7 @@ S3 is a property of the AWS::CodeStar::GitHubRepository resource.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeStar.GitHubRepository.S3'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

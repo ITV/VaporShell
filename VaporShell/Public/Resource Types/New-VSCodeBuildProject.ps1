@@ -1,10 +1,10 @@
 function New-VSCodeBuildProject {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::Project resource to the template. The AWS::CodeBuild::Project resource configures how AWS CodeBuild builds your source code. For example, it tells CodeBuild where to get the source code and which build environment to use.
+        Adds an AWS::CodeBuild::Project resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::CodeBuild::Project resource to the template. The AWS::CodeBuild::Project resource configures how AWS CodeBuild builds your source code. For example, it tells CodeBuild where to get the source code and which build environment to use.
+        Adds an AWS::CodeBuild::Project resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
@@ -13,189 +13,126 @@ function New-VSCodeBuildProject {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Description
-        A description that makes the build project easy to identify.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ResourceAccessRole
-        The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-resourceaccessrole
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER VpcConfig
-        VpcConfig specifies settings that enable AWS CodeBuild to access resources in an Amazon VPC. For more information, see Use AWS CodeBuild with Amazon Virtual Private Cloud: https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html in the *AWS CodeBuild User Guide*.
-
         Type: VpcConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-vpcconfig
         UpdateType: Mutable
 
     .PARAMETER SecondarySources
-        An array of ProjectSource objects.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysources
         ItemType: Source
         UpdateType: Mutable
 
     .PARAMETER EncryptionKey
-        The AWS Key Management Service customer master key CMK to be used for encrypting the build output artifacts.
-You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key.
-You can specify either the Amazon Resource Name ARN of the CMK or, if available, the CMK's alias using the format alias/<alias-name>. If you don't specify a value, CodeBuild uses the managed CMK for Amazon Simple Storage Service Amazon S3.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-encryptionkey
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SourceVersion
-        A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:
-+ For CodeCommit: the commit ID, branch, or Git tag to use.
-+ For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format pr/pull-request-ID for example pr/25. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
-+ For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
-+ For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
-If sourceVersion is specified at the build level, then that version takes precedence over this sourceVersion at the project level.
-For more information, see Source Version Sample with CodeBuild: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html in the * AWS CodeBuild User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-sourceversion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Triggers
-        For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.
-
         Type: ProjectTriggers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-triggers
         UpdateType: Mutable
 
     .PARAMETER SecondaryArtifacts
-        A list of Artifacts objects. Each artifacts object specifies output settings that the project generates during a build.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondaryartifacts
         ItemType: Artifacts
         UpdateType: Mutable
 
     .PARAMETER Source
-        The source code settings for the project, such as the source code's repository type and location.
-
         Type: Source
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-source
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the build project. The name must be unique across all of the projects in your AWS account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Artifacts
-        Artifacts is a property of the  AWS::CodeBuild::Project: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html resource that specifies output settings for artifacts generated by an AWS CodeBuild build.
-
         Type: Artifacts
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-artifacts
         UpdateType: Mutable
 
     .PARAMETER BadgeEnabled
-        Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge. For more information, see Build Badges Sample: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-badges.html in the *AWS CodeBuild User Guide*.
-Including build badges with your project is currently not supported if the source type is CodePipeline. If you specify CODEPIPELINE for the Source property, do not specify the BadgeEnabled property.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-badgeenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER LogsConfig
-        Information about logs for the build project. A project can create logs in CloudWatch Logs, an S3 bucket, or both.
-
         Type: LogsConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-logsconfig
         UpdateType: Mutable
 
     .PARAMETER ServiceRole
-        The ARN of the IAM role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-servicerole
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER QueuedTimeoutInMinutes
-        The number of minutes a build is allowed to be queued before it times out.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-queuedtimeoutinminutes
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER FileSystemLocations
-        An array of ProjectFileSystemLocation objects for a CodeBuild build project. A ProjectFileSystemLocation object specifies the identifier, location, mountOptions, mountPoint, and type of a file system created using Amazon Elastic File System.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-filesystemlocations
         ItemType: ProjectFileSystemLocation
         UpdateType: Mutable
 
     .PARAMETER Environment
-        The build environment settings for the project, such as the environment type or the environment variables to use for the build environment.
-
         Type: Environment
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment
         UpdateType: Mutable
 
     .PARAMETER SecondarySourceVersions
-        An array of ProjectSourceVersion objects. If secondarySourceVersions is specified at the build level, then they take over these secondarySourceVersions at the project level.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysourceversions
         ItemType: ProjectSourceVersion
         UpdateType: Mutable
 
     .PARAMETER ConcurrentBuildLimit
-        The maximum number of concurrent builds that are allowed for this project.
-New builds are only started if the current number of builds is less than or equal to this limit. If the current build count meets this limit, new builds are throttled and are not run.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-concurrentbuildlimit
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Visibility
-        Specifies the visibility of the project's builds. Possible values are:
-PUBLIC_READ
-The project builds are visible to the public.
-PRIVATE
-The project builds are not visible to the public.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-visibility
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER BuildBatchConfig
-        A ProjectBuildBatchConfig object that defines the batch build options for the project.
-
         Type: ProjectBuildBatchConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
         UpdateType: Mutable
 
     .PARAMETER Tags
-        An arbitrary set of tags key-value pairs for the AWS CodeBuild project.
-These tags are available for use by AWS services that support AWS CodeBuild build project tags.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-tags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER TimeoutInMinutes
-        How long, in minutes, from 5 to 480 8 hours, for AWS CodeBuild to wait before timing out any related build that did not get marked as completed. The default is 60 minutes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-timeoutinminutes
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Cache
-        Settings that AWS CodeBuild uses to store and reuse build dependencies.
-
         Type: ProjectCache
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
         UpdateType: Mutable
@@ -230,28 +167,29 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeBuild.Project')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -262,7 +200,8 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -273,7 +212,8 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -284,9 +224,11 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $ResourceAccessRole,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VpcConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeBuild.Project.Source"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -297,7 +239,8 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $SecondarySources,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -308,7 +251,8 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $EncryptionKey,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -319,9 +263,11 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $SourceVersion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Triggers,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeBuild.Project.Artifacts"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -332,9 +278,11 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $SecondaryArtifacts,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Source,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -345,9 +293,11 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $Name,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Artifacts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -358,9 +308,11 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $BadgeEnabled,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LogsConfig,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -371,7 +323,8 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $ServiceRole,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -382,7 +335,8 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $QueuedTimeoutInMinutes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeBuild.Project.ProjectFileSystemLocation"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -393,9 +347,11 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $FileSystemLocations,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Environment,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeBuild.Project.ProjectSourceVersion"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -406,7 +362,8 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $SecondarySourceVersions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -417,7 +374,8 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $ConcurrentBuildLimit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -428,12 +386,15 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $Visibility,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $BuildBatchConfig,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -444,9 +405,11 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $TimeoutInMinutes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Cache,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -457,27 +420,28 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -488,9 +452,15 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -498,6 +468,7 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -559,6 +530,7 @@ These tags are available for use by AWS services that support AWS CodeBuild buil
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeBuild.Project'

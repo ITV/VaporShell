@@ -1,18 +1,15 @@
 function Add-VSKinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::Application.ApplicationSnapshotConfiguration resource property to the template. Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalyticsV2::Application.ApplicationSnapshotConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::Application.ApplicationSnapshotConfiguration resource property to the template.
-Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html
 
     .PARAMETER SnapshotsEnabled
-        Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html#cfn-kinesisanalyticsv2-application-applicationsnapshotconfiguration-snapshotsenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -20,11 +17,13 @@ Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.ApplicationSnapshotConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics
                 }
             })]
         $SnapshotsEnabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalyticsV2.Application.ApplicationSnapshotConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

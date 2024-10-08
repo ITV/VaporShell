@@ -1,25 +1,20 @@
 function Add-VSAppFlowConnectorProfileSnowflakeConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.SnowflakeConnectorProfileCredentials resource property to the template. The SnowflakeConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Snowflake.
+        Adds an AWS::AppFlow::ConnectorProfile.SnowflakeConnectorProfileCredentials resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.SnowflakeConnectorProfileCredentials resource property to the template.
-The SnowflakeConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Snowflake.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html
 
     .PARAMETER Username
-        The name of the user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Password
-        The password that corresponds to the user name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,13 +22,15 @@ The SnowflakeConnectorProfileCredentials property type specifies the connector-s
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.SnowflakeConnectorProfileCredentials')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +41,8 @@ The SnowflakeConnectorProfileCredentials property type specifies the connector-s
                 }
             })]
         $Username,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +53,14 @@ The SnowflakeConnectorProfileCredentials property type specifies the connector-s
                 }
             })]
         $Password
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +70,7 @@ The SnowflakeConnectorProfileCredentials property type specifies the connector-s
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.ConnectorProfile.SnowflakeConnectorProfileCredentials'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

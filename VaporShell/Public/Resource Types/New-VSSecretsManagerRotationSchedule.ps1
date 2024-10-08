@@ -1,10 +1,10 @@
 function New-VSSecretsManagerRotationSchedule {
     <#
     .SYNOPSIS
-        Adds an AWS::SecretsManager::RotationSchedule resource to the template. Configures rotation for a secret. You must already configure the secret with the details of the database or service. If you define both the secret and the database or service in an AWS CloudFormation template, then define the AWS::SecretsManager::SecretTargetAttachment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html resource to populate the secret with the connection details of the database or service before you attempt to configure rotation.
+        Adds an AWS::SecretsManager::RotationSchedule resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::SecretsManager::RotationSchedule resource to the template. Configures rotation for a secret. You must already configure the secret with the details of the database or service. If you define both the secret and the database or service in an AWS CloudFormation template, then define the AWS::SecretsManager::SecretTargetAttachment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html resource to populate the secret with the connection details of the database or service before you attempt to configure rotation.
+        Adds an AWS::SecretsManager::RotationSchedule resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
@@ -13,41 +13,26 @@ function New-VSSecretsManagerRotationSchedule {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER SecretId
-        The ARN or name of the secret to rotate.
-To reference a secret also created in this template, use the Ref: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html function with the secret's logical ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-secretid
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER HostedRotationLambda
-        To use these values, you must specify Transform: AWS::SecretsManager-2020-07-23 at the beginning of the CloudFormation template.
-When you enter valid values for RotationSchedule.HostedRotationLambda, Secrets Manager launches a Lambda that performs rotation on the secret specified in the secret-id property. The template creates a Lambda as part of a nested stack within the current stack.
-
         Type: HostedRotationLambda
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda
         UpdateType: Mutable
 
     .PARAMETER RotationLambdaARN
-        The ARN of the Lambda function that can rotate the secret. If you don't specify this parameter, then the secret must already have the ARN of a Lambda function configured.
-To reference a Lambda function also created in this template, use the Ref: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html function with the function's logical ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RotationRules
-        A structure that defines the rotation configuration for this secret.
-
         Type: RotationRules
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationrules
         UpdateType: Mutable
 
     .PARAMETER RotateImmediatelyOnUpdate
-        Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in RotationRules.
-If you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step: https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it.
-If you don't specify this value, then by default, Secrets Manager rotates the secret immediately.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotateimmediatelyonupdate
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -82,28 +67,29 @@ If you don't specify this value, then by default, Secrets Manager rotates the se
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SecretsManager.RotationSchedule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -114,7 +100,8 @@ If you don't specify this value, then by default, Secrets Manager rotates the se
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -125,9 +112,11 @@ If you don't specify this value, then by default, Secrets Manager rotates the se
                 }
             })]
         $SecretId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HostedRotationLambda,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -138,9 +127,11 @@ If you don't specify this value, then by default, Secrets Manager rotates the se
                 }
             })]
         $RotationLambdaARN,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $RotationRules,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -151,7 +142,8 @@ If you don't specify this value, then by default, Secrets Manager rotates the se
                 }
             })]
         $RotateImmediatelyOnUpdate,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -162,27 +154,28 @@ If you don't specify this value, then by default, Secrets Manager rotates the se
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -193,9 +186,15 @@ If you don't specify this value, then by default, Secrets Manager rotates the se
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -203,6 +202,7 @@ If you don't specify this value, then by default, Secrets Manager rotates the se
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -234,6 +234,7 @@ If you don't specify this value, then by default, Secrets Manager rotates the se
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SecretsManager.RotationSchedule'

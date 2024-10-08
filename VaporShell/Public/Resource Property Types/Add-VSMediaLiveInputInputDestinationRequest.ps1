@@ -1,20 +1,15 @@
 function Add-VSMediaLiveInputInputDestinationRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.InputDestinationRequest resource property to the template. Settings that apply only if the input is a push type of input.
+        Adds an AWS::MediaLive::Input.InputDestinationRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.InputDestinationRequest resource property to the template.
-Settings that apply only if the input is a push type of input.
-
-The parent of this entity is Input.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdestinationrequest.html
 
     .PARAMETER StreamName
-        The stream name application name/application instance for the location the RTMP source content will be pushed to in MediaLive.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdestinationrequest.html#cfn-medialive-input-inputdestinationrequest-streamname
         PrimitiveType: String
         UpdateType: Mutable
@@ -22,11 +17,13 @@ The parent of this entity is Input.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Input.InputDestinationRequest')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +34,14 @@ The parent of this entity is Input.
                 }
             })]
         $StreamName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +51,7 @@ The parent of this entity is Input.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Input.InputDestinationRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

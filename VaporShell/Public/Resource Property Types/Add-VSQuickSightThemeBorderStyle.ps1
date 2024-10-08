@@ -1,18 +1,15 @@
 function Add-VSQuickSightThemeBorderStyle {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Theme.BorderStyle resource property to the template. The display options for tile borders for visuals.
+        Adds an AWS::QuickSight::Theme.BorderStyle resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Theme.BorderStyle resource property to the template.
-The display options for tile borders for visuals.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html
 
     .PARAMETER Show
-        The option to enable display of borders for visuals.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -20,11 +17,13 @@ The display options for tile borders for visuals.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Theme.BorderStyle')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The display options for tile borders for visuals.
                 }
             })]
         $Show
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The display options for tile borders for visuals.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Theme.BorderStyle'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSAppStreamImageBuilderDomainJoinInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::AppStream::ImageBuilder.DomainJoinInfo resource property to the template. The name of the directory and organizational unit (OU to use to join the image builder to a Microsoft Active Directory domain.
+        Adds an AWS::AppStream::ImageBuilder.DomainJoinInfo resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppStream::ImageBuilder.DomainJoinInfo resource property to the template.
-The name of the directory and organizational unit (OU to use to join the image builder to a Microsoft Active Directory domain.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html
 
     .PARAMETER OrganizationalUnitDistinguishedName
-        The distinguished name of the organizational unit for computer accounts.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-organizationalunitdistinguishedname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DirectoryName
-        The fully qualified name of the directory for example, corp.example.com.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-directoryname
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ The name of the directory and organizational unit (OU to use to join the image b
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppStream.ImageBuilder.DomainJoinInfo')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The name of the directory and organizational unit (OU to use to join the image b
                 }
             })]
         $OrganizationalUnitDistinguishedName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The name of the directory and organizational unit (OU to use to join the image b
                 }
             })]
         $DirectoryName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The name of the directory and organizational unit (OU to use to join the image b
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppStream.ImageBuilder.DomainJoinInfo'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

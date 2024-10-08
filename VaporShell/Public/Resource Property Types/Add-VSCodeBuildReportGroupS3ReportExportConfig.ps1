@@ -1,55 +1,40 @@
 function Add-VSCodeBuildReportGroupS3ReportExportConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::ReportGroup.S3ReportExportConfig resource property to the template. Information about the S3 bucket where the raw data of a report are exported.
+        Adds an AWS::CodeBuild::ReportGroup.S3ReportExportConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::ReportGroup.S3ReportExportConfig resource property to the template.
-Information about the S3 bucket where the raw data of a report are exported.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html
 
     .PARAMETER Path
-        The path to the exported report's raw data results.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-path
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Bucket
-        The name of the S3 bucket where the raw data of a report are exported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-bucket
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Packaging
-        The type of build output artifact to create. Valid values include:
-+  NONE: CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
-+  ZIP: CodeBuild creates a ZIP file with the raw data in the output bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-packaging
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER EncryptionKey
-        The encryption key for the report's encrypted raw data.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-encryptionkey
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER BucketOwner
-        The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-bucketowner
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER EncryptionDisabled
-        A boolean value that specifies if the results of a report are encrypted.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-encryptiondisabled
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -57,11 +42,13 @@ Information about the S3 bucket where the raw data of a report are exported.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeBuild.ReportGroup.S3ReportExportConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,7 +59,8 @@ Information about the S3 bucket where the raw data of a report are exported.
                 }
             })]
         $Path,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -83,7 +71,8 @@ Information about the S3 bucket where the raw data of a report are exported.
                 }
             })]
         $Bucket,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -94,7 +83,8 @@ Information about the S3 bucket where the raw data of a report are exported.
                 }
             })]
         $Packaging,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -105,7 +95,8 @@ Information about the S3 bucket where the raw data of a report are exported.
                 }
             })]
         $EncryptionKey,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -116,7 +107,8 @@ Information about the S3 bucket where the raw data of a report are exported.
                 }
             })]
         $BucketOwner,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -127,11 +119,14 @@ Information about the S3 bucket where the raw data of a report are exported.
                 }
             })]
         $EncryptionDisabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -141,6 +136,7 @@ Information about the S3 bucket where the raw data of a report are exported.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeBuild.ReportGroup.S3ReportExportConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

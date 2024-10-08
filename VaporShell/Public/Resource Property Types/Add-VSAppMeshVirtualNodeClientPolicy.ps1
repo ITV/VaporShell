@@ -1,18 +1,15 @@
 function Add-VSAppMeshVirtualNodeClientPolicy {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.ClientPolicy resource property to the template. An object that represents a client policy.
+        Adds an AWS::AppMesh::VirtualNode.ClientPolicy resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.ClientPolicy resource property to the template.
-An object that represents a client policy.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html
 
     .PARAMETER TLS
-        A reference to an object that represents a Transport Layer Security TLS client policy.
-
         Type: ClientPolicyTls
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html#cfn-appmesh-virtualnode-clientpolicy-tls
         UpdateType: Mutable
@@ -20,17 +17,22 @@ An object that represents a client policy.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.ClientPolicy')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $TLS
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +42,7 @@ An object that represents a client policy.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.ClientPolicy'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

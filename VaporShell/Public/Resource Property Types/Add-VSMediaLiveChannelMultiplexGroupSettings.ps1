@@ -1,13 +1,10 @@
 function Add-VSMediaLiveChannelMultiplexGroupSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.MultiplexGroupSettings resource property to the template. The settings for a Multiplex output group.
+        Adds an AWS::MediaLive::Channel.MultiplexGroupSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.MultiplexGroupSettings resource property to the template.
-The settings for a Multiplex output group.
-
-The parent of this entity is OutputGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexgroupsettings.html
@@ -15,15 +12,19 @@ The parent of this entity is OutputGroupSettings.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MultiplexGroupSettings')]
     [cmdletbinding()]
+
     Param
     (
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -33,6 +34,7 @@ The parent of this entity is OutputGroupSettings.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.MultiplexGroupSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

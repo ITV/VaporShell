@@ -1,18 +1,15 @@
 function Add-VSQuickSightDataSetColumnDescription {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.ColumnDescription resource property to the template. Metadata that contains a description for a column.
+        Adds an AWS::QuickSight::DataSet.ColumnDescription resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.ColumnDescription resource property to the template.
-Metadata that contains a description for a column.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html
 
     .PARAMETER Text
-        The text of a description for a column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Metadata that contains a description for a column.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.ColumnDescription')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Metadata that contains a description for a column.
                 }
             })]
         $Text
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Metadata that contains a description for a column.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSet.ColumnDescription'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

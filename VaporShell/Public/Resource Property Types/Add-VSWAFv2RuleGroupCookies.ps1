@@ -1,24 +1,23 @@
 function Add-VSWAFv2RuleGroupCookies {
     <#
     .SYNOPSIS
-        Adds an AWS::WAFv2::RuleGroup.Cookies resource property to the template. 
+        Adds an AWS::WAFv2::RuleGroup.Cookies resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::WAFv2::RuleGroup.Cookies resource property to the template.
 
-
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cookies.html
-
-    .PARAMETER MatchPattern
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cookies.html#cfn-wafv2-rulegroup-cookies-matchpattern
-        UpdateType: Mutable
-        Type: CookieMatchPattern
 
     .PARAMETER MatchScope
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cookies.html#cfn-wafv2-rulegroup-cookies-matchscope
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER MatchPattern
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cookies.html#cfn-wafv2-rulegroup-cookies-matchpattern
+        UpdateType: Mutable
+        Type: CookieMatchPattern
 
     .PARAMETER OversizeHandling
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cookies.html#cfn-wafv2-rulegroup-cookies-oversizehandling
@@ -28,13 +27,13 @@ function Add-VSWAFv2RuleGroupCookies {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.Cookies')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
-        $MatchPattern,
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,7 +44,11 @@ function Add-VSWAFv2RuleGroupCookies {
                 }
             })]
         $MatchScope,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
+        $MatchPattern,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,11 +59,14 @@ function Add-VSWAFv2RuleGroupCookies {
                 }
             })]
         $OversizeHandling
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +76,7 @@ function Add-VSWAFv2RuleGroupCookies {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.WAFv2.RuleGroup.Cookies'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

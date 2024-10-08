@@ -1,25 +1,20 @@
 function Add-VSAppMeshGatewayRouteHttpGatewayRoutePrefixRewrite {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite resource property to the template. An object representing the beginning characters of the route to rewrite.
+        Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite resource property to the template.
-An object representing the beginning characters of the route to rewrite.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html
 
     .PARAMETER Value
-        The value used to replace the incoming route prefix when rewritten.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouteprefixrewrite-value
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DefaultPrefix
-        The default prefix used to replace the incoming route prefix when rewritten.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouteprefixrewrite-defaultprefix
         PrimitiveType: String
         UpdateType: Mutable
@@ -27,11 +22,13 @@ An object representing the beginning characters of the route to rewrite.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.HttpGatewayRoutePrefixRewrite')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ An object representing the beginning characters of the route to rewrite.
                 }
             })]
         $Value,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ An object representing the beginning characters of the route to rewrite.
                 }
             })]
         $DefaultPrefix
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ An object representing the beginning characters of the route to rewrite.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.GatewayRoute.HttpGatewayRoutePrefixRewrite'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

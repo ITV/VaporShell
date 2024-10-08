@@ -1,25 +1,20 @@
 function Add-VSGlobalAcceleratorListenerPortRange {
     <#
     .SYNOPSIS
-        Adds an AWS::GlobalAccelerator::Listener.PortRange resource property to the template. A complex type for a range of ports for a listener.
+        Adds an AWS::GlobalAccelerator::Listener.PortRange resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GlobalAccelerator::Listener.PortRange resource property to the template.
-A complex type for a range of ports for a listener.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
 
     .PARAMETER FromPort
-        The first port in the range of ports, inclusive.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER ToPort
-        The last port in the range of ports, inclusive.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
         UpdateType: Mutable
         PrimitiveType: Integer
@@ -27,11 +22,13 @@ A complex type for a range of ports for a listener.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GlobalAccelerator.Listener.PortRange')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ A complex type for a range of ports for a listener.
                 }
             })]
         $FromPort,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ A complex type for a range of ports for a listener.
                 }
             })]
         $ToPort
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ A complex type for a range of ports for a listener.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GlobalAccelerator.Listener.PortRange'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

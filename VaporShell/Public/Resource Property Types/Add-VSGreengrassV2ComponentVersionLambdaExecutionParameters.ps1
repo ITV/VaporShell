@@ -1,129 +1,84 @@
 function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::GreengrassV2::ComponentVersion.LambdaExecutionParameters resource property to the template. Contains parameters for a Lambda function that runs on AWS IoT Greengrass.
+        Adds an AWS::GreengrassV2::ComponentVersion.LambdaExecutionParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GreengrassV2::ComponentVersion.LambdaExecutionParameters resource property to the template.
-Contains parameters for a Lambda function that runs on AWS IoT Greengrass.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html
 
-    .PARAMETER EventSources
-        The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
-        UpdateType: Immutable
-        Type: List
-        ItemType: LambdaEventSource
-
-    .PARAMETER MaxQueueSize
-        The maximum size of the message queue for the Lambda function component. The Greengrass core device stores messages in a FIFO first-in-first-out queue until it can run the Lambda function to consume each message.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxqueuesize
-        UpdateType: Immutable
-        PrimitiveType: Integer
-
     .PARAMETER MaxInstancesCount
-        The maximum number of instances that a non-pinned Lambda function can run at the same time.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxinstancescount
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER MaxIdleTimeInSeconds
-        The maximum amount of time in seconds that a non-pinned Lambda function can idle before the software stops its process.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds
-        UpdateType: Immutable
-        PrimitiveType: Integer
-
     .PARAMETER TimeoutInSeconds
-        The maximum amount of time in seconds that the Lambda function can process a work item.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-timeoutinseconds
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER StatusTimeoutInSeconds
-        The interval in seconds at which a pinned also known as long-lived Lambda function component sends status updates to the Lambda manager component.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-statustimeoutinseconds
-        UpdateType: Immutable
-        PrimitiveType: Integer
-
-    .PARAMETER Pinned
-        Whether or not the Lambda function is pinned, or long-lived.
-+ A pinned Lambda function starts when the starts and keeps running in its own container.
-+ A non-pinned Lambda function starts only when it receives a work item and exists after it idles for maxIdleTimeInSeconds. If the function has multiple work items, the software creates multiple instances of the function.
-Default: true
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-pinned
-        UpdateType: Immutable
-        PrimitiveType: Boolean
-
-    .PARAMETER InputPayloadEncodingType
-        The encoding type that the Lambda function supports.
-Default: json
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-inputpayloadencodingtype
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ExecArgs
-        The list of arguments to pass to the Lambda function when it runs.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-
     .PARAMETER EnvironmentVariables
-        The map of environment variables that are available to the Lambda function when it runs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables
         UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
 
-    .PARAMETER LinuxProcessParams
-        The parameters for the Linux process that contains the Lambda function.
+    .PARAMETER EventSources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
+        UpdateType: Immutable
+        Type: List
+        ItemType: LambdaEventSource
+        DuplicatesAllowed: True
 
+    .PARAMETER Pinned
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-pinned
+        UpdateType: Immutable
+        PrimitiveType: Boolean
+
+    .PARAMETER ExecArgs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER LinuxProcessParams
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-linuxprocessparams
         UpdateType: Immutable
         Type: LambdaLinuxProcessParams
 
+    .PARAMETER InputPayloadEncodingType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-inputpayloadencodingtype
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER MaxQueueSize
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxqueuesize
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
+    .PARAMETER StatusTimeoutInSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-statustimeoutinseconds
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
+    .PARAMETER MaxIdleTimeInSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaExecutionParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaEventSource"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $EventSources,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MaxQueueSize,
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -134,18 +89,8 @@ Default: json
                 }
             })]
         $MaxInstancesCount,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $MaxIdleTimeInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -156,9 +101,14 @@ Default: json
                 }
             })]
         $TimeoutInSeconds,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $EnvironmentVariables,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaEventSource"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -166,8 +116,9 @@ Default: json
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $StatusTimeoutInSeconds,
-        [parameter(Mandatory = $false)]
+        $EventSources,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -178,7 +129,14 @@ Default: json
                 }
             })]
         $Pinned,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $ExecArgs,
+
+        [Parameter(Mandatory = $false)]
+        $LinuxProcessParams,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -189,18 +147,50 @@ Default: json
                 }
             })]
         $InputPayloadEncodingType,
-        [parameter(Mandatory = $false)]
-        $ExecArgs,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $EnvironmentVariables,
-        [parameter(Mandatory = $false)]
-        $LinuxProcessParams
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxQueueSize,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StatusTimeoutInSeconds,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxIdleTimeInSeconds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -210,6 +200,7 @@ Default: json
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaExecutionParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSAppFlowConnectorProfileRedshiftConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.RedshiftConnectorProfileCredentials resource property to the template. The RedshiftConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Amazon Redshift.
+        Adds an AWS::AppFlow::ConnectorProfile.RedshiftConnectorProfileCredentials resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.RedshiftConnectorProfileCredentials resource property to the template.
-The RedshiftConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Amazon Redshift.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html
 
     .PARAMETER Username
-        The name of the user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-username
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Password
-        The password that corresponds to the user name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-password
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,13 +22,15 @@ The RedshiftConnectorProfileCredentials property type specifies the connector-sp
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.RedshiftConnectorProfileCredentials')]
     [cmdletbinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +41,8 @@ The RedshiftConnectorProfileCredentials property type specifies the connector-sp
                 }
             })]
         $Username,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +53,14 @@ The RedshiftConnectorProfileCredentials property type specifies the connector-sp
                 }
             })]
         $Password
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +70,7 @@ The RedshiftConnectorProfileCredentials property type specifies the connector-sp
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.ConnectorProfile.RedshiftConnectorProfileCredentials'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

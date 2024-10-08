@@ -1,25 +1,20 @@
 function Add-VSMediaPackageAssetEgressEndpoint {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::Asset.EgressEndpoint resource property to the template. The playback endpoint for a packaging configuration on an asset.
+        Adds an AWS::MediaPackage::Asset.EgressEndpoint resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::Asset.EgressEndpoint resource property to the template.
-The playback endpoint for a packaging configuration on an asset.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html
 
     .PARAMETER PackagingConfigurationId
-        The ID of a packaging configuration that's applied to this asset.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-packagingconfigurationid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Url
-        The URL that's used to request content from this endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ The playback endpoint for a packaging configuration on an asset.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaPackage.Asset.EgressEndpoint')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The playback endpoint for a packaging configuration on an asset.
                 }
             })]
         $PackagingConfigurationId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The playback endpoint for a packaging configuration on an asset.
                 }
             })]
         $Url
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The playback endpoint for a packaging configuration on an asset.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaPackage.Asset.EgressEndpoint'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

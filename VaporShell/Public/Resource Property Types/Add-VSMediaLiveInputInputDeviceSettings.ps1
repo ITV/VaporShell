@@ -1,20 +1,15 @@
 function Add-VSMediaLiveInputInputDeviceSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Input.InputDeviceSettings resource property to the template. Settings that apply only if the input is an Elemental Link input.
+        Adds an AWS::MediaLive::Input.InputDeviceSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Input.InputDeviceSettings resource property to the template.
-Settings that apply only if the input is an Elemental Link input.
-
-The parent of this entity is Input.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicesettings.html
 
     .PARAMETER Id
-        The unique ID for the device.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicesettings.html#cfn-medialive-input-inputdevicesettings-id
         PrimitiveType: String
         UpdateType: Mutable
@@ -22,11 +17,13 @@ The parent of this entity is Input.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Input.InputDeviceSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +34,14 @@ The parent of this entity is Input.
                 }
             })]
         $Id
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +51,7 @@ The parent of this entity is Input.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Input.InputDeviceSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

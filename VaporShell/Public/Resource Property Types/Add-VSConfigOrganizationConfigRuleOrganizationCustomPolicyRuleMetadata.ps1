@@ -1,11 +1,10 @@
 function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata resource property to the template. 
+        Adds an AWS::Config::OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Config::OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html
@@ -71,11 +70,13 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Config.OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,7 +87,8 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
                 }
             })]
         $TagKeyScope,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -97,7 +99,8 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
                 }
             })]
         $TagValueScope,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -108,7 +111,8 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
                 }
             })]
         $Runtime,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,7 +123,8 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
                 }
             })]
         $PolicyText,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -130,7 +135,8 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -141,13 +147,17 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
                 }
             })]
         $ResourceIdScope,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $OrganizationConfigRuleTriggerTypes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $DebugLogDeliveryAccounts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ResourceTypesScope,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -158,7 +168,8 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
                 }
             })]
         $MaximumExecutionFrequency,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -169,11 +180,14 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
                 }
             })]
         $InputParameters
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -183,6 +197,7 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Config.OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

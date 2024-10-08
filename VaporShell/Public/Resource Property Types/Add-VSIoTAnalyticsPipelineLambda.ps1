@@ -1,40 +1,30 @@
 function Add-VSIoTAnalyticsPipelineLambda {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Pipeline.Lambda resource property to the template. An activity that runs a Lambda function to modify the message.
+        Adds an AWS::IoTAnalytics::Pipeline.Lambda resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Pipeline.Lambda resource property to the template.
-An activity that runs a Lambda function to modify the message.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html
 
     .PARAMETER BatchSize
-        The number of messages passed to the Lambda function for processing.
-The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-batchsize
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Next
-        The next activity in the pipeline.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-next
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER LambdaName
-        The name of the Lambda function that is run on the message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-lambdaname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the 'lambda' activity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-name
         UpdateType: Mutable
         PrimitiveType: String
@@ -42,11 +32,13 @@ The AWS Lambda function must be able to process all of these messages within fiv
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.Lambda')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,7 +49,8 @@ The AWS Lambda function must be able to process all of these messages within fiv
                 }
             })]
         $BatchSize,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,7 +61,8 @@ The AWS Lambda function must be able to process all of these messages within fiv
                 }
             })]
         $Next,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,7 +73,8 @@ The AWS Lambda function must be able to process all of these messages within fiv
                 }
             })]
         $LambdaName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,11 +85,14 @@ The AWS Lambda function must be able to process all of these messages within fiv
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -104,6 +102,7 @@ The AWS Lambda function must be able to process all of these messages within fiv
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Pipeline.Lambda'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,34 +1,25 @@
 function Add-VSGreengrassResourceDefinitionVersionLocalVolumeResourceData {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::ResourceDefinitionVersion.LocalVolumeResourceData resource property to the template. <a name="aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata-description"></a>Settings for a local volume resource, which represents a file or directory on the root file system. For more information, see Access Local Resources with Lambda Functions: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html in the *AWS IoT Greengrass Version 1 Developer Guide*.
+        Adds an AWS::Greengrass::ResourceDefinitionVersion.LocalVolumeResourceData resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::ResourceDefinitionVersion.LocalVolumeResourceData resource property to the template.
-<a name="aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata-description"></a>Settings for a local volume resource, which represents a file or directory on the root file system. For more information, see Access Local Resources with Lambda Functions: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html in the *AWS IoT Greengrass Version 1 Developer Guide*.
-
-<a name="aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata-inheritance"></a> In an AWS CloudFormation template, LocalVolumeResourceData can be used in the https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html
 
     .PARAMETER SourcePath
-        The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with /sys.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html#cfn-greengrass-resourcedefinitionversion-localvolumeresourcedata-sourcepath
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER DestinationPath
-        The absolute local path of the resource in the Lambda environment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html#cfn-greengrass-resourcedefinitionversion-localvolumeresourcedata-destinationpath
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER GroupOwnerSetting
-        Settings that define additional Linux OS group permissions to give to the Lambda function process.
-
         Type: GroupOwnerSetting
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html#cfn-greengrass-resourcedefinitionversion-localvolumeresourcedata-groupownersetting
         UpdateType: Immutable
@@ -36,11 +27,13 @@ function Add-VSGreengrassResourceDefinitionVersionLocalVolumeResourceData {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.LocalVolumeResourceData')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,7 +44,8 @@ function Add-VSGreengrassResourceDefinitionVersionLocalVolumeResourceData {
                 }
             })]
         $SourcePath,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,13 +56,17 @@ function Add-VSGreengrassResourceDefinitionVersionLocalVolumeResourceData {
                 }
             })]
         $DestinationPath,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $GroupOwnerSetting
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -78,6 +76,7 @@ function Add-VSGreengrassResourceDefinitionVersionLocalVolumeResourceData {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.LocalVolumeResourceData'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,48 +1,35 @@
 function Add-VSAppSyncDataSourceRdsHttpEndpointConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::DataSource.RdsHttpEndpointConfig resource property to the template. Use the RdsHttpEndpointConfig property type to specify the RdsHttpEndpoint for an AWS AppSync relational database.
+        Adds an AWS::AppSync::DataSource.RdsHttpEndpointConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppSync::DataSource.RdsHttpEndpointConfig resource property to the template.
-Use the RdsHttpEndpointConfig property type to specify the RdsHttpEndpoint for an AWS AppSync relational database.
-
-RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalDatabaseConfig: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html
 
     .PARAMETER AwsRegion
-        AWS Region for RDS HTTP endpoint.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-awsregion
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Schema
-        Logical schema name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-schema
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DatabaseName
-        Logical database name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-databasename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DbClusterIdentifier
-        Amazon RDS cluster Amazon Resource Name ARN.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-dbclusteridentifier
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER AwsSecretStoreArn
-        The ARN for database credentials stored in AWS Secrets Manager.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-awssecretstorearn
         PrimitiveType: String
         UpdateType: Mutable
@@ -50,11 +37,13 @@ RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalData
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppSync.DataSource.RdsHttpEndpointConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,7 +54,8 @@ RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalData
                 }
             })]
         $AwsRegion,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,7 +66,8 @@ RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalData
                 }
             })]
         $Schema,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -87,7 +78,8 @@ RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalData
                 }
             })]
         $DatabaseName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -98,7 +90,8 @@ RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalData
                 }
             })]
         $DbClusterIdentifier,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -109,11 +102,14 @@ RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalData
                 }
             })]
         $AwsSecretStoreArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -123,6 +119,7 @@ RdsHttpEndpointConfig is a property of the AWS AppSync DataSource RelationalData
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppSync.DataSource.RdsHttpEndpointConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,104 +1,10 @@
 function New-VSDynamoDBGlobalTable {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::GlobalTable resource to the template. The AWS::DynamoDB::GlobalTable resource enables you to create and manage a Version 2019.11.21 global table. This resource cannot be used to create or manage a Version 2017.11.29 global table.
+        Adds an AWS::DynamoDB::GlobalTable resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::DynamoDB::GlobalTable resource to the template. The AWS::DynamoDB::GlobalTable resource enables you to create and manage a Version 2019.11.21 global table. This resource cannot be used to create or manage a Version 2017.11.29 global table.
-
-**Important**
-
-You cannot convert a resource of type AWS::DynamoDB::Table into a resource of type AWS::DynamoDB::GlobalTable by changing its type in your template. **Doing so might result in the deletion of your DynamoDB table.**
-
-You can instead use the GlobalTable resource to create a new table in a single Region. This will be billed the same as a single Region table. If you later update the stack to add other Regions then Global Tables pricing will apply.
-
-You should be aware of the following behaviors when working with DynamoDB global tables.
-
-+ The IAM Principal executing the stack operation must have the permissions listed below in all regions where you plan to have a global table replica. The IAM Principal's permissions should not have restrictions based on IP source address. Some global tables operations (for example, adding a replica are asynchronous, and require that the IAM Principal is valid until they complete. You should not delete the Principal (user or IAM role until CloudFormation has finished updating your stack.
-
-+ dynamodb:CreateTable
-
-+ dynamodb:UpdateTable
-
-+ dynamodb:DeleteTable
-
-+ dynamodb:DescribeContinuousBackups
-
-+ dynamodb:DescribeContributorInsights
-
-+ dynamodb:DescribeTable
-
-+ dynamodb:DescribeTableReplicaAutoScaling
-
-+ dynamodb:DescribeTimeToLive
-
-+ dynamodb:ListTables
-
-+ dynamodb:UpdateTimeToLive
-
-+ dynamodb:UpdateContributorInsights
-
-+ dynamodb:UpdateContinuousBackups
-
-+ dynamodb:ListTagsOfResource
-
-+ dynamodb:TagResource
-
-+ dynamodb:UntagResource
-
-+ dynamodb:BatchWriteItem
-
-+ dynamodb:CreateTableReplica
-
-+ dynamodb:DeleteItem
-
-+ dynamodb:DeleteTableReplica
-
-+ dynamodb:DisableKinesisStreamingDestination
-
-+ dynamodb:EnableKinesisStreamingDestination
-
-+ dynamodb:GetItem
-
-+ dynamodb:PutItem
-
-+ dynamodb:Query
-
-+ dynamodb:Scan
-
-+ dynamodb:UpdateItem
-
-+ dynamodb:DescribeTableReplicaAutoScaling
-
-+ dynamodb:UpdateTableReplicaAutoScaling
-
-+ iam:CreateServiceLinkedRole
-
-+ kms:CreateGrant
-
-+ kms:DescribeKey
-
-+ application-autoscaling:DeleteScalingPolicy
-
-+ application-autoscaling:DeleteScheduledAction
-
-+ application-autoscaling:DeregisterScalableTarget
-
-+ application-autoscaling:DescribeScalingPolicies
-
-+ application-autoscaling:DescribeScalableTargets
-
-+ application-autoscaling:PutScalingPolicy
-
-+ application-autoscaling:PutScheduledAction
-
-+ application-autoscaling:RegisterScalableTarget
-
-+ When using provisioned billing mode, CloudFormation will create an auto scaling policy on each of your replicas to control their write capacities. You must configure this policy using the WriteProvisionedThroughputSettings property. CloudFormation will ensure that all replicas have the same write capacity auto scaling property. You cannot directly specify a value for write capacity for a global table.
-
-+ If your table uses provisioned capacity, you must configure auto scaling directly in the AWS::DynamoDB::GlobalTable resource. You should not configure additional auto scaling policies on any of the table replicas or global secondary indexes, either via API or via AWS::ApplicationAutoScaling::ScalableTarget or AWS::ApplicationAutoScaling::ScalingPolicy. Doing so might result in unexpected behavior and is unsupported.
-
-+ In AWS CloudFormation, each global table is controlled by a single stack, in a single region, regardless of the number of replicas. When you deploy your template, CloudFormation will create/update all replicas as part of a single stack operation. You should not deploy the same AWS::DynamoDB::GlobalTable resource in multiple regions. Doing so will result in errors, and is unsupported. If you deploy your application template in multiple regions, you can use conditions to only create the resource in a single region. Alternatively, you can choose to define your AWS::DynamoDB::GlobalTable resources in a stack separate from your application stack, and make sure it is only deployed to a single region.
+        Adds an AWS::DynamoDB::GlobalTable resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html
@@ -106,29 +12,34 @@ You should be aware of the following behaviors when working with DynamoDB global
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER AttributeDefinitions
-        A list of attributes that describe the key schema for the global table and indexes.
+    .PARAMETER SSESpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
+        UpdateType: Mutable
+        Type: SSESpecification
 
+    .PARAMETER TableName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER AttributeDefinitions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
         UpdateType: Mutable
         Type: List
         ItemType: AttributeDefinition
         DuplicatesAllowed: False
 
-    .PARAMETER BillingMode
-        Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
-+ PAY_PER_REQUEST
-+ PROVISIONED
-All replicas in your global table will have the same billing mode. If you use PROVISIONED billing mode, you must provide an auto scaling configuration via the WriteProvisionedThroughputSettings property. The default value of this property is PROVISIONED.
+    .PARAMETER StreamSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
+        UpdateType: Mutable
+        Type: StreamSpecification
 
+    .PARAMETER BillingMode
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER GlobalSecondaryIndexes
-        Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
-Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
         UpdateType: Mutable
         Type: List
@@ -136,8 +47,6 @@ Since the backfilling of an index could take a long time, CloudFormation does no
         DuplicatesAllowed: False
 
     .PARAMETER KeySchema
-        Specifies the attributes that make up the primary key for the table. The attributes in the KeySchema property must also be defined in the AttributeDefinitions property.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
         UpdateType: Immutable
         Type: List
@@ -145,61 +54,33 @@ Since the backfilling of an index could take a long time, CloudFormation does no
         DuplicatesAllowed: False
 
     .PARAMETER LocalSecondaryIndexes
-        Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
         UpdateType: Immutable
         Type: List
         ItemType: LocalSecondaryIndex
         DuplicatesAllowed: False
 
-    .PARAMETER WriteProvisionedThroughputSettings
-        Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if BillingMode is set to PROVISIONED.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
-        UpdateType: Mutable
-        Type: WriteProvisionedThroughputSettings
-
     .PARAMETER Replicas
-        Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in Replicas with the region us-east-1. You cannot remove the replica in the stack region.
-Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an UpdateStack operation containing only that change.
-If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
-You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
         UpdateType: Mutable
         Type: List
         ItemType: ReplicaSpecification
         DuplicatesAllowed: False
 
-    .PARAMETER SSESpecification
-        Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the ReplicaSpecification.ReplicaSSESpecification property.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
+    .PARAMETER WriteProvisionedThroughputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
         UpdateType: Mutable
-        Type: SSESpecification
-
-    .PARAMETER StreamSpecification
-        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-        UpdateType: Mutable
-        Type: StreamSpecification
-
-    .PARAMETER TableName
-        A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see Name type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-        UpdateType: Immutable
-        PrimitiveType: String
+        Type: WriteProvisionedThroughputSettings
 
     .PARAMETER TimeToLiveSpecification
-        Specifies the time to live TTL settings for the table. This setting will be applied to all replicas.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
         UpdateType: Mutable
         Type: TimeToLiveSpecification
+
+    .PARAMETER WriteOnDemandThroughputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings
+        UpdateType: Mutable
+        Type: WriteOnDemandThroughputSettings
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -231,28 +112,29 @@ If you specify a name, you cannot perform updates that require replacement of th
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -263,79 +145,11 @@ If you specify a name, you cannot perform updates that require replacement of th
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.AttributeDefinition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AttributeDefinitions,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $BillingMode,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.GlobalSecondaryIndex"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $GlobalSecondaryIndexes,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.KeySchema"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $KeySchema,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.LocalSecondaryIndex"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $LocalSecondaryIndexes,
-        [parameter(Mandatory = $false)]
-        $WriteProvisionedThroughputSettings,
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaSpecification"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Replicas,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SSESpecification,
-        [parameter(Mandatory = $false)]
-        $StreamSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -346,9 +160,92 @@ If you specify a name, you cannot perform updates that require replacement of th
                 }
             })]
         $TableName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.AttributeDefinition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AttributeDefinitions,
+
+        [Parameter(Mandatory = $false)]
+        $StreamSpecification,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BillingMode,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.GlobalSecondaryIndex"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $GlobalSecondaryIndexes,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.KeySchema"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $KeySchema,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.LocalSecondaryIndex"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LocalSecondaryIndexes,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaSpecification"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Replicas,
+
+        [Parameter(Mandatory = $false)]
+        $WriteProvisionedThroughputSettings,
+
+        [Parameter(Mandatory = $false)]
         $TimeToLiveSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $WriteOnDemandThroughputSettings,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -359,27 +256,28 @@ If you specify a name, you cannot perform updates that require replacement of th
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -390,9 +288,15 @@ If you specify a name, you cannot perform updates that require replacement of th
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -400,6 +304,7 @@ If you specify a name, you cannot perform updates that require replacement of th
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -461,6 +366,7 @@ If you specify a name, you cannot perform updates that require replacement of th
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DynamoDB.GlobalTable'

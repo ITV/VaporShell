@@ -1,36 +1,25 @@
 function Add-VSCodeBuildProjectEnvironmentVariable {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::Project.EnvironmentVariable resource property to the template. EnvironmentVariable is a property of the AWS CodeBuild Project Environment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html property type that specifies the name and value of an environment variable for an AWS CodeBuild project environment. When you use the environment to run a build, these variables are available for your builds to use. EnvironmentVariable contains a list of EnvironmentVariable property types.
+        Adds an AWS::CodeBuild::Project.EnvironmentVariable resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::Project.EnvironmentVariable resource property to the template.
-EnvironmentVariable is a property of the AWS CodeBuild Project Environment: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html property type that specifies the name and value of an environment variable for an AWS CodeBuild project environment. When you use the environment to run a build, these variables are available for your builds to use. EnvironmentVariable contains a list of EnvironmentVariable property types.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html
 
     .PARAMETER Type
-        The type of environment variable. Valid values include:
-+  PARAMETER_STORE: An environment variable stored in Systems Manager Parameter Store. To learn how to specify a parameter store environment variable, see env/parameter-store: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store in the * AWS CodeBuild User Guide*.
-+  PLAINTEXT: An environment variable in plain text format. This is the default value.
-+  SECRETS_MANAGER: An environment variable stored in AWS Secrets Manager. To learn how to specify a secrets manager environment variable, see env/secrets-manager: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager in the * AWS CodeBuild User Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html#cfn-codebuild-project-environmentvariable-type
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Value
-        The value of the environment variable.
-We strongly discourage the use of PLAINTEXT environment variables to store sensitive values, especially AWS secret key IDs and secret access keys. PLAINTEXT environment variables can be displayed in plain text using the AWS CodeBuild console and the AWS CLI. For sensitive values, we recommend you use an environment variable of type PARAMETER_STORE or SECRETS_MANAGER.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html#cfn-codebuild-project-environmentvariable-value
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name or key of the environment variable.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html#cfn-codebuild-project-environmentvariable-name
         PrimitiveType: String
         UpdateType: Mutable
@@ -38,11 +27,13 @@ We strongly discourage the use of PLAINTEXT environment variables to store sensi
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeBuild.Project.EnvironmentVariable')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,7 +44,8 @@ We strongly discourage the use of PLAINTEXT environment variables to store sensi
                 }
             })]
         $Type,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,7 +56,8 @@ We strongly discourage the use of PLAINTEXT environment variables to store sensi
                 }
             })]
         $Value,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -75,11 +68,14 @@ We strongly discourage the use of PLAINTEXT environment variables to store sensi
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -89,6 +85,7 @@ We strongly discourage the use of PLAINTEXT environment variables to store sensi
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeBuild.Project.EnvironmentVariable'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

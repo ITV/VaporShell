@@ -1,14 +1,10 @@
 function New-VSElasticLoadBalancingLoadBalancer {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancing::LoadBalancer resource to the template. Specifies a Classic Load Balancer.
+        Adds an AWS::ElasticLoadBalancing::LoadBalancer resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::ElasticLoadBalancing::LoadBalancer resource to the template. Specifies a Classic Load Balancer.
-
-You can specify the AvailabilityZones or Subnets property, but not both.
-
-If this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the DependsOn attribute: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html to declare a dependency on the VPC-gateway attachment.
+        Adds an AWS::ElasticLoadBalancing::LoadBalancer resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
@@ -17,15 +13,11 @@ If this resource has a public IP address and is also in a VPC that is defined in
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AccessLoggingPolicy
-        Information about where and how access logs are stored for the load balancer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-accessloggingpolicy
         Type: AccessLoggingPolicy
         UpdateType: Mutable
 
     .PARAMETER AppCookieStickinessPolicy
-        Information about a policy for application-controlled session stickiness.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-appcookiestickinesspolicy
         DuplicatesAllowed: False
         ItemType: AppCookieStickinessPolicy
@@ -33,9 +25,6 @@ If this resource has a public IP address and is also in a VPC that is defined in
         UpdateType: Mutable
 
     .PARAMETER AvailabilityZones
-        The Availability Zones for the load balancer. For load balancers in a VPC, specify Subnets instead.
-Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-availabilityzones
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -43,40 +32,26 @@ Update requires replacement if you did not previously specify an Availability Zo
         UpdateType: Conditional
 
     .PARAMETER ConnectionDrainingPolicy
-        If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-For more information, see Configure Connection Draining: https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html in the *Classic Load Balancers Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-connectiondrainingpolicy
         Type: ConnectionDrainingPolicy
         UpdateType: Mutable
 
     .PARAMETER ConnectionSettings
-        If enabled, the load balancer allows the connections to remain idle no data is sent over the connection for the specified duration.
-By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see Configure Idle Connection Timeout: https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html in the *Classic Load Balancers Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-connectionsettings
         Type: ConnectionSettings
         UpdateType: Mutable
 
     .PARAMETER CrossZone
-        If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-For more information, see Configure Cross-Zone Load Balancing: https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html in the *Classic Load Balancers Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-crosszone
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER HealthCheck
-        The health check settings to use when evaluating the health of your EC2 instances.
-Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-healthcheck
         Type: HealthCheck
         UpdateType: Conditional
 
     .PARAMETER Instances
-        The IDs of the instances for the load balancer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-instances
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -84,8 +59,6 @@ Update requires replacement if you did not previously specify health check setti
         UpdateType: Mutable
 
     .PARAMETER LBCookieStickinessPolicy
-        Information about a policy for duration-based session stickiness.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-lbcookiestickinesspolicy
         DuplicatesAllowed: False
         ItemType: LBCookieStickinessPolicy
@@ -93,9 +66,6 @@ Update requires replacement if you did not previously specify health check setti
         UpdateType: Mutable
 
     .PARAMETER Listeners
-        The listeners for the load balancer. You can specify at most one listener per port.
-If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-listeners
         DuplicatesAllowed: False
         ItemType: Listeners
@@ -103,16 +73,11 @@ If you update the properties for a listener, AWS CloudFormation deletes the exis
         UpdateType: Mutable
 
     .PARAMETER LoadBalancerName
-        The name of the load balancer. This name must be unique within your set of load balancers for the region.
-If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see Name Type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-elbname
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER Policies
-        The policies defined for your Classic Load Balancer. Specify only back-end server policies.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-policies
         DuplicatesAllowed: False
         ItemType: Policies
@@ -120,17 +85,11 @@ If you don't specify a name, AWS CloudFormation generates a unique physical ID f
         UpdateType: Mutable
 
     .PARAMETER Scheme
-        The type of load balancer. Valid only for load balancers in a VPC.
-If Scheme is internet-facing, the load balancer has a public DNS name that resolves to a public IP address.
-If Scheme is internal, the load balancer has a public DNS name that resolves to a private IP address.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-scheme
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER SecurityGroups
-        The security groups for the load balancer. Valid only for load balancers in a VPC.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-securitygroups
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -138,9 +97,6 @@ If Scheme is internal, the load balancer has a public DNS name that resolves to 
         UpdateType: Mutable
 
     .PARAMETER Subnets
-        The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-subnets
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -148,8 +104,6 @@ Update requires replacement if you did not previously specify a subnet or if you
         UpdateType: Conditional
 
     .PARAMETER Tags
-        The tags associated with a load balancer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-elasticloadbalancing-loadbalancer-tags
         DuplicatesAllowed: True
         ItemType: Tag
@@ -186,28 +140,29 @@ Update requires replacement if you did not previously specify a subnet or if you
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -218,9 +173,11 @@ Update requires replacement if you did not previously specify a subnet or if you
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AccessLoggingPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.AppCookieStickinessPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -231,13 +188,17 @@ Update requires replacement if you did not previously specify a subnet or if you
                 }
             })]
         $AppCookieStickinessPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AvailabilityZones,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ConnectionDrainingPolicy,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ConnectionSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -248,11 +209,14 @@ Update requires replacement if you did not previously specify a subnet or if you
                 }
             })]
         $CrossZone,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $HealthCheck,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Instances,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.LBCookieStickinessPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -263,7 +227,8 @@ Update requires replacement if you did not previously specify a subnet or if you
                 }
             })]
         $LBCookieStickinessPolicy,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.Listeners"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -274,7 +239,8 @@ Update requires replacement if you did not previously specify a subnet or if you
                 }
             })]
         $Listeners,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -285,7 +251,8 @@ Update requires replacement if you did not previously specify a subnet or if you
                 }
             })]
         $LoadBalancerName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.Policies"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -296,7 +263,8 @@ Update requires replacement if you did not previously specify a subnet or if you
                 }
             })]
         $Policies,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -307,14 +275,18 @@ Update requires replacement if you did not previously specify a subnet or if you
                 }
             })]
         $Scheme,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SecurityGroups,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Subnets,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -325,27 +297,28 @@ Update requires replacement if you did not previously specify a subnet or if you
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -356,9 +329,15 @@ Update requires replacement if you did not previously specify a subnet or if you
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -366,6 +345,7 @@ Update requires replacement if you did not previously specify a subnet or if you
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -451,6 +431,7 @@ Update requires replacement if you did not previously specify a subnet or if you
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer'

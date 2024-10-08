@@ -1,18 +1,15 @@
 function Add-VSMediaPackageChannelLogConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaPackage::Channel.LogConfiguration resource property to the template. The access log configuration parameters for your channel.
+        Adds an AWS::MediaPackage::Channel.LogConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaPackage::Channel.LogConfiguration resource property to the template.
-The access log configuration parameters for your channel.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
 
     .PARAMETER LogGroupName
-        Sets a custom Amazon CloudWatch log group name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The access log configuration parameters for your channel.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaPackage.Channel.LogConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The access log configuration parameters for your channel.
                 }
             })]
         $LogGroupName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The access log configuration parameters for your channel.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaPackage.Channel.LogConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

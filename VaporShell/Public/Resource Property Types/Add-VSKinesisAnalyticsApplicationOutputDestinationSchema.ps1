@@ -1,18 +1,15 @@
 function Add-VSKinesisAnalyticsApplicationOutputDestinationSchema {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalytics::ApplicationOutput.DestinationSchema resource property to the template. Describes the data format when records are written to the destination. For more information, see Configuring Application Output: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html.
+        Adds an AWS::KinesisAnalytics::ApplicationOutput.DestinationSchema resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalytics::ApplicationOutput.DestinationSchema resource property to the template.
-Describes the data format when records are written to the destination. For more information, see Configuring Application Output: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html
 
     .PARAMETER RecordFormatType
-        Specifies the format of the records on the output stream.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html#cfn-kinesisanalytics-applicationoutput-destinationschema-recordformattype
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Describes the data format when records are written to the destination. For more 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalytics.ApplicationOutput.DestinationSchema')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Describes the data format when records are written to the destination. For more 
                 }
             })]
         $RecordFormatType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Describes the data format when records are written to the destination. For more 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalytics.ApplicationOutput.DestinationSchema'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

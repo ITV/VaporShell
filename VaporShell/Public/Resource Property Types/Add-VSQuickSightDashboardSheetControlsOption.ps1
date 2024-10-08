@@ -1,18 +1,15 @@
 function Add-VSQuickSightDashboardSheetControlsOption {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::Dashboard.SheetControlsOption resource property to the template. Sheet controls option.
+        Adds an AWS::QuickSight::Dashboard.SheetControlsOption resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::Dashboard.SheetControlsOption resource property to the template.
-Sheet controls option.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html
 
     .PARAMETER VisibilityState
-        Visibility state.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Sheet controls option.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SheetControlsOption')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Sheet controls option.
                 }
             })]
         $VisibilityState
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Sheet controls option.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.Dashboard.SheetControlsOption'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,32 +1,25 @@
 function Add-VSSageMakerUserProfileCustomImage {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::UserProfile.CustomImage resource property to the template. A custom SageMaker image. For more information, see Bring your own SageMaker image: https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html.
+        Adds an AWS::SageMaker::UserProfile.CustomImage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::UserProfile.CustomImage resource property to the template.
-A custom SageMaker image. For more information, see Bring your own SageMaker image: https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
 
-    .PARAMETER AppImageConfigName
-        The name of the AppImageConfig.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER ImageName
-        The name of the CustomImage. Must be unique to your account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER ImageVersionNumber
-        The version number of the CustomImage.
+    .PARAMETER AppImageConfigName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER ImageVersionNumber
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
         UpdateType: Mutable
         PrimitiveType: Integer
@@ -34,22 +27,13 @@ A custom SageMaker image. For more information, see Bring your own SageMaker ima
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.CustomImage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AppImageConfigName,
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +44,20 @@ A custom SageMaker image. For more information, see Bring your own SageMaker ima
                 }
             })]
         $ImageName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AppImageConfigName,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +68,14 @@ A custom SageMaker image. For more information, see Bring your own SageMaker ima
                 }
             })]
         $ImageVersionNumber
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +85,7 @@ A custom SageMaker image. For more information, see Bring your own SageMaker ima
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.UserProfile.CustomImage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

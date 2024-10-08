@@ -1,27 +1,22 @@
 function Add-VSKinesisFirehoseDeliveryStreamProcessingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration resource property to the template. The ProcessingConfiguration property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        Adds an AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration resource property to the template.
-The ProcessingConfiguration property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html
 
     .PARAMETER Enabled
-        Indicates whether data processing is enabled true or disabled false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-enabled
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: Boolean
 
     .PARAMETER Processors
-        The data processors.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors
-        UpdateType: Mutable
+        UpdateType: Conditional
         Type: List
         ItemType: Processor
         DuplicatesAllowed: False
@@ -29,11 +24,13 @@ The ProcessingConfiguration property configures data processing for an Amazon Ki
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.ProcessingConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +41,8 @@ The ProcessingConfiguration property configures data processing for an Amazon Ki
                 }
             })]
         $Enabled,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.KinesisFirehose.DeliveryStream.Processor"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +53,14 @@ The ProcessingConfiguration property configures data processing for an Amazon Ki
                 }
             })]
         $Processors
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +70,7 @@ The ProcessingConfiguration property configures data processing for an Amazon Ki
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisFirehose.DeliveryStream.ProcessingConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

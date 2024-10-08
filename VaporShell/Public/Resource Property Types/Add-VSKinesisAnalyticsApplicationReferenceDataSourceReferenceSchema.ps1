@@ -1,33 +1,26 @@
 function Add-VSKinesisAnalyticsApplicationReferenceDataSourceReferenceSchema {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalytics::ApplicationReferenceDataSource.ReferenceSchema resource property to the template. The ReferenceSchema property type specifies the format of the data in the reference source for a SQL-based Amazon Kinesis Data Analytics application.
+        Adds an AWS::KinesisAnalytics::ApplicationReferenceDataSource.ReferenceSchema resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalytics::ApplicationReferenceDataSource.ReferenceSchema resource property to the template.
-The ReferenceSchema property type specifies the format of the data in the reference source for a SQL-based Amazon Kinesis Data Analytics application.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html
 
     .PARAMETER RecordEncoding
-        Specifies the encoding of the records in the reference source. For example, UTF-8.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalytics-applicationreferencedatasource-referenceschema-recordencoding
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER RecordColumns
-        A list of RecordColumn objects.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalytics-applicationreferencedatasource-referenceschema-recordcolumns
         ItemType: RecordColumn
         UpdateType: Mutable
 
     .PARAMETER RecordFormat
-        Specifies the format of the records on the reference source.
-
         Type: RecordFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalytics-applicationreferencedatasource-referenceschema-recordformat
         UpdateType: Mutable
@@ -35,11 +28,13 @@ The ReferenceSchema property type specifies the format of the data in the refere
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalytics.ApplicationReferenceDataSource.ReferenceSchema')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,7 +45,8 @@ The ReferenceSchema property type specifies the format of the data in the refere
                 }
             })]
         $RecordEncoding,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.KinesisAnalytics.ApplicationReferenceDataSource.RecordColumn"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,13 +57,17 @@ The ReferenceSchema property type specifies the format of the data in the refere
                 }
             })]
         $RecordColumns,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $RecordFormat
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +77,7 @@ The ReferenceSchema property type specifies the format of the data in the refere
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalytics.ApplicationReferenceDataSource.ReferenceSchema'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

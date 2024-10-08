@@ -1,32 +1,25 @@
 function Add-VSAppSyncDataSourceDeltaSyncConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppSync::DataSource.DeltaSyncConfig resource property to the template. Describes a Delta Sync configuration.
+        Adds an AWS::AppSync::DataSource.DeltaSyncConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppSync::DataSource.DeltaSyncConfig resource property to the template.
-Describes a Delta Sync configuration.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html
 
     .PARAMETER BaseTableTTL
-        The number of minutes that an Item is stored in the data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-basetablettl
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DeltaSyncTableTTL
-        The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-deltasynctablettl
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DeltaSyncTableName
-        The Delta Sync table name.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-deltasynctablename
         PrimitiveType: String
         UpdateType: Mutable
@@ -34,11 +27,13 @@ Describes a Delta Sync configuration.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppSync.DataSource.DeltaSyncConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ Describes a Delta Sync configuration.
                 }
             })]
         $BaseTableTTL,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +56,8 @@ Describes a Delta Sync configuration.
                 }
             })]
         $DeltaSyncTableTTL,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +68,14 @@ Describes a Delta Sync configuration.
                 }
             })]
         $DeltaSyncTableName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +85,7 @@ Describes a Delta Sync configuration.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppSync.DataSource.DeltaSyncConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

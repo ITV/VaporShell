@@ -1,25 +1,20 @@
 function Add-VSAmazonMQBrokerLogList {
     <#
     .SYNOPSIS
-        Adds an AWS::AmazonMQ::Broker.LogList resource property to the template. The list of information about logs to be enabled for the specified broker.
+        Adds an AWS::AmazonMQ::Broker.LogList resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AmazonMQ::Broker.LogList resource property to the template.
-The list of information about logs to be enabled for the specified broker.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html
 
     .PARAMETER Audit
-        Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html#cfn-amazonmq-broker-loglist-audit
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER General
-        Enables general logging.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html#cfn-amazonmq-broker-loglist-general
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -27,11 +22,13 @@ The list of information about logs to be enabled for the specified broker.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AmazonMQ.Broker.LogList')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The list of information about logs to be enabled for the specified broker.
                 }
             })]
         $Audit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The list of information about logs to be enabled for the specified broker.
                 }
             })]
         $General
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The list of information about logs to be enabled for the specified broker.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AmazonMQ.Broker.LogList'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

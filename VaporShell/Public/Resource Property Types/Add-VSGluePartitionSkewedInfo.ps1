@@ -1,34 +1,27 @@
 function Add-VSGluePartitionSkewedInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Partition.SkewedInfo resource property to the template. Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+        Adds an AWS::Glue::Partition.SkewedInfo resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Partition.SkewedInfo resource property to the template.
-Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html
 
     .PARAMETER SkewedColumnNames
-        A list of names of columns that contain skewed values.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnnames
         UpdateType: Mutable
 
     .PARAMETER SkewedColumnValues
-        A list of values that appear so frequently as to be considered skewed.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvalues
         UpdateType: Mutable
 
     .PARAMETER SkewedColumnValueLocationMaps
-        A mapping of skewed values to the columns that contain them.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvaluelocationmaps
         PrimitiveType: Json
         UpdateType: Mutable
@@ -36,15 +29,19 @@ Specifies skewed values in a table. Skewed values are those that occur with very
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Partition.SkewedInfo')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $SkewedColumnNames,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SkewedColumnValues,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +52,14 @@ Specifies skewed values in a table. Skewed values are those that occur with very
                 }
             })]
         $SkewedColumnValueLocationMaps
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -83,6 +83,7 @@ Specifies skewed values in a table. Skewed values are those that occur with very
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Partition.SkewedInfo'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

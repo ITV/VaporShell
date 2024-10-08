@@ -1,18 +1,15 @@
 function Add-VSAuditManagerAssessmentAWSService {
     <#
     .SYNOPSIS
-        Adds an AWS::AuditManager::Assessment.AWSService resource property to the template. The AWSService property type specifies an AWS service such as Amazon S3, AWS CloudTrail, and so on.
+        Adds an AWS::AuditManager::Assessment.AWSService resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AuditManager::Assessment.AWSService resource property to the template.
-The AWSService property type specifies an AWS service such as Amazon S3, AWS CloudTrail, and so on.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
 
     .PARAMETER ServiceName
-        The name of the AWS service.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The AWSService property type specifies an AWS service such as Amazon S3, AWS Clo
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AuditManager.Assessment.AWSService')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The AWSService property type specifies an AWS service such as Amazon S3, AWS Clo
                 }
             })]
         $ServiceName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The AWSService property type specifies an AWS service such as Amazon S3, AWS Clo
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AuditManager.Assessment.AWSService'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

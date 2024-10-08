@@ -1,32 +1,29 @@
 function Add-VSEC2InstanceCreditSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::Instance.CreditSpecification resource property to the template. Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
+        Adds an AWS::EC2::Instance.CreditSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::Instance.CreditSpecification resource property to the template.
-Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
-
-CreditSpecification is a property of the AWS::EC2::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html
 
     .PARAMETER CPUCredits
-        The credit option for CPU usage of the instance. Valid values are standard and unlimited. T3 instances launch as unlimited by default. T2 instances launch as standard by default.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html#cfn-ec2-instance-creditspecification-cpucredits
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.Instance.CreditSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +34,14 @@ CreditSpecification is a property of the AWS::EC2::Instance: https://docs.aws.am
                 }
             })]
         $CPUCredits
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +51,7 @@ CreditSpecification is a property of the AWS::EC2::Instance: https://docs.aws.am
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.Instance.CreditSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,34 +1,25 @@
 function Add-VSElasticBeanstalkApplicationMaxCountRule {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticBeanstalk::Application.MaxCountRule resource property to the template. A lifecycle rule that deletes the oldest application version when the maximum count is exceeded.
+        Adds an AWS::ElasticBeanstalk::Application.MaxCountRule resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticBeanstalk::Application.MaxCountRule resource property to the template.
-A lifecycle rule that deletes the oldest application version when the maximum count is exceeded.
-
-MaxCountRule is a property of the ApplicationVersionLifecycleConfig: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-maxcountrule.html
 
     .PARAMETER DeleteSourceFromS3
-        Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-maxcountrule.html#cfn-elasticbeanstalk-application-maxcountrule-deletesourcefroms3
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER Enabled
-        Specify true to apply the rule, or false to disable it.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-maxcountrule.html#cfn-elasticbeanstalk-application-maxcountrule-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER MaxCount
-        Specify the maximum number of application versions to retain.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-maxcountrule.html#cfn-elasticbeanstalk-application-maxcountrule-maxcount
         UpdateType: Mutable
         PrimitiveType: Integer
@@ -36,11 +27,13 @@ MaxCountRule is a property of the ApplicationVersionLifecycleConfig: https://doc
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticBeanstalk.Application.MaxCountRule')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,7 +44,8 @@ MaxCountRule is a property of the ApplicationVersionLifecycleConfig: https://doc
                 }
             })]
         $DeleteSourceFromS3,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +56,8 @@ MaxCountRule is a property of the ApplicationVersionLifecycleConfig: https://doc
                 }
             })]
         $Enabled,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,11 +68,14 @@ MaxCountRule is a property of the ApplicationVersionLifecycleConfig: https://doc
                 }
             })]
         $MaxCount
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +85,7 @@ MaxCountRule is a property of the ApplicationVersionLifecycleConfig: https://doc
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticBeanstalk.Application.MaxCountRule'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

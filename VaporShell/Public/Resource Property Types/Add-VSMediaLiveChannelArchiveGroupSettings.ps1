@@ -1,34 +1,25 @@
 function Add-VSMediaLiveChannelArchiveGroupSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.ArchiveGroupSettings resource property to the template. The settings for an archive output group.
+        Adds an AWS::MediaLive::Channel.ArchiveGroupSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.ArchiveGroupSettings resource property to the template.
-The settings for an archive output group.
-
-The parent of this entity is OutputGroupSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html
 
     .PARAMETER Destination
-        A directory and base file name where archive files should be written.
-
         Type: OutputLocationRef
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-destination
         UpdateType: Mutable
 
     .PARAMETER ArchiveCdnSettings
-        Settings to configure the destination of an Archive output.
-
         Type: ArchiveCdnSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-archivecdnsettings
         UpdateType: Mutable
 
     .PARAMETER RolloverInterval
-        The number of seconds to write to an archive file before closing and starting a new one.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-rolloverinterval
         PrimitiveType: Integer
         UpdateType: Mutable
@@ -36,15 +27,19 @@ The parent of this entity is OutputGroupSettings.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.ArchiveGroupSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Destination,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ArchiveCdnSettings,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +50,14 @@ The parent of this entity is OutputGroupSettings.
                 }
             })]
         $RolloverInterval
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +67,7 @@ The parent of this entity is OutputGroupSettings.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.ArchiveGroupSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

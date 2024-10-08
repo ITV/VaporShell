@@ -1,35 +1,25 @@
 function Add-VSAppMeshVirtualGatewayVirtualGatewayListenerTls {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTls resource property to the template. An object that represents the Transport Layer Security (TLS properties for a listener.
+        Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTls resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTls resource property to the template.
-An object that represents the Transport Layer Security (TLS properties for a listener.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html
 
     .PARAMETER Validation
-        A reference to an object that represents a virtual gateway's listener's Transport Layer Security TLS validation context.
-
         Type: VirtualGatewayListenerTlsValidationContext
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-validation
         UpdateType: Mutable
 
     .PARAMETER Mode
-        Specify one of the following modes.
-+ ****STRICT – Listener only accepts connections with TLS enabled.
-+ ****PERMISSIVE – Listener accepts connections with or without TLS enabled.
-+ ****DISABLED – Listener only accepts connections without TLS.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-mode
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Certificate
-        An object that represents a Transport Layer Security TLS certificate.
-
         Type: VirtualGatewayListenerTlsCertificate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-certificate
         UpdateType: Mutable
@@ -37,13 +27,16 @@ An object that represents the Transport Layer Security (TLS properties for a lis
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayListenerTls')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Validation,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,13 +47,17 @@ An object that represents the Transport Layer Security (TLS properties for a lis
                 }
             })]
         $Mode,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Certificate
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +67,7 @@ An object that represents the Transport Layer Security (TLS properties for a lis
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayListenerTls'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

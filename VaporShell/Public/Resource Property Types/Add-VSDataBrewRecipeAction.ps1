@@ -1,37 +1,37 @@
 function Add-VSDataBrewRecipeAction {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Recipe.Action resource property to the template. Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
+        Adds an AWS::DataBrew::Recipe.Action resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Recipe.Action resource property to the template.
-Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
 
-    .PARAMETER Operation
-        The name of a valid DataBrew transformation to be performed on the data.
+    .PARAMETER Parameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
+        UpdateType: Mutable
+        Type: RecipeParameters
 
+    .PARAMETER Operation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Parameters
-        Contextual parameters for the transformation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-        UpdateType: Mutable
-        Type: ParameterMap
-
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataBrew.Recipe.Action')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $Parameters,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,14 +41,15 @@ Represents a transformation and associated parameters that are used to apply a c
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Operation,
-        [parameter(Mandatory = $false)]
-        $Parameters
+        $Operation
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ Represents a transformation and associated parameters that are used to apply a c
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataBrew.Recipe.Action'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,41 +1,34 @@
 function Add-VSCognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType resource property to the template. Account takeover action type.
+        Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType resource property to the template.
-Account takeover action type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html
 
     .PARAMETER Notify
-        Flag specifying whether to send a notification.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype-notify
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER EventAction
-        The event action.
-+  BLOCK Choosing this action will block the request.
-+  MFA_IF_CONFIGURED Present an MFA challenge if user has configured it, else allow the request.
-+  MFA_REQUIRED Present an MFA challenge if user has configured it, else block the request.
-+  NO_ACTION Allow the user to sign in.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype-eventaction
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Cognito.UserPoolRiskConfigurationAttachment.AccountTakeoverActionType')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,7 +39,8 @@ Account takeover action type.
                 }
             })]
         $Notify,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,11 +51,14 @@ Account takeover action type.
                 }
             })]
         $EventAction
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +68,7 @@ Account takeover action type.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Cognito.UserPoolRiskConfigurationAttachment.AccountTakeoverActionType'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

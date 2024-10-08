@@ -1,30 +1,29 @@
 function Add-VSGuardDutyDetectorCFNKubernetesAuditLogsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GuardDuty::Detector.CFNKubernetesAuditLogsConfiguration resource property to the template. Describes which optional data sources are enabled for a detector.
+        Adds an AWS::GuardDuty::Detector.CFNKubernetesAuditLogsConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GuardDuty::Detector.CFNKubernetesAuditLogsConfiguration resource property to the template.
-Describes which optional data sources are enabled for a detector.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html
 
     .PARAMETER Enable
-        Describes whether Kubernetes audit logs are enabled as a data source for the detector.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html#cfn-guardduty-detector-cfnkubernetesauditlogsconfiguration-enable
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GuardDuty.Detector.CFNKubernetesAuditLogsConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Describes which optional data sources are enabled for a detector.
                 }
             })]
         $Enable
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Describes which optional data sources are enabled for a detector.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GuardDuty.Detector.CFNKubernetesAuditLogsConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

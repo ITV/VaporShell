@@ -1,18 +1,15 @@
 function Add-VSLexBotAliasAudioLogDestination {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.AudioLogDestination resource property to the template. Specifies the S3 bucket location where audio logs are stored.
+        Adds an AWS::Lex::BotAlias.AudioLogDestination resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.AudioLogDestination resource property to the template.
-Specifies the S3 bucket location where audio logs are stored.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html
 
     .PARAMETER S3Bucket
-        The S3 bucket location where audio logs are stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html#cfn-lex-botalias-audiologdestination-s3bucket
         UpdateType: Mutable
         Type: S3BucketLogDestination
@@ -20,17 +17,22 @@ Specifies the S3 bucket location where audio logs are stored.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.BotAlias.AudioLogDestination')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $S3Bucket
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +42,7 @@ Specifies the S3 bucket location where audio logs are stored.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.BotAlias.AudioLogDestination'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

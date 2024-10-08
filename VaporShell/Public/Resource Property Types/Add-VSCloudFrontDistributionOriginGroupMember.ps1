@@ -1,18 +1,15 @@
 function Add-VSCloudFrontDistributionOriginGroupMember {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.OriginGroupMember resource property to the template. An origin in an origin group.
+        Adds an AWS::CloudFront::Distribution.OriginGroupMember resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.OriginGroupMember resource property to the template.
-An origin in an origin group.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html
 
     .PARAMETER OriginId
-        The ID for an origin in an origin group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ An origin in an origin group.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.OriginGroupMember')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ An origin in an origin group.
                 }
             })]
         $OriginId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ An origin in an origin group.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Distribution.OriginGroupMember'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

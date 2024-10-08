@@ -1,18 +1,15 @@
 function Add-VSEC2TransitGatewayConnectTransitGatewayConnectOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::TransitGatewayConnect.TransitGatewayConnectOptions resource property to the template. Describes the Connect attachment options.
+        Adds an AWS::EC2::TransitGatewayConnect.TransitGatewayConnectOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::TransitGatewayConnect.TransitGatewayConnectOptions resource property to the template.
-Describes the Connect attachment options.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html
 
     .PARAMETER Protocol
-        The tunnel protocol.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html#cfn-ec2-transitgatewayconnect-transitgatewayconnectoptions-protocol
         UpdateType: Immutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Describes the Connect attachment options.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.TransitGatewayConnect.TransitGatewayConnectOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Describes the Connect attachment options.
                 }
             })]
         $Protocol
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Describes the Connect attachment options.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.TransitGatewayConnect.TransitGatewayConnectOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

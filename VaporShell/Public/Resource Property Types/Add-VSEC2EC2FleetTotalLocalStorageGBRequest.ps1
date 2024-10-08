@@ -1,25 +1,20 @@
 function Add-VSEC2EC2FleetTotalLocalStorageGBRequest {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::EC2Fleet.TotalLocalStorageGBRequest resource property to the template. The minimum and maximum amount of total local storage, in GB.
+        Adds an AWS::EC2::EC2Fleet.TotalLocalStorageGBRequest resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::EC2Fleet.TotalLocalStorageGBRequest resource property to the template.
-The minimum and maximum amount of total local storage, in GB.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-totallocalstoragegbrequest.html
 
     .PARAMETER Min
-        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-totallocalstoragegbrequest.html#cfn-ec2-ec2fleet-totallocalstoragegbrequest-min
         UpdateType: Immutable
         PrimitiveType: Double
 
     .PARAMETER Max
-        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-totallocalstoragegbrequest.html#cfn-ec2-ec2fleet-totallocalstoragegbrequest-max
         UpdateType: Immutable
         PrimitiveType: Double
@@ -27,11 +22,13 @@ The minimum and maximum amount of total local storage, in GB.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.TotalLocalStorageGBRequest')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The minimum and maximum amount of total local storage, in GB.
                 }
             })]
         $Min,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The minimum and maximum amount of total local storage, in GB.
                 }
             })]
         $Max
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The minimum and maximum amount of total local storage, in GB.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.EC2Fleet.TotalLocalStorageGBRequest'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

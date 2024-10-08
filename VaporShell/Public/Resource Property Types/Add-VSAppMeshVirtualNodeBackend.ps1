@@ -1,18 +1,15 @@
 function Add-VSAppMeshVirtualNodeBackend {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.Backend resource property to the template. An object that represents the backends that a virtual node is expected to send outbound traffic to.
+        Adds an AWS::AppMesh::VirtualNode.Backend resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.Backend resource property to the template.
-An object that represents the backends that a virtual node is expected to send outbound traffic to.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html
 
     .PARAMETER VirtualService
-        Specifies a virtual service to use as a backend.
-
         Type: VirtualServiceBackend
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html#cfn-appmesh-virtualnode-backend-virtualservice
         UpdateType: Mutable
@@ -20,17 +17,22 @@ An object that represents the backends that a virtual node is expected to send o
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.Backend')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $VirtualService
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +42,7 @@ An object that represents the backends that a virtual node is expected to send o
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.Backend'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

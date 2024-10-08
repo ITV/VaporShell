@@ -1,11 +1,10 @@
 function Add-VSDataSyncLocationFSxOpenZFSMountOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationFSxOpenZFS.MountOptions resource property to the template. 
+        Adds an AWS::DataSync::LocationFSxOpenZFS.MountOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataSync::LocationFSxOpenZFS.MountOptions resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-mountoptions.html
@@ -18,11 +17,13 @@ function Add-VSDataSyncLocationFSxOpenZFSMountOptions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataSync.LocationFSxOpenZFS.MountOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,11 +34,14 @@ function Add-VSDataSyncLocationFSxOpenZFSMountOptions {
                 }
             })]
         $Version
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -47,6 +51,7 @@ function Add-VSDataSyncLocationFSxOpenZFSMountOptions {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataSync.LocationFSxOpenZFS.MountOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

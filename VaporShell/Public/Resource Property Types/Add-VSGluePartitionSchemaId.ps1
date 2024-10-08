@@ -1,32 +1,25 @@
 function Add-VSGluePartitionSchemaId {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Partition.SchemaId resource property to the template. A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+        Adds an AWS::Glue::Partition.SchemaId resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Partition.SchemaId resource property to the template.
-A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html
 
     .PARAMETER RegistryName
-        The name of the schema registry that contains the schema.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SchemaName
-        The name of the schema. One of SchemaArn or SchemaName has to be provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SchemaArn
-        The Amazon Resource Name ARN of the schema. One of SchemaArn or SchemaName has to be provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
         PrimitiveType: String
         UpdateType: Mutable
@@ -34,11 +27,13 @@ A structure that contains schema identity fields. Either this or the SchemaVersi
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Partition.SchemaId')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ A structure that contains schema identity fields. Either this or the SchemaVersi
                 }
             })]
         $RegistryName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +56,8 @@ A structure that contains schema identity fields. Either this or the SchemaVersi
                 }
             })]
         $SchemaName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +68,14 @@ A structure that contains schema identity fields. Either this or the SchemaVersi
                 }
             })]
         $SchemaArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +85,7 @@ A structure that contains schema identity fields. Either this or the SchemaVersi
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Partition.SchemaId'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

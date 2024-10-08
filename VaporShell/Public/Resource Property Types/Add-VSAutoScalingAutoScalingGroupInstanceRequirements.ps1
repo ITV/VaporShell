@@ -1,182 +1,187 @@
 function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.InstanceRequirements resource property to the template. 
+        Adds an AWS::AutoScaling::AutoScalingGroup.InstanceRequirements resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.InstanceRequirements resource property to the template.
 
-
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html
-
-    .PARAMETER AcceleratorCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratorcount
-        Type: AcceleratorCountRequest
-        UpdateType: Mutable
-
-    .PARAMETER AcceleratorManufacturers
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratormanufacturers
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER AcceleratorNames
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratornames
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER AcceleratorTotalMemoryMiB
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratortotalmemorymib
-        Type: AcceleratorTotalMemoryMiBRequest
-        UpdateType: Mutable
-
-    .PARAMETER AcceleratorTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratortypes
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER BareMetal
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baremetal
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER BaselineEbsBandwidthMbps
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baselineebsbandwidthmbps
-        Type: BaselineEbsBandwidthMbpsRequest
-        UpdateType: Mutable
-
-    .PARAMETER BurstablePerformance
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-burstableperformance
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER CpuManufacturers
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-cpumanufacturers
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER ExcludedInstanceTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-excludedinstancetypes
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER InstanceGenerations
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-instancegenerations
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
-        Type: List
-        UpdateType: Mutable
-
-    .PARAMETER LocalStorage
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstorage
-        PrimitiveType: String
-        UpdateType: Mutable
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html
 
     .PARAMETER LocalStorageTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstoragetypes
-        DuplicatesAllowed: False
-        PrimitiveItemType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstoragetypes
+        UpdateType: Conditional
         Type: List
-        UpdateType: Mutable
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
-    .PARAMETER MemoryGiBPerVCpu
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorygibpervcpu
-        Type: MemoryGiBPerVCpuRequest
-        UpdateType: Mutable
-
-    .PARAMETER MemoryMiB
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorymib
-        Type: MemoryMiBRequest
-        UpdateType: Mutable
+    .PARAMETER InstanceGenerations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-instancegenerations
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
     .PARAMETER NetworkInterfaceCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkinterfacecount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkinterfacecount
+        UpdateType: Conditional
         Type: NetworkInterfaceCountRequest
-        UpdateType: Mutable
 
-    .PARAMETER OnDemandMaxPricePercentageOverLowestPrice
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-ondemandmaxpricepercentageoverlowestprice
-        PrimitiveType: Integer
-        UpdateType: Mutable
+    .PARAMETER AcceleratorTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratortypes
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
-    .PARAMETER RequireHibernateSupport
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-requirehibernatesupport
-        PrimitiveType: Boolean
-        UpdateType: Mutable
+    .PARAMETER MemoryGiBPerVCpu
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorygibpervcpu
+        UpdateType: Conditional
+        Type: MemoryGiBPerVCpuRequest
 
-    .PARAMETER SpotMaxPricePercentageOverLowestPrice
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-spotmaxpricepercentageoverlowestprice
-        PrimitiveType: Integer
-        UpdateType: Mutable
+    .PARAMETER AcceleratorManufacturers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratormanufacturers
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
-    .PARAMETER TotalLocalStorageGB
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-totallocalstoragegb
-        Type: TotalLocalStorageGBRequest
-        UpdateType: Mutable
+    .PARAMETER ExcludedInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-excludedinstancetypes
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
 
     .PARAMETER VCpuCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-vcpucount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-vcpucount
+        UpdateType: Conditional
         Type: VCpuCountRequest
-        UpdateType: Mutable
+
+    .PARAMETER AllowedInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-allowedinstancetypes
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER LocalStorage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstorage
+        UpdateType: Conditional
+        PrimitiveType: String
+
+    .PARAMETER CpuManufacturers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-cpumanufacturers
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER AcceleratorCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratorcount
+        UpdateType: Conditional
+        Type: AcceleratorCountRequest
+
+    .PARAMETER NetworkBandwidthGbps
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkbandwidthgbps
+        UpdateType: Conditional
+        Type: NetworkBandwidthGbpsRequest
+
+    .PARAMETER BareMetal
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baremetal
+        UpdateType: Conditional
+        PrimitiveType: String
+
+    .PARAMETER RequireHibernateSupport
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-requirehibernatesupport
+        UpdateType: Conditional
+        PrimitiveType: Boolean
+
+    .PARAMETER MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-maxspotpriceaspercentageofoptimalondemandprice
+        UpdateType: Conditional
+        PrimitiveType: Integer
+
+    .PARAMETER BaselineEbsBandwidthMbps
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baselineebsbandwidthmbps
+        UpdateType: Conditional
+        Type: BaselineEbsBandwidthMbpsRequest
+
+    .PARAMETER SpotMaxPricePercentageOverLowestPrice
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-spotmaxpricepercentageoverlowestprice
+        UpdateType: Conditional
+        PrimitiveType: Integer
+
+    .PARAMETER AcceleratorNames
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratornames
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER AcceleratorTotalMemoryMiB
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratortotalmemorymib
+        UpdateType: Conditional
+        Type: AcceleratorTotalMemoryMiBRequest
+
+    .PARAMETER OnDemandMaxPricePercentageOverLowestPrice
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-ondemandmaxpricepercentageoverlowestprice
+        UpdateType: Conditional
+        PrimitiveType: Integer
+
+    .PARAMETER BurstablePerformance
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-burstableperformance
+        UpdateType: Conditional
+        PrimitiveType: String
+
+    .PARAMETER MemoryMiB
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorymib
+        UpdateType: Conditional
+        Type: MemoryMiBRequest
+
+    .PARAMETER TotalLocalStorageGB
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-totallocalstoragegb
+        UpdateType: Conditional
+        Type: TotalLocalStorageGBRequest
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.InstanceRequirements')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
-        $AcceleratorCount,
-        [parameter(Mandatory = $false)]
-        $AcceleratorManufacturers,
-        [parameter(Mandatory = $false)]
-        $AcceleratorNames,
-        [parameter(Mandatory = $false)]
-        $AcceleratorTotalMemoryMiB,
-        [parameter(Mandatory = $false)]
-        $AcceleratorTypes,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $BareMetal,
-        [parameter(Mandatory = $false)]
-        $BaselineEbsBandwidthMbps,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $BurstablePerformance,
-        [parameter(Mandatory = $false)]
-        $CpuManufacturers,
-        [parameter(Mandatory = $false)]
-        $ExcludedInstanceTypes,
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        $LocalStorageTypes,
+
+        [Parameter(Mandatory = $false)]
         $InstanceGenerations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $NetworkInterfaceCount,
+
+        [Parameter(Mandatory = $false)]
+        $AcceleratorTypes,
+
+        [Parameter(Mandatory = $false)]
+        $MemoryGiBPerVCpu,
+
+        [Parameter(Mandatory = $false)]
+        $AcceleratorManufacturers,
+
+        [Parameter(Mandatory = $false)]
+        $ExcludedInstanceTypes,
+
+        [Parameter(Mandatory = $true)]
+        $VCpuCount,
+
+        [Parameter(Mandatory = $false)]
+        $AllowedInstanceTypes,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -187,17 +192,19 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
                 }
             })]
         $LocalStorage,
-        [parameter(Mandatory = $false)]
-        $LocalStorageTypes,
-        [parameter(Mandatory = $false)]
-        $MemoryGiBPerVCpu,
-        [parameter(Mandatory = $false)]
-        $MemoryMiB,
-        [parameter(Mandatory = $false)]
-        $NetworkInterfaceCount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $CpuManufacturers,
+
+        [Parameter(Mandatory = $false)]
+        $AcceleratorCount,
+
+        [Parameter(Mandatory = $false)]
+        $NetworkBandwidthGbps,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -205,8 +212,9 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OnDemandMaxPricePercentageOverLowestPrice,
-        [parameter(Mandatory = $false)]
+        $BareMetal,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -217,7 +225,23 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
                 }
             })]
         $RequireHibernateSupport,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MaxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+
+        [Parameter(Mandatory = $false)]
+        $BaselineEbsBandwidthMbps,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -228,15 +252,50 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
                 }
             })]
         $SpotMaxPricePercentageOverLowestPrice,
-        [parameter(Mandatory = $false)]
-        $TotalLocalStorageGB,
-        [parameter(Mandatory = $false)]
-        $VCpuCount
+
+        [Parameter(Mandatory = $false)]
+        $AcceleratorNames,
+
+        [Parameter(Mandatory = $false)]
+        $AcceleratorTotalMemoryMiB,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OnDemandMaxPricePercentageOverLowestPrice,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BurstablePerformance,
+
+        [Parameter(Mandatory = $true)]
+        $MemoryMiB,
+
+        [Parameter(Mandatory = $false)]
+        $TotalLocalStorageGB
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -246,6 +305,7 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AutoScaling.AutoScalingGroup.InstanceRequirements'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

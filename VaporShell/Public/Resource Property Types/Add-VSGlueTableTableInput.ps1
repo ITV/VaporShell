@@ -1,91 +1,66 @@
 function Add-VSGlueTableTableInput {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Table.TableInput resource property to the template. A structure used to define a table.
+        Adds an AWS::Glue::Table.TableInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Table.TableInput resource property to the template.
-A structure used to define a table.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html
 
     .PARAMETER Owner
-        The table owner.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ViewOriginalText
-        If the table is a view, the original text of the view; otherwise null.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Description
-        A description of the table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TableType
-        The type of this table EXTERNAL_TABLE, VIRTUAL_VIEW, etc..
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Parameters
-        These key-value pairs define properties associated with the table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER ViewExpandedText
-        If the table is a view, the expanded text of the view; otherwise null.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER StorageDescriptor
-        A storage descriptor containing information about the physical storage of this table.
-
         Type: StorageDescriptor
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor
         UpdateType: Mutable
 
     .PARAMETER TargetTable
-        A TableIdentifier structure that describes a target table for resource linking.
-
         Type: TableIdentifier
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
         UpdateType: Mutable
 
     .PARAMETER PartitionKeys
-        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
-When you create a table used by Amazon Athena, and you do not specify any partitionKeys, you must at least set the value of partitionKeys to an empty list. For example:
-"PartitionKeys": ]
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys
         ItemType: Column
         UpdateType: Mutable
 
     .PARAMETER Retention
-        The retention time for this table.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention
         PrimitiveType: Integer
         UpdateType: Mutable
 
     .PARAMETER Name
-        The table name. For Hive compatibility, this is folded to lowercase when it is stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-name
         PrimitiveType: String
         UpdateType: Immutable
@@ -93,11 +68,13 @@ When you create a table used by Amazon Athena, and you do not specify any partit
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Table.TableInput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -108,7 +85,8 @@ When you create a table used by Amazon Athena, and you do not specify any partit
                 }
             })]
         $Owner,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,7 +97,8 @@ When you create a table used by Amazon Athena, and you do not specify any partit
                 }
             })]
         $ViewOriginalText,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -130,7 +109,8 @@ When you create a table used by Amazon Athena, and you do not specify any partit
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -141,7 +121,8 @@ When you create a table used by Amazon Athena, and you do not specify any partit
                 }
             })]
         $TableType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -152,7 +133,8 @@ When you create a table used by Amazon Athena, and you do not specify any partit
                 }
             })]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -163,11 +145,14 @@ When you create a table used by Amazon Athena, and you do not specify any partit
                 }
             })]
         $ViewExpandedText,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StorageDescriptor,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TargetTable,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Table.Column"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -178,7 +163,8 @@ When you create a table used by Amazon Athena, and you do not specify any partit
                 }
             })]
         $PartitionKeys,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -189,7 +175,8 @@ When you create a table used by Amazon Athena, and you do not specify any partit
                 }
             })]
         $Retention,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -200,11 +187,14 @@ When you create a table used by Amazon Athena, and you do not specify any partit
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -228,6 +218,7 @@ When you create a table used by Amazon Athena, and you do not specify any partit
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Table.TableInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSLambdaEventSourceMappingSelfManagedEventSource {
     <#
     .SYNOPSIS
-        Adds an AWS::Lambda::EventSourceMapping.SelfManagedEventSource resource property to the template. The self-managed Apache Kafka cluster for your event source.
+        Adds an AWS::Lambda::EventSourceMapping.SelfManagedEventSource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lambda::EventSourceMapping.SelfManagedEventSource resource property to the template.
-The self-managed Apache Kafka cluster for your event source.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html
 
     .PARAMETER Endpoints
-        The list of bootstrap servers for your Kafka brokers in the following format: "KafkaBootstrapServers": "abc.xyz.com:xxxx","abc2.xyz.com:xxxx"].
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
         UpdateType: Immutable
         Type: Endpoints
@@ -20,17 +17,22 @@ The self-managed Apache Kafka cluster for your event source.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.SelfManagedEventSource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Endpoints
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +42,7 @@ The self-managed Apache Kafka cluster for your event source.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lambda.EventSourceMapping.SelfManagedEventSource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

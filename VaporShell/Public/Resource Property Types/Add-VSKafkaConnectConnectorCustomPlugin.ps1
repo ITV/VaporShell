@@ -1,25 +1,20 @@
 function Add-VSKafkaConnectConnectorCustomPlugin {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.CustomPlugin resource property to the template. A plugin is an AWS resource that contains the code that defines a connector's logic.
+        Adds an AWS::KafkaConnect::Connector.CustomPlugin resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.CustomPlugin resource property to the template.
-A plugin is an AWS resource that contains the code that defines a connector's logic.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html
 
     .PARAMETER CustomPluginArn
-        The Amazon Resource Name ARN of the custom plugin.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html#cfn-kafkaconnect-connector-customplugin-custompluginarn
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Revision
-        The revision of the custom plugin.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html#cfn-kafkaconnect-connector-customplugin-revision
         UpdateType: Immutable
         PrimitiveType: Integer
@@ -27,11 +22,13 @@ A plugin is an AWS resource that contains the code that defines a connector's lo
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.CustomPlugin')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ A plugin is an AWS resource that contains the code that defines a connector's lo
                 }
             })]
         $CustomPluginArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ A plugin is an AWS resource that contains the code that defines a connector's lo
                 }
             })]
         $Revision
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ A plugin is an AWS resource that contains the code that defines a connector's lo
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KafkaConnect.Connector.CustomPlugin'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

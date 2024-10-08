@@ -1,25 +1,20 @@
 function Add-VSConfigConfigurationAggregatorAccountAggregationSource {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::ConfigurationAggregator.AccountAggregationSource resource property to the template. A collection of accounts and regions.
+        Adds an AWS::Config::ConfigurationAggregator.AccountAggregationSource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Config::ConfigurationAggregator.AccountAggregationSource resource property to the template.
-A collection of accounts and regions.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
 
     .PARAMETER AllAwsRegions
-        If true, aggregate existing AWS Config regions and future regions.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER AwsRegions
-        The source regions being aggregated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
         UpdateType: Mutable
         Type: List
@@ -27,8 +22,6 @@ A collection of accounts and regions.
         DuplicatesAllowed: True
 
     .PARAMETER AccountIds
-        The 12-digit account ID of the account being aggregated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
         UpdateType: Mutable
         Type: List
@@ -38,11 +31,13 @@ A collection of accounts and regions.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Config.ConfigurationAggregator.AccountAggregationSource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,15 +48,20 @@ A collection of accounts and regions.
                 }
             })]
         $AllAwsRegions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AwsRegions,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AccountIds
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +71,7 @@ A collection of accounts and regions.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Config.ConfigurationAggregator.AccountAggregationSource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

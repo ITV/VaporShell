@@ -1,14 +1,19 @@
 function Add-VSAppFlowConnectorProfileOAuth2Properties {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.OAuth2Properties resource property to the template. 
+        Adds an AWS::AppFlow::ConnectorProfile.OAuth2Properties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.OAuth2Properties resource property to the template.
 
-
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html
+
+    .PARAMETER TokenUrlCustomProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-tokenurlcustomproperties
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
     .PARAMETER TokenUrl
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-tokenurl
@@ -20,19 +25,20 @@ function Add-VSAppFlowConnectorProfileOAuth2Properties {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER TokenUrlCustomProperties
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-tokenurlcustomproperties
-        UpdateType: Mutable
-        Type: TokenUrlCustomProperties
-
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.OAuth2Properties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $TokenUrlCustomProperties,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +49,8 @@ function Add-VSAppFlowConnectorProfileOAuth2Properties {
                 }
             })]
         $TokenUrl,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,14 +60,15 @@ function Add-VSAppFlowConnectorProfileOAuth2Properties {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OAuth2GrantType,
-        [parameter(Mandatory = $false)]
-        $TokenUrlCustomProperties
+        $OAuth2GrantType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -70,6 +78,7 @@ function Add-VSAppFlowConnectorProfileOAuth2Properties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.ConnectorProfile.OAuth2Properties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

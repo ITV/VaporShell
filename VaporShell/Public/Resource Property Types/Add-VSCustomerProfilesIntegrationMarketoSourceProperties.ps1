@@ -1,18 +1,15 @@
 function Add-VSCustomerProfilesIntegrationMarketoSourceProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::CustomerProfiles::Integration.MarketoSourceProperties resource property to the template. <a name="aws-properties-customerprofiles-integration-marketosourceproperties-description"></a>The MarketoSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
+        Adds an AWS::CustomerProfiles::Integration.MarketoSourceProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CustomerProfiles::Integration.MarketoSourceProperties resource property to the template.
-<a name="aws-properties-customerprofiles-integration-marketosourceproperties-description"></a>The MarketoSourceProperties property type specifies Not currently supported by AWS CloudFormation. for an AWS::CustomerProfiles::Integration: aws-resource-customerprofiles-integration.md.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html
 
     .PARAMETER Object
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html#cfn-customerprofiles-integration-marketosourceproperties-object
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ function Add-VSCustomerProfilesIntegrationMarketoSourceProperties {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.MarketoSourceProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ function Add-VSCustomerProfilesIntegrationMarketoSourceProperties {
                 }
             })]
         $Object
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ function Add-VSCustomerProfilesIntegrationMarketoSourceProperties {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CustomerProfiles.Integration.MarketoSourceProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

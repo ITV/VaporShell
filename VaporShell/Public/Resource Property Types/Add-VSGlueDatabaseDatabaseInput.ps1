@@ -1,66 +1,61 @@
 function Add-VSGlueDatabaseDatabaseInput {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Database.DatabaseInput resource property to the template. The structure used to create or update a database.
+        Adds an AWS::Glue::Database.DatabaseInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Database.DatabaseInput resource property to the template.
-The structure used to create or update a database.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
 
     .PARAMETER LocationUri
-        The location of the database for example, an HDFS path.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER CreateTableDefaultPermissions
-        Creates a set of default permissions on the table for principals.
-
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
-        ItemType: PrincipalPrivileges
         UpdateType: Mutable
+        Type: List
+        ItemType: PrincipalPrivileges
+        DuplicatesAllowed: True
 
     .PARAMETER Description
-        A description of the database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Parameters
-        These key-value pairs define parameters and properties of the database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
-        PrimitiveType: Json
         UpdateType: Mutable
+        PrimitiveType: Json
 
     .PARAMETER TargetDatabase
-        A DatabaseIdentifier structure that describes a target database for resource linking.
-
-        Type: DatabaseIdentifier
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
         UpdateType: Mutable
+        Type: DatabaseIdentifier
+
+    .PARAMETER FederatedDatabase
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-federateddatabase
+        UpdateType: Mutable
+        Type: FederatedDatabase
 
     .PARAMETER Name
-        The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
+        UpdateType: Mutable
         PrimitiveType: String
-        UpdateType: Immutable
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Database.DatabaseInput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,7 +66,8 @@ The structure used to create or update a database.
                 }
             })]
         $LocationUri,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Database.PrincipalPrivileges"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -82,7 +78,8 @@ The structure used to create or update a database.
                 }
             })]
         $CreateTableDefaultPermissions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -93,7 +90,8 @@ The structure used to create or update a database.
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -104,9 +102,14 @@ The structure used to create or update a database.
                 }
             })]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TargetDatabase,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $FederatedDatabase,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -117,11 +120,14 @@ The structure used to create or update a database.
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -145,6 +151,7 @@ The structure used to create or update a database.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Database.DatabaseInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

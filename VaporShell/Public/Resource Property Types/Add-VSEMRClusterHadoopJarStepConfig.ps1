@@ -1,18 +1,15 @@
 function Add-VSEMRClusterHadoopJarStepConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EMR::Cluster.HadoopJarStepConfig resource property to the template. The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+        Adds an AWS::EMR::Cluster.HadoopJarStepConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EMR::Cluster.HadoopJarStepConfig resource property to the template.
-The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html
 
     .PARAMETER Args
-        A list of command line arguments passed to the JAR file's main function when executed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-args
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -20,22 +17,16 @@ The HadoopJarStepConfig property type specifies a job flow step consisting of a 
         UpdateType: Mutable
 
     .PARAMETER Jar
-        A path to a JAR file run during the step.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-jar
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER MainClass
-        The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-mainclass
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER StepProperties
-        A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-stepproperties
         DuplicatesAllowed: False
         ItemType: KeyValue
@@ -45,13 +36,16 @@ The HadoopJarStepConfig property type specifies a job flow step consisting of a 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EMR.Cluster.HadoopJarStepConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Args,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +56,8 @@ The HadoopJarStepConfig property type specifies a job flow step consisting of a 
                 }
             })]
         $Jar,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,7 +68,8 @@ The HadoopJarStepConfig property type specifies a job flow step consisting of a 
                 }
             })]
         $MainClass,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EMR.Cluster.KeyValue"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -84,11 +80,14 @@ The HadoopJarStepConfig property type specifies a job flow step consisting of a 
                 }
             })]
         $StepProperties
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -98,6 +97,7 @@ The HadoopJarStepConfig property type specifies a job flow step consisting of a 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EMR.Cluster.HadoopJarStepConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

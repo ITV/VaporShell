@@ -1,18 +1,15 @@
 function Add-VSBillingConductorBillingGroupComputationPreference {
     <#
     .SYNOPSIS
-        Adds an AWS::BillingConductor::BillingGroup.ComputationPreference resource property to the template. The preferences and settings that will be used to compute the AWS charges for a billing group.
+        Adds an AWS::BillingConductor::BillingGroup.ComputationPreference resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::BillingConductor::BillingGroup.ComputationPreference resource property to the template.
-The preferences and settings that will be used to compute the AWS charges for a billing group.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-computationpreference.html
 
     .PARAMETER PricingPlanArn
-        The Amazon Resource Name ARN of the pricing plan used to compute the AWS charges for a billing group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-computationpreference.html#cfn-billingconductor-billinggroup-computationpreference-pricingplanarn
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The preferences and settings that will be used to compute the AWS charges for a 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.BillingConductor.BillingGroup.ComputationPreference')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The preferences and settings that will be used to compute the AWS charges for a 
                 }
             })]
         $PricingPlanArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The preferences and settings that will be used to compute the AWS charges for a 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.BillingConductor.BillingGroup.ComputationPreference'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

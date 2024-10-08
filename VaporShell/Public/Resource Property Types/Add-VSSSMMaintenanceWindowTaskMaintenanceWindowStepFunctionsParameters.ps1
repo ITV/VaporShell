@@ -1,27 +1,20 @@
 function Add-VSSSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::SSM::MaintenanceWindowTask.MaintenanceWindowStepFunctionsParameters resource property to the template. The MaintenanceWindowStepFunctionsParameters property type specifies the parameters for the execution of a STEP_FUNCTIONS task in a Systems Manager maintenance window.
+        Adds an AWS::SSM::MaintenanceWindowTask.MaintenanceWindowStepFunctionsParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SSM::MaintenanceWindowTask.MaintenanceWindowStepFunctionsParameters resource property to the template.
-The MaintenanceWindowStepFunctionsParameters property type specifies the parameters for the execution of a STEP_FUNCTIONS task in a Systems Manager maintenance window.
-
-MaintenanceWindowStepFunctionsParameters is a property of the TaskInvocationParameters: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html
 
     .PARAMETER Input
-        The inputs for the STEP_FUNCTIONS task.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the STEP_FUNCTIONS task.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
         PrimitiveType: String
         UpdateType: Mutable
@@ -29,11 +22,13 @@ MaintenanceWindowStepFunctionsParameters is a property of the TaskInvocationPara
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SSM.MaintenanceWindowTask.MaintenanceWindowStepFunctionsParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +39,8 @@ MaintenanceWindowStepFunctionsParameters is a property of the TaskInvocationPara
                 }
             })]
         $Input,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +51,14 @@ MaintenanceWindowStepFunctionsParameters is a property of the TaskInvocationPara
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +68,7 @@ MaintenanceWindowStepFunctionsParameters is a property of the TaskInvocationPara
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SSM.MaintenanceWindowTask.MaintenanceWindowStepFunctionsParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

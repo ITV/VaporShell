@@ -1,18 +1,15 @@
 function Add-VSAppMeshVirtualRouterVirtualRouterSpec {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualRouter.VirtualRouterSpec resource property to the template. An object that represents the specification of a virtual router.
+        Adds an AWS::AppMesh::VirtualRouter.VirtualRouterSpec resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualRouter.VirtualRouterSpec resource property to the template.
-An object that represents the specification of a virtual router.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html
 
     .PARAMETER Listeners
-        The listeners that the virtual router is expected to receive inbound traffic from. You can specify one listener.
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html#cfn-appmesh-virtualrouter-virtualrouterspec-listeners
         ItemType: VirtualRouterListener
@@ -21,11 +18,13 @@ An object that represents the specification of a virtual router.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualRouter.VirtualRouterSpec')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppMesh.VirtualRouter.VirtualRouterListener"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -36,11 +35,14 @@ An object that represents the specification of a virtual router.
                 }
             })]
         $Listeners
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -50,6 +52,7 @@ An object that represents the specification of a virtual router.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualRouter.VirtualRouterSpec'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,32 +1,25 @@
 function Add-VSSageMakerWorkteamCognitoMemberDefinition {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Workteam.CognitoMemberDefinition resource property to the template. Identifies a Amazon Cognito user group. A user group can be used in on or more work teams.
+        Adds an AWS::SageMaker::Workteam.CognitoMemberDefinition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Workteam.CognitoMemberDefinition resource property to the template.
-Identifies a Amazon Cognito user group. A user group can be used in on or more work teams.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html
 
     .PARAMETER CognitoUserPool
-        An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitouserpool
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER CognitoClientId
-        An identifier for an application client. You must create the app client ID using Amazon Cognito.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitoclientid
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CognitoUserGroup
-        An identifier for a user group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitousergroup
         PrimitiveType: String
         UpdateType: Mutable
@@ -34,11 +27,13 @@ Identifies a Amazon Cognito user group. A user group can be used in on or more w
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.Workteam.CognitoMemberDefinition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ Identifies a Amazon Cognito user group. A user group can be used in on or more w
                 }
             })]
         $CognitoUserPool,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +56,8 @@ Identifies a Amazon Cognito user group. A user group can be used in on or more w
                 }
             })]
         $CognitoClientId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +68,14 @@ Identifies a Amazon Cognito user group. A user group can be used in on or more w
                 }
             })]
         $CognitoUserGroup
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +85,7 @@ Identifies a Amazon Cognito user group. A user group can be used in on or more w
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.Workteam.CognitoMemberDefinition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSKafkaConnectConnectorWorkerConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.WorkerConfiguration resource property to the template. The configuration of the workers, which are the processes that run the connector logic.
+        Adds an AWS::KafkaConnect::Connector.WorkerConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.WorkerConfiguration resource property to the template.
-The configuration of the workers, which are the processes that run the connector logic.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html
 
     .PARAMETER Revision
-        The revision of the worker configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-revision
         UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER WorkerConfigurationArn
-        The Amazon Resource Name ARN of the worker configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-workerconfigurationarn
         UpdateType: Immutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ The configuration of the workers, which are the processes that run the connector
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.WorkerConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The configuration of the workers, which are the processes that run the connector
                 }
             })]
         $Revision,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The configuration of the workers, which are the processes that run the connector
                 }
             })]
         $WorkerConfigurationArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The configuration of the workers, which are the processes that run the connector
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KafkaConnect.Connector.WorkerConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

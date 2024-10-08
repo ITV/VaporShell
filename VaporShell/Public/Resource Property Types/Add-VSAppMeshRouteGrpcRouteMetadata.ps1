@@ -1,32 +1,25 @@
 function Add-VSAppMeshRouteGrpcRouteMetadata {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.GrpcRouteMetadata resource property to the template. An object that represents the match metadata for the route.
+        Adds an AWS::AppMesh::Route.GrpcRouteMetadata resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.GrpcRouteMetadata resource property to the template.
-An object that represents the match metadata for the route.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html
 
     .PARAMETER Invert
-        Specify True to match anything except the match criteria. The default value is False.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-invert
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the route.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-name
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Match
-        An object that represents the data to match from the request.
-
         Type: GrpcRouteMetadataMatchMethod
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-match
         UpdateType: Mutable
@@ -34,11 +27,13 @@ An object that represents the match metadata for the route.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.Route.GrpcRouteMetadata')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ An object that represents the match metadata for the route.
                 }
             })]
         $Invert,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,13 +56,17 @@ An object that represents the match metadata for the route.
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Match
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -76,6 +76,7 @@ An object that represents the match metadata for the route.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.Route.GrpcRouteMetadata'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

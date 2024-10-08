@@ -1,39 +1,30 @@
 function Add-VSIoTAnalyticsPipelineMath {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Pipeline.Math resource property to the template. An activity that computes an arithmetic expression using the message's attributes.
+        Adds an AWS::IoTAnalytics::Pipeline.Math resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Pipeline.Math resource property to the template.
-An activity that computes an arithmetic expression using the message's attributes.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html
 
     .PARAMETER Attribute
-        The name of the attribute that contains the result of the math operation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-attribute
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Next
-        The next activity in the pipeline.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-next
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Math
-        An expression that uses one or more existing attributes and must return an integer value.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-math
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the 'math' activity.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-name
         UpdateType: Mutable
         PrimitiveType: String
@@ -41,11 +32,13 @@ An activity that computes an arithmetic expression using the message's attribute
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.Math')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +49,8 @@ An activity that computes an arithmetic expression using the message's attribute
                 }
             })]
         $Attribute,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,7 +61,8 @@ An activity that computes an arithmetic expression using the message's attribute
                 }
             })]
         $Next,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,7 +73,8 @@ An activity that computes an arithmetic expression using the message's attribute
                 }
             })]
         $Math,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,11 +85,14 @@ An activity that computes an arithmetic expression using the message's attribute
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -103,6 +102,7 @@ An activity that computes an arithmetic expression using the message's attribute
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Pipeline.Math'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

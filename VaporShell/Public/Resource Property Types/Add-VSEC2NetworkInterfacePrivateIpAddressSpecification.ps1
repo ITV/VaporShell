@@ -1,37 +1,34 @@
 function Add-VSEC2NetworkInterfacePrivateIpAddressSpecification {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::NetworkInterface.PrivateIpAddressSpecification resource property to the template. Describes a secondary private IPv4 address for a network interface.
+        Adds an AWS::EC2::NetworkInterface.PrivateIpAddressSpecification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::NetworkInterface.PrivateIpAddressSpecification resource property to the template.
-Describes a secondary private IPv4 address for a network interface.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-privateipaddressspecification.html
 
     .PARAMETER PrivateIpAddress
-        The private IP address of the network interface.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-privateipaddressspecification.html#cfn-ec2-networkinterface-privateipaddressspecification-privateipaddress
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER Primary
-        Sets the private IP address as the primary private address. You can set only one primary private IP address. If you don't specify a primary private IP address, Amazon EC2 automatically assigns a primary private IP address.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-privateipaddressspecification.html#cfn-ec2-networkinterface-privateipaddressspecification-primary
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.NetworkInterface.PrivateIpAddressSpecification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Describes a secondary private IPv4 address for a network interface.
                 }
             })]
         $PrivateIpAddress,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Describes a secondary private IPv4 address for a network interface.
                 }
             })]
         $Primary
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Describes a secondary private IPv4 address for a network interface.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.NetworkInterface.PrivateIpAddressSpecification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

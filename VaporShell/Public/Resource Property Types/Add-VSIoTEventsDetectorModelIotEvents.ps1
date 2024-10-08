@@ -1,25 +1,20 @@
 function Add-VSIoTEventsDetectorModelIotEvents {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.IotEvents resource property to the template. Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
+        Adds an AWS::IoTEvents::DetectorModel.IotEvents resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.IotEvents resource property to the template.
-Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html
 
     .PARAMETER InputName
-        The name of the AWS IoT Events input where the data is sent.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Payload
-        You can configure the action payload when you send a message to an AWS IoT Events input.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
         UpdateType: Mutable
         Type: Payload
@@ -27,11 +22,13 @@ Sends an AWS IoT Events input, passing in information about the detector model i
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.IotEvents')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,13 +39,17 @@ Sends an AWS IoT Events input, passing in information about the detector model i
                 }
             })]
         $InputName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Payload
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ Sends an AWS IoT Events input, passing in information about the detector model i
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTEvents.DetectorModel.IotEvents'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

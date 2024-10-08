@@ -1,37 +1,37 @@
 function Add-VSS3StorageLensEncryption {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::StorageLens.Encryption resource property to the template. This resource contains the type of server-side encryption used for Amazon S3 Storage Lens. For valid values, see the  StorageLensDataExportEncryption: https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html in the *Amazon S3 API Reference*.
+        Adds an AWS::S3::StorageLens.Encryption resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::StorageLens.Encryption resource property to the template.
-This resource contains the type of server-side encryption used for Amazon S3 Storage Lens. For valid values, see the  StorageLensDataExportEncryption: https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html in the *Amazon S3 API Reference*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
 
-    .PARAMETER SSES3
-        This resource contains the type of server-side encryption used for Amazon S3 Storage Lens. For valid values, see the  StorageLensDataExportEncryption: https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html in the *Amazon S3 API Reference*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html#cfn-s3-storagelens-encryption-sses3
-        UpdateType: Mutable
-        PrimitiveType: Json
-
     .PARAMETER SSEKMS
-        This resource contains the type of server-side encryption used for Amazon S3 Storage Lens. For valid values, see the  StorageLensDataExportEncryption: https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html in the *Amazon S3 API Reference*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html#cfn-s3-storagelens-encryption-ssekms
         UpdateType: Mutable
         Type: SSEKMS
 
+    .PARAMETER SSES3
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html#cfn-s3-storagelens-encryption-sses3
+        UpdateType: Mutable
+        PrimitiveType: Json
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.StorageLens.Encryption')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        $SSEKMS,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,14 +41,15 @@ This resource contains the type of server-side encryption used for Amazon S3 Sto
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SSES3,
-        [parameter(Mandatory = $false)]
-        $SSEKMS
+        $SSES3
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +73,7 @@ This resource contains the type of server-side encryption used for Amazon S3 Sto
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.StorageLens.Encryption'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSCloudFrontDistributionOriginCustomHeader {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.OriginCustomHeader resource property to the template. A complex type that contains HeaderName and HeaderValue elements, if any, for this distribution.
+        Adds an AWS::CloudFront::Distribution.OriginCustomHeader resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.OriginCustomHeader resource property to the template.
-A complex type that contains HeaderName and HeaderValue elements, if any, for this distribution.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html
 
     .PARAMETER HeaderValue
-        The value for the header that you specified in the HeaderName field.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER HeaderName
-        The name of a header that you want CloudFront to send to your origin. For more information, see Adding Custom Headers to Origin Requests: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html in the * Amazon CloudFront Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ A complex type that contains HeaderName and HeaderValue elements, if any, for th
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.OriginCustomHeader')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ A complex type that contains HeaderName and HeaderValue elements, if any, for th
                 }
             })]
         $HeaderValue,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ A complex type that contains HeaderName and HeaderValue elements, if any, for th
                 }
             })]
         $HeaderName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ A complex type that contains HeaderName and HeaderValue elements, if any, for th
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Distribution.OriginCustomHeader'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

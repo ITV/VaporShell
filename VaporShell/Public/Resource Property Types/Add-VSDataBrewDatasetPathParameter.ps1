@@ -1,25 +1,20 @@
 function Add-VSDataBrewDatasetPathParameter {
     <#
     .SYNOPSIS
-        Adds an AWS::DataBrew::Dataset.PathParameter resource property to the template. Represents a single entry in the path parameters of a dataset. Each PathParameter consists of a name and a parameter definition.
+        Adds an AWS::DataBrew::Dataset.PathParameter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataBrew::Dataset.PathParameter resource property to the template.
-Represents a single entry in the path parameters of a dataset. Each PathParameter consists of a name and a parameter definition.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
 
     .PARAMETER PathParameterName
-        The name of the path parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DatasetParameter
-        The path parameter definition.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
         UpdateType: Mutable
         Type: DatasetParameter
@@ -27,11 +22,13 @@ Represents a single entry in the path parameters of a dataset. Each PathParamete
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.PathParameter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,13 +39,17 @@ Represents a single entry in the path parameters of a dataset. Each PathParamete
                 }
             })]
         $PathParameterName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $DatasetParameter
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ Represents a single entry in the path parameters of a dataset. Each PathParamete
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataBrew.Dataset.PathParameter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

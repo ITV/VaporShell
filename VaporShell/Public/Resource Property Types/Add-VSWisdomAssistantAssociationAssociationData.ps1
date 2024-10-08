@@ -1,18 +1,15 @@
 function Add-VSWisdomAssistantAssociationAssociationData {
     <#
     .SYNOPSIS
-        Adds an AWS::Wisdom::AssistantAssociation.AssociationData resource property to the template. A union type that currently has a single argument, which is the knowledge base ID.
+        Adds an AWS::Wisdom::AssistantAssociation.AssociationData resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Wisdom::AssistantAssociation.AssociationData resource property to the template.
-A union type that currently has a single argument, which is the knowledge base ID.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html
 
     .PARAMETER KnowledgeBaseId
-        The identifier of the knowledge base.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html#cfn-wisdom-assistantassociation-associationdata-knowledgebaseid
         UpdateType: Immutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ A union type that currently has a single argument, which is the knowledge base I
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Wisdom.AssistantAssociation.AssociationData')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ A union type that currently has a single argument, which is the knowledge base I
                 }
             })]
         $KnowledgeBaseId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ A union type that currently has a single argument, which is the knowledge base I
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Wisdom.AssistantAssociation.AssociationData'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,20 +1,15 @@
 function Add-VSDataSyncLocationS3S3Config {
     <#
     .SYNOPSIS
-        Adds an AWS::DataSync::LocationS3.S3Config resource property to the template. The Amazon Resource Name (ARN of the AWS Identity and Access Management (IAM role used to access an Amazon S3 bucket.
+        Adds an AWS::DataSync::LocationS3.S3Config resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DataSync::LocationS3.S3Config resource property to the template.
-The Amazon Resource Name (ARN of the AWS Identity and Access Management (IAM role used to access an Amazon S3 bucket.
-
-For detailed information about using such a role, see Creating a Location for Amazon S3: https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location in the * AWS DataSync User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html
 
     .PARAMETER BucketAccessRoleArn
-        The ARN of the IAM role for accessing the S3 bucket.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
         UpdateType: Immutable
         PrimitiveType: String
@@ -22,11 +17,13 @@ For detailed information about using such a role, see Creating a Location for Am
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DataSync.LocationS3.S3Config')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +34,14 @@ For detailed information about using such a role, see Creating a Location for Am
                 }
             })]
         $BucketAccessRoleArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +51,7 @@ For detailed information about using such a role, see Creating a Location for Am
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DataSync.LocationS3.S3Config'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

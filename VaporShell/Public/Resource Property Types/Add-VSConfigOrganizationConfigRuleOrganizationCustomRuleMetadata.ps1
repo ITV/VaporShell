@@ -1,80 +1,57 @@
 function Add-VSConfigOrganizationConfigRuleOrganizationCustomRuleMetadata {
     <#
     .SYNOPSIS
-        Adds an AWS::Config::OrganizationConfigRule.OrganizationCustomRuleMetadata resource property to the template. An object that specifies organization custom rule metadata such as resource type, resource ID of AWS resource, Lambda function ARN, and organization trigger types that trigger AWS Config to evaluate your AWS resources against a rule. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
+        Adds an AWS::Config::OrganizationConfigRule.OrganizationCustomRuleMetadata resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Config::OrganizationConfigRule.OrganizationCustomRuleMetadata resource property to the template.
-An object that specifies organization custom rule metadata such as resource type, resource ID of AWS resource, Lambda function ARN, and organization trigger types that trigger AWS Config to evaluate your AWS resources against a rule. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html
 
     .PARAMETER TagKeyScope
-        One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagkeyscope
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TagValueScope
-        The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category key.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagvaluescope
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Description
-        The description that you provide for organization config rule.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ResourceIdScope
-        The ID of the AWS resource that was evaluated.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourceidscope
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER LambdaFunctionArn
-        The lambda function ARN.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-lambdafunctionarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER OrganizationConfigRuleTriggerTypes
-        The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
-+  ConfigurationItemChangeNotification - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
-+  OversizedConfigurationItemChangeNotification - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
-+  ScheduledNotification - Triggers a periodic evaluation at the frequency specified for MaximumExecutionFrequency.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-organizationconfigruletriggertypes
         UpdateType: Mutable
 
     .PARAMETER ResourceTypesScope
-        The type of the AWS resource that was evaluated.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourcetypesscope
         UpdateType: Mutable
 
     .PARAMETER MaximumExecutionFrequency
-        The maximum frequency with which AWS Config runs evaluations for a rule. Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see ConfigSnapshotDeliveryProperties: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties.
-By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the MaximumExecutionFrequency parameter.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-maximumexecutionfrequency
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER InputParameters
-        A string, in JSON format, that is passed to organization config rule Lambda function.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-inputparameters
         PrimitiveType: String
         UpdateType: Mutable
@@ -82,11 +59,13 @@ By default, rules with a periodic trigger are evaluated every 24 hours. To chang
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Config.OrganizationConfigRule.OrganizationCustomRuleMetadata')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -97,7 +76,8 @@ By default, rules with a periodic trigger are evaluated every 24 hours. To chang
                 }
             })]
         $TagKeyScope,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -108,7 +88,8 @@ By default, rules with a periodic trigger are evaluated every 24 hours. To chang
                 }
             })]
         $TagValueScope,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -119,7 +100,8 @@ By default, rules with a periodic trigger are evaluated every 24 hours. To chang
                 }
             })]
         $Description,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -130,7 +112,8 @@ By default, rules with a periodic trigger are evaluated every 24 hours. To chang
                 }
             })]
         $ResourceIdScope,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -141,11 +124,14 @@ By default, rules with a periodic trigger are evaluated every 24 hours. To chang
                 }
             })]
         $LambdaFunctionArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $OrganizationConfigRuleTriggerTypes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ResourceTypesScope,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -156,7 +142,8 @@ By default, rules with a periodic trigger are evaluated every 24 hours. To chang
                 }
             })]
         $MaximumExecutionFrequency,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -167,11 +154,14 @@ By default, rules with a periodic trigger are evaluated every 24 hours. To chang
                 }
             })]
         $InputParameters
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -181,6 +171,7 @@ By default, rules with a periodic trigger are evaluated every 24 hours. To chang
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Config.OrganizationConfigRule.OrganizationCustomRuleMetadata'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

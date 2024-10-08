@@ -1,31 +1,29 @@
 function Add-VSS3BucketReplicationTimeValue {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.ReplicationTimeValue resource property to the template. A container specifying the time value for S3 Replication Time Control (S3 RTC and replication metrics EventThreshold.
+        Adds an AWS::S3::Bucket.ReplicationTimeValue resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.ReplicationTimeValue resource property to the template.
-A container specifying the time value for S3 Replication Time Control (S3 RTC and replication metrics EventThreshold.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html
 
     .PARAMETER Minutes
-        Contains an integer specifying time in minutes.
-Valid value: 15
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html#cfn-s3-bucket-replicationtimevalue-minutes
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.ReplicationTimeValue')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -36,11 +34,14 @@ Valid value: 15
                 }
             })]
         $Minutes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -50,6 +51,7 @@ Valid value: 15
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.ReplicationTimeValue'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

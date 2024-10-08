@@ -1,18 +1,15 @@
 function Add-VSWisdomKnowledgeBaseServerSideEncryptionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration resource property to the template. The KMS key used for encryption.
+        Adds an AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration resource property to the template.
-The KMS key used for encryption.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-serversideencryptionconfiguration.html
 
     .PARAMETER KmsKeyId
-        The KMS key. For information about valid ID values, see Key identifiers KeyId: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-serversideencryptionconfiguration.html#cfn-wisdom-knowledgebase-serversideencryptionconfiguration-kmskeyid
         UpdateType: Immutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The KMS key used for encryption.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.ServerSideEncryptionConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The KMS key used for encryption.
                 }
             })]
         $KmsKeyId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The KMS key used for encryption.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Wisdom.KnowledgeBase.ServerSideEncryptionConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

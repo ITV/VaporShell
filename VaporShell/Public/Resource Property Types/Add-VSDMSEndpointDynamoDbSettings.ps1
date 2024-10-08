@@ -1,18 +1,15 @@
 function Add-VSDMSEndpointDynamoDbSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::DMS::Endpoint.DynamoDbSettings resource property to the template. Provides the Amazon Resource Name (ARN of the AWS Identity and Access Management (IAM role used to define an Amazon DynamoDB target endpoint.
+        Adds an AWS::DMS::Endpoint.DynamoDbSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DMS::Endpoint.DynamoDbSettings resource property to the template.
-Provides the Amazon Resource Name (ARN of the AWS Identity and Access Management (IAM role used to define an Amazon DynamoDB target endpoint.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html
 
     .PARAMETER ServiceAccessRoleArn
-        The Amazon Resource Name ARN used by the service to access the IAM role. The role must allow the iam:PassRole action.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html#cfn-dms-endpoint-dynamodbsettings-serviceaccessrolearn
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Provides the Amazon Resource Name (ARN of the AWS Identity and Access Management
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DMS.Endpoint.DynamoDbSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Provides the Amazon Resource Name (ARN of the AWS Identity and Access Management
                 }
             })]
         $ServiceAccessRoleArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Provides the Amazon Resource Name (ARN of the AWS Identity and Access Management
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DMS.Endpoint.DynamoDbSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

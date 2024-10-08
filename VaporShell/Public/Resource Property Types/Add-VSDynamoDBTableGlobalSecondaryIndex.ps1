@@ -1,11 +1,10 @@
 function Add-VSDynamoDBTableGlobalSecondaryIndex {
     <#
     .SYNOPSIS
-        Adds an AWS::DynamoDB::Table.GlobalSecondaryIndex resource property to the template. 
+        Adds an AWS::DynamoDB::Table.GlobalSecondaryIndex resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DynamoDB::Table.GlobalSecondaryIndex resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html
@@ -15,12 +14,15 @@ function Add-VSDynamoDBTableGlobalSecondaryIndex {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER KeySchema
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-keyschema
+    .PARAMETER OnDemandThroughput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-ondemandthroughput
         UpdateType: Mutable
-        Type: List
-        ItemType: KeySchema
-        DuplicatesAllowed: False
+        Type: OnDemandThroughput
+
+    .PARAMETER ContributorInsightsSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-contributorinsightsspecification
+        UpdateType: Mutable
+        Type: ContributorInsightsSpecification
 
     .PARAMETER Projection
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-projection
@@ -32,19 +34,23 @@ function Add-VSDynamoDBTableGlobalSecondaryIndex {
         UpdateType: Mutable
         Type: ProvisionedThroughput
 
-    .PARAMETER ContributorInsightsSpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-contributorinsightsspecification
+    .PARAMETER KeySchema
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-keyschema
         UpdateType: Mutable
-        Type: ContributorInsightsSpecification
+        Type: List
+        ItemType: KeySchema
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DynamoDB.Table.GlobalSecondaryIndex')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,7 +61,20 @@ function Add-VSDynamoDBTableGlobalSecondaryIndex {
                 }
             })]
         $IndexName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
+        $OnDemandThroughput,
+
+        [Parameter(Mandatory = $false)]
+        $ContributorInsightsSpecification,
+
+        [Parameter(Mandatory = $true)]
+        $Projection,
+
+        [Parameter(Mandatory = $false)]
+        $ProvisionedThroughput,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.DynamoDB.Table.KeySchema"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,18 +84,15 @@ function Add-VSDynamoDBTableGlobalSecondaryIndex {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $KeySchema,
-        [parameter(Mandatory = $true)]
-        $Projection,
-        [parameter(Mandatory = $false)]
-        $ProvisionedThroughput,
-        [parameter(Mandatory = $false)]
-        $ContributorInsightsSpecification
+        $KeySchema
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -86,6 +102,7 @@ function Add-VSDynamoDBTableGlobalSecondaryIndex {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DynamoDB.Table.GlobalSecondaryIndex'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

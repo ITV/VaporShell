@@ -1,18 +1,15 @@
 function Add-VSSageMakerDomainKernelGatewayAppSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::Domain.KernelGatewayAppSettings resource property to the template. The KernelGateway app settings.
+        Adds an AWS::SageMaker::Domain.KernelGatewayAppSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::Domain.KernelGatewayAppSettings resource property to the template.
-The KernelGateway app settings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
 
     .PARAMETER CustomImages
-        A list of custom SageMaker images that are configured to run as a KernelGateway app.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
         UpdateType: Mutable
         Type: List
@@ -20,21 +17,27 @@ The KernelGateway app settings.
         DuplicatesAllowed: True
 
     .PARAMETER DefaultResourceSpec
-        The default instance type and the Amazon Resource Name ARN of the default SageMaker image used by the KernelGateway app.
-The Amazon SageMaker Studio UI does not use the default instance type value set here. The default instance type set here is used when Apps are created using the AWS Command Line Interface or AWS CloudFormation and the instance type parameter value is not passed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
         UpdateType: Mutable
         Type: ResourceSpec
 
+    .PARAMETER LifecycleConfigArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-lifecycleconfigarns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.Domain.KernelGatewayAppSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.Domain.CustomImage"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -45,13 +48,20 @@ The Amazon SageMaker Studio UI does not use the default instance type value set 
                 }
             })]
         $CustomImages,
-        [parameter(Mandatory = $false)]
-        $DefaultResourceSpec
+
+        [Parameter(Mandatory = $false)]
+        $DefaultResourceSpec,
+
+        [Parameter(Mandatory = $false)]
+        $LifecycleConfigArns
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +71,7 @@ The Amazon SageMaker Studio UI does not use the default instance type value set 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.Domain.KernelGatewayAppSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

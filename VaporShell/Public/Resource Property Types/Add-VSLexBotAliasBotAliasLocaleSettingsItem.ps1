@@ -1,25 +1,20 @@
 function Add-VSLexBotAliasBotAliasLocaleSettingsItem {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.BotAliasLocaleSettingsItem resource property to the template. Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        Adds an AWS::Lex::BotAlias.BotAliasLocaleSettingsItem resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.BotAliasLocaleSettingsItem resource property to the template.
-Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html
 
     .PARAMETER LocaleId
-        The unique identifier of the locale.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-localeid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BotAliasLocaleSetting
-        Specifies settings that are unique to a locale.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-botaliaslocalesetting
         UpdateType: Mutable
         Type: BotAliasLocaleSettings
@@ -27,11 +22,13 @@ Specifies settings that are unique to a locale. For example, you can use differe
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.BotAlias.BotAliasLocaleSettingsItem')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,13 +39,17 @@ Specifies settings that are unique to a locale. For example, you can use differe
                 }
             })]
         $LocaleId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $BotAliasLocaleSetting
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ Specifies settings that are unique to a locale. For example, you can use differe
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.BotAlias.BotAliasLocaleSettingsItem'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,22 +1,15 @@
 function Add-VSCodeDeployDeploymentGroupEC2TagSetListObject {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.EC2TagSetListObject resource property to the template. The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+        Adds an AWS::CodeDeploy::DeploymentGroup.EC2TagSetListObject resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.EC2TagSetListObject resource property to the template.
-The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
-
-For more information about using tags and tag groups to help manage your Amazon EC2 instances and on-premises instances, see Tagging Instances for Deployment Groups in AWS CodeDeploy: https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-tagging.html in the *AWS CodeDeploy User Guide*.
-
-EC2TagSet is a property of the DeploymentGroup: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html resource type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagsetlistobject.html
 
     .PARAMETER Ec2TagGroup
-        A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagsetlistobject.html#cfn-codedeploy-deploymentgroup-ec2tagsetlistobject-ec2taggroup
         DuplicatesAllowed: False
         ItemType: EC2TagFilter
@@ -26,11 +19,13 @@ EC2TagSet is a property of the DeploymentGroup: https://docs.aws.amazon.com/AWSC
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagSetListObject')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,11 +36,14 @@ EC2TagSet is a property of the DeploymentGroup: https://docs.aws.amazon.com/AWSC
                 }
             })]
         $Ec2TagGroup
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -55,6 +53,7 @@ EC2TagSet is a property of the DeploymentGroup: https://docs.aws.amazon.com/AWSC
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagSetListObject'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

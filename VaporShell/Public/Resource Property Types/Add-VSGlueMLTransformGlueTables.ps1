@@ -1,39 +1,30 @@
 function Add-VSGlueMLTransformGlueTables {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::MLTransform.GlueTables resource property to the template. The database and table in the AWS Glue Data Catalog that is used for input or output data.
+        Adds an AWS::Glue::MLTransform.GlueTables resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::MLTransform.GlueTables resource property to the template.
-The database and table in the AWS Glue Data Catalog that is used for input or output data.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html
 
     .PARAMETER ConnectionName
-        The name of the connection to the AWS Glue Data Catalog.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-connectionname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER TableName
-        A table name in the AWS Glue Data Catalog.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-tablename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER DatabaseName
-        A database name in the AWS Glue Data Catalog.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-databasename
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER CatalogId
-        A unique identifier for the AWS Glue Data Catalog.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-catalogid
         PrimitiveType: String
         UpdateType: Mutable
@@ -41,11 +32,13 @@ The database and table in the AWS Glue Data Catalog that is used for input or ou
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.MLTransform.GlueTables')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +49,8 @@ The database and table in the AWS Glue Data Catalog that is used for input or ou
                 }
             })]
         $ConnectionName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,7 +61,8 @@ The database and table in the AWS Glue Data Catalog that is used for input or ou
                 }
             })]
         $TableName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,7 +73,8 @@ The database and table in the AWS Glue Data Catalog that is used for input or ou
                 }
             })]
         $DatabaseName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,11 +85,14 @@ The database and table in the AWS Glue Data Catalog that is used for input or ou
                 }
             })]
         $CatalogId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -103,6 +102,7 @@ The database and table in the AWS Glue Data Catalog that is used for input or ou
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.MLTransform.GlueTables'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

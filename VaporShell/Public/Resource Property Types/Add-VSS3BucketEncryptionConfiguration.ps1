@@ -1,30 +1,29 @@
 function Add-VSS3BucketEncryptionConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.EncryptionConfiguration resource property to the template. Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+        Adds an AWS::S3::Bucket.EncryptionConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.EncryptionConfiguration resource property to the template.
-Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html
 
     .PARAMETER ReplicaKmsKeyID
-        Specifies the ID Key ARN or Alias ARN of the customer managed AWS KMS key stored in AWS Key Management Service KMS for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric, customer managed KMS keys. For more information, see Using symmetric and asymmetric keys: https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html in the * AWS Key Management Service Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html#cfn-s3-bucket-encryptionconfiguration-replicakmskeyid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.EncryptionConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Specifies encryption-related information for an Amazon S3 bucket that is a desti
                 }
             })]
         $ReplicaKmsKeyID
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Specifies encryption-related information for an Amazon S3 bucket that is a desti
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.EncryptionConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

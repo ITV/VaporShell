@@ -1,18 +1,15 @@
 function Add-VSKinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::ApplicationOutput.KinesisFirehoseOutput resource property to the template. For a SQL-based Kinesis Data Analytics application, when configuring application output, identifies a Kinesis Data Firehose delivery stream as the destination. You provide the stream Amazon Resource Name (ARN of the delivery stream.
+        Adds an AWS::KinesisAnalyticsV2::ApplicationOutput.KinesisFirehoseOutput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::ApplicationOutput.KinesisFirehoseOutput resource property to the template.
-For a SQL-based Kinesis Data Analytics application, when configuring application output, identifies a Kinesis Data Firehose delivery stream as the destination. You provide the stream Amazon Resource Name (ARN of the delivery stream.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput.html
 
     .PARAMETER ResourceARN
-        The ARN of the destination delivery stream to write to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput.html#cfn-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput-resourcearn
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ For a SQL-based Kinesis Data Analytics application, when configuring application
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.ApplicationOutput.KinesisFirehoseOutput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ For a SQL-based Kinesis Data Analytics application, when configuring application
                 }
             })]
         $ResourceARN
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ For a SQL-based Kinesis Data Analytics application, when configuring application
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalyticsV2.ApplicationOutput.KinesisFirehoseOutput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

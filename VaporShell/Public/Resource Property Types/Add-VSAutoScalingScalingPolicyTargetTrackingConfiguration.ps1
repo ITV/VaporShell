@@ -1,41 +1,30 @@
 function Add-VSAutoScalingScalingPolicyTargetTrackingConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration resource property to the template. TargetTrackingConfiguration is a property of the AWS::AutoScaling::ScalingPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html resource that specifies a target tracking scaling policy configuration for Amazon EC2 Auto Scaling.
+        Adds an AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration resource property to the template.
-TargetTrackingConfiguration is a property of the AWS::AutoScaling::ScalingPolicy: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html resource that specifies a target tracking scaling policy configuration for Amazon EC2 Auto Scaling.
-
-For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html in the *Amazon EC2 Auto Scaling API Reference*. For more information about scaling policies, see Dynamic scaling: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html in the *Amazon EC2 Auto Scaling User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html
 
-    .PARAMETER CustomizedMetricSpecification
-        A customized metric. You must specify either a predefined metric or a customized metric.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-customizedmetricspecification
-        UpdateType: Mutable
-        Type: CustomizedMetricSpecification
-
     .PARAMETER TargetValue
-        The target value for the metric.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-targetvalue
         UpdateType: Mutable
         PrimitiveType: Double
 
-    .PARAMETER DisableScaleIn
-        Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is false.
+    .PARAMETER CustomizedMetricSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-customizedmetricspecification
+        UpdateType: Mutable
+        Type: CustomizedMetricSpecification
 
+    .PARAMETER DisableScaleIn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-disablescalein
         UpdateType: Mutable
         PrimitiveType: Boolean
 
     .PARAMETER PredefinedMetricSpecification
-        A predefined metric. You must specify either a predefined metric or a customized metric.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-predefinedmetricspecification
         UpdateType: Mutable
         Type: PredefinedMetricSpecification
@@ -43,13 +32,13 @@ For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscal
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AutoScaling.ScalingPolicy.TargetTrackingConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
-        $CustomizedMetricSpecification,
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +49,11 @@ For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscal
                 }
             })]
         $TargetValue,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $CustomizedMetricSpecification,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,13 +64,17 @@ For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscal
                 }
             })]
         $DisableScaleIn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PredefinedMetricSpecification
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +84,7 @@ For more information, see PutScalingPolicy: https://docs.aws.amazon.com/autoscal
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AutoScaling.ScalingPolicy.TargetTrackingConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,34 +1,25 @@
 function Add-VSGreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceData {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData resource property to the template. <a name="aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-description"></a>Settings for an Secrets Manager machine learning resource. For more information, see Perform Machine Learning Inference: https://docs.aws.amazon.com/greengrass/latest/developerguide/ml-inference.html in the *AWS IoT Greengrass Version 1 Developer Guide*.
+        Adds an AWS::Greengrass::ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData resource property to the template.
-<a name="aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-description"></a>Settings for an Secrets Manager machine learning resource. For more information, see Perform Machine Learning Inference: https://docs.aws.amazon.com/greengrass/latest/developerguide/ml-inference.html in the *AWS IoT Greengrass Version 1 Developer Guide*.
-
-<a name="aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-inheritance"></a> In an AWS CloudFormation template, SageMakerMachineLearningModelResourceData can be used in the https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html
 
     .PARAMETER OwnerSetting
-        The owner setting for the downloaded machine learning resource. For more information, see Access Machine Learning Resources from Lambda Functions: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html in the *AWS IoT Greengrass Version 1 Developer Guide*.
-
         Type: ResourceDownloadOwnerSetting
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-ownersetting
         UpdateType: Immutable
 
     .PARAMETER DestinationPath
-        The absolute local path of the resource inside the Lambda environment.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-destinationpath
         PrimitiveType: String
         UpdateType: Immutable
 
     .PARAMETER SageMakerJobArn
-        The Amazon Resource Name ARN of the Amazon SageMaker training job that represents the source model.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-sagemakerjobarn
         PrimitiveType: String
         UpdateType: Immutable
@@ -36,13 +27,16 @@ function Add-VSGreengrassResourceDefinitionVersionSageMakerMachineLearningModelR
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $OwnerSetting,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,7 +47,8 @@ function Add-VSGreengrassResourceDefinitionVersionSageMakerMachineLearningModelR
                 }
             })]
         $DestinationPath,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,11 +59,14 @@ function Add-VSGreengrassResourceDefinitionVersionSageMakerMachineLearningModelR
                 }
             })]
         $SageMakerJobArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -78,6 +76,7 @@ function Add-VSGreengrassResourceDefinitionVersionSageMakerMachineLearningModelR
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

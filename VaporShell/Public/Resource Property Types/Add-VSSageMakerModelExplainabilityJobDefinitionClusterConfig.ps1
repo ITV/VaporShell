@@ -1,51 +1,44 @@
 function Add-VSSageMakerModelExplainabilityJobDefinitionClusterConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ClusterConfig resource property to the template. The configuration for the cluster resources used to run the processing job.
+        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ClusterConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ClusterConfig resource property to the template.
-The configuration for the cluster resources used to run the processing job.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html
 
     .PARAMETER InstanceCount
-        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancecount
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER InstanceType
-        The ML compute instance type for the processing job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancetype
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER VolumeKmsKeyId
-        The AWS Key Management Service AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the model monitoring job.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumekmskeyid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER VolumeSizeInGB
-        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumesizeingb
         UpdateType: Immutable
         PrimitiveType: Integer
 
+    .PARAMETER VolumeKmsKeyId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumekmskeyid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER InstanceType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancetype
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.ClusterConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,9 +49,10 @@ The configuration for the cluster resources used to run the processing job.
                 }
             })]
         $InstanceCount,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -66,8 +60,9 @@ The configuration for the cluster resources used to run the processing job.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $InstanceType,
-        [parameter(Mandatory = $false)]
+        $VolumeSizeInGB,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,9 +73,10 @@ The configuration for the cluster resources used to run the processing job.
                 }
             })]
         $VolumeKmsKeyId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -88,12 +84,15 @@ The configuration for the cluster resources used to run the processing job.
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VolumeSizeInGB
+        $InstanceType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -103,6 +102,7 @@ The configuration for the cluster resources used to run the processing job.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.ClusterConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

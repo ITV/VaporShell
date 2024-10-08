@@ -1,18 +1,22 @@
 function Add-VSCloudWatchMetricStreamMetricStreamFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudWatch::MetricStream.MetricStreamFilter resource property to the template. This structure contains the name of one of the metric namespaces that is listed in a filter of a metric stream.
+        Adds an AWS::CloudWatch::MetricStream.MetricStreamFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudWatch::MetricStream.MetricStreamFilter resource property to the template.
-This structure contains the name of one of the metric namespaces that is listed in a filter of a metric stream.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
 
-    .PARAMETER Namespace
-        The name of the metric namespace in the filter.
+    .PARAMETER MetricNames
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-metricnames
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER Namespace
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +24,16 @@ This structure contains the name of one of the metric namespaces that is listed 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudWatch.MetricStream.MetricStreamFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $MetricNames,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +44,14 @@ This structure contains the name of one of the metric namespaces that is listed 
                 }
             })]
         $Namespace
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +61,7 @@ This structure contains the name of one of the metric namespaces that is listed 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudWatch.MetricStream.MetricStreamFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

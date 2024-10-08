@@ -1,34 +1,31 @@
 function Add-VSS3BucketOwnershipControls {
     <#
     .SYNOPSIS
-        Adds an AWS::S3::Bucket.OwnershipControls resource property to the template. Specifies the container element for Object Ownership rules.
+        Adds an AWS::S3::Bucket.OwnershipControls resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::S3::Bucket.OwnershipControls resource property to the template.
-Specifies the container element for Object Ownership rules.
-
-S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see Controlling ownership of objects and disabling ACLs: https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html in the *Amazon S3 User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html
 
     .PARAMETER Rules
-        Specifies the container element for Object Ownership rules.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
-        DuplicatesAllowed: False
-        ItemType: OwnershipControlsRule
-        Type: List
         UpdateType: Mutable
+        Type: List
+        ItemType: OwnershipControlsRule
+        DuplicatesAllowed: False
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.S3.Bucket.OwnershipControls')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.S3.Bucket.OwnershipControlsRule"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -39,11 +36,14 @@ S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to dis
                 }
             })]
         $Rules
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -53,6 +53,7 @@ S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to dis
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.S3.Bucket.OwnershipControls'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

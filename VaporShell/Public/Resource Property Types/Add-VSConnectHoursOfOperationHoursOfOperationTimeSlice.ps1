@@ -1,25 +1,20 @@
 function Add-VSConnectHoursOfOperationHoursOfOperationTimeSlice {
     <#
     .SYNOPSIS
-        Adds an AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice resource property to the template. The start time or end time for an hours of operation.
+        Adds an AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice resource property to the template.
-The start time or end time for an hours of operation.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html
 
     .PARAMETER Hours
-        The hours.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html#cfn-connect-hoursofoperation-hoursofoperationtimeslice-hours
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Minutes
-        The minutes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html#cfn-connect-hoursofoperation-hoursofoperationtimeslice-minutes
         UpdateType: Mutable
         PrimitiveType: Integer
@@ -27,11 +22,13 @@ The start time or end time for an hours of operation.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Connect.HoursOfOperation.HoursOfOperationTimeSlice')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The start time or end time for an hours of operation.
                 }
             })]
         $Hours,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The start time or end time for an hours of operation.
                 }
             })]
         $Minutes
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The start time or end time for an hours of operation.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Connect.HoursOfOperation.HoursOfOperationTimeSlice'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSCloudFrontDistributionLegacyCustomOrigin {
     <#
     .SYNOPSIS
-        Adds an AWS::CloudFront::Distribution.LegacyCustomOrigin resource property to the template. <a name="aws-properties-cloudfront-distribution-legacycustomorigin-description"></a>The LegacyCustomOrigin property type specifies Not currently supported by AWS CloudFormation. for an AWS::CloudFront::Distribution: aws-resource-cloudfront-distribution.md.
+        Adds an AWS::CloudFront::Distribution.LegacyCustomOrigin resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CloudFront::Distribution.LegacyCustomOrigin resource property to the template.
-<a name="aws-properties-cloudfront-distribution-legacycustomorigin-description"></a>The LegacyCustomOrigin property type specifies Not currently supported by AWS CloudFormation. for an AWS::CloudFront::Distribution: aws-resource-cloudfront-distribution.md.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html
 
     .PARAMETER HTTPSPort
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpsport
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER OriginSSLProtocols
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originsslprotocols
         UpdateType: Mutable
         Type: List
@@ -27,22 +22,16 @@ function Add-VSCloudFrontDistributionLegacyCustomOrigin {
         DuplicatesAllowed: True
 
     .PARAMETER DNSName
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-dnsname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER HTTPPort
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpport
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER OriginProtocolPolicy
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originprotocolpolicy
         UpdateType: Mutable
         PrimitiveType: String
@@ -50,11 +39,13 @@ function Add-VSCloudFrontDistributionLegacyCustomOrigin {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.LegacyCustomOrigin')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -65,9 +56,11 @@ function Add-VSCloudFrontDistributionLegacyCustomOrigin {
                 }
             })]
         $HTTPSPort,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $OriginSSLProtocols,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,7 +71,8 @@ function Add-VSCloudFrontDistributionLegacyCustomOrigin {
                 }
             })]
         $DNSName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -89,7 +83,8 @@ function Add-VSCloudFrontDistributionLegacyCustomOrigin {
                 }
             })]
         $HTTPPort,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -100,11 +95,14 @@ function Add-VSCloudFrontDistributionLegacyCustomOrigin {
                 }
             })]
         $OriginProtocolPolicy
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -114,6 +112,7 @@ function Add-VSCloudFrontDistributionLegacyCustomOrigin {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CloudFront.Distribution.LegacyCustomOrigin'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

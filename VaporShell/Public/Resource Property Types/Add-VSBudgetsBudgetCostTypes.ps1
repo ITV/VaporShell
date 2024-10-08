@@ -1,101 +1,65 @@
 function Add-VSBudgetsBudgetCostTypes {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::Budget.CostTypes resource property to the template. The types of cost that are included in a COST budget, such as tax and subscriptions.
+        Adds an AWS::Budgets::Budget.CostTypes resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Budgets::Budget.CostTypes resource property to the template.
-The types of cost that are included in a COST budget, such as tax and subscriptions.
-
-USAGE, RI_UTILIZATION, RI_COVERAGE, SAVINGS_PLANS_UTILIZATION, and SAVINGS_PLANS_COVERAGE budgets don't have CostTypes.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html
 
     .PARAMETER IncludeSupport
-        Specifies whether a budget includes support subscription fees.
-The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesupport
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IncludeOtherSubscription
-        Specifies whether a budget includes non-RI subscription costs.
-The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeothersubscription
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IncludeTax
-        Specifies whether a budget includes taxes.
-The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includetax
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IncludeSubscription
-        Specifies whether a budget includes subscriptions.
-The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesubscription
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER UseBlended
-        Specifies whether a budget uses a blended rate.
-The default value is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useblended
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IncludeUpfront
-        Specifies whether a budget includes upfront RI costs.
-The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeupfront
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IncludeDiscount
-        Specifies whether a budget includes discounts.
-The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includediscount
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IncludeCredit
-        Specifies whether a budget includes credits.
-The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includecredit
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IncludeRecurring
-        Specifies whether a budget includes recurring fees such as monthly RI fees.
-The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerecurring
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER UseAmortized
-        Specifies whether a budget uses the amortized rate.
-The default value is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useamortized
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER IncludeRefund
-        Specifies whether a budget includes refunds.
-The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerefund
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -103,11 +67,13 @@ The default value is true.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Budgets.Budget.CostTypes')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -118,7 +84,8 @@ The default value is true.
                 }
             })]
         $IncludeSupport,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,7 +96,8 @@ The default value is true.
                 }
             })]
         $IncludeOtherSubscription,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -140,7 +108,8 @@ The default value is true.
                 }
             })]
         $IncludeTax,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -151,7 +120,8 @@ The default value is true.
                 }
             })]
         $IncludeSubscription,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -162,7 +132,8 @@ The default value is true.
                 }
             })]
         $UseBlended,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -173,7 +144,8 @@ The default value is true.
                 }
             })]
         $IncludeUpfront,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -184,7 +156,8 @@ The default value is true.
                 }
             })]
         $IncludeDiscount,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -195,7 +168,8 @@ The default value is true.
                 }
             })]
         $IncludeCredit,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -206,7 +180,8 @@ The default value is true.
                 }
             })]
         $IncludeRecurring,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -217,7 +192,8 @@ The default value is true.
                 }
             })]
         $UseAmortized,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -228,11 +204,14 @@ The default value is true.
                 }
             })]
         $IncludeRefund
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -242,6 +221,7 @@ The default value is true.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Budgets.Budget.CostTypes'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

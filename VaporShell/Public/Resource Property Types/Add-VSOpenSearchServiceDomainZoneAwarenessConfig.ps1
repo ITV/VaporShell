@@ -1,19 +1,15 @@
 function Add-VSOpenSearchServiceDomainZoneAwarenessConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::OpenSearchService::Domain.ZoneAwarenessConfig resource property to the template. Specifies zone awareness configuration options. Only use if ZoneAwarenessEnabled is true.
+        Adds an AWS::OpenSearchService::Domain.ZoneAwarenessConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::OpenSearchService::Domain.ZoneAwarenessConfig resource property to the template.
-Specifies zone awareness configuration options. Only use if ZoneAwarenessEnabled is true.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-zoneawarenessconfig.html
 
     .PARAMETER AvailabilityZoneCount
-        If you enabled multiple Availability Zones AZs, the number of AZs that you want the domain to use.
-Valid values are 2 and 3. Default is 2.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-zoneawarenessconfig.html#cfn-opensearchservice-domain-zoneawarenessconfig-availabilityzonecount
         UpdateType: Mutable
         PrimitiveType: Integer
@@ -21,11 +17,13 @@ Valid values are 2 and 3. Default is 2.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.ZoneAwarenessConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -36,11 +34,14 @@ Valid values are 2 and 3. Default is 2.
                 }
             })]
         $AvailabilityZoneCount
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -50,6 +51,7 @@ Valid values are 2 and 3. Default is 2.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.OpenSearchService.Domain.ZoneAwarenessConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

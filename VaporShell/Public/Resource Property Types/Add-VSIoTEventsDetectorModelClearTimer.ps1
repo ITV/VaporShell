@@ -1,18 +1,15 @@
 function Add-VSIoTEventsDetectorModelClearTimer {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTEvents::DetectorModel.ClearTimer resource property to the template. Information needed to clear the timer.
+        Adds an AWS::IoTEvents::DetectorModel.ClearTimer resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTEvents::DetectorModel.ClearTimer resource property to the template.
-Information needed to clear the timer.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html
 
     .PARAMETER TimerName
-        The name of the timer to clear.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Information needed to clear the timer.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.ClearTimer')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Information needed to clear the timer.
                 }
             })]
         $TimerName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Information needed to clear the timer.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTEvents.DetectorModel.ClearTimer'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

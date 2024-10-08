@@ -1,11 +1,10 @@
 function Add-VSEKSClusterOutpostConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EKS::Cluster.OutpostConfig resource property to the template. 
+        Adds an AWS::EKS::Cluster.OutpostConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EKS::Cluster.OutpostConfig resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html
@@ -15,6 +14,12 @@ function Add-VSEKSClusterOutpostConfig {
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER ControlPlanePlacement
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-controlplaneplacement
+        UpdateType: Immutable
+        Type: ControlPlanePlacement
 
     .PARAMETER ControlPlaneInstanceType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-controlplaneinstancetype
@@ -24,13 +29,19 @@ function Add-VSEKSClusterOutpostConfig {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EKS.Cluster.OutpostConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $OutpostArns,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
+        $ControlPlanePlacement,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -41,11 +52,14 @@ function Add-VSEKSClusterOutpostConfig {
                 }
             })]
         $ControlPlaneInstanceType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -55,6 +69,7 @@ function Add-VSEKSClusterOutpostConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EKS.Cluster.OutpostConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

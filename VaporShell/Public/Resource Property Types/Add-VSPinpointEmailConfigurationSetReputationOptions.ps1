@@ -1,18 +1,15 @@
 function Add-VSPinpointEmailConfigurationSetReputationOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::PinpointEmail::ConfigurationSet.ReputationOptions resource property to the template. Enable or disable collection of reputation metrics for emails that you send using this configuration set in the current AWS Region.
+        Adds an AWS::PinpointEmail::ConfigurationSet.ReputationOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::PinpointEmail::ConfigurationSet.ReputationOptions resource property to the template.
-Enable or disable collection of reputation metrics for emails that you send using this configuration set in the current AWS Region.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-reputationoptions.html
 
     .PARAMETER ReputationMetricsEnabled
-        If true, tracking of reputation metrics is enabled for the configuration set. If false, tracking of reputation metrics is disabled for the configuration set.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-reputationoptions.html#cfn-pinpointemail-configurationset-reputationoptions-reputationmetricsenabled
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Enable or disable collection of reputation metrics for emails that you send usin
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.PinpointEmail.ConfigurationSet.ReputationOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Enable or disable collection of reputation metrics for emails that you send usin
                 }
             })]
         $ReputationMetricsEnabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Enable or disable collection of reputation metrics for emails that you send usin
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.PinpointEmail.ConfigurationSet.ReputationOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

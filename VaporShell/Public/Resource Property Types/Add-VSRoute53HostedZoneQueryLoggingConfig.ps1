@@ -1,18 +1,15 @@
 function Add-VSRoute53HostedZoneQueryLoggingConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53::HostedZone.QueryLoggingConfig resource property to the template. A complex type that contains information about a configuration for DNS query logging.
+        Adds an AWS::Route53::HostedZone.QueryLoggingConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Route53::HostedZone.QueryLoggingConfig resource property to the template.
-A complex type that contains information about a configuration for DNS query logging.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html
 
     .PARAMETER CloudWatchLogsLogGroupArn
-        The Amazon Resource Name ARN of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ A complex type that contains information about a configuration for DNS query log
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Route53.HostedZone.QueryLoggingConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ A complex type that contains information about a configuration for DNS query log
                 }
             })]
         $CloudWatchLogsLogGroupArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ A complex type that contains information about a configuration for DNS query log
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Route53.HostedZone.QueryLoggingConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

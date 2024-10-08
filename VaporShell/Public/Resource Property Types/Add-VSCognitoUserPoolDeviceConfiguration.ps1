@@ -1,42 +1,34 @@
 function Add-VSCognitoUserPoolDeviceConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Cognito::UserPool.DeviceConfiguration resource property to the template. The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.
+        Adds an AWS::Cognito::UserPool.DeviceConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Cognito::UserPool.DeviceConfiguration resource property to the template.
-The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.
-
-**Note**
-
-When you provide values for any DeviceConfiguration field, you activate device tracking.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html
 
     .PARAMETER DeviceOnlyRememberedOnUserPrompt
-        When true, users can opt in to remembering their device. Your app code must use callback functions to return the user's choice.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html#cfn-cognito-userpool-deviceconfiguration-deviceonlyrememberedonuserprompt
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER ChallengeRequiredOnNewDevice
-        When true, device authentication can replace SMS and time-based one-time password TOTP factors for multi-factor authentication MFA.
-Users that sign in with devices that have not been confirmed or remembered will still have to provide a second factor, whether or not ChallengeRequiredOnNewDevice is true, when your user pool requires MFA.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html#cfn-cognito-userpool-deviceconfiguration-challengerequiredonnewdevice
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Cognito.UserPool.DeviceConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,7 +39,8 @@ Users that sign in with devices that have not been confirmed or remembered will 
                 }
             })]
         $DeviceOnlyRememberedOnUserPrompt,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -58,11 +51,14 @@ Users that sign in with devices that have not been confirmed or remembered will 
                 }
             })]
         $ChallengeRequiredOnNewDevice
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -72,6 +68,7 @@ Users that sign in with devices that have not been confirmed or remembered will 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Cognito.UserPool.DeviceConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

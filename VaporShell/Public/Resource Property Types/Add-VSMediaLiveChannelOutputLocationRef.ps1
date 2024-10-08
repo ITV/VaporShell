@@ -1,20 +1,15 @@
 function Add-VSMediaLiveChannelOutputLocationRef {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.OutputLocationRef resource property to the template. A reference to an OutputDestination ID that is defined in the channel.
+        Adds an AWS::MediaLive::Channel.OutputLocationRef resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.OutputLocationRef resource property to the template.
-A reference to an OutputDestination ID that is defined in the channel.
-
-This entity is used by ArchiveGroupSettings, FrameCaptureGroupSettings, HlsGroupSettings, MediaPackageGroupSettings, MSSmoothGroupSettings, RtmpOutputSettings, and UdpOutputSettings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html
 
     .PARAMETER DestinationRefId
-        A reference ID for this destination.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html#cfn-medialive-channel-outputlocationref-destinationrefid
         PrimitiveType: String
         UpdateType: Mutable
@@ -22,11 +17,13 @@ This entity is used by ArchiveGroupSettings, FrameCaptureGroupSettings, HlsGroup
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.OutputLocationRef')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +34,14 @@ This entity is used by ArchiveGroupSettings, FrameCaptureGroupSettings, HlsGroup
                 }
             })]
         $DestinationRefId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +51,7 @@ This entity is used by ArchiveGroupSettings, FrameCaptureGroupSettings, HlsGroup
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.OutputLocationRef'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

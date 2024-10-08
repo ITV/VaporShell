@@ -1,18 +1,15 @@
 function Add-VSSageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook resource property to the template. Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
+        Adds an AWS::SageMaker::NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook resource property to the template.
-Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html
 
     .PARAMETER Content
-        A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook-content
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Specifies the notebook instance lifecycle configuration script. Each lifecycle c
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Specifies the notebook instance lifecycle configuration script. Each lifecycle c
                 }
             })]
         $Content
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Specifies the notebook instance lifecycle configuration script. Each lifecycle c
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

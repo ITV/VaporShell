@@ -1,18 +1,15 @@
 function Add-VSIoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.IotSiteWiseMultiLayerStorage resource property to the template. Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+        Adds an AWS::IoTAnalytics::Datastore.IotSiteWiseMultiLayerStorage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.IotSiteWiseMultiLayerStorage resource property to the template.
-Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html
 
     .PARAMETER CustomerManagedS3Storage
-        Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html#cfn-iotanalytics-datastore-iotsitewisemultilayerstorage-customermanageds3storage
         UpdateType: Mutable
         Type: CustomerManagedS3Storage
@@ -20,17 +17,22 @@ Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.IotSiteWiseMultiLayerStorage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $CustomerManagedS3Storage
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +42,7 @@ Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Datastore.IotSiteWiseMultiLayerStorage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

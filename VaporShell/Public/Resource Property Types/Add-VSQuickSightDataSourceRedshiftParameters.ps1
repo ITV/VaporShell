@@ -1,51 +1,57 @@
 function Add-VSQuickSightDataSourceRedshiftParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.RedshiftParameters resource property to the template. The parameters for Amazon Redshift. The ClusterId field can be blank if Host and Port are both set. The Host and Port fields can be blank if the ClusterId field is set.
+        Adds an AWS::QuickSight::DataSource.RedshiftParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.RedshiftParameters resource property to the template.
-The parameters for Amazon Redshift. The ClusterId field can be blank if Host and Port are both set. The Host and Port fields can be blank if the ClusterId field is set.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html
 
-    .PARAMETER ClusterId
-        Cluster ID. This field can be blank if the Host and Port are provided.
+    .PARAMETER IAMParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-iamparameters
+        UpdateType: Mutable
+        Type: RedshiftIAMParameters
 
+    .PARAMETER ClusterId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Port
-        Port. This field can be blank if the ClusterId is provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
         UpdateType: Mutable
         PrimitiveType: Double
 
     .PARAMETER Database
-        Database.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-database
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Host
-        Host. This field can be blank if ClusterId is provided.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER IdentityCenterConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-identitycenterconfiguration
+        UpdateType: Mutable
+        Type: IdentityCenterConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.RedshiftParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
+        $IAMParameters,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,7 +62,8 @@ The parameters for Amazon Redshift. The ClusterId field can be blank if Host and
                 }
             })]
         $ClusterId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -67,7 +74,8 @@ The parameters for Amazon Redshift. The ClusterId field can be blank if Host and
                 }
             })]
         $Port,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,7 +86,8 @@ The parameters for Amazon Redshift. The ClusterId field can be blank if Host and
                 }
             })]
         $Database,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,12 +97,18 @@ The parameters for Amazon Redshift. The ClusterId field can be blank if Host and
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Host
+        $Host,
+
+        [Parameter(Mandatory = $false)]
+        $IdentityCenterConfiguration
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -103,6 +118,7 @@ The parameters for Amazon Redshift. The ClusterId field can be blank if Host and
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSource.RedshiftParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

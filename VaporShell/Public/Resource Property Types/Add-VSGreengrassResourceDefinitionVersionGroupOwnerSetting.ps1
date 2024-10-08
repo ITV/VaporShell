@@ -1,27 +1,20 @@
 function Add-VSGreengrassResourceDefinitionVersionGroupOwnerSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Greengrass::ResourceDefinitionVersion.GroupOwnerSetting resource property to the template. <a name="aws-properties-greengrass-resourcedefinitionversion-groupownersetting-description"></a>Settings that define additional Linux OS group permissions to give to the Lambda function process. You can give the permissions of the Linux group that owns the resource or choose another Linux group. These permissions are in addition to the function's RunAs permissions.
+        Adds an AWS::Greengrass::ResourceDefinitionVersion.GroupOwnerSetting resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Greengrass::ResourceDefinitionVersion.GroupOwnerSetting resource property to the template.
-<a name="aws-properties-greengrass-resourcedefinitionversion-groupownersetting-description"></a>Settings that define additional Linux OS group permissions to give to the Lambda function process. You can give the permissions of the Linux group that owns the resource or choose another Linux group. These permissions are in addition to the function's RunAs permissions.
-
-<a name="aws-properties-greengrass-resourcedefinitionversion-groupownersetting-inheritance"></a> In an AWS CloudFormation template, GroupOwnerSetting is a property of the https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html and https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html property types.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html
 
     .PARAMETER AutoAddGroupOwner
-        Indicates whether to give the privileges of the Linux group that owns the resource to the Lambda process. This gives the Lambda process the file access permissions of the Linux group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html#cfn-greengrass-resourcedefinitionversion-groupownersetting-autoaddgroupowner
         PrimitiveType: Boolean
         UpdateType: Immutable
 
     .PARAMETER GroupOwner
-        The name of the Linux group whose privileges you want to add to the Lambda process. This value is ignored if AutoAddGroupOwner is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html#cfn-greengrass-resourcedefinitionversion-groupownersetting-groupowner
         PrimitiveType: String
         UpdateType: Immutable
@@ -29,11 +22,13 @@ function Add-VSGreengrassResourceDefinitionVersionGroupOwnerSetting {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.GroupOwnerSetting')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,7 +39,8 @@ function Add-VSGreengrassResourceDefinitionVersionGroupOwnerSetting {
                 }
             })]
         $AutoAddGroupOwner,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +51,14 @@ function Add-VSGreengrassResourceDefinitionVersionGroupOwnerSetting {
                 }
             })]
         $GroupOwner
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +68,7 @@ function Add-VSGreengrassResourceDefinitionVersionGroupOwnerSetting {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.GroupOwnerSetting'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

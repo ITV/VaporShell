@@ -1,25 +1,20 @@
 function Add-VSEC2SpotFleetLoadBalancersConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::SpotFleet.LoadBalancersConfig resource property to the template. Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
+        Adds an AWS::EC2::SpotFleet.LoadBalancersConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::SpotFleet.LoadBalancersConfig resource property to the template.
-Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html
 
     .PARAMETER ClassicLoadBalancersConfig
-        The Classic Load Balancers.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-classicloadbalancersconfig
         UpdateType: Immutable
         Type: ClassicLoadBalancersConfig
 
     .PARAMETER TargetGroupsConfig
-        The target groups.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-targetgroupsconfig
         UpdateType: Immutable
         Type: TargetGroupsConfig
@@ -27,19 +22,25 @@ Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.LoadBalancersConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ClassicLoadBalancersConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $TargetGroupsConfig
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +50,7 @@ Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.SpotFleet.LoadBalancersConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

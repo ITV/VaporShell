@@ -1,46 +1,35 @@
 function Add-VSAppMeshRouteHeaderMatchMethod {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::Route.HeaderMatchMethod resource property to the template. An object that represents the method and value to match with the header value sent in a request. Specify one match method.
+        Adds an AWS::AppMesh::Route.HeaderMatchMethod resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::Route.HeaderMatchMethod resource property to the template.
-An object that represents the method and value to match with the header value sent in a request. Specify one match method.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-headermatchmethod.html
 
     .PARAMETER Suffix
-        The value sent by the client must end with the specified characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-headermatchmethod.html#cfn-appmesh-route-headermatchmethod-suffix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Regex
-        The value sent by the client must include the specified characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-headermatchmethod.html#cfn-appmesh-route-headermatchmethod-regex
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Exact
-        The value sent by the client must match the specified value exactly.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-headermatchmethod.html#cfn-appmesh-route-headermatchmethod-exact
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Prefix
-        The value sent by the client must begin with the specified characters.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-headermatchmethod.html#cfn-appmesh-route-headermatchmethod-prefix
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Range
-        An object that represents the range of values to match on.
-
         Type: MatchRange
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-headermatchmethod.html#cfn-appmesh-route-headermatchmethod-range
         UpdateType: Mutable
@@ -48,11 +37,13 @@ An object that represents the method and value to match with the header value se
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.Route.HeaderMatchMethod')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,7 +54,8 @@ An object that represents the method and value to match with the header value se
                 }
             })]
         $Suffix,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -74,7 +66,8 @@ An object that represents the method and value to match with the header value se
                 }
             })]
         $Regex,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -85,7 +78,8 @@ An object that represents the method and value to match with the header value se
                 }
             })]
         $Exact,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -96,13 +90,17 @@ An object that represents the method and value to match with the header value se
                 }
             })]
         $Prefix,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Range
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -112,6 +110,7 @@ An object that represents the method and value to match with the header value se
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.Route.HeaderMatchMethod'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

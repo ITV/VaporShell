@@ -1,25 +1,27 @@
 function Add-VSAppFlowFlowPrefixConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.PrefixConfig resource property to the template. Determines the prefix that Amazon AppFlow applies to the destination folder name. You can name your destination folders according to the flow frequency and date.
+        Adds an AWS::AppFlow::Flow.PrefixConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.PrefixConfig resource property to the template.
-Determines the prefix that Amazon AppFlow applies to the destination folder name. You can name your destination folders according to the flow frequency and date.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html
 
     .PARAMETER PrefixType
-        Determines the format of the prefix, and whether it applies to the file name, file path, or both.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER PrefixFormat
-        Determines the level of granularity that's included in the prefix.
+    .PARAMETER PathPrefixHierarchy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-pathprefixhierarchy
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
+    .PARAMETER PrefixFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +29,13 @@ Determines the prefix that Amazon AppFlow applies to the destination folder name
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.Flow.PrefixConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +46,11 @@ Determines the prefix that Amazon AppFlow applies to the destination folder name
                 }
             })]
         $PrefixType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $PathPrefixHierarchy,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +61,14 @@ Determines the prefix that Amazon AppFlow applies to the destination folder name
                 }
             })]
         $PrefixFormat
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +78,7 @@ Determines the prefix that Amazon AppFlow applies to the destination folder name
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.Flow.PrefixConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

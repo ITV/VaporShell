@@ -1,10 +1,10 @@
 function New-VSIoTAccountAuditConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::AccountAuditConfiguration resource to the template. Use the AWS::IoT::AccountAuditConfiguration resource to configure or reconfigure the Device Defender audit settings for your account. Settings include how audit notifications are sent and which audit checks are enabled or disabled. For API reference, see UpdateAccountAuditConfiguration: https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateAccountAuditConfiguration.html and for detailed information on all available audit checks, see Audit checks: https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit-checks.html.
+        Adds an AWS::IoT::AccountAuditConfiguration resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::IoT::AccountAuditConfiguration resource to the template. Use the AWS::IoT::AccountAuditConfiguration resource to configure or reconfigure the Device Defender audit settings for your account. Settings include how audit notifications are sent and which audit checks are enabled or disabled. For API reference, see UpdateAccountAuditConfiguration: https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateAccountAuditConfiguration.html and for detailed information on all available audit checks, see Audit checks: https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit-checks.html.
+        Adds an AWS::IoT::AccountAuditConfiguration resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html
@@ -13,33 +13,21 @@ function New-VSIoTAccountAuditConfiguration {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER AccountId
-        The ID of the account. You can use the expression !Sub "${AWS::AccountId}" to use your account ID.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
         UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER AuditCheckConfigurations
-        Specifies which audit checks are enabled and disabled for this account.
-Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the Enabled: key to false.
-If an enabled check is removed from the template, it will also be disabled.
-You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
-For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
         UpdateType: Mutable
         Type: AuditCheckConfigurations
 
     .PARAMETER AuditNotificationTargetConfigurations
-        Information about the targets to which audit notifications are sent.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
         UpdateType: Mutable
         Type: AuditNotificationTargetConfigurations
 
     .PARAMETER RoleArn
-        The Amazon Resource Name ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
         UpdateType: Mutable
         PrimitiveType: String
@@ -74,28 +62,29 @@ For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfigura
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.AccountAuditConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -106,7 +95,8 @@ For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfigura
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -117,11 +107,14 @@ For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfigura
                 }
             })]
         $AccountId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $AuditCheckConfigurations,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $AuditNotificationTargetConfigurations,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -132,7 +125,8 @@ For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfigura
                 }
             })]
         $RoleArn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -143,27 +137,28 @@ For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfigura
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -174,9 +169,15 @@ For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfigura
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -184,6 +185,7 @@ For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfigura
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -215,6 +217,7 @@ For more information on avialbe auidt checks see AWS::IoT::AccountAuditConfigura
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.AccountAuditConfiguration'

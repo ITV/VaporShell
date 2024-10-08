@@ -1,18 +1,15 @@
 function Add-VSIoTAnalyticsDatastorePartition {
     <#
     .SYNOPSIS
-        Adds an AWS::IoTAnalytics::Datastore.Partition resource property to the template. A single dimension to partition a data store. The dimension must be an AttributePartition or a TimestampPartition.
+        Adds an AWS::IoTAnalytics::Datastore.Partition resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoTAnalytics::Datastore.Partition resource property to the template.
-A single dimension to partition a data store. The dimension must be an AttributePartition or a TimestampPartition.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-partition.html
 
     .PARAMETER AttributeName
-        The name of the attribute that defines a partition dimension.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-partition.html#cfn-iotanalytics-datastore-partition-attributename
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ A single dimension to partition a data store. The dimension must be an Attribute
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.Partition')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ A single dimension to partition a data store. The dimension must be an Attribute
                 }
             })]
         $AttributeName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ A single dimension to partition a data store. The dimension must be an Attribute
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoTAnalytics.Datastore.Partition'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSSageMakerMonitoringScheduleStatisticsResource {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.StatisticsResource resource property to the template. The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
+        Adds an AWS::SageMaker::MonitoringSchedule.StatisticsResource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.StatisticsResource resource property to the template.
-The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
 
     .PARAMETER S3Uri
-        The S3 URI for the statistics resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The baseline statistics file in Amazon S3 that the current monitoring job should
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.StatisticsResource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The baseline statistics file in Amazon S3 that the current monitoring job should
                 }
             })]
         $S3Uri
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The baseline statistics file in Amazon S3 that the current monitoring job should
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.MonitoringSchedule.StatisticsResource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

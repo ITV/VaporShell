@@ -1,20 +1,15 @@
 function Add-VSAlexaASKSkillOverrides {
     <#
     .SYNOPSIS
-        Adds an Alexa::ASK::Skill.Overrides resource property to the template. The Overrides property type provides overrides to the skill package to apply when creating or updating the skill. Values provided here do not modify the contents of the original skill package. Currently, only overriding values inside of the skill manifest component of the package is supported.
+        Adds an Alexa::ASK::Skill.Overrides resource property to the template.
 
     .DESCRIPTION
         Adds an Alexa::ASK::Skill.Overrides resource property to the template.
-The Overrides property type provides overrides to the skill package to apply when creating or updating the skill. Values provided here do not modify the contents of the original skill package. Currently, only overriding values inside of the skill manifest component of the package is supported.
-
-Overrides is a property of the Alexa::ASK::Skill SkillPackage property type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-overrides.html
 
     .PARAMETER Manifest
-        Overrides to apply to the skill manifest inside of the skill package. The skill manifest contains metadata about the skill. For more information, see Skill Manifest Schemas: https://developer.amazon.com/docs/smapi/skill-manifest.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-overrides.html#cfn-ask-skill-overrides-manifest
         PrimitiveType: Json
         UpdateType: Mutable
@@ -22,11 +17,13 @@ Overrides is a property of the Alexa::ASK::Skill SkillPackage property type.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Alexa.ASK.Skill.Overrides')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +34,14 @@ Overrides is a property of the Alexa::ASK::Skill SkillPackage property type.
                 }
             })]
         $Manifest
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -65,6 +65,7 @@ Overrides is a property of the Alexa::ASK::Skill SkillPackage property type.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Alexa.ASK.Skill.Overrides'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

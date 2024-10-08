@@ -1,50 +1,49 @@
 function Add-VSKendraDataSourceSalesforceKnowledgeArticleConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Kendra::DataSource.SalesforceKnowledgeArticleConfiguration resource property to the template. Provides the configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
+        Adds an AWS::Kendra::DataSource.SalesforceKnowledgeArticleConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Kendra::DataSource.SalesforceKnowledgeArticleConfiguration resource property to the template.
-Provides the configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html
 
     .PARAMETER IncludedStates
-        Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER StandardKnowledgeArticleTypeConfiguration
-        Configuration information for standard Salesforce knowledge articles.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
         UpdateType: Mutable
         Type: SalesforceStandardKnowledgeArticleTypeConfiguration
 
     .PARAMETER CustomKnowledgeArticleTypeConfigurations
-        Configuration information for custom Salesforce knowledge articles.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
         UpdateType: Mutable
         Type: List
         ItemType: SalesforceCustomKnowledgeArticleTypeConfiguration
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Kendra.DataSource.SalesforceKnowledgeArticleConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $IncludedStates,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $StandardKnowledgeArticleTypeConfiguration,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Kendra.DataSource.SalesforceCustomKnowledgeArticleTypeConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -55,11 +54,14 @@ Provides the configuration information for the knowledge article types that Amaz
                 }
             })]
         $CustomKnowledgeArticleTypeConfigurations
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -69,6 +71,7 @@ Provides the configuration information for the knowledge article types that Amaz
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Kendra.DataSource.SalesforceKnowledgeArticleConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,25 +1,20 @@
 function Add-VSLexBotAliasTextLogSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::BotAlias.TextLogSetting resource property to the template. Defines settings to enable conversation logs.
+        Adds an AWS::Lex::BotAlias.TextLogSetting resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::BotAlias.TextLogSetting resource property to the template.
-Defines settings to enable conversation logs.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogsetting.html
 
     .PARAMETER Destination
-        Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogsetting.html#cfn-lex-botalias-textlogsetting-destination
         UpdateType: Mutable
         Type: TextLogDestination
 
     .PARAMETER Enabled
-        Determines whether conversation logs should be stored for an alias.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogsetting.html#cfn-lex-botalias-textlogsetting-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -27,13 +22,16 @@ Defines settings to enable conversation logs.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.BotAlias.TextLogSetting')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Destination,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,11 +42,14 @@ Defines settings to enable conversation logs.
                 }
             })]
         $Enabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ Defines settings to enable conversation logs.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.BotAlias.TextLogSetting'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

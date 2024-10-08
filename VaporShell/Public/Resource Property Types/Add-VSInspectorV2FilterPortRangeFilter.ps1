@@ -1,25 +1,20 @@
 function Add-VSInspectorV2FilterPortRangeFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::InspectorV2::Filter.PortRangeFilter resource property to the template. An object that describes the details of a port range filter.
+        Adds an AWS::InspectorV2::Filter.PortRangeFilter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::InspectorV2::Filter.PortRangeFilter resource property to the template.
-An object that describes the details of a port range filter.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html
 
     .PARAMETER BeginInclusive
-        The port number the port range begins at.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html#cfn-inspectorv2-filter-portrangefilter-begininclusive
         UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER EndInclusive
-        The port number the port range ends at.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html#cfn-inspectorv2-filter-portrangefilter-endinclusive
         UpdateType: Mutable
         PrimitiveType: Integer
@@ -27,11 +22,13 @@ An object that describes the details of a port range filter.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.InspectorV2.Filter.PortRangeFilter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ An object that describes the details of a port range filter.
                 }
             })]
         $BeginInclusive,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ An object that describes the details of a port range filter.
                 }
             })]
         $EndInclusive
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ An object that describes the details of a port range filter.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.InspectorV2.Filter.PortRangeFilter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

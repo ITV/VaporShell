@@ -1,18 +1,15 @@
 function Add-VSKafkaConnectConnectorKafkaClusterEncryptionInTransit {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit resource property to the template. Details of encryption in transit to the Apache Kafka cluster.
+        Adds an AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit resource property to the template.
-Details of encryption in transit to the Apache Kafka cluster.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html
 
     .PARAMETER EncryptionType
-        The type of encryption in transit to the Apache Kafka cluster.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit-encryptiontype
         UpdateType: Immutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Details of encryption in transit to the Apache Kafka cluster.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.KafkaClusterEncryptionInTransit')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Details of encryption in transit to the Apache Kafka cluster.
                 }
             })]
         $EncryptionType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Details of encryption in transit to the Apache Kafka cluster.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KafkaConnect.Connector.KafkaClusterEncryptionInTransit'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

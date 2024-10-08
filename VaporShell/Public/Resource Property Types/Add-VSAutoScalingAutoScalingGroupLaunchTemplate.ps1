@@ -1,37 +1,39 @@
 function Add-VSAutoScalingAutoScalingGroupLaunchTemplate {
     <#
     .SYNOPSIS
-        Adds an AWS::AutoScaling::AutoScalingGroup.LaunchTemplate resource property to the template. 
+        Adds an AWS::AutoScaling::AutoScalingGroup.LaunchTemplate resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AutoScaling::AutoScalingGroup.LaunchTemplate resource property to the template.
 
-
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html
 
     .PARAMETER LaunchTemplateSpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html#cfn-as-group-launchtemplate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html#cfn-autoscaling-autoscalinggroup-launchtemplate-launchtemplatespecification
+        UpdateType: Conditional
         Type: LaunchTemplateSpecification
-        UpdateType: Mutable
 
     .PARAMETER Overrides
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html#cfn-as-mixedinstancespolicy-overrides
-        DuplicatesAllowed: False
-        ItemType: LaunchTemplateOverrides
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html#cfn-autoscaling-autoscalinggroup-launchtemplate-overrides
+        UpdateType: Conditional
         Type: List
-        UpdateType: Mutable
+        ItemType: LaunchTemplateOverrides
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.LaunchTemplate')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $LaunchTemplateSpecification,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AutoScaling.AutoScalingGroup.LaunchTemplateOverrides"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,11 +44,14 @@ function Add-VSAutoScalingAutoScalingGroupLaunchTemplate {
                 }
             })]
         $Overrides
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -56,6 +61,7 @@ function Add-VSAutoScalingAutoScalingGroupLaunchTemplate {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AutoScaling.AutoScalingGroup.LaunchTemplate'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

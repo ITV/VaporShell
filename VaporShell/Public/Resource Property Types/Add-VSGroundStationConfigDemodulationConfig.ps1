@@ -1,18 +1,15 @@
 function Add-VSGroundStationConfigDemodulationConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::GroundStation::Config.DemodulationConfig resource property to the template. Defines demodulation settings.
+        Adds an AWS::GroundStation::Config.DemodulationConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GroundStation::Config.DemodulationConfig resource property to the template.
-Defines demodulation settings.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html
 
     .PARAMETER UnvalidatedJSON
-        The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme e.g. PSK, QPSK, etc. and matched filter to use.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html#cfn-groundstation-config-demodulationconfig-unvalidatedjson
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Defines demodulation settings.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GroundStation.Config.DemodulationConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Defines demodulation settings.
                 }
             })]
         $UnvalidatedJSON
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Defines demodulation settings.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GroundStation.Config.DemodulationConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

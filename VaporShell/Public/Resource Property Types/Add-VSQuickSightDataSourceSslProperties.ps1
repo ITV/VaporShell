@@ -1,18 +1,15 @@
 function Add-VSQuickSightDataSourceSslProperties {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSource.SslProperties resource property to the template. Secure Socket Layer (SSL properties that apply when Amazon QuickSight connects to your underlying data source.
+        Adds an AWS::QuickSight::DataSource.SslProperties resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSource.SslProperties resource property to the template.
-Secure Socket Layer (SSL properties that apply when Amazon QuickSight connects to your underlying data source.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html
 
     .PARAMETER DisableSsl
-        A Boolean option to control whether SSL should be disabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -20,11 +17,13 @@ Secure Socket Layer (SSL properties that apply when Amazon QuickSight connects t
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.SslProperties')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Secure Socket Layer (SSL properties that apply when Amazon QuickSight connects t
                 }
             })]
         $DisableSsl
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Secure Socket Layer (SSL properties that apply when Amazon QuickSight connects t
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSource.SslProperties'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

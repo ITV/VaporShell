@@ -1,28 +1,20 @@
 function Add-VSSESReceiptFilterFilter {
     <#
     .SYNOPSIS
-        Adds an AWS::SES::ReceiptFilter.Filter resource property to the template. Specifies an IP address filter.
+        Adds an AWS::SES::ReceiptFilter.Filter resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SES::ReceiptFilter.Filter resource property to the template.
-Specifies an IP address filter.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html
 
     .PARAMETER IpFilter
-        A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
-
         Type: IpFilter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-ipfilter
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the IP address filter. The name must meet the following requirements:
-+ Contain only ASCII letters a-z, A-Z, numbers 0-9, underscores _, or dashes -.
-+ Start and end with a letter or number.
-+ Contain 64 characters or fewer.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-name
         PrimitiveType: String
         UpdateType: Mutable
@@ -30,13 +22,16 @@ Specifies an IP address filter.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SES.ReceiptFilter.Filter')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $IpFilter,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -47,11 +42,14 @@ Specifies an IP address filter.
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -61,6 +59,7 @@ Specifies an IP address filter.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SES.ReceiptFilter.Filter'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

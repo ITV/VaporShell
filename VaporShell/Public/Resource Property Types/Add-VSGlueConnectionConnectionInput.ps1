@@ -1,59 +1,41 @@
 function Add-VSGlueConnectionConnectionInput {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Connection.ConnectionInput resource property to the template. A structure that is used to specify a connection to create or update.
+        Adds an AWS::Glue::Connection.ConnectionInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Connection.ConnectionInput resource property to the template.
-A structure that is used to specify a connection to create or update.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html
 
     .PARAMETER Description
-        The description of the connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ConnectionType
-        The type of the connection. Currently, these types are supported:
-+ JDBC - Designates a connection to a database through Java Database Connectivity JDBC.
-+ KAFKA - Designates a connection to an Apache Kafka streaming platform.
-+ MONGODB - Designates a connection to a MongoDB document database.
-+ NETWORK - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment Amazon VPC.
-SFTP is not supported.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER MatchCriteria
-        A list of criteria that can be used in selecting this connection.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria
         UpdateType: Mutable
 
     .PARAMETER PhysicalConnectionRequirements
-        A map of physical connection requirements, such as virtual private cloud VPC and SecurityGroup, that are needed to successfully make this connection.
-
         Type: PhysicalConnectionRequirements
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
         UpdateType: Mutable
 
     .PARAMETER ConnectionProperties
-        These key-value pairs define parameters for the connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER Name
-        The name of the connection.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name
         PrimitiveType: String
         UpdateType: Immutable
@@ -61,11 +43,13 @@ SFTP is not supported.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Connection.ConnectionInput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -76,7 +60,8 @@ SFTP is not supported.
                 }
             })]
         $Description,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -87,11 +72,14 @@ SFTP is not supported.
                 }
             })]
         $ConnectionType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $MatchCriteria,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PhysicalConnectionRequirements,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -102,7 +90,8 @@ SFTP is not supported.
                 }
             })]
         $ConnectionProperties,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -113,11 +102,14 @@ SFTP is not supported.
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -141,6 +133,7 @@ SFTP is not supported.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Connection.ConnectionInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

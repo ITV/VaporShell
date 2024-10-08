@@ -1,32 +1,25 @@
 function Add-VSGluePartitionSerdeInfo {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Partition.SerdeInfo resource property to the template. Information about a serialization/deserialization program (SerDe that serves as an extractor and loader.
+        Adds an AWS::Glue::Partition.SerdeInfo resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Partition.SerdeInfo resource property to the template.
-Information about a serialization/deserialization program (SerDe that serves as an extractor and loader.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html
 
     .PARAMETER Parameters
-        These key-value pairs define initialization parameters for the SerDe.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters
         PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER SerializationLibrary
-        Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Name
-        Name of the SerDe.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name
         PrimitiveType: String
         UpdateType: Mutable
@@ -34,11 +27,13 @@ Information about a serialization/deserialization program (SerDe that serves as 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Partition.SerdeInfo')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ Information about a serialization/deserialization program (SerDe that serves as 
                 }
             })]
         $Parameters,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +56,8 @@ Information about a serialization/deserialization program (SerDe that serves as 
                 }
             })]
         $SerializationLibrary,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +68,14 @@ Information about a serialization/deserialization program (SerDe that serves as 
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -99,6 +99,7 @@ Information about a serialization/deserialization program (SerDe that serves as 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Partition.SerdeInfo'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

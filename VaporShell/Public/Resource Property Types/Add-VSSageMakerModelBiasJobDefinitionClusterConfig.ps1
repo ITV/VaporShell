@@ -1,51 +1,44 @@
 function Add-VSSageMakerModelBiasJobDefinitionClusterConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelBiasJobDefinition.ClusterConfig resource property to the template. <a name="aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig-description"></a>The ClusterConfig property type specifies Not currently supported by AWS CloudFormation. for an AWS::SageMaker::ModelBiasJobDefinition: aws-resource-sagemaker-modelbiasjobdefinition.md.
+        Adds an AWS::SageMaker::ModelBiasJobDefinition.ClusterConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelBiasJobDefinition.ClusterConfig resource property to the template.
-<a name="aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig-description"></a>The ClusterConfig property type specifies Not currently supported by AWS CloudFormation. for an AWS::SageMaker::ModelBiasJobDefinition: aws-resource-sagemaker-modelbiasjobdefinition.md.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html
 
     .PARAMETER InstanceCount
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancecount
         UpdateType: Immutable
         PrimitiveType: Integer
 
-    .PARAMETER InstanceType
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancetype
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER VolumeKmsKeyId
-        Not currently supported by AWS CloudFormation.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumekmskeyid
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER VolumeSizeInGB
-        Not currently supported by AWS CloudFormation.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumesizeingb
         UpdateType: Immutable
         PrimitiveType: Integer
 
+    .PARAMETER VolumeKmsKeyId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumekmskeyid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER InstanceType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancetype
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.ClusterConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -56,9 +49,10 @@ function Add-VSSageMakerModelBiasJobDefinitionClusterConfig {
                 }
             })]
         $InstanceCount,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -66,8 +60,9 @@ function Add-VSSageMakerModelBiasJobDefinitionClusterConfig {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $InstanceType,
-        [parameter(Mandatory = $false)]
+        $VolumeSizeInGB,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -78,9 +73,10 @@ function Add-VSSageMakerModelBiasJobDefinitionClusterConfig {
                 }
             })]
         $VolumeKmsKeyId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -88,12 +84,15 @@ function Add-VSSageMakerModelBiasJobDefinitionClusterConfig {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $VolumeSizeInGB
+        $InstanceType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -103,6 +102,7 @@ function Add-VSSageMakerModelBiasJobDefinitionClusterConfig {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.ClusterConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

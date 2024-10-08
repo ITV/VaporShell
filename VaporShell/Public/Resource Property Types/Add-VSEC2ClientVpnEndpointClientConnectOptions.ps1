@@ -1,25 +1,20 @@
 function Add-VSEC2ClientVpnEndpointClientConnectOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::ClientVpnEndpoint.ClientConnectOptions resource property to the template. Indicates whether client connect options are enabled. The default is false (not enabled.
+        Adds an AWS::EC2::ClientVpnEndpoint.ClientConnectOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::ClientVpnEndpoint.ClientConnectOptions resource property to the template.
-Indicates whether client connect options are enabled. The default is false (not enabled.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html
 
     .PARAMETER LambdaFunctionArn
-        The Amazon Resource Name ARN of the AWS Lambda function used for connection authorization.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Enabled
-        Indicates whether client connect options are enabled. The default is false not enabled.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -27,11 +22,13 @@ Indicates whether client connect options are enabled. The default is false (not 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.ClientConnectOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Indicates whether client connect options are enabled. The default is false (not 
                 }
             })]
         $LambdaFunctionArn,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Indicates whether client connect options are enabled. The default is false (not 
                 }
             })]
         $Enabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Indicates whether client connect options are enabled. The default is false (not 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.ClientVpnEndpoint.ClientConnectOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

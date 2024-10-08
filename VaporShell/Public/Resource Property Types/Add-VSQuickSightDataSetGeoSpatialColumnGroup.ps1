@@ -1,33 +1,27 @@
 function Add-VSQuickSightDataSetGeoSpatialColumnGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::QuickSight::DataSet.GeoSpatialColumnGroup resource property to the template. Geospatial column group that denotes a hierarchy.
+        Adds an AWS::QuickSight::DataSet.GeoSpatialColumnGroup resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::QuickSight::DataSet.GeoSpatialColumnGroup resource property to the template.
-Geospatial column group that denotes a hierarchy.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html
 
     .PARAMETER Columns
-        Columns in this hierarchy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER CountryCode
-        Country code.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
-        A display name for the hierarchy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
         UpdateType: Mutable
         PrimitiveType: String
@@ -35,13 +29,16 @@ Geospatial column group that denotes a hierarchy.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.GeoSpatialColumnGroup')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Columns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -52,7 +49,8 @@ Geospatial column group that denotes a hierarchy.
                 }
             })]
         $CountryCode,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -63,11 +61,14 @@ Geospatial column group that denotes a hierarchy.
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -77,6 +78,7 @@ Geospatial column group that denotes a hierarchy.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.QuickSight.DataSet.GeoSpatialColumnGroup'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSKafkaConnectConnectorVpc {
     <#
     .SYNOPSIS
-        Adds an AWS::KafkaConnect::Connector.Vpc resource property to the template. Information about the VPC in which the connector resides.
+        Adds an AWS::KafkaConnect::Connector.Vpc resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KafkaConnect::Connector.Vpc resource property to the template.
-Information about the VPC in which the connector resides.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html
 
     .PARAMETER SecurityGroups
-        The security groups for the connector.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html#cfn-kafkaconnect-connector-vpc-securitygroups
         UpdateType: Immutable
         Type: List
@@ -20,8 +17,6 @@ Information about the VPC in which the connector resides.
         DuplicatesAllowed: False
 
     .PARAMETER Subnets
-        The subnets for the connector.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html#cfn-kafkaconnect-connector-vpc-subnets
         UpdateType: Immutable
         Type: List
@@ -31,19 +26,25 @@ Information about the VPC in which the connector resides.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.Vpc')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SecurityGroups,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         $Subnets
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -53,6 +54,7 @@ Information about the VPC in which the connector resides.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KafkaConnect.Connector.Vpc'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

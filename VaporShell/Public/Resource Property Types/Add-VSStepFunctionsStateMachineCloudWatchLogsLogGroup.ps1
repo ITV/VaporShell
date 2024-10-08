@@ -1,22 +1,15 @@
 function Add-VSStepFunctionsStateMachineCloudWatchLogsLogGroup {
     <#
     .SYNOPSIS
-        Adds an AWS::StepFunctions::StateMachine.CloudWatchLogsLogGroup resource property to the template. Defines a CloudWatch log group.
+        Adds an AWS::StepFunctions::StateMachine.CloudWatchLogsLogGroup resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::StepFunctions::StateMachine.CloudWatchLogsLogGroup resource property to the template.
-Defines a CloudWatch log group.
-
-**Note**
-
-For more information see Standard Versus Express Workflows: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html in the AWS Step Functions Developer Guide.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
 
     .PARAMETER LogGroupArn
-        The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with :*
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
         UpdateType: Mutable
         PrimitiveType: String
@@ -24,11 +17,13 @@ For more information see Standard Versus Express Workflows: https://docs.aws.ama
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachine.CloudWatchLogsLogGroup')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -39,11 +34,14 @@ For more information see Standard Versus Express Workflows: https://docs.aws.ama
                 }
             })]
         $LogGroupArn
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -53,6 +51,7 @@ For more information see Standard Versus Express Workflows: https://docs.aws.ama
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.StepFunctions.StateMachine.CloudWatchLogsLogGroup'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

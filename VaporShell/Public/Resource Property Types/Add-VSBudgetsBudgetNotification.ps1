@@ -1,51 +1,30 @@
 function Add-VSBudgetsBudgetNotification {
     <#
     .SYNOPSIS
-        Adds an AWS::Budgets::Budget.Notification resource property to the template. A notification that's associated with a budget. A budget can have up to ten notifications.
+        Adds an AWS::Budgets::Budget.Notification resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Budgets::Budget.Notification resource property to the template.
-A notification that's associated with a budget. A budget can have up to ten notifications.
-
-Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.
-
-For example, if you have a budget for 200 dollars and you want to be notified when you go over 160 dollars, create a notification with the following parameters:
-
-+ A notificationType of ACTUAL
-
-+ A thresholdType of PERCENTAGE
-
-+ A comparisonOperator of GREATER_THAN
-
-+ A notification threshold of 80
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html
 
     .PARAMETER ComparisonOperator
-        The comparison that's used for this notification.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-comparisonoperator
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER NotificationType
-        Specifies whether the notification is for how much you have spent ACTUAL or for how much that you're forecasted to spend FORECASTED.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-notificationtype
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Threshold
-        The threshold that's associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-threshold
         PrimitiveType: Double
         UpdateType: Mutable
 
     .PARAMETER ThresholdType
-        The type of threshold for a notification. For ABSOLUTE_VALUE thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For PERCENTAGE thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a PERCENTAGE threshold of 80%, AWS notifies you when you go over 160 dollars.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-thresholdtype
         PrimitiveType: String
         UpdateType: Mutable
@@ -53,11 +32,13 @@ For example, if you have a budget for 200 dollars and you want to be notified wh
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Budgets.Budget.Notification')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -68,7 +49,8 @@ For example, if you have a budget for 200 dollars and you want to be notified wh
                 }
             })]
         $ComparisonOperator,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -79,7 +61,8 @@ For example, if you have a budget for 200 dollars and you want to be notified wh
                 }
             })]
         $NotificationType,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -90,7 +73,8 @@ For example, if you have a budget for 200 dollars and you want to be notified wh
                 }
             })]
         $Threshold,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -101,11 +85,14 @@ For example, if you have a budget for 200 dollars and you want to be notified wh
                 }
             })]
         $ThresholdType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -115,6 +102,7 @@ For example, if you have a budget for 200 dollars and you want to be notified wh
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Budgets.Budget.Notification'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

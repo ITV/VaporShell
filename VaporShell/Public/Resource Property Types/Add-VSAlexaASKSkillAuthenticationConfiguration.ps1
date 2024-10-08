@@ -1,34 +1,25 @@
 function Add-VSAlexaASKSkillAuthenticationConfiguration {
     <#
     .SYNOPSIS
-        Adds an Alexa::ASK::Skill.AuthenticationConfiguration resource property to the template. The AuthenticationConfiguration property type specifies the Login with Amazon (LWA configuration used to authenticate with the Alexa service. Only Login with Amazon security profiles created through the Build Skills with the Alexa Skills Kit developer documentation: https://developer.amazon.com/docs/ask-overviews/build-skills-with-the-alexa-skills-kit.html are supported for authentication. A client ID, client secret, and refresh token are required. You can generate a client ID and client secret by creating a new security profile: https://developer.amazon.com/lwa/sp/create-security-profile.html on the Amazon Developer Portal or you can retrieve them from an existing profile. You can then retrieve the refresh token using the Alexa Skills Kit CLI. For instructions, see util-command: https://developer.amazon.com/docs/smapi/ask-cli-command-reference.html#util-command in the ASK CLI Command Reference: https://developer.amazon.com/docs/smapi/ask-cli-command-reference.html.
+        Adds an Alexa::ASK::Skill.AuthenticationConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an Alexa::ASK::Skill.AuthenticationConfiguration resource property to the template.
-The AuthenticationConfiguration property type specifies the Login with Amazon (LWA configuration used to authenticate with the Alexa service. Only Login with Amazon security profiles created through the Build Skills with the Alexa Skills Kit developer documentation: https://developer.amazon.com/docs/ask-overviews/build-skills-with-the-alexa-skills-kit.html are supported for authentication. A client ID, client secret, and refresh token are required. You can generate a client ID and client secret by creating a new security profile: https://developer.amazon.com/lwa/sp/create-security-profile.html on the Amazon Developer Portal or you can retrieve them from an existing profile. You can then retrieve the refresh token using the Alexa Skills Kit CLI. For instructions, see util-command: https://developer.amazon.com/docs/smapi/ask-cli-command-reference.html#util-command in the ASK CLI Command Reference: https://developer.amazon.com/docs/smapi/ask-cli-command-reference.html.
-
-AuthenticationConfiguration is a property of the Alexa::ASK::Skill resource.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html
 
     .PARAMETER RefreshToken
-        Refresh token from Login with Amazon LWA. This token is secret.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-refreshtoken
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ClientSecret
-        Client secret from Login with Amazon LWA.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-clientsecret
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER ClientId
-        Client ID from Login with Amazon LWA.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-clientid
         PrimitiveType: String
         UpdateType: Mutable
@@ -36,11 +27,13 @@ AuthenticationConfiguration is a property of the Alexa::ASK::Skill resource.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Alexa.ASK.Skill.AuthenticationConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -51,7 +44,8 @@ AuthenticationConfiguration is a property of the Alexa::ASK::Skill resource.
                 }
             })]
         $RefreshToken,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -62,7 +56,8 @@ AuthenticationConfiguration is a property of the Alexa::ASK::Skill resource.
                 }
             })]
         $ClientSecret,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -73,11 +68,14 @@ AuthenticationConfiguration is a property of the Alexa::ASK::Skill resource.
                 }
             })]
         $ClientId
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -87,6 +85,7 @@ AuthenticationConfiguration is a property of the Alexa::ASK::Skill resource.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Alexa.ASK.Skill.AuthenticationConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

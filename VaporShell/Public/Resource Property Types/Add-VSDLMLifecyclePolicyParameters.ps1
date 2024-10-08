@@ -1,33 +1,26 @@
 function Add-VSDLMLifecyclePolicyParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::DLM::LifecyclePolicy.Parameters resource property to the template. Specifies optional parameters to add to a policy. The set of valid parameters depends on the combination of policy type and resource type.
+        Adds an AWS::DLM::LifecyclePolicy.Parameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::DLM::LifecyclePolicy.Parameters resource property to the template.
-Specifies optional parameters to add to a policy. The set of valid parameters depends on the combination of policy type and resource type.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html
 
     .PARAMETER ExcludeBootVolume
-        EBS Snapshot Management – Instance policies only] Indicates whether to exclude the root volume from snapshots created using CreateSnapshots: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html. The default is false.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ExcludeDataVolumeTags
-        *Update requires*: No interruption: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt
-
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludedatavolumetags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER NoReboot
-        Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. true indicates that targeted instances are not rebooted when the policy runs. false indicates that target instances are rebooted when the policy runs. The default is true instances are not rebooted.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
         PrimitiveType: Boolean
         UpdateType: Mutable
@@ -35,11 +28,13 @@ Specifies optional parameters to add to a policy. The set of valid parameters de
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.Parameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,10 +45,12 @@ Specifies optional parameters to add to a policy. The set of valid parameters de
                 }
             })]
         $ExcludeBootVolume,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $ExcludeDataVolumeTags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -64,11 +61,14 @@ Specifies optional parameters to add to a policy. The set of valid parameters de
                 }
             })]
         $NoReboot
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -78,6 +78,7 @@ Specifies optional parameters to add to a policy. The set of valid parameters de
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.DLM.LifecyclePolicy.Parameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

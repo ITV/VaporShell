@@ -1,18 +1,15 @@
 function Add-VSLexBotDialogCodeHookSetting {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.DialogCodeHookSetting resource property to the template. Specifies whether an intent uses the dialog code hook during conversations with a user.
+        Adds an AWS::Lex::Bot.DialogCodeHookSetting resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.DialogCodeHookSetting resource property to the template.
-Specifies whether an intent uses the dialog code hook during conversations with a user.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html
 
     .PARAMETER Enabled
-        Indicates whether an intent uses the dialog code hook during a conversation with a user.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html#cfn-lex-bot-dialogcodehooksetting-enabled
         UpdateType: Mutable
         PrimitiveType: Boolean
@@ -20,11 +17,13 @@ Specifies whether an intent uses the dialog code hook during conversations with 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.DialogCodeHookSetting')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Specifies whether an intent uses the dialog code hook during conversations with 
                 }
             })]
         $Enabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Specifies whether an intent uses the dialog code hook during conversations with 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.DialogCodeHookSetting'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

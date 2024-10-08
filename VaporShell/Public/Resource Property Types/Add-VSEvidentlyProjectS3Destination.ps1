@@ -1,25 +1,20 @@
 function Add-VSEvidentlyProjectS3Destination {
     <#
     .SYNOPSIS
-        Adds an AWS::Evidently::Project.S3Destination resource property to the template. If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
+        Adds an AWS::Evidently::Project.S3Destination resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Evidently::Project.S3Destination resource property to the template.
-If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html
 
     .PARAMETER BucketName
-        The name of the bucket in which Evidently stores evaluation events.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html#cfn-evidently-project-s3destination-bucketname
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Prefix
-        The bucket prefix in which Evidently stores evaluation events.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html#cfn-evidently-project-s3destination-prefix
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ If the project stores evaluation events in an Amazon S3 bucket, this structure s
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Evidently.Project.S3Destination')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ If the project stores evaluation events in an Amazon S3 bucket, this structure s
                 }
             })]
         $BucketName,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ If the project stores evaluation events in an Amazon S3 bucket, this structure s
                 }
             })]
         $Prefix
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ If the project stores evaluation events in an Amazon S3 bucket, this structure s
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Evidently.Project.S3Destination'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

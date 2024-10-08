@@ -1,18 +1,15 @@
 function Add-VSRoute53HostedZoneHostedZoneConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::Route53::HostedZone.HostedZoneConfig resource property to the template. A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the HostedZoneConfig and Comment elements.
+        Adds an AWS::Route53::HostedZone.HostedZoneConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Route53::HostedZone.HostedZoneConfig resource property to the template.
-A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the HostedZoneConfig and Comment elements.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
 
     .PARAMETER Comment
-        Any comments that you want to include about the hosted zone.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ A complex type that contains an optional comment about your hosted zone. If you 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Route53.HostedZone.HostedZoneConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ A complex type that contains an optional comment about your hosted zone. If you 
                 }
             })]
         $Comment
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ A complex type that contains an optional comment about your hosted zone. If you 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Route53.HostedZone.HostedZoneConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

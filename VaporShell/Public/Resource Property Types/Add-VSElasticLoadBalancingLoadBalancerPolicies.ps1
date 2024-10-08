@@ -1,20 +1,15 @@
 function Add-VSElasticLoadBalancingLoadBalancerPolicies {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancing::LoadBalancer.Policies resource property to the template. Specifies policies for your Classic Load Balancer.
+        Adds an AWS::ElasticLoadBalancing::LoadBalancer.Policies resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancing::LoadBalancer.Policies resource property to the template.
-Specifies policies for your Classic Load Balancer.
-
-To associate policies with a listener, use the PolicyNames: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-policynames property for the listener.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html
 
     .PARAMETER Attributes
-        The policy attributes.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-attributes
         DuplicatesAllowed: False
         PrimitiveItemType: Json
@@ -22,8 +17,6 @@ To associate policies with a listener, use the PolicyNames: https://docs.aws.ama
         UpdateType: Mutable
 
     .PARAMETER InstancePorts
-        The instance ports for the policy. Required only for some policy types.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-instanceports
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -31,8 +24,6 @@ To associate policies with a listener, use the PolicyNames: https://docs.aws.ama
         UpdateType: Mutable
 
     .PARAMETER LoadBalancerPorts
-        The load balancer ports for the policy. Required only for some policy types.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-loadbalancerports
         DuplicatesAllowed: False
         PrimitiveItemType: String
@@ -40,15 +31,11 @@ To associate policies with a listener, use the PolicyNames: https://docs.aws.ama
         UpdateType: Mutable
 
     .PARAMETER PolicyName
-        The name of the policy.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-policyname
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER PolicyType
-        The name of the policy type.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-policytype
         PrimitiveType: String
         UpdateType: Mutable
@@ -56,17 +43,22 @@ To associate policies with a listener, use the PolicyNames: https://docs.aws.ama
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.Policies')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $Attributes,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $InstancePorts,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $LoadBalancerPorts,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -77,7 +69,8 @@ To associate policies with a listener, use the PolicyNames: https://docs.aws.ama
                 }
             })]
         $PolicyName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -88,11 +81,14 @@ To associate policies with a listener, use the PolicyNames: https://docs.aws.ama
                 }
             })]
         $PolicyType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -102,6 +98,7 @@ To associate policies with a listener, use the PolicyNames: https://docs.aws.ama
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.Policies'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

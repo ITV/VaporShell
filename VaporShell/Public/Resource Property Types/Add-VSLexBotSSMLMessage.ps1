@@ -1,18 +1,15 @@
 function Add-VSLexBotSSMLMessage {
     <#
     .SYNOPSIS
-        Adds an AWS::Lex::Bot.SSMLMessage resource property to the template. Defines a Speech Synthesis Markup Language (SSML prompt.
+        Adds an AWS::Lex::Bot.SSMLMessage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Lex::Bot.SSMLMessage resource property to the template.
-Defines a Speech Synthesis Markup Language (SSML prompt.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html
 
     .PARAMETER Value
-        The SSML text that defines the prompt.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html#cfn-lex-bot-ssmlmessage-value
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Defines a Speech Synthesis Markup Language (SSML prompt.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Lex.Bot.SSMLMessage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Defines a Speech Synthesis Markup Language (SSML prompt.
                 }
             })]
         $Value
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Defines a Speech Synthesis Markup Language (SSML prompt.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Lex.Bot.SSMLMessage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

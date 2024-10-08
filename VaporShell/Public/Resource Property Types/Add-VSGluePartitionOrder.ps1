@@ -1,25 +1,20 @@
 function Add-VSGluePartitionOrder {
     <#
     .SYNOPSIS
-        Adds an AWS::Glue::Partition.Order resource property to the template. Specifies the sort order of a sorted column.
+        Adds an AWS::Glue::Partition.Order resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Glue::Partition.Order resource property to the template.
-Specifies the sort order of a sorted column.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html
 
     .PARAMETER Column
-        The name of the column.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-column
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER SortOrder
-        Indicates that the column is sorted in ascending order == 1, or in descending order ==0.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-sortorder
         PrimitiveType: Integer
         UpdateType: Mutable
@@ -27,11 +22,13 @@ Specifies the sort order of a sorted column.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Glue.Partition.Order')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Specifies the sort order of a sorted column.
                 }
             })]
         $Column,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Specifies the sort order of a sorted column.
                 }
             })]
         $SortOrder
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Specifies the sort order of a sorted column.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Glue.Partition.Order'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

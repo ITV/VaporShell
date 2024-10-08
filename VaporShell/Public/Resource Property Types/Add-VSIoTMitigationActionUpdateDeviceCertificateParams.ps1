@@ -1,18 +1,15 @@
 function Add-VSIoTMitigationActionUpdateDeviceCertificateParams {
     <#
     .SYNOPSIS
-        Adds an AWS::IoT::MitigationAction.UpdateDeviceCertificateParams resource property to the template. Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+        Adds an AWS::IoT::MitigationAction.UpdateDeviceCertificateParams resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::IoT::MitigationAction.UpdateDeviceCertificateParams resource property to the template.
-Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html
 
     .PARAMETER Action
-        The action that you want to apply to the device certificate. The only supported value is DEACTIVATE.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Parameters to define a mitigation action that changes the state of the device ce
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.IoT.MitigationAction.UpdateDeviceCertificateParams')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Parameters to define a mitigation action that changes the state of the device ce
                 }
             })]
         $Action
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Parameters to define a mitigation action that changes the state of the device ce
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.IoT.MitigationAction.UpdateDeviceCertificateParams'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

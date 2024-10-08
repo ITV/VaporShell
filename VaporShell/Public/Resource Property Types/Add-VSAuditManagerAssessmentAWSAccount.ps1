@@ -1,44 +1,39 @@
 function Add-VSAuditManagerAssessmentAWSAccount {
     <#
     .SYNOPSIS
-        Adds an AWS::AuditManager::Assessment.AWSAccount resource property to the template. The AWSAccount property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        Adds an AWS::AuditManager::Assessment.AWSAccount resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AuditManager::Assessment.AWSAccount resource property to the template.
-The AWSAccount property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
 
     .PARAMETER Id
-        The identifier for the AWS account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER EmailAddress
-        The email address that's associated with the AWS account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER Name
-        The name of the AWS account.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AuditManager.Assessment.AWSAccount')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -49,7 +44,8 @@ The AWSAccount property type specifies the wrapper of the AWS account details, s
                 }
             })]
         $Id,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -60,7 +56,8 @@ The AWSAccount property type specifies the wrapper of the AWS account details, s
                 }
             })]
         $EmailAddress,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -71,11 +68,14 @@ The AWSAccount property type specifies the wrapper of the AWS account details, s
                 }
             })]
         $Name
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -85,6 +85,7 @@ The AWSAccount property type specifies the wrapper of the AWS account details, s
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AuditManager.Assessment.AWSAccount'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,29 +1,20 @@
 function Add-VSAppMeshVirtualNodeAwsCloudMapInstanceAttribute {
     <#
     .SYNOPSIS
-        Adds an AWS::AppMesh::VirtualNode.AwsCloudMapInstanceAttribute resource property to the template. An object that represents the AWS Cloud Map attribute information for your virtual node.
+        Adds an AWS::AppMesh::VirtualNode.AwsCloudMapInstanceAttribute resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppMesh::VirtualNode.AwsCloudMapInstanceAttribute resource property to the template.
-An object that represents the AWS Cloud Map attribute information for your virtual node.
-
-**Note**
-
-AWS Cloud Map is not available in the eu-south-1 Region.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html
 
     .PARAMETER Value
-        The value of an AWS Cloud Map service instance attribute key. Any AWS Cloud Map service instance that contains the specified key and value is returned.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html#cfn-appmesh-virtualnode-awscloudmapinstanceattribute-value
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Key
-        The name of an AWS Cloud Map service instance attribute key. Any AWS Cloud Map service instance that contains the specified key and value is returned.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html#cfn-appmesh-virtualnode-awscloudmapinstanceattribute-key
         PrimitiveType: String
         UpdateType: Mutable
@@ -31,11 +22,13 @@ AWS Cloud Map is not available in the eu-south-1 Region.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.AwsCloudMapInstanceAttribute')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,7 +39,8 @@ AWS Cloud Map is not available in the eu-south-1 Region.
                 }
             })]
         $Value,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,11 +51,14 @@ AWS Cloud Map is not available in the eu-south-1 Region.
                 }
             })]
         $Key
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +68,7 @@ AWS Cloud Map is not available in the eu-south-1 Region.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppMesh.VirtualNode.AwsCloudMapInstanceAttribute'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

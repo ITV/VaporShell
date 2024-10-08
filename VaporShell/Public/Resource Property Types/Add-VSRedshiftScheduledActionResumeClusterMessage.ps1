@@ -1,18 +1,15 @@
 function Add-VSRedshiftScheduledActionResumeClusterMessage {
     <#
     .SYNOPSIS
-        Adds an AWS::Redshift::ScheduledAction.ResumeClusterMessage resource property to the template. Describes a resume cluster operation. For example, a scheduled action to run the ResumeCluster API operation.
+        Adds an AWS::Redshift::ScheduledAction.ResumeClusterMessage resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Redshift::ScheduledAction.ResumeClusterMessage resource property to the template.
-Describes a resume cluster operation. For example, a scheduled action to run the ResumeCluster API operation.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html
 
     .PARAMETER ClusterIdentifier
-        The identifier of the cluster to be resumed.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html#cfn-redshift-scheduledaction-resumeclustermessage-clusteridentifier
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Describes a resume cluster operation. For example, a scheduled action to run the
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Redshift.ScheduledAction.ResumeClusterMessage')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Describes a resume cluster operation. For example, a scheduled action to run the
                 }
             })]
         $ClusterIdentifier
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Describes a resume cluster operation. For example, a scheduled action to run the
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Redshift.ScheduledAction.ResumeClusterMessage'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

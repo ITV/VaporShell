@@ -1,37 +1,34 @@
 function Add-VSCassandraTableColumn {
     <#
     .SYNOPSIS
-        Adds an AWS::Cassandra::Table.Column resource property to the template. The name and data type of an individual column in a table.
+        Adds an AWS::Cassandra::Table.Column resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Cassandra::Table.Column resource property to the template.
-The name and data type of an individual column in a table.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html
 
     .PARAMETER ColumnName
-        The name of the column. For more information, see Identifiers: https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier in the *Amazon Keyspaces Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER ColumnType
-        The data type of the column. For more information, see Data types: https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types in the *Amazon Keyspaces Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Cassandra.Table.Column')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ The name and data type of an individual column in a table.
                 }
             })]
         $ColumnName,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ The name and data type of an individual column in a table.
                 }
             })]
         $ColumnType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ The name and data type of an individual column in a table.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Cassandra.Table.Column'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

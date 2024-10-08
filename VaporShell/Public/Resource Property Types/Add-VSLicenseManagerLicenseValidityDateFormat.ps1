@@ -1,25 +1,20 @@
 function Add-VSLicenseManagerLicenseValidityDateFormat {
     <#
     .SYNOPSIS
-        Adds an AWS::LicenseManager::License.ValidityDateFormat resource property to the template. Date and time range during which the license is valid, in ISO8601-UTC format.
+        Adds an AWS::LicenseManager::License.ValidityDateFormat resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::LicenseManager::License.ValidityDateFormat resource property to the template.
-Date and time range during which the license is valid, in ISO8601-UTC format.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html
 
     .PARAMETER Begin
-        Start of the time range.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER End
-        End of the time range.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
         UpdateType: Mutable
         PrimitiveType: String
@@ -27,11 +22,13 @@ Date and time range during which the license is valid, in ISO8601-UTC format.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.LicenseManager.License.ValidityDateFormat')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -42,7 +39,8 @@ Date and time range during which the license is valid, in ISO8601-UTC format.
                 }
             })]
         $Begin,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -53,11 +51,14 @@ Date and time range during which the license is valid, in ISO8601-UTC format.
                 }
             })]
         $End
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -67,6 +68,7 @@ Date and time range during which the license is valid, in ISO8601-UTC format.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.LicenseManager.License.ValidityDateFormat'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

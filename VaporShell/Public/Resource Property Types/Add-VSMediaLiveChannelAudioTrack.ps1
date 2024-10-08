@@ -1,20 +1,15 @@
 function Add-VSMediaLiveChannelAudioTrack {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaLive::Channel.AudioTrack resource property to the template. Information about one audio track to extract. You can select multiple tracks.
+        Adds an AWS::MediaLive::Channel.AudioTrack resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaLive::Channel.AudioTrack resource property to the template.
-Information about one audio track to extract. You can select multiple tracks.
-
-The parent of this entity is AudioTrackSelection.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html
 
     .PARAMETER Track
-        1-based integer value that maps to a specific audio track
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html#cfn-medialive-channel-audiotrack-track
         PrimitiveType: Integer
         UpdateType: Mutable
@@ -22,11 +17,13 @@ The parent of this entity is AudioTrackSelection.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioTrack')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +34,14 @@ The parent of this entity is AudioTrackSelection.
                 }
             })]
         $Track
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +51,7 @@ The parent of this entity is AudioTrackSelection.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaLive.Channel.AudioTrack'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

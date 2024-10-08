@@ -1,10 +1,10 @@
 function New-VSRAMResourceShare {
     <#
     .SYNOPSIS
-        Adds an AWS::RAM::ResourceShare resource to the template. Specifies a resource share.
+        Adds an AWS::RAM::ResourceShare resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::RAM::ResourceShare resource to the template. Specifies a resource share.
+        Adds an AWS::RAM::ResourceShare resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html
@@ -13,54 +13,41 @@ function New-VSRAMResourceShare {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER PermissionArns
-        Specifies the Amazon Resource Names ARNs: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-permissionarns
         UpdateType: Mutable
 
     .PARAMETER Principals
-        Specifies a list of one or more principals to associate with the resource share.
-You can include the following values:
-+ An AWS account ID, for example: 123456789012
-+ An Amazon Resoure Name ARN: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html of an organization in AWS Organizations, for example: arn:aws:organizations::123456789012:organization/o-exampleorgid
-+ An ARN of an organizational unit OU in AWS Organizations, for example: arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123
-+ An ARN of an IAM role, for example: arn:aws:iam::123456789012:role/rolename
-+ An ARN of an IAM user, for example: arn:aws:iam::123456789012user/username
-Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users: https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types in the * AWS Resource Access Manager User Guide*.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-principals
         UpdateType: Mutable
 
     .PARAMETER AllowExternalPrincipals
-        Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share. A value of true lets you share with individual AWS accounts that are *not* in your organization. A value of false only has meaning if your account is a member of an AWS Organization. The default value is true.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-allowexternalprincipals
         PrimitiveType: Boolean
         UpdateType: Mutable
 
     .PARAMETER ResourceArns
-        Specifies a list of one or more ARNs of the resources to associate with the resource share.
-
         PrimitiveItemType: String
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns
         UpdateType: Mutable
 
-    .PARAMETER Tags
-        Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
+    .PARAMETER Sources
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-sources
+        UpdateType: Mutable
 
+    .PARAMETER Tags
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-tags
         ItemType: Tag
         UpdateType: Mutable
 
     .PARAMETER Name
-        Specifies the name of the resource share.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-name
         PrimitiveType: String
         UpdateType: Mutable
@@ -95,28 +82,29 @@ Not all resource types can be shared with IAM roles and users. For more informat
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.RAM.ResourceShare')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -127,11 +115,14 @@ Not all resource types can be shared with IAM roles and users. For more informat
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $PermissionArns,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $Principals,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -142,12 +133,18 @@ Not all resource types can be shared with IAM roles and users. For more informat
                 }
             })]
         $AllowExternalPrincipals,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $ResourceArns,
+
+        [Parameter(Mandatory = $false)]
+        $Sources,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -158,7 +155,8 @@ Not all resource types can be shared with IAM roles and users. For more informat
                 }
             })]
         $Name,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -169,27 +167,28 @@ Not all resource types can be shared with IAM roles and users. For more informat
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -200,9 +199,15 @@ Not all resource types can be shared with IAM roles and users. For more informat
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -210,6 +215,7 @@ Not all resource types can be shared with IAM roles and users. For more informat
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -250,6 +256,12 @@ Not all resource types can be shared with IAM roles and users. For more informat
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ResourceArns -Value @($ResourceArns)
                 }
+                Sources {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Sources -Value @($Sources)
+                }
                 Tags {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -265,6 +277,7 @@ Not all resource types can be shared with IAM roles and users. For more informat
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.RAM.ResourceShare'

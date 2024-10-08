@@ -1,33 +1,25 @@
 function Add-VSElasticLoadBalancingV2ListenerFixedResponseConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::ElasticLoadBalancingV2::Listener.FixedResponseConfig resource property to the template. Specifies information required when returning a custom HTTP response.
+        Adds an AWS::ElasticLoadBalancingV2::Listener.FixedResponseConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::ElasticLoadBalancingV2::Listener.FixedResponseConfig resource property to the template.
-Specifies information required when returning a custom HTTP response.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html
 
     .PARAMETER ContentType
-        The content type.
-Valid Values: text/plain | text/css | text/html | application/javascript | application/json
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-contenttype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER StatusCode
-        The HTTP response code 2XX, 4XX, or 5XX.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-statuscode
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER MessageBody
-        The message.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-messagebody
         UpdateType: Mutable
         PrimitiveType: String
@@ -35,11 +27,13 @@ Valid Values: text/plain | text/css | text/html | application/javascript | appli
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.FixedResponseConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,7 +44,8 @@ Valid Values: text/plain | text/css | text/html | application/javascript | appli
                 }
             })]
         $ContentType,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -61,7 +56,8 @@ Valid Values: text/plain | text/css | text/html | application/javascript | appli
                 }
             })]
         $StatusCode,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -72,11 +68,14 @@ Valid Values: text/plain | text/css | text/html | application/javascript | appli
                 }
             })]
         $MessageBody
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -86,6 +85,7 @@ Valid Values: text/plain | text/css | text/html | application/javascript | appli
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.ElasticLoadBalancingV2.Listener.FixedResponseConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

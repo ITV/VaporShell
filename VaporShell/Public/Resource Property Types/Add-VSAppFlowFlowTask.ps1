@@ -1,65 +1,56 @@
 function Add-VSAppFlowFlowTask {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::Flow.Task resource property to the template. The Task property type specifies the class for modeling different type of tasks. Task implementation varies based on the TaskType.
+        Adds an AWS::AppFlow::Flow.Task resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::Flow.Task resource property to the template.
-The Task property type specifies the class for modeling different type of tasks. Task implementation varies based on the TaskType.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
 
     .PARAMETER SourceFields
-        The source fields to which a particular task is applied.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
-
-    .PARAMETER ConnectorOperator
-        The operation to be performed on the provided source fields.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
-        UpdateType: Mutable
-        Type: ConnectorOperator
+        DuplicatesAllowed: True
 
     .PARAMETER DestinationField
-        A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER TaskType
-        Specifies the particular task implementation that Amazon AppFlow performs.
-*Allowed values*: Arithmetic | Filter | Map | Map_all | Mask | Merge | Truncate | Validate
+    .PARAMETER ConnectorOperator
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
+        UpdateType: Mutable
+        Type: ConnectorOperator
 
+    .PARAMETER TaskType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TaskProperties
-        A map used to store task-related information. The execution service looks for particular information based on the TaskType.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
         UpdateType: Mutable
         Type: List
         ItemType: TaskPropertiesObject
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.Flow.Task')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         $SourceFields,
-        [parameter(Mandatory = $false)]
-        $ConnectorOperator,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -70,7 +61,11 @@ The Task property type specifies the class for modeling different type of tasks.
                 }
             })]
         $DestinationField,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $false)]
+        $ConnectorOperator,
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -81,7 +76,8 @@ The Task property type specifies the class for modeling different type of tasks.
                 }
             })]
         $TaskType,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AppFlow.Flow.TaskPropertiesObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -92,11 +88,14 @@ The Task property type specifies the class for modeling different type of tasks.
                 }
             })]
         $TaskProperties
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -106,6 +105,7 @@ The Task property type specifies the class for modeling different type of tasks.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.Flow.Task'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

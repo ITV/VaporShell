@@ -1,38 +1,36 @@
 function Add-VSSageMakerMonitoringScheduleMonitoringOutputConfig {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::MonitoringSchedule.MonitoringOutputConfig resource property to the template. The output configuration for monitoring jobs.
+        Adds an AWS::SageMaker::MonitoringSchedule.MonitoringOutputConfig resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::MonitoringSchedule.MonitoringOutputConfig resource property to the template.
-The output configuration for monitoring jobs.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html
 
     .PARAMETER KmsKeyId
-        The AWS Key Management Service AWS KMS key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
         UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER MonitoringOutputs
-        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
         UpdateType: Mutable
         Type: List
         ItemType: MonitoringOutput
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.MonitoringOutputConfig')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -43,7 +41,8 @@ The output configuration for monitoring jobs.
                 }
             })]
         $KmsKeyId,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.SageMaker.MonitoringSchedule.MonitoringOutput"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -54,11 +53,14 @@ The output configuration for monitoring jobs.
                 }
             })]
         $MonitoringOutputs
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -68,6 +70,7 @@ The output configuration for monitoring jobs.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.MonitoringSchedule.MonitoringOutputConfig'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

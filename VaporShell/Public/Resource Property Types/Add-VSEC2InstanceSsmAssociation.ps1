@@ -1,41 +1,36 @@
 function Add-VSEC2InstanceSsmAssociation {
     <#
     .SYNOPSIS
-        Adds an AWS::EC2::Instance.SsmAssociation resource property to the template. Specifies the SSM document and parameter values in AWS Systems Manager to associate with an instance.
+        Adds an AWS::EC2::Instance.SsmAssociation resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::EC2::Instance.SsmAssociation resource property to the template.
-Specifies the SSM document and parameter values in AWS Systems Manager to associate with an instance.
-
-SsmAssociations is a property of the AWS::EC2::Instance: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html resource.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html
 
     .PARAMETER AssociationParameters
-        The input parameter values to use with the associated SSM document.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html#cfn-ec2-instance-ssmassociations-associationparameters
-        DuplicatesAllowed: True
-        ItemType: AssociationParameter
-        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html#cfn-ec2-instance-ssmassociation-associationparameters
         UpdateType: Mutable
+        Type: List
+        ItemType: AssociationParameter
+        DuplicatesAllowed: True
 
     .PARAMETER DocumentName
-        The name of an SSM document to associate with the instance.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html#cfn-ec2-instance-ssmassociations-documentname
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html#cfn-ec2-instance-ssmassociation-documentname
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.EC2.Instance.SsmAssociation')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.EC2.Instance.AssociationParameter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,7 +41,8 @@ SsmAssociations is a property of the AWS::EC2::Instance: https://docs.aws.amazon
                 }
             })]
         $AssociationParameters,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,11 +53,14 @@ SsmAssociations is a property of the AWS::EC2::Instance: https://docs.aws.amazon
                 }
             })]
         $DocumentName
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +70,7 @@ SsmAssociations is a property of the AWS::EC2::Instance: https://docs.aws.amazon
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.EC2.Instance.SsmAssociation'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

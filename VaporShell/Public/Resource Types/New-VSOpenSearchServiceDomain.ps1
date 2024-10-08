@@ -1,14 +1,10 @@
 function New-VSOpenSearchServiceDomain {
     <#
     .SYNOPSIS
-        Adds an AWS::OpenSearchService::Domain resource to the template. The AWS::OpenSearchService::Domain resource creates an Amazon OpenSearch Service (successor to Amazon Elasticsearch Service domain.
+        Adds an AWS::OpenSearchService::Domain resource to the template.
 
     .DESCRIPTION
-        Adds an AWS::OpenSearchService::Domain resource to the template. The AWS::OpenSearchService::Domain resource creates an Amazon OpenSearch Service (successor to Amazon Elasticsearch Service domain.
-
-**Important**
-
-The AWS::OpenSearchService::Domain resource replaces the legacy AWS::Elasticsearch::Domain: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html resource. While the Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and legacy Elasticsearch engines. For instructions to upgrade domains defined within CloudFormation from Elasticsearch to OpenSearch, see Remarks: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--remarks.
+        Adds an AWS::OpenSearchService::Domain resource to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html
@@ -16,117 +12,104 @@ The AWS::OpenSearchService::Domain resource replaces the legacy AWS::Elasticsear
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
-    .PARAMETER ClusterConfig
-        ClusterConfig is a property of the AWS::OpenSearchService::Domain resource that configures an Amazon OpenSearch Service cluster.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-clusterconfig
+    .PARAMETER SkipShardMigrationWait
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-skipshardmigrationwait
         UpdateType: Mutable
-        Type: ClusterConfig
-
-    .PARAMETER DomainName
-        A name for the OpenSearch Service domain. For valid values, see the DomainName: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-domainname data type in the *Amazon OpenSearch Service Developer Guide*. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see Name Type: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-Required when creating a new domain.
-If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-domainname
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER AccessPolicies
-        An AWS Identity and Access Management IAM policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see Configuring access policies: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating in the *Amazon OpenSearch Service Developer Guide*.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-accesspolicies
-        UpdateType: Mutable
-        PrimitiveType: Json
+        PrimitiveType: Boolean
 
     .PARAMETER EngineVersion
-        The version of OpenSearch to use. The value must be in the format OpenSearch_X.Y or Elasticsearch_X.Y. If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see Supported versions of OpenSearch and Elasticsearch: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version in the *Amazon OpenSearch Service Developer Guide*.
-If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain update policy to true, you can update EngineVersion without interruption. When EnableVersionUpgrade is set to false, or is not specified, updating EngineVersion results in replacement: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-engineversion
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER AdvancedOptions
-        Additional options to specify for the OpenSearch Service domain. For more information, see AdvancedOptions: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-advancedoptions in the OpenSearch Service configuration API reference.
-
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-advancedoptions
+    .PARAMETER SoftwareUpdateOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-softwareupdateoptions
         UpdateType: Mutable
-        Type: Map
-        PrimitiveItemType: String
+        Type: SoftwareUpdateOptions
+
+    .PARAMETER DomainName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-domainname
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER LogPublishingOptions
-        An object with one or more of the following keys: SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, INDEX_SLOW_LOGS, AUDIT_LOGS, depending on the types of logs you want to publish. Each key needs a valid LogPublishingOption value. For the full syntax, see the examples: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-logpublishingoptions
         UpdateType: Mutable
         Type: Map
         ItemType: LogPublishingOption
 
     .PARAMETER SnapshotOptions
-        **DEPRECATED**. The automated snapshot configuration for the OpenSearch Service domain indices.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-snapshotoptions
         UpdateType: Mutable
         Type: SnapshotOptions
 
     .PARAMETER VPCOptions
-        The virtual private cloud VPC configuration for the OpenSearch Service domain. For more information, see Launching your Amazon OpenSearch Service domains within a VPC: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html in the *Amazon OpenSearch Service Developer Guide*.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-vpcoptions
         UpdateType: Mutable
         Type: VPCOptions
 
     .PARAMETER NodeToNodeEncryptionOptions
-        Specifies whether node-to-node encryption is enabled. See Node-to-node encryption for Amazon OpenSearch Service: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-nodetonodeencryptionoptions
         UpdateType: Mutable
         Type: NodeToNodeEncryptionOptions
 
-    .PARAMETER DomainEndpointOptions
-        Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
+    .PARAMETER AccessPolicies
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-accesspolicies
+        UpdateType: Mutable
+        PrimitiveType: Json
 
+    .PARAMETER DomainEndpointOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-domainendpointoptions
         UpdateType: Mutable
         Type: DomainEndpointOptions
 
     .PARAMETER CognitoOptions
-        Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-cognitooptions
         UpdateType: Mutable
         Type: CognitoOptions
 
-    .PARAMETER AdvancedSecurityOptions
-        Specifies options for fine-grained access control.
+    .PARAMETER AdvancedOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-advancedoptions
+        UpdateType: Mutable
+        Type: Map
+        PrimitiveItemType: String
 
+    .PARAMETER AdvancedSecurityOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-advancedsecurityoptions
         UpdateType: Mutable
         Type: AdvancedSecurityOptionsInput
 
-    .PARAMETER EBSOptions
-        The configurations of Amazon Elastic Block Store Amazon EBS volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see EBS volume size limits: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource in the *Amazon OpenSearch Service Developer Guide*.
+    .PARAMETER IPAddressType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-ipaddresstype
+        UpdateType: Mutable
+        PrimitiveType: String
 
+    .PARAMETER EBSOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-ebsoptions
         UpdateType: Mutable
         Type: EBSOptions
 
     .PARAMETER EncryptionAtRestOptions
-        Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See Encryption of data at rest for Amazon OpenSearch Service: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-encryptionatrestoptions
         UpdateType: Mutable
         Type: EncryptionAtRestOptions
 
-    .PARAMETER Tags
-        An arbitrary set of tags key–value pairs to associate with the OpenSearch Service domain.
+    .PARAMETER OffPeakWindowOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-offpeakwindowoptions
+        UpdateType: Mutable
+        Type: OffPeakWindowOptions
 
+    .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER ClusterConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-clusterconfig
+        UpdateType: Mutable
+        Type: ClusterConfig
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -158,28 +141,29 @@ If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormati
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
 
-
     .PARAMETER UpdatePolicy
-        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
+        Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.
+
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript( {
                 if ($_ -match "^[a-zA-Z0-9]*$") {
                     $true
@@ -190,11 +174,10 @@ If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormati
             })]
         [System.String]
         $LogicalId,
-        [parameter(Mandatory = $false)]
-        $ClusterConfig,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -202,19 +185,9 @@ If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormati
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DomainName,
-        [parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $AccessPolicies,
-        [parameter(Mandatory = $false)]
+        $SkipShardMigrationWait,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -225,10 +198,23 @@ If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormati
                 }
             })]
         $EngineVersion,
-        [parameter(Mandatory = $false)]
-        [System.Collections.Hashtable]
-        $AdvancedOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $SoftwareUpdateOptions,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DomainName,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.OpenSearchService.Domain.LogPublishingOption"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -239,26 +225,70 @@ If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormati
                 }
             })]
         $LogPublishingOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $SnapshotOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $VPCOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $NodeToNodeEncryptionOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AccessPolicies,
+
+        [Parameter(Mandatory = $false)]
         $DomainEndpointOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $CognitoOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [System.Collections.Hashtable]
+        $AdvancedOptions,
+
+        [Parameter(Mandatory = $false)]
         $AdvancedSecurityOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IPAddressType,
+
+        [Parameter(Mandatory = $false)]
         $EBSOptions,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $EncryptionAtRestOptions,
+
+        [Parameter(Mandatory = $false)]
+        $OffPeakWindowOptions,
+
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $Tags,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
+        $ClusterConfig,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -269,27 +299,28 @@ If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormati
                 }
             })]
         $CreationPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
-        [parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
         $Metadata,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -300,9 +331,15 @@ If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormati
                 }
             })]
         $UpdatePolicy,
-        [parameter(Mandatory = $false)]
-        $Condition
+
+        [Parameter(Mandatory = $false)]
+        $Condition,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn
     )
+
     Begin {
         $ResourceParams = @{
             LogicalId = $LogicalId
@@ -310,6 +347,7 @@ If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormati
         }
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -364,6 +402,7 @@ If you set the EnableVersionUpgrade: https://docs.aws.amazon.com/AWSCloudFormati
             }
         }
     }
+
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.OpenSearchService.Domain'

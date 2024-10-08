@@ -1,18 +1,15 @@
 function Add-VSAppFlowConnectorProfileSingularConnectorProfileCredentials {
     <#
     .SYNOPSIS
-        Adds an AWS::AppFlow::ConnectorProfile.SingularConnectorProfileCredentials resource property to the template. The SingularConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Singular.
+        Adds an AWS::AppFlow::ConnectorProfile.SingularConnectorProfileCredentials resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::AppFlow::ConnectorProfile.SingularConnectorProfileCredentials resource property to the template.
-The SingularConnectorProfileCredentials property type specifies the connector-specific profile credentials required when using Singular.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html
 
     .PARAMETER ApiKey
-        A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey
         UpdateType: Mutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The SingularConnectorProfileCredentials property type specifies the connector-sp
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.SingularConnectorProfileCredentials')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The SingularConnectorProfileCredentials property type specifies the connector-sp
                 }
             })]
         $ApiKey
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The SingularConnectorProfileCredentials property type specifies the connector-sp
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.AppFlow.ConnectorProfile.SingularConnectorProfileCredentials'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

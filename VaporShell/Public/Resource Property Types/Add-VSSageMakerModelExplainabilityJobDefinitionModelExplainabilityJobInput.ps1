@@ -1,18 +1,20 @@
 function Add-VSSageMakerModelExplainabilityJobDefinitionModelExplainabilityJobInput {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityJobInput resource property to the template. Inputs for the model explainability job.
+        Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityJobInput resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityJobInput resource property to the template.
-Inputs for the model explainability job.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
 
-    .PARAMETER EndpointInput
-        Not currently supported by AWS CloudFormation.
+    .PARAMETER BatchTransformInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-batchtransforminput
+        UpdateType: Immutable
+        Type: BatchTransformInput
 
+    .PARAMETER EndpointInput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
         UpdateType: Immutable
         Type: EndpointInput
@@ -20,17 +22,25 @@ Inputs for the model explainability job.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.ModelExplainabilityJobInput')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $BatchTransformInput,
+
+        [Parameter(Mandatory = $false)]
         $EndpointInput
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -40,6 +50,7 @@ Inputs for the model explainability job.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.ModelExplainabilityJobInput'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

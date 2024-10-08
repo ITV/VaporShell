@@ -1,22 +1,15 @@
 function Add-VSElasticsearchDomainNodeToNodeEncryptionOptions {
     <#
     .SYNOPSIS
-        Adds an AWS::Elasticsearch::Domain.NodeToNodeEncryptionOptions resource property to the template. Specifies whether node-to-node encryption is enabled.
+        Adds an AWS::Elasticsearch::Domain.NodeToNodeEncryptionOptions resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Elasticsearch::Domain.NodeToNodeEncryptionOptions resource property to the template.
-Specifies whether node-to-node encryption is enabled.
-
-**Important**
-
-The AWS::Elasticsearch::Domain resource is being replaced by the AWS::OpenSearchService::Domain: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see New resource types: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource in the *Amazon OpenSearch Service Developer Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html
 
     .PARAMETER Enabled
-        Specifies whether node-to-node encryption is enabled, as a Boolean.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html#cfn-elasticsearch-domain-nodetonodeencryptionoptions-enabled
         PrimitiveType: Boolean
         UpdateType: Conditional
@@ -24,11 +17,13 @@ The AWS::Elasticsearch::Domain resource is being replaced by the AWS::OpenSearch
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.NodeToNodeEncryptionOptions')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -39,11 +34,14 @@ The AWS::Elasticsearch::Domain resource is being replaced by the AWS::OpenSearch
                 }
             })]
         $Enabled
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -53,6 +51,7 @@ The AWS::Elasticsearch::Domain resource is being replaced by the AWS::OpenSearch
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Elasticsearch.Domain.NodeToNodeEncryptionOptions'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

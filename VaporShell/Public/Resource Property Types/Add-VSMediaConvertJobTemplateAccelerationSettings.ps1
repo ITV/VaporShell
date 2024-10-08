@@ -1,18 +1,15 @@
 function Add-VSMediaConvertJobTemplateAccelerationSettings {
     <#
     .SYNOPSIS
-        Adds an AWS::MediaConvert::JobTemplate.AccelerationSettings resource property to the template. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, For more information, see Job Limitations for Accelerated Transcoding in AWS Elemental MediaConvert: https://docs.aws.amazon.com/mediaconvert/latest/ug/job-requirements.html in the *AWS Elemental MediaConvert User Guide*.
+        Adds an AWS::MediaConvert::JobTemplate.AccelerationSettings resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::MediaConvert::JobTemplate.AccelerationSettings resource property to the template.
-Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, For more information, see Job Limitations for Accelerated Transcoding in AWS Elemental MediaConvert: https://docs.aws.amazon.com/mediaconvert/latest/ug/job-requirements.html in the *AWS Elemental MediaConvert User Guide*.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-accelerationsettings.html
 
     .PARAMETER Mode
-        Specify the conditions when the service will run your job with accelerated transcoding.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-accelerationsettings.html#cfn-mediaconvert-jobtemplate-accelerationsettings-mode
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Accelerated transcoding can significantly speed up jobs with long, visually comp
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.MediaConvert.JobTemplate.AccelerationSettings')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Accelerated transcoding can significantly speed up jobs with long, visually comp
                 }
             })]
         $Mode
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Accelerated transcoding can significantly speed up jobs with long, visually comp
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.MediaConvert.JobTemplate.AccelerationSettings'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

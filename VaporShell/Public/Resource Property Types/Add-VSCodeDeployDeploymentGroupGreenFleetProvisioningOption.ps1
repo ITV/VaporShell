@@ -1,20 +1,15 @@
 function Add-VSCodeDeployDeploymentGroupGreenFleetProvisioningOption {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeDeploy::DeploymentGroup.GreenFleetProvisioningOption resource property to the template. Information about the instances that belong to the replacement environment in a blue/green deployment.
+        Adds an AWS::CodeDeploy::DeploymentGroup.GreenFleetProvisioningOption resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeDeploy::DeploymentGroup.GreenFleetProvisioningOption resource property to the template.
-Information about the instances that belong to the replacement environment in a blue/green deployment.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-greenfleetprovisioningoption.html
 
     .PARAMETER Action
-        The method used to add instances to a replacement environment.
-+  DISCOVER_EXISTING: Use instances that already exist or will be created manually.
-+  COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling group.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-greenfleetprovisioningoption.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-greenfleetprovisioningoption-action
         PrimitiveType: String
         UpdateType: Mutable
@@ -22,11 +17,13 @@ Information about the instances that belong to the replacement environment in a 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.GreenFleetProvisioningOption')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -37,11 +34,14 @@ Information about the instances that belong to the replacement environment in a 
                 }
             })]
         $Action
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -51,6 +51,7 @@ Information about the instances that belong to the replacement environment in a 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeDeploy.DeploymentGroup.GreenFleetProvisioningOption'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

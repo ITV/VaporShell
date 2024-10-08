@@ -1,30 +1,29 @@
 function Add-VSGuardDutyDetectorCFNS3LogsConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::GuardDuty::Detector.CFNS3LogsConfiguration resource property to the template. Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+        Adds an AWS::GuardDuty::Detector.CFNS3LogsConfiguration resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::GuardDuty::Detector.CFNS3LogsConfiguration resource property to the template.
-Describes whether S3 data event logs will be enabled as a data source when the detector is created.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html
 
     .PARAMETER Enable
-        The status of S3 data event logs as a data source.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable
-        PrimitiveType: Boolean
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.GuardDuty.Detector.CFNS3LogsConfiguration')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Describes whether S3 data event logs will be enabled as a data source when the d
                 }
             })]
         $Enable
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Describes whether S3 data event logs will be enabled as a data source when the d
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.GuardDuty.Detector.CFNS3LogsConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

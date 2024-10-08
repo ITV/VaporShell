@@ -1,25 +1,20 @@
 function Add-VSKinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.RecordFormat resource property to the template. For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
+        Adds an AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.RecordFormat resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.RecordFormat resource property to the template.
-For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html
 
     .PARAMETER MappingParameters
-        When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format such as JSON, CSV, or record fields delimited by some delimiter on the streaming source.
-
         Type: MappingParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-recordformat-mappingparameters
         UpdateType: Mutable
 
     .PARAMETER RecordFormatType
-        The type of record format.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-recordformat-recordformattype
         PrimitiveType: String
         UpdateType: Mutable
@@ -27,13 +22,16 @@ For a SQL-based Kinesis Data Analytics application, describes the record format 
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.ApplicationReferenceDataSource.RecordFormat')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         $MappingParameters,
-        [parameter(Mandatory = $true)]
+
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -44,11 +42,14 @@ For a SQL-based Kinesis Data Analytics application, describes the record format 
                 }
             })]
         $RecordFormatType
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -58,6 +59,7 @@ For a SQL-based Kinesis Data Analytics application, describes the record format 
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalyticsV2.ApplicationReferenceDataSource.RecordFormat'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

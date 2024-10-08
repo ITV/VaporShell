@@ -1,11 +1,10 @@
 function Add-VSMacieAllowListCriteria {
     <#
     .SYNOPSIS
-        Adds an AWS::Macie::AllowList.Criteria resource property to the template. 
+        Adds an AWS::Macie::AllowList.Criteria resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Macie::AllowList.Criteria resource property to the template.
-
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-criteria.html
@@ -23,11 +22,13 @@ function Add-VSMacieAllowListCriteria {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Macie.AllowList.Criteria')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -38,13 +39,17 @@ function Add-VSMacieAllowListCriteria {
                 }
             })]
         $Regex,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         $S3WordsList
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -54,6 +59,7 @@ function Add-VSMacieAllowListCriteria {
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Macie.AllowList.Criteria'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

@@ -1,18 +1,15 @@
 function Add-VSKinesisAnalyticsApplicationReferenceDataSourceJSONMappingParameters {
     <#
     .SYNOPSIS
-        Adds an AWS::KinesisAnalytics::ApplicationReferenceDataSource.JSONMappingParameters resource property to the template. Provides additional mapping information when JSON is the record format on the streaming source.
+        Adds an AWS::KinesisAnalytics::ApplicationReferenceDataSource.JSONMappingParameters resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::KinesisAnalytics::ApplicationReferenceDataSource.JSONMappingParameters resource property to the template.
-Provides additional mapping information when JSON is the record format on the streaming source.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-jsonmappingparameters.html
 
     .PARAMETER RecordRowPath
-        Path to the top-level parent that contains the records.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-jsonmappingparameters.html#cfn-kinesisanalytics-applicationreferencedatasource-jsonmappingparameters-recordrowpath
         PrimitiveType: String
         UpdateType: Mutable
@@ -20,11 +17,13 @@ Provides additional mapping information when JSON is the record format on the st
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.KinesisAnalytics.ApplicationReferenceDataSource.JSONMappingParameters')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Provides additional mapping information when JSON is the record format on the st
                 }
             })]
         $RecordRowPath
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Provides additional mapping information when JSON is the record format on the st
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.KinesisAnalytics.ApplicationReferenceDataSource.JSONMappingParameters'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

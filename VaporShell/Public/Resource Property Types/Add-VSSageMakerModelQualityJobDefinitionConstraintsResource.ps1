@@ -1,18 +1,15 @@
 function Add-VSSageMakerModelQualityJobDefinitionConstraintsResource {
     <#
     .SYNOPSIS
-        Adds an AWS::SageMaker::ModelQualityJobDefinition.ConstraintsResource resource property to the template. The constraints resource for a monitoring job.
+        Adds an AWS::SageMaker::ModelQualityJobDefinition.ConstraintsResource resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::SageMaker::ModelQualityJobDefinition.ConstraintsResource resource property to the template.
-The constraints resource for a monitoring job.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html
 
     .PARAMETER S3Uri
-        The Amazon S3 URI for the constraints resource.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html#cfn-sagemaker-modelqualityjobdefinition-constraintsresource-s3uri
         UpdateType: Immutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ The constraints resource for a monitoring job.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.ConstraintsResource')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ The constraints resource for a monitoring job.
                 }
             })]
         $S3Uri
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ The constraints resource for a monitoring job.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.ConstraintsResource'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

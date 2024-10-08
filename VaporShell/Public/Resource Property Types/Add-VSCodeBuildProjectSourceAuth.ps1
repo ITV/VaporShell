@@ -1,29 +1,20 @@
 function Add-VSCodeBuildProjectSourceAuth {
     <#
     .SYNOPSIS
-        Adds an AWS::CodeBuild::Project.SourceAuth resource property to the template. SourceAuth is a property of the AWS CodeBuild Project Source : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html property type that specifies authorization settings for AWS CodeBuild to access the source code to be built.
+        Adds an AWS::CodeBuild::Project.SourceAuth resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::CodeBuild::Project.SourceAuth resource property to the template.
-SourceAuth is a property of the AWS CodeBuild Project Source : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html property type that specifies authorization settings for AWS CodeBuild to access the source code to be built.
-
-SourceAuth is for use by the CodeBuild console only. Do not get or set it directly.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html
 
     .PARAMETER Type
-        The authorization type to use. The only valid value is OAUTH, which represents the OAuth authorization type.
-This data type is used by the AWS CodeBuild console only.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-type
         PrimitiveType: String
         UpdateType: Mutable
 
     .PARAMETER Resource
-        The resource value that applies to the specified authorization type.
-This data type is used by the AWS CodeBuild console only.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-resource
         PrimitiveType: String
         UpdateType: Mutable
@@ -31,11 +22,13 @@ This data type is used by the AWS CodeBuild console only.
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.CodeBuild.Project.SourceAuth')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -46,7 +39,8 @@ This data type is used by the AWS CodeBuild console only.
                 }
             })]
         $Type,
-        [parameter(Mandatory = $false)]
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -57,11 +51,14 @@ This data type is used by the AWS CodeBuild console only.
                 }
             })]
         $Resource
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -71,6 +68,7 @@ This data type is used by the AWS CodeBuild console only.
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CodeBuild.Project.SourceAuth'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"

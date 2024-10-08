@@ -1,18 +1,15 @@
 function Add-VSPanoramaApplicationInstanceManifestOverridesPayload {
     <#
     .SYNOPSIS
-        Adds an AWS::Panorama::ApplicationInstance.ManifestOverridesPayload resource property to the template. Parameter overrides for an application instance. This is a JSON document that has a single key (PayloadData where the value is an escaped string representation of the overrides document.
+        Adds an AWS::Panorama::ApplicationInstance.ManifestOverridesPayload resource property to the template.
 
     .DESCRIPTION
         Adds an AWS::Panorama::ApplicationInstance.ManifestOverridesPayload resource property to the template.
-Parameter overrides for an application instance. This is a JSON document that has a single key (PayloadData where the value is an escaped string representation of the overrides document.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html
 
     .PARAMETER PayloadData
-        The overrides document.
-
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html#cfn-panorama-applicationinstance-manifestoverridespayload-payloaddata
         UpdateType: Immutable
         PrimitiveType: String
@@ -20,11 +17,13 @@ Parameter overrides for an application instance. This is a JSON document that ha
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('Vaporshell.Resource.Panorama.ApplicationInstance.ManifestOverridesPayload')]
     [cmdletbinding()]
+
     Param
     (
-        [parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -35,11 +34,14 @@ Parameter overrides for an application instance. This is a JSON document that ha
                 }
             })]
         $PayloadData
+
     )
+
     Begin {
         $obj = [PSCustomObject]@{}
         $commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
@@ -49,6 +51,7 @@ Parameter overrides for an application instance. This is a JSON document that ha
             }
         }
     }
+
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Panorama.ApplicationInstance.ManifestOverridesPayload'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
