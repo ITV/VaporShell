@@ -388,9 +388,6 @@ function $FunctionName {
         [System.String]
         `$UpdateReplacePolicy,
         [parameter(Mandatory = `$false)]
-        [System.String[]]
-        `$DependsOn,
-        [parameter(Mandatory = `$false)]
         [ValidateScript( {
                 `$allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -424,10 +421,15 @@ function $FunctionName {
         if ($Name -notin $resourcesToExcludeCondition) {
             $scriptContents += @"
         [parameter(Mandatory = `$false)]
-        `$Condition
+        `$Condition,
 "@
         }
+
+        # DependsOn moved to the end - it is not conditional which simplifies handling "no comma after the last property definition"
         $scriptContents += @"
+        [parameter(Mandatory = `$false)]
+        [System.String[]]
+        `$DependsOn
     )
     Begin {
         `$ResourceParams = @{
