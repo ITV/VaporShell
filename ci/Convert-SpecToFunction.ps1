@@ -1,10 +1,10 @@
 function Convert-SpecToFunction {
     [cmdletbinding()]
     Param (
-        [parameter(Mandatory = $true,Position = 0)]
+        [Parameter(Mandatory = $true,Position = 0)]
         [Object]
         $Resource,
-        [parameter(Mandatory = $true,Position = 1)]
+        [Parameter(Mandatory = $true,Position = 1)]
         [ValidateSet("Resource","Property")]
         [String]
         $ResourceType
@@ -13,7 +13,7 @@ function Convert-SpecToFunction {
     $folder = "$($ModPath)\Public"
     $Name = $Resource.Name
     $Link = $Resource.Value.Documentation
-    # this used AWS documentation in Github which has been discontinued, just generates lots of warnings now
+    # this used AWS documentation in Github which has been discontinued, just generates lots of warnings now. References to $HelpDoc in the rest of this file have been removed.
     # $HelpDoc = New-CFNHelpDoc @PSBoundParameters
     $Properties = $Resource.Value.Properties.PSObject.Properties
     $ShortName = $Name.Replace("AWS::","")
@@ -23,25 +23,21 @@ function Convert-SpecToFunction {
         Resource {
             $Dir = "$folder\Resource Types"
             $FunctionName = "New-VS" + ($ShortName -replace "\..*").Replace("::","")
-            $Synopsis = "Adds an $Name resource to the template. $($HelpDoc.Synopsis)"
-            $Description = "Adds an $Name resource to the template. $($HelpDoc.Description)"
+            $Synopsis = "Adds an $Name resource to the template."
+            $Description = "Adds an $Name resource to the template."
         }
         Property {
             $Dir = "$folder\Resource Property Types"
             $FunctionName = "Add-VS" + $ShortName.Replace("::","").Replace(".","")
-            $Synopsis = "Adds an $Name resource property to the template. $($HelpDoc.Synopsis)"
-            $Description = "Adds an $Name resource property to the template.`n$($HelpDoc.Description)"
+            $Synopsis = "Adds an $Name resource property to the template."
+            $Description = "Adds an $Name resource property to the template."
         }
     }
     $PS1Path = "$Dir\$FunctionName.ps1"
 
-    #
-    # ITV EP additions
-    #
-
-    # CFN spec has added properties on some resources which have the same names as some of the common properties which can be set on many other resources, e.g. Condition and UpdatePolicy
-    # where these exist as resource-specific properties, they must not be added as default properties
-    # setting up the exclusions
+    # CFN spec has added properties on some resources which have the same names as some of the common properties which can be set on many other resources, e.g. Condition and UpdatePolicy.
+    # Where these exist as resource-specific properties, they must not be added as the common properties.
+    # Setting up the exclusions.
 
     $resourcesToExcludeCondition = @(
         'AWS::Events::EventBusPolicy'
@@ -78,9 +74,10 @@ function $FunctionName {
         $scriptContents += @"
     .PARAMETER $($Prop.Name)
 "@
-        if ($parameterDescription = $HelpDoc.Parameters | Where-Object {$_.Name -eq $Prop.Name} | Select-Object -ExpandProperty Description) {
-            $scriptContents += "        $parameterDescription`n"
-        }
+        # ITV: seems not required any more but keeping it just commented out for now
+        # if ($parameterDescription = $HelpDoc.Parameters | Where-Object {$_.Name -eq $Prop.Name} | Select-Object -ExpandProperty Description) {
+        #     $scriptContents += "        $parameterDescription`n"
+        # }
         $pList = $Prop.Value.PSObject.Properties | Where-Object {$_.Name -ne 'Required'}
         foreach ($p in $pList) {
             $scriptContents += "        $($p.Name): $($p.Value)"
@@ -129,21 +126,18 @@ function $FunctionName {
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
 
-
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
-        You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
+        You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.`n
 "@
 
         if ($Name -notin $resourcesToExcludeUpdatePolicy) {
             $scriptContents += @"
-
-
     .PARAMETER UpdatePolicy
         Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
 
-        You must use the "Add-UpdatePolicy" function here.
+        You must use the "Add-UpdatePolicy" function here.`n
 "@
         }
 
@@ -158,6 +152,7 @@ function $FunctionName {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [OutputType('$TypeName')]
     [cmdletbinding()]
 "@
@@ -170,12 +165,12 @@ function $FunctionName {
         }
     }
     $scriptContents += @"
-    Param
+    `nParam
     (
 "@
     if ($ResourceType -ne "Property") {
         $scriptContents += @"
-        [parameter(Mandatory = `$true,Position = 0)]
+        [Parameter(Mandatory = `$true, Position = 0)]
         [ValidateScript( {
                 if (`$_ -match "^[a-zA-Z0-9]*$") {
                     `$true
@@ -185,7 +180,7 @@ function $FunctionName {
                 }
             })]
         [System.String]
-        `$LogicalId,
+        `$LogicalId,`n
 "@
     }
     $PCount = 0
@@ -212,14 +207,14 @@ function $FunctionName {
             if ($Prop.Value.ItemType -eq "Tag") {
                 $scriptContents += @"
         [VaporShell.Core.TransformTag()]
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         `$$ParamName
 "@
             }
             else {
                 $ValTypeName = "$($BaseTypeName).$($Prop.Value.ItemType)"
                 $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [ValidateScript( {
                 `$allowedTypes = "$ValTypeName"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -235,7 +230,7 @@ function $FunctionName {
         }
         elseif ($Prop.Name -eq "UserData") {
             $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [ValidateScript( {
                 `$allowedTypes = "Vaporshell.Function.Base64","Vaporshell.Resource.UserData"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -250,14 +245,14 @@ function $FunctionName {
         }
         elseif ($Prop.Value.Type -eq "Map") {
             $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [System.Collections.Hashtable]
         `$$ParamName
 "@
         }
         elseif ($Prop.Value.PrimitiveType -eq "Integer" -or $Prop.Value.PrimitiveType -eq "Number") {
             $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [ValidateScript( {
                 `$allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -272,7 +267,7 @@ function $FunctionName {
         }
         elseif ($Prop.Value.PrimitiveType -eq "Double") {
             $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [ValidateScript( {
                 `$allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -287,7 +282,7 @@ function $FunctionName {
         }
         elseif ($Prop.Value.PrimitiveType -eq "Boolean") {
             $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [ValidateScript( {
                 `$allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -302,7 +297,7 @@ function $FunctionName {
         }
         elseif ($Prop.Value.PrimitiveType -eq "Json") {
             $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [ValidateScript( {
                 `$allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -318,14 +313,14 @@ function $FunctionName {
         elseif ($Prop.Value.PrimitiveType -eq "String") {
             if ($ParamName -eq "LoggingLevel") {
                 $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [ValidateSet("OFF","ERROR","INFO")]
         `$$ParamName
 "@
             }
             elseif ($FunctionName -eq 'Add-VSLambdaFunctionCode' -and $ParamName -eq 'ZipFile') {
                 $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [ValidateScript( {
                 `$allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -336,14 +331,14 @@ function $FunctionName {
                 }
             })]
         `$$ParamName,
-        [parameter(Mandatory = `$false)]
+        [Parameter(Mandatory = `$false)]
         [ValidateScript({Test-Path `$_})]
         `$ZipFilePath
 "@
             }
             else {
                 $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         [ValidateScript( {
                 `$allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -359,15 +354,18 @@ function $FunctionName {
         }
         else {
             $scriptContents += @"
-        [parameter(Mandatory = $Mandatory)]
+        [Parameter(Mandatory = $Mandatory)]
         `$$ParamName
 "@
         }
+
+        #XXX # ensure definitions are separated by blank lines
+        # $scriptContents += "`n"
     }
     if ($ResourceType -ne "Property") {
         if ($Name -notin "AWS::AutoScaling::AutoScalingGroup", "AWS::EC2::Instance", "AWS::CloudFormation::WaitCondition") {
             $scriptContents += @"
-        [parameter(Mandatory = `$false)]
+        [Parameter(Mandatory = `$false)]
         [ValidateScript( {
                 `$allowedTypes = "Vaporshell.Resource.CreationPolicy"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -377,17 +375,19 @@ function $FunctionName {
                     `$PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: `$(`$allowedTypes -join ", "). The current types of the value are: `$(`$_.PSTypeNames -join ", ")."))
                 }
             })]
-        `$CreationPolicy,
+        `$CreationPolicy,`n
 "@
         }
         $scriptContents += @"
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         `$DeletionPolicy,
+
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         `$UpdateReplacePolicy,
-        [parameter(Mandatory = `$false)]
+
+        [Parameter(Mandatory = `$false)]
         [ValidateScript( {
                 `$allowedTypes = "System.Management.Automation.PSCustomObject"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -397,13 +397,13 @@ function $FunctionName {
                     `$PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: `$(`$allowedTypes -join ", "). The current types of the value are: `$(`$_.PSTypeNames -join ", ")."))
                 }
             })]
-        `$Metadata,
+        `$Metadata,`n
 "@
 
         # add UpdatePolicy where applicable
         if ($Name -notin $resourcesToExcludeUpdatePolicy) {
             $scriptContents += @"
-        [parameter(Mandatory = `$false)]
+        [Parameter(Mandatory = `$false)]
         [ValidateScript( {
                 `$allowedTypes = "Vaporshell.Resource.UpdatePolicy"
                 if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
@@ -413,24 +413,25 @@ function $FunctionName {
                     `$PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: `$(`$allowedTypes -join ", "). The current types of the value are: `$(`$_.PSTypeNames -join ", ")."))
                 }
             })]
-        `$UpdatePolicy,
+        `$UpdatePolicy,`n
 "@
         }
 
         # add Condition where applicable
         if ($Name -notin $resourcesToExcludeCondition) {
             $scriptContents += @"
-        [parameter(Mandatory = `$false)]
-        `$Condition,
+        [Parameter(Mandatory = `$false)]
+        `$Condition,`n
 "@
         }
 
         # DependsOn moved to the end - it is not conditional which simplifies handling "no comma after the last property definition"
         $scriptContents += @"
-        [parameter(Mandatory = `$false)]
+        [Parameter(Mandatory = `$false)]
         [System.String[]]
         `$DependsOn
     )
+
     Begin {
         `$ResourceParams = @{
             LogicalId = `$LogicalId
@@ -438,6 +439,7 @@ function $FunctionName {
         }
         `$commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach (`$key in `$PSBoundParameters.Keys | Where-Object {`$commonParams -notcontains `$_}) {
             switch (`$key) {
@@ -511,6 +513,7 @@ function $FunctionName {
             }
         }
     }
+
     End {
         `$obj = New-VaporResource @ResourceParams
         `$obj | Add-ObjectDetail -TypeName '$TypeName'
@@ -522,10 +525,12 @@ function $FunctionName {
     else {
         $scriptContents += @"
     )
+
     Begin {
         `$obj = [PSCustomObject]@{}
         `$commonParams = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
     }
+
     Process {
         foreach (`$key in `$PSBoundParameters.Keys | Where-Object {`$commonParams -notcontains `$_}) {
             switch (`$key) {
@@ -562,6 +567,7 @@ function $FunctionName {
             }
         }
     }
+
     End {
         `$obj | Add-ObjectDetail -TypeName '$TypeName'
         Write-Verbose "Resulting JSON from `$(`$MyInvocation.MyCommand): ``n``n`$(`$obj | ConvertTo-Json -Depth 5)``n"
