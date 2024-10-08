@@ -33,6 +33,25 @@ function Convert-SpecToFunction {
         }
     }
     $PS1Path = "$Dir\$FunctionName.ps1"
+
+    #
+    # ITV EP additions
+    #
+
+    # CFN spec has added properties on some resources which have the same names as some of the common properties which can be set on many other resources, e.g. Condition and UpdatePolicy
+    # where these exist as resource-specific properties, they must not be added as default properties
+    # setting up the exclusions
+
+    $resourcesToExcludeCondition = @(
+        'AWS::Events::EventBusPolicy'
+        'AWS::EntityResolution::PolicyStatement'
+    )
+
+    $resourcesToExcludeUpdatePolicy = @(
+        'AWS::Batch::ComputeEnvironment'
+    )
+
+
     $scriptContents = @()
     $scriptContents += @"
 function $FunctionName {
@@ -114,6 +133,10 @@ function $FunctionName {
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.
+"@
+
+        if ($Name -notin $resourcesToExcludeUpdatePolicy) {
+            $scriptContents += @"
 
 
     .PARAMETER UpdatePolicy
@@ -121,8 +144,9 @@ function $FunctionName {
 
         You must use the "Add-UpdatePolicy" function here.
 "@
+        }
 
-        if ($Name -ne 'AWS::Events::EventBusPolicy') {
+        if ($Name -notin $resourcesToExcludeCondition) {
             $scriptContents += @"
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.`n
@@ -375,10 +399,12 @@ function $FunctionName {
                     `$PSCmdlet.ThrowTerminatingError((New-VSError -String "The UpdatePolicy parameter only accepts the following types: `$(`$allowedTypes -join ", "). The current types of the value are: `$(`$_.PSTypeNames -join ", ")."))
                 }
             })]
-"@
-        if ($Name -notin 'AWS::Events::EventBusPolicy', 'AWS::Batch::ComputeEnvironment') {
-            $scriptContents += @"
         `$Metadata,
+"@
+
+        # add UpdatePolicy where applicable
+        if ($Name -notin $resourcesToExcludeUpdatePolicy) {
+            $scriptContents += @"
         [parameter(Mandatory = `$false)]
         [ValidateScript( {
                 `$allowedTypes = "Vaporshell.Resource.UpdatePolicy"
@@ -390,13 +416,14 @@ function $FunctionName {
                 }
             })]
         `$UpdatePolicy,
-        [parameter(Mandatory = `$false)]
-        `$Condition
 "@
         }
-        else {
+
+        # add Condition where applicable
+        if ($Name -notin $resourcesToExcludeCondition) {
             $scriptContents += @"
-        `$Metadata
+        [parameter(Mandatory = `$false)]
+        `$Condition
 "@
         }
         $scriptContents += @"
