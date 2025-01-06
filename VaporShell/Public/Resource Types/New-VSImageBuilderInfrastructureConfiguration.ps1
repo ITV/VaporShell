@@ -60,6 +60,11 @@ function New-VSImageBuilderInfrastructureConfiguration {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER Placement
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-placement
+        UpdateType: Mutable
+        Type: Placement
+
     .PARAMETER InstanceMetadataOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancemetadataoptions
         UpdateType: Mutable
@@ -228,6 +233,9 @@ function New-VSImageBuilderInfrastructureConfiguration {
                 }
             })]
         $Name,
+
+        [Parameter(Mandatory = $false)]
+        $Placement,
 
         [Parameter(Mandatory = $false)]
         $InstanceMetadataOptions,

@@ -26,6 +26,13 @@ function Add-VSQuickSightAnalysisAnalysisDefinition {
         UpdateType: Mutable
         Type: QueryExecutionOptions
 
+    .PARAMETER StaticFiles
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-staticfiles
+        UpdateType: Mutable
+        Type: List
+        ItemType: StaticFile
+        DuplicatesAllowed: True
+
     .PARAMETER CalculatedFields
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-calculatedfields
         UpdateType: Mutable
@@ -92,6 +99,18 @@ function Add-VSQuickSightAnalysisAnalysisDefinition {
 
         [Parameter(Mandatory = $false)]
         $QueryExecutionOptions,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.StaticFile"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StaticFiles,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

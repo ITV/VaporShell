@@ -27,6 +27,11 @@ function New-VSLogsSubscriptionFilter {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ApplyOnTransformedLogs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-applyontransformedlogs
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER FilterName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-filtername
         UpdateType: Immutable
@@ -141,6 +146,18 @@ function New-VSLogsSubscriptionFilter {
                 }
             })]
         $LogGroupName,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ApplyOnTransformedLogs,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

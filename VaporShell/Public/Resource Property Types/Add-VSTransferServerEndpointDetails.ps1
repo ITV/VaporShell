@@ -10,32 +10,35 @@ function Add-VSTransferServerEndpointDetails {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html
 
     .PARAMETER AddressAllocationIds
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-addressallocationids
         UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .PARAMETER VpcId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-vpcid
+        UpdateType: Conditional
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER VpcEndpointId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-vpcendpointid
+        UpdateType: Conditional
         PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER SecurityGroupIds
-        PrimitiveItemType: String
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-securitygroupids
-        UpdateType: Mutable
 
     .PARAMETER SubnetIds
-        PrimitiveItemType: String
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-subnetids
-        UpdateType: Mutable
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER SecurityGroupIds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-securitygroupids
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell
@@ -74,10 +77,10 @@ function Add-VSTransferServerEndpointDetails {
         $VpcEndpointId,
 
         [Parameter(Mandatory = $false)]
-        $SecurityGroupIds,
+        $SubnetIds,
 
         [Parameter(Mandatory = $false)]
-        $SubnetIds
+        $SecurityGroupIds
 
     )
 

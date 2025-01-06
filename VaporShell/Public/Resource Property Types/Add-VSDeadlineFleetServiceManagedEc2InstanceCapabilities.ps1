@@ -23,6 +23,11 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
         ItemType: FleetAttributeCapability
         DuplicatesAllowed: True
 
+    .PARAMETER AcceleratorCapabilities
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-acceleratorcapabilities
+        UpdateType: Mutable
+        Type: AcceleratorCapabilities
+
     .PARAMETER CustomAmounts
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-customamounts
         UpdateType: Mutable
@@ -85,6 +90,9 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
                 }
             })]
         $CustomAttributes,
+
+        [Parameter(Mandatory = $false)]
+        $AcceleratorCapabilities,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

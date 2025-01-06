@@ -56,6 +56,11 @@ function New-VSDataSyncTask {
         ItemType: FilterRule
         DuplicatesAllowed: True
 
+    .PARAMETER TaskMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-taskmode
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
         UpdateType: Mutable
@@ -205,6 +210,18 @@ function New-VSDataSyncTask {
                 }
             })]
         $Excludes,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TaskMode,
 
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]

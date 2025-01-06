@@ -19,6 +19,13 @@ function Add-VSBatchComputeEnvironmentLaunchTemplateSpecification {
         UpdateType: Conditional
         PrimitiveType: String
 
+    .PARAMETER Overrides
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-overrides
+        UpdateType: Conditional
+        Type: List
+        ItemType: LaunchTemplateSpecificationOverride
+        DuplicatesAllowed: True
+
     .PARAMETER LaunchTemplateId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-launchtemplateid
         UpdateType: Conditional
@@ -56,6 +63,18 @@ function Add-VSBatchComputeEnvironmentLaunchTemplateSpecification {
                 }
             })]
         $Version,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Batch.ComputeEnvironment.LaunchTemplateSpecificationOverride"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Overrides,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

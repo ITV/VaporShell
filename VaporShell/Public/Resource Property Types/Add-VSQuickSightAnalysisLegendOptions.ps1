@@ -14,6 +14,11 @@ function Add-VSQuickSightAnalysisLegendOptions {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER ValueFontConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-valuefontconfiguration
+        UpdateType: Mutable
+        Type: FontConfiguration
+
     .PARAMETER Title
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-title
         UpdateType: Mutable
@@ -54,6 +59,9 @@ function Add-VSQuickSightAnalysisLegendOptions {
                 }
             })]
         $Position,
+
+        [Parameter(Mandatory = $false)]
+        $ValueFontConfiguration,
 
         [Parameter(Mandatory = $false)]
         $Title,

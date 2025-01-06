@@ -24,6 +24,11 @@ function Add-VSMediaPackageV2OriginEndpointFilterConfiguration {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER ClipStartTime
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-clipstarttime
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER ManifestFilter
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-manifestfilter
         UpdateType: Mutable
@@ -73,6 +78,18 @@ function Add-VSMediaPackageV2OriginEndpointFilterConfiguration {
                 }
             })]
         $TimeDelaySeconds,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ClipStartTime,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

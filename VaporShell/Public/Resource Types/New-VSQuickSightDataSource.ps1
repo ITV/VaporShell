@@ -12,6 +12,23 @@ function New-VSQuickSightDataSource {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER ErrorInfo
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
+        UpdateType: Mutable
+        Type: DataSourceErrorInfo
+
+    .PARAMETER FolderArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-folderarns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER Name
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER DataSourceParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
         UpdateType: Mutable
@@ -33,11 +50,6 @@ function New-VSQuickSightDataSource {
         Type: List
         ItemType: DataSourceParameters
         DuplicatesAllowed: True
-
-    .PARAMETER ErrorInfo
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
-        UpdateType: Mutable
-        Type: DataSourceErrorInfo
 
     .PARAMETER AwsAccountId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
@@ -72,11 +84,6 @@ function New-VSQuickSightDataSource {
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
-
-    .PARAMETER Name
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -145,6 +152,24 @@ function New-VSQuickSightDataSource {
         $LogicalId,
 
         [Parameter(Mandatory = $false)]
+        $ErrorInfo,
+
+        [Parameter(Mandatory = $false)]
+        $FolderArns,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Name,
+
+        [Parameter(Mandatory = $false)]
         $DataSourceParameters,
 
         [Parameter(Mandatory = $true)]
@@ -173,9 +198,6 @@ function New-VSQuickSightDataSource {
                 }
             })]
         $AlternateDataSourceParameters,
-
-        [Parameter(Mandatory = $false)]
-        $ErrorInfo,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -222,18 +244,6 @@ function New-VSQuickSightDataSource {
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]
         $Tags,
-
-        [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Name,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -316,6 +326,12 @@ function New-VSQuickSightDataSource {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                FolderArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name FolderArns -Value @($FolderArns)
                 }
                 AlternateDataSourceParameters {
                     if (!($ResourceParams["Properties"])) {

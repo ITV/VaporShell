@@ -14,7 +14,7 @@ function New-VSIoTWirelessDeviceProfile {
 
     .PARAMETER LoRaWAN
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: LoRaWANDeviceProfile
 
     .PARAMETER Tags
@@ -26,7 +26,7 @@ function New-VSIoTWirelessDeviceProfile {
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy

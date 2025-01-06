@@ -9,6 +9,11 @@ function Add-VSSageMakerSpaceCustomFileSystem {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html
 
+    .PARAMETER FSxLustreFileSystem
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html#cfn-sagemaker-space-customfilesystem-fsxlustrefilesystem
+        UpdateType: Mutable
+        Type: FSxLustreFileSystem
+
     .PARAMETER EFSFileSystem
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html#cfn-sagemaker-space-customfilesystem-efsfilesystem
         UpdateType: Mutable
@@ -23,6 +28,9 @@ function Add-VSSageMakerSpaceCustomFileSystem {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $FSxLustreFileSystem,
+
         [Parameter(Mandatory = $false)]
         $EFSFileSystem
 

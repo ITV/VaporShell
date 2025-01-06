@@ -14,6 +14,11 @@ function Add-VSBedrockPromptPromptVariant {
         UpdateType: Mutable
         Type: PromptInferenceConfiguration
 
+    .PARAMETER GenAiResource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-genairesource
+        UpdateType: Mutable
+        Type: PromptGenAiResource
+
     .PARAMETER TemplateConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-templateconfiguration
         UpdateType: Mutable
@@ -47,6 +52,9 @@ function Add-VSBedrockPromptPromptVariant {
         $InferenceConfiguration,
 
         [Parameter(Mandatory = $false)]
+        $GenAiResource,
+
+        [Parameter(Mandatory = $true)]
         $TemplateConfiguration,
 
         [Parameter(Mandatory = $true)]

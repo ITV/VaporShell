@@ -14,6 +14,11 @@ function Add-VSCognitoUserPoolPolicies {
         UpdateType: Mutable
         Type: PasswordPolicy
 
+    .PARAMETER SignInPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html#cfn-cognito-userpool-policies-signinpolicy
+        UpdateType: Mutable
+        Type: SignInPolicy
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -26,7 +31,10 @@ function Add-VSCognitoUserPoolPolicies {
     Param
     (
         [Parameter(Mandatory = $false)]
-        $PasswordPolicy
+        $PasswordPolicy,
+
+        [Parameter(Mandatory = $false)]
+        $SignInPolicy
 
     )
 

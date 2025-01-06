@@ -77,6 +77,11 @@ function New-VSKinesisFirehoseDeliveryStream {
         UpdateType: Mutable
         Type: SnowflakeDestinationConfiguration
 
+    .PARAMETER DatabaseSourceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-databasesourceconfiguration
+        UpdateType: Immutable
+        Type: DatabaseSourceConfiguration
+
     .PARAMETER S3DestinationConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
         UpdateType: Mutable
@@ -205,6 +210,9 @@ function New-VSKinesisFirehoseDeliveryStream {
 
         [Parameter(Mandatory = $false)]
         $SnowflakeDestinationConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $DatabaseSourceConfiguration,
 
         [Parameter(Mandatory = $false)]
         $S3DestinationConfiguration,

@@ -27,6 +27,13 @@ function New-VSIoTFleetWiseCampaign {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER DataPartitions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-datapartitions
+        UpdateType: Immutable
+        Type: List
+        ItemType: DataPartition
+        DuplicatesAllowed: False
+
     .PARAMETER Priority
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-priority
         UpdateType: Immutable
@@ -211,6 +218,18 @@ function New-VSIoTFleetWiseCampaign {
                 }
             })]
         $Description,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.IoTFleetWise.Campaign.DataPartition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DataPartitions,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -447,6 +466,12 @@ function New-VSIoTFleetWiseCampaign {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                DataPartitions {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DataPartitions -Value @($DataPartitions)
                 }
                 SignalsToCollect {
                     if (!($ResourceParams["Properties"])) {

@@ -12,6 +12,13 @@ function New-VSCustomerProfilesIntegration {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER EventTriggerNames
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-eventtriggernames
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER ObjectTypeNames
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypenames
         UpdateType: Mutable
@@ -109,6 +116,9 @@ function New-VSCustomerProfilesIntegration {
             })]
         [System.String]
         $LogicalId,
+
+        [Parameter(Mandatory = $false)]
+        $EventTriggerNames,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -246,6 +256,12 @@ function New-VSCustomerProfilesIntegration {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                EventTriggerNames {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name EventTriggerNames -Value @($EventTriggerNames)
                 }
                 ObjectTypeNames {
                     if (!($ResourceParams["Properties"])) {

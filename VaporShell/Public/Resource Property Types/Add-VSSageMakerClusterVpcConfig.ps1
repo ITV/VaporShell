@@ -9,16 +9,16 @@ function Add-VSSageMakerClusterVpcConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-vpcconfig.html
 
-    .PARAMETER Subnets
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-vpcconfig.html#cfn-sagemaker-cluster-vpcconfig-subnets
-        UpdateType: Immutable
+    .PARAMETER SecurityGroupIds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-vpcconfig.html#cfn-sagemaker-cluster-vpcconfig-securitygroupids
+        UpdateType: Conditional
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
-    .PARAMETER SecurityGroupIds
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-vpcconfig.html#cfn-sagemaker-cluster-vpcconfig-securitygroupids
-        UpdateType: Immutable
+    .PARAMETER Subnets
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-vpcconfig.html#cfn-sagemaker-cluster-vpcconfig-subnets
+        UpdateType: Conditional
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
@@ -33,10 +33,10 @@ function Add-VSSageMakerClusterVpcConfig {
     Param
     (
         [Parameter(Mandatory = $true)]
-        $Subnets,
+        $SecurityGroupIds,
 
         [Parameter(Mandatory = $true)]
-        $SecurityGroupIds
+        $Subnets
 
     )
 

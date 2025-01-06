@@ -12,6 +12,13 @@ function New-VSLogsLogGroup {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER FieldIndexPolicies
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-fieldindexpolicies
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: Json
+        DuplicatesAllowed: False
+
     .PARAMETER RetentionInDays
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
         UpdateType: Mutable
@@ -107,6 +114,9 @@ function New-VSLogsLogGroup {
             })]
         [System.String]
         $LogicalId,
+
+        [Parameter(Mandatory = $false)]
+        $FieldIndexPolicies,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -253,6 +263,12 @@ function New-VSLogsLogGroup {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                FieldIndexPolicies {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name FieldIndexPolicies -Value @($FieldIndexPolicies)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

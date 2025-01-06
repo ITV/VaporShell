@@ -22,6 +22,13 @@ function New-VSChatbotSlackChannelConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER CustomizationResourceArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-customizationresourcearns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER SnsTopicArns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
         UpdateType: Mutable
@@ -150,6 +157,9 @@ function New-VSChatbotSlackChannelConfiguration {
                 }
             })]
         $LoggingLevel,
+
+        [Parameter(Mandatory = $false)]
+        $CustomizationResourceArns,
 
         [Parameter(Mandatory = $false)]
         $SnsTopicArns,
@@ -290,6 +300,12 @@ function New-VSChatbotSlackChannelConfiguration {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                CustomizationResourceArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CustomizationResourceArns -Value @($CustomizationResourceArns)
                 }
                 SnsTopicArns {
                     if (!($ResourceParams["Properties"])) {

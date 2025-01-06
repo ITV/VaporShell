@@ -9,6 +9,11 @@ function Add-VSBedrockFlowPromptFlowNodeConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodeconfiguration.html
 
+    .PARAMETER GuardrailConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodeconfiguration.html#cfn-bedrock-flow-promptflownodeconfiguration-guardrailconfiguration
+        UpdateType: Mutable
+        Type: GuardrailConfiguration
+
     .PARAMETER SourceConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodeconfiguration.html#cfn-bedrock-flow-promptflownodeconfiguration-sourceconfiguration
         UpdateType: Mutable
@@ -23,6 +28,9 @@ function Add-VSBedrockFlowPromptFlowNodeConfiguration {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $GuardrailConfiguration,
+
         [Parameter(Mandatory = $true)]
         $SourceConfiguration
 

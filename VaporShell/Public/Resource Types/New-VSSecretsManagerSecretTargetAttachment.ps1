@@ -14,7 +14,7 @@ function New-VSSecretsManagerSecretTargetAttachment {
 
     .PARAMETER SecretId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-secretid
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER TargetType

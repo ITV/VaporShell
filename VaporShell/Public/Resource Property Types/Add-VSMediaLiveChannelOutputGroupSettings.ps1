@@ -24,6 +24,11 @@ function Add-VSMediaLiveChannelOutputGroupSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-multiplexgroupsettings
         UpdateType: Mutable
 
+    .PARAMETER SrtGroupSettings
+        Type: SrtGroupSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-srtgroupsettings
+        UpdateType: Mutable
+
     .PARAMETER ArchiveGroupSettings
         Type: ArchiveGroupSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-archivegroupsettings
@@ -71,6 +76,9 @@ function Add-VSMediaLiveChannelOutputGroupSettings {
 
         [Parameter(Mandatory = $false)]
         $MultiplexGroupSettings,
+
+        [Parameter(Mandatory = $false)]
+        $SrtGroupSettings,
 
         [Parameter(Mandatory = $false)]
         $ArchiveGroupSettings,

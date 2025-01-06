@@ -41,6 +41,11 @@ function New-VSIoTFleetWiseDecoderManifest {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER DefaultForUnmappedSignals
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-defaultforunmappedsignals
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-tags
         UpdateType: Mutable
@@ -176,6 +181,18 @@ function New-VSIoTFleetWiseDecoderManifest {
                 }
             })]
         $ModelManifestArn,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DefaultForUnmappedSignals,
 
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]

@@ -32,6 +32,11 @@ function New-VSEC2VPCCidrBlock {
         UpdateType: Immutable
         PrimitiveType: Integer
 
+    .PARAMETER Ipv6CidrBlockNetworkBorderGroup
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6cidrblocknetworkbordergroup
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER CidrBlock
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-cidrblock
         UpdateType: Immutable
@@ -168,6 +173,18 @@ function New-VSEC2VPCCidrBlock {
                 }
             })]
         $Ipv4NetmaskLength,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Ipv6CidrBlockNetworkBorderGroup,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

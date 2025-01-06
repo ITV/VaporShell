@@ -36,6 +36,11 @@ function Add-VSQuickSightTemplateWaterfallVisual {
         UpdateType: Mutable
         Type: VisualTitleLabelOptions
 
+    .PARAMETER VisualContentAltText
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallvisual.html#cfn-quicksight-template-waterfallvisual-visualcontentalttext
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER ColumnHierarchies
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallvisual.html#cfn-quicksight-template-waterfallvisual-columnhierarchies
         UpdateType: Mutable
@@ -84,6 +89,18 @@ function Add-VSQuickSightTemplateWaterfallVisual {
 
         [Parameter(Mandatory = $false)]
         $Title,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $VisualContentAltText,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

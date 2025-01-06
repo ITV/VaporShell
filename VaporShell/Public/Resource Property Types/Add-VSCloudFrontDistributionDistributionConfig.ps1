@@ -36,6 +36,11 @@ function Add-VSCloudFrontDistributionDistributionConfig {
         UpdateType: Mutable
         Type: ViewerCertificate
 
+    .PARAMETER AnycastIpListId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-anycastiplistid
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER PriceClass
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
         UpdateType: Mutable
@@ -174,6 +179,18 @@ function Add-VSCloudFrontDistributionDistributionConfig {
 
         [Parameter(Mandatory = $false)]
         $ViewerCertificate,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AnycastIpListId,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -9,24 +9,12 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html
 
-    .PARAMETER LocalStorageTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-localstoragetypes
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: True
-
     .PARAMETER InstanceGenerations
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-instancegenerations
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
-
-    .PARAMETER NetworkInterfaceCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-networkinterfacecount
-        UpdateType: Mutable
-        Type: NetworkInterfaceCount
 
     .PARAMETER MemoryGiBPerVCpu
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-memorygibpervcpu
@@ -45,22 +33,8 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
         UpdateType: Mutable
         Type: VCpuCount
 
-    .PARAMETER ExcludedInstanceTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-excludedinstancetypes
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: True
-
     .PARAMETER AcceleratorManufacturers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-acceleratormanufacturers
-        UpdateType: Mutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: True
-
-    .PARAMETER AllowedInstanceTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-allowedinstancetypes
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
@@ -78,16 +52,6 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
-    .PARAMETER AcceleratorCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-acceleratorcount
-        UpdateType: Mutable
-        Type: AcceleratorCount
-
-    .PARAMETER NetworkBandwidthGbps
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-networkbandwidthgbps
-        UpdateType: Mutable
-        Type: NetworkBandwidthGbps
-
     .PARAMETER BareMetal
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-baremetal
         UpdateType: Mutable
@@ -103,6 +67,57 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER OnDemandMaxPricePercentageOverLowestPrice
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-ondemandmaxpricepercentageoverlowestprice
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER MemoryMiB
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-memorymib
+        UpdateType: Mutable
+        Type: MemoryMiB
+
+    .PARAMETER LocalStorageTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-localstoragetypes
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER NetworkInterfaceCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-networkinterfacecount
+        UpdateType: Mutable
+        Type: NetworkInterfaceCount
+
+    .PARAMETER ExcludedInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-excludedinstancetypes
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER AllowedInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-allowedinstancetypes
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER AcceleratorCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-acceleratorcount
+        UpdateType: Mutable
+        Type: AcceleratorCount
+
+    .PARAMETER NetworkBandwidthGbps
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-networkbandwidthgbps
+        UpdateType: Mutable
+        Type: NetworkBandwidthGbps
+
+    .PARAMETER BaselinePerformanceFactors
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-baselineperformancefactors
+        UpdateType: Mutable
+        Type: BaselinePerformanceFactors
+
     .PARAMETER SpotMaxPricePercentageOverLowestPrice
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-spotmaxpricepercentageoverlowestprice
         UpdateType: Mutable
@@ -112,11 +127,6 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-baselineebsbandwidthmbps
         UpdateType: Mutable
         Type: BaselineEbsBandwidthMbps
-
-    .PARAMETER OnDemandMaxPricePercentageOverLowestPrice
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-ondemandmaxpricepercentageoverlowestprice
-        UpdateType: Mutable
-        PrimitiveType: Integer
 
     .PARAMETER AcceleratorNames
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-acceleratornames
@@ -135,11 +145,6 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER MemoryMiB
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-memorymib
-        UpdateType: Mutable
-        Type: MemoryMiB
-
     .PARAMETER TotalLocalStorageGB
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-totallocalstoragegb
         UpdateType: Mutable
@@ -155,13 +160,7 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
     Param
     (
         [Parameter(Mandatory = $false)]
-        $LocalStorageTypes,
-
-        [Parameter(Mandatory = $false)]
         $InstanceGenerations,
-
-        [Parameter(Mandatory = $false)]
-        $NetworkInterfaceCount,
 
         [Parameter(Mandatory = $false)]
         $MemoryGiBPerVCpu,
@@ -173,13 +172,7 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
         $VCpuCount,
 
         [Parameter(Mandatory = $false)]
-        $ExcludedInstanceTypes,
-
-        [Parameter(Mandatory = $false)]
         $AcceleratorManufacturers,
-
-        [Parameter(Mandatory = $false)]
-        $AllowedInstanceTypes,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -195,12 +188,6 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
 
         [Parameter(Mandatory = $false)]
         $CpuManufacturers,
-
-        [Parameter(Mandatory = $false)]
-        $AcceleratorCount,
-
-        [Parameter(Mandatory = $false)]
-        $NetworkBandwidthGbps,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -248,10 +235,31 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SpotMaxPricePercentageOverLowestPrice,
+        $OnDemandMaxPricePercentageOverLowestPrice,
 
         [Parameter(Mandatory = $false)]
-        $BaselineEbsBandwidthMbps,
+        $MemoryMiB,
+
+        [Parameter(Mandatory = $false)]
+        $LocalStorageTypes,
+
+        [Parameter(Mandatory = $false)]
+        $NetworkInterfaceCount,
+
+        [Parameter(Mandatory = $false)]
+        $ExcludedInstanceTypes,
+
+        [Parameter(Mandatory = $false)]
+        $AllowedInstanceTypes,
+
+        [Parameter(Mandatory = $false)]
+        $AcceleratorCount,
+
+        [Parameter(Mandatory = $false)]
+        $NetworkBandwidthGbps,
+
+        [Parameter(Mandatory = $false)]
+        $BaselinePerformanceFactors,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -263,7 +271,10 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OnDemandMaxPricePercentageOverLowestPrice,
+        $SpotMaxPricePercentageOverLowestPrice,
+
+        [Parameter(Mandatory = $false)]
+        $BaselineEbsBandwidthMbps,
 
         [Parameter(Mandatory = $false)]
         $AcceleratorNames,
@@ -282,9 +293,6 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
                 }
             })]
         $BurstablePerformance,
-
-        [Parameter(Mandatory = $false)]
-        $MemoryMiB,
 
         [Parameter(Mandatory = $false)]
         $TotalLocalStorageGB

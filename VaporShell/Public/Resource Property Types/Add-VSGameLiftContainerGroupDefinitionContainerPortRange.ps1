@@ -11,17 +11,17 @@ function Add-VSGameLiftContainerGroupDefinitionContainerPortRange {
 
     .PARAMETER FromPort
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html#cfn-gamelift-containergroupdefinition-containerportrange-fromport
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER ToPort
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html#cfn-gamelift-containergroupdefinition-containerportrange-toport
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Protocol
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html#cfn-gamelift-containergroupdefinition-containerportrange-protocol
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY

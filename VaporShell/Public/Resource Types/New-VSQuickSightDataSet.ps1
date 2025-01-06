@@ -36,6 +36,11 @@ function New-VSQuickSightDataSet {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER PerformanceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-performanceconfiguration
+        UpdateType: Mutable
+        Type: PerformanceConfiguration
+
     .PARAMETER RowLevelPermissionDataSet
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
         UpdateType: Mutable
@@ -219,6 +224,9 @@ function New-VSQuickSightDataSet {
 
         [Parameter(Mandatory = $false)]
         $FolderArns,
+
+        [Parameter(Mandatory = $false)]
+        $PerformanceConfiguration,
 
         [Parameter(Mandatory = $false)]
         $RowLevelPermissionDataSet,

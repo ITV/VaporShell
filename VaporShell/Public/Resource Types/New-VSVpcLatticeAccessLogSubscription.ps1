@@ -17,6 +17,11 @@ function New-VSVpcLatticeAccessLogSubscription {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ServiceNetworkLogType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-accesslogsubscription.html#cfn-vpclattice-accesslogsubscription-servicenetworklogtype
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER DestinationArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-accesslogsubscription.html#cfn-vpclattice-accesslogsubscription-destinationarn
         UpdateType: Mutable
@@ -104,6 +109,18 @@ function New-VSVpcLatticeAccessLogSubscription {
                 }
             })]
         $ResourceIdentifier,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ServiceNetworkLogType,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

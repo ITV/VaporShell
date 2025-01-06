@@ -9,6 +9,11 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html
 
+    .PARAMETER OverrideVpcConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-overridevpcconfig
+        UpdateType: Mutable
+        Type: VpcConfig
+
     .PARAMETER InstanceCount
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancecount
         UpdateType: Mutable
@@ -67,6 +72,9 @@ function Add-VSSageMakerClusterClusterInstanceGroup {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $OverrideVpcConfig,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"

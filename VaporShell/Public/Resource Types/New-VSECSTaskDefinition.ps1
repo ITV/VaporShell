@@ -63,6 +63,11 @@ function New-VSECSTaskDefinition {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER EnableFaultInjection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-enablefaultinjection
+        UpdateType: Immutable
+        PrimitiveType: Boolean
+
     .PARAMETER ExecutionRoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
         UpdateType: Immutable
@@ -271,6 +276,18 @@ function New-VSECSTaskDefinition {
                 }
             })]
         $PidMode,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableFaultInjection,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

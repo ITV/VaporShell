@@ -64,7 +64,7 @@ function Add-VSQuickSightDataSetCustomSql {
             })]
         $SqlQuery,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.InputColumn"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

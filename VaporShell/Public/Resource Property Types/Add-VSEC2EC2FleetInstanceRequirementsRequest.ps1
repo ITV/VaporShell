@@ -9,24 +9,12 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html
 
-    .PARAMETER LocalStorageTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-localstoragetypes
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: True
-
     .PARAMETER InstanceGenerations
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-instancegenerations
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
-
-    .PARAMETER NetworkInterfaceCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-networkinterfacecount
-        UpdateType: Immutable
-        Type: NetworkInterfaceCountRequest
 
     .PARAMETER MemoryGiBPerVCpu
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-memorygibpervcpu
@@ -45,22 +33,8 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
         UpdateType: Immutable
         Type: VCpuCountRangeRequest
 
-    .PARAMETER ExcludedInstanceTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-excludedinstancetypes
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: True
-
     .PARAMETER AcceleratorManufacturers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-acceleratormanufacturers
-        UpdateType: Immutable
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: True
-
-    .PARAMETER AllowedInstanceTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-allowedinstancetypes
         UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
@@ -78,16 +52,6 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
-    .PARAMETER NetworkBandwidthGbps
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-networkbandwidthgbps
-        UpdateType: Immutable
-        Type: NetworkBandwidthGbpsRequest
-
-    .PARAMETER AcceleratorCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-acceleratorcount
-        UpdateType: Immutable
-        Type: AcceleratorCountRequest
-
     .PARAMETER BareMetal
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-baremetal
         UpdateType: Immutable
@@ -103,6 +67,57 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
         UpdateType: Immutable
         PrimitiveType: Integer
 
+    .PARAMETER OnDemandMaxPricePercentageOverLowestPrice
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-ondemandmaxpricepercentageoverlowestprice
+        UpdateType: Immutable
+        PrimitiveType: Integer
+
+    .PARAMETER MemoryMiB
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-memorymib
+        UpdateType: Immutable
+        Type: MemoryMiBRequest
+
+    .PARAMETER LocalStorageTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-localstoragetypes
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER NetworkInterfaceCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-networkinterfacecount
+        UpdateType: Immutable
+        Type: NetworkInterfaceCountRequest
+
+    .PARAMETER ExcludedInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-excludedinstancetypes
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER AllowedInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-allowedinstancetypes
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER NetworkBandwidthGbps
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-networkbandwidthgbps
+        UpdateType: Immutable
+        Type: NetworkBandwidthGbpsRequest
+
+    .PARAMETER AcceleratorCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-acceleratorcount
+        UpdateType: Immutable
+        Type: AcceleratorCountRequest
+
+    .PARAMETER BaselinePerformanceFactors
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-baselineperformancefactors
+        UpdateType: Immutable
+        Type: BaselinePerformanceFactorsRequest
+
     .PARAMETER SpotMaxPricePercentageOverLowestPrice
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-spotmaxpricepercentageoverlowestprice
         UpdateType: Immutable
@@ -112,11 +127,6 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-baselineebsbandwidthmbps
         UpdateType: Immutable
         Type: BaselineEbsBandwidthMbpsRequest
-
-    .PARAMETER OnDemandMaxPricePercentageOverLowestPrice
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-ondemandmaxpricepercentageoverlowestprice
-        UpdateType: Immutable
-        PrimitiveType: Integer
 
     .PARAMETER AcceleratorNames
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-acceleratornames
@@ -135,11 +145,6 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER MemoryMiB
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-memorymib
-        UpdateType: Immutable
-        Type: MemoryMiBRequest
-
     .PARAMETER TotalLocalStorageGB
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-totallocalstoragegb
         UpdateType: Immutable
@@ -155,13 +160,7 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
     Param
     (
         [Parameter(Mandatory = $false)]
-        $LocalStorageTypes,
-
-        [Parameter(Mandatory = $false)]
         $InstanceGenerations,
-
-        [Parameter(Mandatory = $false)]
-        $NetworkInterfaceCount,
 
         [Parameter(Mandatory = $false)]
         $MemoryGiBPerVCpu,
@@ -173,13 +172,7 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
         $VCpuCount,
 
         [Parameter(Mandatory = $false)]
-        $ExcludedInstanceTypes,
-
-        [Parameter(Mandatory = $false)]
         $AcceleratorManufacturers,
-
-        [Parameter(Mandatory = $false)]
-        $AllowedInstanceTypes,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -195,12 +188,6 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
 
         [Parameter(Mandatory = $false)]
         $CpuManufacturers,
-
-        [Parameter(Mandatory = $false)]
-        $NetworkBandwidthGbps,
-
-        [Parameter(Mandatory = $false)]
-        $AcceleratorCount,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -248,10 +235,31 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SpotMaxPricePercentageOverLowestPrice,
+        $OnDemandMaxPricePercentageOverLowestPrice,
 
         [Parameter(Mandatory = $false)]
-        $BaselineEbsBandwidthMbps,
+        $MemoryMiB,
+
+        [Parameter(Mandatory = $false)]
+        $LocalStorageTypes,
+
+        [Parameter(Mandatory = $false)]
+        $NetworkInterfaceCount,
+
+        [Parameter(Mandatory = $false)]
+        $ExcludedInstanceTypes,
+
+        [Parameter(Mandatory = $false)]
+        $AllowedInstanceTypes,
+
+        [Parameter(Mandatory = $false)]
+        $NetworkBandwidthGbps,
+
+        [Parameter(Mandatory = $false)]
+        $AcceleratorCount,
+
+        [Parameter(Mandatory = $false)]
+        $BaselinePerformanceFactors,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -263,7 +271,10 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $OnDemandMaxPricePercentageOverLowestPrice,
+        $SpotMaxPricePercentageOverLowestPrice,
+
+        [Parameter(Mandatory = $false)]
+        $BaselineEbsBandwidthMbps,
 
         [Parameter(Mandatory = $false)]
         $AcceleratorNames,
@@ -282,9 +293,6 @@ function Add-VSEC2EC2FleetInstanceRequirementsRequest {
                 }
             })]
         $BurstablePerformance,
-
-        [Parameter(Mandatory = $false)]
-        $MemoryMiB,
 
         [Parameter(Mandatory = $false)]
         $TotalLocalStorageGB

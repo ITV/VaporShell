@@ -21,6 +21,13 @@ function Add-VSQuickSightDashboardDashboardVersionDefinition {
         ItemType: FilterGroup
         DuplicatesAllowed: True
 
+    .PARAMETER StaticFiles
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html#cfn-quicksight-dashboard-dashboardversiondefinition-staticfiles
+        UpdateType: Mutable
+        Type: List
+        ItemType: StaticFile
+        DuplicatesAllowed: True
+
     .PARAMETER CalculatedFields
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html#cfn-quicksight-dashboard-dashboardversiondefinition-calculatedfields
         UpdateType: Mutable
@@ -84,6 +91,18 @@ function Add-VSQuickSightDashboardDashboardVersionDefinition {
                 }
             })]
         $FilterGroups,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.StaticFile"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StaticFiles,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

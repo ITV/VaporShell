@@ -24,6 +24,11 @@ function Add-VSIoTFleetWiseDecoderManifestSignalDecodersItems {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER CustomDecodingSignal
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html#cfn-iotfleetwise-decodermanifest-signaldecodersitems-customdecodingsignal
+        UpdateType: Mutable
+        Type: CustomDecodingSignal
+
     .PARAMETER CanSignal
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html#cfn-iotfleetwise-decodermanifest-signaldecodersitems-cansignal
         UpdateType: Mutable
@@ -69,6 +74,9 @@ function Add-VSIoTFleetWiseDecoderManifestSignalDecodersItems {
                 }
             })]
         $FullyQualifiedName,
+
+        [Parameter(Mandatory = $false)]
+        $CustomDecodingSignal,
 
         [Parameter(Mandatory = $false)]
         $CanSignal,

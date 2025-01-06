@@ -32,6 +32,11 @@ function New-VSConnectQueue {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER OutboundEmailConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-outboundemailconfig
+        UpdateType: Mutable
+        Type: OutboundEmailConfig
+
     .PARAMETER QuickConnectArns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-quickconnectarns
         UpdateType: Mutable
@@ -172,6 +177,9 @@ function New-VSConnectQueue {
                 }
             })]
         $InstanceArn,
+
+        [Parameter(Mandatory = $false)]
+        $OutboundEmailConfig,
 
         [Parameter(Mandatory = $false)]
         $QuickConnectArns,

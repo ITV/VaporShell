@@ -14,6 +14,11 @@ function Add-VSWisdomKnowledgeBaseSourceConfiguration {
         UpdateType: Immutable
         Type: AppIntegrationsConfiguration
 
+    .PARAMETER ManagedSourceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html#cfn-wisdom-knowledgebase-sourceconfiguration-managedsourceconfiguration
+        UpdateType: Immutable
+        Type: ManagedSourceConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -23,8 +28,11 @@ function Add-VSWisdomKnowledgeBaseSourceConfiguration {
 
     Param
     (
-        [Parameter(Mandatory = $true)]
-        $AppIntegrations
+        [Parameter(Mandatory = $false)]
+        $AppIntegrations,
+
+        [Parameter(Mandatory = $false)]
+        $ManagedSourceConfiguration
 
     )
 

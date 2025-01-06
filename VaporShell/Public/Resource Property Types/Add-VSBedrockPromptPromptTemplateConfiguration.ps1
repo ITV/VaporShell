@@ -9,6 +9,11 @@ function Add-VSBedrockPromptPromptTemplateConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-prompttemplateconfiguration.html
 
+    .PARAMETER Chat
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-prompttemplateconfiguration.html#cfn-bedrock-prompt-prompttemplateconfiguration-chat
+        UpdateType: Mutable
+        Type: ChatPromptTemplateConfiguration
+
     .PARAMETER Text
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-prompttemplateconfiguration.html#cfn-bedrock-prompt-prompttemplateconfiguration-text
         UpdateType: Mutable
@@ -23,7 +28,10 @@ function Add-VSBedrockPromptPromptTemplateConfiguration {
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $Chat,
+
+        [Parameter(Mandatory = $false)]
         $Text
 
     )

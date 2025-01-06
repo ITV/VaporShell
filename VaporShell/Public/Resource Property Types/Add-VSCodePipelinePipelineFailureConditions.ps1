@@ -9,6 +9,11 @@ function Add-VSCodePipelinePipelineFailureConditions {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html
 
+    .PARAMETER RetryConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-retryconfiguration
+        UpdateType: Mutable
+        Type: RetryConfiguration
+
     .PARAMETER Conditions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-conditions
         UpdateType: Mutable
@@ -30,6 +35,9 @@ function Add-VSCodePipelinePipelineFailureConditions {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $RetryConfiguration,
+
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.CodePipeline.Pipeline.Condition"

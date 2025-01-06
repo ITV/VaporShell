@@ -14,15 +14,55 @@ function Add-VSQuickSightDashboardVisual {
         UpdateType: Mutable
         Type: FunnelChartVisual
 
-    .PARAMETER FilledMapVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-filledmapvisual
-        UpdateType: Mutable
-        Type: FilledMapVisual
-
     .PARAMETER BoxPlotVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-boxplotvisual
         UpdateType: Mutable
         Type: BoxPlotVisual
+
+    .PARAMETER LayerMapVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-layermapvisual
+        UpdateType: Mutable
+        Type: LayerMapVisual
+
+    .PARAMETER GeospatialMapVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-geospatialmapvisual
+        UpdateType: Mutable
+        Type: GeospatialMapVisual
+
+    .PARAMETER ScatterPlotVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-scatterplotvisual
+        UpdateType: Mutable
+        Type: ScatterPlotVisual
+
+    .PARAMETER RadarChartVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-radarchartvisual
+        UpdateType: Mutable
+        Type: RadarChartVisual
+
+    .PARAMETER ComboChartVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-combochartvisual
+        UpdateType: Mutable
+        Type: ComboChartVisual
+
+    .PARAMETER WordCloudVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-wordcloudvisual
+        UpdateType: Mutable
+        Type: WordCloudVisual
+
+    .PARAMETER SankeyDiagramVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-sankeydiagramvisual
+        UpdateType: Mutable
+        Type: SankeyDiagramVisual
+
+    .PARAMETER GaugeChartVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-gaugechartvisual
+        UpdateType: Mutable
+        Type: GaugeChartVisual
+
+    .PARAMETER FilledMapVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-filledmapvisual
+        UpdateType: Mutable
+        Type: FilledMapVisual
 
     .PARAMETER WaterfallVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-waterfallvisual
@@ -49,6 +89,11 @@ function Add-VSQuickSightDashboardVisual {
         UpdateType: Mutable
         Type: HistogramVisual
 
+    .PARAMETER PluginVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-pluginvisual
+        UpdateType: Mutable
+        Type: PluginVisual
+
     .PARAMETER TableVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-tablevisual
         UpdateType: Mutable
@@ -59,25 +104,10 @@ function Add-VSQuickSightDashboardVisual {
         UpdateType: Mutable
         Type: PivotTableVisual
 
-    .PARAMETER GeospatialMapVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-geospatialmapvisual
-        UpdateType: Mutable
-        Type: GeospatialMapVisual
-
     .PARAMETER BarChartVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-barchartvisual
         UpdateType: Mutable
         Type: BarChartVisual
-
-    .PARAMETER ScatterPlotVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-scatterplotvisual
-        UpdateType: Mutable
-        Type: ScatterPlotVisual
-
-    .PARAMETER RadarChartVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-radarchartvisual
-        UpdateType: Mutable
-        Type: RadarChartVisual
 
     .PARAMETER HeatMapVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-heatmapvisual
@@ -89,30 +119,10 @@ function Add-VSQuickSightDashboardVisual {
         UpdateType: Mutable
         Type: TreeMapVisual
 
-    .PARAMETER ComboChartVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-combochartvisual
-        UpdateType: Mutable
-        Type: ComboChartVisual
-
-    .PARAMETER WordCloudVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-wordcloudvisual
-        UpdateType: Mutable
-        Type: WordCloudVisual
-
     .PARAMETER InsightVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-insightvisual
         UpdateType: Mutable
         Type: InsightVisual
-
-    .PARAMETER SankeyDiagramVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-sankeydiagramvisual
-        UpdateType: Mutable
-        Type: SankeyDiagramVisual
-
-    .PARAMETER GaugeChartVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-gaugechartvisual
-        UpdateType: Mutable
-        Type: GaugeChartVisual
 
     .PARAMETER LineChartVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-linechartvisual
@@ -137,10 +147,34 @@ function Add-VSQuickSightDashboardVisual {
         $FunnelChartVisual,
 
         [Parameter(Mandatory = $false)]
-        $FilledMapVisual,
+        $BoxPlotVisual,
 
         [Parameter(Mandatory = $false)]
-        $BoxPlotVisual,
+        $LayerMapVisual,
+
+        [Parameter(Mandatory = $false)]
+        $GeospatialMapVisual,
+
+        [Parameter(Mandatory = $false)]
+        $ScatterPlotVisual,
+
+        [Parameter(Mandatory = $false)]
+        $RadarChartVisual,
+
+        [Parameter(Mandatory = $false)]
+        $ComboChartVisual,
+
+        [Parameter(Mandatory = $false)]
+        $WordCloudVisual,
+
+        [Parameter(Mandatory = $false)]
+        $SankeyDiagramVisual,
+
+        [Parameter(Mandatory = $false)]
+        $GaugeChartVisual,
+
+        [Parameter(Mandatory = $false)]
+        $FilledMapVisual,
 
         [Parameter(Mandatory = $false)]
         $WaterfallVisual,
@@ -158,22 +192,16 @@ function Add-VSQuickSightDashboardVisual {
         $HistogramVisual,
 
         [Parameter(Mandatory = $false)]
+        $PluginVisual,
+
+        [Parameter(Mandatory = $false)]
         $TableVisual,
 
         [Parameter(Mandatory = $false)]
         $PivotTableVisual,
 
         [Parameter(Mandatory = $false)]
-        $GeospatialMapVisual,
-
-        [Parameter(Mandatory = $false)]
         $BarChartVisual,
-
-        [Parameter(Mandatory = $false)]
-        $ScatterPlotVisual,
-
-        [Parameter(Mandatory = $false)]
-        $RadarChartVisual,
 
         [Parameter(Mandatory = $false)]
         $HeatMapVisual,
@@ -182,19 +210,7 @@ function Add-VSQuickSightDashboardVisual {
         $TreeMapVisual,
 
         [Parameter(Mandatory = $false)]
-        $ComboChartVisual,
-
-        [Parameter(Mandatory = $false)]
-        $WordCloudVisual,
-
-        [Parameter(Mandatory = $false)]
         $InsightVisual,
-
-        [Parameter(Mandatory = $false)]
-        $SankeyDiagramVisual,
-
-        [Parameter(Mandatory = $false)]
-        $GaugeChartVisual,
 
         [Parameter(Mandatory = $false)]
         $LineChartVisual,

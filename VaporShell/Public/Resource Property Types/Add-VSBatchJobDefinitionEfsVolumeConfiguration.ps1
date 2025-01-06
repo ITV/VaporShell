@@ -1,44 +1,44 @@
-function Add-VSBatchJobDefinitionEfsVolumeConfiguration {
+function Add-VSBatchJobDefinitionEFSVolumeConfiguration {
     <#
     .SYNOPSIS
-        Adds an AWS::Batch::JobDefinition.EfsVolumeConfiguration resource property to the template.
+        Adds an AWS::Batch::JobDefinition.EFSVolumeConfiguration resource property to the template.
 
     .DESCRIPTION
-        Adds an AWS::Batch::JobDefinition.EfsVolumeConfiguration resource property to the template.
+        Adds an AWS::Batch::JobDefinition.EFSVolumeConfiguration resource property to the template.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html
 
     .PARAMETER TransitEncryption
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-transitencryption
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER AuthorizationConfig
-        Type: AuthorizationConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-authorizationconfig
         UpdateType: Mutable
+        Type: EFSAuthorizationConfig
 
     .PARAMETER FileSystemId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-filesystemid
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER RootDirectory
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-rootdirectory
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER TransitEncryptionPort
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-transitencryptionport
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
-    [OutputType('Vaporshell.Resource.Batch.JobDefinition.EfsVolumeConfiguration')]
+    [OutputType('Vaporshell.Resource.Batch.JobDefinition.EFSVolumeConfiguration')]
     [cmdletbinding()]
 
     Param
@@ -112,7 +112,7 @@ function Add-VSBatchJobDefinitionEfsVolumeConfiguration {
     }
 
     End {
-        $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Batch.JobDefinition.EfsVolumeConfiguration'
+        $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.Batch.JobDefinition.EFSVolumeConfiguration'
         Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
     }
 }

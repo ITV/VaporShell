@@ -14,6 +14,11 @@ function Add-VSQuickSightTemplateLegendOptions {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER ValueFontConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-legendoptions.html#cfn-quicksight-template-legendoptions-valuefontconfiguration
+        UpdateType: Mutable
+        Type: FontConfiguration
+
     .PARAMETER Title
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-legendoptions.html#cfn-quicksight-template-legendoptions-title
         UpdateType: Mutable
@@ -22,7 +27,7 @@ function Add-VSQuickSightTemplateLegendOptions {
     .PARAMETER Visibility
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-legendoptions.html#cfn-quicksight-template-legendoptions-visibility
         UpdateType: Mutable
-        PrimitiveType: String
+        PrimitiveType: Json
 
     .PARAMETER Height
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-legendoptions.html#cfn-quicksight-template-legendoptions-height
@@ -56,11 +61,14 @@ function Add-VSQuickSightTemplateLegendOptions {
         $Position,
 
         [Parameter(Mandatory = $false)]
+        $ValueFontConfiguration,
+
+        [Parameter(Mandatory = $false)]
         $Title,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -104,6 +112,20 @@ function Add-VSQuickSightTemplateLegendOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
+                Visibility {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

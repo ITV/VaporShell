@@ -14,6 +14,11 @@ function Add-VSSageMakerUserProfileCustomFileSystemConfig {
         UpdateType: Mutable
         Type: EFSFileSystemConfig
 
+    .PARAMETER FSxLustreFileSystemConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customfilesystemconfig.html#cfn-sagemaker-userprofile-customfilesystemconfig-fsxlustrefilesystemconfig
+        UpdateType: Mutable
+        Type: FSxLustreFileSystemConfig
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -24,7 +29,10 @@ function Add-VSSageMakerUserProfileCustomFileSystemConfig {
     Param
     (
         [Parameter(Mandatory = $false)]
-        $EFSFileSystemConfig
+        $EFSFileSystemConfig,
+
+        [Parameter(Mandatory = $false)]
+        $FSxLustreFileSystemConfig
 
     )
 

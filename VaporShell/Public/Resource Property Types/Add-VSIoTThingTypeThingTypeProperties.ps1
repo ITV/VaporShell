@@ -11,12 +11,17 @@ function Add-VSIoTThingTypeThingTypeProperties {
 
     .PARAMETER ThingTypeDescription
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html#cfn-iot-thingtype-thingtypeproperties-thingtypedescription
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER Mqtt5Configuration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html#cfn-iot-thingtype-thingtypeproperties-mqtt5configuration
+        UpdateType: Mutable
+        Type: Mqtt5Configuration
 
     .PARAMETER SearchableAttributes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html#cfn-iot-thingtype-thingtypeproperties-searchableattributes
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
@@ -41,6 +46,9 @@ function Add-VSIoTThingTypeThingTypeProperties {
                 }
             })]
         $ThingTypeDescription,
+
+        [Parameter(Mandatory = $false)]
+        $Mqtt5Configuration,
 
         [Parameter(Mandatory = $false)]
         $SearchableAttributes

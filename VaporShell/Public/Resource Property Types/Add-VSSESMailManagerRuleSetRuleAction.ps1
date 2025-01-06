@@ -39,6 +39,11 @@ function Add-VSSESMailManagerRuleSetRuleAction {
         UpdateType: Mutable
         Type: S3Action
 
+    .PARAMETER DeliverToQBusiness
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-delivertoqbusiness
+        UpdateType: Mutable
+        Type: DeliverToQBusinessAction
+
     .PARAMETER Drop
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-drop
         UpdateType: Mutable
@@ -75,6 +80,9 @@ function Add-VSSESMailManagerRuleSetRuleAction {
 
         [Parameter(Mandatory = $false)]
         $WriteToS3,
+
+        [Parameter(Mandatory = $false)]
+        $DeliverToQBusiness,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

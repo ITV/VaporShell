@@ -11,7 +11,7 @@ function Add-VSAPSScraperAmpConfiguration {
 
     .PARAMETER WorkspaceArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-ampconfiguration.html#cfn-aps-scraper-ampconfiguration-workspacearn
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY

@@ -19,6 +19,11 @@ function Add-VSDataZoneDataSourceDataSourceConfigurationInput {
         UpdateType: Mutable
         Type: GlueRunConfigurationInput
 
+    .PARAMETER SageMakerRunConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html#cfn-datazone-datasource-datasourceconfigurationinput-sagemakerrunconfiguration
+        UpdateType: Mutable
+        Type: SageMakerRunConfigurationInput
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -32,7 +37,10 @@ function Add-VSDataZoneDataSourceDataSourceConfigurationInput {
         $RedshiftRunConfiguration,
 
         [Parameter(Mandatory = $false)]
-        $GlueRunConfiguration
+        $GlueRunConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $SageMakerRunConfiguration
 
     )
 

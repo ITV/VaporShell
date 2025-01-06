@@ -52,6 +52,11 @@ function New-VSDynamoDBTable {
         UpdateType: Mutable
         Type: ProvisionedThroughput
 
+    .PARAMETER WarmThroughput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-warmthroughput
+        UpdateType: Mutable
+        Type: WarmThroughput
+
     .PARAMETER TableName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename
         UpdateType: Immutable
@@ -204,6 +209,9 @@ function New-VSDynamoDBTable {
 
         [Parameter(Mandatory = $false)]
         $ProvisionedThroughput,
+
+        [Parameter(Mandatory = $false)]
+        $WarmThroughput,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

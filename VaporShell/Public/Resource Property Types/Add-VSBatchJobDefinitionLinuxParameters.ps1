@@ -7,39 +7,41 @@ function Add-VSBatchJobDefinitionLinuxParameters {
         Adds an AWS::Batch::JobDefinition.LinuxParameters resource property to the template.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html
 
     .PARAMETER Swappiness
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-swappiness
-        PrimitiveType: Integer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-swappiness
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER Tmpfs
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-tmpfs
-        ItemType: Tmpfs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-tmpfs
         UpdateType: Mutable
+        Type: List
+        ItemType: Tmpfs
+        DuplicatesAllowed: True
 
     .PARAMETER SharedMemorySize
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-sharedmemorysize
-        PrimitiveType: Integer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-sharedmemorysize
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER Devices
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-devices
-        ItemType: Device
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-devices
         UpdateType: Mutable
+        Type: List
+        ItemType: Device
+        DuplicatesAllowed: True
 
     .PARAMETER InitProcessEnabled
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-initprocessenabled
-        PrimitiveType: Boolean
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-initprocessenabled
         UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER MaxSwap
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-maxswap
-        PrimitiveType: Integer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html#cfn-batch-jobdefinition-linuxparameters-maxswap
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell

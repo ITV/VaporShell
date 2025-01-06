@@ -24,6 +24,11 @@ function Add-VSElasticLoadBalancingV2LoadBalancerSubnetMapping {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER SourceNatIpv6Prefix
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-sourcenatipv6prefix
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER PrivateIPv4Address
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
         UpdateType: Mutable
@@ -73,6 +78,18 @@ function Add-VSElasticLoadBalancingV2LoadBalancerSubnetMapping {
                 }
             })]
         $SubnetId,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SourceNatIpv6Prefix,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

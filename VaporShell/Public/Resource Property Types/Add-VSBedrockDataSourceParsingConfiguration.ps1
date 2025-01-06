@@ -9,6 +9,11 @@ function Add-VSBedrockDataSourceParsingConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html
 
+    .PARAMETER BedrockDataAutomationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-bedrockdataautomationconfiguration
+        UpdateType: Immutable
+        Type: BedrockDataAutomationConfiguration
+
     .PARAMETER BedrockFoundationModelConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-bedrockfoundationmodelconfiguration
         UpdateType: Immutable
@@ -28,6 +33,9 @@ function Add-VSBedrockDataSourceParsingConfiguration {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $BedrockDataAutomationConfiguration,
+
         [Parameter(Mandatory = $false)]
         $BedrockFoundationModelConfiguration,
 

@@ -9,6 +9,11 @@ function Add-VSDMSDataProviderSettings {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html
 
+    .PARAMETER MariaDbSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-mariadbsettings
+        UpdateType: Mutable
+        Type: MariaDbSettings
+
     .PARAMETER OracleSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-oraclesettings
         UpdateType: Mutable
@@ -19,15 +24,30 @@ function Add-VSDMSDataProviderSettings {
         UpdateType: Mutable
         Type: MicrosoftSqlServerSettings
 
+    .PARAMETER RedshiftSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-redshiftsettings
+        UpdateType: Mutable
+        Type: RedshiftSettings
+
     .PARAMETER MySqlSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-mysqlsettings
         UpdateType: Mutable
         Type: MySqlSettings
 
+    .PARAMETER DocDbSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-docdbsettings
+        UpdateType: Mutable
+        Type: DocDbSettings
+
     .PARAMETER PostgreSqlSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-postgresqlsettings
         UpdateType: Mutable
         Type: PostgreSqlSettings
+
+    .PARAMETER MongoDbSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-mongodbsettings
+        UpdateType: Mutable
+        Type: MongoDbSettings
 
     .FUNCTIONALITY
         Vaporshell
@@ -39,16 +59,28 @@ function Add-VSDMSDataProviderSettings {
     Param
     (
         [Parameter(Mandatory = $false)]
+        $MariaDbSettings,
+
+        [Parameter(Mandatory = $false)]
         $OracleSettings,
 
         [Parameter(Mandatory = $false)]
         $MicrosoftSqlServerSettings,
 
         [Parameter(Mandatory = $false)]
+        $RedshiftSettings,
+
+        [Parameter(Mandatory = $false)]
         $MySqlSettings,
 
         [Parameter(Mandatory = $false)]
-        $PostgreSqlSettings
+        $DocDbSettings,
+
+        [Parameter(Mandatory = $false)]
+        $PostgreSqlSettings,
+
+        [Parameter(Mandatory = $false)]
+        $MongoDbSettings
 
     )
 

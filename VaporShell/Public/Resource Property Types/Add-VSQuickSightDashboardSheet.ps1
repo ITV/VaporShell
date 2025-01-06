@@ -14,6 +14,13 @@ function Add-VSQuickSightDashboardSheet {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Images
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheet.html#cfn-quicksight-dashboard-sheet-images
+        UpdateType: Mutable
+        Type: List
+        ItemType: SheetImage
+        DuplicatesAllowed: True
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheet.html#cfn-quicksight-dashboard-sheet-name
         UpdateType: Mutable
@@ -39,6 +46,18 @@ function Add-VSQuickSightDashboardSheet {
                 }
             })]
         $SheetId,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.SheetImage"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Images,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -26,6 +26,11 @@ function Add-VSDynamoDBGlobalTableGlobalSecondaryIndex {
         ItemType: KeySchema
         DuplicatesAllowed: False
 
+    .PARAMETER WarmThroughput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-warmthroughput
+        UpdateType: Mutable
+        Type: WarmThroughput
+
     .PARAMETER WriteProvisionedThroughputSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeprovisionedthroughputsettings
         UpdateType: Mutable
@@ -71,6 +76,9 @@ function Add-VSDynamoDBGlobalTableGlobalSecondaryIndex {
                 }
             })]
         $KeySchema,
+
+        [Parameter(Mandatory = $false)]
+        $WarmThroughput,
 
         [Parameter(Mandatory = $false)]
         $WriteProvisionedThroughputSettings,

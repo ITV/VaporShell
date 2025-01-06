@@ -24,7 +24,7 @@ function New-VSBedrockPromptVersion {
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-promptversion.html#cfn-bedrock-promptversion-tags
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: Map
         PrimitiveItemType: String
 

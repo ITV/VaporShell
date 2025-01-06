@@ -9,6 +9,12 @@ function Add-VSMediaLiveChannelOutputDestination {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html
 
+    .PARAMETER SrtSettings
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-srtsettings
+        ItemType: SrtOutputDestinationSettings
+        UpdateType: Mutable
+
     .PARAMETER MultiplexSettings
         Type: MultiplexProgramChannelDestinationSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-multiplexsettings
@@ -40,6 +46,18 @@ function Add-VSMediaLiveChannelOutputDestination {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.SrtOutputDestinationSettings"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SrtSettings,
+
         [Parameter(Mandatory = $false)]
         $MultiplexSettings,
 

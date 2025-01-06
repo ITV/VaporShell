@@ -20,12 +20,17 @@ function New-VSS3ExpressDirectoryBucket {
     .PARAMETER BucketEncryption
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-bucketencryption
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: BucketEncryption
 
     .PARAMETER DataRedundancy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-dataredundancy
         UpdateType: Immutable
         PrimitiveType: String
+
+    .PARAMETER LifecycleConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-lifecycleconfiguration
+        UpdateType: Mutable
+        Type: LifecycleConfiguration
 
     .PARAMETER LocationName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-locationname
@@ -109,15 +114,6 @@ function New-VSS3ExpressDirectoryBucket {
         $BucketName,
 
         [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $BucketEncryption,
 
         [Parameter(Mandatory = $true)]
@@ -131,6 +127,9 @@ function New-VSS3ExpressDirectoryBucket {
                 }
             })]
         $DataRedundancy,
+
+        [Parameter(Mandatory = $false)]
+        $LifecycleConfiguration,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -225,23 +224,6 @@ function New-VSS3ExpressDirectoryBucket {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
-                }
-                BucketEncryption {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

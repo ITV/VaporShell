@@ -42,6 +42,13 @@ function New-VSQuickSightAnalysis {
         UpdateType: Mutable
         Type: ValidationStrategy
 
+    .PARAMETER FolderArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-folderarns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
         UpdateType: Mutable
@@ -184,6 +191,9 @@ function New-VSQuickSightAnalysis {
 
         [Parameter(Mandatory = $false)]
         $ValidationStrategy,
+
+        [Parameter(Mandatory = $false)]
+        $FolderArns,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -342,6 +352,12 @@ function New-VSQuickSightAnalysis {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                FolderArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name FolderArns -Value @($FolderArns)
                 }
                 Errors {
                     if (!($ResourceParams["Properties"])) {

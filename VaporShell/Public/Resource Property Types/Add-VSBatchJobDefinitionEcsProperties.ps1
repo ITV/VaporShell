@@ -10,10 +10,11 @@ function Add-VSBatchJobDefinitionEcsProperties {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecsproperties.html
 
     .PARAMETER TaskProperties
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecsproperties.html#cfn-batch-jobdefinition-ecsproperties-taskproperties
-        ItemType: EcsTaskProperties
         UpdateType: Mutable
+        Type: List
+        ItemType: EcsTaskProperties
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

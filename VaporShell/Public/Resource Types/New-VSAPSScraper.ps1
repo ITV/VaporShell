@@ -14,17 +14,17 @@ function New-VSAPSScraper {
 
     .PARAMETER ScrapeConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-scrapeconfiguration
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: ScrapeConfiguration
 
     .PARAMETER Destination
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-destination
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: Destination
 
     .PARAMETER Alias
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-alias
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Source

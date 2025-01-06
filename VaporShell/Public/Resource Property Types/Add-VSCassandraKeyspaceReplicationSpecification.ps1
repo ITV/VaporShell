@@ -11,12 +11,12 @@ function Add-VSCassandraKeyspaceReplicationSpecification {
 
     .PARAMETER ReplicationStrategy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-keyspace-replicationspecification.html#cfn-cassandra-keyspace-replicationspecification-replicationstrategy
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER RegionList
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-keyspace-replicationspecification.html#cfn-cassandra-keyspace-replicationspecification-regionlist
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False

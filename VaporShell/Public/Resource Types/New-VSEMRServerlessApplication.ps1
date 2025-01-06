@@ -60,6 +60,11 @@ function New-VSEMRServerlessApplication {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER SchedulerConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-schedulerconfiguration
+        UpdateType: Conditional
+        Type: SchedulerConfiguration
+
     .PARAMETER InitialCapacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-initialcapacity
         UpdateType: Conditional
@@ -229,6 +234,9 @@ function New-VSEMRServerlessApplication {
                 }
             })]
         $Type,
+
+        [Parameter(Mandatory = $false)]
+        $SchedulerConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -11,7 +11,7 @@ function Add-VSGameLiftContainerGroupDefinitionPortConfiguration {
 
     .PARAMETER ContainerPortRanges
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-portconfiguration.html#cfn-gamelift-containergroupdefinition-portconfiguration-containerportranges
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         ItemType: ContainerPortRange
         DuplicatesAllowed: False

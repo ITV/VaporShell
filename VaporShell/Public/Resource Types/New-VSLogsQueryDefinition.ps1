@@ -24,6 +24,11 @@ function New-VSLogsQueryDefinition {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER QueryLanguage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querylanguage
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
         UpdateType: Mutable
@@ -107,6 +112,18 @@ function New-VSLogsQueryDefinition {
 
         [Parameter(Mandatory = $false)]
         $LogGroupNames,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $QueryLanguage,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

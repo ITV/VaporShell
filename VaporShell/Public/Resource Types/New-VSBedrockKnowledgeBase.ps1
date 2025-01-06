@@ -122,7 +122,7 @@ function New-VSBedrockKnowledgeBase {
         [Parameter(Mandatory = $true)]
         $KnowledgeBaseConfiguration,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         $StorageConfiguration,
 
         [Parameter(Mandatory = $true)]

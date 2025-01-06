@@ -40,6 +40,11 @@ function Add-VSFSxFileSystemOpenZFSConfiguration {
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER ReadCacheConfiguration
+        Type: ReadCacheConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-readcacheconfiguration
+        UpdateType: Mutable
+
     .PARAMETER RouteTableIds
         PrimitiveItemType: String
         Type: List
@@ -138,6 +143,9 @@ function Add-VSFSxFileSystemOpenZFSConfiguration {
                 }
             })]
         $EndpointIpAddressRange,
+
+        [Parameter(Mandatory = $false)]
+        $ReadCacheConfiguration,
 
         [Parameter(Mandatory = $false)]
         $RouteTableIds,

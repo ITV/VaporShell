@@ -84,6 +84,11 @@ function New-VSOpenSearchServiceDomain {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER IdentityCenterOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-identitycenteroptions
+        UpdateType: Mutable
+        Type: IdentityCenterOptions
+
     .PARAMETER EBSOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-ebsoptions
         UpdateType: Mutable
@@ -271,6 +276,9 @@ function New-VSOpenSearchServiceDomain {
                 }
             })]
         $IPAddressType,
+
+        [Parameter(Mandatory = $false)]
+        $IdentityCenterOptions,
 
         [Parameter(Mandatory = $false)]
         $EBSOptions,

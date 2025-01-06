@@ -9,25 +9,10 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html
 
-    .PARAMETER InstanceCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-instancecount
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER MultiAZWithStandbyEnabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-multiazwithstandbyenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
-
-    .PARAMETER WarmEnabled
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-warmenabled
-        UpdateType: Mutable
-        PrimitiveType: Boolean
-
-    .PARAMETER WarmCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-warmcount
-        UpdateType: Mutable
-        PrimitiveType: Integer
 
     .PARAMETER DedicatedMasterEnabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-dedicatedmasterenabled
@@ -39,23 +24,45 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
         UpdateType: Mutable
         Type: ZoneAwarenessConfig
 
-    .PARAMETER DedicatedMasterCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-dedicatedmastercount
-        UpdateType: Mutable
-        PrimitiveType: Integer
-
     .PARAMETER ColdStorageOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-coldstorageoptions
         UpdateType: Mutable
         Type: ColdStorageOptions
 
-    .PARAMETER InstanceType
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-instancetype
+    .PARAMETER NodeOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-nodeoptions
         UpdateType: Mutable
-        PrimitiveType: String
+        Type: List
+        ItemType: NodeOption
+        DuplicatesAllowed: True
 
     .PARAMETER WarmType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-warmtype
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER InstanceCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-instancecount
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER WarmEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-warmenabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
+    .PARAMETER WarmCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-warmcount
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER DedicatedMasterCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-dedicatedmastercount
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER InstanceType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-instancetype
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -80,7 +87,7 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
     (
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -88,7 +95,7 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $InstanceCount,
+        $MultiAZWithStandbyEnabled,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -100,7 +107,49 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MultiAZWithStandbyEnabled,
+        $DedicatedMasterEnabled,
+
+        [Parameter(Mandatory = $false)]
+        $ZoneAwarenessConfig,
+
+        [Parameter(Mandatory = $false)]
+        $ColdStorageOptions,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.OpenSearchService.Domain.NodeOption"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $NodeOptions,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $WarmType,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InstanceCount,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -128,21 +177,6 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DedicatedMasterEnabled,
-
-        [Parameter(Mandatory = $false)]
-        $ZoneAwarenessConfig,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -152,9 +186,6 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
                 }
             })]
         $DedicatedMasterCount,
-
-        [Parameter(Mandatory = $false)]
-        $ColdStorageOptions,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -167,18 +198,6 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
                 }
             })]
         $InstanceType,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $WarmType,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

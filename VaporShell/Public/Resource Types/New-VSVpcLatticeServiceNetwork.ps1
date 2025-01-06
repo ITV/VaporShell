@@ -12,6 +12,11 @@ function New-VSVpcLatticeServiceNetwork {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER SharingConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-sharingconfig
+        UpdateType: Mutable
+        Type: SharingConfig
+
     .PARAMETER AuthType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-authtype
         UpdateType: Mutable
@@ -92,6 +97,9 @@ function New-VSVpcLatticeServiceNetwork {
             })]
         [System.String]
         $LogicalId,
+
+        [Parameter(Mandatory = $false)]
+        $SharingConfig,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -9,24 +9,12 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html
 
-    .PARAMETER LocalStorageTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstoragetypes
-        UpdateType: Conditional
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
-
     .PARAMETER InstanceGenerations
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-instancegenerations
         UpdateType: Conditional
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
-
-    .PARAMETER NetworkInterfaceCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkinterfacecount
-        UpdateType: Conditional
-        Type: NetworkInterfaceCountRequest
 
     .PARAMETER AcceleratorTypes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratortypes
@@ -47,24 +35,10 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
-    .PARAMETER ExcludedInstanceTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-excludedinstancetypes
-        UpdateType: Conditional
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
-
     .PARAMETER VCpuCount
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-vcpucount
         UpdateType: Conditional
         Type: VCpuCountRequest
-
-    .PARAMETER AllowedInstanceTypes
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-allowedinstancetypes
-        UpdateType: Conditional
-        Type: List
-        PrimitiveItemType: String
-        DuplicatesAllowed: False
 
     .PARAMETER LocalStorage
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstorage
@@ -77,16 +51,6 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: False
-
-    .PARAMETER AcceleratorCount
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratorcount
-        UpdateType: Conditional
-        Type: AcceleratorCountRequest
-
-    .PARAMETER NetworkBandwidthGbps
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkbandwidthgbps
-        UpdateType: Conditional
-        Type: NetworkBandwidthGbpsRequest
 
     .PARAMETER BareMetal
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baremetal
@@ -102,6 +66,57 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-maxspotpriceaspercentageofoptimalondemandprice
         UpdateType: Conditional
         PrimitiveType: Integer
+
+    .PARAMETER OnDemandMaxPricePercentageOverLowestPrice
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-ondemandmaxpricepercentageoverlowestprice
+        UpdateType: Conditional
+        PrimitiveType: Integer
+
+    .PARAMETER MemoryMiB
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorymib
+        UpdateType: Conditional
+        Type: MemoryMiBRequest
+
+    .PARAMETER LocalStorageTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstoragetypes
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER NetworkInterfaceCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkinterfacecount
+        UpdateType: Conditional
+        Type: NetworkInterfaceCountRequest
+
+    .PARAMETER ExcludedInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-excludedinstancetypes
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER AllowedInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-allowedinstancetypes
+        UpdateType: Conditional
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER AcceleratorCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratorcount
+        UpdateType: Conditional
+        Type: AcceleratorCountRequest
+
+    .PARAMETER NetworkBandwidthGbps
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkbandwidthgbps
+        UpdateType: Conditional
+        Type: NetworkBandwidthGbpsRequest
+
+    .PARAMETER BaselinePerformanceFactors
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baselineperformancefactors
+        UpdateType: Conditional
+        Type: BaselinePerformanceFactorsRequest
 
     .PARAMETER BaselineEbsBandwidthMbps
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baselineebsbandwidthmbps
@@ -125,20 +140,10 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         UpdateType: Conditional
         Type: AcceleratorTotalMemoryMiBRequest
 
-    .PARAMETER OnDemandMaxPricePercentageOverLowestPrice
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-ondemandmaxpricepercentageoverlowestprice
-        UpdateType: Conditional
-        PrimitiveType: Integer
-
     .PARAMETER BurstablePerformance
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-burstableperformance
         UpdateType: Conditional
         PrimitiveType: String
-
-    .PARAMETER MemoryMiB
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorymib
-        UpdateType: Conditional
-        Type: MemoryMiBRequest
 
     .PARAMETER TotalLocalStorageGB
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-totallocalstoragegb
@@ -155,13 +160,7 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
     Param
     (
         [Parameter(Mandatory = $false)]
-        $LocalStorageTypes,
-
-        [Parameter(Mandatory = $false)]
         $InstanceGenerations,
-
-        [Parameter(Mandatory = $false)]
-        $NetworkInterfaceCount,
 
         [Parameter(Mandatory = $false)]
         $AcceleratorTypes,
@@ -172,14 +171,8 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         [Parameter(Mandatory = $false)]
         $AcceleratorManufacturers,
 
-        [Parameter(Mandatory = $false)]
-        $ExcludedInstanceTypes,
-
         [Parameter(Mandatory = $true)]
         $VCpuCount,
-
-        [Parameter(Mandatory = $false)]
-        $AllowedInstanceTypes,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -195,12 +188,6 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
 
         [Parameter(Mandatory = $false)]
         $CpuManufacturers,
-
-        [Parameter(Mandatory = $false)]
-        $AcceleratorCount,
-
-        [Parameter(Mandatory = $false)]
-        $NetworkBandwidthGbps,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -239,6 +226,42 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
         $MaxSpotPriceAsPercentageOfOptimalOnDemandPrice,
 
         [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OnDemandMaxPricePercentageOverLowestPrice,
+
+        [Parameter(Mandatory = $true)]
+        $MemoryMiB,
+
+        [Parameter(Mandatory = $false)]
+        $LocalStorageTypes,
+
+        [Parameter(Mandatory = $false)]
+        $NetworkInterfaceCount,
+
+        [Parameter(Mandatory = $false)]
+        $ExcludedInstanceTypes,
+
+        [Parameter(Mandatory = $false)]
+        $AllowedInstanceTypes,
+
+        [Parameter(Mandatory = $false)]
+        $AcceleratorCount,
+
+        [Parameter(Mandatory = $false)]
+        $NetworkBandwidthGbps,
+
+        [Parameter(Mandatory = $false)]
+        $BaselinePerformanceFactors,
+
+        [Parameter(Mandatory = $false)]
         $BaselineEbsBandwidthMbps,
 
         [Parameter(Mandatory = $false)]
@@ -261,18 +284,6 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $OnDemandMaxPricePercentageOverLowestPrice,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -282,9 +293,6 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
                 }
             })]
         $BurstablePerformance,
-
-        [Parameter(Mandatory = $true)]
-        $MemoryMiB,
 
         [Parameter(Mandatory = $false)]
         $TotalLocalStorageGB

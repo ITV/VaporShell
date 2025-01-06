@@ -19,6 +19,11 @@ function Add-VSMediaLiveChannelNetworkInputSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html#cfn-medialive-channel-networkinputsettings-hlsinputsettings
         UpdateType: Mutable
 
+    .PARAMETER MulticastInputSettings
+        Type: MulticastInputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html#cfn-medialive-channel-networkinputsettings-multicastinputsettings
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -41,7 +46,10 @@ function Add-VSMediaLiveChannelNetworkInputSettings {
         $ServerValidation,
 
         [Parameter(Mandatory = $false)]
-        $HlsInputSettings
+        $HlsInputSettings,
+
+        [Parameter(Mandatory = $false)]
+        $MulticastInputSettings
 
     )
 

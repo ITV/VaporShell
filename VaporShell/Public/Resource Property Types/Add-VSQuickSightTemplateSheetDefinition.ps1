@@ -52,6 +52,13 @@ function Add-VSQuickSightTemplateSheetDefinition {
         ItemType: FilterControl
         DuplicatesAllowed: True
 
+    .PARAMETER Images
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetdefinition.html#cfn-quicksight-template-sheetdefinition-images
+        UpdateType: Mutable
+        Type: List
+        ItemType: SheetImage
+        DuplicatesAllowed: True
+
     .PARAMETER SheetControlLayouts
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetdefinition.html#cfn-quicksight-template-sheetdefinition-sheetcontrollayouts
         UpdateType: Mutable
@@ -168,6 +175,18 @@ function Add-VSQuickSightTemplateSheetDefinition {
                 }
             })]
         $FilterControls,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Template.SheetImage"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Images,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

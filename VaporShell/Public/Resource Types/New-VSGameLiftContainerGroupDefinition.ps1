@@ -14,25 +14,33 @@ function New-VSGameLiftContainerGroupDefinition {
 
     .PARAMETER OperatingSystem
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-operatingsystem
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER SchedulingStrategy
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-schedulingstrategy
-        UpdateType: Immutable
+    .PARAMETER VersionDescription
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-versiondescription
+        UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER TotalMemoryLimit
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalmemorylimit
-        UpdateType: Immutable
+    .PARAMETER GameServerContainerDefinition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition
+        UpdateType: Mutable
+        Type: GameServerContainerDefinition
+
+    .PARAMETER TotalMemoryLimitMebibytes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalmemorylimitmebibytes
+        UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER ContainerDefinitions
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-containerdefinitions
-        UpdateType: Immutable
-        Type: List
-        ItemType: ContainerDefinition
-        DuplicatesAllowed: False
+    .PARAMETER SourceVersionNumber
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-sourceversionnumber
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER TotalVcpuLimit
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalvcpulimit
+        UpdateType: Mutable
+        PrimitiveType: Double
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-tags
@@ -46,10 +54,17 @@ function New-VSGameLiftContainerGroupDefinition {
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER TotalCpuLimit
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalcpulimit
+    .PARAMETER ContainerGroupType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-containergrouptype
         UpdateType: Immutable
-        PrimitiveType: Integer
+        PrimitiveType: String
+
+    .PARAMETER SupportContainerDefinitions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-supportcontainerdefinitions
+        UpdateType: Mutable
+        Type: List
+        ItemType: SupportContainerDefinition
+        DuplicatesAllowed: False
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -137,7 +152,10 @@ function New-VSGameLiftContainerGroupDefinition {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SchedulingStrategy,
+        $VersionDescription,
+
+        [Parameter(Mandatory = $false)]
+        $GameServerContainerDefinition,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -149,11 +167,11 @@ function New-VSGameLiftContainerGroupDefinition {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TotalMemoryLimit,
+        $TotalMemoryLimitMebibytes,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerDefinition"
+                $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -161,7 +179,19 @@ function New-VSGameLiftContainerGroupDefinition {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ContainerDefinitions,
+        $SourceVersionNumber,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TotalVcpuLimit,
 
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]
@@ -179,9 +209,9 @@ function New-VSGameLiftContainerGroupDefinition {
             })]
         $Name,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -189,7 +219,19 @@ function New-VSGameLiftContainerGroupDefinition {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TotalCpuLimit,
+        $ContainerGroupType,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.GameLift.ContainerGroupDefinition.SupportContainerDefinition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SupportContainerDefinitions,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -273,17 +315,17 @@ function New-VSGameLiftContainerGroupDefinition {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                ContainerDefinitions {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ContainerDefinitions -Value @($ContainerDefinitions)
-                }
                 Tags {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                SupportContainerDefinitions {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name SupportContainerDefinitions -Value @($SupportContainerDefinitions)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

@@ -49,6 +49,16 @@ function Add-VSQuickSightTemplateVisual {
         UpdateType: Mutable
         Type: HistogramVisual
 
+    .PARAMETER PluginVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-pluginvisual
+        UpdateType: Mutable
+        Type: PluginVisual
+
+    .PARAMETER GeospatialMapVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-geospatialmapvisual
+        UpdateType: Mutable
+        Type: GeospatialMapVisual
+
     .PARAMETER TableVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-tablevisual
         UpdateType: Mutable
@@ -59,16 +69,6 @@ function Add-VSQuickSightTemplateVisual {
         UpdateType: Mutable
         Type: PivotTableVisual
 
-    .PARAMETER GeospatialMapVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-geospatialmapvisual
-        UpdateType: Mutable
-        Type: GeospatialMapVisual
-
-    .PARAMETER BarChartVisual
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-barchartvisual
-        UpdateType: Mutable
-        Type: BarChartVisual
-
     .PARAMETER ScatterPlotVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-scatterplotvisual
         UpdateType: Mutable
@@ -78,6 +78,11 @@ function Add-VSQuickSightTemplateVisual {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-radarchartvisual
         UpdateType: Mutable
         Type: RadarChartVisual
+
+    .PARAMETER BarChartVisual
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-barchartvisual
+        UpdateType: Mutable
+        Type: BarChartVisual
 
     .PARAMETER HeatMapVisual
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-heatmapvisual
@@ -158,22 +163,25 @@ function Add-VSQuickSightTemplateVisual {
         $HistogramVisual,
 
         [Parameter(Mandatory = $false)]
+        $PluginVisual,
+
+        [Parameter(Mandatory = $false)]
+        $GeospatialMapVisual,
+
+        [Parameter(Mandatory = $false)]
         $TableVisual,
 
         [Parameter(Mandatory = $false)]
         $PivotTableVisual,
 
         [Parameter(Mandatory = $false)]
-        $GeospatialMapVisual,
-
-        [Parameter(Mandatory = $false)]
-        $BarChartVisual,
-
-        [Parameter(Mandatory = $false)]
         $ScatterPlotVisual,
 
         [Parameter(Mandatory = $false)]
         $RadarChartVisual,
+
+        [Parameter(Mandatory = $false)]
+        $BarChartVisual,
 
         [Parameter(Mandatory = $false)]
         $HeatMapVisual,

@@ -19,7 +19,7 @@ function New-VSConnectViewVersion {
 
     .PARAMETER VersionDescription
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html#cfn-connect-viewversion-versiondescription
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ViewContentSha256

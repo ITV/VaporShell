@@ -14,6 +14,11 @@ function Add-VSEventsConnectionAuthParameters {
         UpdateType: Mutable
         Type: ConnectionHttpParameters
 
+    .PARAMETER ConnectivityParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-connectivityparameters
+        UpdateType: Mutable
+        Type: ConnectivityParameters
+
     .PARAMETER BasicAuthParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-basicauthparameters
         UpdateType: Mutable
@@ -40,6 +45,9 @@ function Add-VSEventsConnectionAuthParameters {
     (
         [Parameter(Mandatory = $false)]
         $InvocationHttpParameters,
+
+        [Parameter(Mandatory = $false)]
+        $ConnectivityParameters,
 
         [Parameter(Mandatory = $false)]
         $BasicAuthParameters,

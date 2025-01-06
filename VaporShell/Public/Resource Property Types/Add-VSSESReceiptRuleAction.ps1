@@ -9,6 +9,11 @@ function Add-VSSESReceiptRuleAction {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html
 
+    .PARAMETER ConnectAction
+        Type: ConnectAction
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-connectaction
+        UpdateType: Mutable
+
     .PARAMETER BounceAction
         Type: BounceAction
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-bounceaction
@@ -53,6 +58,9 @@ function Add-VSSESReceiptRuleAction {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $ConnectAction,
+
         [Parameter(Mandatory = $false)]
         $BounceAction,
 

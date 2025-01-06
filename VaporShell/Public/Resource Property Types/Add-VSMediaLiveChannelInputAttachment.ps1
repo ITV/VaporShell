@@ -14,6 +14,12 @@ function Add-VSMediaLiveChannelInputAttachment {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER LogicalInterfaceNames
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-logicalinterfacenames
+        UpdateType: Mutable
+
     .PARAMETER InputId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputid
         PrimitiveType: String
@@ -49,6 +55,9 @@ function Add-VSMediaLiveChannelInputAttachment {
                 }
             })]
         $InputAttachmentName,
+
+        [Parameter(Mandatory = $false)]
+        $LogicalInterfaceNames,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
